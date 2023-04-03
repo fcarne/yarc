@@ -1,7 +1,5 @@
-# type: ignore[attr-defined]
 """YARC - DSL for Synthetic Data Generation"""
 
-import sys
 from importlib import metadata as importlib_metadata
 
 

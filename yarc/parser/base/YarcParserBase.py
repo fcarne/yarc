@@ -1,4 +1,4 @@
-from antlr4 import Parser
+from antlr3 import Parser
 
 
 class Python3ParserBase(Parser):

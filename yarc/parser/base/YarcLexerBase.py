@@ -1,10 +1,9 @@
-from typing import TextIO
+from typing import List, TextIO
 
 import re
 import sys
 
-from antlr3 import *
-from antlr3 import CommonToken
+from antlr3 import ANTLRInputStream, CommonToken, Lexer, Token
 from YarcParser import YarcParser
 
 
@@ -12,10 +11,10 @@ class Python3LexerBase(Lexer):
     NEW_LINE_PATTERN = re.compile("[^\r\n\f]+")
     SPACES_PATTERN = re.compile("[\r\n\f]+")
 
-    def __init__(self, input: InputStream, output: TextIO = sys.stdout):
+    def __init__(self, input: ANTLRInputStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
-        self.tokens = []
-        self.indents = []
+        self.tokens: list[Token] = []
+        self.indents: list[int] = []
         self.opened = 0
 
     def reset(self):
@@ -53,7 +52,7 @@ class Python3LexerBase(Lexer):
     def createDedent(self):
         return self.commonToken(YarcParser.DEDENT, "")
 
-    def commonToken(self, type_: int, text: str):
+    def commonToken(self, type_: int, text: str) -> CommonToken:
         stop = self.getCharIndex() - 1
         start = stop if text == "" else stop - len(text) + 1
         return CommonToken(
@@ -64,7 +63,7 @@ class Python3LexerBase(Lexer):
             stop,
         )
 
-    def getIndentationCount(self, whitespace: str):
+    def getIndentationCount(self, whitespace: str) -> int:
         count = 0
         for c in whitespace:
             if c == "\t":

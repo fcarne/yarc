@@ -1,13 +1,10 @@
 # Generated from /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/parser/v3/yarc.g by ANTLR 4.9.2
+from typing import TextIO
+
 import sys
 from io import StringIO
 
 from antlr4 import *
-
-if sys.version_info[1] > 5:
-    from typing import TextIO
-else:
-    from typing.io import TextIO
 
 
 def serializedATN():

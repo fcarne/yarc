@@ -24,7 +24,7 @@ classifiers = [  #! Update me
   "Topic :: Software Development :: Libraries :: Python Modules",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
 ]
 
 [tool.poetry.scripts]
@@ -32,7 +32,7 @@ classifiers = [  #! Update me
 "yarc" = "yarc.__main__:app"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 typer = {extras = ["all"], version = "^0.4.0"}
 rich = "^10.14.0"
@@ -61,7 +61,7 @@ pytest-cov = "^4.0.0"
 
 [tool.black]
 # https://github.com/psf/black
-target-version = ["py39"]
+target-version = ["py310"]
 line-length = 88
 color = true
 
@@ -83,7 +83,7 @@ exclude = '''
 
 [tool.isort]
 # https://github.com/timothycrosley/isort/
-py_version = 39
+py_version = 310
 line_length = 88
 
 known_typing = ["typing", "types", "typing_extensions", "mypy", "mypy_extensions"]
@@ -96,7 +96,7 @@ color_output = true
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
-python_version = 3.9
+python_version = "3.10"
 pretty = true
 show_traceback = true
 color_output = true
@@ -119,7 +119,7 @@ warn_return_any = true
 warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
-
+exclude = "venv"
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
