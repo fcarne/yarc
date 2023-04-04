@@ -17,17 +17,17 @@ class Python3LexerBase(Lexer):
         self.indents: list[int] = []
         self.opened = 0
 
-    def reset(self):
+    def reset(self) -> None:
         self.tokens = []
         self.indents = []
         self.opened = 0
         super().reset()
 
-    def emitToken(self, token):
+    def emitToken(self, token: Token) -> None:
         self._token = token
         self.tokens.append(token)
 
-    def nextToken(self):
+    def nextToken(self) -> Token:
         # Check if the end-of-file is ahead and there are still some DEDENTS expected.
         if self._input.LA(1) == YarcParser.EOF and len(self.indents) != 0:
             # Remove any trailing EOF tokens from our buffer.
@@ -49,7 +49,7 @@ class Python3LexerBase(Lexer):
         next_ = super().nextToken()
         return next_ if len(self.tokens) == 0 else self.tokens.pop(0)
 
-    def createDedent(self):
+    def createDedent(self) -> Token:
         return self.commonToken(YarcParser.DEDENT, "")
 
     def commonToken(self, type_: int, text: str) -> CommonToken:
@@ -72,16 +72,16 @@ class Python3LexerBase(Lexer):
                 count += 1
         return count
 
-    def atStartOfInput(self):
+    def atStartOfInput(self) -> bool:
         return self.getCharIndex() == 0
 
-    def openBrace(self):
+    def openBrace(self) -> None:
         self.opened += 1
 
-    def closeBrace(self):
+    def closeBrace(self) -> None:
         self.opened -= 1
 
-    def onNewLine(self):
+    def onNewLine(self) -> None:
         new_line = self.NEW_LINE_PATTERN.sub("", self.text)
         spaces = self.SPACES_PATTERN.sub("", self.text)
 

@@ -7,20 +7,59 @@ options {
     language = Python3;
 }
 
+// Keywords
+// 'options', 'writer' and some other kw are considered keywords
+// but only when followed by '{' or '(', and considered as a single token.
+// Otherwise, the symbols are tokenized as NAME and allowed as
+// an identifier.
+
+// Setup
 SCENARIO : 'scenario' ;
-OPTIONS : 'options' OPEN_BRACE ;
-WRITER : 'writer' OPEN_BRACE ;
+OPTIONS : 'options' LBRACE ;
+WRITER : 'writer' LBRACE ;
+
 SNIPPET :	NESTED_CODE;
 
+// Random distributions
+UNIFORM : 'Uniform' LPAREN;
+NORMAL : 'Normal' LPAREN;
+CHOICE : 'Choice' LPAREN;
+SEQUENCE : 'Sequence' LPAREN;
+LOG_UNIFORM : 'LogUniform' LPAREN;
+
+// Mesh creation/import
+CREATE : 'create' ;
+INSTANTIATE: 'instantiate' ;
+
+// Object getter
+GET: 'get' ;
+
+// Modifiers
+X: 'x' ;
+Y: 'y' ;
+Z: 'z' ;
+SET: 'set' ;
+
+TRANSLATE: 'translate' ;
+ROTATE: 'rotate' ;
+SCALE: 'scale' ;
+
+SCATTER: 'scatter' ('2d' | '3d')? ;
+
+// Behavior
+EVERY : 'every' ;
+FRAMES : 'frame''s'? ;
+TIME : 'sec' ('ond''s'?)? ;
+
 fragment NESTED_CODE 
- : OPEN_BRACE
+ : LBRACE
   ( NESTED_CODE |.*? )
 	/*( options {k=2; greedy=false;}
 	:   NESTED_CODE
 	|	.
 	)* 
   // v3 */
-	CLOSE_BRACE
+	RBRACE
    ;
 
 // Everything that follows is a reduced version of the Python 3 Lexer (https://github.com/antlr/grammars-v4)
@@ -29,7 +68,6 @@ fragment NESTED_CODE
 AND : 'and';
 AS : 'as';
 DEF : 'def';
-DEL : 'del';
 ELIF : 'elif';
 ELSE : 'else';
 FALSE : 'False';
@@ -46,7 +84,7 @@ TRUE : 'True';
 UNDERSCORE : '_' ;
 WITH : 'with';
 
-/* Operators, assignments and parenthesis */
+/* Operators */
 DOT : '.';
 RANGE : '..';
 ELLIPSIS : '...';
@@ -58,10 +96,10 @@ SEMI_COLON : ';';
 
 ASSIGN : '=';
 
-OR_OP : '|';
+BIT_OR : '|';
 XOR : '^';
-AND_OP : '&';
-NOT_OP : '~';
+BIT_AND : '&';
+BIT_NOT : '~';
 LEFT_SHIFT : '<<';
 RIGHT_SHIFT : '>>';
 ADD : '+';
@@ -73,12 +111,12 @@ POWER : '**';
 AT : '@';
 ARROW : '->';
 
-OPEN_PAREN : '(' {self.openBrace();};
-CLOSE_PAREN : ')' {self.closeBrace();};
-OPEN_BRACK : '[' {self.openBrace();};
-CLOSE_BRACK : ']' {self.closeBrace();};
-OPEN_BRACE : '{' {self.openBrace();};
-CLOSE_BRACE : '}' {self.closeBrace();};
+LPAREN : '(' {self.openBrace();};
+RPAREN : ')' {self.closeBrace();};
+LBRACK : '[' {self.openBrace();};
+RBRACK : ']' {self.closeBrace();};
+LBRACE : '{' {self.openBrace();};
+RBRACE : '}' {self.closeBrace();};
 
 LESS_THAN : '<';
 GREATER_THAN : '>';
@@ -232,10 +270,6 @@ fragment LINE_JOINING
  : '\\' SPACES? ( '\r'? '\n' | '\r' | '\f')
  ;
 
-fragment LETTER
- : 'a'..'z' | 'A'..'Z'
- ; 
-
 fragment ID_START
  : UNDERSCORE | LETTER       
  ;
@@ -243,3 +277,7 @@ fragment ID_START
 fragment ID_CONTINUE
  : ID_START | DIGIT
  ;
+
+fragment LETTER
+ : 'a'..'z' | 'A'..'Z'
+ ; 
