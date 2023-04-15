@@ -1,13 +1,12 @@
 # Generated from c:\Users\feder\Desktop\University\Magistrale\Secondo_Anno\1_Linguaggi\Progetto\yarc\yarc\dsl\v4\YarcParser.g4 by ANTLR 4.9.2
-import sys
-from io import StringIO
-
+# encoding: utf-8
 from antlr4 import *
-
+from io import StringIO
+import sys
 if sys.version_info[1] > 5:
-    from typing import TextIO
+	from typing import TextIO
 else:
-    from typing.io import TextIO
+	from typing.io import TextIO
 
 if __name__ is not None and "." in __name__:
     from .YarcParserBase import YarcParserBase
@@ -23,8 +22,8 @@ def serializedATN():
         buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
         buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
         buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36")
-        buf.write('\4\37\t\37\4 \t \4!\t!\4"\t"\4#\t#\4$\t$\4%\t%\4&\t')
-        buf.write("&\4'\t'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.\t.\4")
+        buf.write("\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t")
+        buf.write("&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.\t.\4")
         buf.write("/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t\64")
         buf.write("\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\4:\t:\4;\t")
         buf.write(";\4<\t<\4=\t=\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\tC\4D\t")
@@ -56,9 +55,9 @@ def serializedATN():
         buf.write("\3\35\3\36\3\36\3\36\7\36\u017c\n\36\f\36\16\36\u017f")
         buf.write("\13\36\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3\37\5\37\u0189")
         buf.write("\n\37\3 \3 \3 \3 \3 \3 \3 \3 \5 \u0193\n \3!\3!\3!\3!")
-        buf.write('\3!\3!\3!\3!\5!\u019d\n!\3"\3"\3"\3"\3"\3"\3"\3')
-        buf.write('"\5"\u01a7\n"\3#\3#\3#\5#\u01ac\n#\3$\3$\3$\5$\u01b1')
-        buf.write("\n$\3%\3%\3&\3&\3'\3'\3(\3(\3(\3)\3)\3*\3*\3*\3+\3+")
+        buf.write("\3!\3!\3!\3!\5!\u019d\n!\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3")
+        buf.write("\"\5\"\u01a7\n\"\3#\3#\3#\5#\u01ac\n#\3$\3$\3$\5$\u01b1")
+        buf.write("\n$\3%\3%\3&\3&\3\'\3\'\3(\3(\3(\3)\3)\3*\3*\3*\3+\3+")
         buf.write("\3+\6+\u01c4\n+\r+\16+\u01c5\3,\3,\5,\u01ca\n,\3-\3-\3")
         buf.write("-\3-\3.\3.\5.\u01d2\n.\3.\3.\3.\5.\u01d7\n.\3.\5.\u01da")
         buf.write("\n.\3/\3/\3/\5/\u01df\n/\3\60\3\60\3\60\7\60\u01e4\n\60")
@@ -90,7 +89,7 @@ def serializedATN():
         buf.write("\nO\7O\u02f7\nO\fO\16O\u02fa\13O\3O\5O\u02fd\nO\3P\3P")
         buf.write("\3P\7P\u0302\nP\fP\16P\u0305\13P\3P\5P\u0308\nP\3Q\3Q")
         buf.write("\3R\6R\u030d\nR\rR\16R\u030e\3R\2\2S\2\4\6\b\n\f\16\20")
-        buf.write('\22\24\26\30\32\34\36 "$&(*,.\60\62\64\668:<>@BDFHJL')
+        buf.write("\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJL")
         buf.write("NPRTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088")
         buf.write("\u008a\u008c\u008e\u0090\u0092\u0094\u0096\u0098\u009a")
         buf.write("\u009c\u009e\u00a0\u00a2\2\b\3\2R^\3\2;<\3\2=>\4\2?BD")
@@ -99,7 +98,7 @@ def serializedATN():
         buf.write("\u00cf\3\2\2\2\16\u00d7\3\2\2\2\20\u00e6\3\2\2\2\22\u00e8")
         buf.write("\3\2\2\2\24\u00ea\3\2\2\2\26\u00ee\3\2\2\2\30\u00f3\3")
         buf.write("\2\2\2\32\u00f8\3\2\2\2\34\u0103\3\2\2\2\36\u010b\3\2")
-        buf.write('\2\2 \u0116\3\2\2\2"\u0118\3\2\2\2$\u012b\3\2\2\2&\u0136')
+        buf.write("\2\2 \u0116\3\2\2\2\"\u0118\3\2\2\2$\u012b\3\2\2\2&\u0136")
         buf.write("\3\2\2\2(\u0142\3\2\2\2*\u0151\3\2\2\2,\u0159\3\2\2\2")
         buf.write(".\u015b\3\2\2\2\60\u0167\3\2\2\2\62\u0169\3\2\2\2\64\u016e")
         buf.write("\3\2\2\2\66\u0172\3\2\2\28\u0174\3\2\2\2:\u0178\3\2\2")
@@ -167,7 +166,7 @@ def serializedATN():
         buf.write("\u010c\u010d\7\60\2\2\u010d\u010f\5\u0094K\2\u010e\u010c")
         buf.write("\3\2\2\2\u010f\u0112\3\2\2\2\u0110\u010e\3\2\2\2\u0110")
         buf.write("\u0111\3\2\2\2\u0111\37\3\2\2\2\u0112\u0110\3\2\2\2\u0113")
-        buf.write('\u0117\5"\22\2\u0114\u0117\5$\23\2\u0115\u0117\5&\24')
+        buf.write("\u0117\5\"\22\2\u0114\u0117\5$\23\2\u0115\u0117\5&\24")
         buf.write("\2\u0116\u0113\3\2\2\2\u0116\u0114\3\2\2\2\u0116\u0115")
         buf.write("\3\2\2\2\u0117!\3\2\2\2\u0118\u0119\7%\2\2\u0119\u011a")
         buf.write("\5t;\2\u011a\u011b\7\64\2\2\u011b\u0123\5*\26\2\u011c")
@@ -175,17 +174,17 @@ def serializedATN():
         buf.write("\u0120\5*\26\2\u0120\u0122\3\2\2\2\u0121\u011c\3\2\2\2")
         buf.write("\u0122\u0125\3\2\2\2\u0123\u0121\3\2\2\2\u0123\u0124\3")
         buf.write("\2\2\2\u0124\u0129\3\2\2\2\u0125\u0123\3\2\2\2\u0126\u0127")
-        buf.write('\7"\2\2\u0127\u0128\7\64\2\2\u0128\u012a\5*\26\2\u0129')
+        buf.write("\7\"\2\2\u0127\u0128\7\64\2\2\u0128\u012a\5*\26\2\u0129")
         buf.write("\u0126\3\2\2\2\u0129\u012a\3\2\2\2\u012a#\3\2\2\2\u012b")
         buf.write("\u012c\7$\2\2\u012c\u012d\5\u009cO\2\u012d\u012e\7&\2")
         buf.write("\2\u012e\u012f\5\u009eP\2\u012f\u0130\7\64\2\2\u0130\u0134")
-        buf.write('\5*\26\2\u0131\u0132\7"\2\2\u0132\u0133\7\64\2\2\u0133')
+        buf.write("\5*\26\2\u0131\u0132\7\"\2\2\u0132\u0133\7\64\2\2\u0133")
         buf.write("\u0135\5*\26\2\u0134\u0131\3\2\2\2\u0134\u0135\3\2\2\2")
         buf.write("\u0135%\3\2\2\2\u0136\u0137\7/\2\2\u0137\u013c\5(\25\2")
         buf.write("\u0138\u0139\7\63\2\2\u0139\u013b\5(\25\2\u013a\u0138")
         buf.write("\3\2\2\2\u013b\u013e\3\2\2\2\u013c\u013a\3\2\2\2\u013c")
         buf.write("\u013d\3\2\2\2\u013d\u013f\3\2\2\2\u013e\u013c\3\2\2\2")
-        buf.write("\u013f\u0140\7\64\2\2\u0140\u0141\5*\26\2\u0141'\3\2")
+        buf.write("\u013f\u0140\7\64\2\2\u0140\u0141\5*\26\2\u0141\'\3\2")
         buf.write("\2\2\u0142\u0145\5t;\2\u0143\u0144\7\37\2\2\u0144\u0146")
         buf.write("\5\u0084C\2\u0145\u0143\3\2\2\2\u0145\u0146\3\2\2\2\u0146")
         buf.write(")\3\2\2\2\u0147\u0152\5\6\4\2\u0148\u0149\7i\2\2\u0149")
@@ -212,19 +211,19 @@ def serializedATN():
         buf.write("\5<\37\2\u0179\u017a\7\67\2\2\u017a\u017c\5<\37\2\u017b")
         buf.write("\u0179\3\2\2\2\u017c\u017f\3\2\2\2\u017d\u017b\3\2\2\2")
         buf.write("\u017d\u017e\3\2\2\2\u017e;\3\2\2\2\u017f\u017d\3\2\2")
-        buf.write("\2\u0180\u0189\5> \2\u0181\u0189\5L'\2\u0182\u0189\5")
+        buf.write("\2\u0180\u0189\5> \2\u0181\u0189\5L\'\2\u0182\u0189\5")
         buf.write("P)\2\u0183\u0189\5R*\2\u0184\u0189\5X-\2\u0185\u0189\5")
         buf.write("Z.\2\u0186\u0189\5d\63\2\u0187\u0189\5l\67\2\u0188\u0180")
         buf.write("\3\2\2\2\u0188\u0181\3\2\2\2\u0188\u0182\3\2\2\2\u0188")
         buf.write("\u0183\3\2\2\2\u0188\u0184\3\2\2\2\u0188\u0185\3\2\2\2")
         buf.write("\u0188\u0186\3\2\2\2\u0188\u0187\3\2\2\2\u0189=\3\2\2")
         buf.write("\2\u018a\u018b\5D#\2\u018b\u018c\6 \2\3\u018c\u0193\3")
-        buf.write('\2\2\2\u018d\u0193\5B"\2\u018e\u0193\5\u00a2R\2\u018f')
+        buf.write("\2\2\2\u018d\u0193\5B\"\2\u018e\u0193\5\u00a2R\2\u018f")
         buf.write("\u0193\7(\2\2\u0190\u0193\7-\2\2\u0191\u0193\7#\2\2\u0192")
         buf.write("\u018a\3\2\2\2\u0192\u018d\3\2\2\2\u0192\u018e\3\2\2\2")
         buf.write("\u0192\u018f\3\2\2\2\u0192\u0190\3\2\2\2\u0192\u0191\3")
         buf.write("\2\2\2\u0193?\3\2\2\2\u0194\u0195\5D#\2\u0195\u0196\6")
-        buf.write('!\3\3\u0196\u019d\3\2\2\2\u0197\u019d\5B"\2\u0198\u019d')
+        buf.write("!\3\3\u0196\u019d\3\2\2\2\u0197\u019d\5B\"\2\u0198\u019d")
         buf.write("\5\u00a2R\2\u0199\u019d\7(\2\2\u019a\u019d\7-\2\2\u019b")
         buf.write("\u019d\7#\2\2\u019c\u0194\3\2\2\2\u019c\u0197\3\2\2\2")
         buf.write("\u019c\u0198\3\2\2\2\u019c\u0199\3\2\2\2\u019c\u019a\3")
@@ -305,7 +304,7 @@ def serializedATN():
         buf.write("\u024f\3\2\2\2\u0252\u0253\5\u0094K\2\u0253\u0254\7\66")
         buf.write("\2\2\u0254\u0255\5\66\34\2\u0255s\3\2\2\2\u0256\u025c")
         buf.write("\5x=\2\u0257\u0258\7%\2\2\u0258\u0259\5x=\2\u0259\u025a")
-        buf.write('\7"\2\2\u025a\u025b\5t;\2\u025b\u025d\3\2\2\2\u025c\u0257')
+        buf.write("\7\"\2\2\u025a\u025b\5t;\2\u025b\u025d\3\2\2\2\u025c\u0257")
         buf.write("\3\2\2\2\u025c\u025d\3\2\2\2\u025du\3\2\2\2\u025e\u025f")
         buf.write("\5x=\2\u025fw\3\2\2\2\u0260\u0265\5z>\2\u0261\u0262\7")
         buf.write("*\2\2\u0262\u0264\5z>\2\u0263\u0261\3\2\2\2\u0264\u0267")
@@ -322,8 +321,8 @@ def serializedATN():
         buf.write("\177\3\2\2\2\u027d\u027b\3\2\2\2\u027e\u028b\7L\2\2\u027f")
         buf.write("\u028b\7M\2\2\u0280\u028b\7N\2\2\u0281\u028b\7O\2\2\u0282")
         buf.write("\u028b\7P\2\2\u0283\u028b\7Q\2\2\u0284\u028b\7&\2\2\u0285")
-        buf.write("\u0286\7)\2\2\u0286\u028b\7&\2\2\u0287\u028b\7'\2\2\u0288")
-        buf.write("\u0289\7'\2\2\u0289\u028b\7)\2\2\u028a\u027e\3\2\2\2")
+        buf.write("\u0286\7)\2\2\u0286\u028b\7&\2\2\u0287\u028b\7\'\2\2\u0288")
+        buf.write("\u0289\7\'\2\2\u0289\u028b\7)\2\2\u028a\u027e\3\2\2\2")
         buf.write("\u028a\u027f\3\2\2\2\u028a\u0280\3\2\2\2\u028a\u0281\3")
         buf.write("\2\2\2\u028a\u0282\3\2\2\2\u028a\u0283\3\2\2\2\u028a\u0284")
         buf.write("\3\2\2\2\u028a\u0285\3\2\2\2\u028a\u0287\3\2\2\2\u028a")
@@ -400,219 +399,54 @@ def serializedATN():
         return buf.getvalue()
 
 
-class YarcParser(YarcParserBase):
+class YarcParser ( YarcParserBase ):
+
     grammarFileName = "YarcParser.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
+    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [
-        "<INVALID>",
-        "<INVALID>",
-        "<INVALID>",
-        "'scenario'",
-        "<INVALID>",
-        "'writer'",
-        "<INVALID>",
-        "<INVALID>",
-        "<INVALID>",
-        "<INVALID>",
-        "<INVALID>",
-        "<INVALID>",
-        "'create'",
-        "'instantiate'",
-        "'get'",
-        "'x'",
-        "'y'",
-        "'z'",
-        "<INVALID>",
-        "'set'",
-        "'translate'",
-        "'rotate'",
-        "'scale'",
-        "'semantics'",
-        "<INVALID>",
-        "'every'",
-        "<INVALID>",
-        "<INVALID>",
-        "'and'",
-        "'as'",
-        "'def'",
-        "'elif'",
-        "'else'",
-        "'False'",
-        "'for'",
-        "'if'",
-        "'in'",
-        "'is'",
-        "'None'",
-        "'not'",
-        "'or'",
-        "'pass'",
-        "'return'",
-        "'True'",
-        "'_'",
-        "'with'",
-        "'.'",
-        "'..'",
-        "'...'",
-        "','",
-        "':'",
-        "';'",
-        "'='",
-        "'|'",
-        "'^'",
-        "'&'",
-        "'~'",
-        "'<<'",
-        "'>>'",
-        "'+'",
-        "'-'",
-        "'/'",
-        "'*'",
-        "'%'",
-        "'//'",
-        "'**'",
-        "'@'",
-        "'->'",
-        "'('",
-        "')'",
-        "'['",
-        "']'",
-        "'{'",
-        "'}'",
-        "'<'",
-        "'>'",
-        "'=='",
-        "'>='",
-        "'<='",
-        "'!='",
-        "'+='",
-        "'-='",
-        "'*='",
-        "'@='",
-        "'/='",
-        "'%='",
-        "'&='",
-        "'|='",
-        "'^='",
-        "'<<='",
-        "'>>='",
-        "'**='",
-        "'//='",
-    ]
+    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "'scenario'", 
+                     "<INVALID>", "'writer'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "'create'", "'instantiate'", "'get'", "'x'", "'y'", 
+                     "'z'", "<INVALID>", "'set'", "'translate'", "'rotate'", 
+                     "'scale'", "'semantics'", "<INVALID>", "'every'", "<INVALID>", 
+                     "<INVALID>", "'and'", "'as'", "'def'", "'elif'", "'else'", 
+                     "'False'", "'for'", "'if'", "'in'", "'is'", "'None'", 
+                     "'not'", "'or'", "'pass'", "'return'", "'True'", "'_'", 
+                     "'with'", "'.'", "'..'", "'...'", "','", "':'", "';'", 
+                     "'='", "'|'", "'^'", "'&'", "'~'", "'<<'", "'>>'", 
+                     "'+'", "'-'", "'/'", "'*'", "'%'", "'//'", "'**'", 
+                     "'@'", "'->'", "'('", "')'", "'['", "']'", "'{'", "'}'", 
+                     "'<'", "'>'", "'=='", "'>='", "'<='", "'!='", "'+='", 
+                     "'-='", "'*='", "'@='", "'/='", "'%='", "'&='", "'|='", 
+                     "'^='", "'<<='", "'>>='", "'**='", "'//='" ]
 
-    symbolicNames = [
-        "<INVALID>",
-        "INDENT",
-        "DEDENT",
-        "SCENARIO",
-        "SETTINGS",
-        "WRITER",
-        "SNIPPET",
-        "UNIFORM",
-        "NORMAL",
-        "CHOICE",
-        "SEQUENCE",
-        "LOG_UNIFORM",
-        "CREATE",
-        "INSTANTIATE",
-        "GET",
-        "X",
-        "Y",
-        "Z",
-        "EDIT",
-        "SET",
-        "TRANSLATE",
-        "ROTATE",
-        "SCALE",
-        "SEMANTICS",
-        "SCATTER",
-        "EVERY",
-        "FRAMES",
-        "TIME",
-        "AND",
-        "AS",
-        "DEF",
-        "ELIF",
-        "ELSE",
-        "FALSE",
-        "FOR",
-        "IF",
-        "IN",
-        "IS",
-        "NONE",
-        "NOT",
-        "OR",
-        "PASS",
-        "RETURN",
-        "TRUE",
-        "UNDERSCORE",
-        "WITH",
-        "DOT",
-        "RANGE",
-        "ELLIPSIS",
-        "COMMA",
-        "COLON",
-        "SEMI_COLON",
-        "ASSIGN",
-        "BIT_OR",
-        "XOR",
-        "BIT_AND",
-        "BIT_NOT",
-        "LEFT_SHIFT",
-        "RIGHT_SHIFT",
-        "ADD",
-        "MINUS",
-        "DIV",
-        "STAR",
-        "MOD",
-        "IDIV",
-        "POWER",
-        "AT",
-        "ARROW",
-        "LPAREN",
-        "RPAREN",
-        "LBRACK",
-        "RBRACK",
-        "LBRACE",
-        "RBRACE",
-        "LESS_THAN",
-        "GREATER_THAN",
-        "EQUALS",
-        "GT_EQ",
-        "LT_EQ",
-        "NOT_EQ",
-        "ADD_ASSIGN",
-        "SUB_ASSIGN",
-        "MULT_ASSIGN",
-        "AT_ASSIGN",
-        "DIV_ASSIGN",
-        "MOD_ASSIGN",
-        "AND_ASSIGN",
-        "OR_ASSIGN",
-        "XOR_ASSIGN",
-        "LSHIFT_ASSIGN",
-        "RSHIFT_ASSIGN",
-        "POWER_ASSIGN",
-        "IDIV_ASSIGN",
-        "STRING",
-        "NUMBER",
-        "NAME",
-        "STRING_LITERAL",
-        "INTEGER",
-        "DECIMAL_INTEGER",
-        "OCT_INTEGER",
-        "HEX_INTEGER",
-        "BIN_INTEGER",
-        "FLOAT_NUMBER",
-        "NEWLINE",
-        "SKIP_",
-        "UNKNOWN",
-    ]
+    symbolicNames = [ "<INVALID>", "INDENT", "DEDENT", "SCENARIO", "SETTINGS", 
+                      "WRITER", "SNIPPET", "UNIFORM", "NORMAL", "CHOICE", 
+                      "SEQUENCE", "LOG_UNIFORM", "CREATE", "INSTANTIATE", 
+                      "GET", "X", "Y", "Z", "EDIT", "SET", "TRANSLATE", 
+                      "ROTATE", "SCALE", "SEMANTICS", "SCATTER", "EVERY", 
+                      "FRAMES", "TIME", "AND", "AS", "DEF", "ELIF", "ELSE", 
+                      "FALSE", "FOR", "IF", "IN", "IS", "NONE", "NOT", "OR", 
+                      "PASS", "RETURN", "TRUE", "UNDERSCORE", "WITH", "DOT", 
+                      "RANGE", "ELLIPSIS", "COMMA", "COLON", "SEMI_COLON", 
+                      "ASSIGN", "BIT_OR", "XOR", "BIT_AND", "BIT_NOT", "LEFT_SHIFT", 
+                      "RIGHT_SHIFT", "ADD", "MINUS", "DIV", "STAR", "MOD", 
+                      "IDIV", "POWER", "AT", "ARROW", "LPAREN", "RPAREN", 
+                      "LBRACK", "RBRACK", "LBRACE", "RBRACE", "LESS_THAN", 
+                      "GREATER_THAN", "EQUALS", "GT_EQ", "LT_EQ", "NOT_EQ", 
+                      "ADD_ASSIGN", "SUB_ASSIGN", "MULT_ASSIGN", "AT_ASSIGN", 
+                      "DIV_ASSIGN", "MOD_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", 
+                      "XOR_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN", "POWER_ASSIGN", 
+                      "IDIV_ASSIGN", "STRING", "NUMBER", "NAME", "STRING_LITERAL", 
+                      "INTEGER", "DECIMAL_INTEGER", "OCT_INTEGER", "HEX_INTEGER", 
+                      "BIN_INTEGER", "FLOAT_NUMBER", "NEWLINE", "SKIP_", 
+                      "UNKNOWN" ]
 
     RULE_file_input = 0
     RULE_stmt = 1
@@ -696,218 +530,155 @@ class YarcParser(YarcParserBase):
     RULE_encoding_decl = 79
     RULE_strings = 80
 
-    ruleNames = [
-        "file_input",
-        "stmt",
-        "simple_stmts",
-        "simple_stmt",
-        "expr_stmt",
-        "annassign",
-        "testlist_star_expr",
-        "augassign",
-        "pass_stmt",
-        "return_stmt",
-        "import_as_name",
-        "dotted_as_name",
-        "import_as_names",
-        "dotted_as_names",
-        "dotted_name",
-        "compound_stmt",
-        "if_stmt",
-        "for_stmt",
-        "with_stmt",
-        "with_item",
-        "block",
-        "subject_expr",
-        "star_named_expressions",
-        "star_named_expression",
-        "guard",
-        "patterns",
-        "pattern",
-        "as_pattern",
-        "or_pattern",
-        "closed_pattern",
-        "literal_pattern",
-        "literal_expr",
-        "complex_number",
-        "signed_number",
-        "signed_real_number",
-        "real_number",
-        "imaginary_number",
-        "capture_pattern",
-        "pattern_capture_target",
-        "wildcard_pattern",
-        "value_pattern",
-        "attr",
-        "name_or_attr",
-        "group_pattern",
-        "sequence_pattern",
-        "open_sequence_pattern",
-        "maybe_sequence_pattern",
-        "maybe_star_pattern",
-        "star_pattern",
-        "mapping_pattern",
-        "items_pattern",
-        "key_value_pattern",
-        "double_star_pattern",
-        "class_pattern",
-        "positional_patterns",
-        "keyword_patterns",
-        "keyword_pattern",
-        "test",
-        "test_nocond",
-        "or_test",
-        "and_test",
-        "not_test",
-        "comparison",
-        "comp_op",
-        "star_expr",
-        "expr",
-        "xor_expr",
-        "and_expr",
-        "shift_expr",
-        "arith_expr",
-        "term",
-        "factor",
-        "atom",
-        "name",
-        "subscriptlist",
-        "subscript_",
-        "sliceop",
-        "exprlist",
-        "testlist",
-        "encoding_decl",
-        "strings",
-    ]
+    ruleNames =  [ "file_input", "stmt", "simple_stmts", "simple_stmt", 
+                   "expr_stmt", "annassign", "testlist_star_expr", "augassign", 
+                   "pass_stmt", "return_stmt", "import_as_name", "dotted_as_name", 
+                   "import_as_names", "dotted_as_names", "dotted_name", 
+                   "compound_stmt", "if_stmt", "for_stmt", "with_stmt", 
+                   "with_item", "block", "subject_expr", "star_named_expressions", 
+                   "star_named_expression", "guard", "patterns", "pattern", 
+                   "as_pattern", "or_pattern", "closed_pattern", "literal_pattern", 
+                   "literal_expr", "complex_number", "signed_number", "signed_real_number", 
+                   "real_number", "imaginary_number", "capture_pattern", 
+                   "pattern_capture_target", "wildcard_pattern", "value_pattern", 
+                   "attr", "name_or_attr", "group_pattern", "sequence_pattern", 
+                   "open_sequence_pattern", "maybe_sequence_pattern", "maybe_star_pattern", 
+                   "star_pattern", "mapping_pattern", "items_pattern", "key_value_pattern", 
+                   "double_star_pattern", "class_pattern", "positional_patterns", 
+                   "keyword_patterns", "keyword_pattern", "test", "test_nocond", 
+                   "or_test", "and_test", "not_test", "comparison", "comp_op", 
+                   "star_expr", "expr", "xor_expr", "and_expr", "shift_expr", 
+                   "arith_expr", "term", "factor", "atom", "name", "subscriptlist", 
+                   "subscript_", "sliceop", "exprlist", "testlist", "encoding_decl", 
+                   "strings" ]
 
     EOF = Token.EOF
-    INDENT = 1
-    DEDENT = 2
-    SCENARIO = 3
-    SETTINGS = 4
-    WRITER = 5
-    SNIPPET = 6
-    UNIFORM = 7
-    NORMAL = 8
-    CHOICE = 9
-    SEQUENCE = 10
-    LOG_UNIFORM = 11
-    CREATE = 12
-    INSTANTIATE = 13
-    GET = 14
-    X = 15
-    Y = 16
-    Z = 17
-    EDIT = 18
-    SET = 19
-    TRANSLATE = 20
-    ROTATE = 21
-    SCALE = 22
-    SEMANTICS = 23
-    SCATTER = 24
-    EVERY = 25
-    FRAMES = 26
-    TIME = 27
-    AND = 28
-    AS = 29
-    DEF = 30
-    ELIF = 31
-    ELSE = 32
-    FALSE = 33
-    FOR = 34
-    IF = 35
-    IN = 36
-    IS = 37
-    NONE = 38
-    NOT = 39
-    OR = 40
-    PASS = 41
-    RETURN = 42
-    TRUE = 43
-    UNDERSCORE = 44
-    WITH = 45
-    DOT = 46
-    RANGE = 47
-    ELLIPSIS = 48
-    COMMA = 49
-    COLON = 50
-    SEMI_COLON = 51
-    ASSIGN = 52
-    BIT_OR = 53
-    XOR = 54
-    BIT_AND = 55
-    BIT_NOT = 56
-    LEFT_SHIFT = 57
-    RIGHT_SHIFT = 58
-    ADD = 59
-    MINUS = 60
-    DIV = 61
-    STAR = 62
-    MOD = 63
-    IDIV = 64
-    POWER = 65
-    AT = 66
-    ARROW = 67
-    LPAREN = 68
-    RPAREN = 69
-    LBRACK = 70
-    RBRACK = 71
-    LBRACE = 72
-    RBRACE = 73
-    LESS_THAN = 74
-    GREATER_THAN = 75
-    EQUALS = 76
-    GT_EQ = 77
-    LT_EQ = 78
-    NOT_EQ = 79
-    ADD_ASSIGN = 80
-    SUB_ASSIGN = 81
-    MULT_ASSIGN = 82
-    AT_ASSIGN = 83
-    DIV_ASSIGN = 84
-    MOD_ASSIGN = 85
-    AND_ASSIGN = 86
-    OR_ASSIGN = 87
-    XOR_ASSIGN = 88
-    LSHIFT_ASSIGN = 89
-    RSHIFT_ASSIGN = 90
-    POWER_ASSIGN = 91
-    IDIV_ASSIGN = 92
-    STRING = 93
-    NUMBER = 94
-    NAME = 95
-    STRING_LITERAL = 96
-    INTEGER = 97
-    DECIMAL_INTEGER = 98
-    OCT_INTEGER = 99
-    HEX_INTEGER = 100
-    BIN_INTEGER = 101
-    FLOAT_NUMBER = 102
-    NEWLINE = 103
-    SKIP_ = 104
-    UNKNOWN = 105
+    INDENT=1
+    DEDENT=2
+    SCENARIO=3
+    SETTINGS=4
+    WRITER=5
+    SNIPPET=6
+    UNIFORM=7
+    NORMAL=8
+    CHOICE=9
+    SEQUENCE=10
+    LOG_UNIFORM=11
+    CREATE=12
+    INSTANTIATE=13
+    GET=14
+    X=15
+    Y=16
+    Z=17
+    EDIT=18
+    SET=19
+    TRANSLATE=20
+    ROTATE=21
+    SCALE=22
+    SEMANTICS=23
+    SCATTER=24
+    EVERY=25
+    FRAMES=26
+    TIME=27
+    AND=28
+    AS=29
+    DEF=30
+    ELIF=31
+    ELSE=32
+    FALSE=33
+    FOR=34
+    IF=35
+    IN=36
+    IS=37
+    NONE=38
+    NOT=39
+    OR=40
+    PASS=41
+    RETURN=42
+    TRUE=43
+    UNDERSCORE=44
+    WITH=45
+    DOT=46
+    RANGE=47
+    ELLIPSIS=48
+    COMMA=49
+    COLON=50
+    SEMI_COLON=51
+    ASSIGN=52
+    BIT_OR=53
+    XOR=54
+    BIT_AND=55
+    BIT_NOT=56
+    LEFT_SHIFT=57
+    RIGHT_SHIFT=58
+    ADD=59
+    MINUS=60
+    DIV=61
+    STAR=62
+    MOD=63
+    IDIV=64
+    POWER=65
+    AT=66
+    ARROW=67
+    LPAREN=68
+    RPAREN=69
+    LBRACK=70
+    RBRACK=71
+    LBRACE=72
+    RBRACE=73
+    LESS_THAN=74
+    GREATER_THAN=75
+    EQUALS=76
+    GT_EQ=77
+    LT_EQ=78
+    NOT_EQ=79
+    ADD_ASSIGN=80
+    SUB_ASSIGN=81
+    MULT_ASSIGN=82
+    AT_ASSIGN=83
+    DIV_ASSIGN=84
+    MOD_ASSIGN=85
+    AND_ASSIGN=86
+    OR_ASSIGN=87
+    XOR_ASSIGN=88
+    LSHIFT_ASSIGN=89
+    RSHIFT_ASSIGN=90
+    POWER_ASSIGN=91
+    IDIV_ASSIGN=92
+    STRING=93
+    NUMBER=94
+    NAME=95
+    STRING_LITERAL=96
+    INTEGER=97
+    DECIMAL_INTEGER=98
+    OCT_INTEGER=99
+    HEX_INTEGER=100
+    BIN_INTEGER=101
+    FLOAT_NUMBER=102
+    NEWLINE=103
+    SKIP_=104
+    UNKNOWN=105
 
-    def __init__(self, input: TokenStream, output: TextIO = sys.stdout):
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.9.2")
-        self._interp = ParserATNSimulator(
-            self, self.atn, self.decisionsToDFA, self.sharedContextCache
-        )
+        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
-    class File_inputContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+
+
+    class File_inputContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def EOF(self):
             return self.getToken(YarcParser.EOF, 0)
 
-        def NEWLINE(self, i: int = None):
+        def NEWLINE(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.NEWLINE)
             else:
@@ -916,16 +687,20 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_file_input
 
+
+
+
     def file_input(self):
+
         localctx = YarcParser.File_inputContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_file_input)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 165
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.NEWLINE:
+            while _la==YarcParser.NEWLINE:
                 self.state = 162
                 self.match(YarcParser.NEWLINE)
                 self.state = 167
@@ -942,39 +717,37 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class StmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class StmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def simple_stmts(self):
-            return self.getTypedRuleContext(YarcParser.Simple_stmtsContext, 0)
+            return self.getTypedRuleContext(YarcParser.Simple_stmtsContext,0)
+
 
         def compound_stmt(self):
-            return self.getTypedRuleContext(YarcParser.Compound_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.Compound_stmtContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_stmt
 
+
+
+
     def stmt(self):
+
         localctx = YarcParser.StmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_stmt)
         try:
             self.state = 172
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [
-                YarcParser.NOT,
-                YarcParser.PASS,
-                YarcParser.BIT_NOT,
-                YarcParser.ADD,
-                YarcParser.MINUS,
-                YarcParser.STAR,
-            ]:
+            if token in [YarcParser.NOT, YarcParser.PASS, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS, YarcParser.STAR]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 170
                 self.simple_stmts()
@@ -995,25 +768,25 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Simple_stmtsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Simple_stmtsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def simple_stmt(self, i: int = None):
+        def simple_stmt(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Simple_stmtContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Simple_stmtContext, i)
+                return self.getTypedRuleContext(YarcParser.Simple_stmtContext,i)
+
 
         def NEWLINE(self):
             return self.getToken(YarcParser.NEWLINE, 0)
 
-        def SEMI_COLON(self, i: int = None):
+        def SEMI_COLON(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.SEMI_COLON)
             else:
@@ -1022,33 +795,38 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_simple_stmts
 
+
+
+
     def simple_stmts(self):
+
         localctx = YarcParser.Simple_stmtsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_simple_stmts)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 174
             self.simple_stmt()
             self.state = 179
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 2, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 175
                     self.match(YarcParser.SEMI_COLON)
                     self.state = 176
-                    self.simple_stmt()
+                    self.simple_stmt() 
                 self.state = 181
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 2, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,2,self._ctx)
 
             self.state = 183
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.SEMI_COLON:
+            if _la==YarcParser.SEMI_COLON:
                 self.state = 182
                 self.match(YarcParser.SEMI_COLON)
+
 
             self.state = 185
             self.match(YarcParser.NEWLINE)
@@ -1060,25 +838,30 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Simple_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Simple_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def expr_stmt(self):
-            return self.getTypedRuleContext(YarcParser.Expr_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.Expr_stmtContext,0)
+
 
         def pass_stmt(self):
-            return self.getTypedRuleContext(YarcParser.Pass_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.Pass_stmtContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_simple_stmt
 
+
+
+
     def simple_stmt(self):
+
         localctx = YarcParser.Simple_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_simple_stmt)
         try:
@@ -1086,13 +869,7 @@ class YarcParser(YarcParserBase):
             self.state = 189
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [
-                YarcParser.NOT,
-                YarcParser.BIT_NOT,
-                YarcParser.ADD,
-                YarcParser.MINUS,
-                YarcParser.STAR,
-            ]:
+            if token in [YarcParser.NOT, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS, YarcParser.STAR]:
                 self.state = 187
                 self.expr_stmt()
                 pass
@@ -1111,31 +888,34 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Expr_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Expr_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def testlist_star_expr(self, i: int = None):
+        def testlist_star_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Testlist_star_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Testlist_star_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Testlist_star_exprContext,i)
+
 
         def annassign(self):
-            return self.getTypedRuleContext(YarcParser.AnnassignContext, 0)
+            return self.getTypedRuleContext(YarcParser.AnnassignContext,0)
+
 
         def augassign(self):
-            return self.getTypedRuleContext(YarcParser.AugassignContext, 0)
+            return self.getTypedRuleContext(YarcParser.AugassignContext,0)
+
 
         def testlist(self):
-            return self.getTypedRuleContext(YarcParser.TestlistContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestlistContext,0)
 
-        def ASSIGN(self, i: int = None):
+
+        def ASSIGN(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.ASSIGN)
             else:
@@ -1144,10 +924,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_expr_stmt
 
+
+
+
     def expr_stmt(self):
+
         localctx = YarcParser.Expr_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_expr_stmt)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 191
@@ -1159,36 +943,18 @@ class YarcParser(YarcParserBase):
                 self.state = 192
                 self.annassign()
                 pass
-            elif token in [
-                YarcParser.ADD_ASSIGN,
-                YarcParser.SUB_ASSIGN,
-                YarcParser.MULT_ASSIGN,
-                YarcParser.AT_ASSIGN,
-                YarcParser.DIV_ASSIGN,
-                YarcParser.MOD_ASSIGN,
-                YarcParser.AND_ASSIGN,
-                YarcParser.OR_ASSIGN,
-                YarcParser.XOR_ASSIGN,
-                YarcParser.LSHIFT_ASSIGN,
-                YarcParser.RSHIFT_ASSIGN,
-                YarcParser.POWER_ASSIGN,
-                YarcParser.IDIV_ASSIGN,
-            ]:
+            elif token in [YarcParser.ADD_ASSIGN, YarcParser.SUB_ASSIGN, YarcParser.MULT_ASSIGN, YarcParser.AT_ASSIGN, YarcParser.DIV_ASSIGN, YarcParser.MOD_ASSIGN, YarcParser.AND_ASSIGN, YarcParser.OR_ASSIGN, YarcParser.XOR_ASSIGN, YarcParser.LSHIFT_ASSIGN, YarcParser.RSHIFT_ASSIGN, YarcParser.POWER_ASSIGN, YarcParser.IDIV_ASSIGN]:
                 self.state = 193
                 self.augassign()
 
                 self.state = 194
                 self.testlist()
                 pass
-            elif token in [
-                YarcParser.SEMI_COLON,
-                YarcParser.ASSIGN,
-                YarcParser.NEWLINE,
-            ]:
+            elif token in [YarcParser.SEMI_COLON, YarcParser.ASSIGN, YarcParser.NEWLINE]:
                 self.state = 200
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la == YarcParser.ASSIGN:
+                while _la==YarcParser.ASSIGN:
                     self.state = 196
                     self.match(YarcParser.ASSIGN)
 
@@ -1210,23 +976,23 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class AnnassignContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class AnnassignContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def COLON(self):
             return self.getToken(YarcParser.COLON, 0)
 
-        def test(self, i: int = None):
+        def test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TestContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TestContext, i)
+                return self.getTypedRuleContext(YarcParser.TestContext,i)
+
 
         def ASSIGN(self):
             return self.getToken(YarcParser.ASSIGN, 0)
@@ -1234,10 +1000,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_annassign
 
+
+
+
     def annassign(self):
+
         localctx = YarcParser.AnnassignContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_annassign)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 205
@@ -1247,11 +1017,12 @@ class YarcParser(YarcParserBase):
             self.state = 209
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.ASSIGN:
+            if _la==YarcParser.ASSIGN:
                 self.state = 207
                 self.match(YarcParser.ASSIGN)
                 self.state = 208
                 self.test()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1261,28 +1032,29 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Testlist_star_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Testlist_star_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def test(self, i: int = None):
+        def test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TestContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TestContext, i)
+                return self.getTypedRuleContext(YarcParser.TestContext,i)
 
-        def star_expr(self, i: int = None):
+
+        def star_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Star_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Star_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Star_exprContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -1291,21 +1063,20 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_testlist_star_expr
 
+
+
+
     def testlist_star_expr(self):
+
         localctx = YarcParser.Testlist_star_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_testlist_star_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 213
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [
-                YarcParser.NOT,
-                YarcParser.BIT_NOT,
-                YarcParser.ADD,
-                YarcParser.MINUS,
-            ]:
+            if token in [YarcParser.NOT, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS]:
                 self.state = 211
                 self.test()
                 pass
@@ -1318,20 +1089,15 @@ class YarcParser(YarcParserBase):
 
             self.state = 222
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 10, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,10,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 215
                     self.match(YarcParser.COMMA)
                     self.state = 218
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
-                    if token in [
-                        YarcParser.NOT,
-                        YarcParser.BIT_NOT,
-                        YarcParser.ADD,
-                        YarcParser.MINUS,
-                    ]:
+                    if token in [YarcParser.NOT, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS]:
                         self.state = 216
                         self.test()
                         pass
@@ -1341,17 +1107,18 @@ class YarcParser(YarcParserBase):
                         pass
                     else:
                         raise NoViableAltException(self)
-
+             
                 self.state = 224
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 10, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,10,self._ctx)
 
             self.state = 226
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 225
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1361,12 +1128,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class AugassignContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class AugassignContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1412,36 +1178,19 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_augassign
 
+
+
+
     def augassign(self):
+
         localctx = YarcParser.AugassignContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_augassign)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 228
             _la = self._input.LA(1)
-            if not (
-                ((_la - 80) & ~0x3F) == 0
-                and (
-                    (1 << (_la - 80))
-                    & (
-                        (1 << (YarcParser.ADD_ASSIGN - 80))
-                        | (1 << (YarcParser.SUB_ASSIGN - 80))
-                        | (1 << (YarcParser.MULT_ASSIGN - 80))
-                        | (1 << (YarcParser.AT_ASSIGN - 80))
-                        | (1 << (YarcParser.DIV_ASSIGN - 80))
-                        | (1 << (YarcParser.MOD_ASSIGN - 80))
-                        | (1 << (YarcParser.AND_ASSIGN - 80))
-                        | (1 << (YarcParser.OR_ASSIGN - 80))
-                        | (1 << (YarcParser.XOR_ASSIGN - 80))
-                        | (1 << (YarcParser.LSHIFT_ASSIGN - 80))
-                        | (1 << (YarcParser.RSHIFT_ASSIGN - 80))
-                        | (1 << (YarcParser.POWER_ASSIGN - 80))
-                        | (1 << (YarcParser.IDIV_ASSIGN - 80))
-                    )
-                )
-                != 0
-            ):
+            if not(((((_la - 80)) & ~0x3f) == 0 and ((1 << (_la - 80)) & ((1 << (YarcParser.ADD_ASSIGN - 80)) | (1 << (YarcParser.SUB_ASSIGN - 80)) | (1 << (YarcParser.MULT_ASSIGN - 80)) | (1 << (YarcParser.AT_ASSIGN - 80)) | (1 << (YarcParser.DIV_ASSIGN - 80)) | (1 << (YarcParser.MOD_ASSIGN - 80)) | (1 << (YarcParser.AND_ASSIGN - 80)) | (1 << (YarcParser.OR_ASSIGN - 80)) | (1 << (YarcParser.XOR_ASSIGN - 80)) | (1 << (YarcParser.LSHIFT_ASSIGN - 80)) | (1 << (YarcParser.RSHIFT_ASSIGN - 80)) | (1 << (YarcParser.POWER_ASSIGN - 80)) | (1 << (YarcParser.IDIV_ASSIGN - 80)))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1454,12 +1203,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Pass_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Pass_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1469,7 +1217,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_pass_stmt
 
+
+
+
     def pass_stmt(self):
+
         localctx = YarcParser.Pass_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_pass_stmt)
         try:
@@ -1484,12 +1236,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Return_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Return_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1497,15 +1248,20 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.RETURN, 0)
 
         def testlist(self):
-            return self.getTypedRuleContext(YarcParser.TestlistContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestlistContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_return_stmt
 
+
+
+
     def return_stmt(self):
+
         localctx = YarcParser.Return_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 18, self.RULE_return_stmt)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 232
@@ -1513,17 +1269,10 @@ class YarcParser(YarcParserBase):
             self.state = 234
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((_la) & ~0x3F) == 0 and (
-                (1 << _la)
-                & (
-                    (1 << YarcParser.NOT)
-                    | (1 << YarcParser.BIT_NOT)
-                    | (1 << YarcParser.ADD)
-                    | (1 << YarcParser.MINUS)
-                )
-            ) != 0:
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.NOT) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS))) != 0):
                 self.state = 233
                 self.testlist()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1533,20 +1282,20 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Import_as_nameContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Import_as_nameContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def name(self, i: int = None):
+        def name(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.NameContext)
             else:
-                return self.getTypedRuleContext(YarcParser.NameContext, i)
+                return self.getTypedRuleContext(YarcParser.NameContext,i)
+
 
         def AS(self):
             return self.getToken(YarcParser.AS, 0)
@@ -1554,10 +1303,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_import_as_name
 
+
+
+
     def import_as_name(self):
+
         localctx = YarcParser.Import_as_nameContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_import_as_name)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 236
@@ -1565,11 +1318,12 @@ class YarcParser(YarcParserBase):
             self.state = 239
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.AS:
+            if _la==YarcParser.AS:
                 self.state = 237
                 self.match(YarcParser.AS)
                 self.state = 238
                 self.name()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1579,31 +1333,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Dotted_as_nameContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Dotted_as_nameContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def dotted_name(self):
-            return self.getTypedRuleContext(YarcParser.Dotted_nameContext, 0)
+            return self.getTypedRuleContext(YarcParser.Dotted_nameContext,0)
+
 
         def AS(self):
             return self.getToken(YarcParser.AS, 0)
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_dotted_as_name
 
+
+
+
     def dotted_as_name(self):
+
         localctx = YarcParser.Dotted_as_nameContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_dotted_as_name)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 241
@@ -1611,11 +1370,12 @@ class YarcParser(YarcParserBase):
             self.state = 244
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.AS:
+            if _la==YarcParser.AS:
                 self.state = 242
                 self.match(YarcParser.AS)
                 self.state = 243
                 self.name()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1625,22 +1385,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Import_as_namesContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Import_as_namesContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def import_as_name(self, i: int = None):
+        def import_as_name(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Import_as_nameContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Import_as_nameContext, i)
+                return self.getTypedRuleContext(YarcParser.Import_as_nameContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -1649,33 +1409,38 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_import_as_names
 
+
+
+
     def import_as_names(self):
+
         localctx = YarcParser.Import_as_namesContext(self, self._ctx, self.state)
         self.enterRule(localctx, 24, self.RULE_import_as_names)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 246
             self.import_as_name()
             self.state = 251
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 15, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,15,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 247
                     self.match(YarcParser.COMMA)
                     self.state = 248
-                    self.import_as_name()
+                    self.import_as_name() 
                 self.state = 253
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 15, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,15,self._ctx)
 
             self.state = 255
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 254
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1685,22 +1450,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Dotted_as_namesContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Dotted_as_namesContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def dotted_as_name(self, i: int = None):
+        def dotted_as_name(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Dotted_as_nameContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Dotted_as_nameContext, i)
+                return self.getTypedRuleContext(YarcParser.Dotted_as_nameContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -1709,10 +1474,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_dotted_as_names
 
+
+
+
     def dotted_as_names(self):
+
         localctx = YarcParser.Dotted_as_namesContext(self, self._ctx, self.state)
         self.enterRule(localctx, 26, self.RULE_dotted_as_names)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 257
@@ -1720,7 +1489,7 @@ class YarcParser(YarcParserBase):
             self.state = 262
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.COMMA:
+            while _la==YarcParser.COMMA:
                 self.state = 258
                 self.match(YarcParser.COMMA)
                 self.state = 259
@@ -1737,22 +1506,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Dotted_nameContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Dotted_nameContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def name(self, i: int = None):
+        def name(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.NameContext)
             else:
-                return self.getTypedRuleContext(YarcParser.NameContext, i)
+                return self.getTypedRuleContext(YarcParser.NameContext,i)
 
-        def DOT(self, i: int = None):
+
+        def DOT(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.DOT)
             else:
@@ -1761,10 +1530,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_dotted_name
 
+
+
+
     def dotted_name(self):
+
         localctx = YarcParser.Dotted_nameContext(self, self._ctx, self.state)
         self.enterRule(localctx, 28, self.RULE_dotted_name)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 265
@@ -1772,7 +1545,7 @@ class YarcParser(YarcParserBase):
             self.state = 270
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.DOT:
+            while _la==YarcParser.DOT:
                 self.state = 266
                 self.match(YarcParser.DOT)
                 self.state = 267
@@ -1789,28 +1562,34 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Compound_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Compound_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def if_stmt(self):
-            return self.getTypedRuleContext(YarcParser.If_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.If_stmtContext,0)
+
 
         def for_stmt(self):
-            return self.getTypedRuleContext(YarcParser.For_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.For_stmtContext,0)
+
 
         def with_stmt(self):
-            return self.getTypedRuleContext(YarcParser.With_stmtContext, 0)
+            return self.getTypedRuleContext(YarcParser.With_stmtContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_compound_stmt
 
+
+
+
     def compound_stmt(self):
+
         localctx = YarcParser.Compound_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_compound_stmt)
         try:
@@ -1843,37 +1622,38 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class If_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class If_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def IF(self):
             return self.getToken(YarcParser.IF, 0)
 
-        def test(self, i: int = None):
+        def test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TestContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TestContext, i)
+                return self.getTypedRuleContext(YarcParser.TestContext,i)
 
-        def COLON(self, i: int = None):
+
+        def COLON(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COLON)
             else:
                 return self.getToken(YarcParser.COLON, i)
 
-        def block(self, i: int = None):
+        def block(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.BlockContext)
             else:
-                return self.getTypedRuleContext(YarcParser.BlockContext, i)
+                return self.getTypedRuleContext(YarcParser.BlockContext,i)
 
-        def ELIF(self, i: int = None):
+
+        def ELIF(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.ELIF)
             else:
@@ -1885,10 +1665,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_if_stmt
 
+
+
+
     def if_stmt(self):
+
         localctx = YarcParser.If_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 32, self.RULE_if_stmt)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 278
@@ -1902,7 +1686,7 @@ class YarcParser(YarcParserBase):
             self.state = 289
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.ELIF:
+            while _la==YarcParser.ELIF:
                 self.state = 282
                 self.match(YarcParser.ELIF)
                 self.state = 283
@@ -1918,13 +1702,14 @@ class YarcParser(YarcParserBase):
             self.state = 295
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.ELSE:
+            if _la==YarcParser.ELSE:
                 self.state = 292
                 self.match(YarcParser.ELSE)
                 self.state = 293
                 self.match(YarcParser.COLON)
                 self.state = 294
                 self.block()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1934,12 +1719,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class For_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class For_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -1947,25 +1731,28 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.FOR, 0)
 
         def exprlist(self):
-            return self.getTypedRuleContext(YarcParser.ExprlistContext, 0)
+            return self.getTypedRuleContext(YarcParser.ExprlistContext,0)
+
 
         def IN(self):
             return self.getToken(YarcParser.IN, 0)
 
         def testlist(self):
-            return self.getTypedRuleContext(YarcParser.TestlistContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestlistContext,0)
 
-        def COLON(self, i: int = None):
+
+        def COLON(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COLON)
             else:
                 return self.getToken(YarcParser.COLON, i)
 
-        def block(self, i: int = None):
+        def block(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.BlockContext)
             else:
-                return self.getTypedRuleContext(YarcParser.BlockContext, i)
+                return self.getTypedRuleContext(YarcParser.BlockContext,i)
+
 
         def ELSE(self):
             return self.getToken(YarcParser.ELSE, 0)
@@ -1973,10 +1760,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_for_stmt
 
+
+
+
     def for_stmt(self):
+
         localctx = YarcParser.For_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 34, self.RULE_for_stmt)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 297
@@ -1994,13 +1785,14 @@ class YarcParser(YarcParserBase):
             self.state = 306
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.ELSE:
+            if _la==YarcParser.ELSE:
                 self.state = 303
                 self.match(YarcParser.ELSE)
                 self.state = 304
                 self.match(YarcParser.COLON)
                 self.state = 305
                 self.block()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -2010,31 +1802,32 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class With_stmtContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class With_stmtContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def WITH(self):
             return self.getToken(YarcParser.WITH, 0)
 
-        def with_item(self, i: int = None):
+        def with_item(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.With_itemContext)
             else:
-                return self.getTypedRuleContext(YarcParser.With_itemContext, i)
+                return self.getTypedRuleContext(YarcParser.With_itemContext,i)
+
 
         def COLON(self):
             return self.getToken(YarcParser.COLON, 0)
 
         def block(self):
-            return self.getTypedRuleContext(YarcParser.BlockContext, 0)
+            return self.getTypedRuleContext(YarcParser.BlockContext,0)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -2043,10 +1836,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_with_stmt
 
+
+
+
     def with_stmt(self):
+
         localctx = YarcParser.With_stmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 36, self.RULE_with_stmt)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 308
@@ -2056,7 +1853,7 @@ class YarcParser(YarcParserBase):
             self.state = 314
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.COMMA:
+            while _la==YarcParser.COMMA:
                 self.state = 310
                 self.match(YarcParser.COMMA)
                 self.state = 311
@@ -2077,31 +1874,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class With_itemContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class With_itemContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def AS(self):
             return self.getToken(YarcParser.AS, 0)
 
         def expr(self):
-            return self.getTypedRuleContext(YarcParser.ExprContext, 0)
+            return self.getTypedRuleContext(YarcParser.ExprContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_with_item
 
+
+
+
     def with_item(self):
+
         localctx = YarcParser.With_itemContext(self, self._ctx, self.state)
         self.enterRule(localctx, 38, self.RULE_with_item)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 320
@@ -2109,11 +1911,12 @@ class YarcParser(YarcParserBase):
             self.state = 323
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.AS:
+            if _la==YarcParser.AS:
                 self.state = 321
                 self.match(YarcParser.AS)
                 self.state = 322
                 self.expr()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -2123,17 +1926,17 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class BlockContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class BlockContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def simple_stmts(self):
-            return self.getTypedRuleContext(YarcParser.Simple_stmtsContext, 0)
+            return self.getTypedRuleContext(YarcParser.Simple_stmtsContext,0)
+
 
         def NEWLINE(self):
             return self.getToken(YarcParser.NEWLINE, 0)
@@ -2144,31 +1947,29 @@ class YarcParser(YarcParserBase):
         def DEDENT(self):
             return self.getToken(YarcParser.DEDENT, 0)
 
-        def stmt(self, i: int = None):
+        def stmt(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.StmtContext)
             else:
-                return self.getTypedRuleContext(YarcParser.StmtContext, i)
+                return self.getTypedRuleContext(YarcParser.StmtContext,i)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_block
 
+
+
+
     def block(self):
+
         localctx = YarcParser.BlockContext(self, self._ctx, self.state)
         self.enterRule(localctx, 40, self.RULE_block)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 335
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [
-                YarcParser.NOT,
-                YarcParser.PASS,
-                YarcParser.BIT_NOT,
-                YarcParser.ADD,
-                YarcParser.MINUS,
-                YarcParser.STAR,
-            ]:
+            if token in [YarcParser.NOT, YarcParser.PASS, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS, YarcParser.STAR]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 325
                 self.simple_stmts()
@@ -2179,33 +1980,16 @@ class YarcParser(YarcParserBase):
                 self.match(YarcParser.NEWLINE)
                 self.state = 327
                 self.match(YarcParser.INDENT)
-                self.state = 329
+                self.state = 329 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 328
                     self.stmt()
-                    self.state = 331
+                    self.state = 331 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (
-                        ((_la) & ~0x3F) == 0
-                        and (
-                            (1 << _la)
-                            & (
-                                (1 << YarcParser.FOR)
-                                | (1 << YarcParser.IF)
-                                | (1 << YarcParser.NOT)
-                                | (1 << YarcParser.PASS)
-                                | (1 << YarcParser.WITH)
-                                | (1 << YarcParser.BIT_NOT)
-                                | (1 << YarcParser.ADD)
-                                | (1 << YarcParser.MINUS)
-                                | (1 << YarcParser.STAR)
-                            )
-                        )
-                        != 0
-                    ):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.FOR) | (1 << YarcParser.IF) | (1 << YarcParser.NOT) | (1 << YarcParser.PASS) | (1 << YarcParser.WITH) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS) | (1 << YarcParser.STAR))) != 0)):
                         break
 
                 self.state = 333
@@ -2222,38 +2006,44 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Subject_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Subject_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def star_named_expression(self):
-            return self.getTypedRuleContext(YarcParser.Star_named_expressionContext, 0)
+            return self.getTypedRuleContext(YarcParser.Star_named_expressionContext,0)
+
 
         def COMMA(self):
             return self.getToken(YarcParser.COMMA, 0)
 
         def star_named_expressions(self):
-            return self.getTypedRuleContext(YarcParser.Star_named_expressionsContext, 0)
+            return self.getTypedRuleContext(YarcParser.Star_named_expressionsContext,0)
+
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_subject_expr
 
+
+
+
     def subject_expr(self):
+
         localctx = YarcParser.Subject_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 42, self.RULE_subject_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 343
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 28, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,28,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 337
@@ -2263,9 +2053,10 @@ class YarcParser(YarcParserBase):
                 self.state = 340
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 339
                     self.star_named_expressions()
+
 
                 pass
 
@@ -2275,6 +2066,7 @@ class YarcParser(YarcParserBase):
                 self.test()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2283,73 +2075,61 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Star_named_expressionsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Star_named_expressionsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def COMMA(self, i: int = None):
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
                 return self.getToken(YarcParser.COMMA, i)
 
-        def star_named_expression(self, i: int = None):
+        def star_named_expression(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(
-                    YarcParser.Star_named_expressionContext
-                )
+                return self.getTypedRuleContexts(YarcParser.Star_named_expressionContext)
             else:
-                return self.getTypedRuleContext(
-                    YarcParser.Star_named_expressionContext, i
-                )
+                return self.getTypedRuleContext(YarcParser.Star_named_expressionContext,i)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_star_named_expressions
 
+
+
+
     def star_named_expressions(self):
+
         localctx = YarcParser.Star_named_expressionsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 44, self.RULE_star_named_expressions)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 345
             self.match(YarcParser.COMMA)
-            self.state = 347
+            self.state = 347 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
                 self.state = 346
                 self.star_named_expression()
-                self.state = 349
+                self.state = 349 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (
-                    ((_la) & ~0x3F) == 0
-                    and (
-                        (1 << _la)
-                        & (
-                            (1 << YarcParser.NOT)
-                            | (1 << YarcParser.BIT_NOT)
-                            | (1 << YarcParser.ADD)
-                            | (1 << YarcParser.MINUS)
-                            | (1 << YarcParser.STAR)
-                        )
-                    )
-                    != 0
-                ):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.NOT) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS) | (1 << YarcParser.STAR))) != 0)):
                     break
 
             self.state = 352
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 351
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -2359,12 +2139,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Star_named_expressionContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Star_named_expressionContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -2372,15 +2151,21 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.STAR, 0)
 
         def expr(self):
-            return self.getTypedRuleContext(YarcParser.ExprContext, 0)
+            return self.getTypedRuleContext(YarcParser.ExprContext,0)
+
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_star_named_expression
 
+
+
+
     def star_named_expression(self):
+
         localctx = YarcParser.Star_named_expressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 46, self.RULE_star_named_expression)
         try:
@@ -2394,12 +2179,7 @@ class YarcParser(YarcParserBase):
                 self.state = 355
                 self.expr()
                 pass
-            elif token in [
-                YarcParser.NOT,
-                YarcParser.BIT_NOT,
-                YarcParser.ADD,
-                YarcParser.MINUS,
-            ]:
+            elif token in [YarcParser.NOT, YarcParser.BIT_NOT, YarcParser.ADD, YarcParser.MINUS]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 356
                 self.test()
@@ -2415,12 +2195,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class GuardContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class GuardContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -2428,12 +2207,17 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.IF, 0)
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_guard
 
+
+
+
     def guard(self):
+
         localctx = YarcParser.GuardContext(self, self._ctx, self.state)
         self.enterRule(localctx, 48, self.RULE_guard)
         try:
@@ -2450,31 +2234,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class PatternsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class PatternsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def open_sequence_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Open_sequence_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Open_sequence_patternContext,0)
+
 
         def pattern(self):
-            return self.getTypedRuleContext(YarcParser.PatternContext, 0)
+            return self.getTypedRuleContext(YarcParser.PatternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_patterns
 
+
+
+
     def patterns(self):
+
         localctx = YarcParser.PatternsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 50, self.RULE_patterns)
         try:
             self.state = 364
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 32, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,32,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 362
@@ -2487,6 +2276,7 @@ class YarcParser(YarcParserBase):
                 self.pattern()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2495,31 +2285,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class PatternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class PatternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def as_pattern(self):
-            return self.getTypedRuleContext(YarcParser.As_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.As_patternContext,0)
+
 
         def or_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Or_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Or_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_pattern
 
+
+
+
     def pattern(self):
+
         localctx = YarcParser.PatternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 52, self.RULE_pattern)
         try:
             self.state = 368
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 33, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,33,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 366
@@ -2532,6 +2327,7 @@ class YarcParser(YarcParserBase):
                 self.or_pattern()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2540,28 +2336,33 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class As_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class As_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def or_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Or_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Or_patternContext,0)
+
 
         def AS(self):
             return self.getToken(YarcParser.AS, 0)
 
         def pattern_capture_target(self):
-            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext, 0)
+            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_as_pattern
 
+
+
+
     def as_pattern(self):
+
         localctx = YarcParser.As_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 54, self.RULE_as_pattern)
         try:
@@ -2580,22 +2381,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Or_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Or_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def closed_pattern(self, i: int = None):
+        def closed_pattern(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Closed_patternContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Closed_patternContext, i)
+                return self.getTypedRuleContext(YarcParser.Closed_patternContext,i)
 
-        def BIT_OR(self, i: int = None):
+
+        def BIT_OR(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.BIT_OR)
             else:
@@ -2604,10 +2405,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_or_pattern
 
+
+
+
     def or_pattern(self):
+
         localctx = YarcParser.Or_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 56, self.RULE_or_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 374
@@ -2615,7 +2420,7 @@ class YarcParser(YarcParserBase):
             self.state = 379
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.BIT_OR:
+            while _la==YarcParser.BIT_OR:
                 self.state = 375
                 self.match(YarcParser.BIT_OR)
                 self.state = 376
@@ -2632,49 +2437,60 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Closed_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Closed_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def literal_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Literal_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Literal_patternContext,0)
+
 
         def capture_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Capture_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Capture_patternContext,0)
+
 
         def wildcard_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Wildcard_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Wildcard_patternContext,0)
+
 
         def value_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Value_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Value_patternContext,0)
+
 
         def group_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Group_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Group_patternContext,0)
+
 
         def sequence_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Sequence_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Sequence_patternContext,0)
+
 
         def mapping_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Mapping_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Mapping_patternContext,0)
+
 
         def class_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Class_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Class_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_closed_pattern
 
+
+
+
     def closed_pattern(self):
+
         localctx = YarcParser.Closed_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 58, self.RULE_closed_pattern)
         try:
             self.state = 390
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 35, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,35,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 382
@@ -2723,6 +2539,7 @@ class YarcParser(YarcParserBase):
                 self.class_pattern()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2731,23 +2548,25 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Literal_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Literal_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def signed_number(self):
-            return self.getTypedRuleContext(YarcParser.Signed_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Signed_numberContext,0)
+
 
         def complex_number(self):
-            return self.getTypedRuleContext(YarcParser.Complex_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Complex_numberContext,0)
+
 
         def strings(self):
-            return self.getTypedRuleContext(YarcParser.StringsContext, 0)
+            return self.getTypedRuleContext(YarcParser.StringsContext,0)
+
 
         def NONE(self):
             return self.getToken(YarcParser.NONE, 0)
@@ -2761,24 +2580,25 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_literal_pattern
 
+
+
+
     def literal_pattern(self):
+
         localctx = YarcParser.Literal_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 60, self.RULE_literal_pattern)
         try:
             self.state = 400
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 36, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,36,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 392
                 self.signed_number()
                 self.state = 393
-                if not self.CannotBePlusMinus():
+                if not  self.CannotBePlusMinus() :
                     from antlr4.error.Errors import FailedPredicateException
-
-                    raise FailedPredicateException(
-                        self, " $parser.CannotBePlusMinus() "
-                    )
+                    raise FailedPredicateException(self, " $parser.CannotBePlusMinus() ")
                 pass
 
             elif la_ == 2:
@@ -2811,6 +2631,7 @@ class YarcParser(YarcParserBase):
                 self.match(YarcParser.FALSE)
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2819,23 +2640,25 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Literal_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Literal_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def signed_number(self):
-            return self.getTypedRuleContext(YarcParser.Signed_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Signed_numberContext,0)
+
 
         def complex_number(self):
-            return self.getTypedRuleContext(YarcParser.Complex_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Complex_numberContext,0)
+
 
         def strings(self):
-            return self.getTypedRuleContext(YarcParser.StringsContext, 0)
+            return self.getTypedRuleContext(YarcParser.StringsContext,0)
+
 
         def NONE(self):
             return self.getToken(YarcParser.NONE, 0)
@@ -2849,24 +2672,25 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_literal_expr
 
+
+
+
     def literal_expr(self):
+
         localctx = YarcParser.Literal_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 62, self.RULE_literal_expr)
         try:
             self.state = 410
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 37, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,37,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 402
                 self.signed_number()
                 self.state = 403
-                if not self.CannotBePlusMinus():
+                if not  self.CannotBePlusMinus() :
                     from antlr4.error.Errors import FailedPredicateException
-
-                    raise FailedPredicateException(
-                        self, " $parser.CannotBePlusMinus() "
-                    )
+                    raise FailedPredicateException(self, " $parser.CannotBePlusMinus() ")
                 pass
 
             elif la_ == 2:
@@ -2899,6 +2723,7 @@ class YarcParser(YarcParserBase):
                 self.match(YarcParser.FALSE)
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2907,23 +2732,24 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Complex_numberContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Complex_numberContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def signed_real_number(self):
-            return self.getTypedRuleContext(YarcParser.Signed_real_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Signed_real_numberContext,0)
+
 
         def ADD(self):
             return self.getToken(YarcParser.ADD, 0)
 
         def imaginary_number(self):
-            return self.getTypedRuleContext(YarcParser.Imaginary_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Imaginary_numberContext,0)
+
 
         def MINUS(self):
             return self.getToken(YarcParser.MINUS, 0)
@@ -2931,13 +2757,17 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_complex_number
 
+
+
+
     def complex_number(self):
+
         localctx = YarcParser.Complex_numberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 64, self.RULE_complex_number)
         try:
             self.state = 420
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 38, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,38,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 412
@@ -2958,6 +2788,7 @@ class YarcParser(YarcParserBase):
                 self.imaginary_number()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2966,12 +2797,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Signed_numberContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Signed_numberContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -2984,7 +2814,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_signed_number
 
+
+
+
     def signed_number(self):
+
         localctx = YarcParser.Signed_numberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 66, self.RULE_signed_number)
         try:
@@ -3014,17 +2848,17 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Signed_real_numberContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Signed_real_numberContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def real_number(self):
-            return self.getTypedRuleContext(YarcParser.Real_numberContext, 0)
+            return self.getTypedRuleContext(YarcParser.Real_numberContext,0)
+
 
         def MINUS(self):
             return self.getToken(YarcParser.MINUS, 0)
@@ -3032,7 +2866,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_signed_real_number
 
+
+
+
     def signed_real_number(self):
+
         localctx = YarcParser.Signed_real_numberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 68, self.RULE_signed_real_number)
         try:
@@ -3062,12 +2900,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Real_numberContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Real_numberContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3077,7 +2914,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_real_number
 
+
+
+
     def real_number(self):
+
         localctx = YarcParser.Real_numberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 70, self.RULE_real_number)
         try:
@@ -3092,12 +2933,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Imaginary_numberContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Imaginary_numberContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3107,7 +2947,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_imaginary_number
 
+
+
+
     def imaginary_number(self):
+
         localctx = YarcParser.Imaginary_numberContext(self, self._ctx, self.state)
         self.enterRule(localctx, 72, self.RULE_imaginary_number)
         try:
@@ -3122,22 +2966,26 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Capture_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Capture_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def pattern_capture_target(self):
-            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext, 0)
+            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_capture_pattern
 
+
+
+
     def capture_pattern(self):
+
         localctx = YarcParser.Capture_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 74, self.RULE_capture_pattern)
         try:
@@ -3152,22 +3000,26 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Pattern_capture_targetContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Pattern_capture_targetContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_pattern_capture_target
 
+
+
+
     def pattern_capture_target(self):
+
         localctx = YarcParser.Pattern_capture_targetContext(self, self._ctx, self.state)
         self.enterRule(localctx, 76, self.RULE_pattern_capture_target)
         try:
@@ -3175,9 +3027,8 @@ class YarcParser(YarcParserBase):
             self.state = 438
             self.name()
             self.state = 439
-            if not self.CannotBeDotLpEq():
+            if not  self.CannotBeDotLpEq() :
                 from antlr4.error.Errors import FailedPredicateException
-
                 raise FailedPredicateException(self, " $parser.CannotBeDotLpEq() ")
         except RecognitionException as re:
             localctx.exception = re
@@ -3187,12 +3038,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Wildcard_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Wildcard_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3202,7 +3052,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_wildcard_pattern
 
+
+
+
     def wildcard_pattern(self):
+
         localctx = YarcParser.Wildcard_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 78, self.RULE_wildcard_pattern)
         try:
@@ -3217,22 +3071,26 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Value_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Value_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def attr(self):
-            return self.getTypedRuleContext(YarcParser.AttrContext, 0)
+            return self.getTypedRuleContext(YarcParser.AttrContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_value_pattern
 
+
+
+
     def value_pattern(self):
+
         localctx = YarcParser.Value_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 80, self.RULE_value_pattern)
         try:
@@ -3240,9 +3098,8 @@ class YarcParser(YarcParserBase):
             self.state = 443
             self.attr()
             self.state = 444
-            if not self.CannotBeDotLpEq():
+            if not  self.CannotBeDotLpEq() :
                 from antlr4.error.Errors import FailedPredicateException
-
                 raise FailedPredicateException(self, " $parser.CannotBeDotLpEq() ")
         except RecognitionException as re:
             localctx.exception = re
@@ -3252,22 +3109,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class AttrContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class AttrContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def name(self, i: int = None):
+        def name(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.NameContext)
             else:
-                return self.getTypedRuleContext(YarcParser.NameContext, i)
+                return self.getTypedRuleContext(YarcParser.NameContext,i)
 
-        def DOT(self, i: int = None):
+
+        def DOT(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.DOT)
             else:
@@ -3276,17 +3133,21 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_attr
 
+
+
+
     def attr(self):
+
         localctx = YarcParser.AttrContext(self, self._ctx, self.state)
         self.enterRule(localctx, 82, self.RULE_attr)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 446
             self.name()
-            self.state = 449
+            self.state = 449 
             self._errHandler.sync(self)
             _alt = 1
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
                     self.state = 447
                     self.match(YarcParser.DOT)
@@ -3295,9 +3156,9 @@ class YarcParser(YarcParserBase):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 451
+                self.state = 451 
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 41, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,41,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -3307,31 +3168,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Name_or_attrContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Name_or_attrContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def attr(self):
-            return self.getTypedRuleContext(YarcParser.AttrContext, 0)
+            return self.getTypedRuleContext(YarcParser.AttrContext,0)
+
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_name_or_attr
 
+
+
+
     def name_or_attr(self):
+
         localctx = YarcParser.Name_or_attrContext(self, self._ctx, self.state)
         self.enterRule(localctx, 84, self.RULE_name_or_attr)
         try:
             self.state = 455
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 42, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,42,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 453
@@ -3344,6 +3210,7 @@ class YarcParser(YarcParserBase):
                 self.name()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -3352,12 +3219,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Group_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Group_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3365,7 +3231,8 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.LPAREN, 0)
 
         def pattern(self):
-            return self.getTypedRuleContext(YarcParser.PatternContext, 0)
+            return self.getTypedRuleContext(YarcParser.PatternContext,0)
+
 
         def RPAREN(self):
             return self.getToken(YarcParser.RPAREN, 0)
@@ -3373,7 +3240,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_group_pattern
 
+
+
+
     def group_pattern(self):
+
         localctx = YarcParser.Group_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 86, self.RULE_group_pattern)
         try:
@@ -3392,12 +3263,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Sequence_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Sequence_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3408,7 +3278,8 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.RBRACK, 0)
 
         def maybe_sequence_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Maybe_sequence_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Maybe_sequence_patternContext,0)
+
 
         def LPAREN(self):
             return self.getToken(YarcParser.LPAREN, 0)
@@ -3417,15 +3288,20 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.RPAREN, 0)
 
         def open_sequence_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Open_sequence_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Open_sequence_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_sequence_pattern
 
+
+
+
     def sequence_pattern(self):
+
         localctx = YarcParser.Sequence_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 88, self.RULE_sequence_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 471
             self._errHandler.sync(self)
@@ -3437,25 +3313,10 @@ class YarcParser(YarcParserBase):
                 self.state = 463
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if ((_la - 33) & ~0x3F) == 0 and (
-                    (1 << (_la - 33))
-                    & (
-                        (1 << (YarcParser.FALSE - 33))
-                        | (1 << (YarcParser.NONE - 33))
-                        | (1 << (YarcParser.TRUE - 33))
-                        | (1 << (YarcParser.UNDERSCORE - 33))
-                        | (1 << (YarcParser.MINUS - 33))
-                        | (1 << (YarcParser.STAR - 33))
-                        | (1 << (YarcParser.LPAREN - 33))
-                        | (1 << (YarcParser.LBRACK - 33))
-                        | (1 << (YarcParser.LBRACE - 33))
-                        | (1 << (YarcParser.STRING - 33))
-                        | (1 << (YarcParser.NUMBER - 33))
-                        | (1 << (YarcParser.NAME - 33))
-                    )
-                ) != 0:
+                if ((((_la - 33)) & ~0x3f) == 0 and ((1 << (_la - 33)) & ((1 << (YarcParser.FALSE - 33)) | (1 << (YarcParser.NONE - 33)) | (1 << (YarcParser.TRUE - 33)) | (1 << (YarcParser.UNDERSCORE - 33)) | (1 << (YarcParser.MINUS - 33)) | (1 << (YarcParser.STAR - 33)) | (1 << (YarcParser.LPAREN - 33)) | (1 << (YarcParser.LBRACK - 33)) | (1 << (YarcParser.LBRACE - 33)) | (1 << (YarcParser.STRING - 33)) | (1 << (YarcParser.NUMBER - 33)) | (1 << (YarcParser.NAME - 33)))) != 0):
                     self.state = 462
                     self.maybe_sequence_pattern()
+
 
                 self.state = 465
                 self.match(YarcParser.RBRACK)
@@ -3467,25 +3328,10 @@ class YarcParser(YarcParserBase):
                 self.state = 468
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if ((_la - 33) & ~0x3F) == 0 and (
-                    (1 << (_la - 33))
-                    & (
-                        (1 << (YarcParser.FALSE - 33))
-                        | (1 << (YarcParser.NONE - 33))
-                        | (1 << (YarcParser.TRUE - 33))
-                        | (1 << (YarcParser.UNDERSCORE - 33))
-                        | (1 << (YarcParser.MINUS - 33))
-                        | (1 << (YarcParser.STAR - 33))
-                        | (1 << (YarcParser.LPAREN - 33))
-                        | (1 << (YarcParser.LBRACK - 33))
-                        | (1 << (YarcParser.LBRACE - 33))
-                        | (1 << (YarcParser.STRING - 33))
-                        | (1 << (YarcParser.NUMBER - 33))
-                        | (1 << (YarcParser.NAME - 33))
-                    )
-                ) != 0:
+                if ((((_la - 33)) & ~0x3f) == 0 and ((1 << (_la - 33)) & ((1 << (YarcParser.FALSE - 33)) | (1 << (YarcParser.NONE - 33)) | (1 << (YarcParser.TRUE - 33)) | (1 << (YarcParser.UNDERSCORE - 33)) | (1 << (YarcParser.MINUS - 33)) | (1 << (YarcParser.STAR - 33)) | (1 << (YarcParser.LPAREN - 33)) | (1 << (YarcParser.LBRACK - 33)) | (1 << (YarcParser.LBRACE - 33)) | (1 << (YarcParser.STRING - 33)) | (1 << (YarcParser.NUMBER - 33)) | (1 << (YarcParser.NAME - 33)))) != 0):
                     self.state = 467
                     self.open_sequence_pattern()
+
 
                 self.state = 470
                 self.match(YarcParser.RPAREN)
@@ -3501,31 +3347,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Open_sequence_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Open_sequence_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def maybe_star_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Maybe_star_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Maybe_star_patternContext,0)
+
 
         def COMMA(self):
             return self.getToken(YarcParser.COMMA, 0)
 
         def maybe_sequence_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Maybe_sequence_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Maybe_sequence_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_open_sequence_pattern
 
+
+
+
     def open_sequence_pattern(self):
+
         localctx = YarcParser.Open_sequence_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 90, self.RULE_open_sequence_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 473
@@ -3535,25 +3386,10 @@ class YarcParser(YarcParserBase):
             self.state = 476
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((_la - 33) & ~0x3F) == 0 and (
-                (1 << (_la - 33))
-                & (
-                    (1 << (YarcParser.FALSE - 33))
-                    | (1 << (YarcParser.NONE - 33))
-                    | (1 << (YarcParser.TRUE - 33))
-                    | (1 << (YarcParser.UNDERSCORE - 33))
-                    | (1 << (YarcParser.MINUS - 33))
-                    | (1 << (YarcParser.STAR - 33))
-                    | (1 << (YarcParser.LPAREN - 33))
-                    | (1 << (YarcParser.LBRACK - 33))
-                    | (1 << (YarcParser.LBRACE - 33))
-                    | (1 << (YarcParser.STRING - 33))
-                    | (1 << (YarcParser.NUMBER - 33))
-                    | (1 << (YarcParser.NAME - 33))
-                )
-            ) != 0:
+            if ((((_la - 33)) & ~0x3f) == 0 and ((1 << (_la - 33)) & ((1 << (YarcParser.FALSE - 33)) | (1 << (YarcParser.NONE - 33)) | (1 << (YarcParser.TRUE - 33)) | (1 << (YarcParser.UNDERSCORE - 33)) | (1 << (YarcParser.MINUS - 33)) | (1 << (YarcParser.STAR - 33)) | (1 << (YarcParser.LPAREN - 33)) | (1 << (YarcParser.LBRACK - 33)) | (1 << (YarcParser.LBRACE - 33)) | (1 << (YarcParser.STRING - 33)) | (1 << (YarcParser.NUMBER - 33)) | (1 << (YarcParser.NAME - 33)))) != 0):
                 self.state = 475
                 self.maybe_sequence_pattern()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -3563,22 +3399,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Maybe_sequence_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Maybe_sequence_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def maybe_star_pattern(self, i: int = None):
+        def maybe_star_pattern(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Maybe_star_patternContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Maybe_star_patternContext, i)
+                return self.getTypedRuleContext(YarcParser.Maybe_star_patternContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -3587,33 +3423,38 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_maybe_sequence_pattern
 
+
+
+
     def maybe_sequence_pattern(self):
+
         localctx = YarcParser.Maybe_sequence_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 92, self.RULE_maybe_sequence_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 478
             self.maybe_star_pattern()
             self.state = 483
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 47, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,47,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 479
                     self.match(YarcParser.COMMA)
                     self.state = 480
-                    self.maybe_star_pattern()
+                    self.maybe_star_pattern() 
                 self.state = 485
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 47, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,47,self._ctx)
 
             self.state = 487
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 486
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -3623,25 +3464,30 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Maybe_star_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Maybe_star_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def star_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Star_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Star_patternContext,0)
+
 
         def pattern(self):
-            return self.getTypedRuleContext(YarcParser.PatternContext, 0)
+            return self.getTypedRuleContext(YarcParser.PatternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_maybe_star_pattern
 
+
+
+
     def maybe_star_pattern(self):
+
         localctx = YarcParser.Maybe_star_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 94, self.RULE_maybe_star_pattern)
         try:
@@ -3653,19 +3499,7 @@ class YarcParser(YarcParserBase):
                 self.state = 489
                 self.star_pattern()
                 pass
-            elif token in [
-                YarcParser.FALSE,
-                YarcParser.NONE,
-                YarcParser.TRUE,
-                YarcParser.UNDERSCORE,
-                YarcParser.MINUS,
-                YarcParser.LPAREN,
-                YarcParser.LBRACK,
-                YarcParser.LBRACE,
-                YarcParser.STRING,
-                YarcParser.NUMBER,
-                YarcParser.NAME,
-            ]:
+            elif token in [YarcParser.FALSE, YarcParser.NONE, YarcParser.TRUE, YarcParser.UNDERSCORE, YarcParser.MINUS, YarcParser.LPAREN, YarcParser.LBRACK, YarcParser.LBRACE, YarcParser.STRING, YarcParser.NUMBER, YarcParser.NAME]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 490
                 self.pattern()
@@ -3681,12 +3515,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Star_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Star_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3694,21 +3527,27 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.STAR, 0)
 
         def pattern_capture_target(self):
-            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext, 0)
+            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext,0)
+
 
         def wildcard_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Wildcard_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Wildcard_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_star_pattern
 
+
+
+
     def star_pattern(self):
+
         localctx = YarcParser.Star_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 96, self.RULE_star_pattern)
         try:
             self.state = 497
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 50, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,50,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 493
@@ -3725,6 +3564,7 @@ class YarcParser(YarcParserBase):
                 self.wildcard_pattern()
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -3733,12 +3573,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Mapping_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Mapping_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3749,28 +3588,34 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.RBRACE, 0)
 
         def double_star_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Double_star_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Double_star_patternContext,0)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
                 return self.getToken(YarcParser.COMMA, i)
 
         def items_pattern(self):
-            return self.getTypedRuleContext(YarcParser.Items_patternContext, 0)
+            return self.getTypedRuleContext(YarcParser.Items_patternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_mapping_pattern
 
+
+
+
     def mapping_pattern(self):
+
         localctx = YarcParser.Mapping_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 98, self.RULE_mapping_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 524
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 54, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,54,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 499
@@ -3788,9 +3633,10 @@ class YarcParser(YarcParserBase):
                 self.state = 504
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 503
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 506
                 self.match(YarcParser.RBRACE)
@@ -3809,9 +3655,10 @@ class YarcParser(YarcParserBase):
                 self.state = 513
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 512
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 515
                 self.match(YarcParser.RBRACE)
@@ -3826,13 +3673,15 @@ class YarcParser(YarcParserBase):
                 self.state = 520
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 519
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 522
                 self.match(YarcParser.RBRACE)
                 pass
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -3842,22 +3691,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Items_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Items_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def key_value_pattern(self, i: int = None):
+        def key_value_pattern(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Key_value_patternContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Key_value_patternContext, i)
+                return self.getTypedRuleContext(YarcParser.Key_value_patternContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -3866,7 +3715,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_items_pattern
 
+
+
+
     def items_pattern(self):
+
         localctx = YarcParser.Items_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 100, self.RULE_items_pattern)
         try:
@@ -3875,16 +3728,16 @@ class YarcParser(YarcParserBase):
             self.key_value_pattern()
             self.state = 531
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 55, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,55,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 527
                     self.match(YarcParser.COMMA)
                     self.state = 528
-                    self.key_value_pattern()
+                    self.key_value_pattern() 
                 self.state = 533
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 55, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,55,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -3894,12 +3747,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Key_value_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Key_value_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3907,18 +3759,25 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.COLON, 0)
 
         def pattern(self):
-            return self.getTypedRuleContext(YarcParser.PatternContext, 0)
+            return self.getTypedRuleContext(YarcParser.PatternContext,0)
+
 
         def literal_expr(self):
-            return self.getTypedRuleContext(YarcParser.Literal_exprContext, 0)
+            return self.getTypedRuleContext(YarcParser.Literal_exprContext,0)
+
 
         def attr(self):
-            return self.getTypedRuleContext(YarcParser.AttrContext, 0)
+            return self.getTypedRuleContext(YarcParser.AttrContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_key_value_pattern
 
+
+
+
     def key_value_pattern(self):
+
         localctx = YarcParser.Key_value_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 102, self.RULE_key_value_pattern)
         try:
@@ -3926,14 +3785,7 @@ class YarcParser(YarcParserBase):
             self.state = 536
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [
-                YarcParser.FALSE,
-                YarcParser.NONE,
-                YarcParser.TRUE,
-                YarcParser.MINUS,
-                YarcParser.STRING,
-                YarcParser.NUMBER,
-            ]:
+            if token in [YarcParser.FALSE, YarcParser.NONE, YarcParser.TRUE, YarcParser.MINUS, YarcParser.STRING, YarcParser.NUMBER]:
                 self.state = 534
                 self.literal_expr()
                 pass
@@ -3956,12 +3808,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Double_star_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Double_star_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -3969,12 +3820,17 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.POWER, 0)
 
         def pattern_capture_target(self):
-            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext, 0)
+            return self.getTypedRuleContext(YarcParser.Pattern_capture_targetContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_double_star_pattern
 
+
+
+
     def double_star_pattern(self):
+
         localctx = YarcParser.Double_star_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 104, self.RULE_double_star_pattern)
         try:
@@ -3991,17 +3847,17 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Class_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Class_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def name_or_attr(self):
-            return self.getTypedRuleContext(YarcParser.Name_or_attrContext, 0)
+            return self.getTypedRuleContext(YarcParser.Name_or_attrContext,0)
+
 
         def LPAREN(self):
             return self.getToken(YarcParser.LPAREN, 0)
@@ -4010,28 +3866,34 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.RPAREN, 0)
 
         def positional_patterns(self):
-            return self.getTypedRuleContext(YarcParser.Positional_patternsContext, 0)
+            return self.getTypedRuleContext(YarcParser.Positional_patternsContext,0)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
                 return self.getToken(YarcParser.COMMA, i)
 
         def keyword_patterns(self):
-            return self.getTypedRuleContext(YarcParser.Keyword_patternsContext, 0)
+            return self.getTypedRuleContext(YarcParser.Keyword_patternsContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_class_pattern
 
+
+
+
     def class_pattern(self):
+
         localctx = YarcParser.Class_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 106, self.RULE_class_pattern)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 574
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 60, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,60,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 544
@@ -4053,9 +3915,10 @@ class YarcParser(YarcParserBase):
                 self.state = 552
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 551
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 554
                 self.match(YarcParser.RPAREN)
@@ -4072,9 +3935,10 @@ class YarcParser(YarcParserBase):
                 self.state = 560
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 559
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 562
                 self.match(YarcParser.RPAREN)
@@ -4095,13 +3959,15 @@ class YarcParser(YarcParserBase):
                 self.state = 570
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COMMA:
+                if _la==YarcParser.COMMA:
                     self.state = 569
                     self.match(YarcParser.COMMA)
+
 
                 self.state = 572
                 self.match(YarcParser.RPAREN)
                 pass
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -4111,22 +3977,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Positional_patternsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Positional_patternsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def pattern(self, i: int = None):
+        def pattern(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.PatternContext)
             else:
-                return self.getTypedRuleContext(YarcParser.PatternContext, i)
+                return self.getTypedRuleContext(YarcParser.PatternContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -4135,7 +4001,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_positional_patterns
 
+
+
+
     def positional_patterns(self):
+
         localctx = YarcParser.Positional_patternsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 108, self.RULE_positional_patterns)
         try:
@@ -4144,16 +4014,16 @@ class YarcParser(YarcParserBase):
             self.pattern()
             self.state = 581
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 61, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,61,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 577
                     self.match(YarcParser.COMMA)
                     self.state = 578
-                    self.pattern()
+                    self.pattern() 
                 self.state = 583
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 61, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,61,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -4163,22 +4033,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Keyword_patternsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Keyword_patternsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def keyword_pattern(self, i: int = None):
+        def keyword_pattern(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Keyword_patternContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Keyword_patternContext, i)
+                return self.getTypedRuleContext(YarcParser.Keyword_patternContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -4187,7 +4057,11 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_keyword_patterns
 
+
+
+
     def keyword_patterns(self):
+
         localctx = YarcParser.Keyword_patternsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 110, self.RULE_keyword_patterns)
         try:
@@ -4196,16 +4070,16 @@ class YarcParser(YarcParserBase):
             self.keyword_pattern()
             self.state = 589
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 62, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,62,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 585
                     self.match(YarcParser.COMMA)
                     self.state = 586
-                    self.keyword_pattern()
+                    self.keyword_pattern() 
                 self.state = 591
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 62, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,62,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -4215,28 +4089,33 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Keyword_patternContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Keyword_patternContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def ASSIGN(self):
             return self.getToken(YarcParser.ASSIGN, 0)
 
         def pattern(self):
-            return self.getTypedRuleContext(YarcParser.PatternContext, 0)
+            return self.getTypedRuleContext(YarcParser.PatternContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_keyword_pattern
 
+
+
+
     def keyword_pattern(self):
+
         localctx = YarcParser.Keyword_patternContext(self, self._ctx, self.state)
         self.enterRule(localctx, 112, self.RULE_keyword_pattern)
         try:
@@ -4255,20 +4134,20 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class TestContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class TestContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def or_test(self, i: int = None):
+        def or_test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Or_testContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Or_testContext, i)
+                return self.getTypedRuleContext(YarcParser.Or_testContext,i)
+
 
         def IF(self):
             return self.getToken(YarcParser.IF, 0)
@@ -4277,15 +4156,20 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.ELSE, 0)
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_test
 
+
+
+
     def test(self):
+
         localctx = YarcParser.TestContext(self, self._ctx, self.state)
         self.enterRule(localctx, 114, self.RULE_test)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 596
@@ -4293,7 +4177,7 @@ class YarcParser(YarcParserBase):
             self.state = 602
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.IF:
+            if _la==YarcParser.IF:
                 self.state = 597
                 self.match(YarcParser.IF)
                 self.state = 598
@@ -4303,6 +4187,7 @@ class YarcParser(YarcParserBase):
                 self.state = 600
                 self.test()
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -4311,22 +4196,26 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Test_nocondContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Test_nocondContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def or_test(self):
-            return self.getTypedRuleContext(YarcParser.Or_testContext, 0)
+            return self.getTypedRuleContext(YarcParser.Or_testContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_test_nocond
 
+
+
+
     def test_nocond(self):
+
         localctx = YarcParser.Test_nocondContext(self, self._ctx, self.state)
         self.enterRule(localctx, 116, self.RULE_test_nocond)
         try:
@@ -4341,22 +4230,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Or_testContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Or_testContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def and_test(self, i: int = None):
+        def and_test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.And_testContext)
             else:
-                return self.getTypedRuleContext(YarcParser.And_testContext, i)
+                return self.getTypedRuleContext(YarcParser.And_testContext,i)
 
-        def OR(self, i: int = None):
+
+        def OR(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.OR)
             else:
@@ -4365,10 +4254,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_or_test
 
+
+
+
     def or_test(self):
+
         localctx = YarcParser.Or_testContext(self, self._ctx, self.state)
         self.enterRule(localctx, 118, self.RULE_or_test)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 606
@@ -4376,7 +4269,7 @@ class YarcParser(YarcParserBase):
             self.state = 611
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.OR:
+            while _la==YarcParser.OR:
                 self.state = 607
                 self.match(YarcParser.OR)
                 self.state = 608
@@ -4393,22 +4286,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class And_testContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class And_testContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def not_test(self, i: int = None):
+        def not_test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Not_testContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Not_testContext, i)
+                return self.getTypedRuleContext(YarcParser.Not_testContext,i)
 
-        def AND(self, i: int = None):
+
+        def AND(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.AND)
             else:
@@ -4417,10 +4310,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_and_test
 
+
+
+
     def and_test(self):
+
         localctx = YarcParser.And_testContext(self, self._ctx, self.state)
         self.enterRule(localctx, 120, self.RULE_and_test)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 614
@@ -4428,7 +4325,7 @@ class YarcParser(YarcParserBase):
             self.state = 619
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.AND:
+            while _la==YarcParser.AND:
                 self.state = 615
                 self.match(YarcParser.AND)
                 self.state = 616
@@ -4445,12 +4342,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Not_testContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Not_testContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -4458,15 +4354,21 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.NOT, 0)
 
         def not_test(self):
-            return self.getTypedRuleContext(YarcParser.Not_testContext, 0)
+            return self.getTypedRuleContext(YarcParser.Not_testContext,0)
+
 
         def comparison(self):
-            return self.getTypedRuleContext(YarcParser.ComparisonContext, 0)
+            return self.getTypedRuleContext(YarcParser.ComparisonContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_not_test
 
+
+
+
     def not_test(self):
+
         localctx = YarcParser.Not_testContext(self, self._ctx, self.state)
         self.enterRule(localctx, 122, self.RULE_not_test)
         try:
@@ -4496,31 +4398,36 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class ComparisonContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class ComparisonContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def expr(self, i: int = None):
+        def expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.ExprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.ExprContext, i)
+                return self.getTypedRuleContext(YarcParser.ExprContext,i)
 
-        def comp_op(self, i: int = None):
+
+        def comp_op(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Comp_opContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Comp_opContext, i)
+                return self.getTypedRuleContext(YarcParser.Comp_opContext,i)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_comparison
 
+
+
+
     def comparison(self):
+
         localctx = YarcParser.ComparisonContext(self, self._ctx, self.state)
         self.enterRule(localctx, 124, self.RULE_comparison)
         try:
@@ -4529,16 +4436,16 @@ class YarcParser(YarcParserBase):
             self.expr()
             self.state = 633
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 67, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,67,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 628
                     self.comp_op()
                     self.state = 629
-                    self.expr()
+                    self.expr() 
                 self.state = 635
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 67, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,67,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -4548,12 +4455,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Comp_opContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Comp_opContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -4587,13 +4493,17 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_comp_op
 
+
+
+
     def comp_op(self):
+
         localctx = YarcParser.Comp_opContext(self, self._ctx, self.state)
         self.enterRule(localctx, 126, self.RULE_comp_op)
         try:
             self.state = 648
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 68, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,68,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 636
@@ -4658,6 +4568,7 @@ class YarcParser(YarcParserBase):
                 self.match(YarcParser.NOT)
                 pass
 
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -4666,12 +4577,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Star_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Star_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -4679,12 +4589,17 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.STAR, 0)
 
         def expr(self):
-            return self.getTypedRuleContext(YarcParser.ExprContext, 0)
+            return self.getTypedRuleContext(YarcParser.ExprContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_star_expr
 
+
+
+
     def star_expr(self):
+
         localctx = YarcParser.Star_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 128, self.RULE_star_expr)
         try:
@@ -4701,22 +4616,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class ExprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class ExprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def xor_expr(self, i: int = None):
+        def xor_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Xor_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Xor_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Xor_exprContext,i)
 
-        def BIT_OR(self, i: int = None):
+
+        def BIT_OR(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.BIT_OR)
             else:
@@ -4725,10 +4640,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_expr
 
+
+
+
     def expr(self):
+
         localctx = YarcParser.ExprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 130, self.RULE_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 653
@@ -4736,7 +4655,7 @@ class YarcParser(YarcParserBase):
             self.state = 658
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.BIT_OR:
+            while _la==YarcParser.BIT_OR:
                 self.state = 654
                 self.match(YarcParser.BIT_OR)
                 self.state = 655
@@ -4753,22 +4672,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Xor_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Xor_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def and_expr(self, i: int = None):
+        def and_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.And_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.And_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.And_exprContext,i)
 
-        def XOR(self, i: int = None):
+
+        def XOR(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.XOR)
             else:
@@ -4777,10 +4696,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_xor_expr
 
+
+
+
     def xor_expr(self):
+
         localctx = YarcParser.Xor_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 132, self.RULE_xor_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 661
@@ -4788,7 +4711,7 @@ class YarcParser(YarcParserBase):
             self.state = 666
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.XOR:
+            while _la==YarcParser.XOR:
                 self.state = 662
                 self.match(YarcParser.XOR)
                 self.state = 663
@@ -4805,22 +4728,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class And_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class And_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def shift_expr(self, i: int = None):
+        def shift_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Shift_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Shift_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Shift_exprContext,i)
 
-        def BIT_AND(self, i: int = None):
+
+        def BIT_AND(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.BIT_AND)
             else:
@@ -4829,10 +4752,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_and_expr
 
+
+
+
     def and_expr(self):
+
         localctx = YarcParser.And_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 134, self.RULE_and_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 669
@@ -4840,7 +4767,7 @@ class YarcParser(YarcParserBase):
             self.state = 674
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.BIT_AND:
+            while _la==YarcParser.BIT_AND:
                 self.state = 670
                 self.match(YarcParser.BIT_AND)
                 self.state = 671
@@ -4857,28 +4784,28 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Shift_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Shift_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def arith_expr(self, i: int = None):
+        def arith_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Arith_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Arith_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Arith_exprContext,i)
 
-        def LEFT_SHIFT(self, i: int = None):
+
+        def LEFT_SHIFT(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.LEFT_SHIFT)
             else:
                 return self.getToken(YarcParser.LEFT_SHIFT, i)
 
-        def RIGHT_SHIFT(self, i: int = None):
+        def RIGHT_SHIFT(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.RIGHT_SHIFT)
             else:
@@ -4887,10 +4814,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_shift_expr
 
+
+
+
     def shift_expr(self):
+
         localctx = YarcParser.Shift_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 136, self.RULE_shift_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 677
@@ -4898,10 +4829,10 @@ class YarcParser(YarcParserBase):
             self.state = 682
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la == YarcParser.LEFT_SHIFT or _la == YarcParser.RIGHT_SHIFT:
+            while _la==YarcParser.LEFT_SHIFT or _la==YarcParser.RIGHT_SHIFT:
                 self.state = 678
                 _la = self._input.LA(1)
-                if not (_la == YarcParser.LEFT_SHIFT or _la == YarcParser.RIGHT_SHIFT):
+                if not(_la==YarcParser.LEFT_SHIFT or _la==YarcParser.RIGHT_SHIFT):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -4920,28 +4851,28 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Arith_exprContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Arith_exprContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def term(self, i: int = None):
+        def term(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TermContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TermContext, i)
+                return self.getTypedRuleContext(YarcParser.TermContext,i)
 
-        def ADD(self, i: int = None):
+
+        def ADD(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.ADD)
             else:
                 return self.getToken(YarcParser.ADD, i)
 
-        def MINUS(self, i: int = None):
+        def MINUS(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.MINUS)
             else:
@@ -4950,31 +4881,35 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_arith_expr
 
+
+
+
     def arith_expr(self):
+
         localctx = YarcParser.Arith_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 138, self.RULE_arith_expr)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 685
             self.term()
             self.state = 690
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 73, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,73,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 686
                     _la = self._input.LA(1)
-                    if not (_la == YarcParser.ADD or _la == YarcParser.MINUS):
+                    if not(_la==YarcParser.ADD or _la==YarcParser.MINUS):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
                     self.state = 687
-                    self.term()
+                    self.term() 
                 self.state = 692
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 73, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,73,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -4984,46 +4919,46 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class TermContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class TermContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def factor(self, i: int = None):
+        def factor(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.FactorContext)
             else:
-                return self.getTypedRuleContext(YarcParser.FactorContext, i)
+                return self.getTypedRuleContext(YarcParser.FactorContext,i)
 
-        def STAR(self, i: int = None):
+
+        def STAR(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.STAR)
             else:
                 return self.getToken(YarcParser.STAR, i)
 
-        def AT(self, i: int = None):
+        def AT(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.AT)
             else:
                 return self.getToken(YarcParser.AT, i)
 
-        def DIV(self, i: int = None):
+        def DIV(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.DIV)
             else:
                 return self.getToken(YarcParser.DIV, i)
 
-        def MOD(self, i: int = None):
+        def MOD(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.MOD)
             else:
                 return self.getToken(YarcParser.MOD, i)
 
-        def IDIV(self, i: int = None):
+        def IDIV(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.IDIV)
             else:
@@ -5032,44 +4967,35 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_term
 
+
+
+
     def term(self):
+
         localctx = YarcParser.TermContext(self, self._ctx, self.state)
         self.enterRule(localctx, 140, self.RULE_term)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 693
             self.factor()
             self.state = 698
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 74, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,74,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 694
                     _la = self._input.LA(1)
-                    if not (
-                        ((_la - 61) & ~0x3F) == 0
-                        and (
-                            (1 << (_la - 61))
-                            & (
-                                (1 << (YarcParser.DIV - 61))
-                                | (1 << (YarcParser.STAR - 61))
-                                | (1 << (YarcParser.MOD - 61))
-                                | (1 << (YarcParser.IDIV - 61))
-                                | (1 << (YarcParser.AT - 61))
-                            )
-                        )
-                        != 0
-                    ):
+                    if not(((((_la - 61)) & ~0x3f) == 0 and ((1 << (_la - 61)) & ((1 << (YarcParser.DIV - 61)) | (1 << (YarcParser.STAR - 61)) | (1 << (YarcParser.MOD - 61)) | (1 << (YarcParser.IDIV - 61)) | (1 << (YarcParser.AT - 61)))) != 0)):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
                     self.state = 695
-                    self.factor()
+                    self.factor() 
                 self.state = 700
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 74, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,74,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5079,17 +5005,17 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class FactorContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class FactorContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def factor(self):
-            return self.getTypedRuleContext(YarcParser.FactorContext, 0)
+            return self.getTypedRuleContext(YarcParser.FactorContext,0)
+
 
         def ADD(self):
             return self.getToken(YarcParser.ADD, 0)
@@ -5103,26 +5029,19 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_factor
 
+
+
+
     def factor(self):
+
         localctx = YarcParser.FactorContext(self, self._ctx, self.state)
         self.enterRule(localctx, 142, self.RULE_factor)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 701
             _la = self._input.LA(1)
-            if not (
-                ((_la) & ~0x3F) == 0
-                and (
-                    (1 << _la)
-                    & (
-                        (1 << YarcParser.BIT_NOT)
-                        | (1 << YarcParser.ADD)
-                        | (1 << YarcParser.MINUS)
-                    )
-                )
-                != 0
-            ):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -5137,22 +5056,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class AtomContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class AtomContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def NUMBER(self):
             return self.getToken(YarcParser.NUMBER, 0)
 
-        def STRING(self, i: int = None):
+        def STRING(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.STRING)
             else:
@@ -5173,10 +5092,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_atom
 
+
+
+
     def atom(self):
+
         localctx = YarcParser.AtomContext(self, self._ctx, self.state)
         self.enterRule(localctx, 144, self.RULE_atom)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 715
             self._errHandler.sync(self)
@@ -5193,16 +5116,16 @@ class YarcParser(YarcParserBase):
                 pass
             elif token in [YarcParser.STRING]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 707
+                self.state = 707 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 706
                     self.match(YarcParser.STRING)
-                    self.state = 709
+                    self.state = 709 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (_la == YarcParser.STRING):
+                    if not (_la==YarcParser.STRING):
                         break
 
                 pass
@@ -5237,12 +5160,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class NameContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class NameContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -5255,15 +5177,19 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_name
 
+
+
+
     def name(self):
+
         localctx = YarcParser.NameContext(self, self._ctx, self.state)
         self.enterRule(localctx, 146, self.RULE_name)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 717
             _la = self._input.LA(1)
-            if not (_la == YarcParser.UNDERSCORE or _la == YarcParser.NAME):
+            if not(_la==YarcParser.UNDERSCORE or _la==YarcParser.NAME):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -5276,22 +5202,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class SubscriptlistContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class SubscriptlistContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def subscript_(self, i: int = None):
+        def subscript_(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Subscript_Context)
             else:
-                return self.getTypedRuleContext(YarcParser.Subscript_Context, i)
+                return self.getTypedRuleContext(YarcParser.Subscript_Context,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -5300,33 +5226,38 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_subscriptlist
 
+
+
+
     def subscriptlist(self):
+
         localctx = YarcParser.SubscriptlistContext(self, self._ctx, self.state)
         self.enterRule(localctx, 148, self.RULE_subscriptlist)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 719
             self.subscript_()
             self.state = 724
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 77, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,77,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 720
                     self.match(YarcParser.COMMA)
                     self.state = 721
-                    self.subscript_()
+                    self.subscript_() 
                 self.state = 726
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 77, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,77,self._ctx)
 
             self.state = 728
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 727
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5336,38 +5267,43 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Subscript_Context(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Subscript_Context(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def test(self, i: int = None):
+        def test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TestContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TestContext, i)
+                return self.getTypedRuleContext(YarcParser.TestContext,i)
+
 
         def COLON(self):
             return self.getToken(YarcParser.COLON, 0)
 
         def sliceop(self):
-            return self.getTypedRuleContext(YarcParser.SliceopContext, 0)
+            return self.getTypedRuleContext(YarcParser.SliceopContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_subscript_
 
+
+
+
     def subscript_(self):
+
         localctx = YarcParser.Subscript_Context(self, self._ctx, self.state)
         self.enterRule(localctx, 150, self.RULE_subscript_)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.state = 741
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input, 82, self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,82,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 730
@@ -5379,43 +5315,31 @@ class YarcParser(YarcParserBase):
                 self.state = 732
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if ((_la) & ~0x3F) == 0 and (
-                    (1 << _la)
-                    & (
-                        (1 << YarcParser.NOT)
-                        | (1 << YarcParser.BIT_NOT)
-                        | (1 << YarcParser.ADD)
-                        | (1 << YarcParser.MINUS)
-                    )
-                ) != 0:
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.NOT) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS))) != 0):
                     self.state = 731
                     self.test()
+
 
                 self.state = 734
                 self.match(YarcParser.COLON)
                 self.state = 736
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if ((_la) & ~0x3F) == 0 and (
-                    (1 << _la)
-                    & (
-                        (1 << YarcParser.NOT)
-                        | (1 << YarcParser.BIT_NOT)
-                        | (1 << YarcParser.ADD)
-                        | (1 << YarcParser.MINUS)
-                    )
-                ) != 0:
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.NOT) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS))) != 0):
                     self.state = 735
                     self.test()
+
 
                 self.state = 739
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if _la == YarcParser.COLON:
+                if _la==YarcParser.COLON:
                     self.state = 738
                     self.sliceop()
 
+
                 pass
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5425,12 +5349,11 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class SliceopContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class SliceopContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -5438,15 +5361,20 @@ class YarcParser(YarcParserBase):
             return self.getToken(YarcParser.COLON, 0)
 
         def test(self):
-            return self.getTypedRuleContext(YarcParser.TestContext, 0)
+            return self.getTypedRuleContext(YarcParser.TestContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_sliceop
 
+
+
+
     def sliceop(self):
+
         localctx = YarcParser.SliceopContext(self, self._ctx, self.state)
         self.enterRule(localctx, 152, self.RULE_sliceop)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 743
@@ -5454,17 +5382,10 @@ class YarcParser(YarcParserBase):
             self.state = 745
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((_la) & ~0x3F) == 0 and (
-                (1 << _la)
-                & (
-                    (1 << YarcParser.NOT)
-                    | (1 << YarcParser.BIT_NOT)
-                    | (1 << YarcParser.ADD)
-                    | (1 << YarcParser.MINUS)
-                )
-            ) != 0:
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << YarcParser.NOT) | (1 << YarcParser.BIT_NOT) | (1 << YarcParser.ADD) | (1 << YarcParser.MINUS))) != 0):
                 self.state = 744
                 self.test()
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5474,28 +5395,29 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class ExprlistContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class ExprlistContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def expr(self, i: int = None):
+        def expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.ExprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.ExprContext, i)
+                return self.getTypedRuleContext(YarcParser.ExprContext,i)
 
-        def star_expr(self, i: int = None):
+
+        def star_expr(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.Star_exprContext)
             else:
-                return self.getTypedRuleContext(YarcParser.Star_exprContext, i)
+                return self.getTypedRuleContext(YarcParser.Star_exprContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -5504,10 +5426,14 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_exprlist
 
+
+
+
     def exprlist(self):
+
         localctx = YarcParser.ExprlistContext(self, self._ctx, self.state)
         self.enterRule(localctx, 154, self.RULE_exprlist)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 749
@@ -5526,9 +5452,9 @@ class YarcParser(YarcParserBase):
 
             self.state = 758
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 86, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,86,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 751
                     self.match(YarcParser.COMMA)
                     self.state = 754
@@ -5544,17 +5470,18 @@ class YarcParser(YarcParserBase):
                         pass
                     else:
                         raise NoViableAltException(self)
-
+             
                 self.state = 760
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 86, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,86,self._ctx)
 
             self.state = 762
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 761
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5564,22 +5491,22 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class TestlistContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class TestlistContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def test(self, i: int = None):
+        def test(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(YarcParser.TestContext)
             else:
-                return self.getTypedRuleContext(YarcParser.TestContext, i)
+                return self.getTypedRuleContext(YarcParser.TestContext,i)
 
-        def COMMA(self, i: int = None):
+
+        def COMMA(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.COMMA)
             else:
@@ -5588,33 +5515,38 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_testlist
 
+
+
+
     def testlist(self):
+
         localctx = YarcParser.TestlistContext(self, self._ctx, self.state)
         self.enterRule(localctx, 156, self.RULE_testlist)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 764
             self.test()
             self.state = 769
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input, 88, self._ctx)
-            while _alt != 2 and _alt != ATN.INVALID_ALT_NUMBER:
-                if _alt == 1:
+            _alt = self._interp.adaptivePredict(self._input,88,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
                     self.state = 765
                     self.match(YarcParser.COMMA)
                     self.state = 766
-                    self.test()
+                    self.test() 
                 self.state = 771
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input, 88, self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,88,self._ctx)
 
             self.state = 773
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la == YarcParser.COMMA:
+            if _la==YarcParser.COMMA:
                 self.state = 772
                 self.match(YarcParser.COMMA)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -5624,22 +5556,26 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class Encoding_declContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class Encoding_declContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def name(self):
-            return self.getTypedRuleContext(YarcParser.NameContext, 0)
+            return self.getTypedRuleContext(YarcParser.NameContext,0)
+
 
         def getRuleIndex(self):
             return YarcParser.RULE_encoding_decl
 
+
+
+
     def encoding_decl(self):
+
         localctx = YarcParser.Encoding_declContext(self, self._ctx, self.state)
         self.enterRule(localctx, 158, self.RULE_encoding_decl)
         try:
@@ -5654,16 +5590,15 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    class StringsContext(ParserRuleContext):
-        __slots__ = "parser"
 
-        def __init__(
-            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
-        ):
+    class StringsContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self, i: int = None):
+        def STRING(self, i:int=None):
             if i is None:
                 return self.getTokens(YarcParser.STRING)
             else:
@@ -5672,22 +5607,26 @@ class YarcParser(YarcParserBase):
         def getRuleIndex(self):
             return YarcParser.RULE_strings
 
+
+
+
     def strings(self):
+
         localctx = YarcParser.StringsContext(self, self._ctx, self.state)
         self.enterRule(localctx, 160, self.RULE_strings)
-        self._la = 0  # Token type
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 778
+            self.state = 778 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
                 self.state = 777
                 self.match(YarcParser.STRING)
-                self.state = 780
+                self.state = 780 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la == YarcParser.STRING):
+                if not (_la==YarcParser.STRING):
                     break
 
         except RecognitionException as re:
@@ -5698,7 +5637,9 @@ class YarcParser(YarcParserBase):
             self.exitRule()
         return localctx
 
-    def sempred(self, localctx: RuleContext, ruleIndex: int, predIndex: int):
+
+
+    def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
         self._predicates[30] = self.literal_pattern_sempred
@@ -5711,20 +5652,26 @@ class YarcParser(YarcParserBase):
         else:
             return pred(localctx, predIndex)
 
-    def literal_pattern_sempred(self, localctx: Literal_patternContext, predIndex: int):
-        if predIndex == 0:
-            return self.CannotBePlusMinus()
+    def literal_pattern_sempred(self, localctx:Literal_patternContext, predIndex:int):
+            if predIndex == 0:
+                return  self.CannotBePlusMinus() 
+         
 
-    def literal_expr_sempred(self, localctx: Literal_exprContext, predIndex: int):
-        if predIndex == 1:
-            return self.CannotBePlusMinus()
+    def literal_expr_sempred(self, localctx:Literal_exprContext, predIndex:int):
+            if predIndex == 1:
+                return  self.CannotBePlusMinus() 
+         
 
-    def pattern_capture_target_sempred(
-        self, localctx: Pattern_capture_targetContext, predIndex: int
-    ):
-        if predIndex == 2:
-            return self.CannotBeDotLpEq()
+    def pattern_capture_target_sempred(self, localctx:Pattern_capture_targetContext, predIndex:int):
+            if predIndex == 2:
+                return  self.CannotBeDotLpEq() 
+         
 
-    def value_pattern_sempred(self, localctx: Value_patternContext, predIndex: int):
-        if predIndex == 3:
-            return self.CannotBeDotLpEq()
+    def value_pattern_sempred(self, localctx:Value_patternContext, predIndex:int):
+            if predIndex == 3:
+                return  self.CannotBeDotLpEq() 
+         
+
+
+
+

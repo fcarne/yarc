@@ -8,6 +8,7 @@ from antlr4.Token import CommonToken
 
 from yarc.dsl.v4.YarcParser import YarcParser
 
+
 class YarcLexerBase(Lexer):
     NEW_LINE_PATTERN = re.compile("[^\r\n\f]+")
     SPACES_PATTERN = re.compile("[\r\n\f]+")

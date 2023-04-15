@@ -1,7 +1,9 @@
 """YARC - DSL for Synthetic Data Generation"""
 
 from importlib import metadata as importlib_metadata
+
 from yarc.dsl import *
+
 
 def get_version() -> str:
     try:

@@ -1,9 +1,7 @@
-# Generated from c:\Users\feder\Desktop\University\Magistrale\Secondo_Anno\1_Linguaggi\Progetto\yarc\yarc\parser\v4\YarcLexer.g4 by ANTLR 4.9.2
-import sys
-from io import StringIO
-
+# Generated from c:\Users\feder\Desktop\University\Magistrale\Secondo_Anno\1_Linguaggi\Progetto\yarc\yarc\dsl\v4\YarcLexer.g4 by ANTLR 4.9.2
 from antlr4 import *
-
+from io import StringIO
+import sys
 if sys.version_info[1] > 5:
     from typing import TextIO
 else:
@@ -24,8 +22,8 @@ def serializedATN():
         buf.write("\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23")
         buf.write("\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30")
         buf.write("\4\31\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36")
-        buf.write('\t\36\4\37\t\37\4 \t \4!\t!\4"\t"\4#\t#\4$\t$\4%\t%')
-        buf.write("\4&\t&\4'\t'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.")
+        buf.write("\t\36\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\4%\t%")
+        buf.write("\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4,\t,\4-\t-\4.")
         buf.write("\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64")
         buf.write("\t\64\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\4:\t:")
         buf.write("\4;\t;\4<\t<\4=\t=\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\t")
@@ -56,8 +54,8 @@ def serializedATN():
         buf.write("\7\33\u01c4\n\33\f\33\16\33\u01c7\13\33\5\33\u01c9\n\33")
         buf.write("\3\33\3\33\3\34\3\34\3\34\3\34\3\35\3\35\3\35\3\36\3\36")
         buf.write("\3\36\3\36\3\37\3\37\3\37\3\37\3\37\3 \3 \3 \3 \3 \3!")
-        buf.write('\3!\3!\3!\3!\3!\3"\3"\3"\3"\3#\3#\3#\3$\3$\3$\3%\3')
-        buf.write("%\3%\3&\3&\3&\3&\3&\3'\3'\3'\3'\3(\3(\3(\3)\3)\3)")
+        buf.write("\3!\3!\3!\3!\3!\3\"\3\"\3\"\3\"\3#\3#\3#\3$\3$\3$\3%\3")
+        buf.write("%\3%\3&\3&\3&\3&\3&\3\'\3\'\3\'\3\'\3(\3(\3(\3)\3)\3)")
         buf.write("\3)\3)\3*\3*\3*\3*\3*\3*\3*\3+\3+\3+\3+\3+\3,\3,\3-\3")
         buf.write("-\3-\3-\3-\3.\3.\3/\3/\3/\3\60\3\60\3\60\3\60\3\61\3\61")
         buf.write("\3\62\3\62\3\63\3\63\3\64\3\64\3\65\3\65\3\66\3\66\3\67")
@@ -86,8 +84,8 @@ def serializedATN():
         buf.write("\16z\u0357\13z\3{\3{\5{\u035b\n{\3{\5{\u035e\n{\3{\3{")
         buf.write("\5{\u0362\n{\3\u01c5\2|\3\5\5\6\7\7\t\b\13\t\r\n\17\13")
         buf.write("\21\f\23\r\25\16\27\17\31\20\33\21\35\22\37\23!\24#\25")
-        buf.write("%\26'\27)\30+\31-\32/\33\61\34\63\35\65\2\67\369\37;")
-        buf.write(" =!?\"A#C$E%G&I'K(M)O*Q+S,U-W.Y/[\60]\61_\62a\63c\64")
+        buf.write("%\26\'\27)\30+\31-\32/\33\61\34\63\35\65\2\67\369\37;")
+        buf.write(" =!?\"A#C$E%G&I\'K(M)O*Q+S,U-W.Y/[\60]\61_\62a\63c\64")
         buf.write("e\65g\66i\67k8m9o:q;s<u=w>y?{@}A\177B\u0081C\u0083D\u0085")
         buf.write("E\u0087F\u0089G\u008bH\u008dI\u008fJ\u0091K\u0093L\u0095")
         buf.write("M\u0097N\u0099O\u009bP\u009dQ\u009fR\u00a1S\u00a3T\u00a5")
@@ -98,12 +96,12 @@ def serializedATN():
         buf.write("\2\u00e5\2\u00e7\2\u00e9\2\u00eb\2\u00ed\2\u00ef\2\u00f1")
         buf.write("\2\u00f3\2\u00f5\2\3\2\20\4\2WWww\4\2HHhh\4\2TTtt\4\2")
         buf.write("QQqq\4\2ZZzz\4\2DDdd\6\2\f\f\16\17))^^\6\2\f\f\16\17$")
-        buf.write('$^^\4\2CHch\4\2GGgg\4\2--//\4\2C\\c|\4\2\13\13""\4\2')
+        buf.write("$^^\4\2CHch\4\2GGgg\4\2--//\4\2C\\c|\4\2\13\13\"\"\4\2")
         buf.write("\f\f\16\17\2\u0383\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2")
         buf.write("\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21")
         buf.write("\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3")
         buf.write("\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2\2\37\3\2\2\2\2!\3\2\2")
-        buf.write("\2\2#\3\2\2\2\2%\3\2\2\2\2'\3\2\2\2\2)\3\2\2\2\2+\3\2")
+        buf.write("\2\2#\3\2\2\2\2%\3\2\2\2\2\'\3\2\2\2\2)\3\2\2\2\2+\3\2")
         buf.write("\2\2\2-\3\2\2\2\2/\3\2\2\2\2\61\3\2\2\2\2\63\3\2\2\2\2")
         buf.write("\67\3\2\2\2\29\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2")
         buf.write("\2\2A\3\2\2\2\2C\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2")
@@ -129,7 +127,7 @@ def serializedATN():
         buf.write("\u011e\3\2\2\2\17\u0127\3\2\2\2\21\u0130\3\2\2\2\23\u013b")
         buf.write("\3\2\2\2\25\u0148\3\2\2\2\27\u014f\3\2\2\2\31\u015b\3")
         buf.write("\2\2\2\33\u015f\3\2\2\2\35\u0161\3\2\2\2\37\u0163\3\2")
-        buf.write("\2\2!\u016f\3\2\2\2#\u0171\3\2\2\2%\u0175\3\2\2\2'\u017f")
+        buf.write("\2\2!\u016f\3\2\2\2#\u0171\3\2\2\2%\u0175\3\2\2\2\'\u017f")
         buf.write("\3\2\2\2)\u0186\3\2\2\2+\u018c\3\2\2\2-\u0196\3\2\2\2")
         buf.write("/\u01a4\3\2\2\2\61\u01aa\3\2\2\2\63\u01b3\3\2\2\2\65\u01c0")
         buf.write("\3\2\2\2\67\u01cc\3\2\2\29\u01d0\3\2\2\2;\u01d3\3\2\2")
@@ -205,7 +203,7 @@ def serializedATN():
         buf.write("\7f\2\2\u0167\u0168\7k\2\2\u0168\u0170\7v\2\2\u0169\u016a")
         buf.write("\7o\2\2\u016a\u016b\7q\2\2\u016b\u016c\7f\2\2\u016c\u016d")
         buf.write("\7k\2\2\u016d\u016e\7h\2\2\u016e\u0170\7{\2\2\u016f\u0165")
-        buf.write('\3\2\2\2\u016f\u0169\3\2\2\2\u0170"\3\2\2\2\u0171\u0172')
+        buf.write("\3\2\2\2\u016f\u0169\3\2\2\2\u0170\"\3\2\2\2\u0171\u0172")
         buf.write("\7u\2\2\u0172\u0173\7g\2\2\u0173\u0174\7v\2\2\u0174$\3")
         buf.write("\2\2\2\u0175\u0176\7v\2\2\u0176\u0177\7t\2\2\u0177\u0178")
         buf.write("\7c\2\2\u0178\u0179\7p\2\2\u0179\u017a\7u\2\2\u017a\u017b")
@@ -277,7 +275,7 @@ def serializedATN():
         buf.write("\2\u0234\u0235\7@\2\2\u0235\u0236\7@\2\2\u0236t\3\2\2")
         buf.write("\2\u0237\u0238\7-\2\2\u0238v\3\2\2\2\u0239\u023a\7/\2")
         buf.write("\2\u023ax\3\2\2\2\u023b\u023c\7\61\2\2\u023cz\3\2\2\2")
-        buf.write("\u023d\u023e\7,\2\2\u023e|\3\2\2\2\u023f\u0240\7'\2\2")
+        buf.write("\u023d\u023e\7,\2\2\u023e|\3\2\2\2\u023f\u0240\7\'\2\2")
         buf.write("\u0240~\3\2\2\2\u0241\u0242\7\61\2\2\u0242\u0243\7\61")
         buf.write("\2\2\u0243\u0080\3\2\2\2\u0244\u0245\7,\2\2\u0245\u0246")
         buf.write("\7,\2\2\u0246\u0082\3\2\2\2\u0247\u0248\7B\2\2\u0248\u0084")
@@ -299,7 +297,7 @@ def serializedATN():
         buf.write("\7,\2\2\u0275\u0276\7?\2\2\u0276\u00a4\3\2\2\2\u0277\u0278")
         buf.write("\7B\2\2\u0278\u0279\7?\2\2\u0279\u00a6\3\2\2\2\u027a\u027b")
         buf.write("\7\61\2\2\u027b\u027c\7?\2\2\u027c\u00a8\3\2\2\2\u027d")
-        buf.write("\u027e\7'\2\2\u027e\u027f\7?\2\2\u027f\u00aa\3\2\2\2")
+        buf.write("\u027e\7\'\2\2\u027e\u027f\7?\2\2\u027f\u00aa\3\2\2\2")
         buf.write("\u0280\u0281\7(\2\2\u0281\u0282\7?\2\2\u0282\u00ac\3\2")
         buf.write("\2\2\u0283\u0284\7~\2\2\u0284\u0285\7?\2\2\u0285\u00ae")
         buf.write("\3\2\2\2\u0286\u0287\7`\2\2\u0287\u0288\7?\2\2\u0288\u00b0")
@@ -411,9 +409,10 @@ def serializedATN():
 
 
 class YarcLexer(YarcLexerBase):
+
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
+    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
 
     INDENT = 1
     DEDENT = 2
@@ -521,348 +520,86 @@ class YarcLexer(YarcLexerBase):
     SKIP_ = 104
     UNKNOWN = 105
 
-    channelNames = ["DEFAULT_TOKEN_CHANNEL", "HIDDEN"]
+    channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
 
-    modeNames = ["DEFAULT_MODE"]
+    modeNames = [ "DEFAULT_MODE" ]
 
-    literalNames = [
-        "<INVALID>",
-        "'scenario'",
-        "'writer'",
-        "'create'",
-        "'instantiate'",
-        "'get'",
-        "'x'",
-        "'y'",
-        "'z'",
-        "'set'",
-        "'translate'",
-        "'rotate'",
-        "'scale'",
-        "'semantics'",
-        "'every'",
-        "'and'",
-        "'as'",
-        "'def'",
-        "'elif'",
-        "'else'",
-        "'False'",
-        "'for'",
-        "'if'",
-        "'in'",
-        "'is'",
-        "'None'",
-        "'not'",
-        "'or'",
-        "'pass'",
-        "'return'",
-        "'True'",
-        "'_'",
-        "'with'",
-        "'.'",
-        "'..'",
-        "'...'",
-        "','",
-        "':'",
-        "';'",
-        "'='",
-        "'|'",
-        "'^'",
-        "'&'",
-        "'~'",
-        "'<<'",
-        "'>>'",
-        "'+'",
-        "'-'",
-        "'/'",
-        "'*'",
-        "'%'",
-        "'//'",
-        "'**'",
-        "'@'",
-        "'->'",
-        "'('",
-        "')'",
-        "'['",
-        "']'",
-        "'{'",
-        "'}'",
-        "'<'",
-        "'>'",
-        "'=='",
-        "'>='",
-        "'<='",
-        "'!='",
-        "'+='",
-        "'-='",
-        "'*='",
-        "'@='",
-        "'/='",
-        "'%='",
-        "'&='",
-        "'|='",
-        "'^='",
-        "'<<='",
-        "'>>='",
-        "'**='",
-        "'//='",
-    ]
+    literalNames = [ "<INVALID>",
+            "'scenario'", "'writer'", "'create'", "'instantiate'", "'get'", 
+            "'x'", "'y'", "'z'", "'set'", "'translate'", "'rotate'", "'scale'", 
+            "'semantics'", "'every'", "'and'", "'as'", "'def'", "'elif'", 
+            "'else'", "'False'", "'for'", "'if'", "'in'", "'is'", "'None'", 
+            "'not'", "'or'", "'pass'", "'return'", "'True'", "'_'", "'with'", 
+            "'.'", "'..'", "'...'", "','", "':'", "';'", "'='", "'|'", "'^'", 
+            "'&'", "'~'", "'<<'", "'>>'", "'+'", "'-'", "'/'", "'*'", "'%'", 
+            "'//'", "'**'", "'@'", "'->'", "'('", "')'", "'['", "']'", "'{'", 
+            "'}'", "'<'", "'>'", "'=='", "'>='", "'<='", "'!='", "'+='", 
+            "'-='", "'*='", "'@='", "'/='", "'%='", "'&='", "'|='", "'^='", 
+            "'<<='", "'>>='", "'**='", "'//='" ]
 
-    symbolicNames = [
-        "<INVALID>",
-        "INDENT",
-        "DEDENT",
-        "SCENARIO",
-        "SETTINGS",
-        "WRITER",
-        "SNIPPET",
-        "UNIFORM",
-        "NORMAL",
-        "CHOICE",
-        "SEQUENCE",
-        "LOG_UNIFORM",
-        "CREATE",
-        "INSTANTIATE",
-        "GET",
-        "X",
-        "Y",
-        "Z",
-        "EDIT",
-        "SET",
-        "TRANSLATE",
-        "ROTATE",
-        "SCALE",
-        "SEMANTICS",
-        "SCATTER",
-        "EVERY",
-        "FRAMES",
-        "TIME",
-        "AND",
-        "AS",
-        "DEF",
-        "ELIF",
-        "ELSE",
-        "FALSE",
-        "FOR",
-        "IF",
-        "IN",
-        "IS",
-        "NONE",
-        "NOT",
-        "OR",
-        "PASS",
-        "RETURN",
-        "TRUE",
-        "UNDERSCORE",
-        "WITH",
-        "DOT",
-        "RANGE",
-        "ELLIPSIS",
-        "COMMA",
-        "COLON",
-        "SEMI_COLON",
-        "ASSIGN",
-        "BIT_OR",
-        "XOR",
-        "BIT_AND",
-        "BIT_NOT",
-        "LEFT_SHIFT",
-        "RIGHT_SHIFT",
-        "ADD",
-        "MINUS",
-        "DIV",
-        "STAR",
-        "MOD",
-        "IDIV",
-        "POWER",
-        "AT",
-        "ARROW",
-        "LPAREN",
-        "RPAREN",
-        "LBRACK",
-        "RBRACK",
-        "LBRACE",
-        "RBRACE",
-        "LESS_THAN",
-        "GREATER_THAN",
-        "EQUALS",
-        "GT_EQ",
-        "LT_EQ",
-        "NOT_EQ",
-        "ADD_ASSIGN",
-        "SUB_ASSIGN",
-        "MULT_ASSIGN",
-        "AT_ASSIGN",
-        "DIV_ASSIGN",
-        "MOD_ASSIGN",
-        "AND_ASSIGN",
-        "OR_ASSIGN",
-        "XOR_ASSIGN",
-        "LSHIFT_ASSIGN",
-        "RSHIFT_ASSIGN",
-        "POWER_ASSIGN",
-        "IDIV_ASSIGN",
-        "STRING",
-        "NUMBER",
-        "NAME",
-        "STRING_LITERAL",
-        "INTEGER",
-        "DECIMAL_INTEGER",
-        "OCT_INTEGER",
-        "HEX_INTEGER",
-        "BIN_INTEGER",
-        "FLOAT_NUMBER",
-        "NEWLINE",
-        "SKIP_",
-        "UNKNOWN",
-    ]
+    symbolicNames = [ "<INVALID>",
+            "INDENT", "DEDENT", "SCENARIO", "SETTINGS", "WRITER", "SNIPPET", 
+            "UNIFORM", "NORMAL", "CHOICE", "SEQUENCE", "LOG_UNIFORM", "CREATE", 
+            "INSTANTIATE", "GET", "X", "Y", "Z", "EDIT", "SET", "TRANSLATE", 
+            "ROTATE", "SCALE", "SEMANTICS", "SCATTER", "EVERY", "FRAMES", 
+            "TIME", "AND", "AS", "DEF", "ELIF", "ELSE", "FALSE", "FOR", 
+            "IF", "IN", "IS", "NONE", "NOT", "OR", "PASS", "RETURN", "TRUE", 
+            "UNDERSCORE", "WITH", "DOT", "RANGE", "ELLIPSIS", "COMMA", "COLON", 
+            "SEMI_COLON", "ASSIGN", "BIT_OR", "XOR", "BIT_AND", "BIT_NOT", 
+            "LEFT_SHIFT", "RIGHT_SHIFT", "ADD", "MINUS", "DIV", "STAR", 
+            "MOD", "IDIV", "POWER", "AT", "ARROW", "LPAREN", "RPAREN", "LBRACK", 
+            "RBRACK", "LBRACE", "RBRACE", "LESS_THAN", "GREATER_THAN", "EQUALS", 
+            "GT_EQ", "LT_EQ", "NOT_EQ", "ADD_ASSIGN", "SUB_ASSIGN", "MULT_ASSIGN", 
+            "AT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", 
+            "XOR_ASSIGN", "LSHIFT_ASSIGN", "RSHIFT_ASSIGN", "POWER_ASSIGN", 
+            "IDIV_ASSIGN", "STRING", "NUMBER", "NAME", "STRING_LITERAL", 
+            "INTEGER", "DECIMAL_INTEGER", "OCT_INTEGER", "HEX_INTEGER", 
+            "BIN_INTEGER", "FLOAT_NUMBER", "NEWLINE", "SKIP_", "UNKNOWN" ]
 
-    ruleNames = [
-        "SCENARIO",
-        "SETTINGS",
-        "WRITER",
-        "SNIPPET",
-        "UNIFORM",
-        "NORMAL",
-        "CHOICE",
-        "SEQUENCE",
-        "LOG_UNIFORM",
-        "CREATE",
-        "INSTANTIATE",
-        "GET",
-        "X",
-        "Y",
-        "Z",
-        "EDIT",
-        "SET",
-        "TRANSLATE",
-        "ROTATE",
-        "SCALE",
-        "SEMANTICS",
-        "SCATTER",
-        "EVERY",
-        "FRAMES",
-        "TIME",
-        "NESTED_CODE",
-        "AND",
-        "AS",
-        "DEF",
-        "ELIF",
-        "ELSE",
-        "FALSE",
-        "FOR",
-        "IF",
-        "IN",
-        "IS",
-        "NONE",
-        "NOT",
-        "OR",
-        "PASS",
-        "RETURN",
-        "TRUE",
-        "UNDERSCORE",
-        "WITH",
-        "DOT",
-        "RANGE",
-        "ELLIPSIS",
-        "COMMA",
-        "COLON",
-        "SEMI_COLON",
-        "ASSIGN",
-        "BIT_OR",
-        "XOR",
-        "BIT_AND",
-        "BIT_NOT",
-        "LEFT_SHIFT",
-        "RIGHT_SHIFT",
-        "ADD",
-        "MINUS",
-        "DIV",
-        "STAR",
-        "MOD",
-        "IDIV",
-        "POWER",
-        "AT",
-        "ARROW",
-        "LPAREN",
-        "RPAREN",
-        "LBRACK",
-        "RBRACK",
-        "LBRACE",
-        "RBRACE",
-        "LESS_THAN",
-        "GREATER_THAN",
-        "EQUALS",
-        "GT_EQ",
-        "LT_EQ",
-        "NOT_EQ",
-        "ADD_ASSIGN",
-        "SUB_ASSIGN",
-        "MULT_ASSIGN",
-        "AT_ASSIGN",
-        "DIV_ASSIGN",
-        "MOD_ASSIGN",
-        "AND_ASSIGN",
-        "OR_ASSIGN",
-        "XOR_ASSIGN",
-        "LSHIFT_ASSIGN",
-        "RSHIFT_ASSIGN",
-        "POWER_ASSIGN",
-        "IDIV_ASSIGN",
-        "STRING",
-        "NUMBER",
-        "NAME",
-        "STRING_LITERAL",
-        "INTEGER",
-        "DECIMAL_INTEGER",
-        "OCT_INTEGER",
-        "HEX_INTEGER",
-        "BIN_INTEGER",
-        "FLOAT_NUMBER",
-        "NEWLINE",
-        "SKIP_",
-        "UNKNOWN",
-        "SHORT_STRING",
-        "STRING_ESCAPE_SEQ",
-        "NON_ZERO_DIGIT",
-        "DIGIT",
-        "OCT_DIGIT",
-        "HEX_DIGIT",
-        "BIN_DIGIT",
-        "POINT_FLOAT",
-        "EXPONENT_FLOAT",
-        "INT_PART",
-        "FRACTION",
-        "EXPONENT",
-        "ID_START",
-        "ID_CONTINUE",
-        "LETTER",
-        "SPACES",
-        "COMMENT",
-        "LINE_JOINING",
-    ]
+    ruleNames = [ "SCENARIO", "SETTINGS", "WRITER", "SNIPPET", "UNIFORM", 
+                  "NORMAL", "CHOICE", "SEQUENCE", "LOG_UNIFORM", "CREATE", 
+                  "INSTANTIATE", "GET", "X", "Y", "Z", "EDIT", "SET", "TRANSLATE", 
+                  "ROTATE", "SCALE", "SEMANTICS", "SCATTER", "EVERY", "FRAMES", 
+                  "TIME", "NESTED_CODE", "AND", "AS", "DEF", "ELIF", "ELSE", 
+                  "FALSE", "FOR", "IF", "IN", "IS", "NONE", "NOT", "OR", 
+                  "PASS", "RETURN", "TRUE", "UNDERSCORE", "WITH", "DOT", 
+                  "RANGE", "ELLIPSIS", "COMMA", "COLON", "SEMI_COLON", "ASSIGN", 
+                  "BIT_OR", "XOR", "BIT_AND", "BIT_NOT", "LEFT_SHIFT", "RIGHT_SHIFT", 
+                  "ADD", "MINUS", "DIV", "STAR", "MOD", "IDIV", "POWER", 
+                  "AT", "ARROW", "LPAREN", "RPAREN", "LBRACK", "RBRACK", 
+                  "LBRACE", "RBRACE", "LESS_THAN", "GREATER_THAN", "EQUALS", 
+                  "GT_EQ", "LT_EQ", "NOT_EQ", "ADD_ASSIGN", "SUB_ASSIGN", 
+                  "MULT_ASSIGN", "AT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", 
+                  "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "LSHIFT_ASSIGN", 
+                  "RSHIFT_ASSIGN", "POWER_ASSIGN", "IDIV_ASSIGN", "STRING", 
+                  "NUMBER", "NAME", "STRING_LITERAL", "INTEGER", "DECIMAL_INTEGER", 
+                  "OCT_INTEGER", "HEX_INTEGER", "BIN_INTEGER", "FLOAT_NUMBER", 
+                  "NEWLINE", "SKIP_", "UNKNOWN", "SHORT_STRING", "STRING_ESCAPE_SEQ", 
+                  "NON_ZERO_DIGIT", "DIGIT", "OCT_DIGIT", "HEX_DIGIT", "BIN_DIGIT", 
+                  "POINT_FLOAT", "EXPONENT_FLOAT", "INT_PART", "FRACTION", 
+                  "EXPONENT", "ID_START", "ID_CONTINUE", "LETTER", "SPACES", 
+                  "COMMENT", "LINE_JOINING" ]
 
     grammarFileName = "YarcLexer.g4"
 
-    def __init__(self, input=None, output: TextIO = sys.stdout):
+    def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.9.2")
-        self._interp = LexerATNSimulator(
-            self, self.atn, self.decisionsToDFA, PredictionContextCache()
-        )
+        self._interp = LexerATNSimulator(self, self.atn, self.decisionsToDFA, PredictionContextCache())
         self._actions = None
         self._predicates = None
 
-    def action(self, localctx: RuleContext, ruleIndex: int, actionIndex: int):
+
+    def action(self, localctx:RuleContext, ruleIndex:int, actionIndex:int):
         if self._actions is None:
             actions = dict()
-            actions[66] = self.LPAREN_action
-            actions[67] = self.RPAREN_action
-            actions[68] = self.LBRACK_action
-            actions[69] = self.RBRACK_action
-            actions[70] = self.LBRACE_action
-            actions[71] = self.RBRACE_action
-            actions[101] = self.NEWLINE_action
+            actions[66] = self.LPAREN_action 
+            actions[67] = self.RPAREN_action 
+            actions[68] = self.LBRACK_action 
+            actions[69] = self.RBRACK_action 
+            actions[70] = self.LBRACE_action 
+            actions[71] = self.RBRACE_action 
+            actions[101] = self.NEWLINE_action 
             self._actions = actions
         action = self._actions.get(ruleIndex, None)
         if action is not None:
@@ -870,35 +607,43 @@ class YarcLexer(YarcLexerBase):
         else:
             raise Exception("No registered action for:" + str(ruleIndex))
 
-    def LPAREN_action(self, localctx: RuleContext, actionIndex: int):
+
+    def LPAREN_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 0:
-            self.openBrace()
+            self.openBrace();
+     
 
-    def RPAREN_action(self, localctx: RuleContext, actionIndex: int):
+    def RPAREN_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 1:
-            self.closeBrace()
+            self.closeBrace();
+     
 
-    def LBRACK_action(self, localctx: RuleContext, actionIndex: int):
+    def LBRACK_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 2:
-            self.openBrace()
+            self.openBrace();
+     
 
-    def RBRACK_action(self, localctx: RuleContext, actionIndex: int):
+    def RBRACK_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 3:
-            self.closeBrace()
+            self.closeBrace();
+     
 
-    def LBRACE_action(self, localctx: RuleContext, actionIndex: int):
+    def LBRACE_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 4:
-            self.openBrace()
+            self.openBrace();
+     
 
-    def RBRACE_action(self, localctx: RuleContext, actionIndex: int):
+    def RBRACE_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 5:
-            self.closeBrace()
+            self.closeBrace();
+     
 
-    def NEWLINE_action(self, localctx: RuleContext, actionIndex: int):
+    def NEWLINE_action(self, localctx:RuleContext , actionIndex:int):
         if actionIndex == 6:
-            self.onNewLine()
+            self.onNewLine();
+     
 
-    def sempred(self, localctx: RuleContext, ruleIndex: int, predIndex: int):
+    def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates is None:
             preds = dict()
             preds[101] = self.NEWLINE_sempred
@@ -909,6 +654,9 @@ class YarcLexer(YarcLexerBase):
         else:
             raise Exception("No registered predicate for:" + str(ruleIndex))
 
-    def NEWLINE_sempred(self, localctx: RuleContext, predIndex: int):
-        if predIndex == 0:
-            return self.atStartOfInput()
+    def NEWLINE_sempred(self, localctx:RuleContext, predIndex:int):
+            if predIndex == 0:
+                return self.atStartOfInput()
+         
+
+

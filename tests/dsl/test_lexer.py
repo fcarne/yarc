@@ -1,7 +1,8 @@
 import os
+
 from antlr4 import *
-from antlr4.InputStream import InputStream
 from antlr4.error.ErrorListener import ErrorListener
+from antlr4.InputStream import InputStream
 
 from yarc.dsl.v4 import YarcLexer
 
@@ -9,13 +10,13 @@ from yarc.dsl.v4 import YarcLexer
 def test_lexer():
     class MyErrorListener(ErrorListener):
         def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-            raise ValueError("Syntax error at line {0}:{1} {2}".format(line, column, msg))
-    
+            raise ValueError(f"Syntax error at line {line}:{column} {msg}")
+
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     tests_dir = os.path.abspath(os.path.join(parent_dir, os.pardir))
 
     input_file = os.path.join(tests_dir, "assets\\lexer_test.txt")
-    with open(input_file, "r") as f:
+    with open(input_file) as f:
         input_str = f.read()
 
     input_stream = InputStream(input_str)
@@ -32,4 +33,3 @@ def test_lexer():
 
         if token_type == "EOF":
             break
-
