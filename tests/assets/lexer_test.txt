@@ -1,0 +1,64 @@
+scenario Brakes
+
+options:
+  fps = 24
+  num_scenes = 10
+  lib = Replicator
+  up_axis = Z
+  stage_meters_per_unit = 0.01
+  root_path = '...'
+
+writer KittyWriter:   
+  output_dir = '*/out'
+  rgb = true
+  semantic_segmentation = true
+
+=========================================================================
+
+open '*/scenario.usd'
+
+scale = 2
+
+rotation = [190, 20, 300]
+
+{
+  positions = ...
+}
+
+
+camera_position = [100, 100, 100]
+obj_position = camera_position + [100,0,0]
+
+obj = create 5 '*/obj.blend'
+edit obj:
+  translate = positions
+  rotate = [120, 0, 90]
+  scale = scale
+  semantics = 'class:obj'
+  set collider
+
+group1 = group [cube, camera, light]
+edit group1:
+  scale = 100
+
+get camera 'Camera':
+  rotate = [90,0,0]
+
+==========================================================================
+
+
+every frame:
+  edit obj:
+    set
+
+
+  edit camera: 
+     look_at obj
+
+  edit light:
+    camera position: [0,0, 250]
+
+  instantiate 5 '*/props':
+    
+===========================================================================
+

@@ -9,85 +9,37 @@ options {
 // All comments that start with "///" are copy-pasted from
 // The Python Language Reference
 
-single_input: NEWLINE | simple_stmts | compound_stmt NEWLINE;
-file_input: (NEWLINE | stmt)* EOF;
-eval_input: testlist NEWLINE* EOF;
-
-decorator: '@' dotted_name ( '(' arglist? ')' )? NEWLINE;
-decorators: decorator+;
-decorated: decorators (classdef | funcdef | async_funcdef);
-
-async_funcdef: ASYNC funcdef;
-funcdef: 'def' name parameters ('->' test)? ':' block;
-
-parameters: '(' typedargslist? ')';
-typedargslist: (tfpdef ('=' test)? (',' tfpdef ('=' test)?)* (',' (
-        '*' tfpdef? (',' tfpdef ('=' test)?)* (',' ('**' tfpdef ','? )? )?
-      | '**' tfpdef ','? )? )?
-  | '*' tfpdef? (',' tfpdef ('=' test)?)* (',' ('**' tfpdef ','? )? )?
-  | '**' tfpdef ','?);
-tfpdef: name (':' test)?;
-varargslist: (vfpdef ('=' test)? (',' vfpdef ('=' test)?)* (',' (
-        '*' vfpdef? (',' vfpdef ('=' test)?)* (',' ('**' vfpdef ','? )? )?
-      | '**' vfpdef (',')?)?)?
-  | '*' vfpdef? (',' vfpdef ('=' test)?)* (',' ('**' vfpdef ','? )? )?
-  | '**' vfpdef ','?
-);
-vfpdef: name;
+file_input: (NEWLINE)* EOF;
 
 stmt: simple_stmts | compound_stmt;
 simple_stmts: simple_stmt (';' simple_stmt)* ';'? NEWLINE;
-simple_stmt: (expr_stmt | del_stmt | pass_stmt | flow_stmt |
-             import_stmt | global_stmt | nonlocal_stmt | assert_stmt);
-expr_stmt: testlist_star_expr (annassign | augassign (yield_expr|testlist) |
-                     ('=' (yield_expr|testlist_star_expr))*);
+simple_stmt: (expr_stmt | pass_stmt );
+expr_stmt: testlist_star_expr (annassign | augassign (testlist) |
+                     ('=' (testlist_star_expr))*);
 annassign: ':' test ('=' test)?;
 testlist_star_expr: (test|star_expr) (',' (test|star_expr))* ','?;
 augassign: ('+=' | '-=' | '*=' | '@=' | '/=' | '%=' | '&=' | '|=' | '^=' |
             '<<=' | '>>=' | '**=' | '//=');
 // For normal and annotated assignments, additional restrictions enforced by the interpreter
-del_stmt: 'del' exprlist;
 pass_stmt: 'pass';
-flow_stmt: break_stmt | continue_stmt | return_stmt | raise_stmt | yield_stmt;
-break_stmt: 'break';
-continue_stmt: 'continue';
 return_stmt: 'return' testlist?;
-yield_stmt: yield_expr;
-raise_stmt: 'raise' (test ('from' test)?)?;
-import_stmt: import_name | import_from;
-import_name: 'import' dotted_as_names;
 // note below: the ('.' | '...') is necessary because '...' is tokenized as ELLIPSIS
-import_from: ('from' (('.' | '...')* dotted_name | ('.' | '...')+)
-              'import' ('*' | '(' import_as_names ')' | import_as_names));
 import_as_name: name ('as' name)?;
 dotted_as_name: dotted_name ('as' name)?;
 import_as_names: import_as_name (',' import_as_name)* ','?;
 dotted_as_names: dotted_as_name (',' dotted_as_name)*;
 dotted_name: name ('.' name)*;
-global_stmt: 'global' name (',' name)*;
-nonlocal_stmt: 'nonlocal' name (',' name)*;
-assert_stmt: 'assert' test (',' test)?;
 
-compound_stmt: if_stmt | while_stmt | for_stmt | try_stmt | with_stmt | funcdef | classdef | decorated | async_stmt | match_stmt;
-async_stmt: ASYNC (funcdef | with_stmt | for_stmt);
+compound_stmt: if_stmt | for_stmt | with_stmt;
 if_stmt: 'if' test ':' block ('elif' test ':' block)* ('else' ':' block)?;
-while_stmt: 'while' test ':' block ('else' ':' block)?;
 for_stmt: 'for' exprlist 'in' testlist ':' block ('else' ':' block)?;
-try_stmt: ('try' ':' block
-           ((except_clause ':' block)+
-            ('else' ':' block)?
-            ('finally' ':' block)? |
-           'finally' ':' block));
 with_stmt: 'with' with_item (',' with_item)*  ':' block;
 with_item: test ('as' expr)?;
 // NB compile.c makes sure that the default except clause is last
-except_clause: 'except' (test ('as' name)?)?;
 block: simple_stmts | NEWLINE INDENT stmt+ DEDENT;
-match_stmt: 'match' subject_expr ':' NEWLINE INDENT case_block+ DEDENT ;
 subject_expr: star_named_expression ',' star_named_expressions? | test ;
 star_named_expressions: ',' star_named_expression+ ','? ;
 star_named_expression: '*' expr | test ;
-case_block: 'case' patterns guard? ':' block ;
 guard: 'if' test ;
 patterns: open_sequence_pattern | pattern ;
 pattern: as_pattern | or_pattern ;
@@ -138,17 +90,15 @@ positional_patterns: pattern (',' pattern)* ;
 keyword_patterns: keyword_pattern (',' keyword_pattern)* ;
 keyword_pattern: name '=' pattern ;
 
-test: or_test ('if' or_test 'else' test)? | lambdef;
-test_nocond: or_test | lambdef_nocond;
-lambdef: 'lambda' varargslist? ':' test;
-lambdef_nocond: 'lambda' varargslist? ':' test_nocond;
+test: or_test ('if' or_test 'else' test)?;
+test_nocond: or_test;
 or_test: and_test ('or' and_test)*;
 and_test: not_test ('and' not_test)*;
 not_test: 'not' not_test | comparison;
 comparison: expr (comp_op expr)*;
 // <> isn't actually a valid comparison operator in Python. It's here for the
 // sake of a __future__ import described in PEP 401 (which really works :-)
-comp_op: '<'|'>'|'=='|'>='|'<='|'<>'|'!='|'in'|'not' 'in'|'is'|'is' 'not';
+comp_op: '<'|'>'|'=='|'>='|'<='|'!='|'in'|'not' 'in'|'is'|'is' 'not';
 star_expr: '*' expr;
 expr: xor_expr ('|' xor_expr)*;
 xor_expr: and_expr ('^' and_expr)*;
@@ -156,52 +106,18 @@ and_expr: shift_expr ('&' shift_expr)*;
 shift_expr: arith_expr (('<<'|'>>') arith_expr)*;
 arith_expr: term (('+'|'-') term)*;
 term: factor (('*'|'@'|'/'|'%'|'//') factor)*;
-factor: ('+'|'-'|'~') factor | power;
-power: atom_expr ('**' factor)?;
-atom_expr: AWAIT? atom trailer*;
-atom: '(' (yield_expr|testlist_comp)? ')'
-   | '[' testlist_comp? ']'
-   | '{' dictorsetmaker? '}'
-   | name | NUMBER | STRING+ | '...' | 'None' | 'True' | 'False' ;
-name : NAME | '_' | 'match' ;
-testlist_comp: (test|star_expr) ( comp_for | (',' (test|star_expr))* ','? );
-trailer: '(' arglist? ')' | '[' subscriptlist ']' | '.' name ;
+factor: ('+'|'-'|'~') factor;
+atom: name | NUMBER | STRING+ | '...' | 'None' | 'True' | 'False' ;
+name : NAME | '_' ;
 subscriptlist: subscript_ (',' subscript_)* ','?;
 subscript_: test | test? ':' test? sliceop?;
 sliceop: ':' test?;
 exprlist: (expr|star_expr) (',' (expr|star_expr))* ','?;
 testlist: test (',' test)* ','?;
-dictorsetmaker: ( ((test ':' test | '**' expr)
-                   (comp_for | (',' (test ':' test | '**' expr))* ','?)) |
-                  ((test | star_expr)
-                   (comp_for | (',' (test | star_expr))* ','?)) );
 
-classdef: 'class' name ('(' arglist? ')')? ':' block;
-
-arglist: argument (',' argument)* ','?;
-
-// The reason that keywords are test nodes instead of NAME is that using NAME
-// results in an ambiguity. ast.c makes sure it's a NAME.
-// "test '=' test" is really "keyword '=' test", but we have no such token.
-// These need to be in a single rule to avoid grammar that is ambiguous
-// to our LL(1) parser. Even though 'test' includes '*expr' in star_expr,
-// we explicitly match '*' here, too, to give it proper precedence.
-// Illegal combinations and orderings are blocked in ast.c:
-// multiple (test comp_for) arguments are blocked; keyword unpackings
-// that precede iterable unpackings are blocked; etc.
-argument: ( test comp_for? |
-            test '=' test |
-            '**' test |
-            '*' test );
-
-comp_iter: comp_for | comp_if;
-comp_for: ASYNC? 'for' exprlist 'in' or_test comp_iter?;
-comp_if: 'if' test_nocond comp_iter?;
 
 // not used in grammar, but may appear in "node" passed from Parser to Compiler
 encoding_decl: name;
 
-yield_expr: 'yield' yield_arg?;
-yield_arg: 'from' test | testlist;
 
 strings: STRING+ ;

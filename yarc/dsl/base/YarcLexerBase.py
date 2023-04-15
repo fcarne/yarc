@@ -4,7 +4,7 @@ import re
 import sys
 
 from antlr3 import ANTLRInputStream, CommonToken, Lexer, Token
-from YarcParser import YarcParser
+# from YarcParser import YarcParser
 
 
 class Python3LexerBase(Lexer):

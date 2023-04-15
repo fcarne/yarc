@@ -1,7 +1,7 @@
 from antlr4 import Parser
 
 
-class Python3ParserBase(Parser):
+class YarcParserBase(Parser):
     def CannotBePlusMinus(self) -> bool:
         return True
 

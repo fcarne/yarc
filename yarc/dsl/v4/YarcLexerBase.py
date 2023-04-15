@@ -5,10 +5,10 @@ import sys
 
 from antlr4 import InputStream, Lexer
 from antlr4.Token import CommonToken
-from YarcParser import YarcParser
 
+from yarc.dsl.v4.YarcParser import YarcParser
 
-class Python3LexerBase(Lexer):
+class YarcLexerBase(Lexer):
     NEW_LINE_PATTERN = re.compile("[^\r\n\f]+")
     SPACES_PATTERN = re.compile("[\r\n\f]+")
 
