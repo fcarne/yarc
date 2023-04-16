@@ -1,0 +1,20 @@
+scenario Brakes
+
+# comments
+{{ print('Code snippet!') }}
+
+
+
+
+settings:
+  library = Replicator
+  fps = 30
+  render_mode = 'PathTracing'
+  num_scenes = 100
+  root_path = '/path/to/root'
+  
+
+writer DOPEWriter:
+  rgb = true
+
+================================================================

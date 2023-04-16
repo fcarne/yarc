@@ -18,30 +18,38 @@ options {
 SCENARIO : 'scenario';
 SETTINGS : 'settings';
 WRITER   : 'writer';
+LIB      : 'lib' ('rary')? ;
 
 // Primitives
-SHAPES: 'plane' |'cube'| 'sphere' | 'cylinder'|'cone' |'torus' | 'disk';
-CAMERA : 'camera';
-LIGHT : 'light';
-STEREO : 'stereo';
-MATERIAL: 'material';
-TIMELINE: 'timeline';
+SHAPES:
+ 'plane'
+ | 'cube'
+ | 'sphere'
+ | 'cylinder'
+ | 'cone'
+ | 'torus'
+ | 'disk'
+;
+CAMERA   : 'camera';
+LIGHT    : 'light';
+STEREO   : 'stereo';
+MATERIAL : 'material';
+TIMELINE : 'timeline';
 
 // Mesh creation/import
 CREATE      : 'create';
 INSTANTIATE : 'instantiate';
-GROUP : 'group';
+GROUP       : 'group';
 OPEN        : 'open';
 
 // Getters: Scene nodes and files
-GET : 'get';
+GET   : 'get';
 FETCH : 'fetch';
-MATCH: 'match' | 'like';
-
+MATCH : 'match' | 'like';
 
 // Modifiers
-EDIT      : 'edit' | 'modify';
-SET       : 'set';
+EDIT : 'edit' | 'modify';
+SET  : 'set';
 
 TRANSLATE : 'translate';
 ROTATE    : 'rotate';
@@ -50,14 +58,14 @@ SEMANTICS : 'semantics';
 VISIBLE   : 'visible';
 SIZE      : 'size';
 LOOK_AT   : 'look_at';
-UP_AXIS : 'up_axis'; // look at ... up
-AXIS : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' ;
+UP_AXIS   : 'up_axis'; // look at ... up
+AXIS      : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
 
 // Complex rules
-SCATTER : 'scatter';
-SCATTER_TYPE: '2d' | '3d' ;
-AROUND : 'around';
-TEXTURE: 'texture';
+SCATTER      : 'scatter';
+SCATTER_TYPE : '2d' | '3d';
+AROUND       : 'around';
+TEXTURE      : 'texture';
 
 // Dynamic Behavior
 EVERY  : 'every';
@@ -104,29 +112,28 @@ TRUE       : 'true';
 UNDERSCORE : '_';
 
 /* Operators */
-DOT        : '.';
-RANGE      : '..';
-ELLIPSIS   : '...';
-COMMA      : ',';
-COLON      : ':';
-SEMI       : ';';
+DOT      : '.';
+RANGE    : '..';
+ELLIPSIS : '...';
+COMMA    : ',';
+COLON    : ':';
+SEMI     : ';';
 
-ASSIGN      : '=';
-BIT_OR      : '|';
-XOR         : '^';
-BIT_AND     : '&';
-BIT_NOT     : '~';
+ASSIGN  : '=';
+BIT_OR  : '|';
+XOR     : '^';
+BIT_AND : '&';
+BIT_NOT : '~';
 LSHIFT  : '<<';
-RSHIFT : '>>';
-ADD         : '+';
-MINUS       : '-';
-DIV         : '/';
-STAR        : '*';
-MOD         : '%';
-IDIV        : '//';
-POWER       : '**';
-AT          : '@';
-ARROW       : '->';
+RSHIFT  : '>>';
+ADD     : '+';
+MINUS   : '-';
+DIV     : '/';
+STAR    : '*';
+MOD     : '%';
+IDIV    : '//';
+POWER   : '**';
+ARROW   : '->';
 
 LPAREN : '(' {self.openBrace();};
 RPAREN : ')' {self.closeBrace();};
@@ -144,7 +151,6 @@ NOT_EQ        : '!=';
 ADD_ASSIGN    : '+=';
 SUB_ASSIGN    : '-=';
 MULT_ASSIGN   : '*=';
-AT_ASSIGN     : '@=';
 DIV_ASSIGN    : '/=';
 MOD_ASSIGN    : '%=';
 AND_ASSIGN    : '&=';
@@ -156,10 +162,10 @@ POWER_ASSIGN  : '**=';
 IDIV_ASSIGN   : '//=';
 
 /* Basic types */
-STRING : STRING_LITERAL;
-NUMBER : INTEGER | FLOAT_NUMBER;
-ID   : ID_START ID_CONTINUE*;
-OPTION_ID : '$' ID ; 
+STRING    : STRING_LITERAL;
+NUMBER    : INTEGER | FLOAT_NUMBER;
+ID        : ID_START ID_CONTINUE*;
+OPTION_ID : '$' ID;
 
 STRING_LITERAL: (
   ('u' | 'U')
