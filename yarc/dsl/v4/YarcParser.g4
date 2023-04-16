@@ -21,20 +21,18 @@ testlist_star_expr: (test|star_expr) (',' (test|star_expr))* ','?;
 augassign: ('+=' | '-=' | '*=' | '@=' | '/=' | '%=' | '&=' | '|=' | '^=' |
             '<<=' | '>>=' | '**=' | '//=');
 // For normal and annotated assignments, additional restrictions enforced by the interpreter
-pass_stmt: 'pass';
+pass_stmt: '...';
 return_stmt: 'return' testlist?;
 // note below: the ('.' | '...') is necessary because '...' is tokenized as ELLIPSIS
-import_as_name: name ('as' name)?;
-dotted_as_name: dotted_name ('as' name)?;
+import_as_name: name;
+dotted_as_name: dotted_name;
 import_as_names: import_as_name (',' import_as_name)* ','?;
 dotted_as_names: dotted_as_name (',' dotted_as_name)*;
 dotted_name: name ('.' name)*;
 
-compound_stmt: if_stmt | for_stmt | with_stmt;
-if_stmt: 'if' test ':' block ('elif' test ':' block)* ('else' ':' block)?;
+compound_stmt: if_stmt | for_stmt;
+if_stmt: 'if' test ':' block ('else' ':' block)?;
 for_stmt: 'for' exprlist 'in' testlist ':' block ('else' ':' block)?;
-with_stmt: 'with' with_item (',' with_item)*  ':' block;
-with_item: test ('as' expr)?;
 // NB compile.c makes sure that the default except clause is last
 block: simple_stmts | NEWLINE INDENT stmt+ DEDENT;
 subject_expr: star_named_expression ',' star_named_expressions? | test ;
@@ -42,12 +40,11 @@ star_named_expressions: ',' star_named_expression+ ','? ;
 star_named_expression: '*' expr | test ;
 guard: 'if' test ;
 patterns: open_sequence_pattern | pattern ;
-pattern: as_pattern | or_pattern ;
-as_pattern: or_pattern 'as' pattern_capture_target ;
+pattern: or_pattern ;
 or_pattern: closed_pattern ('|' closed_pattern)* ;
 closed_pattern: literal_pattern | capture_pattern | wildcard_pattern | value_pattern | group_pattern | sequence_pattern | mapping_pattern | class_pattern ;
-literal_pattern: signed_number { $parser.CannotBePlusMinus() }? | complex_number | strings | 'None' | 'True' | 'False' ;
-literal_expr: signed_number { $parser.CannotBePlusMinus() }? | complex_number | strings | 'None' | 'True' | 'False' ;
+literal_pattern: signed_number { $parser.CannotBePlusMinus() }? | complex_number | strings | 'none' | 'true' | 'false' ;
+literal_expr: signed_number { $parser.CannotBePlusMinus() }? | complex_number | strings | 'none' | 'true' | 'false' ;
 complex_number: signed_real_number '+' imaginary_number 
     | signed_real_number '-' imaginary_number  
     ;
@@ -107,8 +104,8 @@ shift_expr: arith_expr (('<<'|'>>') arith_expr)*;
 arith_expr: term (('+'|'-') term)*;
 term: factor (('*'|'@'|'/'|'%'|'//') factor)*;
 factor: ('+'|'-'|'~') factor;
-atom: name | NUMBER | STRING+ | '...' | 'None' | 'True' | 'False' ;
-name : NAME | '_' ;
+atom: name | NUMBER | STRING+ | '...' | 'none' | 'true' | 'false' ;
+name : ID | '_' ;
 subscriptlist: subscript_ (',' subscript_)* ','?;
 subscript_: test | test? ':' test? sliceop?;
 sliceop: ':' test?;

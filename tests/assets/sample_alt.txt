@@ -1,0 +1,50 @@
+scenario Brakes
+
+# comments
+{{ print('Code snippet!') }}
+
+settings:
+  library = Replicator
+  fps = 30
+  render_mode = 'PathTracing'
+  num_scenes = 100
+  root_path = '/path/to/root'
+  
+
+writer DOPEWriter:
+  ...
+
+models = fetch 'usd' in '*/models/' match 'Albedo'
+
+obj = create 5 '*/obj.blend':
+  translate to <0,0,0>
+  translate x to 50
+  rotate yzx <120, 0, 90>
+  scale <2,1,2>
+  semantics 'class:obj'
+  collider
+  mass 150
+
+group [cube, ..., ...]:
+  scale 100
+
+camera = get light at 'Cucina':
+  exclude 'Cucina/Forno'
+  semantics 'class:light'
+
+camera:
+  translate to <0,0,0>
+  rotate 90
+
+every frame:
+  edit obj:
+    visibility Choice([true, false])
+
+  camera: 
+    look_at obj
+
+  light:
+    camera translate to [0,0, 250]
+
+  instantiate 5 '*/props':
+    translate to Uniform(-10, 10)

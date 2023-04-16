@@ -11,76 +11,97 @@ options {
 }
 
 // Keywords 'options', 'writer' and some other kw are considered keywords but only when followed by
-// '{' or '(', and considered as a single token. Otherwise, the symbols are tokenized as NAME and
+// '{' or '(', and considered as a single token. Otherwise, the symbols are tokenized as ID and
 // allowed as an identifier.
 
 // Setup
 SCENARIO : 'scenario';
-SETTINGS : 'settings' COLON;
+SETTINGS : 'settings';
 WRITER   : 'writer';
 
-SNIPPET : NESTED_CODE;
-
-// Random distributions
-UNIFORM     : 'Uniform' LPAREN;
-NORMAL      : 'Normal' LPAREN;
-CHOICE      : 'Choice' LPAREN;
-SEQUENCE    : 'Sequence' LPAREN;
-LOG_UNIFORM : 'LogUniform' LPAREN;
+// Primitives
+SHAPES: 'plane' |'cube'| 'sphere' | 'cylinder'|'cone' |'torus' | 'disk';
+CAMERA : 'camera';
+LIGHT : 'light';
+STEREO : 'stereo';
+MATERIAL: 'material';
+TIMELINE: 'timeline';
 
 // Mesh creation/import
 CREATE      : 'create';
 INSTANTIATE : 'instantiate';
+GROUP : 'group';
+OPEN        : 'open';
 
-// Object getter
+// Getters: Scene nodes and files
 GET : 'get';
+FETCH : 'fetch';
+MATCH: 'match' | 'like';
+
 
 // Modifiers
-X : 'x';
-Y : 'y';
-Z : 'z';
-
 EDIT      : 'edit' | 'modify';
 SET       : 'set';
+
 TRANSLATE : 'translate';
 ROTATE    : 'rotate';
 SCALE     : 'scale';
 SEMANTICS : 'semantics';
+VISIBLE   : 'visible';
+SIZE      : 'size';
+LOOK_AT   : 'look_at';
+UP_AXIS : 'up_axis'; // look at ... up
+AXIS : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' ;
 
-SCATTER : 'scatter' ('2d' | '3d')?;
+// Complex rules
+SCATTER : 'scatter';
+SCATTER_TYPE: '2d' | '3d' ;
+AROUND : 'around';
+TEXTURE: 'texture';
 
-// Behavior
+// Dynamic Behavior
 EVERY  : 'every';
 FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
+// Random distributions
+UNIFORM     : 'Uniform';
+NORMAL      : 'Normal' ;
+CHOICE      : 'Choice' ;
+SEQUENCE    : 'Sequence' ;
+LOG_UNIFORM : 'LogUniform';
+
+// Native code snippets
+SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } -> skip;
+
 fragment NESTED_CODE:
- LBRACE (NESTED_CODE | .*?)
+ LBRACE LBRACE (NESTED_CODE | .)*?
  /*( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 */ 
- RBRACE
+ RBRACE RBRACE
 ;
+
+// Additional keywords to be more natural language-like
+TO : 'to'; // translate to
+ON : 'on'; // scatter on
+AT : 'at'; // get ... at ...
 
 // Everything that follows is a reduced version of the Python 3 Lexer (https://github.com/antlr/grammars-v4)
 
 /* Keywords */
 AND        : 'and';
-AS         : 'as';
 DEF        : 'def';
-ELIF       : 'elif';
 ELSE       : 'else';
-FALSE      : 'False';
+FALSE      : 'false';
 FOR        : 'for';
 IF         : 'if';
 IN         : 'in';
 IS         : 'is';
-NONE       : 'None';
+NONE       : 'none';
 NOT        : 'not';
 OR         : 'or';
-PASS       : 'pass';
 RETURN     : 'return';
-TRUE       : 'True';
+TRUE       : 'true';
 UNDERSCORE : '_';
-WITH       : 'with';
 
 /* Operators */
 DOT        : '.';
@@ -88,15 +109,15 @@ RANGE      : '..';
 ELLIPSIS   : '...';
 COMMA      : ',';
 COLON      : ':';
-SEMI_COLON : ';';
+SEMI       : ';';
 
 ASSIGN      : '=';
 BIT_OR      : '|';
 XOR         : '^';
 BIT_AND     : '&';
 BIT_NOT     : '~';
-LEFT_SHIFT  : '<<';
-RIGHT_SHIFT : '>>';
+LSHIFT  : '<<';
+RSHIFT : '>>';
 ADD         : '+';
 MINUS       : '-';
 DIV         : '/';
@@ -137,7 +158,8 @@ IDIV_ASSIGN   : '//=';
 /* Basic types */
 STRING : STRING_LITERAL;
 NUMBER : INTEGER | FLOAT_NUMBER;
-NAME   : ID_START ID_CONTINUE*;
+ID   : ID_START ID_CONTINUE*;
+OPTION_ID : '$' ID ; 
 
 STRING_LITERAL: (
   ('u' | 'U')
@@ -160,12 +182,14 @@ BIN_INTEGER     : '0' ('b' | 'B') BIN_DIGIT+;
 
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
+// Newline
 NEWLINE: (
   {self.atStartOfInput()}? SPACES
   | ( '\r'? '\n' | '\r' | '\f') SPACES?
  ) {self.onNewLine();}
 ;
 
+// Misc
 SKIP_   : ( SPACES | COMMENT | LINE_JOINING) -> skip;
 UNKNOWN : .;
 

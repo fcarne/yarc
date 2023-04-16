@@ -1,19 +1,26 @@
 scenario Brakes
+# this comment should be #hidden!
 
-options:
+{{ 
+  # comment inside {} snippet -> may not work
+  print({'python': 'snippet'}) 
+}}
+
+
+settings:
+  lib = Replicator
   fps = 24
   num_scenes = 10
-  lib = Replicator
   up_axis = Z
   stage_meters_per_unit = 0.01
   root_path = '...'
+
+$fps = 10
 
 writer KittyWriter:   
   output_dir = '*/out'
   rgb = true
   semantic_segmentation = true
-
-=========================================================================
 
 open '*/scenario.usd'
 
@@ -25,39 +32,35 @@ rotation = [190, 20, 300]
   positions = ...
 }
 
-
 camera_position = [100, 100, 100]
 obj_position = camera_position + [100,0,0]
 
 obj = create 5 '*/obj.blend'
 edit obj:
-  translate = positions
-  rotate = [120, 0, 90]
-  scale = scale
+  position = (0,0,0)
+  translate x = 50
+  rotation = (120, 0, 90)
+  scale = (2,1,2)
   semantics = 'class:obj'
   set collider
+  set mass = 150
 
 group1 = group [cube, camera, light]
 edit group1:
   scale = 100
 
-get camera 'Camera':
-  rotate = [90,0,0]
-
-==========================================================================
-
+camera = get camera 'Camera'
 
 every frame:
   edit obj:
-    set
-
+    set visibility = Choice([true, false])
 
   edit camera: 
-     look_at obj
+     look_at = obj
 
   edit light:
-    camera position: [0,0, 250]
+    camera position = [0,0, 250]
 
-  instantiate 5 '*/props':
+  edit  instantiate 5 '*/props':
+    position = Uniform(-10, 10)
     
-===========================================================================
