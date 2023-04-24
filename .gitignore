@@ -621,7 +621,7 @@ poetry.lock
 cookiecutter-config-file.yml
 setup.cfg
 .editorconfig
-.antlr/*
+.antlr/
 
 # Virtual environment
 venv/
