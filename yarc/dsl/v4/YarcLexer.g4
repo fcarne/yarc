@@ -1,56 +1,42 @@
 lexer grammar YarcLexer;
 
 tokens {
- INDENT,
- DEDENT
+  INDENT,
+  DEDENT
 }
 
 options {
- superClass = YarcLexerBase;
- language = Python3;
+  superClass = YarcLexerBase;
+  language = Python3;
 }
 
-// Keywords 'options', 'writer' and some other kw are considered keywords but only when followed by
-// '{' or '(', and considered as a single token. Otherwise, the symbols are tokenized as ID and
-// allowed as an identifier.
-
-// Setup
+/* Header settings and writer */
 SCENARIO : 'scenario';
 SETTINGS : 'settings';
 WRITER   : 'writer';
-LIB      : 'lib' ('rary')? ;
+LIB      : 'lib' ('rary')?;
 
-// Primitives
-SHAPES:
- 'plane'
- | 'cube'
- | 'sphere'
- | 'cylinder'
- | 'cone'
- | 'torus'
- | 'disk'
-;
+/* Primitives */
+SHAPES   : 'plane' | 'cube' | 'sphere' | 'cylinder' | 'cone' | 'torus' | 'disk';
 CAMERA   : 'camera';
 LIGHT    : 'light';
 STEREO   : 'stereo';
 MATERIAL : 'material';
 TIMELINE : 'timeline';
 
-// Mesh creation/import
-CREATE      : 'create';
-INSTANTIATE : 'instantiate';
-GROUP       : 'group';
+/* Scene construction */
 OPEN        : 'open';
+CREATE      : 'create';
+GROUP       : 'group';
+INSTANTIATE : 'instantiate';
+GET         : 'get';
+EDIT        : 'edit';
 
-// Getters: Scene nodes and files
-GET   : 'get';
+/* Resource retriever */
 FETCH : 'fetch';
-MATCH : 'match' | 'like';
+MATCH : 'match';
 
-// Modifiers
-EDIT : 'edit' | 'modify';
-SET  : 'set';
-
+/* Modifiers */
 TRANSLATE : 'translate';
 ROTATE    : 'rotate';
 SCALE     : 'scale';
@@ -60,40 +46,45 @@ SIZE      : 'size';
 LOOK_AT   : 'look_at';
 UP_AXIS   : 'up_axis'; // look at ... up
 AXIS      : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
+ORDER     : AXIS AXIS AXIS;
 
-// Complex rules
+/* Compound rules */
 SCATTER      : 'scatter';
 SCATTER_TYPE : '2d' | '3d';
 AROUND       : 'around';
 TEXTURE      : 'texture';
 
-// Dynamic Behavior
+/* Dynamic behavior */ 
 EVERY  : 'every';
 FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
-// Random distributions
+/* Distributions */
 UNIFORM     : 'Uniform';
-NORMAL      : 'Normal' ;
-CHOICE      : 'Choice' ;
-SEQUENCE    : 'Sequence' ;
+NORMAL      : 'Normal';
+CHOICE      : 'Choice';
+SEQUENCE    : 'Sequence';
 LOG_UNIFORM : 'LogUniform';
 
 // Native code snippets
 SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } -> skip;
 
 fragment NESTED_CODE:
- LBRACE LBRACE (NESTED_CODE | .)*?
- /*( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 */ 
- RBRACE RBRACE
+  LBRACE LBRACE 
+    (NESTED_CODE | .)*?
+    /*( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 */ 
+  RBRACE RBRACE
 ;
 
-// Additional keywords to be more natural language-like
+/* Additional keywords to be more natural language-like */ 
 TO : 'to'; // translate to
 ON : 'on'; // scatter on
 AT : 'at'; // get ... at ...
 
-// Everything that follows is a reduced version of the Python 3 Lexer (https://github.com/antlr/grammars-v4)
+/* 
+ * Everything that follows is a reduced version of the Python 3 Lexer
+ * found at (https://github.com/antlr/grammars-v4) 
+ */
 
 /* Keywords */
 AND        : 'and';
@@ -133,7 +124,6 @@ STAR    : '*';
 MOD     : '%';
 IDIV    : '//';
 POWER   : '**';
-ARROW   : '->';
 
 LPAREN : '(' {self.openBrace();};
 RPAREN : ')' {self.closeBrace();};
@@ -161,50 +151,50 @@ RSHIFT_ASSIGN : '>>=';
 POWER_ASSIGN  : '**=';
 IDIV_ASSIGN   : '//=';
 
-/* Basic types */
-STRING    : STRING_LITERAL;
-NUMBER    : INTEGER | FLOAT_NUMBER;
+/* Identifiers */
 ID        : ID_START ID_CONTINUE*;
 OPTION_ID : '$' ID;
 
-STRING_LITERAL: (
-  ('u' | 'U')
+/* Basic types */
+STRING : STRING_LITERAL;
+NUMBER : INTEGER | FLOAT_NUMBER;
+
+STRING_LITERAL:
+  ( ('u' | 'U')
   | ( ('f' | 'F')? ('r' | 'R'))
   | ( ('r' | 'R')? ('f' | 'F'))
- )? SHORT_STRING
+  )? SHORT_STRING
 ;
 
-INTEGER:
- DECIMAL_INTEGER
- | OCT_INTEGER
- | HEX_INTEGER
- | BIN_INTEGER
+INTEGER : 
+  DEC_INTEGER 
+  | OCT_INTEGER 
+  | HEX_INTEGER 
+  | BIN_INTEGER
 ;
 
-DECIMAL_INTEGER : NON_ZERO_DIGIT DIGIT* | '0'+;
-OCT_INTEGER     : '0' ('o' | 'O') OCT_DIGIT+;
-HEX_INTEGER     : '0' ('x' | 'X') HEX_DIGIT+;
-BIN_INTEGER     : '0' ('b' | 'B') BIN_DIGIT+;
-
+DEC_INTEGER  : NON_ZERO_DIGIT DIGIT* | '0'+;
+OCT_INTEGER  : '0' ('o' | 'O') OCT_DIGIT+;
+HEX_INTEGER  : '0' ('x' | 'X') HEX_DIGIT+;
+BIN_INTEGER  : '0' ('b' | 'B') BIN_DIGIT+;
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
 // Newline
-NEWLINE: (
-  {self.atStartOfInput()}? SPACES
+NEWLINE:
+  (  {self.atStartOfInput()}? SPACES
   | ( '\r'? '\n' | '\r' | '\f') SPACES?
- ) {self.onNewLine();}
+  ) {self.onNewLine();}
 ;
 
-// Misc
+/* Misc */
 SKIP_   : ( SPACES | COMMENT | LINE_JOINING) -> skip;
 UNKNOWN : .;
 
-/*  Fragments */
+/* Fragments */
 fragment SHORT_STRING:
- '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
- | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
+  '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
+  | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
 ;
-
 fragment STRING_ESCAPE_SEQ : '\\' . | '\\' NEWLINE;
 
 fragment NON_ZERO_DIGIT : '1' ..'9';

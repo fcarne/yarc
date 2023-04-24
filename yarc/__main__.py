@@ -7,7 +7,6 @@ import typer
 from rich.console import Console
 
 from yarc import version
-from yarc.example import hello
 
 
 class Color(str, Enum):
@@ -28,7 +27,15 @@ console = Console()
 
 
 def version_callback(print_version: bool) -> None:
-    """Print the version of the package."""
+    """
+    Print the version of the package.
+
+    Args:
+        print_version (bool): Whether to print the version of the package
+
+    Raises:
+        Exit: The CLI stops its execution, always raised
+    """
     if print_version:
         console.print(f"[yellow]yarc[/] version: [bold blue]{version}[/]")
         raise typer.Exit()
@@ -54,11 +61,19 @@ def main(
         help="Prints the version of the yarc package.",
     ),
 ) -> None:
-    """Print a greeting with a giving name."""
+    """
+    Print a greeting with a giving name.
+
+    Args:
+        name (str): The name of the person to greet.
+        color (Optional[Color]): The color of the greeting.
+        print_version (bool): If true, print the version of the package.
+
+    """
     if color is None:
         color = choice(list(Color))
 
-    greeting: str = hello(name)
+    greeting: str = f"Hello {name}"
     console.print(f"[bold {color}]{greeting}[/]")
 
 

@@ -12,27 +12,29 @@ settings:
   
 
 writer DOPEWriter:
-  ...
+  rgb = true
+
+open '*/scenario.usd'
 
 models = fetch 'usd' in '*/models/' match 'Albedo'
 
 obj = create 5 '*/obj.blend':
   translate to <0,0,0>
   translate x to 50
-  rotate yzx <120, 0, 90>
-  scale <2,1,2>
+  rotate <120,0,90> xyz
+  scale <2, 1, 2>
   semantics 'class:obj'
   collider
   mass 150
 
-group [cube, ..., ...]:
+group [cube, cone, sphere]:
   scale 100
 
 camera = get light at 'Cucina':
   exclude 'Cucina/Forno'
   semantics 'class:light'
 
-camera:
+edit camera:
   translate to <0,0,0>
   rotate 90
 
@@ -40,10 +42,10 @@ every frame:
   edit obj:
     visibility Choice([true, false])
 
-  camera: 
+  edit camera: 
     look_at obj
 
-  light:
+  edit light:
     camera translate to [0,0, 250]
 
   instantiate 5 '*/props':
