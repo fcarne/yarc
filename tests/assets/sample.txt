@@ -1,66 +1,61 @@
-scenario Brakes
-# this comment should be #hidden!
+scenario Brakes: Replicator
 
-{{ 
-  # comment inside {} snippet -> may not work
-  print({'python': 'snippet'}) 
-}}
-
+# comments
+{{ print('Code snippet!') }}
 
 settings:
-  lib = Replicator
-  fps = 24
-  num_scenes = 10
-  up_axis = Z
-  stage_meters_per_unit = 0.01
-  root_path = '...'
+  fps = 30 + 3 *(5+5)
+  render_mode = 'PathTracing'
+  num_scenes = 100
+  root_path = '/path/to/root'
 
-$fps = 10
+stage:  
+  open '*/scenario.usd'
 
-writer KittyWriter:   
-  output_dir = '*/out'
-  rgb = true
-  semantic_segmentation = true
+  models = fetch 'usd' from '*/models/' match 'Albedo'
+  count = 5
+  obj = create from '*/obj.blend' :
+    translate to <0,0,0>
+    translate x to 50
+    rotate <120,0,90> xyz
+    scale <2, 1, 2>
+    semantics 'class:obj'
+    collider
+    mass 150
 
-open '*/scenario.usd'
+  
+  group [cube, cone, sphere]:
+    scale 100
 
-scale = 2
+  camera = get Light at 'Cucina':
+    exclude 'Cucina/Forno'
+    include_semantics 'class:light'
 
-rotation = [190, 20, 300]
+  edit camera:
+    translate to <0,0,0>
+    rotate 90
 
-{
-  positions = ...
-}
+  every $num_scenes / 2 frame:
+    edit obj:
+      visibility Choice([true, false])
 
-camera_position = [100, 100, 100]
-obj_position = camera_position + [100,0,0]
+    edit camera: 
+      look_at obj
 
-obj = create 5 '*/obj.blend'
-edit obj:
-  position = (0,0,0)
-  translate x = 50
-  rotation = (120, 0, 90)
-  scale = (2,1,2)
-  semantics = 'class:obj'
-  set collider
-  set mass = 150
+    edit light:
+      camera_translate to [0,0, 250]
 
-group1 = group [cube, camera, light]
-edit group1:
-  scale = 100
+    instantiate 5 from '*/props':
+      translate to Uniform(-10, 10)
 
-camera = get camera 'Camera'
+writers:
+  intrinsics = [[0, 0, 0], 
+                [0, 0, 0], 
+                [0, 0, 0]]
+  
+  DOPEWriter:
+    pose = true
+    intrinsics = intrinsics
 
-every frame:
-  edit obj:
-    set visibility = Choice([true, false])
-
-  edit camera: 
-     look_at = obj
-
-  edit light:
-    camera position = [0,0, 250]
-
-  edit  instantiate 5 '*/props':
-    position = Uniform(-10, 10)
-    
+  KittiWriter:
+    bounding_box_2d = true

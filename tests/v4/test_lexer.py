@@ -12,9 +12,10 @@ class MyErrorListener(ErrorListener):
         raise ValueError(f"Syntax error at line {line}:{column} {msg}")
 
 
-tests_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(os.path.abspath(__file__))
+tests_dir = os.path.abspath(os.path.join(parent_dir, os.pardir))
 
-input_file = os.path.join(tests_dir, "assets", "sample_alt.txt")
+input_file = os.path.join(tests_dir, "assets", "sample.txt")
 with open(input_file) as f:
     input_str = f.read()
 

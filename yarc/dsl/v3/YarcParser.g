@@ -5,7 +5,7 @@ options {
   language = Python3;
 }
 
-scenario : declaration NEWLINE* settings? stage? writers? EOF; // Starting rule
+scenario : declaration NEWLINE* settings? stage? writers?; // Starting rule
 
 declaration : SCENARIO name (COLON name)? NEWLINE;
 settings    : SETTINGS COLON NEWLINE INDENT option+ DEDENT;
@@ -30,7 +30,7 @@ create_expr:
 
 instantiate_expr : INSTANTIATE (test)? FROM test (edit_block | NEWLINE);
 group_expr       : GROUP LBRACK name (COMMA name)* RBRACK (edit_block | NEWLINE);
-get_expr         : GET ((CAMERA | LIGHT | MATERIAL | name) AT)? test (simple_block | NEWLINE);
+get_expr:  GET ((CAMERA | LIGHT | MATERIAL | name) AT)? test (simple_block | NEWLINE);
 
 edit_block   : COLON NEWLINE INDENT (attr | inner_behavior_stmt)+ DEDENT;
 simple_block : COLON NEWLINE INDENT simple_attr+ DEDENT;
@@ -69,7 +69,7 @@ expr_stmt: (
   ) NEWLINE
 ;
 
-aug_expr_stmt: (
+aug_expr_stmt:
     testlist (
       NEWLINE
       | aug_assign (testlist | fetch_expr)? NEWLINE
@@ -78,8 +78,7 @@ aug_expr_stmt: (
         | create_expr | instantiate_expr | get_expr | group_expr
       )
     )
-    | fetch_expr NEWLINE
-  )
+  | fetch_expr NEWLINE
   | create_expr | instantiate_expr | get_expr | group_expr
 ;
 
@@ -115,7 +114,8 @@ arith_expr  : term ((PLUS | MINUS) term)*;
 term        : factor ((MUL | DIV | MOD | IDIV) factor)*;
 factor      : (PLUS | MINUS | BIT_NOT) factor | power;
 power       : atom_expr (POWER factor)?;
-atom_expr   : atom (: trailer)*;
+atom_expr   : atom trailer
+*;
 atom:
   LPAREN test RPAREN
   | LBRACK (testlist_comp? | (MINUS? INTEGER) RANGE (MINUS? INTEGER)) RBRACK

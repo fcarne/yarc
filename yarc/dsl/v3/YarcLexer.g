@@ -1,13 +1,21 @@
 lexer grammar YarcLexer;
 
-tokens {
-  INDENT,
-  DEDENT
+options {
+  superClass=YarcLexerBase;
+  language=Python;
 }
 
-options {
-  superClass = YarcLexerBase;
-  language = Python3;
+
+tokens {
+  INDENT;
+  DEDENT;
+}
+
+@header {
+if __name__ is not None and "." in __name__:
+    from .YarcLexerBase import YarcLexerBase
+else:
+    from YarcLexerBase import YarcLexerBase
 }
 
 /* Sections */
@@ -17,12 +25,12 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPES   : 'Plane' | 'Cube' | 'Sphere' | 'Cylinder' | 'Cone' | 'Torus' | 'Disk';
-CAMERA   : 'Camera';
-LIGHT    : 'Light';
-STEREO   : 'Stereo';
-MATERIAL : 'Material';
-TIMELINE : 'Timeline';
+SHAPES   : 'plane' | 'cube' | 'sphere' | 'cylinder' | 'cone' | 'torus' | 'disk';
+CAMERA   : 'camera';
+LIGHT    : 'light';
+STEREO   : 'stereo';
+MATERIAL : 'material';
+TIMELINE : 'timeline';
 
 /* Scene construction */
 OPEN        : 'open';
@@ -68,20 +76,18 @@ SEQUENCE    : 'Sequence';
 LOG_UNIFORM : 'LogUniform';
 
 // Native code snippets
-SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } -> skip;
+SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } {self.skip()} ;
 
 fragment NESTED_CODE:
   LBRACE LBRACE 
-    (NESTED_CODE | .)*?
-    /*( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 */ 
+    ( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 
   RBRACE RBRACE
 ;
 
-/* Additional keywords to be more natural language-like */
+/* Additional keywords to be more natural language-like */ 
 TO : 'to'; // translate to
 ON : 'on'; // scatter on
 AT : 'at'; // get ... at ...
-
 /* 
  * Everything that follows is a reduced version of the Python 3 Lexer
  * found at (https://github.com/antlr/grammars-v4) 
@@ -121,8 +127,8 @@ LSHIFT  : '<<';
 RSHIFT  : '>>';
 PLUS    : '+';
 MINUS   : '-';
+MUL    : '*';
 DIV     : '/';
-MUL     : '*';
 MOD     : '%';
 IDIV    : '//';
 POWER   : '**';
@@ -159,31 +165,32 @@ ID         : ID_START ID_CONTINUE*;
 SETTING_ID : '$' ID;
 
 /* Basic types */
-STRING:
+STRING: 
   ( ('u' | 'U')
   | ( ('f' | 'F')? ('r' | 'R'))
   | ( ('r' | 'R')? ('f' | 'F'))
   )? SHORT_STRING
 ;
 
+
 INTEGER : 
-  DEC_INTEGER 
-  | OCT_INTEGER 
-  | HEX_INTEGER 
-  | BIN_INTEGER
+  NON_ZERO_DIGIT DIGIT* | '0'+ // Decimal integer 
+  | '0' ('o' | 'O') OCT_DIGIT+ // Octal integer 
+  | '0' ('x' | 'X') HEX_DIGIT+ // Hexadecimal integer 
+  | '0' ('b' | 'B') BIN_DIGIT+ // Binary integer
 ;
 
-DEC_INTEGER  : NON_ZERO_DIGIT DIGIT* | '0'+;
-OCT_INTEGER  : '0' ('o' | 'O') OCT_DIGIT+;
-HEX_INTEGER  : '0' ('x' | 'X') HEX_DIGIT+;
-BIN_INTEGER  : '0' ('b' | 'B') BIN_DIGIT+;
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
 // Newline
-NEWLINE : ('\r'? '\n' | '\r' | '\f') SPACES? {self.onNewLine();};
+NEWLINE:
+  (
+  ( '\r'? '\n' | '\r' | '\f') SPACES?
+  ) {self.onNewLine();}
+;
 
 /* Misc */
-SKIP_ : ( SPACES | COMMENT | LINE_JOINING) -> skip;
+SKIP_   : ( SPACES | COMMENT | LINE_JOINING) {self.skip()};
 UNKNOWN : .;
 
 /* Fragments */
@@ -191,7 +198,7 @@ fragment SHORT_STRING:
   '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
   | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
 ;
-fragment STRING_ESCAPE_SEQ : '\\' . | '\\' NEWLINE;
+fragment STRING_ESCAPE_SEQ : '\\' ~('\t' | ' ' | '\r' | '\n' | '\f') | '\\' NEWLINE;
 
 fragment NON_ZERO_DIGIT : '1' ..'9';
 fragment DIGIT          : '0' ..'9';
