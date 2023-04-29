@@ -1,6 +1,6 @@
 import os
 
-from antlr3 import *
+from antlr3 import ANTLRStringStream
 
 from yarc.dsl.v3.YarcLexer import YarcLexer
 

@@ -1,6 +1,6 @@
 import os
 
-from antlr4 import *
+from antlr4 import CommonTokenStream, InputStream
 
 from yarc.dsl.v4 import YarcLexer, YarcParser
 

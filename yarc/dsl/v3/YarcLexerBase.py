@@ -1,10 +1,10 @@
-from typing import TextIO
+from typing import Optional, TextIO
 
 import re
 import sys
 
 from antlr3 import InputStream, Lexer
-from antlr3.tokens import CommonToken
+from antlr3.tokens import CommonToken, Token
 
 import yarc.dsl.v3.YarcParser as YarcParser
 
@@ -25,8 +25,13 @@ class YarcLexerBase(Lexer):
         self.opened = 0
         super().reset()
 
-    def emitToken(self, token):
-        self._token = token
+    def emit(self, token: Optional[Token] = None):
+        t = super().emit(token)
+        self.emitToken(t)
+        return t
+
+    def emitToken(self, token: Token):
+        self._state.token = token
         self.tokens.append(token)
 
     def nextToken(self):
@@ -57,12 +62,16 @@ class YarcLexerBase(Lexer):
     def commonToken(self, type_: int, text: str):
         stop = self.getCharIndex() - 1
         start = stop if text == "" else stop - len(text) + 1
-        return CommonToken(
+        token = CommonToken(
             type=type_,
+            text=text,
             channel=Lexer.DEFAULT_TOKEN_CHANNEL,
             start=start,
             stop=stop,
         )
+        token.line = self._state.tokenStartLine
+        token.charPositionInLine = self._state.tokenStartCharPositionInLine
+        return token
 
     def getIndentationCount(self, whitespace: str):
         count = 0

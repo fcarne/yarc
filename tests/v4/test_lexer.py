@@ -1,10 +1,11 @@
 import os
 
-from antlr4 import *
+from antlr4 import Token
 from antlr4.error.ErrorListener import ErrorListener
 from antlr4.InputStream import InputStream
 
-from yarc.dsl.v4 import YarcLexer, YarcParser
+from yarc.dsl.v4.YarcLexer import YarcLexer
+from yarc.dsl.v4.YarcParser import YarcParser
 
 
 class MyErrorListener(ErrorListener):

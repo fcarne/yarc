@@ -25,12 +25,14 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPES   : 'plane' | 'cube' | 'sphere' | 'cylinder' | 'cone' | 'torus' | 'disk';
-CAMERA   : 'camera';
-LIGHT    : 'light';
-STEREO   : 'stereo';
-MATERIAL : 'material';
-TIMELINE : 'timeline';
+SHAPES           : 'Plane' | 'Cube' | 'Cone' | 'Torus';
+SHAPES_OR_LIGHTS : 'Sphere' | 'Cylinder' | 'Disk';
+CAMERA           : 'Camera';
+LIGHT            : 'Light';
+LIGHT_TYPE       : 'Rect' | 'Dome' | 'Distant';
+STEREO           : 'Stereo';
+MATERIAL         : 'Material';
+TIMELINE         : 'Timeline';
 
 /* Scene construction */
 OPEN        : 'open';
@@ -41,8 +43,11 @@ GET         : 'get';
 EDIT        : 'edit';
 
 /* Resource retriever */
-FETCH : 'fetch';
-MATCH : 'match';
+/* Resource retriever */
+FETCH     : 'fetch';
+MATCH     : 'match';
+LIMIT     : 'limit';
+RECURSIVE : 'recursive';
 
 /* Modifiers */
 TRANSLATE     : 'translate';
@@ -58,10 +63,9 @@ AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
 ORDER         : AXIS AXIS AXIS;
 
 /* Compound rules */
-SCATTER      : 'scatter';
-SCATTER_TYPE : '2d' | '3d';
-AROUND       : 'around';
-TEXTURE      : 'texture';
+SCATTER    : 'scatter_' ('2d' | '3d');
+ROT_AROUND : 'rotate_around';
+PHYSICS    : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
 
 /* Dynamic behavior */ 
 EVERY  : 'every';
@@ -95,7 +99,6 @@ AT : 'at'; // get ... at ...
 
 /* Keywords */
 AND        : 'and';
-DEF        : 'def';
 ELSE       : 'else';
 FALSE      : 'false';
 FOR        : 'for';
@@ -106,7 +109,6 @@ IS         : 'is';
 NONE       : 'none';
 NOT        : 'not';
 OR         : 'or';
-RETURN     : 'return';
 TRUE       : 'true';
 UNDERSCORE : '_';
 

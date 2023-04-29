@@ -23,14 +23,17 @@ edit_stmt : EDIT (TIMELINE | name) edit_block;
 
 create_expr:
   CREATE test? (
-    (STEREO? CAMERA | SHAPES | name LIGHT | FROM test) (edit_block | NEWLINE)
+    (STEREO? CAMERA | shapes | light_type LIGHT | FROM test) (edit_block | NEWLINE)
     | MATERIAL (simple_block)
   )
 ;
 
+shapes     : SHAPES | SHAPES_OR_LIGHTS;
+light_type : LIGHT_TYPE | SHAPES_OR_LIGHTS;
+
 instantiate_expr : INSTANTIATE (test)? FROM test (edit_block | NEWLINE);
 group_expr       : GROUP LBRACK name (COMMA name)* RBRACK (edit_block | NEWLINE);
-get_expr:  GET ((CAMERA | LIGHT | MATERIAL | name) AT)? test (simple_block | NEWLINE);
+get_expr         : GET ((CAMERA | LIGHT | MATERIAL | name) AT)? test (simple_block | NEWLINE);
 
 edit_block   : COLON NEWLINE INDENT (attr | inner_behavior_stmt)+ DEDENT;
 simple_block : COLON NEWLINE INDENT simple_attr+ DEDENT;
@@ -38,7 +41,7 @@ simple_block : COLON NEWLINE INDENT simple_attr+ DEDENT;
 attr          : core_attr | simple_attr | compound_attr;
 simple_attr   : name (COLON name)? test? NEWLINE;
 
-compound_attr : SCATTER NEWLINE; // TODO: finish this
+compound_attr : (SCATTER ON name | ROT_AROUND name | PHYSICS) (simple_block | NEWLINE);
 
 core_attr: // Special modifiers that must be treated in a specific way
   (
@@ -63,26 +66,21 @@ behavior_expr  : EVERY test? (FRAMES | TIME);
 behavior_block : COLON NEWLINE INDENT (aug_expr_stmt | edit_stmt)+ DEDENT;
 
 /* Expression statements */
-expr_stmt: (
-    testlist ((aug_assign | ASSIGN) (testlist | fetch_expr))?
-    | fetch_expr
-  ) NEWLINE
-;
+expr_stmt : testlist (aug_assign | ASSIGN) (testlist | fetch_expr) NEWLINE;
 
-aug_expr_stmt:
+aug_expr_stmt: (
     testlist (
-      NEWLINE
-      | aug_assign (testlist | fetch_expr)? NEWLINE
+      aug_assign (testlist | fetch_expr)? NEWLINE
       | ASSIGN (
         (testlist | fetch_expr) NEWLINE
         | create_expr | instantiate_expr | get_expr | group_expr
       )
     )
-  | fetch_expr NEWLINE
+  )
   | create_expr | instantiate_expr | get_expr | group_expr
 ;
 
-fetch_expr : FETCH test FROM test (MATCH test)?;
+fetch_expr : FETCH test FROM test (MATCH test)? (LIMIT test)? RECURSIVE?;
 aug_assign:
   ADD_ASSIGN
   | SUB_ASSIGN
@@ -114,8 +112,7 @@ arith_expr  : term ((PLUS | MINUS) term)*;
 term        : factor ((MUL | DIV | MOD | IDIV) factor)*;
 factor      : (PLUS | MINUS | BIT_NOT) factor | power;
 power       : atom_expr (POWER factor)?;
-atom_expr   : atom trailer
-*;
+atom_expr   : atom (: trailer)*;
 atom:
   LPAREN test RPAREN
   | LBRACK (testlist_comp? | (MINUS? INTEGER) RANGE (MINUS? INTEGER)) RBRACK
@@ -137,8 +134,6 @@ name:
   | TEXTURE
   | ORDER  */
 ;
-
-primitives : SHAPES | STEREO? CAMERA | LIGHT | MATERIAL;
 
 distribution_expr : distribution LPAREN arglist RPAREN;
 distribution      : UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM;

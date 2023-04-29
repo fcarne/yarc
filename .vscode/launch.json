@@ -2,15 +2,12 @@
     "version": "2.0.0",
     "configurations": [
         {
-            "name": "Debug ANTLR4 grammar",
-            "type": "antlr-debug",
+            "name": "Python: Current File",
+            "type": "python",
             "request": "launch",
-            "input": "tests/assets/sample_alt.txt",
-            "grammar": "yarc/dsl/v4/YarcParser.g4",
-            //"actionFile": "grammars/exampleActions.js",
-            "startRule": "file_input",
-            "printParseTree": true,
-            "visualParseTree": true
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
         }
     ]
 }

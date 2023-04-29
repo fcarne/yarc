@@ -12,41 +12,41 @@ settings:
 stage:  
   open '*/scenario.usd'
 
-  models = fetch 'usd' from '*/models/' match 'Albedo'
-  count = 5
-  obj = create from '*/obj.blend' :
+  brake_models = fetch 'usd' from '*/models/' match 'brake_'
+  
+  obj = create 5 from brake_models :
     translate to <0,0,0>
     translate x to 50
     rotate <120,0,90> xyz
     scale <2, 1, 2>
     semantics 'class:obj'
     collider
-    mass 150
-
+    kinematics:
+      velocity 150
   
-  group [cube, cone, sphere]:
-    scale 100
+  create Disk Light:
+    radius:float 100
+    
+    every frame:
+      camera_translate to <0,0, 250>
 
-  camera = get Light at 'Cucina':
-    exclude 'Cucina/Forno'
-    include_semantics 'class:light'
+
+  camera = get camera at '/World/Room':
+    exclude '/World/Room/CameraTop'
 
   edit camera:
     translate to <0,0,0>
     rotate 90
+    rotate_around obj:
+      radius Normal(100,5)
 
   every $num_scenes / 2 frame:
     edit obj:
       visibility Choice([true, false])
 
-    edit camera: 
-      look_at obj
-
-    edit light:
-      camera_translate to [0,0, 250]
 
     instantiate 5 from '*/props':
-      translate to Uniform(-10, 10)
+      translate to Uniform(<-10,-10,10>, <10,10,10>)
 
 writers:
   intrinsics = [[0, 0, 0], 
