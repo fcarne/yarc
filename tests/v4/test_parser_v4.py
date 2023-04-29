@@ -2,7 +2,8 @@ import os
 
 from antlr4 import CommonTokenStream, InputStream
 
-from yarc.dsl.v4 import YarcLexer, YarcParser
+from yarc.dsl.v4.YarcLexer import YarcLexer
+from yarc.dsl.v4.YarcParser import YarcParser
 
 parent_dir = os.path.dirname(os.path.abspath(__file__))
 tests_dir = os.path.abspath(os.path.join(parent_dir, os.pardir))
