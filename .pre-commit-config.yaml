@@ -1,5 +1,5 @@
 default_language_version:
-  python: python3.10
+  python: python3
 
 default_stages: [commit, push]
 
@@ -18,6 +18,18 @@ repos:
         entry: poetry run pyupgrade --py39-plus
         types: [python]
         language: system
+  
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.1.1
+    hooks:
+      - id: autoflake
+        entry: autoflake
+        args:
+          - "--in-place"
+          - "--expand-star-imports"
+          - "--remove-duplicate-keys"
+          - "--remove-unused-variables"
+          - "--remove-all-unused-imports"
 
   - repo: local
     hooks:
@@ -34,15 +46,3 @@ repos:
         entry: poetry run black --config pyproject.toml
         types: [python]
         language: system
-  
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v2.1.1
-    hooks:
-      - id: autoflake
-        entry: autoflake
-        args:
-          - "--in-place"
-          - "--expand-star-imports"
-          - "--remove-duplicate-keys"
-          - "--remove-unused-variables"
-          - "--remove-all-unused-imports"
