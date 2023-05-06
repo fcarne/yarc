@@ -2,7 +2,7 @@ lexer grammar YarcLexer;
 
 options {
   superClass=YarcLexerBase;
-  language=Python;
+  language=Python3;
 }
 
 
@@ -149,18 +149,7 @@ GT_EQ  : '>=';
 LT_EQ  : '<=';
 NOT_EQ : '!=';
 
-ADD_ASSIGN    : '+=';
-SUB_ASSIGN    : '-=';
-MULT_ASSIGN   : '*=';
-DIV_ASSIGN    : '/=';
-MOD_ASSIGN    : '%=';
-AND_ASSIGN    : '&=';
-OR_ASSIGN     : '|=';
-XOR_ASSIGN    : '^=';
-LSHIFT_ASSIGN : '<<=';
-RSHIFT_ASSIGN : '>>=';
-POWER_ASSIGN  : '**=';
-IDIV_ASSIGN   : '//=';
+AUG_ASSIGN: '+=' | '-=' | '*='| '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=';
 
 /* Identifiers */
 ID         : ID_START ID_CONTINUE*;

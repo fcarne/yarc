@@ -67,11 +67,11 @@ behavior_expr  : EVERY test? (FRAMES | TIME);
 behavior_block : COLON NEWLINE INDENT (aug_expr_stmt | edit_stmt)+ DEDENT;
 
 /* Expression statements */
-expr_stmt : testlist (aug_assign | ASSIGN) (testlist | fetch_expr) NEWLINE;
+expr_stmt : testlist (AUG_ASSIGN | ASSIGN) (testlist | fetch_expr) NEWLINE;
 
 aug_expr_stmt: (
     testlist (
-      aug_assign (testlist | fetch_expr)? NEWLINE
+      AUG_ASSIGN (testlist | fetch_expr)? NEWLINE
       | ASSIGN (
         (testlist | fetch_expr) NEWLINE
         | create_expr | instantiate_expr | get_expr | group_expr
@@ -82,20 +82,6 @@ aug_expr_stmt: (
 ;
 
 fetch_expr : FETCH test FROM test (MATCH test)? (LIMIT test)? RECURSIVE?;
-aug_assign:
-  ADD_ASSIGN
-  | SUB_ASSIGN
-  | MULT_ASSIGN
-  | DIV_ASSIGN
-  | MOD_ASSIGN
-  | AND_ASSIGN
-  | OR_ASSIGN
-  | XOR_ASSIGN
-  | LSHIFT_ASSIGN
-  | RSHIFT_ASSIGN
-  | POWER_ASSIGN
-  | IDIV_ASSIGN
-;
 
 /* Expressions (taken from the Python 3 grammar) */
 test        : or_test (IF or_test ELSE test)?;

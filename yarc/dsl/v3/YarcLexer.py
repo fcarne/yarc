@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g 2023-05-06 17:52:51
+# $ANTLR 3.5.1 /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g 2023-05-06 18:03:50
 
 import sys
 
@@ -10,6 +10,7 @@ from antlr3 import (
     MismatchedSetException,
     NoViableAltException,
     RecognizerSharedState,
+    Token,
 )
 
 if __name__ is not None and "." in __name__:
@@ -23,140 +24,262 @@ HIDDEN = BaseRecognizer.HIDDEN
 
 # token types
 EOF = -1
-ADD_ASSIGN = 4
-AND = 5
-AND_ASSIGN = 6
-ASSIGN = 7
-AT = 8
-AXIS = 9
-BIN_DIGIT = 10
-BIT_AND = 11
-BIT_NOT = 12
-BIT_OR = 13
-CAMERA = 14
-CAM_TRANSLATE = 15
-CHOICE = 16
-COLON = 17
-COMMA = 18
-COMMENT = 19
-CREATE = 20
-DEDENT = 21
-DIGIT = 22
-DIV = 23
-DIV_ASSIGN = 24
-DOT = 25
-EDIT = 26
-ELLIPSIS = 27
-ELSE = 28
-EQUALS = 29
-EVERY = 30
-EXPONENT = 31
-EXPONENT_FLOAT = 32
-FALSE = 33
-FETCH = 34
-FLOAT_NUMBER = 35
-FOR = 36
-FRACTION = 37
-FRAMES = 38
-FROM = 39
-GET = 40
-GROUP = 41
-GT = 42
-GT_EQ = 43
-HEX_DIGIT = 44
-ID = 45
-IDIV = 46
-IDIV_ASSIGN = 47
-ID_CONTINUE = 48
-ID_START = 49
-IF = 50
-IN = 51
-INDENT = 52
-INSTANTIATE = 53
-INTEGER = 54
-INT_PART = 55
-IS = 56
-LBRACE = 57
-LBRACK = 58
-LETTER = 59
-LIGHT = 60
-LIGHT_TYPE = 61
-LIMIT = 62
-LINE_JOINING = 63
-LOG_UNIFORM = 64
-LOOK_AT = 65
-LPAREN = 66
-LSHIFT = 67
-LSHIFT_ASSIGN = 68
-LT = 69
-LT_EQ = 70
-MATCH = 71
-MATERIAL = 72
-MINUS = 73
-MOD = 74
-MOD_ASSIGN = 75
-MUL = 76
-MULT_ASSIGN = 77
-NESTED_CODE = 78
-NEWLINE = 79
-NONE = 80
-NON_ZERO_DIGIT = 81
-NORMAL = 82
-NOT = 83
-NOT_EQ = 84
-OCT_DIGIT = 85
-ON = 86
-OPEN = 87
-OR = 88
-ORDER = 89
-OR_ASSIGN = 90
-PHYSICS = 91
-PLUS = 92
-POINT_FLOAT = 93
-POWER = 94
-POWER_ASSIGN = 95
-RANGE = 96
-RBRACE = 97
-RBRACK = 98
-RECURSIVE = 99
-ROTATE = 100
-ROT_AROUND = 101
-RPAREN = 102
-RSHIFT = 103
-RSHIFT_ASSIGN = 104
-SCALE = 105
-SCATTER = 106
-SCENARIO = 107
-SEMANTICS = 108
-SEMI = 109
-SEQUENCE = 110
-SETTINGS = 111
-SETTING_ID = 112
-SHAPES = 113
-SHAPES_OR_LIGHTS = 114
-SHORT_STRING = 115
-SIZE = 116
-SKIP_ = 117
-SNIPPET = 118
-SPACES = 119
-STAGE = 120
-STEREO = 121
-STRING = 122
-STRING_ESCAPE_SEQ = 123
-SUB_ASSIGN = 124
-TIME = 125
-TIMELINE = 126
-TO = 127
-TRANSLATE = 128
-TRUE = 129
-UNDERSCORE = 130
-UNIFORM = 131
-UNKNOWN = 132
-UP_AXIS = 133
-VISIBLE = 134
-WRITERS = 135
-XOR = 136
-XOR_ASSIGN = 137
+AND = 4
+ASSIGN = 5
+AT = 6
+AUG_ASSIGN = 7
+AXIS = 8
+BIN_DIGIT = 9
+BIT_AND = 10
+BIT_NOT = 11
+BIT_OR = 12
+CAMERA = 13
+CAM_TRANSLATE = 14
+CHOICE = 15
+COLON = 16
+COMMA = 17
+COMMENT = 18
+CREATE = 19
+DEDENT = 20
+DIGIT = 21
+DIV = 22
+DOT = 23
+EDIT = 24
+ELLIPSIS = 25
+ELSE = 26
+EQUALS = 27
+EVERY = 28
+EXPONENT = 29
+EXPONENT_FLOAT = 30
+FALSE = 31
+FETCH = 32
+FLOAT_NUMBER = 33
+FOR = 34
+FRACTION = 35
+FRAMES = 36
+FROM = 37
+GET = 38
+GROUP = 39
+GT = 40
+GT_EQ = 41
+HEX_DIGIT = 42
+ID = 43
+IDIV = 44
+ID_CONTINUE = 45
+ID_START = 46
+IF = 47
+IN = 48
+INDENT = 49
+INSTANTIATE = 50
+INTEGER = 51
+INT_PART = 52
+IS = 53
+LBRACE = 54
+LBRACK = 55
+LETTER = 56
+LIGHT = 57
+LIGHT_TYPE = 58
+LIMIT = 59
+LINE_JOINING = 60
+LOG_UNIFORM = 61
+LOOK_AT = 62
+LPAREN = 63
+LSHIFT = 64
+LT = 65
+LT_EQ = 66
+MATCH = 67
+MATERIAL = 68
+MINUS = 69
+MOD = 70
+MUL = 71
+NESTED_CODE = 72
+NEWLINE = 73
+NONE = 74
+NON_ZERO_DIGIT = 75
+NORMAL = 76
+NOT = 77
+NOT_EQ = 78
+OCT_DIGIT = 79
+ON = 80
+OPEN = 81
+OR = 82
+ORDER = 83
+PHYSICS = 84
+PLUS = 85
+POINT_FLOAT = 86
+POWER = 87
+RANGE = 88
+RBRACE = 89
+RBRACK = 90
+RECURSIVE = 91
+ROTATE = 92
+ROT_AROUND = 93
+RPAREN = 94
+RSHIFT = 95
+SCALE = 96
+SCATTER = 97
+SCENARIO = 98
+SEMANTICS = 99
+SEMI = 100
+SEQUENCE = 101
+SETTINGS = 102
+SETTING_ID = 103
+SHAPES = 104
+SHAPES_OR_LIGHTS = 105
+SHORT_STRING = 106
+SIZE = 107
+SKIP_ = 108
+SNIPPET = 109
+SPACES = 110
+STAGE = 111
+STEREO = 112
+STRING = 113
+STRING_ESCAPE_SEQ = 114
+TIME = 115
+TIMELINE = 116
+TO = 117
+TRANSLATE = 118
+TRUE = 119
+UNDERSCORE = 120
+UNIFORM = 121
+UNKNOWN = 122
+UP_AXIS = 123
+VISIBLE = 124
+WRITERS = 125
+XOR = 126
+
+# token names
+tokenNamesMap = {
+    0: "<invalid>",
+    1: "<EOR>",
+    2: "<DOWN>",
+    3: "<UP>",
+    -1: "EOF",
+    4: "AND",
+    5: "ASSIGN",
+    6: "AT",
+    7: "AUG_ASSIGN",
+    8: "AXIS",
+    9: "BIN_DIGIT",
+    10: "BIT_AND",
+    11: "BIT_NOT",
+    12: "BIT_OR",
+    13: "CAMERA",
+    14: "CAM_TRANSLATE",
+    15: "CHOICE",
+    16: "COLON",
+    17: "COMMA",
+    18: "COMMENT",
+    19: "CREATE",
+    20: "DEDENT",
+    21: "DIGIT",
+    22: "DIV",
+    23: "DOT",
+    24: "EDIT",
+    25: "ELLIPSIS",
+    26: "ELSE",
+    27: "EQUALS",
+    28: "EVERY",
+    29: "EXPONENT",
+    30: "EXPONENT_FLOAT",
+    31: "FALSE",
+    32: "FETCH",
+    33: "FLOAT_NUMBER",
+    34: "FOR",
+    35: "FRACTION",
+    36: "FRAMES",
+    37: "FROM",
+    38: "GET",
+    39: "GROUP",
+    40: "GT",
+    41: "GT_EQ",
+    42: "HEX_DIGIT",
+    43: "ID",
+    44: "IDIV",
+    45: "ID_CONTINUE",
+    46: "ID_START",
+    47: "IF",
+    48: "IN",
+    49: "INDENT",
+    50: "INSTANTIATE",
+    51: "INTEGER",
+    52: "INT_PART",
+    53: "IS",
+    54: "LBRACE",
+    55: "LBRACK",
+    56: "LETTER",
+    57: "LIGHT",
+    58: "LIGHT_TYPE",
+    59: "LIMIT",
+    60: "LINE_JOINING",
+    61: "LOG_UNIFORM",
+    62: "LOOK_AT",
+    63: "LPAREN",
+    64: "LSHIFT",
+    65: "LT",
+    66: "LT_EQ",
+    67: "MATCH",
+    68: "MATERIAL",
+    69: "MINUS",
+    70: "MOD",
+    71: "MUL",
+    72: "NESTED_CODE",
+    73: "NEWLINE",
+    74: "NONE",
+    75: "NON_ZERO_DIGIT",
+    76: "NORMAL",
+    77: "NOT",
+    78: "NOT_EQ",
+    79: "OCT_DIGIT",
+    80: "ON",
+    81: "OPEN",
+    82: "OR",
+    83: "ORDER",
+    84: "PHYSICS",
+    85: "PLUS",
+    86: "POINT_FLOAT",
+    87: "POWER",
+    88: "RANGE",
+    89: "RBRACE",
+    90: "RBRACK",
+    91: "RECURSIVE",
+    92: "ROTATE",
+    93: "ROT_AROUND",
+    94: "RPAREN",
+    95: "RSHIFT",
+    96: "SCALE",
+    97: "SCATTER",
+    98: "SCENARIO",
+    99: "SEMANTICS",
+    100: "SEMI",
+    101: "SEQUENCE",
+    102: "SETTINGS",
+    103: "SETTING_ID",
+    104: "SHAPES",
+    105: "SHAPES_OR_LIGHTS",
+    106: "SHORT_STRING",
+    107: "SIZE",
+    108: "SKIP_",
+    109: "SNIPPET",
+    110: "SPACES",
+    111: "STAGE",
+    112: "STEREO",
+    113: "STRING",
+    114: "STRING_ESCAPE_SEQ",
+    115: "TIME",
+    116: "TIMELINE",
+    117: "TO",
+    118: "TRANSLATE",
+    119: "TRUE",
+    120: "UNDERSCORE",
+    121: "UNIFORM",
+    122: "UNKNOWN",
+    123: "UP_AXIS",
+    124: "VISIBLE",
+    125: "WRITERS",
+    126: "XOR",
+}
+Token.registerTokenNamesMap(tokenNamesMap)
 
 
 class YarcLexer(YarcLexerBase):
@@ -170,28 +293,16 @@ class YarcLexer(YarcLexerBase):
 
         self.delegates = []
 
-        self.dfa21 = self.DFA21(
+        self.dfa22 = self.DFA22(
             self,
-            21,
-            eot=self.DFA21_eot,
-            eof=self.DFA21_eof,
-            min=self.DFA21_min,
-            max=self.DFA21_max,
-            accept=self.DFA21_accept,
-            special=self.DFA21_special,
-            transition=self.DFA21_transition,
-        )
-
-        self.dfa31 = self.DFA31(
-            self,
-            31,
-            eot=self.DFA31_eot,
-            eof=self.DFA31_eof,
-            min=self.DFA31_min,
-            max=self.DFA31_max,
-            accept=self.DFA31_accept,
-            special=self.DFA31_special,
-            transition=self.DFA31_transition,
+            22,
+            eot=self.DFA22_eot,
+            eof=self.DFA22_eof,
+            min=self.DFA22_min,
+            max=self.DFA22_max,
+            accept=self.DFA22_accept,
+            special=self.DFA22_special,
+            transition=self.DFA22_transition,
         )
 
         self.dfa32 = self.DFA32(
@@ -206,16 +317,28 @@ class YarcLexer(YarcLexerBase):
             transition=self.DFA32_transition,
         )
 
-        self.dfa42 = self.DFA42(
+        self.dfa33 = self.DFA33(
             self,
-            42,
-            eot=self.DFA42_eot,
-            eof=self.DFA42_eof,
-            min=self.DFA42_min,
-            max=self.DFA42_max,
-            accept=self.DFA42_accept,
-            special=self.DFA42_special,
-            transition=self.DFA42_transition,
+            33,
+            eot=self.DFA33_eot,
+            eof=self.DFA33_eof,
+            min=self.DFA33_min,
+            max=self.DFA33_max,
+            accept=self.DFA33_accept,
+            special=self.DFA33_special,
+            transition=self.DFA33_transition,
+        )
+
+        self.dfa43 = self.DFA43(
+            self,
+            43,
+            eot=self.DFA43_eot,
+            eof=self.DFA43_eof,
+            min=self.DFA43_min,
+            max=self.DFA43_max,
+            accept=self.DFA43_accept,
+            special=self.DFA43_special,
+            transition=self.DFA43_transition,
         )
 
     # $ANTLR start "SCENARIO"
@@ -305,9 +428,9 @@ class YarcLexer(YarcLexerBase):
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:18: ( 'Plane' | 'Cube' | 'Cone' | 'Torus' )
             alt1 = 4
             LA1 = self.input.LA(1)
-            if LA1 == 80:
+            if LA1 in {80}:
                 alt1 = 1
-            elif LA1 == 67:
+            elif LA1 in {67}:
                 LA1_2 = self.input.LA(2)
 
                 if LA1_2 == 117:
@@ -319,7 +442,7 @@ class YarcLexer(YarcLexerBase):
 
                     raise nvae
 
-            elif LA1 == 84:
+            elif LA1 in {84}:
                 alt1 = 4
             else:
                 nvae = NoViableAltException("", 1, 0, self.input)
@@ -360,11 +483,11 @@ class YarcLexer(YarcLexerBase):
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:29:18: ( 'Sphere' | 'Cylinder' | 'Disk' )
             alt2 = 3
             LA2 = self.input.LA(1)
-            if LA2 == 83:
+            if LA2 in {83}:
                 alt2 = 1
-            elif LA2 == 67:
+            elif LA2 in {67}:
                 alt2 = 2
-            elif LA2 == 68:
+            elif LA2 in {68}:
                 alt2 = 3
             else:
                 nvae = NoViableAltException("", 2, 0, self.input)
@@ -906,7 +1029,7 @@ class YarcLexer(YarcLexerBase):
 
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:62:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if (88 <= self.input.LA(1) <= 90) or (120 <= self.input.LA(1) <= 122):
+            if self.input.LA(1) in {88, 89, 90, 120, 121, 122}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
@@ -1013,13 +1136,13 @@ class YarcLexer(YarcLexerBase):
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:12: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
             alt5 = 4
             LA5 = self.input.LA(1)
-            if LA5 == 99:
+            if LA5 in {99}:
                 alt5 = 1
-            elif LA5 == 107:
+            elif LA5 in {107}:
                 alt5 = 2
-            elif LA5 == 114:
+            elif LA5 in {114}:
                 alt5 = 3
-            elif LA5 == 112:
+            elif LA5 in {112}:
                 alt5 = 4
             else:
                 nvae = NoViableAltException("", 5, 0, self.input)
@@ -1247,7 +1370,7 @@ class YarcLexer(YarcLexerBase):
             alt9 = 2
             LA9_0 = self.input.LA(1)
 
-            if LA9_0 == 10 or (12 <= LA9_0 <= 13):
+            if LA9_0 in {10, 12, 13}:
                 alt9 = 1
             if alt9 == 1:
                 # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:83:23: NEWLINE
@@ -1288,7 +1411,9 @@ class YarcLexer(YarcLexerBase):
                     alt10 = 3
                 elif LA10_0 == 123:
                     alt10 = 1
-                elif (0 <= LA10_0 <= 122) or LA10_0 == 124 or (126 <= LA10_0 <= 65535):
+                elif (
+                    (0 <= LA10_0 <= 122) or (126 <= LA10_0 <= 65535) or LA10_0 in {124}
+                ):
                     alt10 = 2
 
                 if alt10 == 1:
@@ -2247,233 +2372,116 @@ class YarcLexer(YarcLexerBase):
 
     # $ANTLR end "NOT_EQ"
 
-    # $ANTLR start "ADD_ASSIGN"
-    def mADD_ASSIGN(
+    # $ANTLR start "AUG_ASSIGN"
+    def mAUG_ASSIGN(
         self,
     ):
         try:
-            _type = ADD_ASSIGN
+            _type = AUG_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:15: ( '+=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:17: '+='
-            self.match("+=")
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:11: ( '+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=' )
+            alt11 = 12
+            LA11 = self.input.LA(1)
+            if LA11 in {43}:
+                alt11 = 1
+            elif LA11 in {45}:
+                alt11 = 2
+            elif LA11 in {42}:
+                LA11_3 = self.input.LA(2)
+
+                if LA11_3 == 61:
+                    alt11 = 3
+                elif LA11_3 == 42:
+                    alt11 = 11
+                else:
+                    nvae = NoViableAltException("", 11, 3, self.input)
+
+                    raise nvae
+
+            elif LA11 in {47}:
+                LA11_4 = self.input.LA(2)
+
+                if LA11_4 == 61:
+                    alt11 = 4
+                elif LA11_4 == 47:
+                    alt11 = 12
+                else:
+                    nvae = NoViableAltException("", 11, 4, self.input)
+
+                    raise nvae
+
+            elif LA11 in {37}:
+                alt11 = 5
+            elif LA11 in {38}:
+                alt11 = 6
+            elif LA11 in {124}:
+                alt11 = 7
+            elif LA11 in {94}:
+                alt11 = 8
+            elif LA11 in {60}:
+                alt11 = 9
+            elif LA11 in {62}:
+                alt11 = 10
+            else:
+                nvae = NoViableAltException("", 11, 0, self.input)
+
+                raise nvae
+
+            if alt11 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:13: '+='
+                self.match("+=")
+
+            elif alt11 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:20: '-='
+                self.match("-=")
+
+            elif alt11 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:27: '*='
+                self.match("*=")
+
+            elif alt11 == 4:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:33: '/='
+                self.match("/=")
+
+            elif alt11 == 5:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:40: '%='
+                self.match("%=")
+
+            elif alt11 == 6:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:47: '&='
+                self.match("&=")
+
+            elif alt11 == 7:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:54: '|='
+                self.match("|=")
+
+            elif alt11 == 8:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:61: '^='
+                self.match("^=")
+
+            elif alt11 == 9:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:68: '<<='
+                self.match("<<=")
+
+            elif alt11 == 10:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:76: '>>='
+                self.match(">>=")
+
+            elif alt11 == 11:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:84: '**='
+                self.match("**=")
+
+            elif alt11 == 12:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:92: '//='
+                self.match("//=")
 
             self._state.type = _type
             self._state.channel = _channel
         finally:
             pass
 
-    # $ANTLR end "ADD_ASSIGN"
-
-    # $ANTLR start "SUB_ASSIGN"
-    def mSUB_ASSIGN(
-        self,
-    ):
-        try:
-            _type = SUB_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:153:15: ( '-=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:153:17: '-='
-            self.match("-=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "SUB_ASSIGN"
-
-    # $ANTLR start "MULT_ASSIGN"
-    def mMULT_ASSIGN(
-        self,
-    ):
-        try:
-            _type = MULT_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:154:15: ( '*=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:154:17: '*='
-            self.match("*=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "MULT_ASSIGN"
-
-    # $ANTLR start "DIV_ASSIGN"
-    def mDIV_ASSIGN(
-        self,
-    ):
-        try:
-            _type = DIV_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:15: ( '/=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:17: '/='
-            self.match("/=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "DIV_ASSIGN"
-
-    # $ANTLR start "MOD_ASSIGN"
-    def mMOD_ASSIGN(
-        self,
-    ):
-        try:
-            _type = MOD_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:15: ( '%=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:17: '%='
-            self.match("%=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "MOD_ASSIGN"
-
-    # $ANTLR start "AND_ASSIGN"
-    def mAND_ASSIGN(
-        self,
-    ):
-        try:
-            _type = AND_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:157:15: ( '&=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:157:17: '&='
-            self.match("&=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "AND_ASSIGN"
-
-    # $ANTLR start "OR_ASSIGN"
-    def mOR_ASSIGN(
-        self,
-    ):
-        try:
-            _type = OR_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:158:15: ( '|=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:158:17: '|='
-            self.match("|=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "OR_ASSIGN"
-
-    # $ANTLR start "XOR_ASSIGN"
-    def mXOR_ASSIGN(
-        self,
-    ):
-        try:
-            _type = XOR_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:159:15: ( '^=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:159:17: '^='
-            self.match("^=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "XOR_ASSIGN"
-
-    # $ANTLR start "LSHIFT_ASSIGN"
-    def mLSHIFT_ASSIGN(
-        self,
-    ):
-        try:
-            _type = LSHIFT_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:15: ( '<<=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:17: '<<='
-            self.match("<<=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "LSHIFT_ASSIGN"
-
-    # $ANTLR start "RSHIFT_ASSIGN"
-    def mRSHIFT_ASSIGN(
-        self,
-    ):
-        try:
-            _type = RSHIFT_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:15: ( '>>=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:17: '>>='
-            self.match(">>=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "RSHIFT_ASSIGN"
-
-    # $ANTLR start "POWER_ASSIGN"
-    def mPOWER_ASSIGN(
-        self,
-    ):
-        try:
-            _type = POWER_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:15: ( '**=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:17: '**='
-            self.match("**=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "POWER_ASSIGN"
-
-    # $ANTLR start "IDIV_ASSIGN"
-    def mIDIV_ASSIGN(
-        self,
-    ):
-        try:
-            _type = IDIV_ASSIGN
-            _channel = DEFAULT_CHANNEL
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:163:15: ( '//=' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:163:17: '//='
-            self.match("//=")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "IDIV_ASSIGN"
+    # $ANTLR end "AUG_ASSIGN"
 
     # $ANTLR start "ID"
     def mID(
@@ -2483,30 +2491,30 @@ class YarcLexer(YarcLexerBase):
             _type = ID
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:12: ( ID_START ( ID_CONTINUE )* )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:14: ID_START ( ID_CONTINUE )*
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:12: ( ID_START ( ID_CONTINUE )* )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:14: ID_START ( ID_CONTINUE )*
             self.mID_START()
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:23: ( ID_CONTINUE )*
-            while True:  # loop11
-                alt11 = 2
-                LA11_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:23: ( ID_CONTINUE )*
+            while True:  # loop12
+                alt12 = 2
+                LA12_0 = self.input.LA(1)
 
                 if (
-                    (48 <= LA11_0 <= 57)
-                    or (65 <= LA11_0 <= 90)
-                    or LA11_0 == 95
-                    or (97 <= LA11_0 <= 122)
+                    (48 <= LA12_0 <= 57)
+                    or (65 <= LA12_0 <= 90)
+                    or (97 <= LA12_0 <= 122)
+                    or LA12_0 in {95}
                 ):
-                    alt11 = 1
+                    alt12 = 1
 
-                if alt11 == 1:
+                if alt12 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if (
                         (48 <= self.input.LA(1) <= 57)
                         or (65 <= self.input.LA(1) <= 90)
-                        or self.input.LA(1) == 95
                         or (97 <= self.input.LA(1) <= 122)
+                        or self.input.LA(1) in {95}
                     ):
                         self.input.consume()
                     else:
@@ -2515,7 +2523,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop11
+                    break  # loop12
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2532,8 +2540,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTING_ID
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:167:12: ( '$' ID )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:167:14: '$' ID
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:12: ( '$' ID )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:14: '$' ID
             self.match(36)
 
             self.mID()
@@ -2553,84 +2561,84 @@ class YarcLexer(YarcLexerBase):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:170:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
-            alt14 = 4
-            LA14 = self.input.LA(1)
-            if LA14 == 85 or LA14 == 117:
-                alt14 = 1
-            elif LA14 == 70 or LA14 == 102:
-                LA14_2 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:159:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
+            alt15 = 4
+            LA15 = self.input.LA(1)
+            if LA15 in {85, 117}:
+                alt15 = 1
+            elif LA15 in {70, 102}:
+                LA15_2 = self.input.LA(2)
 
-                if LA14_2 == 82 or LA14_2 == 114:
-                    alt14 = 2
-                elif LA14_2 == 34 or LA14_2 == 39:
-                    alt14 = 3
-            elif LA14 == 82 or LA14 == 114:
-                LA14_3 = self.input.LA(2)
+                if LA15_2 in {82, 114}:
+                    alt15 = 2
+                elif LA15_2 in {34, 39}:
+                    alt15 = 3
+            elif LA15 in {82, 114}:
+                LA15_3 = self.input.LA(2)
 
-                if LA14_3 == 34 or LA14_3 == 39:
-                    alt14 = 2
-                elif LA14_3 == 70 or LA14_3 == 102:
-                    alt14 = 3
-            if alt14 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:5: ( 'u' | 'U' )
-                if self.input.LA(1) == 85 or self.input.LA(1) == 117:
+                if LA15_3 in {34, 39}:
+                    alt15 = 2
+                elif LA15_3 in {70, 102}:
+                    alt15 = 3
+            if alt15 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:5: ( 'u' | 'U' )
+                if self.input.LA(1) in {85, 117}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-            elif alt14 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+            elif alt15 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:7: ( 'f' | 'F' )? ( 'r' | 'R' )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:7: ( 'f' | 'F' )?
-                alt12 = 2
-                LA12_0 = self.input.LA(1)
-
-                if LA12_0 == 70 or LA12_0 == 102:
-                    alt12 = 1
-                if alt12 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if self.input.LA(1) == 70 or self.input.LA(1) == 102:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-                if self.input.LA(1) == 82 or self.input.LA(1) == 114:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
-
-            elif alt14 == 3:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
-                pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:7: ( 'r' | 'R' )? ( 'f' | 'F' )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:7: ( 'r' | 'R' )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:7: ( 'f' | 'F' )? ( 'r' | 'R' )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:7: ( 'f' | 'F' )?
                 alt13 = 2
                 LA13_0 = self.input.LA(1)
 
-                if LA13_0 == 82 or LA13_0 == 114:
+                if LA13_0 in {70, 102}:
                     alt13 = 1
                 if alt13 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if self.input.LA(1) == 82 or self.input.LA(1) == 114:
+                    if self.input.LA(1) in {70, 102}:
                         self.input.consume()
                     else:
                         mse = MismatchedSetException(None, self.input)
                         self.recover(mse)
                         raise mse
 
-                if self.input.LA(1) == 70 or self.input.LA(1) == 102:
+                if self.input.LA(1) in {82, 114}:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
+
+            elif alt15 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                pass
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:7: ( 'r' | 'R' )? ( 'f' | 'F' )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:7: ( 'r' | 'R' )?
+                alt14 = 2
+                LA14_0 = self.input.LA(1)
+
+                if LA14_0 in {82, 114}:
+                    alt14 = 1
+                if alt14 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                    if self.input.LA(1) in {82, 114}:
+                        self.input.consume()
+                    else:
+                        mse = MismatchedSetException(None, self.input)
+                        self.recover(mse)
+                        raise mse
+
+                if self.input.LA(1) in {70, 102}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
@@ -2654,43 +2662,43 @@ class YarcLexer(YarcLexerBase):
             _type = INTEGER
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:178:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
-            alt20 = 5
-            LA20_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:167:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
+            alt21 = 5
+            LA21_0 = self.input.LA(1)
 
-            if 49 <= LA20_0 <= 57:
-                alt20 = 1
-            elif LA20_0 == 48:
-                LA20 = self.input.LA(2)
-                if LA20 == 79 or LA20 == 111:
-                    alt20 = 3
-                elif LA20 == 88 or LA20 == 120:
-                    alt20 = 4
-                elif LA20 == 66 or LA20 == 98:
-                    alt20 = 5
+            if (49 <= LA21_0 <= 57) or LA21_0 in {}:
+                alt21 = 1
+            elif LA21_0 == 48:
+                LA21 = self.input.LA(2)
+                if LA21 in {79, 111}:
+                    alt21 = 3
+                elif LA21 in {88, 120}:
+                    alt21 = 4
+                elif LA21 in {66, 98}:
+                    alt21 = 5
                 else:
-                    alt20 = 2
+                    alt21 = 2
 
             else:
-                nvae = NoViableAltException("", 20, 0, self.input)
+                nvae = NoViableAltException("", 21, 0, self.input)
 
                 raise nvae
 
-            if alt20 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:3: NON_ZERO_DIGIT ( DIGIT )*
+            if alt21 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:168:3: NON_ZERO_DIGIT ( DIGIT )*
                 self.mNON_ZERO_DIGIT()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:18: ( DIGIT )*
-                while True:  # loop15
-                    alt15 = 2
-                    LA15_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:168:18: ( DIGIT )*
+                while True:  # loop16
+                    alt16 = 2
+                    LA16_0 = self.input.LA(1)
 
-                    if 48 <= LA15_0 <= 57:
-                        alt15 = 1
+                    if (48 <= LA16_0 <= 57) or LA16_0 in {}:
+                        alt16 = 1
 
-                    if alt15 == 1:
+                    if alt16 == 1:
                         # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                        if 48 <= self.input.LA(1) <= 57:
+                        if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2698,61 +2706,23 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop15
+                        break  # loop16
 
-            elif alt20 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: ( '0' )+
+            elif alt21 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:168:27: ( '0' )+
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: ( '0' )+
-                cnt16 = 0
-                while True:  # loop16
-                    alt16 = 2
-                    LA16_0 = self.input.LA(1)
-
-                    if LA16_0 == 48:
-                        alt16 = 1
-
-                    if alt16 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: '0'
-                        self.match(48)
-
-                    else:
-                        if cnt16 >= 1:
-                            break  # loop16
-
-                        eee = EarlyExitException(16, self.input)
-                        raise eee
-
-                    cnt16 += 1
-
-            elif alt20 == 3:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:180:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
-                self.match(48)
-
-                if self.input.LA(1) == 79 or self.input.LA(1) == 111:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
-
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:180:21: ( OCT_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:168:27: ( '0' )+
                 cnt17 = 0
                 while True:  # loop17
                     alt17 = 2
                     LA17_0 = self.input.LA(1)
 
-                    if 48 <= LA17_0 <= 55:
+                    if LA17_0 == 48:
                         alt17 = 1
 
                     if alt17 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                        if 48 <= self.input.LA(1) <= 55:
-                            self.input.consume()
-                        else:
-                            mse = MismatchedSetException(None, self.input)
-                            self.recover(mse)
-                            raise mse
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:168:27: '0'
+                        self.match(48)
 
                     else:
                         if cnt17 >= 1:
@@ -2763,37 +2733,29 @@ class YarcLexer(YarcLexerBase):
 
                     cnt17 += 1
 
-            elif alt20 == 4:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:181:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
+            elif alt21 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:169:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) == 88 or self.input.LA(1) == 120:
+                if self.input.LA(1) in {79, 111}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:181:21: ( HEX_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:169:21: ( OCT_DIGIT )+
                 cnt18 = 0
                 while True:  # loop18
                     alt18 = 2
                     LA18_0 = self.input.LA(1)
 
-                    if (
-                        (48 <= LA18_0 <= 57)
-                        or (65 <= LA18_0 <= 70)
-                        or (97 <= LA18_0 <= 102)
-                    ):
+                    if (48 <= LA18_0 <= 55) or LA18_0 in {}:
                         alt18 = 1
 
                     if alt18 == 1:
                         # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                        if (
-                            (48 <= self.input.LA(1) <= 57)
-                            or (65 <= self.input.LA(1) <= 70)
-                            or (97 <= self.input.LA(1) <= 102)
-                        ):
+                        if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2809,29 +2771,39 @@ class YarcLexer(YarcLexerBase):
 
                     cnt18 += 1
 
-            elif alt20 == 5:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:182:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
+            elif alt21 == 4:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:170:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) == 66 or self.input.LA(1) == 98:
+                if self.input.LA(1) in {88, 120}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:182:21: ( BIN_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:170:21: ( HEX_DIGIT )+
                 cnt19 = 0
                 while True:  # loop19
                     alt19 = 2
                     LA19_0 = self.input.LA(1)
 
-                    if 48 <= LA19_0 <= 49:
+                    if (
+                        (48 <= LA19_0 <= 57)
+                        or (65 <= LA19_0 <= 70)
+                        or (97 <= LA19_0 <= 102)
+                        or LA19_0 in {}
+                    ):
                         alt19 = 1
 
                     if alt19 == 1:
                         # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                        if 48 <= self.input.LA(1) <= 49:
+                        if (
+                            (48 <= self.input.LA(1) <= 57)
+                            or (65 <= self.input.LA(1) <= 70)
+                            or (97 <= self.input.LA(1) <= 102)
+                            or self.input.LA(1) in {}
+                        ):
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2846,6 +2818,44 @@ class YarcLexer(YarcLexerBase):
                         raise eee
 
                     cnt19 += 1
+
+            elif alt21 == 5:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
+                self.match(48)
+
+                if self.input.LA(1) in {66, 98}:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:21: ( BIN_DIGIT )+
+                cnt20 = 0
+                while True:  # loop20
+                    alt20 = 2
+                    LA20_0 = self.input.LA(1)
+
+                    if LA20_0 in {48, 49}:
+                        alt20 = 1
+
+                    if alt20 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                        if self.input.LA(1) in {48, 49}:
+                            self.input.consume()
+                        else:
+                            mse = MismatchedSetException(None, self.input)
+                            self.recover(mse)
+                            raise mse
+
+                    else:
+                        if cnt20 >= 1:
+                            break  # loop20
+
+                        eee = EarlyExitException(20, self.input)
+                        raise eee
+
+                    cnt20 += 1
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2862,15 +2872,15 @@ class YarcLexer(YarcLexerBase):
             _type = FLOAT_NUMBER
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:14: ( POINT_FLOAT | EXPONENT_FLOAT )
-            alt21 = 2
-            alt21 = self.dfa21.predict(self.input)
-            if alt21 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:16: POINT_FLOAT
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:174:14: ( POINT_FLOAT | EXPONENT_FLOAT )
+            alt22 = 2
+            alt22 = self.dfa22.predict(self.input)
+            if alt22 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:174:16: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
-            elif alt21 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:30: EXPONENT_FLOAT
+            elif alt22 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:174:30: EXPONENT_FLOAT
                 self.mEXPONENT_FLOAT()
 
             self._state.type = _type
@@ -2888,61 +2898,61 @@ class YarcLexer(YarcLexerBase):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:188:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt23 = 3
-            LA23 = self.input.LA(1)
-            if LA23 == 13:
-                LA23_1 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:177:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:178:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:178:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt24 = 3
+            LA24 = self.input.LA(1)
+            if LA24 in {13}:
+                LA24_1 = self.input.LA(2)
 
-                if LA23_1 == 10:
-                    alt23 = 1
+                if LA24_1 == 10:
+                    alt24 = 1
                 else:
-                    alt23 = 2
+                    alt24 = 2
 
-            elif LA23 == 10:
-                alt23 = 1
-            elif LA23 == 12:
-                alt23 = 3
+            elif LA24 in {10}:
+                alt24 = 1
+            elif LA24 in {12}:
+                alt24 = 3
             else:
-                nvae = NoViableAltException("", 23, 0, self.input)
+                nvae = NoViableAltException("", 24, 0, self.input)
 
                 raise nvae
 
-            if alt23 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: ( '\\r' )? '\\n'
+            if alt24 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:5: ( '\\r' )? '\\n'
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: ( '\\r' )?
-                alt22 = 2
-                LA22_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:5: ( '\\r' )?
+                alt23 = 2
+                LA23_0 = self.input.LA(1)
 
-                if LA22_0 == 13:
-                    alt22 = 1
-                if alt22 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: '\\r'
+                if LA23_0 == 13:
+                    alt23 = 1
+                if alt23 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:5: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt23 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:18: '\\r'
+            elif alt24 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:18: '\\r'
                 self.match(13)
 
-            elif alt23 == 3:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:25: '\\f'
+            elif alt24 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:25: '\\f'
                 self.match(12)
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:31: ( SPACES )?
-            alt24 = 2
-            LA24_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:31: ( SPACES )?
+            alt25 = 2
+            LA25_0 = self.input.LA(1)
 
-            if LA24_0 == 9 or LA24_0 == 32:
-                alt24 = 1
-            if alt24 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:31: SPACES
+            if LA25_0 in {9, 32}:
+                alt25 = 1
+            if alt25 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:31: SPACES
                 self.mSPACES()
 
             # action start
@@ -2964,32 +2974,32 @@ class YarcLexer(YarcLexerBase):
             _type = SKIP_
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
-            alt25 = 3
-            LA25 = self.input.LA(1)
-            if LA25 == 9 or LA25 == 32:
-                alt25 = 1
-            elif LA25 == 35:
-                alt25 = 2
-            elif LA25 == 92:
-                alt25 = 3
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:11: ( SPACES | COMMENT | LINE_JOINING )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:11: ( SPACES | COMMENT | LINE_JOINING )
+            alt26 = 3
+            LA26 = self.input.LA(1)
+            if LA26 in {9, 32}:
+                alt26 = 1
+            elif LA26 in {35}:
+                alt26 = 2
+            elif LA26 in {92}:
+                alt26 = 3
             else:
-                nvae = NoViableAltException("", 25, 0, self.input)
+                nvae = NoViableAltException("", 26, 0, self.input)
 
                 raise nvae
 
-            if alt25 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:13: SPACES
+            if alt26 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:13: SPACES
                 self.mSPACES()
 
-            elif alt25 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:22: COMMENT
+            elif alt26 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:22: COMMENT
                 self.mCOMMENT()
 
-            elif alt25 == 3:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:32: LINE_JOINING
+            elif alt26 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:184:32: LINE_JOINING
                 self.mLINE_JOINING()
 
             # action start
@@ -3011,8 +3021,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNKNOWN
             _channel = DEFAULT_CHANNEL
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:196:9: ( . )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:196:11: .
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:9: ( . )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:11: .
             self.matchAny()
 
             self._state.type = _type
@@ -3027,68 +3037,24 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:199:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
-            alt28 = 2
-            LA28_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:188:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
+            alt29 = 2
+            LA29_0 = self.input.LA(1)
 
-            if LA28_0 == 39:
-                alt28 = 1
-            elif LA28_0 == 34:
-                alt28 = 2
+            if LA29_0 == 39:
+                alt29 = 1
+            elif LA29_0 == 34:
+                alt29 = 2
             else:
-                nvae = NoViableAltException("", 28, 0, self.input)
+                nvae = NoViableAltException("", 29, 0, self.input)
 
                 raise nvae
 
-            if alt28 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
+            if alt29 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
                 self.match(39)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
-                while True:  # loop26
-                    alt26 = 3
-                    LA26_0 = self.input.LA(1)
-
-                    if LA26_0 == 92:
-                        alt26 = 1
-                    elif (
-                        (0 <= LA26_0 <= 9)
-                        or LA26_0 == 11
-                        or (14 <= LA26_0 <= 38)
-                        or (40 <= LA26_0 <= 91)
-                        or (93 <= LA26_0 <= 65535)
-                    ):
-                        alt26 = 2
-
-                    if alt26 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:9: STRING_ESCAPE_SEQ
-                        self.mSTRING_ESCAPE_SEQ()
-
-                    elif alt26 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
-                        if (
-                            (0 <= self.input.LA(1) <= 9)
-                            or self.input.LA(1) == 11
-                            or (14 <= self.input.LA(1) <= 38)
-                            or (40 <= self.input.LA(1) <= 91)
-                            or (93 <= self.input.LA(1) <= 65535)
-                        ):
-                            self.input.consume()
-                        else:
-                            mse = MismatchedSetException(None, self.input)
-                            self.recover(mse)
-                            raise mse
-
-                    else:
-                        break  # loop26
-
-                self.match(39)
-
-            elif alt28 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
-                self.match(34)
-
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
                 while True:  # loop27
                     alt27 = 3
                     LA27_0 = self.input.LA(1)
@@ -3097,25 +3063,25 @@ class YarcLexer(YarcLexerBase):
                         alt27 = 1
                     elif (
                         (0 <= LA27_0 <= 9)
-                        or LA27_0 == 11
-                        or (14 <= LA27_0 <= 33)
-                        or (35 <= LA27_0 <= 91)
+                        or (14 <= LA27_0 <= 38)
+                        or (40 <= LA27_0 <= 91)
                         or (93 <= LA27_0 <= 65535)
+                        or LA27_0 in {11}
                     ):
                         alt27 = 2
 
                     if alt27 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:10: STRING_ESCAPE_SEQ
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:9: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
                     elif alt27 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
-                            or self.input.LA(1) == 11
-                            or (14 <= self.input.LA(1) <= 33)
-                            or (35 <= self.input.LA(1) <= 91)
+                            or (14 <= self.input.LA(1) <= 38)
+                            or (40 <= self.input.LA(1) <= 91)
                             or (93 <= self.input.LA(1) <= 65535)
+                            or self.input.LA(1) in {11}
                         ):
                             self.input.consume()
                         else:
@@ -3125,6 +3091,50 @@ class YarcLexer(YarcLexerBase):
 
                     else:
                         break  # loop27
+
+                self.match(39)
+
+            elif alt29 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
+                self.match(34)
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
+                while True:  # loop28
+                    alt28 = 3
+                    LA28_0 = self.input.LA(1)
+
+                    if LA28_0 == 92:
+                        alt28 = 1
+                    elif (
+                        (0 <= LA28_0 <= 9)
+                        or (14 <= LA28_0 <= 33)
+                        or (35 <= LA28_0 <= 91)
+                        or (93 <= LA28_0 <= 65535)
+                        or LA28_0 in {11}
+                    ):
+                        alt28 = 2
+
+                    if alt28 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:10: STRING_ESCAPE_SEQ
+                        self.mSTRING_ESCAPE_SEQ()
+
+                    elif alt28 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
+                        if (
+                            (0 <= self.input.LA(1) <= 9)
+                            or (14 <= self.input.LA(1) <= 33)
+                            or (35 <= self.input.LA(1) <= 91)
+                            or (93 <= self.input.LA(1) <= 65535)
+                            or self.input.LA(1) in {11}
+                        ):
+                            self.input.consume()
+                        else:
+                            mse = MismatchedSetException(None, self.input)
+                            self.recover(mse)
+                            raise mse
+
+                    else:
+                        break  # loop28
 
                 self.match(34)
 
@@ -3138,41 +3148,41 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
-            alt29 = 2
-            LA29_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:192:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
+            alt30 = 2
+            LA30_0 = self.input.LA(1)
 
-            if LA29_0 == 92:
-                LA29_1 = self.input.LA(2)
+            if LA30_0 == 92:
+                LA30_1 = self.input.LA(2)
 
                 if (
-                    (0 <= LA29_1 <= 8)
-                    or LA29_1 == 11
-                    or (14 <= LA29_1 <= 31)
-                    or (33 <= LA29_1 <= 65535)
+                    (0 <= LA30_1 <= 8)
+                    or (14 <= LA30_1 <= 31)
+                    or (33 <= LA30_1 <= 65535)
+                    or LA30_1 in {11}
                 ):
-                    alt29 = 1
-                elif LA29_1 == 10 or (12 <= LA29_1 <= 13):
-                    alt29 = 2
+                    alt30 = 1
+                elif LA30_1 in {10, 12, 13}:
+                    alt30 = 2
                 else:
-                    nvae = NoViableAltException("", 29, 1, self.input)
+                    nvae = NoViableAltException("", 30, 1, self.input)
 
                     raise nvae
 
             else:
-                nvae = NoViableAltException("", 29, 0, self.input)
+                nvae = NoViableAltException("", 30, 0, self.input)
 
                 raise nvae
 
-            if alt29 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
+            if alt30 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:192:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
                 self.match(92)
 
                 if (
                     (0 <= self.input.LA(1) <= 8)
-                    or self.input.LA(1) == 11
                     or (14 <= self.input.LA(1) <= 31)
                     or (33 <= self.input.LA(1) <= 65535)
+                    or self.input.LA(1) in {11}
                 ):
                     self.input.consume()
                 else:
@@ -3180,8 +3190,8 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt29 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:72: '\\\\' NEWLINE
+            elif alt30 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:192:72: '\\\\' NEWLINE
                 self.match(92)
 
                 self.mNEWLINE()
@@ -3196,9 +3206,9 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:205:25: ( '1' .. '9' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:194:25: ( '1' .. '9' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if 49 <= self.input.LA(1) <= 57:
+            if (49 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
@@ -3215,9 +3225,9 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:206:25: ( '0' .. '9' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:25: ( '0' .. '9' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if 48 <= self.input.LA(1) <= 57:
+            if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
@@ -3234,9 +3244,9 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:207:25: ( '0' .. '7' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:196:25: ( '0' .. '7' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if 48 <= self.input.LA(1) <= 55:
+            if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
@@ -3253,12 +3263,13 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:208:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:197:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
                 or (65 <= self.input.LA(1) <= 70)
                 or (97 <= self.input.LA(1) <= 102)
+                or self.input.LA(1) in {}
             ):
                 self.input.consume()
             else:
@@ -3276,9 +3287,9 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:209:25: ( '0' | '1' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:198:25: ( '0' | '1' )
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if 48 <= self.input.LA(1) <= 49:
+            if self.input.LA(1) in {48, 49}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
@@ -3295,26 +3306,26 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
-            alt31 = 2
-            alt31 = self.dfa31.predict(self.input)
-            if alt31 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: ( INT_PART )? FRACTION
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
+            alt32 = 2
+            alt32 = self.dfa32.predict(self.input)
+            if alt32 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:27: ( INT_PART )? FRACTION
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: ( INT_PART )?
-                alt30 = 2
-                LA30_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:27: ( INT_PART )?
+                alt31 = 2
+                LA31_0 = self.input.LA(1)
 
-                if 48 <= LA30_0 <= 57:
-                    alt30 = 1
-                if alt30 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: INT_PART
+                if (48 <= LA31_0 <= 57) or LA31_0 in {}:
+                    alt31 = 1
+                if alt31 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:27: INT_PART
                     self.mINT_PART()
 
                 self.mFRACTION()
 
-            elif alt31 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:48: INT_PART '.'
+            elif alt32 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:48: INT_PART '.'
                 self.mINT_PART()
 
                 self.match(46)
@@ -3329,18 +3340,18 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT ) EXPONENT
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:27: ( INT_PART | POINT_FLOAT ) EXPONENT
             pass
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT )
-            alt32 = 2
-            alt32 = self.dfa32.predict(self.input)
-            if alt32 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:29: INT_PART
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:27: ( INT_PART | POINT_FLOAT )
+            alt33 = 2
+            alt33 = self.dfa33.predict(self.input)
+            if alt33 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:29: INT_PART
                 self.mINT_PART()
 
-            elif alt32 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:40: POINT_FLOAT
+            elif alt33 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:40: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
             self.mEXPONENT()
@@ -3355,62 +3366,21 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:25: ( ( DIGIT )+ )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:27: ( DIGIT )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:202:25: ( ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:202:27: ( DIGIT )+
             pass
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:27: ( DIGIT )+
-            cnt33 = 0
-            while True:  # loop33
-                alt33 = 2
-                LA33_0 = self.input.LA(1)
-
-                if 48 <= LA33_0 <= 57:
-                    alt33 = 1
-
-                if alt33 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if 48 <= self.input.LA(1) <= 57:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-                else:
-                    if cnt33 >= 1:
-                        break  # loop33
-
-                    eee = EarlyExitException(33, self.input)
-                    raise eee
-
-                cnt33 += 1
-
-        finally:
-            pass
-
-    # $ANTLR end "INT_PART"
-
-    # $ANTLR start "FRACTION"
-    def mFRACTION(
-        self,
-    ):
-        try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:25: ( '.' ( DIGIT )+ )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:27: '.' ( DIGIT )+
-            self.match(46)
-
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:31: ( DIGIT )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:202:27: ( DIGIT )+
             cnt34 = 0
             while True:  # loop34
                 alt34 = 2
                 LA34_0 = self.input.LA(1)
 
-                if 48 <= LA34_0 <= 57:
+                if (48 <= LA34_0 <= 57) or LA34_0 in {}:
                     alt34 = 1
 
                 if alt34 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if 48 <= self.input.LA(1) <= 57:
+                    if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
                         mse = MismatchedSetException(None, self.input)
@@ -3429,49 +3399,29 @@ class YarcLexer(YarcLexerBase):
         finally:
             pass
 
-    # $ANTLR end "FRACTION"
+    # $ANTLR end "INT_PART"
 
-    # $ANTLR start "EXPONENT"
-    def mEXPONENT(
+    # $ANTLR start "FRACTION"
+    def mFRACTION(
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
-            if self.input.LA(1) == 69 or self.input.LA(1) == 101:
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:25: ( '.' ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:27: '.' ( DIGIT )+
+            self.match(46)
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:39: ( '+' | '-' )?
-            alt35 = 2
-            LA35_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:31: ( DIGIT )+
+            cnt35 = 0
+            while True:  # loop35
+                alt35 = 2
+                LA35_0 = self.input.LA(1)
 
-            if LA35_0 == 43 or LA35_0 == 45:
-                alt35 = 1
-            if alt35 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                if self.input.LA(1) == 43 or self.input.LA(1) == 45:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
+                if (48 <= LA35_0 <= 57) or LA35_0 in {}:
+                    alt35 = 1
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:52: ( DIGIT )+
-            cnt36 = 0
-            while True:  # loop36
-                alt36 = 2
-                LA36_0 = self.input.LA(1)
-
-                if 48 <= LA36_0 <= 57:
-                    alt36 = 1
-
-                if alt36 == 1:
+                if alt35 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if 48 <= self.input.LA(1) <= 57:
+                    if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
                         mse = MismatchedSetException(None, self.input)
@@ -3479,105 +3429,60 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    if cnt36 >= 1:
-                        break  # loop36
+                    if cnt35 >= 1:
+                        break  # loop35
 
-                    eee = EarlyExitException(36, self.input)
+                    eee = EarlyExitException(35, self.input)
                     raise eee
 
-                cnt36 += 1
+                cnt35 += 1
 
         finally:
             pass
 
-    # $ANTLR end "EXPONENT"
+    # $ANTLR end "FRACTION"
 
-    # $ANTLR start "ID_START"
-    def mID_START(
+    # $ANTLR start "EXPONENT"
+    def mEXPONENT(
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:217:22: ( UNDERSCORE | LETTER )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if (
-                (65 <= self.input.LA(1) <= 90)
-                or self.input.LA(1) == 95
-                or (97 <= self.input.LA(1) <= 122)
-            ):
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:204:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:204:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+            if self.input.LA(1) in {69, 101}:
                 self.input.consume()
             else:
                 mse = MismatchedSetException(None, self.input)
                 self.recover(mse)
                 raise mse
 
-        finally:
-            pass
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:204:39: ( '+' | '-' )?
+            alt36 = 2
+            LA36_0 = self.input.LA(1)
 
-    # $ANTLR end "ID_START"
+            if LA36_0 in {43, 45}:
+                alt36 = 1
+            if alt36 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                if self.input.LA(1) in {43, 45}:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
 
-    # $ANTLR start "ID_CONTINUE"
-    def mID_CONTINUE(
-        self,
-    ):
-        try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:218:22: ( ID_START | DIGIT )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if (
-                (48 <= self.input.LA(1) <= 57)
-                or (65 <= self.input.LA(1) <= 90)
-                or self.input.LA(1) == 95
-                or (97 <= self.input.LA(1) <= 122)
-            ):
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
-
-        finally:
-            pass
-
-    # $ANTLR end "ID_CONTINUE"
-
-    # $ANTLR start "LETTER"
-    def mLETTER(
-        self,
-    ):
-        try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:219:22: ( 'a' .. 'z' | 'A' .. 'Z' )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-            if (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122):
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
-
-        finally:
-            pass
-
-    # $ANTLR end "LETTER"
-
-    # $ANTLR start "SPACES"
-    def mSPACES(
-        self,
-    ):
-        try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:23: ( ( ' ' | '\\t' )+ )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:25: ( ' ' | '\\t' )+
-            pass
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:25: ( ' ' | '\\t' )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:204:52: ( DIGIT )+
             cnt37 = 0
             while True:  # loop37
                 alt37 = 2
                 LA37_0 = self.input.LA(1)
 
-                if LA37_0 == 9 or LA37_0 == 32:
+                if (48 <= LA37_0 <= 57) or LA37_0 in {}:
                     alt37 = 1
 
                 if alt37 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
-                    if self.input.LA(1) == 9 or self.input.LA(1) == 32:
+                    if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
                         mse = MismatchedSetException(None, self.input)
@@ -3596,6 +3501,116 @@ class YarcLexer(YarcLexerBase):
         finally:
             pass
 
+    # $ANTLR end "EXPONENT"
+
+    # $ANTLR start "ID_START"
+    def mID_START(
+        self,
+    ):
+        try:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:206:22: ( UNDERSCORE | LETTER )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+            if (
+                (65 <= self.input.LA(1) <= 90)
+                or (97 <= self.input.LA(1) <= 122)
+                or self.input.LA(1) in {95}
+            ):
+                self.input.consume()
+            else:
+                mse = MismatchedSetException(None, self.input)
+                self.recover(mse)
+                raise mse
+
+        finally:
+            pass
+
+    # $ANTLR end "ID_START"
+
+    # $ANTLR start "ID_CONTINUE"
+    def mID_CONTINUE(
+        self,
+    ):
+        try:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:207:22: ( ID_START | DIGIT )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+            if (
+                (48 <= self.input.LA(1) <= 57)
+                or (65 <= self.input.LA(1) <= 90)
+                or (97 <= self.input.LA(1) <= 122)
+                or self.input.LA(1) in {95}
+            ):
+                self.input.consume()
+            else:
+                mse = MismatchedSetException(None, self.input)
+                self.recover(mse)
+                raise mse
+
+        finally:
+            pass
+
+    # $ANTLR end "ID_CONTINUE"
+
+    # $ANTLR start "LETTER"
+    def mLETTER(
+        self,
+    ):
+        try:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:208:22: ( 'a' .. 'z' | 'A' .. 'Z' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+            if (
+                (65 <= self.input.LA(1) <= 90)
+                or (97 <= self.input.LA(1) <= 122)
+                or self.input.LA(1) in {}
+            ):
+                self.input.consume()
+            else:
+                mse = MismatchedSetException(None, self.input)
+                self.recover(mse)
+                raise mse
+
+        finally:
+            pass
+
+    # $ANTLR end "LETTER"
+
+    # $ANTLR start "SPACES"
+    def mSPACES(
+        self,
+    ):
+        try:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:210:23: ( ( ' ' | '\\t' )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:210:25: ( ' ' | '\\t' )+
+            pass
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:210:25: ( ' ' | '\\t' )+
+            cnt38 = 0
+            while True:  # loop38
+                alt38 = 2
+                LA38_0 = self.input.LA(1)
+
+                if LA38_0 in {9, 32}:
+                    alt38 = 1
+
+                if alt38 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                    if self.input.LA(1) in {9, 32}:
+                        self.input.consume()
+                    else:
+                        mse = MismatchedSetException(None, self.input)
+                        self.recover(mse)
+                        raise mse
+
+                else:
+                    if cnt38 >= 1:
+                        break  # loop38
+
+                    eee = EarlyExitException(38, self.input)
+                    raise eee
+
+                cnt38 += 1
+
+        finally:
+            pass
+
     # $ANTLR end "SPACES"
 
     # $ANTLR start "COMMENT"
@@ -3603,24 +3618,24 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
             self.match(35)
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
-            while True:  # loop38
-                alt38 = 2
-                LA38_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
+            while True:  # loop39
+                alt39 = 2
+                LA39_0 = self.input.LA(1)
 
-                if (0 <= LA38_0 <= 9) or LA38_0 == 11 or (14 <= LA38_0 <= 65535):
-                    alt38 = 1
+                if (0 <= LA39_0 <= 9) or (14 <= LA39_0 <= 65535) or LA39_0 in {11}:
+                    alt39 = 1
 
-                if alt38 == 1:
+                if alt39 == 1:
                     # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if (
                         (0 <= self.input.LA(1) <= 9)
-                        or self.input.LA(1) == 11
                         or (14 <= self.input.LA(1) <= 65535)
+                        or self.input.LA(1) in {11}
                     ):
                         self.input.consume()
                     else:
@@ -3629,7 +3644,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop38
+                    break  # loop39
 
         finally:
             pass
@@ -3641,61 +3656,61 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             self.match(92)
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:30: ( SPACES )?
-            alt39 = 2
-            LA39_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:30: ( SPACES )?
+            alt40 = 2
+            LA40_0 = self.input.LA(1)
 
-            if LA39_0 == 9 or LA39_0 == 32:
-                alt39 = 1
-            if alt39 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:30: SPACES
+            if LA40_0 in {9, 32}:
+                alt40 = 1
+            if alt40 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:30: SPACES
                 self.mSPACES()
 
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt41 = 3
-            LA41 = self.input.LA(1)
-            if LA41 == 13:
-                LA41_1 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt42 = 3
+            LA42 = self.input.LA(1)
+            if LA42 in {13}:
+                LA42_1 = self.input.LA(2)
 
-                if LA41_1 == 10:
-                    alt41 = 1
+                if LA42_1 == 10:
+                    alt42 = 1
                 else:
-                    alt41 = 2
+                    alt42 = 2
 
-            elif LA41 == 10:
-                alt41 = 1
-            elif LA41 == 12:
-                alt41 = 3
+            elif LA42 in {10}:
+                alt42 = 1
+            elif LA42 in {12}:
+                alt42 = 3
             else:
-                nvae = NoViableAltException("", 41, 0, self.input)
+                nvae = NoViableAltException("", 42, 0, self.input)
 
                 raise nvae
 
-            if alt41 == 1:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: ( '\\r' )? '\\n'
+            if alt42 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:40: ( '\\r' )? '\\n'
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: ( '\\r' )?
-                alt40 = 2
-                LA40_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:40: ( '\\r' )?
+                alt41 = 2
+                LA41_0 = self.input.LA(1)
 
-                if LA40_0 == 13:
-                    alt40 = 1
-                if alt40 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: '\\r'
+                if LA41_0 == 13:
+                    alt41 = 1
+                if alt41 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:40: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt41 == 2:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:53: '\\r'
+            elif alt42 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:53: '\\r'
                 self.match(13)
 
-            elif alt41 == 3:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:60: '\\f'
+            elif alt42 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:60: '\\f'
                 self.match(12)
 
         finally:
@@ -3704,476 +3719,432 @@ class YarcLexer(YarcLexerBase):
     # $ANTLR end "LINE_JOINING"
 
     def mTokens(self):
-        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPES | SHAPES_OR_LIGHTS | CAMERA | LIGHT | LIGHT_TYPE | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | CAM_TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | PHYSICS | EVERY | FRAMES | TIME | UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | NONE | NOT | OR | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
-        alt42 = 113
-        alt42 = self.dfa42.predict(self.input)
-        if alt42 == 1:
+        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPES | SHAPES_OR_LIGHTS | CAMERA | LIGHT | LIGHT_TYPE | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | CAM_TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | PHYSICS | EVERY | FRAMES | TIME | UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | NONE | NOT | OR | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | AUG_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
+        alt43 = 102
+        alt43 = self.dfa43.predict(self.input)
+        if alt43 == 1:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:10: SCENARIO
             self.mSCENARIO()
 
-        elif alt42 == 2:
+        elif alt43 == 2:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:19: SETTINGS
             self.mSETTINGS()
 
-        elif alt42 == 3:
+        elif alt43 == 3:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:28: STAGE
             self.mSTAGE()
 
-        elif alt42 == 4:
+        elif alt43 == 4:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:34: WRITERS
             self.mWRITERS()
 
-        elif alt42 == 5:
+        elif alt43 == 5:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:42: SHAPES
             self.mSHAPES()
 
-        elif alt42 == 6:
+        elif alt43 == 6:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:49: SHAPES_OR_LIGHTS
             self.mSHAPES_OR_LIGHTS()
 
-        elif alt42 == 7:
+        elif alt43 == 7:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:66: CAMERA
             self.mCAMERA()
 
-        elif alt42 == 8:
+        elif alt43 == 8:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:73: LIGHT
             self.mLIGHT()
 
-        elif alt42 == 9:
+        elif alt43 == 9:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:79: LIGHT_TYPE
             self.mLIGHT_TYPE()
 
-        elif alt42 == 10:
+        elif alt43 == 10:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:90: STEREO
             self.mSTEREO()
 
-        elif alt42 == 11:
+        elif alt43 == 11:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:97: MATERIAL
             self.mMATERIAL()
 
-        elif alt42 == 12:
+        elif alt43 == 12:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:106: TIMELINE
             self.mTIMELINE()
 
-        elif alt42 == 13:
+        elif alt43 == 13:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:115: OPEN
             self.mOPEN()
 
-        elif alt42 == 14:
+        elif alt43 == 14:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:120: CREATE
             self.mCREATE()
 
-        elif alt42 == 15:
+        elif alt43 == 15:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:127: GROUP
             self.mGROUP()
 
-        elif alt42 == 16:
+        elif alt43 == 16:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:133: INSTANTIATE
             self.mINSTANTIATE()
 
-        elif alt42 == 17:
+        elif alt43 == 17:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:145: GET
             self.mGET()
 
-        elif alt42 == 18:
+        elif alt43 == 18:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:149: EDIT
             self.mEDIT()
 
-        elif alt42 == 19:
+        elif alt43 == 19:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:154: FETCH
             self.mFETCH()
 
-        elif alt42 == 20:
+        elif alt43 == 20:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:160: MATCH
             self.mMATCH()
 
-        elif alt42 == 21:
+        elif alt43 == 21:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:166: LIMIT
             self.mLIMIT()
 
-        elif alt42 == 22:
+        elif alt43 == 22:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:172: RECURSIVE
             self.mRECURSIVE()
 
-        elif alt42 == 23:
+        elif alt43 == 23:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:182: TRANSLATE
             self.mTRANSLATE()
 
-        elif alt42 == 24:
+        elif alt43 == 24:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:192: CAM_TRANSLATE
             self.mCAM_TRANSLATE()
 
-        elif alt42 == 25:
+        elif alt43 == 25:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:206: ROTATE
             self.mROTATE()
 
-        elif alt42 == 26:
+        elif alt43 == 26:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:213: SCALE
             self.mSCALE()
 
-        elif alt42 == 27:
+        elif alt43 == 27:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:219: SEMANTICS
             self.mSEMANTICS()
 
-        elif alt42 == 28:
+        elif alt43 == 28:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:229: VISIBLE
             self.mVISIBLE()
 
-        elif alt42 == 29:
+        elif alt43 == 29:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:237: SIZE
             self.mSIZE()
 
-        elif alt42 == 30:
+        elif alt43 == 30:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:242: LOOK_AT
             self.mLOOK_AT()
 
-        elif alt42 == 31:
+        elif alt43 == 31:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:250: UP_AXIS
             self.mUP_AXIS()
 
-        elif alt42 == 32:
+        elif alt43 == 32:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:258: AXIS
             self.mAXIS()
 
-        elif alt42 == 33:
+        elif alt43 == 33:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:263: ORDER
             self.mORDER()
 
-        elif alt42 == 34:
+        elif alt43 == 34:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:269: SCATTER
             self.mSCATTER()
 
-        elif alt42 == 35:
+        elif alt43 == 35:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:277: ROT_AROUND
             self.mROT_AROUND()
 
-        elif alt42 == 36:
+        elif alt43 == 36:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:288: PHYSICS
             self.mPHYSICS()
 
-        elif alt42 == 37:
+        elif alt43 == 37:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:296: EVERY
             self.mEVERY()
 
-        elif alt42 == 38:
+        elif alt43 == 38:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:302: FRAMES
             self.mFRAMES()
 
-        elif alt42 == 39:
+        elif alt43 == 39:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:309: TIME
             self.mTIME()
 
-        elif alt42 == 40:
+        elif alt43 == 40:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:314: UNIFORM
             self.mUNIFORM()
 
-        elif alt42 == 41:
+        elif alt43 == 41:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:322: NORMAL
             self.mNORMAL()
 
-        elif alt42 == 42:
+        elif alt43 == 42:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:329: CHOICE
             self.mCHOICE()
 
-        elif alt42 == 43:
+        elif alt43 == 43:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:336: SEQUENCE
             self.mSEQUENCE()
 
-        elif alt42 == 44:
+        elif alt43 == 44:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:345: LOG_UNIFORM
             self.mLOG_UNIFORM()
 
-        elif alt42 == 45:
+        elif alt43 == 45:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:357: SNIPPET
             self.mSNIPPET()
 
-        elif alt42 == 46:
+        elif alt43 == 46:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:365: TO
             self.mTO()
 
-        elif alt42 == 47:
+        elif alt43 == 47:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:368: ON
             self.mON()
 
-        elif alt42 == 48:
+        elif alt43 == 48:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:371: AT
             self.mAT()
 
-        elif alt42 == 49:
+        elif alt43 == 49:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:374: AND
             self.mAND()
 
-        elif alt42 == 50:
+        elif alt43 == 50:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:378: ELSE
             self.mELSE()
 
-        elif alt42 == 51:
+        elif alt43 == 51:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:383: FALSE
             self.mFALSE()
 
-        elif alt42 == 52:
+        elif alt43 == 52:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:389: FOR
             self.mFOR()
 
-        elif alt42 == 53:
+        elif alt43 == 53:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:393: FROM
             self.mFROM()
 
-        elif alt42 == 54:
+        elif alt43 == 54:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:398: IF
             self.mIF()
 
-        elif alt42 == 55:
+        elif alt43 == 55:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:401: IN
             self.mIN()
 
-        elif alt42 == 56:
+        elif alt43 == 56:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:404: IS
             self.mIS()
 
-        elif alt42 == 57:
+        elif alt43 == 57:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:407: NONE
             self.mNONE()
 
-        elif alt42 == 58:
+        elif alt43 == 58:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:412: NOT
             self.mNOT()
 
-        elif alt42 == 59:
+        elif alt43 == 59:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:416: OR
             self.mOR()
 
-        elif alt42 == 60:
+        elif alt43 == 60:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:419: TRUE
             self.mTRUE()
 
-        elif alt42 == 61:
+        elif alt43 == 61:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:424: UNDERSCORE
             self.mUNDERSCORE()
 
-        elif alt42 == 62:
+        elif alt43 == 62:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:435: DOT
             self.mDOT()
 
-        elif alt42 == 63:
+        elif alt43 == 63:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:439: RANGE
             self.mRANGE()
 
-        elif alt42 == 64:
+        elif alt43 == 64:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:445: ELLIPSIS
             self.mELLIPSIS()
 
-        elif alt42 == 65:
+        elif alt43 == 65:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:454: COMMA
             self.mCOMMA()
 
-        elif alt42 == 66:
+        elif alt43 == 66:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:460: COLON
             self.mCOLON()
 
-        elif alt42 == 67:
+        elif alt43 == 67:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:466: SEMI
             self.mSEMI()
 
-        elif alt42 == 68:
+        elif alt43 == 68:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:471: ASSIGN
             self.mASSIGN()
 
-        elif alt42 == 69:
+        elif alt43 == 69:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:478: BIT_OR
             self.mBIT_OR()
 
-        elif alt42 == 70:
+        elif alt43 == 70:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:485: XOR
             self.mXOR()
 
-        elif alt42 == 71:
+        elif alt43 == 71:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:489: BIT_AND
             self.mBIT_AND()
 
-        elif alt42 == 72:
+        elif alt43 == 72:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:497: BIT_NOT
             self.mBIT_NOT()
 
-        elif alt42 == 73:
+        elif alt43 == 73:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:505: LSHIFT
             self.mLSHIFT()
 
-        elif alt42 == 74:
+        elif alt43 == 74:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:512: RSHIFT
             self.mRSHIFT()
 
-        elif alt42 == 75:
+        elif alt43 == 75:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:519: PLUS
             self.mPLUS()
 
-        elif alt42 == 76:
+        elif alt43 == 76:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:524: MINUS
             self.mMINUS()
 
-        elif alt42 == 77:
+        elif alt43 == 77:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:530: MUL
             self.mMUL()
 
-        elif alt42 == 78:
+        elif alt43 == 78:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:534: DIV
             self.mDIV()
 
-        elif alt42 == 79:
+        elif alt43 == 79:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:538: MOD
             self.mMOD()
 
-        elif alt42 == 80:
+        elif alt43 == 80:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:542: IDIV
             self.mIDIV()
 
-        elif alt42 == 81:
+        elif alt43 == 81:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:547: POWER
             self.mPOWER()
 
-        elif alt42 == 82:
+        elif alt43 == 82:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:553: LPAREN
             self.mLPAREN()
 
-        elif alt42 == 83:
+        elif alt43 == 83:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:560: RPAREN
             self.mRPAREN()
 
-        elif alt42 == 84:
+        elif alt43 == 84:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:567: LBRACK
             self.mLBRACK()
 
-        elif alt42 == 85:
+        elif alt43 == 85:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:574: RBRACK
             self.mRBRACK()
 
-        elif alt42 == 86:
+        elif alt43 == 86:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:581: LBRACE
             self.mLBRACE()
 
-        elif alt42 == 87:
+        elif alt43 == 87:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:588: RBRACE
             self.mRBRACE()
 
-        elif alt42 == 88:
+        elif alt43 == 88:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:595: LT
             self.mLT()
 
-        elif alt42 == 89:
+        elif alt43 == 89:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:598: GT
             self.mGT()
 
-        elif alt42 == 90:
+        elif alt43 == 90:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:601: EQUALS
             self.mEQUALS()
 
-        elif alt42 == 91:
+        elif alt43 == 91:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:608: GT_EQ
             self.mGT_EQ()
 
-        elif alt42 == 92:
+        elif alt43 == 92:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:614: LT_EQ
             self.mLT_EQ()
 
-        elif alt42 == 93:
+        elif alt43 == 93:
             # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:620: NOT_EQ
             self.mNOT_EQ()
 
-        elif alt42 == 94:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:627: ADD_ASSIGN
-            self.mADD_ASSIGN()
+        elif alt43 == 94:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:627: AUG_ASSIGN
+            self.mAUG_ASSIGN()
 
-        elif alt42 == 95:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:638: SUB_ASSIGN
-            self.mSUB_ASSIGN()
-
-        elif alt42 == 96:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:649: MULT_ASSIGN
-            self.mMULT_ASSIGN()
-
-        elif alt42 == 97:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:661: DIV_ASSIGN
-            self.mDIV_ASSIGN()
-
-        elif alt42 == 98:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:672: MOD_ASSIGN
-            self.mMOD_ASSIGN()
-
-        elif alt42 == 99:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:683: AND_ASSIGN
-            self.mAND_ASSIGN()
-
-        elif alt42 == 100:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:694: OR_ASSIGN
-            self.mOR_ASSIGN()
-
-        elif alt42 == 101:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:704: XOR_ASSIGN
-            self.mXOR_ASSIGN()
-
-        elif alt42 == 102:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:715: LSHIFT_ASSIGN
-            self.mLSHIFT_ASSIGN()
-
-        elif alt42 == 103:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:729: RSHIFT_ASSIGN
-            self.mRSHIFT_ASSIGN()
-
-        elif alt42 == 104:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:743: POWER_ASSIGN
-            self.mPOWER_ASSIGN()
-
-        elif alt42 == 105:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:756: IDIV_ASSIGN
-            self.mIDIV_ASSIGN()
-
-        elif alt42 == 106:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:768: ID
+        elif alt43 == 95:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:638: ID
             self.mID()
 
-        elif alt42 == 107:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:771: SETTING_ID
+        elif alt43 == 96:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:641: SETTING_ID
             self.mSETTING_ID()
 
-        elif alt42 == 108:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:782: STRING
+        elif alt43 == 97:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:652: STRING
             self.mSTRING()
 
-        elif alt42 == 109:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:789: INTEGER
+        elif alt43 == 98:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:659: INTEGER
             self.mINTEGER()
 
-        elif alt42 == 110:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:797: FLOAT_NUMBER
+        elif alt43 == 99:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:667: FLOAT_NUMBER
             self.mFLOAT_NUMBER()
 
-        elif alt42 == 111:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:810: NEWLINE
+        elif alt43 == 100:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:680: NEWLINE
             self.mNEWLINE()
 
-        elif alt42 == 112:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:818: SKIP_
+        elif alt43 == 101:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:688: SKIP_
             self.mSKIP_()
 
-        elif alt42 == 113:
-            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:824: UNKNOWN
+        elif alt43 == 102:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:694: UNKNOWN
             self.mUNKNOWN()
 
-    # lookup tables for DFA #21
+    # lookup tables for DFA #22
 
-    DFA21_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
+    DFA22_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
 
-    DFA21_eof = DFA.unpack("\7\uffff")
+    DFA22_eof = DFA.unpack("\7\uffff")
 
-    DFA21_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
+    DFA22_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
 
-    DFA21_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
+    DFA22_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
 
-    DFA21_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
+    DFA22_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
 
-    DFA21_special = DFA.unpack("\7\uffff")
+    DFA22_special = DFA.unpack("\7\uffff")
 
-    DFA21_transition = [
+    DFA22_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
         DFA.unpack("\1\3\1\uffff\12\1\13\uffff\1\4\37\uffff\1\4"),
         DFA.unpack("\12\5"),
@@ -4183,56 +4154,30 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
     ]
 
-    # class definition for DFA #21
+    # class definition for DFA #22
 
-    class DFA21(DFA):
-        pass
-
-    # lookup tables for DFA #31
-
-    DFA31_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
-
-    DFA31_eof = DFA.unpack("\5\uffff")
-
-    DFA31_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
-
-    DFA31_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
-
-    DFA31_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
-
-    DFA31_special = DFA.unpack("\5\uffff")
-
-    DFA31_transition = [
-        DFA.unpack("\1\2\1\uffff\12\1"),
-        DFA.unpack("\1\3\1\uffff\12\1"),
-        DFA.unpack(""),
-        DFA.unpack("\12\2"),
-        DFA.unpack(""),
-    ]
-
-    # class definition for DFA #31
-
-    class DFA31(DFA):
+    class DFA22(DFA):
         pass
 
     # lookup tables for DFA #32
 
-    DFA32_eot = DFA.unpack("\4\uffff")
+    DFA32_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
 
-    DFA32_eof = DFA.unpack("\4\uffff")
+    DFA32_eof = DFA.unpack("\5\uffff")
 
-    DFA32_min = DFA.unpack("\2\56\2\uffff")
+    DFA32_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
 
-    DFA32_max = DFA.unpack("\1\71\1\145\2\uffff")
+    DFA32_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
 
-    DFA32_accept = DFA.unpack("\2\uffff\1\2\1\1")
+    DFA32_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
 
-    DFA32_special = DFA.unpack("\4\uffff")
+    DFA32_special = DFA.unpack("\5\uffff")
 
     DFA32_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
-        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
+        DFA.unpack("\1\3\1\uffff\12\1"),
         DFA.unpack(""),
+        DFA.unpack("\12\2"),
         DFA.unpack(""),
     ]
 
@@ -4241,175 +4186,196 @@ class YarcLexer(YarcLexerBase):
     class DFA32(DFA):
         pass
 
-    # lookup tables for DFA #42
+    # lookup tables for DFA #33
 
-    DFA42_eot = DFA.unpack(
+    DFA33_eot = DFA.unpack("\4\uffff")
+
+    DFA33_eof = DFA.unpack("\4\uffff")
+
+    DFA33_min = DFA.unpack("\2\56\2\uffff")
+
+    DFA33_max = DFA.unpack("\1\71\1\145\2\uffff")
+
+    DFA33_accept = DFA.unpack("\2\uffff\1\2\1\1")
+
+    DFA33_special = DFA.unpack("\4\uffff")
+
+    DFA33_transition = [
+        DFA.unpack("\1\2\1\uffff\12\1"),
+        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+    ]
+
+    # class definition for DFA #33
+
+    class DFA33(DFA):
+        pass
+
+    # lookup tables for DFA #43
+
+    DFA43_eot = DFA.unpack(
         "\1\uffff\26\110\1\172\4\110\1\u0080\2\110\1\u0085\1\u0087\3\uffff"
-        "\1\u008d\1\u008f\1\u0091\1\u0093\1\uffff\1\u0097\1\u009a\1\u009c"
-        "\1\u009e\1\u00a1\1\u00a4\1\u00a6\5\uffff\1\103\1\110\1\103\1\uffff"
-        "\2\103\2\u00ae\5\uffff\1\103\1\uffff\4\110\1\uffff\22\110\1\uffff"
-        "\2\110\1\u00cd\1\u00ce\5\110\1\u00d5\1\u00d6\1\u00d7\17\110\1\u00e8"
-        "\2\110\1\uffff\5\110\2\uffff\1\u00f0\2\110\1\uffff\1\u00f5\16\uffff"
-        "\1\u00f7\2\uffff\1\u00f9\6\uffff\1\u00fb\2\uffff\1\u00fd\14\uffff"
-        "\2\u00ae\2\uffff\4\110\1\u0104\25\110\2\uffff\4\110\1\u011f\1\110"
-        "\3\uffff\7\110\1\u0128\10\110\1\uffff\2\110\1\u0133\4\110\1\uffff"
-        "\1\u0138\1\110\1\u013a\12\uffff\6\110\1\uffff\1\110\1\u0142\2\110"
-        "\2\u0145\10\110\1\u014e\1\110\1\u0150\2\110\1\u0150\1\110\1\u0154"
-        "\4\110\1\uffff\1\110\1\u015a\1\110\1\u015c\2\110\1\u015f\1\110"
-        "\1\uffff\7\110\1\u0168\2\110\1\uffff\4\110\1\uffff\1\u016f\1\uffff"
-        "\1\110\1\u0171\4\110\1\u0176\1\uffff\1\110\1\u0145\1\uffff\3\110"
-        "\1\u0145\4\110\1\uffff\1\110\1\uffff\1\u0180\2\110\1\uffff\3\110"
-        "\1\u0186\1\110\1\uffff\1\u0188\1\uffff\1\u0189\1\u018b\1\uffff"
-        "\1\u018c\1\u018d\1\u018e\5\110\1\uffff\6\110\1\uffff\1\110\1\uffff"
-        "\3\110\1\u0104\1\uffff\2\110\1\u01a1\1\u01a2\1\110\1\u014e\1\u01a4"
-        "\2\110\1\uffff\2\110\1\u01a9\2\110\1\uffff\1\110\2\uffff\1\u018b"
-        "\4\uffff\2\110\1\u01b0\7\110\1\u01b8\4\110\1\u0104\1\u01bd\1\110"
-        "\2\uffff\1\110\1\uffff\1\110\1\u0150\2\110\1\uffff\3\110\1\u01c6"
-        "\2\110\1\uffff\2\110\1\u01cb\1\u01cc\2\110\1\u01cf\1\uffff\1\u01d0"
-        "\1\110\1\u01d3\1\110\1\uffff\1\u014e\1\u01d5\1\u01d6\1\110\1\u01d8"
-        "\1\110\1\u01da\1\110\1\uffff\4\110\2\uffff\2\110\2\uffff\2\110"
-        "\1\uffff\1\u01e4\2\uffff\1\110\1\uffff\1\110\1\uffff\1\110\1\u01e8"
-        "\2\110\1\u01eb\2\110\2\u01ee\1\uffff\1\u01ef\2\110\1\uffff\1\110"
-        "\1\u01da\1\uffff\1\u01da\1\110\2\uffff\1\110\1\u01f5\3\110\1\uffff"
-        "\3\110\1\u01fc\2\110\1\uffff\3\110\1\u0202\1\u01da\1\uffff"
+        "\1\u008d\1\u008f\1\u0090\1\u0091\1\uffff\1\u0095\1\u0098\1\u0099"
+        "\1\u009a\1\u009c\1\u009e\1\u009f\5\uffff\1\103\1\110\1\103\1\uffff"
+        "\2\103\2\u00a7\5\uffff\1\103\1\uffff\4\110\1\uffff\22\110\1\uffff"
+        "\2\110\1\u00c6\1\u00c7\5\110\1\u00ce\1\u00cf\1\u00d0\17\110\1\u00e1"
+        "\2\110\1\uffff\5\110\2\uffff\1\u00e9\2\110\1\uffff\1\u00ee\14\uffff"
+        "\1\u00ef\2\uffff\1\u00f0\4\uffff\1\u00f1\1\uffff\1\u00f2\12\uffff"
+        "\2\u00a7\2\uffff\4\110\1\u00f9\25\110\2\uffff\4\110\1\u0114\1\110"
+        "\3\uffff\7\110\1\u011d\10\110\1\uffff\2\110\1\u0128\4\110\1\uffff"
+        "\1\u012d\1\110\1\u012f\6\uffff\6\110\1\uffff\1\110\1\u0137\2\110"
+        "\2\u013a\10\110\1\u0143\1\110\1\u0145\2\110\1\u0145\1\110\1\u0149"
+        "\4\110\1\uffff\1\110\1\u014f\1\110\1\u0151\2\110\1\u0154\1\110\1"
+        "\uffff\7\110\1\u015d\2\110\1\uffff\4\110\1\uffff\1\u0164\1\uffff"
+        "\1\110\1\u0166\4\110\1\u016b\1\uffff\1\110\1\u013a\1\uffff\3\110"
+        "\1\u013a\4\110\1\uffff\1\110\1\uffff\1\u0175\2\110\1\uffff\3\110"
+        "\1\u017b\1\110\1\uffff\1\u017d\1\uffff\1\u017e\1\u0180\1\uffff\1"
+        "\u0181\1\u0182\1\u0183\5\110\1\uffff\6\110\1\uffff\1\110\1\uffff"
+        "\3\110\1\u00f9\1\uffff\2\110\1\u0196\1\u0197\1\110\1\u0143\1\u0199"
+        "\2\110\1\uffff\2\110\1\u019e\2\110\1\uffff\1\110\2\uffff\1\u0180"
+        "\4\uffff\2\110\1\u01a5\7\110\1\u01ad\4\110\1\u00f9\1\u01b2\1\110"
+        "\2\uffff\1\110\1\uffff\1\110\1\u0145\2\110\1\uffff\3\110\1\u01bb"
+        "\2\110\1\uffff\2\110\1\u01c0\1\u01c1\2\110\1\u01c4\1\uffff\1\u01c5"
+        "\1\110\1\u01c8\1\110\1\uffff\1\u0143\1\u01ca\1\u01cb\1\110\1\u01cd"
+        "\1\110\1\u01cf\1\110\1\uffff\4\110\2\uffff\2\110\2\uffff\2\110\1"
+        "\uffff\1\u01d9\2\uffff\1\110\1\uffff\1\110\1\uffff\1\110\1\u01dd"
+        "\2\110\1\u01e0\2\110\2\u01e3\1\uffff\1\u01e4\2\110\1\uffff\1\110"
+        "\1\u01cf\1\uffff\1\u01cf\1\110\2\uffff\1\110\1\u01ea\3\110\1\uffff"
+        "\3\110\1\u01f1\2\110\1\uffff\3\110\1\u01f7\1\u01cf\1\uffff"
     )
 
-    DFA42_eof = DFA.unpack("\u0203\uffff")
+    DFA43_eof = DFA.unpack("\u01f8\uffff")
 
-    DFA42_min = DFA.unpack(
+    DFA43_min = DFA.unpack(
         "\1\0\1\143\1\162\1\154\1\141\1\151\1\145\2\151\1\42\1\141\1\156"
         "\1\141\1\145\1\146\1\144\1\42\1\141\1\151\1\42\1\157\1\151\1\42"
         "\1\60\1\151\1\150\1\42\1\157\1\173\1\156\1\157\1\60\1\56\3\uffff"
-        "\4\75\1\uffff\1\74\3\75\1\52\1\57\1\75\5\uffff\1\75\1\42\1\101"
-        "\1\uffff\2\0\2\56\5\uffff\1\11\1\uffff\1\141\1\143\1\141\1\172"
-        "\1\uffff\1\151\1\141\1\142\1\156\1\154\1\155\1\157\1\162\1\155"
-        "\1\150\1\145\1\161\1\163\1\155\2\147\1\143\1\42\1\uffff\1\164\1"
-        "\145\2\60\1\145\1\155\1\154\1\157\1\164\3\60\1\151\1\145\1\163"
-        "\1\164\1\42\1\154\1\162\1\42\1\164\1\155\1\157\1\143\1\164\1\147"
-        "\1\141\1\60\1\163\1\137\1\uffff\1\130\1\156\1\171\1\151\1\162\2"
-        "\uffff\1\60\1\144\1\156\1\uffff\1\56\16\uffff\1\75\2\uffff\1\75"
-        "\6\uffff\1\75\2\uffff\1\75\14\uffff\2\56\2\uffff\1\156\1\154\1"
-        "\164\1\141\1\60\1\147\1\145\1\164\1\156\2\145\1\151\1\145\1\151"
-        "\1\165\2\145\1\162\1\165\1\153\1\145\1\150\1\125\1\164\1\145\1"
-        "\156\2\uffff\1\141\1\145\1\154\1\165\1\60\1\164\3\uffff\1\164\1"
-        "\162\1\145\1\143\2\155\1\163\1\60\1\143\1\151\1\153\1\165\1\141"
-        "\1\151\1\156\1\145\1\uffff\1\151\1\141\1\60\1\145\1\163\1\146\1"
-        "\155\1\uffff\1\60\1\145\1\60\12\uffff\1\141\1\145\1\164\1\151\2"
-        "\156\1\uffff\1\145\1\60\2\145\2\60\1\156\1\162\1\143\1\163\1\154"
-        "\1\162\2\145\1\60\1\141\1\60\1\164\1\156\1\60\1\162\1\60\1\164"
-        "\1\162\1\151\1\160\1\uffff\1\141\1\60\1\171\1\60\1\150\1\145\1"
-        "\60\1\145\1\uffff\1\150\1\164\1\137\1\162\1\164\1\144\1\163\1\60"
-        "\1\142\1\170\1\uffff\1\155\1\151\1\157\1\141\1\uffff\1\60\1\uffff"
-        "\1\162\1\60\1\145\1\156\1\164\1\144\1\60\1\uffff\1\162\1\60\1\uffff"
-        "\1\144\1\141\1\145\1\60\1\151\1\145\1\157\1\156\1\uffff\1\156\1"
-        "\uffff\1\60\2\151\1\uffff\1\145\1\141\1\144\1\60\1\156\1\uffff"
-        "\1\60\1\uffff\2\60\1\uffff\3\60\1\141\1\163\1\145\1\137\1\154\1"
-        "\uffff\1\154\1\151\1\141\1\143\1\162\1\154\1\uffff\1\151\1\uffff"
-        "\1\162\1\147\1\151\1\60\1\uffff\1\163\1\145\2\60\1\156\2\60\1\143"
-        "\1\164\1\uffff\1\146\1\141\1\60\1\137\1\145\1\uffff\1\164\2\uffff"
-        "\1\60\4\uffff\1\164\1\151\1\60\1\142\1\141\1\145\1\163\1\164\1"
-        "\163\1\155\1\60\1\157\1\137\1\163\1\143\2\60\1\162\2\uffff\1\145"
-        "\1\uffff\1\145\1\60\1\157\1\154\1\uffff\1\164\1\162\1\151\1\60"
-        "\1\166\1\141\1\uffff\1\157\1\164\2\60\1\151\1\137\1\60\1\uffff"
-        "\1\60\1\62\1\60\1\163\1\uffff\3\60\1\162\1\60\1\162\1\60\1\141"
-        "\1\uffff\1\145\1\162\1\144\1\145\2\uffff\1\143\1\155\2\uffff\2"
-        "\144\1\uffff\1\60\2\uffff\1\155\1\uffff\1\141\1\uffff\1\164\1\60"
-        "\1\157\1\171\1\60\1\163\1\141\2\60\1\uffff\1\60\1\156\1\145\1\uffff"
-        "\1\165\1\60\1\uffff\1\60\1\164\2\uffff\1\163\1\60\1\156\1\145\1"
-        "\154\1\uffff\1\144\1\162\1\141\1\60\1\151\1\164\1\uffff\1\141\1"
-        "\145\1\154\2\60\1\uffff"
+        "\4\75\1\uffff\1\74\3\75\1\52\1\57\1\75\5\uffff\1\75\1\42\1\101\1"
+        "\uffff\2\0\2\56\5\uffff\1\11\1\uffff\1\141\1\143\1\141\1\172\1\uffff"
+        "\1\151\1\141\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145"
+        "\1\161\1\163\1\155\2\147\1\143\1\42\1\uffff\1\164\1\145\2\60\1\145"
+        "\1\155\1\154\1\157\1\164\3\60\1\151\1\145\1\163\1\164\1\42\1\154"
+        "\1\162\1\42\1\164\1\155\1\157\1\143\1\164\1\147\1\141\1\60\1\163"
+        "\1\137\1\uffff\1\130\1\156\1\171\1\151\1\162\2\uffff\1\60\1\144"
+        "\1\156\1\uffff\1\56\14\uffff\1\75\2\uffff\1\75\4\uffff\1\75\1\uffff"
+        "\1\75\12\uffff\2\56\2\uffff\1\156\1\154\1\164\1\141\1\60\1\147\1"
+        "\145\1\164\1\156\2\145\1\151\1\145\1\151\1\165\2\145\1\162\1\165"
+        "\1\153\1\145\1\150\1\125\1\164\1\145\1\156\2\uffff\1\141\1\145\1"
+        "\154\1\165\1\60\1\164\3\uffff\1\164\1\162\1\145\1\143\2\155\1\163"
+        "\1\60\1\143\1\151\1\153\1\165\1\141\1\151\1\156\1\145\1\uffff\1"
+        "\151\1\141\1\60\1\145\1\163\1\146\1\155\1\uffff\1\60\1\145\1\60"
+        "\6\uffff\1\141\1\145\1\164\1\151\2\156\1\uffff\1\145\1\60\2\145"
+        "\2\60\1\156\1\162\1\143\1\163\1\154\1\162\2\145\1\60\1\141\1\60"
+        "\1\164\1\156\1\60\1\162\1\60\1\164\1\162\1\151\1\160\1\uffff\1\141"
+        "\1\60\1\171\1\60\1\150\1\145\1\60\1\145\1\uffff\1\150\1\164\1\137"
+        "\1\162\1\164\1\144\1\163\1\60\1\142\1\170\1\uffff\1\155\1\151\1"
+        "\157\1\141\1\uffff\1\60\1\uffff\1\162\1\60\1\145\1\156\1\164\1\144"
+        "\1\60\1\uffff\1\162\1\60\1\uffff\1\144\1\141\1\145\1\60\1\151\1"
+        "\145\1\157\1\156\1\uffff\1\156\1\uffff\1\60\2\151\1\uffff\1\145"
+        "\1\141\1\144\1\60\1\156\1\uffff\1\60\1\uffff\2\60\1\uffff\3\60\1"
+        "\141\1\163\1\145\1\137\1\154\1\uffff\1\154\1\151\1\141\1\143\1\162"
+        "\1\154\1\uffff\1\151\1\uffff\1\162\1\147\1\151\1\60\1\uffff\1\163"
+        "\1\145\2\60\1\156\2\60\1\143\1\164\1\uffff\1\146\1\141\1\60\1\137"
+        "\1\145\1\uffff\1\164\2\uffff\1\60\4\uffff\1\164\1\151\1\60\1\142"
+        "\1\141\1\145\1\163\1\164\1\163\1\155\1\60\1\157\1\137\1\163\1\143"
+        "\2\60\1\162\2\uffff\1\145\1\uffff\1\145\1\60\1\157\1\154\1\uffff"
+        "\1\164\1\162\1\151\1\60\1\166\1\141\1\uffff\1\157\1\164\2\60\1\151"
+        "\1\137\1\60\1\uffff\1\60\1\62\1\60\1\163\1\uffff\3\60\1\162\1\60"
+        "\1\162\1\60\1\141\1\uffff\1\145\1\162\1\144\1\145\2\uffff\1\143"
+        "\1\155\2\uffff\2\144\1\uffff\1\60\2\uffff\1\155\1\uffff\1\141\1"
+        "\uffff\1\164\1\60\1\157\1\171\1\60\1\163\1\141\2\60\1\uffff\1\60"
+        "\1\156\1\145\1\uffff\1\165\1\60\1\uffff\1\60\1\164\2\uffff\1\163"
+        "\1\60\1\156\1\145\1\154\1\uffff\1\144\1\162\1\141\1\60\1\151\1\164"
+        "\1\uffff\1\141\1\145\1\154\2\60\1\uffff"
     )
 
-    DFA42_max = DFA.unpack(
-        "\1\uffff\1\164\1\162\1\154\1\171\1\157\1\164\2\157\1\146\1\141"
-        "\3\162\1\163\1\166\1\162\1\141\2\157\1\162\1\151\1\160\1\172\1"
-        "\151\1\150\1\156\1\157\1\173\1\164\1\157\1\172\1\71\3\uffff\4\75"
-        "\1\uffff\1\75\1\76\5\75\5\uffff\1\75\1\162\1\172\1\uffff\2\uffff"
-        "\2\145\5\uffff\1\40\1\uffff\1\145\1\164\1\141\1\172\1\uffff\1\151"
-        "\1\141\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145\1"
-        "\161\1\163\1\155\2\147\1\143\1\47\1\uffff\1\164\1\145\2\172\1\145"
-        "\1\155\1\154\1\157\1\164\3\172\1\151\1\145\1\163\1\164\1\157\1"
-        "\154\1\162\1\47\1\164\1\155\1\157\1\143\1\164\1\147\1\165\1\172"
-        "\1\163\1\137\1\uffff\1\172\1\156\1\171\1\151\1\162\2\uffff\1\172"
-        "\1\144\1\164\1\uffff\1\56\16\uffff\1\75\2\uffff\1\75\6\uffff\1"
-        "\75\2\uffff\1\75\14\uffff\2\145\2\uffff\1\156\2\164\1\141\1\172"
-        "\1\147\1\145\1\164\1\156\2\145\1\151\1\145\1\151\1\165\2\145\1"
-        "\162\1\165\1\164\1\145\1\150\1\125\1\164\1\145\1\156\2\uffff\1"
-        "\141\1\145\1\154\1\165\1\172\1\164\3\uffff\1\164\1\162\1\145\1"
-        "\143\2\155\1\163\1\172\1\143\1\151\1\153\1\165\1\141\1\151\1\156"
-        "\1\145\1\uffff\1\151\1\141\1\172\1\145\1\163\1\146\1\155\1\uffff"
-        "\1\172\1\145\1\172\12\uffff\1\141\1\145\1\164\1\151\2\156\1\uffff"
-        "\1\145\1\172\2\145\2\172\1\156\1\162\1\143\1\163\1\154\1\162\2"
-        "\145\1\172\1\141\1\172\1\164\1\156\1\172\1\162\1\172\1\164\1\162"
-        "\1\151\1\160\1\uffff\1\141\1\172\1\171\1\172\1\150\1\145\1\172"
-        "\1\145\1\uffff\1\150\1\164\1\137\1\162\1\164\1\144\1\163\1\172"
-        "\1\142\1\170\1\uffff\1\155\1\151\1\157\1\141\1\uffff\1\172\1\uffff"
-        "\1\162\1\172\1\145\1\156\1\164\1\144\1\172\1\uffff\1\162\1\172"
-        "\1\uffff\1\144\1\141\1\145\1\172\1\151\1\145\1\157\1\156\1\uffff"
-        "\1\156\1\uffff\1\172\2\151\1\uffff\1\145\1\141\1\144\1\172\1\156"
-        "\1\uffff\1\172\1\uffff\2\172\1\uffff\3\172\1\141\1\163\1\145\1"
-        "\137\1\154\1\uffff\1\154\1\151\1\141\1\143\1\162\1\154\1\uffff"
-        "\1\151\1\uffff\1\162\1\147\1\151\1\172\1\uffff\1\163\1\145\2\172"
-        "\1\156\2\172\1\143\1\164\1\uffff\1\146\1\141\1\172\1\137\1\145"
-        "\1\uffff\1\164\2\uffff\1\172\4\uffff\1\164\1\151\1\172\1\142\1"
-        "\141\1\145\1\163\1\164\1\163\1\155\1\172\1\157\1\137\1\163\1\143"
-        "\2\172\1\162\2\uffff\1\145\1\uffff\1\145\1\172\1\157\1\154\1\uffff"
-        "\1\164\1\162\1\151\1\172\1\166\1\141\1\uffff\1\157\1\164\2\172"
-        "\1\151\1\137\1\172\1\uffff\1\172\1\63\1\172\1\163\1\uffff\3\172"
-        "\1\162\1\172\1\162\1\172\1\141\1\uffff\1\145\1\162\1\144\1\145"
-        "\2\uffff\1\143\1\155\2\uffff\2\144\1\uffff\1\172\2\uffff\1\155"
-        "\1\uffff\1\141\1\uffff\1\164\1\172\1\157\1\171\1\172\1\163\1\141"
-        "\2\172\1\uffff\1\172\1\156\1\145\1\uffff\1\165\1\172\1\uffff\1"
-        "\172\1\164\2\uffff\1\163\1\172\1\156\1\145\1\154\1\uffff\1\144"
-        "\1\162\1\141\1\172\1\151\1\164\1\uffff\1\141\1\145\1\154\2\172"
-        "\1\uffff"
+    DFA43_max = DFA.unpack(
+        "\1\uffff\1\164\1\162\1\154\1\171\1\157\1\164\2\157\1\146\1\141\3"
+        "\162\1\163\1\166\1\162\1\141\2\157\1\162\1\151\1\160\1\172\1\151"
+        "\1\150\1\156\1\157\1\173\1\164\1\157\1\172\1\71\3\uffff\4\75\1\uffff"
+        "\1\75\1\76\5\75\5\uffff\1\75\1\162\1\172\1\uffff\2\uffff\2\145\5"
+        "\uffff\1\40\1\uffff\1\145\1\164\1\141\1\172\1\uffff\1\151\1\141"
+        "\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145\1\161\1\163"
+        "\1\155\2\147\1\143\1\47\1\uffff\1\164\1\145\2\172\1\145\1\155\1"
+        "\154\1\157\1\164\3\172\1\151\1\145\1\163\1\164\1\157\1\154\1\162"
+        "\1\47\1\164\1\155\1\157\1\143\1\164\1\147\1\165\1\172\1\163\1\137"
+        "\1\uffff\1\172\1\156\1\171\1\151\1\162\2\uffff\1\172\1\144\1\164"
+        "\1\uffff\1\56\14\uffff\1\75\2\uffff\1\75\4\uffff\1\75\1\uffff\1"
+        "\75\12\uffff\2\145\2\uffff\1\156\2\164\1\141\1\172\1\147\1\145\1"
+        "\164\1\156\2\145\1\151\1\145\1\151\1\165\2\145\1\162\1\165\1\164"
+        "\1\145\1\150\1\125\1\164\1\145\1\156\2\uffff\1\141\1\145\1\154\1"
+        "\165\1\172\1\164\3\uffff\1\164\1\162\1\145\1\143\2\155\1\163\1\172"
+        "\1\143\1\151\1\153\1\165\1\141\1\151\1\156\1\145\1\uffff\1\151\1"
+        "\141\1\172\1\145\1\163\1\146\1\155\1\uffff\1\172\1\145\1\172\6\uffff"
+        "\1\141\1\145\1\164\1\151\2\156\1\uffff\1\145\1\172\2\145\2\172\1"
+        "\156\1\162\1\143\1\163\1\154\1\162\2\145\1\172\1\141\1\172\1\164"
+        "\1\156\1\172\1\162\1\172\1\164\1\162\1\151\1\160\1\uffff\1\141\1"
+        "\172\1\171\1\172\1\150\1\145\1\172\1\145\1\uffff\1\150\1\164\1\137"
+        "\1\162\1\164\1\144\1\163\1\172\1\142\1\170\1\uffff\1\155\1\151\1"
+        "\157\1\141\1\uffff\1\172\1\uffff\1\162\1\172\1\145\1\156\1\164\1"
+        "\144\1\172\1\uffff\1\162\1\172\1\uffff\1\144\1\141\1\145\1\172\1"
+        "\151\1\145\1\157\1\156\1\uffff\1\156\1\uffff\1\172\2\151\1\uffff"
+        "\1\145\1\141\1\144\1\172\1\156\1\uffff\1\172\1\uffff\2\172\1\uffff"
+        "\3\172\1\141\1\163\1\145\1\137\1\154\1\uffff\1\154\1\151\1\141\1"
+        "\143\1\162\1\154\1\uffff\1\151\1\uffff\1\162\1\147\1\151\1\172\1"
+        "\uffff\1\163\1\145\2\172\1\156\2\172\1\143\1\164\1\uffff\1\146\1"
+        "\141\1\172\1\137\1\145\1\uffff\1\164\2\uffff\1\172\4\uffff\1\164"
+        "\1\151\1\172\1\142\1\141\1\145\1\163\1\164\1\163\1\155\1\172\1\157"
+        "\1\137\1\163\1\143\2\172\1\162\2\uffff\1\145\1\uffff\1\145\1\172"
+        "\1\157\1\154\1\uffff\1\164\1\162\1\151\1\172\1\166\1\141\1\uffff"
+        "\1\157\1\164\2\172\1\151\1\137\1\172\1\uffff\1\172\1\63\1\172\1"
+        "\163\1\uffff\3\172\1\162\1\172\1\162\1\172\1\141\1\uffff\1\145\1"
+        "\162\1\144\1\145\2\uffff\1\143\1\155\2\uffff\2\144\1\uffff\1\172"
+        "\2\uffff\1\155\1\uffff\1\141\1\uffff\1\164\1\172\1\157\1\171\1\172"
+        "\1\163\1\141\2\172\1\uffff\1\172\1\156\1\145\1\uffff\1\165\1\172"
+        "\1\uffff\1\172\1\164\2\uffff\1\163\1\172\1\156\1\145\1\154\1\uffff"
+        "\1\144\1\162\1\141\1\172\1\151\1\164\1\uffff\1\141\1\145\1\154\2"
+        "\172\1\uffff"
     )
 
-    DFA42_accept = DFA.unpack(
+    DFA43_accept = DFA.unpack(
         "\41\uffff\1\101\1\102\1\103\4\uffff\1\110\7\uffff\1\122\1\123\1"
-        "\124\1\125\1\127\3\uffff\1\152\4\uffff\3\157\2\160\1\uffff\1\161"
-        "\4\uffff\1\152\22\uffff\1\154\36\uffff\1\40\5\uffff\1\126\1\55"
-        "\3\uffff\1\75\1\uffff\1\76\1\156\1\101\1\102\1\103\1\132\1\104"
-        "\1\144\1\105\1\145\1\106\1\143\1\107\1\110\1\uffff\1\134\1\130"
-        "\1\uffff\1\133\1\131\1\136\1\113\1\137\1\114\1\uffff\1\140\1\115"
-        "\1\uffff\1\141\1\116\1\142\1\117\1\122\1\123\1\124\1\125\1\127"
-        "\1\135\1\153\1\155\2\uffff\1\157\1\160\32\uffff\1\57\1\73\6\uffff"
-        "\1\67\1\66\1\70\20\uffff\1\56\7\uffff\1\60\3\uffff\1\100\1\77\1"
-        "\146\1\111\1\147\1\112\1\150\1\121\1\151\1\120\6\uffff\1\47\32"
-        "\uffff\1\21\10\uffff\1\64\12\uffff\1\41\4\uffff\1\61\1\uffff\1"
-        "\72\7\uffff\1\35\2\uffff\1\5\10\uffff\1\6\1\uffff\1\11\3\uffff"
-        "\1\15\5\uffff\1\22\1\uffff\1\62\2\uffff\1\65\10\uffff\1\74\6\uffff"
-        "\1\71\1\uffff\1\32\4\uffff\1\3\11\uffff\1\10\5\uffff\1\17\1\uffff"
-        "\1\45\1\23\1\uffff\1\46\1\63\1\24\1\25\22\uffff\1\7\1\52\1\uffff"
-        "\1\12\4\uffff\1\16\6\uffff\1\31\7\uffff\1\51\4\uffff\1\4\10\uffff"
-        "\1\36\4\uffff\1\34\1\37\2\uffff\1\50\1\1\2\uffff\1\2\1\uffff\1"
-        "\14\1\53\1\uffff\1\13\1\uffff\1\44\11\uffff\1\33\3\uffff\1\26\2"
-        "\uffff\1\27\2\uffff\1\42\1\54\5\uffff\1\20\6\uffff\1\43\5\uffff"
-        "\1\30"
+        "\124\1\125\1\127\3\uffff\1\137\4\uffff\3\144\2\145\1\uffff\1\146"
+        "\4\uffff\1\137\22\uffff\1\141\36\uffff\1\40\5\uffff\1\126\1\55\3"
+        "\uffff\1\75\1\uffff\1\76\1\143\1\101\1\102\1\103\1\132\1\104\1\136"
+        "\1\105\1\106\1\107\1\110\1\uffff\1\134\1\130\1\uffff\1\133\1\131"
+        "\1\113\1\114\1\uffff\1\115\1\uffff\1\116\1\117\1\122\1\123\1\124"
+        "\1\125\1\127\1\135\1\140\1\142\2\uffff\1\144\1\145\32\uffff\1\57"
+        "\1\73\6\uffff\1\67\1\66\1\70\20\uffff\1\56\7\uffff\1\60\3\uffff"
+        "\1\100\1\77\1\111\1\112\1\121\1\120\6\uffff\1\47\32\uffff\1\21\10"
+        "\uffff\1\64\12\uffff\1\41\4\uffff\1\61\1\uffff\1\72\7\uffff\1\35"
+        "\2\uffff\1\5\10\uffff\1\6\1\uffff\1\11\3\uffff\1\15\5\uffff\1\22"
+        "\1\uffff\1\62\2\uffff\1\65\10\uffff\1\74\6\uffff\1\71\1\uffff\1"
+        "\32\4\uffff\1\3\11\uffff\1\10\5\uffff\1\17\1\uffff\1\45\1\23\1\uffff"
+        "\1\46\1\63\1\24\1\25\22\uffff\1\7\1\52\1\uffff\1\12\4\uffff\1\16"
+        "\6\uffff\1\31\7\uffff\1\51\4\uffff\1\4\10\uffff\1\36\4\uffff\1\34"
+        "\1\37\2\uffff\1\50\1\1\2\uffff\1\2\1\uffff\1\14\1\53\1\uffff\1\13"
+        "\1\uffff\1\44\11\uffff\1\33\3\uffff\1\26\2\uffff\1\27\2\uffff\1"
+        "\42\1\54\5\uffff\1\20\6\uffff\1\43\5\uffff\1\30"
     )
 
-    DFA42_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01c8\uffff")
+    DFA43_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01bd\uffff")
 
-    DFA42_transition = [
+    DFA43_transition = [
         DFA.unpack(
             "\11\103\1\100\1\76\1\103\1\77\1\75\22\103\1\100\1\65"
             "\1\72\1\101\1\67\1\57\1\47\1\71\1\60\1\61\1\55\1\53\1\41\1\54\1"
             "\40\1\56\1\74\11\73\1\42\1\43\1\51\1\44\1\52\2\103\2\70\1\4\1\7"
-            "\1\70\1\66\5\70\1\10\1\12\1\33\1\70\1\3\1\70\1\11\1\6\1\5\1\32"
-            "\2\70\3\27\1\62\1\102\1\63\1\46\1\37\1\103\1\35\1\70\1\14\1\70"
-            "\1\17\1\20\1\15\1\70\1\16\1\70\1\30\1\22\1\21\1\36\1\13\1\31\1"
-            "\70\1\23\1\1\1\24\1\26\1\25\1\2\3\27\1\34\1\45\1\64\1\50\uff81"
-            "\103"
+            "\1\70\1\66\5\70\1\10\1\12\1\33\1\70\1\3\1\70\1\11\1\6\1\5\1\32\2"
+            "\70\3\27\1\62\1\102\1\63\1\46\1\37\1\103\1\35\1\70\1\14\1\70\1\17"
+            "\1\20\1\15\1\70\1\16\1\70\1\30\1\22\1\21\1\36\1\13\1\31\1\70\1\23"
+            "\1\1\1\24\1\26\1\25\1\2\3\27\1\34\1\45\1\64\1\50\uff81\103"
         ),
         DFA.unpack("\1\104\1\uffff\1\105\3\uffff\1\107\12\uffff\1\106"),
         DFA.unpack("\1\111"),
         DFA.unpack("\1\112"),
-        DFA.unpack("\1\116\6\uffff\1\117\6\uffff\1\114\5\uffff\1\113\3" "\uffff\1\115"),
+        DFA.unpack("\1\116\6\uffff\1\117\6\uffff\1\114\5\uffff\1\113\3\uffff" "\1\115"),
         DFA.unpack("\1\121\5\uffff\1\120"),
         DFA.unpack("\1\124\12\uffff\1\122\3\uffff\1\123"),
         DFA.unpack("\1\125\5\uffff\1\126"),
         DFA.unpack("\1\127\5\uffff\1\130"),
-        DFA.unpack("\1\133\4\uffff\1\133\36\uffff\1\132\36\uffff\1\131" "\1\132"),
+        DFA.unpack("\1\133\4\uffff\1\133\36\uffff\1\132\36\uffff\1\131\1" "\132"),
         DFA.unpack("\1\134"),
         DFA.unpack("\1\136\1\uffff\1\135\1\uffff\1\137"),
         DFA.unpack("\1\141\15\uffff\1\142\2\uffff\1\140"),
@@ -4417,20 +4383,20 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\146\7\uffff\1\145\4\uffff\1\147"),
         DFA.unpack("\1\150\7\uffff\1\152\11\uffff\1\151"),
         DFA.unpack(
-            "\1\133\4\uffff\1\133\52\uffff\1\157\16\uffff\1\155"
-            "\3\uffff\1\153\11\uffff\1\156\2\uffff\1\154"
+            "\1\133\4\uffff\1\133\52\uffff\1\157\16\uffff\1\155\3"
+            "\uffff\1\153\11\uffff\1\156\2\uffff\1\154"
         ),
         DFA.unpack("\1\160"),
         DFA.unpack("\1\161\5\uffff\1\162"),
         DFA.unpack(
-            "\1\133\4\uffff\1\133\36\uffff\1\132\36\uffff\1\163"
-            "\1\132\2\uffff\1\165\5\uffff\1\164"
+            "\1\133\4\uffff\1\133\36\uffff\1\132\36\uffff\1\163\1"
+            "\132\2\uffff\1\165\5\uffff\1\164"
         ),
         DFA.unpack("\1\167\2\uffff\1\166"),
         DFA.unpack("\1\170"),
         DFA.unpack("\1\133\4\uffff\1\133\110\uffff\1\171"),
         DFA.unpack(
-            "\12\110\7\uffff\27\110\3\173\4\uffff\1\110\1\uffff" "\27\110\3\173"
+            "\12\110\7\uffff\27\110\3\173\4\uffff\1\110\1\uffff\27" "\110\3\173"
         ),
         DFA.unpack("\1\174"),
         DFA.unpack("\1\175"),
@@ -4446,43 +4412,50 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
         DFA.unpack("\1\u008c"),
         DFA.unpack("\1\u008e"),
-        DFA.unpack("\1\u0090"),
-        DFA.unpack("\1\u0092"),
+        DFA.unpack("\1\u008e"),
+        DFA.unpack("\1\u008e"),
         DFA.unpack(""),
-        DFA.unpack("\1\u0095\1\u0096"),
-        DFA.unpack("\1\u0099\1\u0098"),
-        DFA.unpack("\1\u009b"),
-        DFA.unpack("\1\u009d"),
-        DFA.unpack("\1\u009f\22\uffff\1\u00a0"),
-        DFA.unpack("\1\u00a2\15\uffff\1\u00a3"),
+        DFA.unpack("\1\u0093\1\u0094"),
+        DFA.unpack("\1\u0097\1\u0096"),
+        DFA.unpack("\1\u008e"),
+        DFA.unpack("\1\u008e"),
+        DFA.unpack("\1\u009b\22\uffff\1\u008e"),
+        DFA.unpack("\1\u009d\15\uffff\1\u008e"),
+        DFA.unpack("\1\u008e"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u00a5"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u00ac"),
         DFA.unpack("\1\133\4\uffff\1\133\52\uffff\1\157\37\uffff\1\157"),
-        DFA.unpack("\32\u00ad\4\uffff\1\u00ad\1\uffff\32\u00ad"),
+        DFA.unpack("\32\u00a6\4\uffff\1\u00a6\1\uffff\32\u00a6"),
         DFA.unpack(""),
         DFA.unpack("\12\133\1\uffff\1\133\2\uffff\ufff2\133"),
         DFA.unpack("\12\133\1\uffff\1\133\2\uffff\ufff2\133"),
-        DFA.unpack("\1\u0088\1\uffff\12\u00af\13\uffff\1\u0088\37\uffff" "\1\u0088"),
+        DFA.unpack("\1\u0088\1\uffff\12\u00a8\13\uffff\1\u0088\37\uffff" "\1\u0088"),
         DFA.unpack(
-            "\1\u0088\1\uffff\1\u00b0\11\u0088\13\uffff\1\u0088" "\37\uffff\1\u0088"
+            "\1\u0088\1\uffff\1\u00a9\11\u0088\13\uffff\1\u0088\37" "\uffff\1\u0088"
         ),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\2\u00b2\1\uffff\2\u00b2\22\uffff\1\u00b2"),
+        DFA.unpack("\2\u00ab\1\uffff\2\u00ab\22\uffff\1\u00ab"),
         DFA.unpack(""),
-        DFA.unpack("\1\u00b4\3\uffff\1\u00b3"),
-        DFA.unpack("\1\u00b7\11\uffff\1\u00b6\6\uffff\1\u00b5"),
+        DFA.unpack("\1\u00ad\3\uffff\1\u00ac"),
+        DFA.unpack("\1\u00b0\11\uffff\1\u00af\6\uffff\1\u00ae"),
+        DFA.unpack("\1\u00b1"),
+        DFA.unpack("\1\u00b2"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u00b3"),
+        DFA.unpack("\1\u00b4"),
+        DFA.unpack("\1\u00b5"),
+        DFA.unpack("\1\u00b6"),
+        DFA.unpack("\1\u00b7"),
         DFA.unpack("\1\u00b8"),
         DFA.unpack("\1\u00b9"),
-        DFA.unpack(""),
         DFA.unpack("\1\u00ba"),
         DFA.unpack("\1\u00bb"),
         DFA.unpack("\1\u00bc"),
@@ -4493,60 +4466,53 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u00c1"),
         DFA.unpack("\1\u00c2"),
         DFA.unpack("\1\u00c3"),
+        DFA.unpack("\1\133\4\uffff\1\133"),
+        DFA.unpack(""),
         DFA.unpack("\1\u00c4"),
         DFA.unpack("\1\u00c5"),
-        DFA.unpack("\1\u00c6"),
-        DFA.unpack("\1\u00c7"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u00c8"),
         DFA.unpack("\1\u00c9"),
         DFA.unpack("\1\u00ca"),
-        DFA.unpack("\1\133\4\uffff\1\133"),
-        DFA.unpack(""),
         DFA.unpack("\1\u00cb"),
         DFA.unpack("\1\u00cc"),
+        DFA.unpack(
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u00cd\7\110"
+        ),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00cf"),
-        DFA.unpack("\1\u00d0"),
         DFA.unpack("\1\u00d1"),
         DFA.unpack("\1\u00d2"),
         DFA.unpack("\1\u00d3"),
-        DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u00d4\7\110"
-        ),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u00d4"),
+        DFA.unpack("\1\133\4\uffff\1\133\71\uffff\1\u00d5\15\uffff\1\u00d6"),
+        DFA.unpack("\1\u00d7"),
         DFA.unpack("\1\u00d8"),
+        DFA.unpack("\1\133\4\uffff\1\133"),
         DFA.unpack("\1\u00d9"),
         DFA.unpack("\1\u00da"),
         DFA.unpack("\1\u00db"),
-        DFA.unpack("\1\133\4\uffff\1\133\71\uffff\1\u00dc\15\uffff\1\u00dd"),
+        DFA.unpack("\1\u00dc"),
+        DFA.unpack("\1\u00dd"),
         DFA.unpack("\1\u00de"),
-        DFA.unpack("\1\u00df"),
-        DFA.unpack("\1\133\4\uffff\1\133"),
-        DFA.unpack("\1\u00e0"),
-        DFA.unpack("\1\u00e1"),
+        DFA.unpack("\1\u00df\23\uffff\1\u00e0"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u00e2"),
         DFA.unpack("\1\u00e3"),
-        DFA.unpack("\1\u00e4"),
+        DFA.unpack(""),
+        DFA.unpack("\3\u00e4\35\uffff\3\u00e4"),
         DFA.unpack("\1\u00e5"),
-        DFA.unpack("\1\u00e6\23\uffff\1\u00e7"),
+        DFA.unpack("\1\u00e6"),
+        DFA.unpack("\1\u00e7"),
+        DFA.unpack("\1\u00e8"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00e9"),
         DFA.unpack("\1\u00ea"),
+        DFA.unpack("\1\u00eb\5\uffff\1\u00ec"),
         DFA.unpack(""),
-        DFA.unpack("\3\u00eb\35\uffff\3\u00eb"),
-        DFA.unpack("\1\u00ec"),
         DFA.unpack("\1\u00ed"),
-        DFA.unpack("\1\u00ee"),
-        DFA.unpack("\1\u00ef"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00f1"),
-        DFA.unpack("\1\u00f2\5\uffff\1\u00f3"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u00f4"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
@@ -4559,22 +4525,17 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
+        DFA.unpack("\1\u008e"),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\u00f6"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u00f8"),
-        DFA.unpack(""),
+        DFA.unpack("\1\u008e"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
+        DFA.unpack("\1\u008e"),
         DFA.unpack(""),
-        DFA.unpack("\1\u00fa"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u00fc"),
+        DFA.unpack("\1\u008e"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
@@ -4585,58 +4546,68 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u0088\1\uffff\12\u00af\13\uffff\1\u0088\37\uffff" "\1\u0088"),
+        DFA.unpack("\1\u0088\1\uffff\12\u00a8\13\uffff\1\u0088\37\uffff" "\1\u0088"),
         DFA.unpack(
-            "\1\u0088\1\uffff\1\u00b0\11\u0088\13\uffff\1\u0088" "\37\uffff\1\u0088"
+            "\1\u0088\1\uffff\1\u00a9\11\u0088\13\uffff\1\u0088\37" "\uffff\1\u0088"
         ),
         DFA.unpack(""),
         DFA.unpack(""),
+        DFA.unpack("\1\u00f3"),
+        DFA.unpack("\1\u00f4\7\uffff\1\u00f5"),
+        DFA.unpack("\1\u00f6"),
+        DFA.unpack("\1\u00f7"),
+        DFA.unpack(
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\16\110" "\1\u00f8\13\110"
+        ),
+        DFA.unpack("\1\u00fa"),
+        DFA.unpack("\1\u00fb"),
+        DFA.unpack("\1\u00fc"),
+        DFA.unpack("\1\u00fd"),
         DFA.unpack("\1\u00fe"),
-        DFA.unpack("\1\u00ff\7\uffff\1\u0100"),
+        DFA.unpack("\1\u00ff"),
+        DFA.unpack("\1\u0100"),
         DFA.unpack("\1\u0101"),
         DFA.unpack("\1\u0102"),
-        DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\16\110" "\1\u0103\13\110"
-        ),
+        DFA.unpack("\1\u0103"),
+        DFA.unpack("\1\u0104"),
         DFA.unpack("\1\u0105"),
         DFA.unpack("\1\u0106"),
         DFA.unpack("\1\u0107"),
-        DFA.unpack("\1\u0108"),
-        DFA.unpack("\1\u0109"),
+        DFA.unpack("\1\u0108\10\uffff\1\u0109"),
         DFA.unpack("\1\u010a"),
         DFA.unpack("\1\u010b"),
         DFA.unpack("\1\u010c"),
         DFA.unpack("\1\u010d"),
         DFA.unpack("\1\u010e"),
         DFA.unpack("\1\u010f"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u0110"),
         DFA.unpack("\1\u0111"),
         DFA.unpack("\1\u0112"),
-        DFA.unpack("\1\u0113\10\uffff\1\u0114"),
+        DFA.unpack("\1\u0113"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0115"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u0116"),
         DFA.unpack("\1\u0117"),
         DFA.unpack("\1\u0118"),
         DFA.unpack("\1\u0119"),
         DFA.unpack("\1\u011a"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u011b"),
         DFA.unpack("\1\u011c"),
-        DFA.unpack("\1\u011d"),
-        DFA.unpack("\1\u011e"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u011e"),
+        DFA.unpack("\1\u011f"),
         DFA.unpack("\1\u0120"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u0121"),
         DFA.unpack("\1\u0122"),
         DFA.unpack("\1\u0123"),
         DFA.unpack("\1\u0124"),
         DFA.unpack("\1\u0125"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0126"),
         DFA.unpack("\1\u0127"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
@@ -4644,302 +4615,286 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u012a"),
         DFA.unpack("\1\u012b"),
         DFA.unpack("\1\u012c"),
-        DFA.unpack("\1\u012d"),
-        DFA.unpack("\1\u012e"),
-        DFA.unpack("\1\u012f"),
-        DFA.unpack("\1\u0130"),
         DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u012e"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u0130"),
         DFA.unpack("\1\u0131"),
         DFA.unpack("\1\u0132"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0133"),
         DFA.unpack("\1\u0134"),
         DFA.unpack("\1\u0135"),
-        DFA.unpack("\1\u0136"),
-        DFA.unpack("\1\u0137"),
         DFA.unpack(""),
+        DFA.unpack("\1\u0136"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0138"),
         DFA.unpack("\1\u0139"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u013b"),
         DFA.unpack("\1\u013c"),
         DFA.unpack("\1\u013d"),
         DFA.unpack("\1\u013e"),
         DFA.unpack("\1\u013f"),
         DFA.unpack("\1\u0140"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0141"),
+        DFA.unpack("\1\u0142"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0143"),
         DFA.unpack("\1\u0144"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0146"),
         DFA.unpack("\1\u0147"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0148"),
-        DFA.unpack("\1\u0149"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u014a"),
         DFA.unpack("\1\u014b"),
         DFA.unpack("\1\u014c"),
         DFA.unpack("\1\u014d"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u014e"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u014f"),
+        DFA.unpack("\1\u0150"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0151"),
         DFA.unpack("\1\u0152"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0153"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0155"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0156"),
         DFA.unpack("\1\u0157"),
         DFA.unpack("\1\u0158"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0159"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u015a"),
         DFA.unpack("\1\u015b"),
+        DFA.unpack("\1\u015c"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u015d"),
         DFA.unpack("\1\u015e"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0160"),
+        DFA.unpack("\1\u015f"),
         DFA.unpack(""),
+        DFA.unpack("\1\u0160"),
         DFA.unpack("\1\u0161"),
         DFA.unpack("\1\u0162"),
         DFA.unpack("\1\u0163"),
-        DFA.unpack("\1\u0164"),
-        DFA.unpack("\1\u0165"),
-        DFA.unpack("\1\u0166"),
-        DFA.unpack("\1\u0167"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u0165"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0167"),
+        DFA.unpack("\1\u0168"),
         DFA.unpack("\1\u0169"),
         DFA.unpack("\1\u016a"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
-        DFA.unpack("\1\u016b"),
         DFA.unpack("\1\u016c"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
         DFA.unpack("\1\u016d"),
         DFA.unpack("\1\u016e"),
-        DFA.unpack(""),
+        DFA.unpack("\1\u016f"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0170"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0171"),
         DFA.unpack("\1\u0172"),
         DFA.unpack("\1\u0173"),
-        DFA.unpack("\1\u0174"),
-        DFA.unpack("\1\u0175"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
-        DFA.unpack("\1\u0177"),
+        DFA.unpack("\1\u0174"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0176"),
+        DFA.unpack("\1\u0177"),
         DFA.unpack(""),
         DFA.unpack("\1\u0178"),
         DFA.unpack("\1\u0179"),
         DFA.unpack("\1\u017a"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u017b"),
         DFA.unpack("\1\u017c"),
-        DFA.unpack("\1\u017d"),
-        DFA.unpack("\1\u017e"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u017f"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0181"),
-        DFA.unpack("\1\u0182"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u0183"),
-        DFA.unpack("\1\u0184"),
-        DFA.unpack("\1\u0185"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0187"),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u018a\7\110"
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u017f\7\110"
         ),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0184"),
+        DFA.unpack("\1\u0185"),
+        DFA.unpack("\1\u0186"),
+        DFA.unpack("\1\u0187"),
+        DFA.unpack("\1\u0188"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u0189"),
+        DFA.unpack("\1\u018a"),
+        DFA.unpack("\1\u018b"),
+        DFA.unpack("\1\u018c"),
+        DFA.unpack("\1\u018d"),
+        DFA.unpack("\1\u018e"),
+        DFA.unpack(""),
         DFA.unpack("\1\u018f"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0190"),
         DFA.unpack("\1\u0191"),
         DFA.unpack("\1\u0192"),
-        DFA.unpack("\1\u0193"),
+        DFA.unpack(
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u0193\7\110"
+        ),
         DFA.unpack(""),
         DFA.unpack("\1\u0194"),
         DFA.unpack("\1\u0195"),
-        DFA.unpack("\1\u0196"),
-        DFA.unpack("\1\u0197"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0198"),
-        DFA.unpack("\1\u0199"),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u019a"),
-        DFA.unpack(""),
         DFA.unpack("\1\u019b"),
+        DFA.unpack(""),
         DFA.unpack("\1\u019c"),
         DFA.unpack("\1\u019d"),
-        DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u019e\7\110"
-        ),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u019f"),
         DFA.unpack("\1\u01a0"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01a3"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01a5"),
-        DFA.unpack("\1\u01a6"),
         DFA.unpack(""),
+        DFA.unpack("\1\u01a1"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01a2"),
+        DFA.unpack("\1\u01a3"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\u01a4\1\uffff\32\110"),
+        DFA.unpack("\1\u01a6"),
         DFA.unpack("\1\u01a7"),
         DFA.unpack("\1\u01a8"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01a9"),
         DFA.unpack("\1\u01aa"),
         DFA.unpack("\1\u01ab"),
-        DFA.unpack(""),
         DFA.unpack("\1\u01ac"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01ad"),
         DFA.unpack("\1\u01ae"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\u01af\1\uffff\32\110"),
+        DFA.unpack("\1\u01af"),
+        DFA.unpack("\1\u01b0"),
         DFA.unpack("\1\u01b1"),
-        DFA.unpack("\1\u01b2"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01b3"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u01b4"),
+        DFA.unpack(""),
         DFA.unpack("\1\u01b5"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01b6"),
         DFA.unpack("\1\u01b7"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01b8"),
         DFA.unpack("\1\u01b9"),
         DFA.unpack("\1\u01ba"),
-        DFA.unpack("\1\u01bb"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01bc"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01bd"),
+        DFA.unpack(""),
         DFA.unpack("\1\u01be"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u01bf"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01c0"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01c1"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01c2"),
-        DFA.unpack(""),
         DFA.unpack("\1\u01c3"),
-        DFA.unpack("\1\u01c4"),
-        DFA.unpack("\1\u01c5"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01c7"),
-        DFA.unpack("\1\u01c8"),
         DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01c6\1\u01c7"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01c9"),
-        DFA.unpack("\1\u01ca"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01cd"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01cc"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01ce"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01d0"),
         DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01d1\1\u01d2"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01d1"),
+        DFA.unpack("\1\u01d2"),
+        DFA.unpack("\1\u01d3"),
         DFA.unpack("\1\u01d4"),
         DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01d5"),
+        DFA.unpack("\1\u01d6"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u01d7"),
+        DFA.unpack("\1\u01d8"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01d9"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01da"),
+        DFA.unpack(""),
         DFA.unpack("\1\u01db"),
         DFA.unpack(""),
         DFA.unpack("\1\u01dc"),
-        DFA.unpack("\1\u01dd"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01de"),
         DFA.unpack("\1\u01df"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01e0"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01e1"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u01e2"),
-        DFA.unpack("\1\u01e3"),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01e5"),
-        DFA.unpack(""),
         DFA.unpack("\1\u01e6"),
         DFA.unpack(""),
         DFA.unpack("\1\u01e7"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01e9"),
-        DFA.unpack("\1\u01ea"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01e8"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01e9"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01eb"),
         DFA.unpack("\1\u01ec"),
         DFA.unpack("\1\u01ed"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01ee"),
+        DFA.unpack("\1\u01ef"),
         DFA.unpack("\1\u01f0"),
-        DFA.unpack("\1\u01f1"),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01f2"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01f3"),
         DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u01f4"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01f5"),
         DFA.unpack("\1\u01f6"),
-        DFA.unpack("\1\u01f7"),
-        DFA.unpack("\1\u01f8"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01f9"),
-        DFA.unpack("\1\u01fa"),
-        DFA.unpack("\1\u01fb"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01fd"),
-        DFA.unpack("\1\u01fe"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01ff"),
-        DFA.unpack("\1\u0200"),
-        DFA.unpack("\1\u0201"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
     ]
 
-    # class definition for DFA #42
+    # class definition for DFA #43
 
-    class DFA42(DFA):
+    class DFA43(DFA):
         pass
 
         def specialStateTransition(self_, s, input):
@@ -4953,236 +4908,235 @@ class YarcLexer(YarcLexerBase):
             _s = s
 
             if s == 0:
-                LA42_0 = input.LA(1)
+                LA43_0 = input.LA(1)
 
                 s = -1
-                if LA42_0 == 115:
+                if LA43_0 == 115:
                     s = 1
 
-                elif LA42_0 == 119:
+                elif LA43_0 == 119:
                     s = 2
 
-                elif LA42_0 == 80:
+                elif LA43_0 == 80:
                     s = 3
 
-                elif LA42_0 == 67:
+                elif LA43_0 == 67:
                     s = 4
 
-                elif LA42_0 == 84:
+                elif LA43_0 == 84:
                     s = 5
 
-                elif LA42_0 == 83:
+                elif LA43_0 == 83:
                     s = 6
 
-                elif LA42_0 == 68:
+                elif LA43_0 == 68:
                     s = 7
 
-                elif LA42_0 == 76:
+                elif LA43_0 == 76:
                     s = 8
 
-                elif LA42_0 == 82:
+                elif LA43_0 == 82:
                     s = 9
 
-                elif LA42_0 == 77:
+                elif LA43_0 == 77:
                     s = 10
 
-                elif LA42_0 == 111:
+                elif LA43_0 == 111:
                     s = 11
 
-                elif LA42_0 == 99:
+                elif LA43_0 == 99:
                     s = 12
 
-                elif LA42_0 == 103:
+                elif LA43_0 == 103:
                     s = 13
 
-                elif LA42_0 == 105:
+                elif LA43_0 == 105:
                     s = 14
 
-                elif LA42_0 == 101:
+                elif LA43_0 == 101:
                     s = 15
 
-                elif LA42_0 == 102:
+                elif LA43_0 == 102:
                     s = 16
 
-                elif LA42_0 == 109:
+                elif LA43_0 == 109:
                     s = 17
 
-                elif LA42_0 == 108:
+                elif LA43_0 == 108:
                     s = 18
 
-                elif LA42_0 == 114:
+                elif LA43_0 == 114:
                     s = 19
 
-                elif LA42_0 == 116:
+                elif LA43_0 == 116:
                     s = 20
 
-                elif LA42_0 == 118:
+                elif LA43_0 == 118:
                     s = 21
 
-                elif LA42_0 == 117:
+                elif LA43_0 == 117:
                     s = 22
 
-                elif (88 <= LA42_0 <= 90) or (120 <= LA42_0 <= 122):
+                elif LA43_0 in {88, 89, 90, 120, 121, 122}:
                     s = 23
 
-                elif LA42_0 == 107:
+                elif LA43_0 == 107:
                     s = 24
 
-                elif LA42_0 == 112:
+                elif LA43_0 == 112:
                     s = 25
 
-                elif LA42_0 == 85:
+                elif LA43_0 == 85:
                     s = 26
 
-                elif LA42_0 == 78:
+                elif LA43_0 == 78:
                     s = 27
 
-                elif LA42_0 == 123:
+                elif LA43_0 == 123:
                     s = 28
 
-                elif LA42_0 == 97:
+                elif LA43_0 == 97:
                     s = 29
 
-                elif LA42_0 == 110:
+                elif LA43_0 == 110:
                     s = 30
 
-                elif LA42_0 == 95:
+                elif LA43_0 == 95:
                     s = 31
 
-                elif LA42_0 == 46:
+                elif LA43_0 == 46:
                     s = 32
 
-                elif LA42_0 == 44:
+                elif LA43_0 == 44:
                     s = 33
 
-                elif LA42_0 == 58:
+                elif LA43_0 == 58:
                     s = 34
 
-                elif LA42_0 == 59:
+                elif LA43_0 == 59:
                     s = 35
 
-                elif LA42_0 == 61:
+                elif LA43_0 == 61:
                     s = 36
 
-                elif LA42_0 == 124:
+                elif LA43_0 == 124:
                     s = 37
 
-                elif LA42_0 == 94:
+                elif LA43_0 == 94:
                     s = 38
 
-                elif LA42_0 == 38:
+                elif LA43_0 == 38:
                     s = 39
 
-                elif LA42_0 == 126:
+                elif LA43_0 == 126:
                     s = 40
 
-                elif LA42_0 == 60:
+                elif LA43_0 == 60:
                     s = 41
 
-                elif LA42_0 == 62:
+                elif LA43_0 == 62:
                     s = 42
 
-                elif LA42_0 == 43:
+                elif LA43_0 == 43:
                     s = 43
 
-                elif LA42_0 == 45:
+                elif LA43_0 == 45:
                     s = 44
 
-                elif LA42_0 == 42:
+                elif LA43_0 == 42:
                     s = 45
 
-                elif LA42_0 == 47:
+                elif LA43_0 == 47:
                     s = 46
 
-                elif LA42_0 == 37:
+                elif LA43_0 == 37:
                     s = 47
 
-                elif LA42_0 == 40:
+                elif LA43_0 == 40:
                     s = 48
 
-                elif LA42_0 == 41:
+                elif LA43_0 == 41:
                     s = 49
 
-                elif LA42_0 == 91:
+                elif LA43_0 == 91:
                     s = 50
 
-                elif LA42_0 == 93:
+                elif LA43_0 == 93:
                     s = 51
 
-                elif LA42_0 == 125:
+                elif LA43_0 == 125:
                     s = 52
 
-                elif LA42_0 == 33:
+                elif LA43_0 == 33:
                     s = 53
 
-                elif LA42_0 == 70:
+                elif LA43_0 == 70:
                     s = 54
 
-                elif LA42_0 == 36:
+                elif LA43_0 == 36:
                     s = 55
 
-                elif (
-                    (65 <= LA42_0 <= 66)
-                    or LA42_0 == 69
-                    or (71 <= LA42_0 <= 75)
-                    or LA42_0 == 79
-                    or LA42_0 == 81
-                    or (86 <= LA42_0 <= 87)
-                    or LA42_0 == 98
-                    or LA42_0 == 100
-                    or LA42_0 == 104
-                    or LA42_0 == 106
-                    or LA42_0 == 113
-                ):
+                elif (71 <= LA43_0 <= 75) or LA43_0 in {
+                    65,
+                    66,
+                    69,
+                    79,
+                    81,
+                    86,
+                    87,
+                    98,
+                    100,
+                    104,
+                    106,
+                    113,
+                }:
                     s = 56
 
-                elif LA42_0 == 39:
+                elif LA43_0 == 39:
                     s = 57
 
-                elif LA42_0 == 34:
+                elif LA43_0 == 34:
                     s = 58
 
-                elif 49 <= LA42_0 <= 57:
+                elif (49 <= LA43_0 <= 57) or LA43_0 in {}:
                     s = 59
 
-                elif LA42_0 == 48:
+                elif LA43_0 == 48:
                     s = 60
 
-                elif LA42_0 == 13:
+                elif LA43_0 == 13:
                     s = 61
 
-                elif LA42_0 == 10:
+                elif LA43_0 == 10:
                     s = 62
 
-                elif LA42_0 == 12:
+                elif LA43_0 == 12:
                     s = 63
 
-                elif LA42_0 == 9 or LA42_0 == 32:
+                elif LA43_0 in {9, 32}:
                     s = 64
 
-                elif LA42_0 == 35:
+                elif LA43_0 == 35:
                     s = 65
 
-                elif LA42_0 == 92:
+                elif LA43_0 == 92:
                     s = 66
 
                 elif (
-                    (0 <= LA42_0 <= 8)
-                    or LA42_0 == 11
-                    or (14 <= LA42_0 <= 31)
-                    or (63 <= LA42_0 <= 64)
-                    or LA42_0 == 96
-                    or (127 <= LA42_0 <= 65535)
+                    (0 <= LA43_0 <= 8)
+                    or (14 <= LA43_0 <= 31)
+                    or (127 <= LA43_0 <= 65535)
+                    or LA43_0 in {11, 63, 64, 96}
                 ):
                     s = 67
 
                 if s >= 0:
                     return s
             elif s == 1:
-                LA42_57 = input.LA(1)
+                LA43_57 = input.LA(1)
 
                 s = -1
-                if (0 <= LA42_57 <= 9) or LA42_57 == 11 or (14 <= LA42_57 <= 65535):
+                if (0 <= LA43_57 <= 9) or (14 <= LA43_57 <= 65535) or LA43_57 in {11}:
                     s = 91
 
                 else:
@@ -5191,10 +5145,10 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
             elif s == 2:
-                LA42_58 = input.LA(1)
+                LA43_58 = input.LA(1)
 
                 s = -1
-                if (0 <= LA42_58 <= 9) or LA42_58 == 11 or (14 <= LA42_58 <= 65535):
+                if (0 <= LA43_58 <= 9) or (14 <= LA43_58 <= 65535) or LA43_58 in {11}:
                     s = 91
 
                 else:
@@ -5203,7 +5157,7 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
 
-            nvae = NoViableAltException(self_.getDescription(), 42, _s, input)
+            nvae = NoViableAltException(self_.getDescription(), 43, _s, input)
             self_.error(nvae)
             raise nvae
 
