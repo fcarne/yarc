@@ -37,6 +37,7 @@ python = "^3.10"
 typer = {extras = ["all"], version = "^0.4.0"}
 rich = "^10.14.0"
 antlr-python3-runtime = {git = "https://github.com/fcarne/antlr3-python3-runtime.git"}
+stringtemplate3 = "^3.1"
 
 [tool.poetry.group.dev.dependencies]
 black = {version = "^23.3.0", allow-prereleases = true}

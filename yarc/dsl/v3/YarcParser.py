@@ -1,13 +1,15 @@
-# $ANTLR 3.5.1 C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g 2023-04-29 10:47:04
+# $ANTLR 3.5.1 C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g 2023-05-05 23:27:50
 
 import sys
 
+import stringtemplate3
 from antlr3 import (
     BaseRecognizer,
     EarlyExitException,
     MismatchedSetException,
     NoViableAltException,
     Parser,
+    ParserRuleReturnScope,
     RecognitionException,
     RecognizerSharedState,
     Token,
@@ -453,21 +455,50 @@ class YarcParser(Parser):
 
         self.delegates = []
 
+        self.templateLib = stringtemplate3.StringTemplateGroup(
+            "YarcParserTemplates", lexer="angle-bracket"
+        )
+
+    def setTemplateLib(self, templateLib):
+        self.templateLib = templateLib
+
+    def getTemplateLib(self):
+        return self.templateLib
+
+    class scenario_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "scenario"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:1: scenario : declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:1: scenario : declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? ;
     def scenario(
         self,
     ):
+        retval = self.scenario_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:10: ( declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:12: declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )?
-                self._state.following.append(self.FOLLOW_declaration_in_scenario35)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:10: ( declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:12: declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )?
+                self._state.following.append(self.FOLLOW_declaration_in_scenario44)
                 self.declaration()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:24: ( NEWLINE )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:24: ( NEWLINE )*
                 while True:  # loop1
                     alt1 = 2
                     LA1_0 = self.input.LA(1)
@@ -476,52 +507,54 @@ class YarcParser(Parser):
                         alt1 = 1
 
                     if alt1 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:24: NEWLINE
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:24: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario37
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario46
                         )
 
                     else:
                         break  # loop1
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:33: ( settings )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:33: ( settings )?
                 alt2 = 2
                 LA2_0 = self.input.LA(1)
 
                 if LA2_0 == SETTINGS:
                     alt2 = 1
                 if alt2 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:33: settings
-                    self._state.following.append(self.FOLLOW_settings_in_scenario40)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:33: settings
+                    self._state.following.append(self.FOLLOW_settings_in_scenario49)
                     self.settings()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:43: ( stage )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:43: ( stage )?
                 alt3 = 2
                 LA3_0 = self.input.LA(1)
 
                 if LA3_0 == STAGE:
                     alt3 = 1
                 if alt3 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:43: stage
-                    self._state.following.append(self.FOLLOW_stage_in_scenario43)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:43: stage
+                    self._state.following.append(self.FOLLOW_stage_in_scenario52)
                     self.stage()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:50: ( writers )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:50: ( writers )?
                 alt4 = 2
                 LA4_0 = self.input.LA(1)
 
                 if LA4_0 == WRITERS:
                     alt4 = 1
                 if alt4 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:8:50: writers
-                    self._state.following.append(self.FOLLOW_writers_in_scenario46)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:9:50: writers
+                    self._state.following.append(self.FOLLOW_writers_in_scenario55)
                     self.writers()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -529,42 +562,63 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "scenario"
 
+    class declaration_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "declaration"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:10:1: declaration : SCENARIO name ( COLON name )? NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:1: declaration : SCENARIO name ( COLON name )? NEWLINE ;
     def declaration(
         self,
     ):
+        retval = self.declaration_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:10:13: ( SCENARIO name ( COLON name )? NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:10:15: SCENARIO name ( COLON name )? NEWLINE
-                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration56)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:13: ( SCENARIO name ( COLON name )? NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:15: SCENARIO name ( COLON name )? NEWLINE
+                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration65)
 
-                self._state.following.append(self.FOLLOW_name_in_declaration58)
+                self._state.following.append(self.FOLLOW_name_in_declaration67)
                 self.name()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:10:29: ( COLON name )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:29: ( COLON name )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if LA5_0 == COLON:
                     alt5 = 1
                 if alt5 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:10:30: COLON name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration61)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:30: COLON name
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration70)
 
-                    self._state.following.append(self.FOLLOW_name_in_declaration63)
+                    self._state.following.append(self.FOLLOW_name_in_declaration72)
                     self.name()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration67)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration76)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -572,28 +626,47 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "declaration"
 
+    class settings_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "settings"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:1: settings : SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:1: settings : SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT ;
     def settings(
         self,
     ):
+        retval = self.settings_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:13: ( SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:15: SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT
-                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings77)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:13: ( SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:15: SETTINGS COLON NEWLINE INDENT ( option )+ DEDENT
+                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings86)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings79)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings88)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings81)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings90)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings83)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings92)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:45: ( option )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:45: ( option )+
                 cnt6 = 0
                 while True:  # loop6
                     alt6 = 2
@@ -603,8 +676,8 @@ class YarcParser(Parser):
                         alt6 = 1
 
                     if alt6 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:11:45: option
-                        self._state.following.append(self.FOLLOW_option_in_settings85)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:45: option
+                        self._state.following.append(self.FOLLOW_option_in_settings94)
                         self.option()
 
                         self._state.following.pop()
@@ -618,7 +691,9 @@ class YarcParser(Parser):
 
                     cnt6 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings88)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings97)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -626,33 +701,54 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "settings"
 
+    class stage_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "stage"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:1: stage : STAGE COLON NEWLINE INDENT stmts DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:1: stage : STAGE COLON NEWLINE INDENT stmts DEDENT ;
     def stage(
         self,
     ):
+        retval = self.stage_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:13: ( STAGE COLON NEWLINE INDENT stmts DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:12:15: STAGE COLON NEWLINE INDENT stmts DEDENT
-                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage101)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:13: ( STAGE COLON NEWLINE INDENT stmts DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:15: STAGE COLON NEWLINE INDENT stmts DEDENT
+                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage110)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage103)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage112)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage105)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage114)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage107)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage116)
 
-                self._state.following.append(self.FOLLOW_stmts_in_stage109)
+                self._state.following.append(self.FOLLOW_stmts_in_stage118)
                 self.stmts()
 
                 self._state.following.pop()
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage111)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage120)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -660,28 +756,47 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "stage"
 
+    class writers_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "writers"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:1: writers : WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:1: writers : WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT ;
     def writers(
         self,
     ):
+        retval = self.writers_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:13: ( WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:15: WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT
-                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers122)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:13: ( WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:15: WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT
+                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers131)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers124)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers133)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers126)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers135)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers128)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers137)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:44: ( expr_stmt | writer )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:44: ( expr_stmt | writer )+
                 cnt7 = 0
                 while True:  # loop7
                     alt7 = 3
@@ -756,17 +871,17 @@ class YarcParser(Parser):
                             alt7 = 1
 
                     if alt7 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:45: expr_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:45: expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_expr_stmt_in_writers131
+                            self.FOLLOW_expr_stmt_in_writers140
                         )
                         self.expr_stmt()
 
                         self._state.following.pop()
 
                     elif alt7 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:13:57: writer
-                        self._state.following.append(self.FOLLOW_writer_in_writers135)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:14:57: writer
+                        self._state.following.append(self.FOLLOW_writer_in_writers144)
                         self.writer()
 
                         self._state.following.pop()
@@ -780,7 +895,9 @@ class YarcParser(Parser):
 
                     cnt7 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers139)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers148)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -788,29 +905,50 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "writers"
 
+    class option_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "option"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:15:1: option : ID ASSIGN test NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:1: option : ID ASSIGN test NEWLINE ;
     def option(
         self,
     ):
+        retval = self.option_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:15:8: ( ID ASSIGN test NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:15:10: ID ASSIGN test NEWLINE
-                self.match(self.input, ID, self.FOLLOW_ID_in_option147)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:8: ( ID ASSIGN test NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:10: ID ASSIGN test NEWLINE
+                self.match(self.input, ID, self.FOLLOW_ID_in_option156)
 
-                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_option149)
+                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_option158)
 
-                self._state.following.append(self.FOLLOW_test_in_option151)
+                self._state.following.append(self.FOLLOW_test_in_option160)
                 self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_option153)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_option162)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -818,34 +956,53 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "option"
 
+    class stmts_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "stmts"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:1: stmts : ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:1: stmts : ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ ;
     def stmts(
         self,
     ):
+        retval = self.stmts_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:8: ( ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:10: ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:8: ( ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:10: ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:10: ( open_stmt )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:10: ( open_stmt )?
                 alt8 = 2
                 LA8_0 = self.input.LA(1)
 
                 if LA8_0 == OPEN:
                     alt8 = 1
                 if alt8 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:10: open_stmt
-                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts161)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:10: open_stmt
+                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts170)
                     self.open_stmt()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:21: ( aug_expr_stmt | edit_stmt | behavior_stmt )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:21: ( aug_expr_stmt | edit_stmt | behavior_stmt )+
                 cnt9 = 0
                 while True:  # loop9
                     alt9 = 4
@@ -885,25 +1042,25 @@ class YarcParser(Parser):
                         alt9 = 3
 
                     if alt9 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:22: aug_expr_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:22: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_stmts165
+                            self.FOLLOW_aug_expr_stmt_in_stmts174
                         )
                         self.aug_expr_stmt()
 
                         self._state.following.pop()
 
                     elif alt9 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:38: edit_stmt
-                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts169)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:38: edit_stmt
+                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts178)
                         self.edit_stmt()
 
                         self._state.following.pop()
 
                     elif alt9 == 3:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:16:50: behavior_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:50: behavior_stmt
                         self._state.following.append(
-                            self.FOLLOW_behavior_stmt_in_stmts173
+                            self.FOLLOW_behavior_stmt_in_stmts182
                         )
                         self.behavior_stmt()
 
@@ -918,34 +1075,55 @@ class YarcParser(Parser):
 
                     cnt9 += 1
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "stmts"
 
+    class writer_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "writer"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:1: writer : ID COLON NEWLINE INDENT ( option )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:18:1: writer : ID COLON NEWLINE INDENT ( option )+ DEDENT ;
     def writer(
         self,
     ):
+        retval = self.writer_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:8: ( ID COLON NEWLINE INDENT ( option )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:10: ID COLON NEWLINE INDENT ( option )+ DEDENT
-                self.match(self.input, ID, self.FOLLOW_ID_in_writer182)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:18:8: ( ID COLON NEWLINE INDENT ( option )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:18:10: ID COLON NEWLINE INDENT ( option )+ DEDENT
+                self.match(self.input, ID, self.FOLLOW_ID_in_writer191)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer184)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer193)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer186)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer195)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer188)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer197)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:34: ( option )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:18:34: ( option )+
                 cnt10 = 0
                 while True:  # loop10
                     alt10 = 2
@@ -955,8 +1133,8 @@ class YarcParser(Parser):
                         alt10 = 1
 
                     if alt10 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:17:34: option
-                        self._state.following.append(self.FOLLOW_option_in_writer190)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:18:34: option
+                        self._state.following.append(self.FOLLOW_option_in_writer199)
                         self.option()
 
                         self._state.following.pop()
@@ -970,7 +1148,9 @@ class YarcParser(Parser):
 
                     cnt10 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer193)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer202)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -978,27 +1158,48 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "writer"
 
+    class open_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "open_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:21:1: open_stmt : OPEN test NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:1: open_stmt : OPEN test NEWLINE ;
     def open_stmt(
         self,
     ):
+        retval = self.open_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:21:11: ( OPEN test NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:21:13: OPEN test NEWLINE
-                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt205)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:11: ( OPEN test NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:13: OPEN test NEWLINE
+                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt214)
 
-                self._state.following.append(self.FOLLOW_test_in_open_stmt207)
+                self._state.following.append(self.FOLLOW_test_in_open_stmt216)
                 self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt209)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt218)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1006,22 +1207,41 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "open_stmt"
 
+    class edit_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "edit_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:1: edit_stmt : EDIT ( TIMELINE | name ) edit_block ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:1: edit_stmt : EDIT ( TIMELINE | name ) edit_block ;
     def edit_stmt(
         self,
     ):
+        retval = self.edit_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:11: ( EDIT ( TIMELINE | name ) edit_block )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:13: EDIT ( TIMELINE | name ) edit_block
-                self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt216)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:11: ( EDIT ( TIMELINE | name ) edit_block )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:13: EDIT ( TIMELINE | name ) edit_block
+                self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt225)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:18: ( TIMELINE | name )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:18: ( TIMELINE | name )
                 alt11 = 2
                 LA11_0 = self.input.LA(1)
 
@@ -1035,22 +1255,24 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt11 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:19: TIMELINE
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:19: TIMELINE
                     self.match(
-                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt219
+                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt228
                     )
 
                 elif alt11 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:22:30: name
-                    self._state.following.append(self.FOLLOW_name_in_edit_stmt223)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:23:30: name
+                    self._state.following.append(self.FOLLOW_name_in_edit_stmt232)
                     self.name()
 
                     self._state.following.pop()
 
-                self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt226)
+                self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt235)
                 self.edit_block()
 
                 self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1058,22 +1280,41 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "edit_stmt"
 
+    class create_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "create_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:24:1: create_expr : CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:1: create_expr : CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) ;
     def create_expr(
         self,
     ):
+        retval = self.create_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:24:12: ( CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:3: CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
-                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr235)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:12: ( CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:3: CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
+                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr244)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:10: ( test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:10: ( test )?
                 alt12 = 2
                 LA12_0 = self.input.LA(1)
 
@@ -1103,13 +1344,13 @@ class YarcParser(Parser):
                 }:
                     alt12 = 1
                 if alt12 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:10: test
-                    self._state.following.append(self.FOLLOW_test_in_create_expr237)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:10: test
+                    self._state.following.append(self.FOLLOW_test_in_create_expr246)
                     self.test()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:25:16: ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:16: ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
                 alt16 = 2
                 LA16_0 = self.input.LA(1)
 
@@ -1130,9 +1371,9 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt16 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE )
                     pass
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test )
                     alt14 = 4
                     LA14 = self.input.LA(1)
                     if LA14 in {CAMERA, STEREO}:
@@ -1161,56 +1402,56 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt14 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:6: ( STEREO )? CAMERA
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:6: ( STEREO )? CAMERA
                         pass
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:6: ( STEREO )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:6: ( STEREO )?
                         alt13 = 2
                         LA13_0 = self.input.LA(1)
 
                         if LA13_0 == STEREO:
                             alt13 = 1
                         if alt13 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:6: STEREO
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:6: STEREO
                             self.match(
-                                self.input, STEREO, self.FOLLOW_STEREO_in_create_expr247
+                                self.input, STEREO, self.FOLLOW_STEREO_in_create_expr256
                             )
 
                         self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr250
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr259
                         )
 
                     elif alt14 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:23: shapes
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:23: shapes
                         self._state.following.append(
-                            self.FOLLOW_shapes_in_create_expr254
+                            self.FOLLOW_shapes_in_create_expr263
                         )
                         self.shapes()
 
                         self._state.following.pop()
 
                     elif alt14 == 3:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:32: light_type LIGHT
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:32: light_type LIGHT
                         self._state.following.append(
-                            self.FOLLOW_light_type_in_create_expr258
+                            self.FOLLOW_light_type_in_create_expr267
                         )
                         self.light_type()
 
                         self._state.following.pop()
 
                         self.match(
-                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr260
+                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr269
                         )
 
                     elif alt14 == 4:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:51: FROM test
-                        self.match(self.input, FROM, self.FOLLOW_FROM_in_create_expr264)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:51: FROM test
+                        self.match(self.input, FROM, self.FOLLOW_FROM_in_create_expr273)
 
-                        self._state.following.append(self.FOLLOW_test_in_create_expr266)
+                        self._state.following.append(self.FOLLOW_test_in_create_expr275)
                         self.test()
 
                         self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:62: ( edit_block | NEWLINE )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:62: ( edit_block | NEWLINE )
                     alt15 = 2
                     LA15_0 = self.input.LA(1)
 
@@ -1224,34 +1465,36 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt15 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:63: edit_block
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:63: edit_block
                         self._state.following.append(
-                            self.FOLLOW_edit_block_in_create_expr270
+                            self.FOLLOW_edit_block_in_create_expr279
                         )
                         self.edit_block()
 
                         self._state.following.pop()
 
                     elif alt15 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:26:76: NEWLINE
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:76: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr274
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr283
                         )
 
                 elif alt16 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:7: MATERIAL ( simple_block )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:28:7: MATERIAL ( simple_block )
                     self.match(
-                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr283
+                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr292
                     )
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:16: ( simple_block )
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:27:17: simple_block
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:28:16: ( simple_block )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:28:17: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_create_expr286
+                        self.FOLLOW_simple_block_in_create_expr295
                     )
                     self.simple_block()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1259,18 +1502,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "create_expr"
 
+    class shapes_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "shapes"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:31:1: shapes : ( SHAPES | SHAPES_OR_LIGHTS );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:32:1: shapes : ( SHAPES | SHAPES_OR_LIGHTS );
     def shapes(
         self,
     ):
+        retval = self.shapes_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:31:12: ( SHAPES | SHAPES_OR_LIGHTS )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:32:12: ( SHAPES | SHAPES_OR_LIGHTS )
                 # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:
                 if self.input.LA(1) in {SHAPES, SHAPES_OR_LIGHTS}:
                     self.input.consume()
@@ -1280,24 +1542,45 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "shapes"
 
+    class light_type_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "light_type"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:32:1: light_type : ( LIGHT_TYPE | SHAPES_OR_LIGHTS );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:33:1: light_type : ( LIGHT_TYPE | SHAPES_OR_LIGHTS );
     def light_type(
         self,
     ):
+        retval = self.light_type_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:32:12: ( LIGHT_TYPE | SHAPES_OR_LIGHTS )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:33:12: ( LIGHT_TYPE | SHAPES_OR_LIGHTS )
                 # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:
                 if self.input.LA(1) in {LIGHT_TYPE, SHAPES_OR_LIGHTS}:
                     self.input.consume()
@@ -1307,32 +1590,53 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "light_type"
 
+    class instantiate_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "instantiate_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:1: instantiate_expr : INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:1: instantiate_expr : INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) ;
     def instantiate_expr(
         self,
     ):
+        retval = self.instantiate_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:18: ( INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:20: INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:18: ( INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:20: INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE )
                 self.match(
                     self.input,
                     INSTANTIATE,
-                    self.FOLLOW_INSTANTIATE_in_instantiate_expr327,
+                    self.FOLLOW_INSTANTIATE_in_instantiate_expr336,
                 )
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:32: ( test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:32: ( test )?
                 alt17 = 2
                 LA17_0 = self.input.LA(1)
 
@@ -1362,22 +1666,22 @@ class YarcParser(Parser):
                 }:
                     alt17 = 1
                 if alt17 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:33: test
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:33: test
                     self._state.following.append(
-                        self.FOLLOW_test_in_instantiate_expr330
+                        self.FOLLOW_test_in_instantiate_expr339
                     )
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr334)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr343)
 
-                self._state.following.append(self.FOLLOW_test_in_instantiate_expr336)
+                self._state.following.append(self.FOLLOW_test_in_instantiate_expr345)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:50: ( edit_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:50: ( edit_block | NEWLINE )
                 alt18 = 2
                 LA18_0 = self.input.LA(1)
 
@@ -1391,19 +1695,21 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt18 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:51: edit_block
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:51: edit_block
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_instantiate_expr339
+                        self.FOLLOW_edit_block_in_instantiate_expr348
                     )
                     self.edit_block()
 
                     self._state.following.pop()
 
                 elif alt18 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:34:64: NEWLINE
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:64: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr343
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr352
                     )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1411,29 +1717,48 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "instantiate_expr"
 
+    class group_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "group_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:1: group_expr : GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:1: group_expr : GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) ;
     def group_expr(
         self,
     ):
+        retval = self.group_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:18: ( GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:20: GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE )
-                self.match(self.input, GROUP, self.FOLLOW_GROUP_in_group_expr357)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:18: ( GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:20: GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE )
+                self.match(self.input, GROUP, self.FOLLOW_GROUP_in_group_expr366)
 
-                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr359)
+                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr368)
 
-                self._state.following.append(self.FOLLOW_name_in_group_expr361)
+                self._state.following.append(self.FOLLOW_name_in_group_expr370)
                 self.name()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:38: ( COMMA name )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:38: ( COMMA name )*
                 while True:  # loop19
                     alt19 = 2
                     LA19_0 = self.input.LA(1)
@@ -1442,12 +1767,12 @@ class YarcParser(Parser):
                         alt19 = 1
 
                     if alt19 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:39: COMMA name
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:39: COMMA name
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr364
+                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr373
                         )
 
-                        self._state.following.append(self.FOLLOW_name_in_group_expr366)
+                        self._state.following.append(self.FOLLOW_name_in_group_expr375)
                         self.name()
 
                         self._state.following.pop()
@@ -1455,9 +1780,9 @@ class YarcParser(Parser):
                     else:
                         break  # loop19
 
-                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr370)
+                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr379)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:59: ( edit_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:59: ( edit_block | NEWLINE )
                 alt20 = 2
                 LA20_0 = self.input.LA(1)
 
@@ -1471,19 +1796,21 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt20 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:60: edit_block
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:60: edit_block
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_group_expr373
+                        self.FOLLOW_edit_block_in_group_expr382
                     )
                     self.edit_block()
 
                     self._state.following.pop()
 
                 elif alt20 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:35:73: NEWLINE
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:73: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr377
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr386
                     )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1491,22 +1818,41 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "group_expr"
 
+    class get_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "get_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:1: get_expr : GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:1: get_expr : GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) ;
     def get_expr(
         self,
     ):
+        retval = self.get_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:18: ( GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:20: GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE )
-                self.match(self.input, GET, self.FOLLOW_GET_in_get_expr393)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:18: ( GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:20: GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE )
+                self.match(self.input, GET, self.FOLLOW_GET_in_get_expr402)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:24: ( ( CAMERA | LIGHT | MATERIAL | name ) AT )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:24: ( ( CAMERA | LIGHT | MATERIAL | name ) AT )?
                 alt22 = 2
                 LA22_0 = self.input.LA(1)
 
@@ -1518,9 +1864,9 @@ class YarcParser(Parser):
                     if LA22_2 == AT:
                         alt22 = 1
                 if alt22 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:25: ( CAMERA | LIGHT | MATERIAL | name ) AT
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:25: ( CAMERA | LIGHT | MATERIAL | name ) AT
                     pass
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:25: ( CAMERA | LIGHT | MATERIAL | name )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:25: ( CAMERA | LIGHT | MATERIAL | name )
                     alt21 = 4
                     LA21 = self.input.LA(1)
                     if LA21 in {CAMERA}:
@@ -1537,36 +1883,36 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt21 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:26: CAMERA
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:26: CAMERA
                         self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr397
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr406
                         )
 
                     elif alt21 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:35: LIGHT
-                        self.match(self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr401)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:35: LIGHT
+                        self.match(self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr410)
 
                     elif alt21 == 3:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:43: MATERIAL
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:43: MATERIAL
                         self.match(
-                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr405
+                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr414
                         )
 
                     elif alt21 == 4:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:54: name
-                        self._state.following.append(self.FOLLOW_name_in_get_expr409)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:54: name
+                        self._state.following.append(self.FOLLOW_name_in_get_expr418)
                         self.name()
 
                         self._state.following.pop()
 
-                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr412)
+                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr421)
 
-                self._state.following.append(self.FOLLOW_test_in_get_expr416)
+                self._state.following.append(self.FOLLOW_test_in_get_expr425)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:70: ( simple_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:70: ( simple_block | NEWLINE )
                 alt23 = 2
                 LA23_0 = self.input.LA(1)
 
@@ -1580,17 +1926,19 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt23 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:71: simple_block
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:71: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_get_expr419
+                        self.FOLLOW_simple_block_in_get_expr428
                     )
                     self.simple_block()
 
                     self._state.following.pop()
 
                 elif alt23 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:36:86: NEWLINE
-                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr423)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:37:86: NEWLINE
+                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr432)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1598,26 +1946,45 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "get_expr"
 
+    class edit_block_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "edit_block"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:1: edit_block : COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:1: edit_block : COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT ;
     def edit_block(
         self,
     ):
+        retval = self.edit_block_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:14: ( COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:16: COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block434)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:14: ( COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:16: COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block443)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block436)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block445)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block438)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block447)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:37: ( attr | inner_behavior_stmt )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:37: ( attr | inner_behavior_stmt )+
                 cnt24 = 0
                 while True:  # loop24
                     alt24 = 3
@@ -1644,16 +2011,16 @@ class YarcParser(Parser):
                         alt24 = 2
 
                     if alt24 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:38: attr
-                        self._state.following.append(self.FOLLOW_attr_in_edit_block441)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:38: attr
+                        self._state.following.append(self.FOLLOW_attr_in_edit_block450)
                         self.attr()
 
                         self._state.following.pop()
 
                     elif alt24 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:38:45: inner_behavior_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:45: inner_behavior_stmt
                         self._state.following.append(
-                            self.FOLLOW_inner_behavior_stmt_in_edit_block445
+                            self.FOLLOW_inner_behavior_stmt_in_edit_block454
                         )
                         self.inner_behavior_stmt()
 
@@ -1668,7 +2035,9 @@ class YarcParser(Parser):
 
                     cnt24 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block449)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block458)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1676,26 +2045,45 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "edit_block"
 
+    class simple_block_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "simple_block"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:1: simple_block : COLON NEWLINE INDENT ( simple_attr )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:40:1: simple_block : COLON NEWLINE INDENT ( simple_attr )+ DEDENT ;
     def simple_block(
         self,
     ):
+        retval = self.simple_block_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:14: ( COLON NEWLINE INDENT ( simple_attr )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:16: COLON NEWLINE INDENT ( simple_attr )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block456)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:40:14: ( COLON NEWLINE INDENT ( simple_attr )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:40:16: COLON NEWLINE INDENT ( simple_attr )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block465)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block458)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block467)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block460)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block469)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:37: ( simple_attr )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:40:37: ( simple_attr )+
                 cnt25 = 0
                 while True:  # loop25
                     alt25 = 2
@@ -1705,9 +2093,9 @@ class YarcParser(Parser):
                         alt25 = 1
 
                     if alt25 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:39:37: simple_attr
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:40:37: simple_attr
                         self._state.following.append(
-                            self.FOLLOW_simple_attr_in_simple_block462
+                            self.FOLLOW_simple_attr_in_simple_block471
                         )
                         self.simple_attr()
 
@@ -1722,7 +2110,9 @@ class YarcParser(Parser):
 
                     cnt25 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block465)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block474)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1730,18 +2120,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "simple_block"
 
+    class attr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "attr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:41:1: attr : ( core_attr | simple_attr | compound_attr );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:1: attr : ( core_attr | simple_attr | compound_attr );
     def attr(
         self,
     ):
+        retval = self.attr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:41:15: ( core_attr | simple_attr | compound_attr )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:15: ( core_attr | simple_attr | compound_attr )
                 alt26 = 3
                 LA26 = self.input.LA(1)
                 if LA26 in {
@@ -1766,25 +2175,27 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt26 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:41:17: core_attr
-                    self._state.following.append(self.FOLLOW_core_attr_in_attr482)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:17: core_attr
+                    self._state.following.append(self.FOLLOW_core_attr_in_attr491)
                     self.core_attr()
 
                     self._state.following.pop()
 
                 elif alt26 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:41:29: simple_attr
-                    self._state.following.append(self.FOLLOW_simple_attr_in_attr486)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:29: simple_attr
+                    self._state.following.append(self.FOLLOW_simple_attr_in_attr495)
                     self.simple_attr()
 
                     self._state.following.pop()
 
                 elif alt26 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:41:43: compound_attr
-                    self._state.following.append(self.FOLLOW_compound_attr_in_attr490)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:43: compound_attr
+                    self._state.following.append(self.FOLLOW_compound_attr_in_attr499)
                     self.compound_attr()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1792,40 +2203,59 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "attr"
 
+    class simple_attr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "simple_attr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:1: simple_attr : name ( COLON name )? ( test )? NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:1: simple_attr : name ( COLON name )? ( test )? NEWLINE ;
     def simple_attr(
         self,
     ):
+        retval = self.simple_attr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:15: ( name ( COLON name )? ( test )? NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:17: name ( COLON name )? ( test )? NEWLINE
-                self._state.following.append(self.FOLLOW_name_in_simple_attr499)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:15: ( name ( COLON name )? ( test )? NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:17: name ( COLON name )? ( test )? NEWLINE
+                self._state.following.append(self.FOLLOW_name_in_simple_attr508)
                 self.name()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:22: ( COLON name )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:22: ( COLON name )?
                 alt27 = 2
                 LA27_0 = self.input.LA(1)
 
                 if LA27_0 == COLON:
                     alt27 = 1
                 if alt27 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:23: COLON name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr502)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:23: COLON name
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr511)
 
-                    self._state.following.append(self.FOLLOW_name_in_simple_attr504)
+                    self._state.following.append(self.FOLLOW_name_in_simple_attr513)
                     self.name()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:36: ( test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:36: ( test )?
                 alt28 = 2
                 LA28_0 = self.input.LA(1)
 
@@ -1855,13 +2285,15 @@ class YarcParser(Parser):
                 }:
                     alt28 = 1
                 if alt28 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:42:36: test
-                    self._state.following.append(self.FOLLOW_test_in_simple_attr508)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:43:36: test
+                    self._state.following.append(self.FOLLOW_test_in_simple_attr517)
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr511)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr520)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1869,21 +2301,40 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "simple_attr"
 
+    class compound_attr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "compound_attr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:1: compound_attr : ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:1: compound_attr : ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) ;
     def compound_attr(
         self,
     ):
+        retval = self.compound_attr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:15: ( ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:15: ( ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE )
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS )
                 alt29 = 3
                 LA29 = self.input.LA(1)
                 if LA29 in {SCATTER}:
@@ -1898,38 +2349,38 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt29 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:18: SCATTER ON name
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:18: SCATTER ON name
                     self.match(
-                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr520
+                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr529
                     )
 
-                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr522)
+                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr531)
 
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr524)
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr533)
                     self.name()
 
                     self._state.following.pop()
 
                 elif alt29 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:36: ROT_AROUND name
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:36: ROT_AROUND name
                     self.match(
                         self.input,
                         ROT_AROUND,
-                        self.FOLLOW_ROT_AROUND_in_compound_attr528,
+                        self.FOLLOW_ROT_AROUND_in_compound_attr537,
                     )
 
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr530)
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr539)
                     self.name()
 
                     self._state.following.pop()
 
                 elif alt29 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:54: PHYSICS
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:54: PHYSICS
                     self.match(
-                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr534
+                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr543
                     )
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:63: ( simple_block | NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:63: ( simple_block | NEWLINE )
                 alt30 = 2
                 LA30_0 = self.input.LA(1)
 
@@ -1943,19 +2394,21 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt30 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:64: simple_block
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:64: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_compound_attr538
+                        self.FOLLOW_simple_block_in_compound_attr547
                     )
                     self.simple_block()
 
                     self._state.following.pop()
 
                 elif alt30 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:44:79: NEWLINE
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:45:79: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_compound_attr542
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_compound_attr551
                     )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -1963,21 +2416,40 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "compound_attr"
 
+    class core_attr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "core_attr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:46:1: core_attr : ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:47:1: core_attr : ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE ;
     def core_attr(
         self,
     ):
+        retval = self.core_attr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:46:10: ( ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:47:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:47:10: ( ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:48:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:47:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:48:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test )
                 alt34 = 9
                 LA34 = self.input.LA(1)
                 if LA34 in {TRANSLATE}:
@@ -2004,129 +2476,131 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt34 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:48:5: TRANSLATE ( AXIS )? TO test
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:49:5: TRANSLATE ( AXIS )? TO test
                     self.match(
-                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr559
+                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr568
                     )
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:48:15: ( AXIS )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:49:15: ( AXIS )?
                     alt31 = 2
                     LA31_0 = self.input.LA(1)
 
                     if LA31_0 == AXIS:
                         alt31 = 1
                     if alt31 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:48:15: AXIS
-                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr561)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:49:15: AXIS
+                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr570)
 
-                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr564)
+                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr573)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr566)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr575)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:49:7: CAM_TRANSLATE TO test
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:7: CAM_TRANSLATE TO test
                     self.match(
                         self.input,
                         CAM_TRANSLATE,
-                        self.FOLLOW_CAM_TRANSLATE_in_core_attr574,
+                        self.FOLLOW_CAM_TRANSLATE_in_core_attr583,
                     )
 
-                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr576)
+                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr585)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr578)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr587)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:7: ROTATE ( AXIS )? test ( ORDER )?
-                    self.match(self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr586)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:7: ROTATE ( AXIS )? test ( ORDER )?
+                    self.match(self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr595)
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:14: ( AXIS )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:14: ( AXIS )?
                     alt32 = 2
                     LA32_0 = self.input.LA(1)
 
                     if LA32_0 == AXIS:
                         alt32 = 1
                     if alt32 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:14: AXIS
-                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr588)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:14: AXIS
+                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr597)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr591)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr600)
                     self.test()
 
                     self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:25: ( ORDER )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:25: ( ORDER )?
                     alt33 = 2
                     LA33_0 = self.input.LA(1)
 
                     if LA33_0 == ORDER:
                         alt33 = 1
                     if alt33 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:50:25: ORDER
-                        self.match(self.input, ORDER, self.FOLLOW_ORDER_in_core_attr593)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:25: ORDER
+                        self.match(self.input, ORDER, self.FOLLOW_ORDER_in_core_attr602)
 
                 elif alt34 == 4:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:51:7: SCALE test
-                    self.match(self.input, SCALE, self.FOLLOW_SCALE_in_core_attr602)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:52:7: SCALE test
+                    self.match(self.input, SCALE, self.FOLLOW_SCALE_in_core_attr611)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr604)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr613)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 5:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:52:7: LOOK_AT test
-                    self.match(self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr612)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:53:7: LOOK_AT test
+                    self.match(self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr621)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr614)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr623)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 6:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:53:7: UP_AXIS test
-                    self.match(self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr622)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:54:7: UP_AXIS test
+                    self.match(self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr631)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr624)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr633)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 7:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:54:7: SIZE test
-                    self.match(self.input, SIZE, self.FOLLOW_SIZE_in_core_attr632)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:55:7: SIZE test
+                    self.match(self.input, SIZE, self.FOLLOW_SIZE_in_core_attr641)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr634)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr643)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 8:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:55:7: SEMANTICS test
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:56:7: SEMANTICS test
                     self.match(
-                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr642
+                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr651
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr644)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr653)
                     self.test()
 
                     self._state.following.pop()
 
                 elif alt34 == 9:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:56:7: VISIBLE test
-                    self.match(self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr652)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:57:7: VISIBLE test
+                    self.match(self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr661)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr654)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr663)
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr660)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr669)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2134,32 +2608,53 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "core_attr"
 
+    class inner_behavior_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "inner_behavior_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:60:1: inner_behavior_stmt : behavior_expr inner_behavior_block ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:1: inner_behavior_stmt : behavior_expr inner_behavior_block ;
     def inner_behavior_stmt(
         self,
     ):
+        retval = self.inner_behavior_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:60:22: ( behavior_expr inner_behavior_block )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:60:24: behavior_expr inner_behavior_block
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:22: ( behavior_expr inner_behavior_block )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:24: behavior_expr inner_behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt670
+                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt679
                 )
                 self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt672
+                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt681
                 )
                 self.inner_behavior_block()
 
                 self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2167,32 +2662,51 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "inner_behavior_stmt"
 
+    class inner_behavior_block_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "inner_behavior_block"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:1: inner_behavior_block : COLON NEWLINE INDENT ( attr )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:62:1: inner_behavior_block : COLON NEWLINE INDENT ( attr )+ DEDENT ;
     def inner_behavior_block(
         self,
     ):
+        retval = self.inner_behavior_block_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:22: ( COLON NEWLINE INDENT ( attr )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:24: COLON NEWLINE INDENT ( attr )+ DEDENT
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:62:22: ( COLON NEWLINE INDENT ( attr )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:62:24: COLON NEWLINE INDENT ( attr )+ DEDENT
                 self.match(
-                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block679
+                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block688
                 )
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block681
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block690
                 )
 
                 self.match(
-                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block683
+                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block692
                 )
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:45: ( attr )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:62:45: ( attr )+
                 cnt35 = 0
                 while True:  # loop35
                     alt35 = 2
@@ -2217,9 +2731,9 @@ class YarcParser(Parser):
                         alt35 = 1
 
                     if alt35 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:61:45: attr
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:62:45: attr
                         self._state.following.append(
-                            self.FOLLOW_attr_in_inner_behavior_block685
+                            self.FOLLOW_attr_in_inner_behavior_block694
                         )
                         self.attr()
 
@@ -2235,8 +2749,10 @@ class YarcParser(Parser):
                     cnt35 += 1
 
                 self.match(
-                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block688
+                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block697
                 )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2244,32 +2760,53 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "inner_behavior_block"
 
+    class behavior_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "behavior_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:64:1: behavior_stmt : behavior_expr behavior_block ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:1: behavior_stmt : behavior_expr behavior_block ;
     def behavior_stmt(
         self,
     ):
+        retval = self.behavior_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:64:16: ( behavior_expr behavior_block )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:64:18: behavior_expr behavior_block
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:16: ( behavior_expr behavior_block )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:18: behavior_expr behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_behavior_stmt699
+                    self.FOLLOW_behavior_expr_in_behavior_stmt708
                 )
                 self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_behavior_block_in_behavior_stmt701
+                    self.FOLLOW_behavior_block_in_behavior_stmt710
                 )
                 self.behavior_block()
 
                 self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2277,22 +2814,41 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "behavior_stmt"
 
+    class behavior_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "behavior_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:1: behavior_expr : EVERY ( test )? ( FRAMES | TIME ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:1: behavior_expr : EVERY ( test )? ( FRAMES | TIME ) ;
     def behavior_expr(
         self,
     ):
+        retval = self.behavior_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:16: ( EVERY ( test )? ( FRAMES | TIME ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:18: EVERY ( test )? ( FRAMES | TIME )
-                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr709)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:16: ( EVERY ( test )? ( FRAMES | TIME ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:18: EVERY ( test )? ( FRAMES | TIME )
+                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr718)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:24: ( test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:24: ( test )?
                 alt36 = 2
                 LA36_0 = self.input.LA(1)
 
@@ -2322,8 +2878,8 @@ class YarcParser(Parser):
                 }:
                     alt36 = 1
                 if alt36 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:65:24: test
-                    self._state.following.append(self.FOLLOW_test_in_behavior_expr711)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:24: test
+                    self._state.following.append(self.FOLLOW_test_in_behavior_expr720)
                     self.test()
 
                     self._state.following.pop()
@@ -2336,34 +2892,55 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "behavior_expr"
 
+    class behavior_block_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "behavior_block"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:1: behavior_block : COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:1: behavior_block : COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT ;
     def behavior_block(
         self,
     ):
+        retval = self.behavior_block_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:16: ( COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:18: COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block727)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:16: ( COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:18: COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block736)
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block729
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block738
                 )
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block731)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block740)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:39: ( aug_expr_stmt | edit_stmt )+
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:39: ( aug_expr_stmt | edit_stmt )+
                 cnt37 = 0
                 while True:  # loop37
                     alt37 = 3
@@ -2402,18 +2979,18 @@ class YarcParser(Parser):
                         alt37 = 2
 
                     if alt37 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:40: aug_expr_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:40: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_behavior_block734
+                            self.FOLLOW_aug_expr_stmt_in_behavior_block743
                         )
                         self.aug_expr_stmt()
 
                         self._state.following.pop()
 
                     elif alt37 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:66:56: edit_stmt
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:67:56: edit_stmt
                         self._state.following.append(
-                            self.FOLLOW_edit_stmt_in_behavior_block738
+                            self.FOLLOW_edit_stmt_in_behavior_block747
                         )
                         self.edit_stmt()
 
@@ -2428,7 +3005,9 @@ class YarcParser(Parser):
 
                     cnt37 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block742)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block751)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2436,25 +3015,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "behavior_block"
 
+    class expr_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "expr_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:1: expr_stmt : testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:1: expr_stmt : testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE ;
     def expr_stmt(
         self,
     ):
+        retval = self.expr_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:11: ( testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:13: testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE
-                self._state.following.append(self.FOLLOW_testlist_in_expr_stmt752)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:11: ( testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:13: testlist ( aug_assign | ASSIGN ) ( testlist | fetch_expr ) NEWLINE
+                self._state.following.append(self.FOLLOW_testlist_in_expr_stmt761)
                 self.testlist()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:22: ( aug_assign | ASSIGN )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:22: ( aug_assign | ASSIGN )
                 alt38 = 2
                 LA38_0 = self.input.LA(1)
 
@@ -2481,17 +3079,17 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt38 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:23: aug_assign
-                    self._state.following.append(self.FOLLOW_aug_assign_in_expr_stmt755)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:23: aug_assign
+                    self._state.following.append(self.FOLLOW_aug_assign_in_expr_stmt764)
                     self.aug_assign()
 
                     self._state.following.pop()
 
                 elif alt38 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:36: ASSIGN
-                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_expr_stmt759)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:36: ASSIGN
+                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_expr_stmt768)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:44: ( testlist | fetch_expr )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:44: ( testlist | fetch_expr )
                 alt39 = 2
                 LA39_0 = self.input.LA(1)
 
@@ -2528,20 +3126,22 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt39 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:45: testlist
-                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt763)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:45: testlist
+                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt772)
                     self.testlist()
 
                     self._state.following.pop()
 
                 elif alt39 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:69:56: fetch_expr
-                    self._state.following.append(self.FOLLOW_fetch_expr_in_expr_stmt767)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:70:56: fetch_expr
+                    self._state.following.append(self.FOLLOW_fetch_expr_in_expr_stmt776)
                     self.fetch_expr()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt770)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt779)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2549,18 +3149,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "expr_stmt"
 
+    class aug_expr_stmt_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "aug_expr_stmt"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:71:1: aug_expr_stmt : ( ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:1: aug_expr_stmt : ( ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr );
     def aug_expr_stmt(
         self,
     ):
+        retval = self.aug_expr_stmt_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:71:14: ( ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:14: ( ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr )
                 alt44 = 5
                 LA44 = self.input.LA(1)
                 if LA44 in {
@@ -2602,18 +3221,18 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt44 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:71:16: ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:16: ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
                     pass
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:71:16: ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:5: testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:16: ( testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:5: testlist ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
                     self._state.following.append(
-                        self.FOLLOW_testlist_in_aug_expr_stmt783
+                        self.FOLLOW_testlist_in_aug_expr_stmt792
                     )
                     self.testlist()
 
                     self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:72:14: ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:14: ( aug_assign ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
                     alt43 = 2
                     LA43_0 = self.input.LA(1)
 
@@ -2640,15 +3259,15 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt43 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:7: aug_assign ( testlist | fetch_expr )? NEWLINE
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:7: aug_assign ( testlist | fetch_expr )? NEWLINE
                         self._state.following.append(
-                            self.FOLLOW_aug_assign_in_aug_expr_stmt793
+                            self.FOLLOW_aug_assign_in_aug_expr_stmt802
                         )
                         self.aug_assign()
 
                         self._state.following.pop()
 
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:18: ( testlist | fetch_expr )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:18: ( testlist | fetch_expr )?
                         alt40 = 3
                         LA40_0 = self.input.LA(1)
 
@@ -2680,34 +3299,34 @@ class YarcParser(Parser):
                         elif LA40_0 == FETCH:
                             alt40 = 2
                         if alt40 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:19: testlist
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:19: testlist
                             self._state.following.append(
-                                self.FOLLOW_testlist_in_aug_expr_stmt796
+                                self.FOLLOW_testlist_in_aug_expr_stmt805
                             )
                             self.testlist()
 
                             self._state.following.pop()
 
                         elif alt40 == 2:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:73:30: fetch_expr
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:30: fetch_expr
                             self._state.following.append(
-                                self.FOLLOW_fetch_expr_in_aug_expr_stmt800
+                                self.FOLLOW_fetch_expr_in_aug_expr_stmt809
                             )
                             self.fetch_expr()
 
                             self._state.following.pop()
 
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_aug_expr_stmt804
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_aug_expr_stmt813
                         )
 
                     elif alt43 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:9: ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:9: ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
                         self.match(
-                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt814
+                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt823
                         )
 
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:74:16: ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:16: ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
                         alt42 = 5
                         LA42 = self.input.LA(1)
                         if LA42 in {
@@ -2750,9 +3369,9 @@ class YarcParser(Parser):
                             raise nvae
 
                         if alt42 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:9: ( testlist | fetch_expr ) NEWLINE
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:9: ( testlist | fetch_expr ) NEWLINE
                             pass
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:9: ( testlist | fetch_expr )
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:9: ( testlist | fetch_expr )
                             alt41 = 2
                             LA41_0 = self.input.LA(1)
 
@@ -2789,18 +3408,18 @@ class YarcParser(Parser):
                                 raise nvae
 
                             if alt41 == 1:
-                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:10: testlist
+                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:10: testlist
                                 self._state.following.append(
-                                    self.FOLLOW_testlist_in_aug_expr_stmt827
+                                    self.FOLLOW_testlist_in_aug_expr_stmt836
                                 )
                                 self.testlist()
 
                                 self._state.following.pop()
 
                             elif alt41 == 2:
-                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:75:21: fetch_expr
+                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:21: fetch_expr
                                 self._state.following.append(
-                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt831
+                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt840
                                 )
                                 self.fetch_expr()
 
@@ -2809,80 +3428,82 @@ class YarcParser(Parser):
                             self.match(
                                 self.input,
                                 NEWLINE,
-                                self.FOLLOW_NEWLINE_in_aug_expr_stmt834,
+                                self.FOLLOW_NEWLINE_in_aug_expr_stmt843,
                             )
 
                         elif alt42 == 2:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:11: create_expr
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:77:11: create_expr
                             self._state.following.append(
-                                self.FOLLOW_create_expr_in_aug_expr_stmt846
+                                self.FOLLOW_create_expr_in_aug_expr_stmt855
                             )
                             self.create_expr()
 
                             self._state.following.pop()
 
                         elif alt42 == 3:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:25: instantiate_expr
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:77:25: instantiate_expr
                             self._state.following.append(
-                                self.FOLLOW_instantiate_expr_in_aug_expr_stmt850
+                                self.FOLLOW_instantiate_expr_in_aug_expr_stmt859
                             )
                             self.instantiate_expr()
 
                             self._state.following.pop()
 
                         elif alt42 == 4:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:44: get_expr
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:77:44: get_expr
                             self._state.following.append(
-                                self.FOLLOW_get_expr_in_aug_expr_stmt854
+                                self.FOLLOW_get_expr_in_aug_expr_stmt863
                             )
                             self.get_expr()
 
                             self._state.following.pop()
 
                         elif alt42 == 5:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:76:55: group_expr
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:77:55: group_expr
                             self._state.following.append(
-                                self.FOLLOW_group_expr_in_aug_expr_stmt858
+                                self.FOLLOW_group_expr_in_aug_expr_stmt867
                             )
                             self.group_expr()
 
                             self._state.following.pop()
 
                 elif alt44 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:80:5: create_expr
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:81:5: create_expr
                     self._state.following.append(
-                        self.FOLLOW_create_expr_in_aug_expr_stmt882
+                        self.FOLLOW_create_expr_in_aug_expr_stmt891
                     )
                     self.create_expr()
 
                     self._state.following.pop()
 
                 elif alt44 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:80:19: instantiate_expr
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:81:19: instantiate_expr
                     self._state.following.append(
-                        self.FOLLOW_instantiate_expr_in_aug_expr_stmt886
+                        self.FOLLOW_instantiate_expr_in_aug_expr_stmt895
                     )
                     self.instantiate_expr()
 
                     self._state.following.pop()
 
                 elif alt44 == 4:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:80:38: get_expr
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:81:38: get_expr
                     self._state.following.append(
-                        self.FOLLOW_get_expr_in_aug_expr_stmt890
+                        self.FOLLOW_get_expr_in_aug_expr_stmt899
                     )
                     self.get_expr()
 
                     self._state.following.pop()
 
                 elif alt44 == 5:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:80:49: group_expr
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:81:49: group_expr
                     self._state.following.append(
-                        self.FOLLOW_group_expr_in_aug_expr_stmt894
+                        self.FOLLOW_group_expr_in_aug_expr_stmt903
                     )
                     self.group_expr()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2890,74 +3511,95 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "aug_expr_stmt"
 
+    class fetch_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "fetch_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:1: fetch_expr : FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:1: fetch_expr : FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? ;
     def fetch_expr(
         self,
     ):
+        retval = self.fetch_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:12: ( FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:14: FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )?
-                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr903)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:12: ( FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:14: FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )?
+                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr912)
 
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr905)
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr914)
                 self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr907)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr916)
 
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr909)
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr918)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:35: ( MATCH test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:35: ( MATCH test )?
                 alt45 = 2
                 LA45_0 = self.input.LA(1)
 
                 if LA45_0 == MATCH:
                     alt45 = 1
                 if alt45 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:36: MATCH test
-                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr912)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:36: MATCH test
+                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr921)
 
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr914)
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr923)
                     self.test()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:49: ( LIMIT test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:49: ( LIMIT test )?
                 alt46 = 2
                 LA46_0 = self.input.LA(1)
 
                 if LA46_0 == LIMIT:
                     alt46 = 1
                 if alt46 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:50: LIMIT test
-                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr919)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:50: LIMIT test
+                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr928)
 
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr921)
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr930)
                     self.test()
 
                     self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:63: ( RECURSIVE )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:63: ( RECURSIVE )?
                 alt47 = 2
                 LA47_0 = self.input.LA(1)
 
                 if LA47_0 == RECURSIVE:
                     alt47 = 1
                 if alt47 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:83:63: RECURSIVE
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:63: RECURSIVE
                     self.match(
-                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr925
+                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr934
                     )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -2965,18 +3607,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "fetch_expr"
 
+    class aug_assign_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "aug_assign"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:1: aug_assign : ( ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:85:1: aug_assign : ( ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN );
     def aug_assign(
         self,
     ):
+        retval = self.aug_assign_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:84:11: ( ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:85:11: ( ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN )
                 # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:
                 if self.input.LA(1) in {
                     ADD_ASSIGN,
@@ -2999,101 +3660,164 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "aug_assign"
 
+    class test_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "test"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:100:1: test : or_test ( IF or_test ELSE test )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:1: test : or_test ( IF or_test ELSE test )? ;
     def test(
         self,
     ):
+        retval = self.test_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:100:13: ( or_test ( IF or_test ELSE test )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:100:15: or_test ( IF or_test ELSE test )?
-                self._state.following.append(self.FOLLOW_or_test_in_test1018)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:13: ( or_test ( IF or_test ELSE test )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:15: or_test ( IF or_test ELSE test )?
+                self._state.following.append(self.FOLLOW_or_test_in_test1027)
                 self.or_test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:100:23: ( IF or_test ELSE test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:23: ( IF or_test ELSE test )?
                 alt48 = 2
                 LA48_0 = self.input.LA(1)
 
                 if LA48_0 == IF:
                     alt48 = 1
                 if alt48 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:100:24: IF or_test ELSE test
-                    self.match(self.input, IF, self.FOLLOW_IF_in_test1021)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:24: IF or_test ELSE test
+                    self.match(self.input, IF, self.FOLLOW_IF_in_test1030)
 
-                    self._state.following.append(self.FOLLOW_or_test_in_test1023)
+                    self._state.following.append(self.FOLLOW_or_test_in_test1032)
                     self.or_test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test1025)
+                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test1034)
 
-                    self._state.following.append(self.FOLLOW_test_in_test1027)
+                    self._state.following.append(self.FOLLOW_test_in_test1036)
                     self.test()
 
                     self._state.following.pop()
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "test"
 
+    class test_nocond_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "test_nocond"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:1: test_nocond : or_test ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:1: test_nocond : or_test ;
     def test_nocond(
         self,
     ):
+        retval = self.test_nocond_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:13: ( or_test )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:101:15: or_test
-                self._state.following.append(self.FOLLOW_or_test_in_test_nocond1036)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:13: ( or_test )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:15: or_test
+                self._state.following.append(self.FOLLOW_or_test_in_test_nocond1045)
                 self.or_test()
 
                 self._state.following.pop()
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "test_nocond"
 
+    class or_test_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "or_test"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:1: or_test : and_test ( OR and_test )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:1: or_test : and_test ( OR and_test )* ;
     def or_test(
         self,
     ):
+        retval = self.or_test_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:13: ( and_test ( OR and_test )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:15: and_test ( OR and_test )*
-                self._state.following.append(self.FOLLOW_and_test_in_or_test1047)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:13: ( and_test ( OR and_test )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:15: and_test ( OR and_test )*
+                self._state.following.append(self.FOLLOW_and_test_in_or_test1056)
                 self.and_test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:24: ( OR and_test )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:24: ( OR and_test )*
                 while True:  # loop49
                     alt49 = 2
                     LA49_0 = self.input.LA(1)
@@ -3102,11 +3826,11 @@ class YarcParser(Parser):
                         alt49 = 1
 
                     if alt49 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:102:25: OR and_test
-                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test1050)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:25: OR and_test
+                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test1059)
 
                         self._state.following.append(
-                            self.FOLLOW_and_test_in_or_test1052
+                            self.FOLLOW_and_test_in_or_test1061
                         )
                         self.and_test()
 
@@ -3115,31 +3839,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop49
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "or_test"
 
+    class and_test_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "and_test"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:1: and_test : not_test ( AND not_test )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:1: and_test : not_test ( AND not_test )* ;
     def and_test(
         self,
     ):
+        retval = self.and_test_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:13: ( not_test ( AND not_test )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:15: not_test ( AND not_test )*
-                self._state.following.append(self.FOLLOW_not_test_in_and_test1064)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:13: ( not_test ( AND not_test )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:15: not_test ( AND not_test )*
+                self._state.following.append(self.FOLLOW_not_test_in_and_test1073)
                 self.not_test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:24: ( AND not_test )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:24: ( AND not_test )*
                 while True:  # loop50
                     alt50 = 2
                     LA50_0 = self.input.LA(1)
@@ -3148,11 +3893,11 @@ class YarcParser(Parser):
                         alt50 = 1
 
                     if alt50 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:103:25: AND not_test
-                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test1067)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:25: AND not_test
+                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test1076)
 
                         self._state.following.append(
-                            self.FOLLOW_not_test_in_and_test1069
+                            self.FOLLOW_not_test_in_and_test1078
                         )
                         self.not_test()
 
@@ -3161,24 +3906,45 @@ class YarcParser(Parser):
                     else:
                         break  # loop50
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "and_test"
 
+    class not_test_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "not_test"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:1: not_test : ( NOT not_test | comparison );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:1: not_test : ( NOT not_test | comparison );
     def not_test(
         self,
     ):
+        retval = self.not_test_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:13: ( NOT not_test | comparison )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:13: ( NOT not_test | comparison )
                 alt51 = 2
                 LA51_0 = self.input.LA(1)
 
@@ -3214,20 +3980,22 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt51 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:15: NOT not_test
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test1081)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:15: NOT not_test
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test1090)
 
-                    self._state.following.append(self.FOLLOW_not_test_in_not_test1083)
+                    self._state.following.append(self.FOLLOW_not_test_in_not_test1092)
                     self.not_test()
 
                     self._state.following.pop()
 
                 elif alt51 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:104:30: comparison
-                    self._state.following.append(self.FOLLOW_comparison_in_not_test1087)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:30: comparison
+                    self._state.following.append(self.FOLLOW_comparison_in_not_test1096)
                     self.comparison()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -3235,25 +4003,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "not_test"
 
+    class comparison_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "comparison"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:1: comparison : expr ( comp_op expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:1: comparison : expr ( comp_op expr )* ;
     def comparison(
         self,
     ):
+        retval = self.comparison_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:13: ( expr ( comp_op expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:15: expr ( comp_op expr )*
-                self._state.following.append(self.FOLLOW_expr_in_comparison1095)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:13: ( expr ( comp_op expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:15: expr ( comp_op expr )*
+                self._state.following.append(self.FOLLOW_expr_in_comparison1104)
                 self.expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:20: ( comp_op expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:20: ( comp_op expr )*
                 while True:  # loop52
                     alt52 = 2
                     LA52_0 = self.input.LA(1)
@@ -3262,15 +4049,15 @@ class YarcParser(Parser):
                         alt52 = 1
 
                     if alt52 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:105:21: comp_op expr
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:21: comp_op expr
                         self._state.following.append(
-                            self.FOLLOW_comp_op_in_comparison1098
+                            self.FOLLOW_comp_op_in_comparison1107
                         )
                         self.comp_op()
 
                         self._state.following.pop()
 
-                        self._state.following.append(self.FOLLOW_expr_in_comparison1100)
+                        self._state.following.append(self.FOLLOW_expr_in_comparison1109)
                         self.expr()
 
                         self._state.following.pop()
@@ -3278,24 +4065,45 @@ class YarcParser(Parser):
                     else:
                         break  # loop52
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "comparison"
 
+    class comp_op_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "comp_op"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:1: comp_op : ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:1: comp_op : ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT );
     def comp_op(
         self,
     ):
+        retval = self.comp_op_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:13: ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:13: ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT )
                 alt53 = 10
                 LA53 = self.input.LA(1)
                 if LA53 in {LT}:
@@ -3354,48 +4162,50 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt53 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:15: LT
-                    self.match(self.input, LT, self.FOLLOW_LT_in_comp_op1113)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:15: LT
+                    self.match(self.input, LT, self.FOLLOW_LT_in_comp_op1122)
 
                 elif alt53 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:20: GT
-                    self.match(self.input, GT, self.FOLLOW_GT_in_comp_op1117)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:20: GT
+                    self.match(self.input, GT, self.FOLLOW_GT_in_comp_op1126)
 
                 elif alt53 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:25: EQUALS
-                    self.match(self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op1121)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:25: EQUALS
+                    self.match(self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op1130)
 
                 elif alt53 == 4:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:34: GT_EQ
-                    self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op1125)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:34: GT_EQ
+                    self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op1134)
 
                 elif alt53 == 5:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:42: LT_EQ
-                    self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op1129)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:42: LT_EQ
+                    self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op1138)
 
                 elif alt53 == 6:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:50: NOT_EQ
-                    self.match(self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op1133)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:50: NOT_EQ
+                    self.match(self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op1142)
 
                 elif alt53 == 7:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:59: IN
-                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1137)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:59: IN
+                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1146)
 
                 elif alt53 == 8:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:64: NOT IN
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1141)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:64: NOT IN
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1150)
 
-                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1143)
+                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1152)
 
                 elif alt53 == 9:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:73: IS
-                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1147)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:73: IS
+                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1156)
 
                 elif alt53 == 10:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:106:78: IS NOT
-                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1151)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:78: IS NOT
+                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1160)
 
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1153)
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1162)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -3403,25 +4213,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "comp_op"
 
+    class expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:1: expr : xor_expr ( BIT_OR xor_expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:1: expr : xor_expr ( BIT_OR xor_expr )* ;
     def expr(
         self,
     ):
+        retval = self.expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:13: ( xor_expr ( BIT_OR xor_expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:15: xor_expr ( BIT_OR xor_expr )*
-                self._state.following.append(self.FOLLOW_xor_expr_in_expr1167)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:13: ( xor_expr ( BIT_OR xor_expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:15: xor_expr ( BIT_OR xor_expr )*
+                self._state.following.append(self.FOLLOW_xor_expr_in_expr1176)
                 self.xor_expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:24: ( BIT_OR xor_expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:24: ( BIT_OR xor_expr )*
                 while True:  # loop54
                     alt54 = 2
                     LA54_0 = self.input.LA(1)
@@ -3430,10 +4259,10 @@ class YarcParser(Parser):
                         alt54 = 1
 
                     if alt54 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:107:25: BIT_OR xor_expr
-                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr1170)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:25: BIT_OR xor_expr
+                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr1179)
 
-                        self._state.following.append(self.FOLLOW_xor_expr_in_expr1172)
+                        self._state.following.append(self.FOLLOW_xor_expr_in_expr1181)
                         self.xor_expr()
 
                         self._state.following.pop()
@@ -3441,31 +4270,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop54
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "expr"
 
+    class xor_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "xor_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:1: xor_expr : and_expr ( XOR and_expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:1: xor_expr : and_expr ( XOR and_expr )* ;
     def xor_expr(
         self,
     ):
+        retval = self.xor_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:13: ( and_expr ( XOR and_expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:15: and_expr ( XOR and_expr )*
-                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr1184)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:13: ( and_expr ( XOR and_expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:15: and_expr ( XOR and_expr )*
+                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr1193)
                 self.and_expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:24: ( XOR and_expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:24: ( XOR and_expr )*
                 while True:  # loop55
                     alt55 = 2
                     LA55_0 = self.input.LA(1)
@@ -3474,11 +4324,11 @@ class YarcParser(Parser):
                         alt55 = 1
 
                     if alt55 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:108:25: XOR and_expr
-                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr1187)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:25: XOR and_expr
+                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr1196)
 
                         self._state.following.append(
-                            self.FOLLOW_and_expr_in_xor_expr1189
+                            self.FOLLOW_and_expr_in_xor_expr1198
                         )
                         self.and_expr()
 
@@ -3487,31 +4337,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop55
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "xor_expr"
 
+    class and_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "and_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:1: and_expr : shift_expr ( BIT_AND shift_expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:1: and_expr : shift_expr ( BIT_AND shift_expr )* ;
     def and_expr(
         self,
     ):
+        retval = self.and_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:13: ( shift_expr ( BIT_AND shift_expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:15: shift_expr ( BIT_AND shift_expr )*
-                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr1201)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:13: ( shift_expr ( BIT_AND shift_expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:15: shift_expr ( BIT_AND shift_expr )*
+                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr1210)
                 self.shift_expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:26: ( BIT_AND shift_expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:26: ( BIT_AND shift_expr )*
                 while True:  # loop56
                     alt56 = 2
                     LA56_0 = self.input.LA(1)
@@ -3520,13 +4391,13 @@ class YarcParser(Parser):
                         alt56 = 1
 
                     if alt56 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:109:27: BIT_AND shift_expr
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:27: BIT_AND shift_expr
                         self.match(
-                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr1204
+                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr1213
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_shift_expr_in_and_expr1206
+                            self.FOLLOW_shift_expr_in_and_expr1215
                         )
                         self.shift_expr()
 
@@ -3535,31 +4406,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop56
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "and_expr"
 
+    class shift_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "shift_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:1: shift_expr : arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:1: shift_expr : arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )* ;
     def shift_expr(
         self,
     ):
+        retval = self.shift_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:13: ( arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:15: arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )*
-                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr1216)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:13: ( arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:15: arith_expr ( ( LSHIFT | RSHIFT ) arith_expr )*
+                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr1225)
                 self.arith_expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:26: ( ( LSHIFT | RSHIFT ) arith_expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:26: ( ( LSHIFT | RSHIFT ) arith_expr )*
                 while True:  # loop57
                     alt57 = 2
                     LA57_0 = self.input.LA(1)
@@ -3568,7 +4460,7 @@ class YarcParser(Parser):
                         alt57 = 1
 
                     if alt57 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:110:27: ( LSHIFT | RSHIFT ) arith_expr
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:27: ( LSHIFT | RSHIFT ) arith_expr
                         if self.input.LA(1) in {LSHIFT, RSHIFT}:
                             self.input.consume()
                             self._state.errorRecovery = False
@@ -3578,7 +4470,7 @@ class YarcParser(Parser):
                             raise mse
 
                         self._state.following.append(
-                            self.FOLLOW_arith_expr_in_shift_expr1227
+                            self.FOLLOW_arith_expr_in_shift_expr1236
                         )
                         self.arith_expr()
 
@@ -3587,31 +4479,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop57
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "shift_expr"
 
+    class arith_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "arith_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:1: arith_expr : term ( ( PLUS | MINUS ) term )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:1: arith_expr : term ( ( PLUS | MINUS ) term )* ;
     def arith_expr(
         self,
     ):
+        retval = self.arith_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:13: ( term ( ( PLUS | MINUS ) term )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:15: term ( ( PLUS | MINUS ) term )*
-                self._state.following.append(self.FOLLOW_term_in_arith_expr1237)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:13: ( term ( ( PLUS | MINUS ) term )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:15: term ( ( PLUS | MINUS ) term )*
+                self._state.following.append(self.FOLLOW_term_in_arith_expr1246)
                 self.term()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:20: ( ( PLUS | MINUS ) term )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:20: ( ( PLUS | MINUS ) term )*
                 while True:  # loop58
                     alt58 = 2
                     LA58_0 = self.input.LA(1)
@@ -3620,7 +4533,7 @@ class YarcParser(Parser):
                         alt58 = 1
 
                     if alt58 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:111:21: ( PLUS | MINUS ) term
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:21: ( PLUS | MINUS ) term
                         if self.input.LA(1) in {MINUS, PLUS}:
                             self.input.consume()
                             self._state.errorRecovery = False
@@ -3629,7 +4542,7 @@ class YarcParser(Parser):
                             mse = MismatchedSetException(None, self.input)
                             raise mse
 
-                        self._state.following.append(self.FOLLOW_term_in_arith_expr1248)
+                        self._state.following.append(self.FOLLOW_term_in_arith_expr1257)
                         self.term()
 
                         self._state.following.pop()
@@ -3637,31 +4550,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop58
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "arith_expr"
 
+    class term_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "term"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:1: term : factor ( ( MUL | DIV | MOD | IDIV ) factor )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:1: term : factor ( ( MUL | DIV | MOD | IDIV ) factor )* ;
     def term(
         self,
     ):
+        retval = self.term_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:13: ( factor ( ( MUL | DIV | MOD | IDIV ) factor )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:15: factor ( ( MUL | DIV | MOD | IDIV ) factor )*
-                self._state.following.append(self.FOLLOW_factor_in_term1264)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:13: ( factor ( ( MUL | DIV | MOD | IDIV ) factor )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:15: factor ( ( MUL | DIV | MOD | IDIV ) factor )*
+                self._state.following.append(self.FOLLOW_factor_in_term1273)
                 self.factor()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:22: ( ( MUL | DIV | MOD | IDIV ) factor )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:22: ( ( MUL | DIV | MOD | IDIV ) factor )*
                 while True:  # loop59
                     alt59 = 2
                     LA59_0 = self.input.LA(1)
@@ -3670,7 +4604,7 @@ class YarcParser(Parser):
                         alt59 = 1
 
                     if alt59 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:112:23: ( MUL | DIV | MOD | IDIV ) factor
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:23: ( MUL | DIV | MOD | IDIV ) factor
                         if self.input.LA(1) in {DIV, IDIV, MOD, MUL}:
                             self.input.consume()
                             self._state.errorRecovery = False
@@ -3679,7 +4613,7 @@ class YarcParser(Parser):
                             mse = MismatchedSetException(None, self.input)
                             raise mse
 
-                        self._state.following.append(self.FOLLOW_factor_in_term1283)
+                        self._state.following.append(self.FOLLOW_factor_in_term1292)
                         self.factor()
 
                         self._state.following.pop()
@@ -3687,24 +4621,45 @@ class YarcParser(Parser):
                     else:
                         break  # loop59
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "term"
 
+    class factor_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "factor"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:1: factor : ( ( PLUS | MINUS | BIT_NOT ) factor | power );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:1: factor : ( ( PLUS | MINUS | BIT_NOT ) factor | power );
     def factor(
         self,
     ):
+        retval = self.factor_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:13: ( ( PLUS | MINUS | BIT_NOT ) factor | power )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:13: ( ( PLUS | MINUS | BIT_NOT ) factor | power )
                 alt60 = 2
                 LA60_0 = self.input.LA(1)
 
@@ -3737,7 +4692,7 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt60 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:15: ( PLUS | MINUS | BIT_NOT ) factor
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:15: ( PLUS | MINUS | BIT_NOT ) factor
                     if self.input.LA(1) in {BIT_NOT, MINUS, PLUS}:
                         self.input.consume()
                         self._state.errorRecovery = False
@@ -3746,17 +4701,19 @@ class YarcParser(Parser):
                         mse = MismatchedSetException(None, self.input)
                         raise mse
 
-                    self._state.following.append(self.FOLLOW_factor_in_factor1309)
+                    self._state.following.append(self.FOLLOW_factor_in_factor1318)
                     self.factor()
 
                     self._state.following.pop()
 
                 elif alt60 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:113:49: power
-                    self._state.following.append(self.FOLLOW_power_in_factor1313)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:49: power
+                    self._state.following.append(self.FOLLOW_power_in_factor1322)
                     self.power()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -3764,38 +4721,59 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "factor"
 
+    class power_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "power"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:1: power : atom_expr ( POWER factor )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:1: power : atom_expr ( POWER factor )? ;
     def power(
         self,
     ):
+        retval = self.power_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:13: ( atom_expr ( POWER factor )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:15: atom_expr ( POWER factor )?
-                self._state.following.append(self.FOLLOW_atom_expr_in_power1326)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:13: ( atom_expr ( POWER factor )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:15: atom_expr ( POWER factor )?
+                self._state.following.append(self.FOLLOW_atom_expr_in_power1335)
                 self.atom_expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:25: ( POWER factor )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:25: ( POWER factor )?
                 alt61 = 2
                 LA61_0 = self.input.LA(1)
 
                 if LA61_0 == POWER:
                     alt61 = 1
                 if alt61 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:114:26: POWER factor
-                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power1329)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:26: POWER factor
+                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power1338)
 
-                    self._state.following.append(self.FOLLOW_factor_in_power1331)
+                    self._state.following.append(self.FOLLOW_factor_in_power1340)
                     self.factor()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -3803,25 +4781,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "power"
 
+    class atom_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "atom_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:1: atom_expr : atom ( trailer )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:1: atom_expr : atom ( trailer )* ;
     def atom_expr(
         self,
     ):
+        retval = self.atom_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:13: ( atom ( trailer )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:15: atom ( trailer )*
-                self._state.following.append(self.FOLLOW_atom_in_atom_expr1342)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:13: ( atom ( trailer )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:15: atom ( trailer )*
+                self._state.following.append(self.FOLLOW_atom_in_atom_expr1351)
                 self.atom()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:20: ( trailer )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:20: ( trailer )*
                 while True:  # loop62
                     alt62 = 2
                     LA62_0 = self.input.LA(1)
@@ -3830,9 +4827,9 @@ class YarcParser(Parser):
                         alt62 = 1
 
                     if alt62 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:115:23: trailer
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:23: trailer
                         self._state.following.append(
-                            self.FOLLOW_trailer_in_atom_expr1347
+                            self.FOLLOW_trailer_in_atom_expr1356
                         )
                         self.trailer()
 
@@ -3841,24 +4838,45 @@ class YarcParser(Parser):
                     else:
                         break  # loop62
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "atom_expr"
 
+    class atom_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "atom"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:1: atom : ( LPAREN test RPAREN | LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK | LT ( vector_comp )? GT | LBRACE ( dict_or_set_maker )? RBRACE | name | SETTING_ID | distribution_expr | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:117:1: atom : ( LPAREN test RPAREN | LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK | LT ( vector_comp )? GT | LBRACE ( dict_or_set_maker )? RBRACE | name | SETTING_ID | distribution_expr | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE );
     def atom(
         self,
     ):
+        retval = self.atom_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:116:5: ( LPAREN test RPAREN | LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK | LT ( vector_comp )? GT | LBRACE ( dict_or_set_maker )? RBRACE | name | SETTING_ID | distribution_expr | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:117:5: ( LPAREN test RPAREN | LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK | LT ( vector_comp )? GT | LBRACE ( dict_or_set_maker )? RBRACE | name | SETTING_ID | distribution_expr | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE )
                 alt69 = 13
                 LA69 = self.input.LA(1)
                 if LA69 in {LPAREN}:
@@ -3893,21 +4911,21 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt69 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:117:3: LPAREN test RPAREN
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1357)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:3: LPAREN test RPAREN
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1366)
 
-                    self._state.following.append(self.FOLLOW_test_in_atom1359)
+                    self._state.following.append(self.FOLLOW_test_in_atom1368)
                     self.test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1361)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1370)
 
                 elif alt69 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:5: LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom1367)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:5: LBRACK ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) ) RBRACK
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom1376)
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:12: ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:12: ( ( testlist_comp )? | ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER ) )
                     alt66 = 2
                     LA66 = self.input.LA(1)
                     if LA66 in {
@@ -4055,9 +5073,9 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt66 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:13: ( testlist_comp )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:13: ( testlist_comp )?
                         pass
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:13: ( testlist_comp )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:13: ( testlist_comp )?
                         alt63 = 2
                         LA63_0 = self.input.LA(1)
 
@@ -4087,54 +5105,54 @@ class YarcParser(Parser):
                         }:
                             alt63 = 1
                         if alt63 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:13: testlist_comp
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:13: testlist_comp
                             self._state.following.append(
-                                self.FOLLOW_testlist_comp_in_atom1370
+                                self.FOLLOW_testlist_comp_in_atom1379
                             )
                             self.testlist_comp()
 
                             self._state.following.pop()
 
                     elif alt66 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:30: ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER )
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:30: ( ( MINUS )? INTEGER ) RANGE ( ( MINUS )? INTEGER )
                         pass
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:30: ( ( MINUS )? INTEGER )
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:31: ( MINUS )? INTEGER
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:31: ( MINUS )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:30: ( ( MINUS )? INTEGER )
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:31: ( MINUS )? INTEGER
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:31: ( MINUS )?
                         alt64 = 2
                         LA64_0 = self.input.LA(1)
 
                         if LA64_0 == MINUS:
                             alt64 = 1
                         if alt64 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:31: MINUS
-                            self.match(self.input, MINUS, self.FOLLOW_MINUS_in_atom1376)
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:31: MINUS
+                            self.match(self.input, MINUS, self.FOLLOW_MINUS_in_atom1385)
 
-                        self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1379)
+                        self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1388)
 
-                        self.match(self.input, RANGE, self.FOLLOW_RANGE_in_atom1382)
+                        self.match(self.input, RANGE, self.FOLLOW_RANGE_in_atom1391)
 
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:53: ( ( MINUS )? INTEGER )
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:54: ( MINUS )? INTEGER
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:54: ( MINUS )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:53: ( ( MINUS )? INTEGER )
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:54: ( MINUS )? INTEGER
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:54: ( MINUS )?
                         alt65 = 2
                         LA65_0 = self.input.LA(1)
 
                         if LA65_0 == MINUS:
                             alt65 = 1
                         if alt65 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:118:54: MINUS
-                            self.match(self.input, MINUS, self.FOLLOW_MINUS_in_atom1385)
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:54: MINUS
+                            self.match(self.input, MINUS, self.FOLLOW_MINUS_in_atom1394)
 
-                        self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1388)
+                        self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1397)
 
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom1392)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom1401)
 
                 elif alt69 == 3:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:5: LT ( vector_comp )? GT
-                    self.match(self.input, LT, self.FOLLOW_LT_in_atom1398)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:5: LT ( vector_comp )? GT
+                    self.match(self.input, LT, self.FOLLOW_LT_in_atom1407)
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:8: ( vector_comp )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:8: ( vector_comp )?
                     alt67 = 2
                     LA67_0 = self.input.LA(1)
 
@@ -4163,21 +5181,21 @@ class YarcParser(Parser):
                     }:
                         alt67 = 1
                     if alt67 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:119:8: vector_comp
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:8: vector_comp
                         self._state.following.append(
-                            self.FOLLOW_vector_comp_in_atom1400
+                            self.FOLLOW_vector_comp_in_atom1409
                         )
                         self.vector_comp()
 
                         self._state.following.pop()
 
-                    self.match(self.input, GT, self.FOLLOW_GT_in_atom1403)
+                    self.match(self.input, GT, self.FOLLOW_GT_in_atom1412)
 
                 elif alt69 == 4:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:5: LBRACE ( dict_or_set_maker )? RBRACE
-                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom1409)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:5: LBRACE ( dict_or_set_maker )? RBRACE
+                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom1418)
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:12: ( dict_or_set_maker )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:12: ( dict_or_set_maker )?
                     alt68 = 2
                     LA68_0 = self.input.LA(1)
 
@@ -4207,63 +5225,65 @@ class YarcParser(Parser):
                     }:
                         alt68 = 1
                     if alt68 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:120:12: dict_or_set_maker
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:12: dict_or_set_maker
                         self._state.following.append(
-                            self.FOLLOW_dict_or_set_maker_in_atom1411
+                            self.FOLLOW_dict_or_set_maker_in_atom1420
                         )
                         self.dict_or_set_maker()
 
                         self._state.following.pop()
 
-                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom1414)
+                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom1423)
 
                 elif alt69 == 5:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:5: name
-                    self._state.following.append(self.FOLLOW_name_in_atom1420)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:5: name
+                    self._state.following.append(self.FOLLOW_name_in_atom1429)
                     self.name()
 
                     self._state.following.pop()
 
                 elif alt69 == 6:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:12: SETTING_ID
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:12: SETTING_ID
                     self.match(
-                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom1424
+                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom1433
                     )
 
                 elif alt69 == 7:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:121:25: distribution_expr
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:25: distribution_expr
                     self._state.following.append(
-                        self.FOLLOW_distribution_expr_in_atom1428
+                        self.FOLLOW_distribution_expr_in_atom1437
                     )
                     self.distribution_expr()
 
                     self._state.following.pop()
 
                 elif alt69 == 8:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:5: INTEGER
-                    self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1434)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:5: INTEGER
+                    self.match(self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1443)
 
                 elif alt69 == 9:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:15: FLOAT_NUMBER
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:15: FLOAT_NUMBER
                     self.match(
-                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom1438
+                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom1447
                     )
 
                 elif alt69 == 10:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:30: STRING
-                    self.match(self.input, STRING, self.FOLLOW_STRING_in_atom1442)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:30: STRING
+                    self.match(self.input, STRING, self.FOLLOW_STRING_in_atom1451)
 
                 elif alt69 == 11:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:39: NONE
-                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom1446)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:39: NONE
+                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom1455)
 
                 elif alt69 == 12:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:46: TRUE
-                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom1450)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:46: TRUE
+                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom1459)
 
                 elif alt69 == 13:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:122:53: FALSE
-                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom1454)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:123:53: FALSE
+                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom1463)
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4271,18 +5291,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "atom"
 
+    class name_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "name"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:125:1: name : ( ID | UNDERSCORE );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:126:1: name : ( ID | UNDERSCORE );
     def name(
         self,
     ):
+        retval = self.name_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:125:5: ( ID | UNDERSCORE )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:126:5: ( ID | UNDERSCORE )
                 # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:
                 if self.input.LA(1) in {ID, UNDERSCORE}:
                     self.input.consume()
@@ -4292,46 +5331,69 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "name"
 
+    class distribution_expr_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "distribution_expr"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:138:1: distribution_expr : distribution LPAREN arglist RPAREN ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:139:1: distribution_expr : distribution LPAREN arglist RPAREN ;
     def distribution_expr(
         self,
     ):
+        retval = self.distribution_expr_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:138:19: ( distribution LPAREN arglist RPAREN )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:138:21: distribution LPAREN arglist RPAREN
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:139:19: ( distribution LPAREN arglist RPAREN )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:139:21: distribution LPAREN arglist RPAREN
                 self._state.following.append(
-                    self.FOLLOW_distribution_in_distribution_expr1483
+                    self.FOLLOW_distribution_in_distribution_expr1492
                 )
                 self.distribution()
 
                 self._state.following.pop()
 
                 self.match(
-                    self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution_expr1485
+                    self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution_expr1494
                 )
 
                 self._state.following.append(
-                    self.FOLLOW_arglist_in_distribution_expr1487
+                    self.FOLLOW_arglist_in_distribution_expr1496
                 )
                 self.arglist()
 
                 self._state.following.pop()
 
                 self.match(
-                    self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution_expr1489
+                    self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution_expr1498
                 )
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4339,18 +5401,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "distribution_expr"
 
+    class distribution_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "distribution"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:139:1: distribution : ( UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:140:1: distribution : ( UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM );
     def distribution(
         self,
     ):
+        retval = self.distribution_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:139:19: ( UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:140:19: ( UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM )
                 # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:
                 if self.input.LA(1) in {CHOICE, LOG_UNIFORM, NORMAL, SEQUENCE, UNIFORM}:
                     self.input.consume()
@@ -4360,31 +5441,52 @@ class YarcParser(Parser):
                     mse = MismatchedSetException(None, self.input)
                     raise mse
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "distribution"
 
+    class testlist_comp_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "testlist_comp"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:1: testlist_comp : test ( comp_for | ( COMMA test )* ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:1: testlist_comp : test ( comp_for | ( COMMA test )* ) ;
     def testlist_comp(
         self,
     ):
+        retval = self.testlist_comp_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:15: ( test ( comp_for | ( COMMA test )* ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:17: test ( comp_for | ( COMMA test )* )
-                self._state.following.append(self.FOLLOW_test_in_testlist_comp1525)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:15: ( test ( comp_for | ( COMMA test )* ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:17: test ( comp_for | ( COMMA test )* )
+                self._state.following.append(self.FOLLOW_test_in_testlist_comp1534)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:22: ( comp_for | ( COMMA test )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:22: ( comp_for | ( COMMA test )* )
                 alt71 = 2
                 LA71_0 = self.input.LA(1)
 
@@ -4398,18 +5500,18 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt71 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:24: comp_for
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:24: comp_for
                     self._state.following.append(
-                        self.FOLLOW_comp_for_in_testlist_comp1529
+                        self.FOLLOW_comp_for_in_testlist_comp1538
                     )
                     self.comp_for()
 
                     self._state.following.pop()
 
                 elif alt71 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:35: ( COMMA test )*
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:35: ( COMMA test )*
                     pass
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:35: ( COMMA test )*
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:35: ( COMMA test )*
                     while True:  # loop70
                         alt70 = 2
                         LA70_0 = self.input.LA(1)
@@ -4418,15 +5520,15 @@ class YarcParser(Parser):
                             alt70 = 1
 
                         if alt70 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:141:36: COMMA test
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:36: COMMA test
                             self.match(
                                 self.input,
                                 COMMA,
-                                self.FOLLOW_COMMA_in_testlist_comp1534,
+                                self.FOLLOW_COMMA_in_testlist_comp1543,
                             )
 
                             self._state.following.append(
-                                self.FOLLOW_test_in_testlist_comp1536
+                                self.FOLLOW_test_in_testlist_comp1545
                             )
                             self.test()
 
@@ -4435,43 +5537,66 @@ class YarcParser(Parser):
                         else:
                             break  # loop70
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "testlist_comp"
 
+    class vector_comp_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "vector_comp"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:1: vector_comp : expr COMMA expr COMMA expr ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:143:1: vector_comp : expr COMMA expr COMMA expr ;
     def vector_comp(
         self,
     ):
+        retval = self.vector_comp_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:15: ( expr COMMA expr COMMA expr )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:142:17: expr COMMA expr COMMA expr
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp1548)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:143:15: ( expr COMMA expr COMMA expr )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:143:17: expr COMMA expr COMMA expr
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp1557)
                 self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp1550)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp1559)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp1552)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp1561)
                 self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp1554)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp1563)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp1556)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp1565)
                 self.expr()
 
                 self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4479,18 +5604,37 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "vector_comp"
 
+    class trailer_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "trailer"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:144:1: trailer : ( LBRACK subscriptlist RBRACK | DOT name );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:1: trailer : ( LBRACK subscriptlist RBRACK | DOT name );
     def trailer(
         self,
     ):
+        retval = self.trailer_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:144:15: ( LBRACK subscriptlist RBRACK | DOT name )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:15: ( LBRACK subscriptlist RBRACK | DOT name )
                 alt72 = 2
                 LA72_0 = self.input.LA(1)
 
@@ -4504,26 +5648,28 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt72 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:144:17: LBRACK subscriptlist RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer1572)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:17: LBRACK subscriptlist RBRACK
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer1581)
 
                     self._state.following.append(
-                        self.FOLLOW_subscriptlist_in_trailer1574
+                        self.FOLLOW_subscriptlist_in_trailer1583
                     )
                     self.subscriptlist()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer1576)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer1585)
 
                 elif alt72 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:144:47: DOT name
-                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer1580)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:47: DOT name
+                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer1589)
 
-                    self._state.following.append(self.FOLLOW_name_in_trailer1582)
+                    self._state.following.append(self.FOLLOW_name_in_trailer1591)
                     self.name()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4531,25 +5677,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "trailer"
 
+    class arglist_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "arglist"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:1: arglist : argument ( COMMA argument )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:1: arglist : argument ( COMMA argument )* ;
     def arglist(
         self,
     ):
+        retval = self.arglist_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:15: ( argument ( COMMA argument )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:17: argument ( COMMA argument )*
-                self._state.following.append(self.FOLLOW_argument_in_arglist1595)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:15: ( argument ( COMMA argument )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:17: argument ( COMMA argument )*
+                self._state.following.append(self.FOLLOW_argument_in_arglist1604)
                 self.argument()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:26: ( COMMA argument )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:26: ( COMMA argument )*
                 while True:  # loop73
                     alt73 = 2
                     LA73_0 = self.input.LA(1)
@@ -4558,11 +5723,11 @@ class YarcParser(Parser):
                         alt73 = 1
 
                     if alt73 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:145:27: COMMA argument
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist1598)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:27: COMMA argument
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist1607)
 
                         self._state.following.append(
-                            self.FOLLOW_argument_in_arglist1600
+                            self.FOLLOW_argument_in_arglist1609
                         )
                         self.argument()
 
@@ -4571,31 +5736,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop73
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "arglist"
 
+    class argument_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "argument"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:1: argument : test ( comp_for | ASSIGN test )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:1: argument : test ( comp_for | ASSIGN test )? ;
     def argument(
         self,
     ):
+        retval = self.argument_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:15: ( test ( comp_for | ASSIGN test )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:17: test ( comp_for | ASSIGN test )?
-                self._state.following.append(self.FOLLOW_test_in_argument1614)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:15: ( test ( comp_for | ASSIGN test )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:17: test ( comp_for | ASSIGN test )?
+                self._state.following.append(self.FOLLOW_test_in_argument1623)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:22: ( comp_for | ASSIGN test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:22: ( comp_for | ASSIGN test )?
                 alt74 = 3
                 LA74_0 = self.input.LA(1)
 
@@ -4604,20 +5790,22 @@ class YarcParser(Parser):
                 elif LA74_0 == ASSIGN:
                     alt74 = 2
                 if alt74 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:23: comp_for
-                    self._state.following.append(self.FOLLOW_comp_for_in_argument1617)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:23: comp_for
+                    self._state.following.append(self.FOLLOW_comp_for_in_argument1626)
                     self.comp_for()
 
                     self._state.following.pop()
 
                 elif alt74 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:146:34: ASSIGN test
-                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument1621)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:34: ASSIGN test
+                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument1630)
 
-                    self._state.following.append(self.FOLLOW_test_in_argument1623)
+                    self._state.following.append(self.FOLLOW_test_in_argument1632)
                     self.test()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4625,27 +5813,46 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "argument"
 
+    class subscriptlist_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "subscriptlist"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:1: subscriptlist : subscript_ ( COMMA subscript_ )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:1: subscriptlist : subscript_ ( COMMA subscript_ )* ;
     def subscriptlist(
         self,
     ):
+        retval = self.subscriptlist_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:15: ( subscript_ ( COMMA subscript_ )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:17: subscript_ ( COMMA subscript_ )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:15: ( subscript_ ( COMMA subscript_ )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:17: subscript_ ( COMMA subscript_ )*
                 self._state.following.append(
-                    self.FOLLOW_subscript__in_subscriptlist1632
+                    self.FOLLOW_subscript__in_subscriptlist1641
                 )
                 self.subscript_()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:28: ( COMMA subscript_ )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:28: ( COMMA subscript_ )*
                 while True:  # loop75
                     alt75 = 2
                     LA75_0 = self.input.LA(1)
@@ -4654,13 +5861,13 @@ class YarcParser(Parser):
                         alt75 = 1
 
                     if alt75 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:147:29: COMMA subscript_
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:29: COMMA subscript_
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist1635
+                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist1644
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_subscript__in_subscriptlist1637
+                            self.FOLLOW_subscript__in_subscriptlist1646
                         )
                         self.subscript_()
 
@@ -4669,24 +5876,45 @@ class YarcParser(Parser):
                     else:
                         break  # loop75
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "subscriptlist"
 
+    class subscript__return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "subscript_"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:1: subscript_ : ( test ( COLON ( test )? ( sliceop )? )? | COLON ( test )? ( sliceop )? );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:1: subscript_ : ( test ( COLON ( test )? ( sliceop )? )? | COLON ( test )? ( sliceop )? );
     def subscript_(
         self,
     ):
+        retval = self.subscript__return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:15: ( test ( COLON ( test )? ( sliceop )? )? | COLON ( test )? ( sliceop )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:15: ( test ( COLON ( test )? ( sliceop )? )? | COLON ( test )? ( sliceop )? )
                 alt81 = 2
                 LA81_0 = self.input.LA(1)
 
@@ -4723,25 +5951,25 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt81 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:17: test ( COLON ( test )? ( sliceop )? )?
-                    self._state.following.append(self.FOLLOW_test_in_subscript_1649)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:17: test ( COLON ( test )? ( sliceop )? )?
+                    self._state.following.append(self.FOLLOW_test_in_subscript_1658)
                     self.test()
 
                     self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:22: ( COLON ( test )? ( sliceop )? )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:22: ( COLON ( test )? ( sliceop )? )?
                     alt78 = 2
                     LA78_0 = self.input.LA(1)
 
                     if LA78_0 == COLON:
                         alt78 = 1
                     if alt78 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:23: COLON ( test )? ( sliceop )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:23: COLON ( test )? ( sliceop )?
                         self.match(
-                            self.input, COLON, self.FOLLOW_COLON_in_subscript_1652
+                            self.input, COLON, self.FOLLOW_COLON_in_subscript_1661
                         )
 
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:29: ( test )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:29: ( test )?
                         alt76 = 2
                         LA76_0 = self.input.LA(1)
 
@@ -4771,34 +5999,34 @@ class YarcParser(Parser):
                         }:
                             alt76 = 1
                         if alt76 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:30: test
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:30: test
                             self._state.following.append(
-                                self.FOLLOW_test_in_subscript_1655
+                                self.FOLLOW_test_in_subscript_1664
                             )
                             self.test()
 
                             self._state.following.pop()
 
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:37: ( sliceop )?
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:37: ( sliceop )?
                         alt77 = 2
                         LA77_0 = self.input.LA(1)
 
                         if LA77_0 == COLON:
                             alt77 = 1
                         if alt77 == 1:
-                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:38: sliceop
+                            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:38: sliceop
                             self._state.following.append(
-                                self.FOLLOW_sliceop_in_subscript_1660
+                                self.FOLLOW_sliceop_in_subscript_1669
                             )
                             self.sliceop()
 
                             self._state.following.pop()
 
                 elif alt81 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:52: COLON ( test )? ( sliceop )?
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_subscript_1668)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:52: COLON ( test )? ( sliceop )?
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_subscript_1677)
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:58: ( test )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:58: ( test )?
                     alt79 = 2
                     LA79_0 = self.input.LA(1)
 
@@ -4828,26 +6056,28 @@ class YarcParser(Parser):
                     }:
                         alt79 = 1
                     if alt79 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:59: test
-                        self._state.following.append(self.FOLLOW_test_in_subscript_1671)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:59: test
+                        self._state.following.append(self.FOLLOW_test_in_subscript_1680)
                         self.test()
 
                         self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:66: ( sliceop )?
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:66: ( sliceop )?
                     alt80 = 2
                     LA80_0 = self.input.LA(1)
 
                     if LA80_0 == COLON:
                         alt80 = 1
                     if alt80 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:148:67: sliceop
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:67: sliceop
                         self._state.following.append(
-                            self.FOLLOW_sliceop_in_subscript_1676
+                            self.FOLLOW_sliceop_in_subscript_1685
                         )
                         self.sliceop()
 
                         self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4855,22 +6085,41 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "subscript_"
 
+    class sliceop_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "sliceop"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:1: sliceop : COLON ( test )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:150:1: sliceop : COLON ( test )? ;
     def sliceop(
         self,
     ):
+        retval = self.sliceop_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:15: ( COLON ( test )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:17: COLON ( test )?
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop1691)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:150:15: ( COLON ( test )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:150:17: COLON ( test )?
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop1700)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:23: ( test )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:150:23: ( test )?
                 alt82 = 2
                 LA82_0 = self.input.LA(1)
 
@@ -4900,11 +6149,13 @@ class YarcParser(Parser):
                 }:
                     alt82 = 1
                 if alt82 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:149:23: test
-                    self._state.following.append(self.FOLLOW_test_in_sliceop1693)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:150:23: test
+                    self._state.following.append(self.FOLLOW_test_in_sliceop1702)
                     self.test()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -4912,25 +6163,44 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "sliceop"
 
+    class exprlist_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "exprlist"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:151:1: exprlist : expr ( COMMA expr )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:1: exprlist : expr ( COMMA expr )* ;
     def exprlist(
         self,
     ):
+        retval = self.exprlist_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:151:10: ( expr ( COMMA expr )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:151:12: expr ( COMMA expr )*
-                self._state.following.append(self.FOLLOW_expr_in_exprlist1702)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:10: ( expr ( COMMA expr )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:12: expr ( COMMA expr )*
+                self._state.following.append(self.FOLLOW_expr_in_exprlist1711)
                 self.expr()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:151:17: ( COMMA expr )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:17: ( COMMA expr )*
                 while True:  # loop83
                     alt83 = 2
                     LA83_0 = self.input.LA(1)
@@ -4939,10 +6209,10 @@ class YarcParser(Parser):
                         alt83 = 1
 
                     if alt83 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:151:18: COMMA expr
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_exprlist1705)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:18: COMMA expr
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_exprlist1714)
 
-                        self._state.following.append(self.FOLLOW_expr_in_exprlist1707)
+                        self._state.following.append(self.FOLLOW_expr_in_exprlist1716)
                         self.expr()
 
                         self._state.following.pop()
@@ -4950,31 +6220,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop83
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "exprlist"
 
+    class testlist_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "testlist"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:1: testlist : test ( COMMA test )* ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:1: testlist : test ( COMMA test )* ;
     def testlist(
         self,
     ):
+        retval = self.testlist_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:10: ( test ( COMMA test )* )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:12: test ( COMMA test )*
-                self._state.following.append(self.FOLLOW_test_in_testlist1716)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:10: ( test ( COMMA test )* )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:12: test ( COMMA test )*
+                self._state.following.append(self.FOLLOW_test_in_testlist1725)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:17: ( COMMA test )*
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:17: ( COMMA test )*
                 while True:  # loop84
                     alt84 = 2
                     LA84_0 = self.input.LA(1)
@@ -4983,10 +6274,10 @@ class YarcParser(Parser):
                         alt84 = 1
 
                     if alt84 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:152:18: COMMA test
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist1719)
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:18: COMMA test
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist1728)
 
-                        self._state.following.append(self.FOLLOW_test_in_testlist1721)
+                        self._state.following.append(self.FOLLOW_test_in_testlist1730)
                         self.test()
 
                         self._state.following.pop()
@@ -4994,31 +6285,52 @@ class YarcParser(Parser):
                     else:
                         break  # loop84
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "testlist"
 
+    class dict_or_set_maker_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "dict_or_set_maker"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:1: dict_or_set_maker : test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:1: dict_or_set_maker : test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) ;
     def dict_or_set_maker(
         self,
     ):
+        retval = self.dict_or_set_maker_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:153:18: ( test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:3: test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
-                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker1731)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:18: ( test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:3: test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
+                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker1740)
                 self.test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:8: ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:8: ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
                 alt89 = 2
                 LA89_0 = self.input.LA(1)
 
@@ -5032,19 +6344,19 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt89 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:10: COLON test ( comp_for | ( COMMA test COLON test )* )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:10: COLON test ( comp_for | ( COMMA test COLON test )* )
                     self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker1735
+                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker1744
                     )
 
                     self._state.following.append(
-                        self.FOLLOW_test_in_dict_or_set_maker1737
+                        self.FOLLOW_test_in_dict_or_set_maker1746
                     )
                     self.test()
 
                     self._state.following.pop()
 
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:21: ( comp_for | ( COMMA test COLON test )* )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:21: ( comp_for | ( COMMA test COLON test )* )
                     alt86 = 2
                     LA86_0 = self.input.LA(1)
 
@@ -5058,18 +6370,18 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt86 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:22: comp_for
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:22: comp_for
                         self._state.following.append(
-                            self.FOLLOW_comp_for_in_dict_or_set_maker1740
+                            self.FOLLOW_comp_for_in_dict_or_set_maker1749
                         )
                         self.comp_for()
 
                         self._state.following.pop()
 
                     elif alt86 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:33: ( COMMA test COLON test )*
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:33: ( COMMA test COLON test )*
                         pass
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:33: ( COMMA test COLON test )*
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:33: ( COMMA test COLON test )*
                         while True:  # loop85
                             alt85 = 2
                             LA85_0 = self.input.LA(1)
@@ -5078,15 +6390,15 @@ class YarcParser(Parser):
                                 alt85 = 1
 
                             if alt85 == 1:
-                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:154:34: COMMA test COLON test
+                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:34: COMMA test COLON test
                                 self.match(
                                     self.input,
                                     COMMA,
-                                    self.FOLLOW_COMMA_in_dict_or_set_maker1745,
+                                    self.FOLLOW_COMMA_in_dict_or_set_maker1754,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker1747
+                                    self.FOLLOW_test_in_dict_or_set_maker1756
                                 )
                                 self.test()
 
@@ -5095,11 +6407,11 @@ class YarcParser(Parser):
                                 self.match(
                                     self.input,
                                     COLON,
-                                    self.FOLLOW_COLON_in_dict_or_set_maker1749,
+                                    self.FOLLOW_COLON_in_dict_or_set_maker1758,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker1751
+                                    self.FOLLOW_test_in_dict_or_set_maker1760
                                 )
                                 self.test()
 
@@ -5109,9 +6421,9 @@ class YarcParser(Parser):
                                 break  # loop85
 
                 elif alt89 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:10: ( comp_for | ( COMMA test )* )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:10: ( comp_for | ( COMMA test )* )
                     pass
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:10: ( comp_for | ( COMMA test )* )
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:10: ( comp_for | ( COMMA test )* )
                     alt88 = 2
                     LA88_0 = self.input.LA(1)
 
@@ -5125,18 +6437,18 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt88 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:11: comp_for
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:11: comp_for
                         self._state.following.append(
-                            self.FOLLOW_comp_for_in_dict_or_set_maker1766
+                            self.FOLLOW_comp_for_in_dict_or_set_maker1775
                         )
                         self.comp_for()
 
                         self._state.following.pop()
 
                     elif alt88 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:22: ( COMMA test )*
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:22: ( COMMA test )*
                         pass
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:22: ( COMMA test )*
+                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:22: ( COMMA test )*
                         while True:  # loop87
                             alt87 = 2
                             LA87_0 = self.input.LA(1)
@@ -5145,15 +6457,15 @@ class YarcParser(Parser):
                                 alt87 = 1
 
                             if alt87 == 1:
-                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:155:23: COMMA test
+                                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:156:23: COMMA test
                                 self.match(
                                     self.input,
                                     COMMA,
-                                    self.FOLLOW_COMMA_in_dict_or_set_maker1771,
+                                    self.FOLLOW_COMMA_in_dict_or_set_maker1780,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker1773
+                                    self.FOLLOW_test_in_dict_or_set_maker1782
                                 )
                                 self.test()
 
@@ -5162,24 +6474,45 @@ class YarcParser(Parser):
                             else:
                                 break  # loop87
 
+                retval.stop = self.input.LT(-1)
+
             except RecognitionException as re:
                 self.reportError(re)
                 self.recover(self.input, re)
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "dict_or_set_maker"
 
+    class comp_iter_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "comp_iter"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:158:1: comp_iter : ( comp_for | comp_if );
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:1: comp_iter : ( comp_for | comp_if );
     def comp_iter(
         self,
     ):
+        retval = self.comp_iter_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:158:11: ( comp_for | comp_if )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:11: ( comp_for | comp_if )
                 alt90 = 2
                 LA90_0 = self.input.LA(1)
 
@@ -5193,18 +6526,20 @@ class YarcParser(Parser):
                     raise nvae
 
                 if alt90 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:158:13: comp_for
-                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter1787)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:13: comp_for
+                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter1796)
                     self.comp_for()
 
                     self._state.following.pop()
 
                 elif alt90 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:158:24: comp_if
-                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter1791)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:24: comp_if
+                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter1800)
                     self.comp_if()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -5212,45 +6547,66 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "comp_iter"
 
+    class comp_for_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "comp_for"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:1: comp_for : FOR exprlist IN or_test ( comp_iter )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:1: comp_for : FOR exprlist IN or_test ( comp_iter )? ;
     def comp_for(
         self,
     ):
+        retval = self.comp_for_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:11: ( FOR exprlist IN or_test ( comp_iter )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:13: FOR exprlist IN or_test ( comp_iter )?
-                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for1799)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:11: ( FOR exprlist IN or_test ( comp_iter )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:13: FOR exprlist IN or_test ( comp_iter )?
+                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for1808)
 
-                self._state.following.append(self.FOLLOW_exprlist_in_comp_for1801)
+                self._state.following.append(self.FOLLOW_exprlist_in_comp_for1810)
                 self.exprlist()
 
                 self._state.following.pop()
 
-                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for1803)
+                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for1812)
 
-                self._state.following.append(self.FOLLOW_or_test_in_comp_for1805)
+                self._state.following.append(self.FOLLOW_or_test_in_comp_for1814)
                 self.or_test()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:37: ( comp_iter )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:37: ( comp_iter )?
                 alt91 = 2
                 LA91_0 = self.input.LA(1)
 
                 if LA91_0 in {FOR, IF}:
                     alt91 = 1
                 if alt91 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:159:37: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for1807)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:37: comp_iter
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for1816)
                     self.comp_iter()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -5258,38 +6614,59 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "comp_for"
 
+    class comp_if_return(ParserRuleReturnScope):
+        def __init__(self):
+            super().__init__()
+
+            self.st = None
+
+        def getTemplate(self):
+            return self.st
+
+        def toString(self):
+            if self.st is not None:
+                return self.st.toString()
+            return None
+
+        __str__ = toString
+
     # $ANTLR start "comp_if"
-    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:1: comp_if : IF test_nocond ( comp_iter )? ;
+    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:161:1: comp_if : IF test_nocond ( comp_iter )? ;
     def comp_if(
         self,
     ):
+        retval = self.comp_if_return()
+        retval.start = self.input.LT(1)
+
         try:
             try:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:11: ( IF test_nocond ( comp_iter )? )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:13: IF test_nocond ( comp_iter )?
-                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if1817)
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:161:11: ( IF test_nocond ( comp_iter )? )
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:161:13: IF test_nocond ( comp_iter )?
+                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if1826)
 
-                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if1819)
+                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if1828)
                 self.test_nocond()
 
                 self._state.following.pop()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:28: ( comp_iter )?
+                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:161:28: ( comp_iter )?
                 alt92 = 2
                 LA92_0 = self.input.LA(1)
 
                 if LA92_0 in {FOR, IF}:
                     alt92 = 1
                 if alt92 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:160:28: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if1821)
+                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcParser.g:161:28: comp_iter
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if1830)
                     self.comp_iter()
 
                     self._state.following.pop()
+
+                retval.stop = self.input.LT(-1)
 
             except RecognitionException as re:
                 self.reportError(re)
@@ -5297,30 +6674,30 @@ class YarcParser(Parser):
 
         finally:
             pass
-        return
+        return retval
 
     # $ANTLR end "comp_if"
 
-    FOLLOW_declaration_in_scenario35 = frozenset([1, 79, 111, 120, 135])
-    FOLLOW_NEWLINE_in_scenario37 = frozenset([1, 79, 111, 120, 135])
-    FOLLOW_settings_in_scenario40 = frozenset([1, 120, 135])
-    FOLLOW_stage_in_scenario43 = frozenset([1, 135])
-    FOLLOW_writers_in_scenario46 = frozenset([1])
-    FOLLOW_SCENARIO_in_declaration56 = frozenset([45, 130])
-    FOLLOW_name_in_declaration58 = frozenset([17, 79])
-    FOLLOW_COLON_in_declaration61 = frozenset([45, 130])
-    FOLLOW_name_in_declaration63 = frozenset([79])
-    FOLLOW_NEWLINE_in_declaration67 = frozenset([1])
-    FOLLOW_SETTINGS_in_settings77 = frozenset([17])
-    FOLLOW_COLON_in_settings79 = frozenset([79])
-    FOLLOW_NEWLINE_in_settings81 = frozenset([52])
-    FOLLOW_INDENT_in_settings83 = frozenset([45])
-    FOLLOW_option_in_settings85 = frozenset([21, 45])
-    FOLLOW_DEDENT_in_settings88 = frozenset([1])
-    FOLLOW_STAGE_in_stage101 = frozenset([17])
-    FOLLOW_COLON_in_stage103 = frozenset([79])
-    FOLLOW_NEWLINE_in_stage105 = frozenset([52])
-    FOLLOW_INDENT_in_stage107 = frozenset(
+    FOLLOW_declaration_in_scenario44 = frozenset([1, 79, 111, 120, 135])
+    FOLLOW_NEWLINE_in_scenario46 = frozenset([1, 79, 111, 120, 135])
+    FOLLOW_settings_in_scenario49 = frozenset([1, 120, 135])
+    FOLLOW_stage_in_scenario52 = frozenset([1, 135])
+    FOLLOW_writers_in_scenario55 = frozenset([1])
+    FOLLOW_SCENARIO_in_declaration65 = frozenset([45, 130])
+    FOLLOW_name_in_declaration67 = frozenset([17, 79])
+    FOLLOW_COLON_in_declaration70 = frozenset([45, 130])
+    FOLLOW_name_in_declaration72 = frozenset([79])
+    FOLLOW_NEWLINE_in_declaration76 = frozenset([1])
+    FOLLOW_SETTINGS_in_settings86 = frozenset([17])
+    FOLLOW_COLON_in_settings88 = frozenset([79])
+    FOLLOW_NEWLINE_in_settings90 = frozenset([52])
+    FOLLOW_INDENT_in_settings92 = frozenset([45])
+    FOLLOW_option_in_settings94 = frozenset([21, 45])
+    FOLLOW_DEDENT_in_settings97 = frozenset([1])
+    FOLLOW_STAGE_in_stage110 = frozenset([17])
+    FOLLOW_COLON_in_stage112 = frozenset([79])
+    FOLLOW_NEWLINE_in_stage114 = frozenset([52])
+    FOLLOW_INDENT_in_stage116 = frozenset(
         [
             12,
             16,
@@ -5353,12 +6730,12 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_stmts_in_stage109 = frozenset([21])
-    FOLLOW_DEDENT_in_stage111 = frozenset([1])
-    FOLLOW_WRITERS_in_writers122 = frozenset([17])
-    FOLLOW_COLON_in_writers124 = frozenset([79])
-    FOLLOW_NEWLINE_in_writers126 = frozenset([52])
-    FOLLOW_INDENT_in_writers128 = frozenset(
+    FOLLOW_stmts_in_stage118 = frozenset([21])
+    FOLLOW_DEDENT_in_stage120 = frozenset([1])
+    FOLLOW_WRITERS_in_writers131 = frozenset([17])
+    FOLLOW_COLON_in_writers133 = frozenset([79])
+    FOLLOW_NEWLINE_in_writers135 = frozenset([52])
+    FOLLOW_INDENT_in_writers137 = frozenset(
         [
             12,
             16,
@@ -5384,34 +6761,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_expr_stmt_in_writers131 = frozenset(
-        [
-            12,
-            16,
-            21,
-            33,
-            35,
-            45,
-            54,
-            57,
-            58,
-            64,
-            66,
-            69,
-            73,
-            80,
-            82,
-            83,
-            92,
-            110,
-            112,
-            122,
-            129,
-            130,
-            131,
-        ]
-    )
-    FOLLOW_writer_in_writers135 = frozenset(
+    FOLLOW_expr_stmt_in_writers140 = frozenset(
         [
             12,
             16,
@@ -5438,9 +6788,36 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_DEDENT_in_writers139 = frozenset([1])
-    FOLLOW_ID_in_option147 = frozenset([7])
-    FOLLOW_ASSIGN_in_option149 = frozenset(
+    FOLLOW_writer_in_writers144 = frozenset(
+        [
+            12,
+            16,
+            21,
+            33,
+            35,
+            45,
+            54,
+            57,
+            58,
+            64,
+            66,
+            69,
+            73,
+            80,
+            82,
+            83,
+            92,
+            110,
+            112,
+            122,
+            129,
+            130,
+            131,
+        ]
+    )
+    FOLLOW_DEDENT_in_writers148 = frozenset([1])
+    FOLLOW_ID_in_option156 = frozenset([7])
+    FOLLOW_ASSIGN_in_option158 = frozenset(
         [
             12,
             16,
@@ -5466,9 +6843,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_option151 = frozenset([79])
-    FOLLOW_NEWLINE_in_option153 = frozenset([1])
-    FOLLOW_open_stmt_in_stmts161 = frozenset(
+    FOLLOW_test_in_option160 = frozenset([79])
+    FOLLOW_NEWLINE_in_option162 = frozenset([1])
+    FOLLOW_open_stmt_in_stmts170 = frozenset(
         [
             12,
             16,
@@ -5500,7 +6877,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_aug_expr_stmt_in_stmts165 = frozenset(
+    FOLLOW_aug_expr_stmt_in_stmts174 = frozenset(
         [
             1,
             12,
@@ -5533,7 +6910,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_edit_stmt_in_stmts169 = frozenset(
+    FOLLOW_edit_stmt_in_stmts178 = frozenset(
         [
             1,
             12,
@@ -5566,7 +6943,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_behavior_stmt_in_stmts173 = frozenset(
+    FOLLOW_behavior_stmt_in_stmts182 = frozenset(
         [
             1,
             12,
@@ -5599,13 +6976,13 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_ID_in_writer182 = frozenset([17])
-    FOLLOW_COLON_in_writer184 = frozenset([79])
-    FOLLOW_NEWLINE_in_writer186 = frozenset([52])
-    FOLLOW_INDENT_in_writer188 = frozenset([45])
-    FOLLOW_option_in_writer190 = frozenset([21, 45])
-    FOLLOW_DEDENT_in_writer193 = frozenset([1])
-    FOLLOW_OPEN_in_open_stmt205 = frozenset(
+    FOLLOW_ID_in_writer191 = frozenset([17])
+    FOLLOW_COLON_in_writer193 = frozenset([79])
+    FOLLOW_NEWLINE_in_writer195 = frozenset([52])
+    FOLLOW_INDENT_in_writer197 = frozenset([45])
+    FOLLOW_option_in_writer199 = frozenset([21, 45])
+    FOLLOW_DEDENT_in_writer202 = frozenset([1])
+    FOLLOW_OPEN_in_open_stmt214 = frozenset(
         [
             12,
             16,
@@ -5631,13 +7008,13 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_open_stmt207 = frozenset([79])
-    FOLLOW_NEWLINE_in_open_stmt209 = frozenset([1])
-    FOLLOW_EDIT_in_edit_stmt216 = frozenset([45, 126, 130])
-    FOLLOW_TIMELINE_in_edit_stmt219 = frozenset([17])
-    FOLLOW_name_in_edit_stmt223 = frozenset([17])
-    FOLLOW_edit_block_in_edit_stmt226 = frozenset([1])
-    FOLLOW_CREATE_in_create_expr235 = frozenset(
+    FOLLOW_test_in_open_stmt216 = frozenset([79])
+    FOLLOW_NEWLINE_in_open_stmt218 = frozenset([1])
+    FOLLOW_EDIT_in_edit_stmt225 = frozenset([45, 126, 130])
+    FOLLOW_TIMELINE_in_edit_stmt228 = frozenset([17])
+    FOLLOW_name_in_edit_stmt232 = frozenset([17])
+    FOLLOW_edit_block_in_edit_stmt235 = frozenset([1])
+    FOLLOW_CREATE_in_create_expr244 = frozenset(
         [
             12,
             14,
@@ -5670,13 +7047,13 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_create_expr237 = frozenset([14, 39, 61, 72, 113, 114, 121])
-    FOLLOW_STEREO_in_create_expr247 = frozenset([14])
-    FOLLOW_CAMERA_in_create_expr250 = frozenset([17, 79])
-    FOLLOW_shapes_in_create_expr254 = frozenset([17, 79])
-    FOLLOW_light_type_in_create_expr258 = frozenset([60])
-    FOLLOW_LIGHT_in_create_expr260 = frozenset([17, 79])
-    FOLLOW_FROM_in_create_expr264 = frozenset(
+    FOLLOW_test_in_create_expr246 = frozenset([14, 39, 61, 72, 113, 114, 121])
+    FOLLOW_STEREO_in_create_expr256 = frozenset([14])
+    FOLLOW_CAMERA_in_create_expr259 = frozenset([17, 79])
+    FOLLOW_shapes_in_create_expr263 = frozenset([17, 79])
+    FOLLOW_light_type_in_create_expr267 = frozenset([60])
+    FOLLOW_LIGHT_in_create_expr269 = frozenset([17, 79])
+    FOLLOW_FROM_in_create_expr273 = frozenset(
         [
             12,
             16,
@@ -5702,12 +7079,12 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_create_expr266 = frozenset([17, 79])
-    FOLLOW_edit_block_in_create_expr270 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr274 = frozenset([1])
-    FOLLOW_MATERIAL_in_create_expr283 = frozenset([17])
-    FOLLOW_simple_block_in_create_expr286 = frozenset([1])
-    FOLLOW_INSTANTIATE_in_instantiate_expr327 = frozenset(
+    FOLLOW_test_in_create_expr275 = frozenset([17, 79])
+    FOLLOW_edit_block_in_create_expr279 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr283 = frozenset([1])
+    FOLLOW_MATERIAL_in_create_expr292 = frozenset([17])
+    FOLLOW_simple_block_in_create_expr295 = frozenset([1])
+    FOLLOW_INSTANTIATE_in_instantiate_expr336 = frozenset(
         [
             12,
             16,
@@ -5734,8 +7111,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_instantiate_expr330 = frozenset([39])
-    FOLLOW_FROM_in_instantiate_expr334 = frozenset(
+    FOLLOW_test_in_instantiate_expr339 = frozenset([39])
+    FOLLOW_FROM_in_instantiate_expr343 = frozenset(
         [
             12,
             16,
@@ -5761,18 +7138,18 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_instantiate_expr336 = frozenset([17, 79])
-    FOLLOW_edit_block_in_instantiate_expr339 = frozenset([1])
-    FOLLOW_NEWLINE_in_instantiate_expr343 = frozenset([1])
-    FOLLOW_GROUP_in_group_expr357 = frozenset([58])
-    FOLLOW_LBRACK_in_group_expr359 = frozenset([45, 130])
-    FOLLOW_name_in_group_expr361 = frozenset([18, 98])
-    FOLLOW_COMMA_in_group_expr364 = frozenset([45, 130])
-    FOLLOW_name_in_group_expr366 = frozenset([18, 98])
-    FOLLOW_RBRACK_in_group_expr370 = frozenset([17, 79])
-    FOLLOW_edit_block_in_group_expr373 = frozenset([1])
-    FOLLOW_NEWLINE_in_group_expr377 = frozenset([1])
-    FOLLOW_GET_in_get_expr393 = frozenset(
+    FOLLOW_test_in_instantiate_expr345 = frozenset([17, 79])
+    FOLLOW_edit_block_in_instantiate_expr348 = frozenset([1])
+    FOLLOW_NEWLINE_in_instantiate_expr352 = frozenset([1])
+    FOLLOW_GROUP_in_group_expr366 = frozenset([58])
+    FOLLOW_LBRACK_in_group_expr368 = frozenset([45, 130])
+    FOLLOW_name_in_group_expr370 = frozenset([18, 98])
+    FOLLOW_COMMA_in_group_expr373 = frozenset([45, 130])
+    FOLLOW_name_in_group_expr375 = frozenset([18, 98])
+    FOLLOW_RBRACK_in_group_expr379 = frozenset([17, 79])
+    FOLLOW_edit_block_in_group_expr382 = frozenset([1])
+    FOLLOW_NEWLINE_in_group_expr386 = frozenset([1])
+    FOLLOW_GET_in_get_expr402 = frozenset(
         [
             12,
             14,
@@ -5801,11 +7178,11 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_CAMERA_in_get_expr397 = frozenset([8])
-    FOLLOW_LIGHT_in_get_expr401 = frozenset([8])
-    FOLLOW_MATERIAL_in_get_expr405 = frozenset([8])
-    FOLLOW_name_in_get_expr409 = frozenset([8])
-    FOLLOW_AT_in_get_expr412 = frozenset(
+    FOLLOW_CAMERA_in_get_expr406 = frozenset([8])
+    FOLLOW_LIGHT_in_get_expr410 = frozenset([8])
+    FOLLOW_MATERIAL_in_get_expr414 = frozenset([8])
+    FOLLOW_name_in_get_expr418 = frozenset([8])
+    FOLLOW_AT_in_get_expr421 = frozenset(
         [
             12,
             16,
@@ -5831,30 +7208,30 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_get_expr416 = frozenset([17, 79])
-    FOLLOW_simple_block_in_get_expr419 = frozenset([1])
-    FOLLOW_NEWLINE_in_get_expr423 = frozenset([1])
-    FOLLOW_COLON_in_edit_block434 = frozenset([79])
-    FOLLOW_NEWLINE_in_edit_block436 = frozenset([52])
-    FOLLOW_INDENT_in_edit_block438 = frozenset(
+    FOLLOW_test_in_get_expr425 = frozenset([17, 79])
+    FOLLOW_simple_block_in_get_expr428 = frozenset([1])
+    FOLLOW_NEWLINE_in_get_expr432 = frozenset([1])
+    FOLLOW_COLON_in_edit_block443 = frozenset([79])
+    FOLLOW_NEWLINE_in_edit_block445 = frozenset([52])
+    FOLLOW_INDENT_in_edit_block447 = frozenset(
         [15, 30, 45, 65, 91, 100, 101, 105, 106, 108, 116, 128, 130, 133, 134]
     )
-    FOLLOW_attr_in_edit_block441 = frozenset(
+    FOLLOW_attr_in_edit_block450 = frozenset(
         [15, 21, 30, 45, 65, 91, 100, 101, 105, 106, 108, 116, 128, 130, 133, 134]
     )
-    FOLLOW_inner_behavior_stmt_in_edit_block445 = frozenset(
+    FOLLOW_inner_behavior_stmt_in_edit_block454 = frozenset(
         [15, 21, 30, 45, 65, 91, 100, 101, 105, 106, 108, 116, 128, 130, 133, 134]
     )
-    FOLLOW_DEDENT_in_edit_block449 = frozenset([1])
-    FOLLOW_COLON_in_simple_block456 = frozenset([79])
-    FOLLOW_NEWLINE_in_simple_block458 = frozenset([52])
-    FOLLOW_INDENT_in_simple_block460 = frozenset([45, 130])
-    FOLLOW_simple_attr_in_simple_block462 = frozenset([21, 45, 130])
-    FOLLOW_DEDENT_in_simple_block465 = frozenset([1])
-    FOLLOW_core_attr_in_attr482 = frozenset([1])
-    FOLLOW_simple_attr_in_attr486 = frozenset([1])
-    FOLLOW_compound_attr_in_attr490 = frozenset([1])
-    FOLLOW_name_in_simple_attr499 = frozenset(
+    FOLLOW_DEDENT_in_edit_block458 = frozenset([1])
+    FOLLOW_COLON_in_simple_block465 = frozenset([79])
+    FOLLOW_NEWLINE_in_simple_block467 = frozenset([52])
+    FOLLOW_INDENT_in_simple_block469 = frozenset([45, 130])
+    FOLLOW_simple_attr_in_simple_block471 = frozenset([21, 45, 130])
+    FOLLOW_DEDENT_in_simple_block474 = frozenset([1])
+    FOLLOW_core_attr_in_attr491 = frozenset([1])
+    FOLLOW_simple_attr_in_attr495 = frozenset([1])
+    FOLLOW_compound_attr_in_attr499 = frozenset([1])
+    FOLLOW_name_in_simple_attr508 = frozenset(
         [
             12,
             16,
@@ -5882,8 +7259,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_COLON_in_simple_attr502 = frozenset([45, 130])
-    FOLLOW_name_in_simple_attr504 = frozenset(
+    FOLLOW_COLON_in_simple_attr511 = frozenset([45, 130])
+    FOLLOW_name_in_simple_attr513 = frozenset(
         [
             12,
             16,
@@ -5910,19 +7287,19 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_simple_attr508 = frozenset([79])
-    FOLLOW_NEWLINE_in_simple_attr511 = frozenset([1])
-    FOLLOW_SCATTER_in_compound_attr520 = frozenset([86])
-    FOLLOW_ON_in_compound_attr522 = frozenset([45, 130])
-    FOLLOW_name_in_compound_attr524 = frozenset([17, 79])
-    FOLLOW_ROT_AROUND_in_compound_attr528 = frozenset([45, 130])
-    FOLLOW_name_in_compound_attr530 = frozenset([17, 79])
-    FOLLOW_PHYSICS_in_compound_attr534 = frozenset([17, 79])
-    FOLLOW_simple_block_in_compound_attr538 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr542 = frozenset([1])
-    FOLLOW_TRANSLATE_in_core_attr559 = frozenset([9, 127])
-    FOLLOW_AXIS_in_core_attr561 = frozenset([127])
-    FOLLOW_TO_in_core_attr564 = frozenset(
+    FOLLOW_test_in_simple_attr517 = frozenset([79])
+    FOLLOW_NEWLINE_in_simple_attr520 = frozenset([1])
+    FOLLOW_SCATTER_in_compound_attr529 = frozenset([86])
+    FOLLOW_ON_in_compound_attr531 = frozenset([45, 130])
+    FOLLOW_name_in_compound_attr533 = frozenset([17, 79])
+    FOLLOW_ROT_AROUND_in_compound_attr537 = frozenset([45, 130])
+    FOLLOW_name_in_compound_attr539 = frozenset([17, 79])
+    FOLLOW_PHYSICS_in_compound_attr543 = frozenset([17, 79])
+    FOLLOW_simple_block_in_compound_attr547 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr551 = frozenset([1])
+    FOLLOW_TRANSLATE_in_core_attr568 = frozenset([9, 127])
+    FOLLOW_AXIS_in_core_attr570 = frozenset([127])
+    FOLLOW_TO_in_core_attr573 = frozenset(
         [
             12,
             16,
@@ -5948,9 +7325,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr566 = frozenset([79])
-    FOLLOW_CAM_TRANSLATE_in_core_attr574 = frozenset([127])
-    FOLLOW_TO_in_core_attr576 = frozenset(
+    FOLLOW_test_in_core_attr575 = frozenset([79])
+    FOLLOW_CAM_TRANSLATE_in_core_attr583 = frozenset([127])
+    FOLLOW_TO_in_core_attr585 = frozenset(
         [
             12,
             16,
@@ -5976,8 +7353,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr578 = frozenset([79])
-    FOLLOW_ROTATE_in_core_attr586 = frozenset(
+    FOLLOW_test_in_core_attr587 = frozenset([79])
+    FOLLOW_ROTATE_in_core_attr595 = frozenset(
         [
             9,
             12,
@@ -6004,7 +7381,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_AXIS_in_core_attr588 = frozenset(
+    FOLLOW_AXIS_in_core_attr597 = frozenset(
         [
             12,
             16,
@@ -6030,9 +7407,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr591 = frozenset([79, 89])
-    FOLLOW_ORDER_in_core_attr593 = frozenset([79])
-    FOLLOW_SCALE_in_core_attr602 = frozenset(
+    FOLLOW_test_in_core_attr600 = frozenset([79, 89])
+    FOLLOW_ORDER_in_core_attr602 = frozenset([79])
+    FOLLOW_SCALE_in_core_attr611 = frozenset(
         [
             12,
             16,
@@ -6058,8 +7435,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr604 = frozenset([79])
-    FOLLOW_LOOK_AT_in_core_attr612 = frozenset(
+    FOLLOW_test_in_core_attr613 = frozenset([79])
+    FOLLOW_LOOK_AT_in_core_attr621 = frozenset(
         [
             12,
             16,
@@ -6085,8 +7462,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr614 = frozenset([79])
-    FOLLOW_UP_AXIS_in_core_attr622 = frozenset(
+    FOLLOW_test_in_core_attr623 = frozenset([79])
+    FOLLOW_UP_AXIS_in_core_attr631 = frozenset(
         [
             12,
             16,
@@ -6112,8 +7489,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr624 = frozenset([79])
-    FOLLOW_SIZE_in_core_attr632 = frozenset(
+    FOLLOW_test_in_core_attr633 = frozenset([79])
+    FOLLOW_SIZE_in_core_attr641 = frozenset(
         [
             12,
             16,
@@ -6139,8 +7516,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr634 = frozenset([79])
-    FOLLOW_SEMANTICS_in_core_attr642 = frozenset(
+    FOLLOW_test_in_core_attr643 = frozenset([79])
+    FOLLOW_SEMANTICS_in_core_attr651 = frozenset(
         [
             12,
             16,
@@ -6166,8 +7543,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr644 = frozenset([79])
-    FOLLOW_VISIBLE_in_core_attr652 = frozenset(
+    FOLLOW_test_in_core_attr653 = frozenset([79])
+    FOLLOW_VISIBLE_in_core_attr661 = frozenset(
         [
             12,
             16,
@@ -6193,22 +7570,22 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_core_attr654 = frozenset([79])
-    FOLLOW_NEWLINE_in_core_attr660 = frozenset([1])
-    FOLLOW_behavior_expr_in_inner_behavior_stmt670 = frozenset([17])
-    FOLLOW_inner_behavior_block_in_inner_behavior_stmt672 = frozenset([1])
-    FOLLOW_COLON_in_inner_behavior_block679 = frozenset([79])
-    FOLLOW_NEWLINE_in_inner_behavior_block681 = frozenset([52])
-    FOLLOW_INDENT_in_inner_behavior_block683 = frozenset(
+    FOLLOW_test_in_core_attr663 = frozenset([79])
+    FOLLOW_NEWLINE_in_core_attr669 = frozenset([1])
+    FOLLOW_behavior_expr_in_inner_behavior_stmt679 = frozenset([17])
+    FOLLOW_inner_behavior_block_in_inner_behavior_stmt681 = frozenset([1])
+    FOLLOW_COLON_in_inner_behavior_block688 = frozenset([79])
+    FOLLOW_NEWLINE_in_inner_behavior_block690 = frozenset([52])
+    FOLLOW_INDENT_in_inner_behavior_block692 = frozenset(
         [15, 45, 65, 91, 100, 101, 105, 106, 108, 116, 128, 130, 133, 134]
     )
-    FOLLOW_attr_in_inner_behavior_block685 = frozenset(
+    FOLLOW_attr_in_inner_behavior_block694 = frozenset(
         [15, 21, 45, 65, 91, 100, 101, 105, 106, 108, 116, 128, 130, 133, 134]
     )
-    FOLLOW_DEDENT_in_inner_behavior_block688 = frozenset([1])
-    FOLLOW_behavior_expr_in_behavior_stmt699 = frozenset([17])
-    FOLLOW_behavior_block_in_behavior_stmt701 = frozenset([1])
-    FOLLOW_EVERY_in_behavior_expr709 = frozenset(
+    FOLLOW_DEDENT_in_inner_behavior_block697 = frozenset([1])
+    FOLLOW_behavior_expr_in_behavior_stmt708 = frozenset([17])
+    FOLLOW_behavior_block_in_behavior_stmt710 = frozenset([1])
+    FOLLOW_EVERY_in_behavior_expr718 = frozenset(
         [
             12,
             16,
@@ -6236,11 +7613,11 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_behavior_expr711 = frozenset([38, 125])
-    FOLLOW_set_in_behavior_expr714 = frozenset([1])
-    FOLLOW_COLON_in_behavior_block727 = frozenset([79])
-    FOLLOW_NEWLINE_in_behavior_block729 = frozenset([52])
-    FOLLOW_INDENT_in_behavior_block731 = frozenset(
+    FOLLOW_test_in_behavior_expr720 = frozenset([38, 125])
+    FOLLOW_set_in_behavior_expr723 = frozenset([1])
+    FOLLOW_COLON_in_behavior_block736 = frozenset([79])
+    FOLLOW_NEWLINE_in_behavior_block738 = frozenset([52])
+    FOLLOW_INDENT_in_behavior_block740 = frozenset(
         [
             12,
             16,
@@ -6271,39 +7648,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_aug_expr_stmt_in_behavior_block734 = frozenset(
-        [
-            12,
-            16,
-            20,
-            21,
-            26,
-            33,
-            35,
-            40,
-            41,
-            45,
-            53,
-            54,
-            57,
-            58,
-            64,
-            66,
-            69,
-            73,
-            80,
-            82,
-            83,
-            92,
-            110,
-            112,
-            122,
-            129,
-            130,
-            131,
-        ]
-    )
-    FOLLOW_edit_stmt_in_behavior_block738 = frozenset(
+    FOLLOW_aug_expr_stmt_in_behavior_block743 = frozenset(
         [
             12,
             16,
@@ -6335,11 +7680,43 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_DEDENT_in_behavior_block742 = frozenset([1])
-    FOLLOW_testlist_in_expr_stmt752 = frozenset(
+    FOLLOW_edit_stmt_in_behavior_block747 = frozenset(
+        [
+            12,
+            16,
+            20,
+            21,
+            26,
+            33,
+            35,
+            40,
+            41,
+            45,
+            53,
+            54,
+            57,
+            58,
+            64,
+            66,
+            69,
+            73,
+            80,
+            82,
+            83,
+            92,
+            110,
+            112,
+            122,
+            129,
+            130,
+            131,
+        ]
+    )
+    FOLLOW_DEDENT_in_behavior_block751 = frozenset([1])
+    FOLLOW_testlist_in_expr_stmt761 = frozenset(
         [4, 6, 7, 24, 47, 68, 75, 77, 90, 95, 104, 124, 137]
     )
-    FOLLOW_aug_assign_in_expr_stmt755 = frozenset(
+    FOLLOW_aug_assign_in_expr_stmt764 = frozenset(
         [
             12,
             16,
@@ -6366,7 +7743,7 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_ASSIGN_in_expr_stmt759 = frozenset(
+    FOLLOW_ASSIGN_in_expr_stmt768 = frozenset(
         [
             12,
             16,
@@ -6393,13 +7770,13 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_testlist_in_expr_stmt763 = frozenset([79])
-    FOLLOW_fetch_expr_in_expr_stmt767 = frozenset([79])
-    FOLLOW_NEWLINE_in_expr_stmt770 = frozenset([1])
-    FOLLOW_testlist_in_aug_expr_stmt783 = frozenset(
+    FOLLOW_testlist_in_expr_stmt772 = frozenset([79])
+    FOLLOW_fetch_expr_in_expr_stmt776 = frozenset([79])
+    FOLLOW_NEWLINE_in_expr_stmt779 = frozenset([1])
+    FOLLOW_testlist_in_aug_expr_stmt792 = frozenset(
         [4, 6, 7, 24, 47, 68, 75, 77, 90, 95, 104, 124, 137]
     )
-    FOLLOW_aug_assign_in_aug_expr_stmt793 = frozenset(
+    FOLLOW_aug_assign_in_aug_expr_stmt802 = frozenset(
         [
             12,
             16,
@@ -6427,10 +7804,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt796 = frozenset([79])
-    FOLLOW_fetch_expr_in_aug_expr_stmt800 = frozenset([79])
-    FOLLOW_NEWLINE_in_aug_expr_stmt804 = frozenset([1])
-    FOLLOW_ASSIGN_in_aug_expr_stmt814 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt805 = frozenset([79])
+    FOLLOW_fetch_expr_in_aug_expr_stmt809 = frozenset([79])
+    FOLLOW_NEWLINE_in_aug_expr_stmt813 = frozenset([1])
+    FOLLOW_ASSIGN_in_aug_expr_stmt823 = frozenset(
         [
             12,
             16,
@@ -6461,18 +7838,18 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt827 = frozenset([79])
-    FOLLOW_fetch_expr_in_aug_expr_stmt831 = frozenset([79])
-    FOLLOW_NEWLINE_in_aug_expr_stmt834 = frozenset([1])
-    FOLLOW_create_expr_in_aug_expr_stmt846 = frozenset([1])
-    FOLLOW_instantiate_expr_in_aug_expr_stmt850 = frozenset([1])
-    FOLLOW_get_expr_in_aug_expr_stmt854 = frozenset([1])
-    FOLLOW_group_expr_in_aug_expr_stmt858 = frozenset([1])
-    FOLLOW_create_expr_in_aug_expr_stmt882 = frozenset([1])
-    FOLLOW_instantiate_expr_in_aug_expr_stmt886 = frozenset([1])
-    FOLLOW_get_expr_in_aug_expr_stmt890 = frozenset([1])
-    FOLLOW_group_expr_in_aug_expr_stmt894 = frozenset([1])
-    FOLLOW_FETCH_in_fetch_expr903 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt836 = frozenset([79])
+    FOLLOW_fetch_expr_in_aug_expr_stmt840 = frozenset([79])
+    FOLLOW_NEWLINE_in_aug_expr_stmt843 = frozenset([1])
+    FOLLOW_create_expr_in_aug_expr_stmt855 = frozenset([1])
+    FOLLOW_instantiate_expr_in_aug_expr_stmt859 = frozenset([1])
+    FOLLOW_get_expr_in_aug_expr_stmt863 = frozenset([1])
+    FOLLOW_group_expr_in_aug_expr_stmt867 = frozenset([1])
+    FOLLOW_create_expr_in_aug_expr_stmt891 = frozenset([1])
+    FOLLOW_instantiate_expr_in_aug_expr_stmt895 = frozenset([1])
+    FOLLOW_get_expr_in_aug_expr_stmt899 = frozenset([1])
+    FOLLOW_group_expr_in_aug_expr_stmt903 = frozenset([1])
+    FOLLOW_FETCH_in_fetch_expr912 = frozenset(
         [
             12,
             16,
@@ -6498,8 +7875,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_fetch_expr905 = frozenset([39])
-    FOLLOW_FROM_in_fetch_expr907 = frozenset(
+    FOLLOW_test_in_fetch_expr914 = frozenset([39])
+    FOLLOW_FROM_in_fetch_expr916 = frozenset(
         [
             12,
             16,
@@ -6525,8 +7902,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_fetch_expr909 = frozenset([1, 62, 71, 99])
-    FOLLOW_MATCH_in_fetch_expr912 = frozenset(
+    FOLLOW_test_in_fetch_expr918 = frozenset([1, 62, 71, 99])
+    FOLLOW_MATCH_in_fetch_expr921 = frozenset(
         [
             12,
             16,
@@ -6552,8 +7929,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_fetch_expr914 = frozenset([1, 62, 99])
-    FOLLOW_LIMIT_in_fetch_expr919 = frozenset(
+    FOLLOW_test_in_fetch_expr923 = frozenset([1, 62, 99])
+    FOLLOW_LIMIT_in_fetch_expr928 = frozenset(
         [
             12,
             16,
@@ -6579,10 +7956,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_fetch_expr921 = frozenset([1, 99])
-    FOLLOW_RECURSIVE_in_fetch_expr925 = frozenset([1])
-    FOLLOW_or_test_in_test1018 = frozenset([1, 50])
-    FOLLOW_IF_in_test1021 = frozenset(
+    FOLLOW_test_in_fetch_expr930 = frozenset([1, 99])
+    FOLLOW_RECURSIVE_in_fetch_expr934 = frozenset([1])
+    FOLLOW_or_test_in_test1027 = frozenset([1, 50])
+    FOLLOW_IF_in_test1030 = frozenset(
         [
             12,
             16,
@@ -6608,8 +7985,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_or_test_in_test1023 = frozenset([28])
-    FOLLOW_ELSE_in_test1025 = frozenset(
+    FOLLOW_or_test_in_test1032 = frozenset([28])
+    FOLLOW_ELSE_in_test1034 = frozenset(
         [
             12,
             16,
@@ -6635,10 +8012,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_test1027 = frozenset([1])
-    FOLLOW_or_test_in_test_nocond1036 = frozenset([1])
-    FOLLOW_and_test_in_or_test1047 = frozenset([1, 88])
-    FOLLOW_OR_in_or_test1050 = frozenset(
+    FOLLOW_test_in_test1036 = frozenset([1])
+    FOLLOW_or_test_in_test_nocond1045 = frozenset([1])
+    FOLLOW_and_test_in_or_test1056 = frozenset([1, 88])
+    FOLLOW_OR_in_or_test1059 = frozenset(
         [
             12,
             16,
@@ -6664,9 +8041,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_and_test_in_or_test1052 = frozenset([1, 88])
-    FOLLOW_not_test_in_and_test1064 = frozenset([1, 5])
-    FOLLOW_AND_in_and_test1067 = frozenset(
+    FOLLOW_and_test_in_or_test1061 = frozenset([1, 88])
+    FOLLOW_not_test_in_and_test1073 = frozenset([1, 5])
+    FOLLOW_AND_in_and_test1076 = frozenset(
         [
             12,
             16,
@@ -6692,8 +8069,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_not_test_in_and_test1069 = frozenset([1, 5])
-    FOLLOW_NOT_in_not_test1081 = frozenset(
+    FOLLOW_not_test_in_and_test1078 = frozenset([1, 5])
+    FOLLOW_NOT_in_not_test1090 = frozenset(
         [
             12,
             16,
@@ -6719,10 +8096,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_not_test_in_not_test1083 = frozenset([1])
-    FOLLOW_comparison_in_not_test1087 = frozenset([1])
-    FOLLOW_expr_in_comparison1095 = frozenset([1, 29, 42, 43, 51, 56, 69, 70, 83, 84])
-    FOLLOW_comp_op_in_comparison1098 = frozenset(
+    FOLLOW_not_test_in_not_test1092 = frozenset([1])
+    FOLLOW_comparison_in_not_test1096 = frozenset([1])
+    FOLLOW_expr_in_comparison1104 = frozenset([1, 29, 42, 43, 51, 56, 69, 70, 83, 84])
+    FOLLOW_comp_op_in_comparison1107 = frozenset(
         [
             12,
             16,
@@ -6747,21 +8124,21 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_expr_in_comparison1100 = frozenset([1, 29, 42, 43, 51, 56, 69, 70, 83, 84])
-    FOLLOW_LT_in_comp_op1113 = frozenset([1])
-    FOLLOW_GT_in_comp_op1117 = frozenset([1])
-    FOLLOW_EQUALS_in_comp_op1121 = frozenset([1])
-    FOLLOW_GT_EQ_in_comp_op1125 = frozenset([1])
-    FOLLOW_LT_EQ_in_comp_op1129 = frozenset([1])
-    FOLLOW_NOT_EQ_in_comp_op1133 = frozenset([1])
-    FOLLOW_IN_in_comp_op1137 = frozenset([1])
-    FOLLOW_NOT_in_comp_op1141 = frozenset([51])
-    FOLLOW_IN_in_comp_op1143 = frozenset([1])
-    FOLLOW_IS_in_comp_op1147 = frozenset([1])
-    FOLLOW_IS_in_comp_op1151 = frozenset([83])
-    FOLLOW_NOT_in_comp_op1153 = frozenset([1])
-    FOLLOW_xor_expr_in_expr1167 = frozenset([1, 13])
-    FOLLOW_BIT_OR_in_expr1170 = frozenset(
+    FOLLOW_expr_in_comparison1109 = frozenset([1, 29, 42, 43, 51, 56, 69, 70, 83, 84])
+    FOLLOW_LT_in_comp_op1122 = frozenset([1])
+    FOLLOW_GT_in_comp_op1126 = frozenset([1])
+    FOLLOW_EQUALS_in_comp_op1130 = frozenset([1])
+    FOLLOW_GT_EQ_in_comp_op1134 = frozenset([1])
+    FOLLOW_LT_EQ_in_comp_op1138 = frozenset([1])
+    FOLLOW_NOT_EQ_in_comp_op1142 = frozenset([1])
+    FOLLOW_IN_in_comp_op1146 = frozenset([1])
+    FOLLOW_NOT_in_comp_op1150 = frozenset([51])
+    FOLLOW_IN_in_comp_op1152 = frozenset([1])
+    FOLLOW_IS_in_comp_op1156 = frozenset([1])
+    FOLLOW_IS_in_comp_op1160 = frozenset([83])
+    FOLLOW_NOT_in_comp_op1162 = frozenset([1])
+    FOLLOW_xor_expr_in_expr1176 = frozenset([1, 13])
+    FOLLOW_BIT_OR_in_expr1179 = frozenset(
         [
             12,
             16,
@@ -6786,9 +8163,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_xor_expr_in_expr1172 = frozenset([1, 13])
-    FOLLOW_and_expr_in_xor_expr1184 = frozenset([1, 136])
-    FOLLOW_XOR_in_xor_expr1187 = frozenset(
+    FOLLOW_xor_expr_in_expr1181 = frozenset([1, 13])
+    FOLLOW_and_expr_in_xor_expr1193 = frozenset([1, 136])
+    FOLLOW_XOR_in_xor_expr1196 = frozenset(
         [
             12,
             16,
@@ -6813,9 +8190,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_and_expr_in_xor_expr1189 = frozenset([1, 136])
-    FOLLOW_shift_expr_in_and_expr1201 = frozenset([1, 11])
-    FOLLOW_BIT_AND_in_and_expr1204 = frozenset(
+    FOLLOW_and_expr_in_xor_expr1198 = frozenset([1, 136])
+    FOLLOW_shift_expr_in_and_expr1210 = frozenset([1, 11])
+    FOLLOW_BIT_AND_in_and_expr1213 = frozenset(
         [
             12,
             16,
@@ -6840,9 +8217,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_shift_expr_in_and_expr1206 = frozenset([1, 11])
-    FOLLOW_arith_expr_in_shift_expr1216 = frozenset([1, 67, 103])
-    FOLLOW_set_in_shift_expr1219 = frozenset(
+    FOLLOW_shift_expr_in_and_expr1215 = frozenset([1, 11])
+    FOLLOW_arith_expr_in_shift_expr1225 = frozenset([1, 67, 103])
+    FOLLOW_set_in_shift_expr1228 = frozenset(
         [
             12,
             16,
@@ -6867,9 +8244,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_arith_expr_in_shift_expr1227 = frozenset([1, 67, 103])
-    FOLLOW_term_in_arith_expr1237 = frozenset([1, 73, 92])
-    FOLLOW_set_in_arith_expr1240 = frozenset(
+    FOLLOW_arith_expr_in_shift_expr1236 = frozenset([1, 67, 103])
+    FOLLOW_term_in_arith_expr1246 = frozenset([1, 73, 92])
+    FOLLOW_set_in_arith_expr1249 = frozenset(
         [
             12,
             16,
@@ -6894,9 +8271,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_term_in_arith_expr1248 = frozenset([1, 73, 92])
-    FOLLOW_factor_in_term1264 = frozenset([1, 23, 46, 74, 76])
-    FOLLOW_set_in_term1267 = frozenset(
+    FOLLOW_term_in_arith_expr1257 = frozenset([1, 73, 92])
+    FOLLOW_factor_in_term1273 = frozenset([1, 23, 46, 74, 76])
+    FOLLOW_set_in_term1276 = frozenset(
         [
             12,
             16,
@@ -6921,8 +8298,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_factor_in_term1283 = frozenset([1, 23, 46, 74, 76])
-    FOLLOW_set_in_factor1297 = frozenset(
+    FOLLOW_factor_in_term1292 = frozenset([1, 23, 46, 74, 76])
+    FOLLOW_set_in_factor1306 = frozenset(
         [
             12,
             16,
@@ -6947,10 +8324,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_factor_in_factor1309 = frozenset([1])
-    FOLLOW_power_in_factor1313 = frozenset([1])
-    FOLLOW_atom_expr_in_power1326 = frozenset([1, 94])
-    FOLLOW_POWER_in_power1329 = frozenset(
+    FOLLOW_factor_in_factor1318 = frozenset([1])
+    FOLLOW_power_in_factor1322 = frozenset([1])
+    FOLLOW_atom_expr_in_power1335 = frozenset([1, 94])
+    FOLLOW_POWER_in_power1338 = frozenset(
         [
             12,
             16,
@@ -6975,10 +8352,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_factor_in_power1331 = frozenset([1])
-    FOLLOW_atom_in_atom_expr1342 = frozenset([1, 25, 58])
-    FOLLOW_trailer_in_atom_expr1347 = frozenset([1, 25, 58])
-    FOLLOW_LPAREN_in_atom1357 = frozenset(
+    FOLLOW_factor_in_power1340 = frozenset([1])
+    FOLLOW_atom_in_atom_expr1351 = frozenset([1, 25, 58])
+    FOLLOW_trailer_in_atom_expr1356 = frozenset([1, 25, 58])
+    FOLLOW_LPAREN_in_atom1366 = frozenset(
         [
             12,
             16,
@@ -7004,9 +8381,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_atom1359 = frozenset([102])
-    FOLLOW_RPAREN_in_atom1361 = frozenset([1])
-    FOLLOW_LBRACK_in_atom1367 = frozenset(
+    FOLLOW_test_in_atom1368 = frozenset([102])
+    FOLLOW_RPAREN_in_atom1370 = frozenset([1])
+    FOLLOW_LBRACK_in_atom1376 = frozenset(
         [
             12,
             16,
@@ -7033,14 +8410,14 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_testlist_comp_in_atom1370 = frozenset([98])
-    FOLLOW_MINUS_in_atom1376 = frozenset([54])
-    FOLLOW_INTEGER_in_atom1379 = frozenset([96])
-    FOLLOW_RANGE_in_atom1382 = frozenset([54, 73])
+    FOLLOW_testlist_comp_in_atom1379 = frozenset([98])
     FOLLOW_MINUS_in_atom1385 = frozenset([54])
-    FOLLOW_INTEGER_in_atom1388 = frozenset([98])
-    FOLLOW_RBRACK_in_atom1392 = frozenset([1])
-    FOLLOW_LT_in_atom1398 = frozenset(
+    FOLLOW_INTEGER_in_atom1388 = frozenset([96])
+    FOLLOW_RANGE_in_atom1391 = frozenset([54, 73])
+    FOLLOW_MINUS_in_atom1394 = frozenset([54])
+    FOLLOW_INTEGER_in_atom1397 = frozenset([98])
+    FOLLOW_RBRACK_in_atom1401 = frozenset([1])
+    FOLLOW_LT_in_atom1407 = frozenset(
         [
             12,
             16,
@@ -7066,9 +8443,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_vector_comp_in_atom1400 = frozenset([42])
-    FOLLOW_GT_in_atom1403 = frozenset([1])
-    FOLLOW_LBRACE_in_atom1409 = frozenset(
+    FOLLOW_vector_comp_in_atom1409 = frozenset([42])
+    FOLLOW_GT_in_atom1412 = frozenset([1])
+    FOLLOW_LBRACE_in_atom1418 = frozenset(
         [
             12,
             16,
@@ -7095,19 +8472,19 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_dict_or_set_maker_in_atom1411 = frozenset([97])
-    FOLLOW_RBRACE_in_atom1414 = frozenset([1])
-    FOLLOW_name_in_atom1420 = frozenset([1])
-    FOLLOW_SETTING_ID_in_atom1424 = frozenset([1])
-    FOLLOW_distribution_expr_in_atom1428 = frozenset([1])
-    FOLLOW_INTEGER_in_atom1434 = frozenset([1])
-    FOLLOW_FLOAT_NUMBER_in_atom1438 = frozenset([1])
-    FOLLOW_STRING_in_atom1442 = frozenset([1])
-    FOLLOW_NONE_in_atom1446 = frozenset([1])
-    FOLLOW_TRUE_in_atom1450 = frozenset([1])
-    FOLLOW_FALSE_in_atom1454 = frozenset([1])
-    FOLLOW_distribution_in_distribution_expr1483 = frozenset([66])
-    FOLLOW_LPAREN_in_distribution_expr1485 = frozenset(
+    FOLLOW_dict_or_set_maker_in_atom1420 = frozenset([97])
+    FOLLOW_RBRACE_in_atom1423 = frozenset([1])
+    FOLLOW_name_in_atom1429 = frozenset([1])
+    FOLLOW_SETTING_ID_in_atom1433 = frozenset([1])
+    FOLLOW_distribution_expr_in_atom1437 = frozenset([1])
+    FOLLOW_INTEGER_in_atom1443 = frozenset([1])
+    FOLLOW_FLOAT_NUMBER_in_atom1447 = frozenset([1])
+    FOLLOW_STRING_in_atom1451 = frozenset([1])
+    FOLLOW_NONE_in_atom1455 = frozenset([1])
+    FOLLOW_TRUE_in_atom1459 = frozenset([1])
+    FOLLOW_FALSE_in_atom1463 = frozenset([1])
+    FOLLOW_distribution_in_distribution_expr1492 = frozenset([66])
+    FOLLOW_LPAREN_in_distribution_expr1494 = frozenset(
         [
             12,
             16,
@@ -7133,11 +8510,11 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_arglist_in_distribution_expr1487 = frozenset([102])
-    FOLLOW_RPAREN_in_distribution_expr1489 = frozenset([1])
-    FOLLOW_test_in_testlist_comp1525 = frozenset([1, 18, 36])
-    FOLLOW_comp_for_in_testlist_comp1529 = frozenset([1])
-    FOLLOW_COMMA_in_testlist_comp1534 = frozenset(
+    FOLLOW_arglist_in_distribution_expr1496 = frozenset([102])
+    FOLLOW_RPAREN_in_distribution_expr1498 = frozenset([1])
+    FOLLOW_test_in_testlist_comp1534 = frozenset([1, 18, 36])
+    FOLLOW_comp_for_in_testlist_comp1538 = frozenset([1])
+    FOLLOW_COMMA_in_testlist_comp1543 = frozenset(
         [
             12,
             16,
@@ -7163,9 +8540,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_testlist_comp1536 = frozenset([1, 18])
-    FOLLOW_expr_in_vector_comp1548 = frozenset([18])
-    FOLLOW_COMMA_in_vector_comp1550 = frozenset(
+    FOLLOW_test_in_testlist_comp1545 = frozenset([1, 18])
+    FOLLOW_expr_in_vector_comp1557 = frozenset([18])
+    FOLLOW_COMMA_in_vector_comp1559 = frozenset(
         [
             12,
             16,
@@ -7190,8 +8567,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_expr_in_vector_comp1552 = frozenset([18])
-    FOLLOW_COMMA_in_vector_comp1554 = frozenset(
+    FOLLOW_expr_in_vector_comp1561 = frozenset([18])
+    FOLLOW_COMMA_in_vector_comp1563 = frozenset(
         [
             12,
             16,
@@ -7216,8 +8593,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_expr_in_vector_comp1556 = frozenset([1])
-    FOLLOW_LBRACK_in_trailer1572 = frozenset(
+    FOLLOW_expr_in_vector_comp1565 = frozenset([1])
+    FOLLOW_LBRACK_in_trailer1581 = frozenset(
         [
             12,
             16,
@@ -7244,12 +8621,12 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_subscriptlist_in_trailer1574 = frozenset([98])
-    FOLLOW_RBRACK_in_trailer1576 = frozenset([1])
-    FOLLOW_DOT_in_trailer1580 = frozenset([45, 130])
-    FOLLOW_name_in_trailer1582 = frozenset([1])
-    FOLLOW_argument_in_arglist1595 = frozenset([1, 18])
-    FOLLOW_COMMA_in_arglist1598 = frozenset(
+    FOLLOW_subscriptlist_in_trailer1583 = frozenset([98])
+    FOLLOW_RBRACK_in_trailer1585 = frozenset([1])
+    FOLLOW_DOT_in_trailer1589 = frozenset([45, 130])
+    FOLLOW_name_in_trailer1591 = frozenset([1])
+    FOLLOW_argument_in_arglist1604 = frozenset([1, 18])
+    FOLLOW_COMMA_in_arglist1607 = frozenset(
         [
             12,
             16,
@@ -7275,10 +8652,10 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_argument_in_arglist1600 = frozenset([1, 18])
-    FOLLOW_test_in_argument1614 = frozenset([1, 7, 36])
-    FOLLOW_comp_for_in_argument1617 = frozenset([1])
-    FOLLOW_ASSIGN_in_argument1621 = frozenset(
+    FOLLOW_argument_in_arglist1609 = frozenset([1, 18])
+    FOLLOW_test_in_argument1623 = frozenset([1, 7, 36])
+    FOLLOW_comp_for_in_argument1626 = frozenset([1])
+    FOLLOW_ASSIGN_in_argument1630 = frozenset(
         [
             12,
             16,
@@ -7304,9 +8681,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_argument1623 = frozenset([1])
-    FOLLOW_subscript__in_subscriptlist1632 = frozenset([1, 18])
-    FOLLOW_COMMA_in_subscriptlist1635 = frozenset(
+    FOLLOW_test_in_argument1632 = frozenset([1])
+    FOLLOW_subscript__in_subscriptlist1641 = frozenset([1, 18])
+    FOLLOW_COMMA_in_subscriptlist1644 = frozenset(
         [
             12,
             16,
@@ -7333,9 +8710,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_subscript__in_subscriptlist1637 = frozenset([1, 18])
-    FOLLOW_test_in_subscript_1649 = frozenset([1, 17])
-    FOLLOW_COLON_in_subscript_1652 = frozenset(
+    FOLLOW_subscript__in_subscriptlist1646 = frozenset([1, 18])
+    FOLLOW_test_in_subscript_1658 = frozenset([1, 17])
+    FOLLOW_COLON_in_subscript_1661 = frozenset(
         [
             1,
             12,
@@ -7363,9 +8740,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_subscript_1655 = frozenset([1, 17])
-    FOLLOW_sliceop_in_subscript_1660 = frozenset([1])
-    FOLLOW_COLON_in_subscript_1668 = frozenset(
+    FOLLOW_test_in_subscript_1664 = frozenset([1, 17])
+    FOLLOW_sliceop_in_subscript_1669 = frozenset([1])
+    FOLLOW_COLON_in_subscript_1677 = frozenset(
         [
             1,
             12,
@@ -7393,9 +8770,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_subscript_1671 = frozenset([1, 17])
-    FOLLOW_sliceop_in_subscript_1676 = frozenset([1])
-    FOLLOW_COLON_in_sliceop1691 = frozenset(
+    FOLLOW_test_in_subscript_1680 = frozenset([1, 17])
+    FOLLOW_sliceop_in_subscript_1685 = frozenset([1])
+    FOLLOW_COLON_in_sliceop1700 = frozenset(
         [
             1,
             12,
@@ -7422,9 +8799,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_sliceop1693 = frozenset([1])
-    FOLLOW_expr_in_exprlist1702 = frozenset([1, 18])
-    FOLLOW_COMMA_in_exprlist1705 = frozenset(
+    FOLLOW_test_in_sliceop1702 = frozenset([1])
+    FOLLOW_expr_in_exprlist1711 = frozenset([1, 18])
+    FOLLOW_COMMA_in_exprlist1714 = frozenset(
         [
             12,
             16,
@@ -7449,37 +8826,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_expr_in_exprlist1707 = frozenset([1, 18])
-    FOLLOW_test_in_testlist1716 = frozenset([1, 18])
-    FOLLOW_COMMA_in_testlist1719 = frozenset(
-        [
-            12,
-            16,
-            33,
-            35,
-            45,
-            54,
-            57,
-            58,
-            64,
-            66,
-            69,
-            73,
-            80,
-            82,
-            83,
-            92,
-            110,
-            112,
-            122,
-            129,
-            130,
-            131,
-        ]
-    )
-    FOLLOW_test_in_testlist1721 = frozenset([1, 18])
-    FOLLOW_test_in_dict_or_set_maker1731 = frozenset([1, 17, 18, 36])
-    FOLLOW_COLON_in_dict_or_set_maker1735 = frozenset(
+    FOLLOW_expr_in_exprlist1716 = frozenset([1, 18])
+    FOLLOW_test_in_testlist1725 = frozenset([1, 18])
+    FOLLOW_COMMA_in_testlist1728 = frozenset(
         [
             12,
             16,
@@ -7505,9 +8854,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker1737 = frozenset([1, 18, 36])
-    FOLLOW_comp_for_in_dict_or_set_maker1740 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker1745 = frozenset(
+    FOLLOW_test_in_testlist1730 = frozenset([1, 18])
+    FOLLOW_test_in_dict_or_set_maker1740 = frozenset([1, 17, 18, 36])
+    FOLLOW_COLON_in_dict_or_set_maker1744 = frozenset(
         [
             12,
             16,
@@ -7533,8 +8882,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker1747 = frozenset([17])
-    FOLLOW_COLON_in_dict_or_set_maker1749 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker1746 = frozenset([1, 18, 36])
+    FOLLOW_comp_for_in_dict_or_set_maker1749 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker1754 = frozenset(
         [
             12,
             16,
@@ -7560,9 +8910,8 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker1751 = frozenset([1, 18])
-    FOLLOW_comp_for_in_dict_or_set_maker1766 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker1771 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker1756 = frozenset([17])
+    FOLLOW_COLON_in_dict_or_set_maker1758 = frozenset(
         [
             12,
             16,
@@ -7588,36 +8937,9 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker1773 = frozenset([1, 18])
-    FOLLOW_comp_for_in_comp_iter1787 = frozenset([1])
-    FOLLOW_comp_if_in_comp_iter1791 = frozenset([1])
-    FOLLOW_FOR_in_comp_for1799 = frozenset(
-        [
-            12,
-            16,
-            33,
-            35,
-            45,
-            54,
-            57,
-            58,
-            64,
-            66,
-            69,
-            73,
-            80,
-            82,
-            92,
-            110,
-            112,
-            122,
-            129,
-            130,
-            131,
-        ]
-    )
-    FOLLOW_exprlist_in_comp_for1801 = frozenset([51])
-    FOLLOW_IN_in_comp_for1803 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker1760 = frozenset([1, 18])
+    FOLLOW_comp_for_in_dict_or_set_maker1775 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker1780 = frozenset(
         [
             12,
             16,
@@ -7643,9 +8965,36 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_or_test_in_comp_for1805 = frozenset([1, 36, 50])
-    FOLLOW_comp_iter_in_comp_for1807 = frozenset([1])
-    FOLLOW_IF_in_comp_if1817 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker1782 = frozenset([1, 18])
+    FOLLOW_comp_for_in_comp_iter1796 = frozenset([1])
+    FOLLOW_comp_if_in_comp_iter1800 = frozenset([1])
+    FOLLOW_FOR_in_comp_for1808 = frozenset(
+        [
+            12,
+            16,
+            33,
+            35,
+            45,
+            54,
+            57,
+            58,
+            64,
+            66,
+            69,
+            73,
+            80,
+            82,
+            92,
+            110,
+            112,
+            122,
+            129,
+            130,
+            131,
+        ]
+    )
+    FOLLOW_exprlist_in_comp_for1810 = frozenset([51])
+    FOLLOW_IN_in_comp_for1812 = frozenset(
         [
             12,
             16,
@@ -7671,8 +9020,36 @@ class YarcParser(Parser):
             131,
         ]
     )
-    FOLLOW_test_nocond_in_comp_if1819 = frozenset([1, 36, 50])
-    FOLLOW_comp_iter_in_comp_if1821 = frozenset([1])
+    FOLLOW_or_test_in_comp_for1814 = frozenset([1, 36, 50])
+    FOLLOW_comp_iter_in_comp_for1816 = frozenset([1])
+    FOLLOW_IF_in_comp_if1826 = frozenset(
+        [
+            12,
+            16,
+            33,
+            35,
+            45,
+            54,
+            57,
+            58,
+            64,
+            66,
+            69,
+            73,
+            80,
+            82,
+            83,
+            92,
+            110,
+            112,
+            122,
+            129,
+            130,
+            131,
+        ]
+    )
+    FOLLOW_test_nocond_in_comp_if1828 = frozenset([1, 36, 50])
+    FOLLOW_comp_iter_in_comp_if1830 = frozenset([1])
 
 
 def main(argv, stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr):

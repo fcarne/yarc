@@ -3,6 +3,7 @@ parser grammar YarcParser;
 options {
   tokenVocab = YarcLexer;
   language = Python3;
+  output = template;
 }
 
 scenario : declaration NEWLINE* settings? stage? writers?; // Starting rule
