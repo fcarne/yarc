@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g 2023-04-29 10:46:59
+# $ANTLR 3.5.1 /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g 2023-05-06 17:52:51
 
 import sys
 
@@ -160,7 +160,7 @@ XOR_ASSIGN = 137
 
 
 class YarcLexer(YarcLexerBase):
-    grammarFileName = "C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g"
+    grammarFileName = "/media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g"
     api_version = 1
 
     def __init__(self, input=None, state=None):
@@ -170,28 +170,16 @@ class YarcLexer(YarcLexerBase):
 
         self.delegates = []
 
-        self.dfa20 = self.DFA20(
+        self.dfa21 = self.DFA21(
             self,
-            20,
-            eot=self.DFA20_eot,
-            eof=self.DFA20_eof,
-            min=self.DFA20_min,
-            max=self.DFA20_max,
-            accept=self.DFA20_accept,
-            special=self.DFA20_special,
-            transition=self.DFA20_transition,
-        )
-
-        self.dfa30 = self.DFA30(
-            self,
-            30,
-            eot=self.DFA30_eot,
-            eof=self.DFA30_eof,
-            min=self.DFA30_min,
-            max=self.DFA30_max,
-            accept=self.DFA30_accept,
-            special=self.DFA30_special,
-            transition=self.DFA30_transition,
+            21,
+            eot=self.DFA21_eot,
+            eof=self.DFA21_eof,
+            min=self.DFA21_min,
+            max=self.DFA21_max,
+            accept=self.DFA21_accept,
+            special=self.DFA21_special,
+            transition=self.DFA21_transition,
         )
 
         self.dfa31 = self.DFA31(
@@ -206,16 +194,28 @@ class YarcLexer(YarcLexerBase):
             transition=self.DFA31_transition,
         )
 
-        self.dfa41 = self.DFA41(
+        self.dfa32 = self.DFA32(
             self,
-            41,
-            eot=self.DFA41_eot,
-            eof=self.DFA41_eof,
-            min=self.DFA41_min,
-            max=self.DFA41_max,
-            accept=self.DFA41_accept,
-            special=self.DFA41_special,
-            transition=self.DFA41_transition,
+            32,
+            eot=self.DFA32_eot,
+            eof=self.DFA32_eof,
+            min=self.DFA32_min,
+            max=self.DFA32_max,
+            accept=self.DFA32_accept,
+            special=self.DFA32_special,
+            transition=self.DFA32_transition,
+        )
+
+        self.dfa42 = self.DFA42(
+            self,
+            42,
+            eot=self.DFA42_eot,
+            eof=self.DFA42_eof,
+            min=self.DFA42_min,
+            max=self.DFA42_max,
+            accept=self.DFA42_accept,
+            special=self.DFA42_special,
+            transition=self.DFA42_transition,
         )
 
     # $ANTLR start "SCENARIO"
@@ -226,8 +226,8 @@ class YarcLexer(YarcLexerBase):
             _type = SCENARIO
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:22:10: ( 'scenario' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:22:12: 'scenario'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:22:10: ( 'scenario' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:22:12: 'scenario'
             self.match("scenario")
 
             self._state.type = _type
@@ -245,8 +245,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTINGS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:23:10: ( 'settings' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:23:12: 'settings'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:23:10: ( 'settings' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:23:12: 'settings'
             self.match("settings")
 
             self._state.type = _type
@@ -264,8 +264,8 @@ class YarcLexer(YarcLexerBase):
             _type = STAGE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:24:10: ( 'stage' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:24:12: 'stage'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:24:10: ( 'stage' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:24:12: 'stage'
             self.match("stage")
 
             self._state.type = _type
@@ -283,8 +283,8 @@ class YarcLexer(YarcLexerBase):
             _type = WRITERS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:25:10: ( 'writers' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:25:12: 'writers'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:25:10: ( 'writers' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:25:12: 'writers'
             self.match("writers")
 
             self._state.type = _type
@@ -302,7 +302,7 @@ class YarcLexer(YarcLexerBase):
             _type = SHAPES
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:28:18: ( 'Plane' | 'Cube' | 'Cone' | 'Torus' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:18: ( 'Plane' | 'Cube' | 'Cone' | 'Torus' )
             alt1 = 4
             LA1 = self.input.LA(1)
             if LA1 == 80:
@@ -327,19 +327,19 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt1 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:28:20: 'Plane'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:20: 'Plane'
                 self.match("Plane")
 
             elif alt1 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:28:30: 'Cube'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:30: 'Cube'
                 self.match("Cube")
 
             elif alt1 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:28:39: 'Cone'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:39: 'Cone'
                 self.match("Cone")
 
             elif alt1 == 4:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:28:48: 'Torus'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:28:48: 'Torus'
                 self.match("Torus")
 
             self._state.type = _type
@@ -357,7 +357,7 @@ class YarcLexer(YarcLexerBase):
             _type = SHAPES_OR_LIGHTS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:29:18: ( 'Sphere' | 'Cylinder' | 'Disk' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:29:18: ( 'Sphere' | 'Cylinder' | 'Disk' )
             alt2 = 3
             LA2 = self.input.LA(1)
             if LA2 == 83:
@@ -372,15 +372,15 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt2 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:29:20: 'Sphere'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:29:20: 'Sphere'
                 self.match("Sphere")
 
             elif alt2 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:29:31: 'Cylinder'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:29:31: 'Cylinder'
                 self.match("Cylinder")
 
             elif alt2 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:29:44: 'Disk'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:29:44: 'Disk'
                 self.match("Disk")
 
             self._state.type = _type
@@ -398,8 +398,8 @@ class YarcLexer(YarcLexerBase):
             _type = CAMERA
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:30:18: ( 'Camera' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:30:20: 'Camera'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:30:18: ( 'Camera' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:30:20: 'Camera'
             self.match("Camera")
 
             self._state.type = _type
@@ -417,8 +417,8 @@ class YarcLexer(YarcLexerBase):
             _type = LIGHT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:31:18: ( 'Light' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:31:20: 'Light'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:31:18: ( 'Light' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:31:20: 'Light'
             self.match("Light")
 
             self._state.type = _type
@@ -436,7 +436,7 @@ class YarcLexer(YarcLexerBase):
             _type = LIGHT_TYPE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:32:18: ( 'Rect' | 'Dome' | 'Distant' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:32:18: ( 'Rect' | 'Dome' | 'Distant' )
             alt3 = 3
             LA3_0 = self.input.LA(1)
 
@@ -460,15 +460,15 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt3 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:32:20: 'Rect'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:32:20: 'Rect'
                 self.match("Rect")
 
             elif alt3 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:32:29: 'Dome'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:32:29: 'Dome'
                 self.match("Dome")
 
             elif alt3 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:32:38: 'Distant'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:32:38: 'Distant'
                 self.match("Distant")
 
             self._state.type = _type
@@ -486,8 +486,8 @@ class YarcLexer(YarcLexerBase):
             _type = STEREO
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:33:18: ( 'Stereo' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:33:20: 'Stereo'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:33:18: ( 'Stereo' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:33:20: 'Stereo'
             self.match("Stereo")
 
             self._state.type = _type
@@ -505,8 +505,8 @@ class YarcLexer(YarcLexerBase):
             _type = MATERIAL
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:34:18: ( 'Material' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:34:20: 'Material'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:34:18: ( 'Material' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:34:20: 'Material'
             self.match("Material")
 
             self._state.type = _type
@@ -524,8 +524,8 @@ class YarcLexer(YarcLexerBase):
             _type = TIMELINE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:35:18: ( 'Timeline' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:35:20: 'Timeline'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:35:18: ( 'Timeline' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:35:20: 'Timeline'
             self.match("Timeline")
 
             self._state.type = _type
@@ -543,8 +543,8 @@ class YarcLexer(YarcLexerBase):
             _type = OPEN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:38:13: ( 'open' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:38:15: 'open'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:38:13: ( 'open' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:38:15: 'open'
             self.match("open")
 
             self._state.type = _type
@@ -562,8 +562,8 @@ class YarcLexer(YarcLexerBase):
             _type = CREATE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:39:13: ( 'create' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:39:15: 'create'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:39:13: ( 'create' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:39:15: 'create'
             self.match("create")
 
             self._state.type = _type
@@ -581,8 +581,8 @@ class YarcLexer(YarcLexerBase):
             _type = GROUP
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:40:13: ( 'group' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:40:15: 'group'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:40:13: ( 'group' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:40:15: 'group'
             self.match("group")
 
             self._state.type = _type
@@ -600,8 +600,8 @@ class YarcLexer(YarcLexerBase):
             _type = INSTANTIATE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:41:13: ( 'instantiate' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:41:15: 'instantiate'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:41:13: ( 'instantiate' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:41:15: 'instantiate'
             self.match("instantiate")
 
             self._state.type = _type
@@ -619,8 +619,8 @@ class YarcLexer(YarcLexerBase):
             _type = GET
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:42:13: ( 'get' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:42:15: 'get'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:42:13: ( 'get' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:42:15: 'get'
             self.match("get")
 
             self._state.type = _type
@@ -638,8 +638,8 @@ class YarcLexer(YarcLexerBase):
             _type = EDIT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:43:13: ( 'edit' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:43:15: 'edit'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:43:13: ( 'edit' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:43:15: 'edit'
             self.match("edit")
 
             self._state.type = _type
@@ -657,8 +657,8 @@ class YarcLexer(YarcLexerBase):
             _type = FETCH
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:47:11: ( 'fetch' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:47:13: 'fetch'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:47:11: ( 'fetch' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:47:13: 'fetch'
             self.match("fetch")
 
             self._state.type = _type
@@ -676,8 +676,8 @@ class YarcLexer(YarcLexerBase):
             _type = MATCH
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:48:11: ( 'match' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:48:13: 'match'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:48:11: ( 'match' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:48:13: 'match'
             self.match("match")
 
             self._state.type = _type
@@ -695,8 +695,8 @@ class YarcLexer(YarcLexerBase):
             _type = LIMIT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:49:11: ( 'limit' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:49:13: 'limit'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:49:11: ( 'limit' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:49:13: 'limit'
             self.match("limit")
 
             self._state.type = _type
@@ -714,8 +714,8 @@ class YarcLexer(YarcLexerBase):
             _type = RECURSIVE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:50:11: ( 'recursive' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:50:13: 'recursive'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:50:11: ( 'recursive' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:50:13: 'recursive'
             self.match("recursive")
 
             self._state.type = _type
@@ -733,8 +733,8 @@ class YarcLexer(YarcLexerBase):
             _type = TRANSLATE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:53:15: ( 'translate' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:53:17: 'translate'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:53:15: ( 'translate' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:53:17: 'translate'
             self.match("translate")
 
             self._state.type = _type
@@ -752,8 +752,8 @@ class YarcLexer(YarcLexerBase):
             _type = CAM_TRANSLATE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:54:15: ( 'camera_translate' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:54:17: 'camera_translate'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:54:15: ( 'camera_translate' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:54:17: 'camera_translate'
             self.match("camera_translate")
 
             self._state.type = _type
@@ -771,8 +771,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROTATE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:55:15: ( 'rotate' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:55:17: 'rotate'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:55:15: ( 'rotate' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:55:17: 'rotate'
             self.match("rotate")
 
             self._state.type = _type
@@ -790,8 +790,8 @@ class YarcLexer(YarcLexerBase):
             _type = SCALE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:56:15: ( 'scale' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:56:17: 'scale'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:56:15: ( 'scale' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:56:17: 'scale'
             self.match("scale")
 
             self._state.type = _type
@@ -809,8 +809,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMANTICS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:57:15: ( 'semantics' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:57:17: 'semantics'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:57:15: ( 'semantics' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:57:17: 'semantics'
             self.match("semantics")
 
             self._state.type = _type
@@ -828,8 +828,8 @@ class YarcLexer(YarcLexerBase):
             _type = VISIBLE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:58:15: ( 'visible' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:58:17: 'visible'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:58:15: ( 'visible' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:58:17: 'visible'
             self.match("visible")
 
             self._state.type = _type
@@ -847,8 +847,8 @@ class YarcLexer(YarcLexerBase):
             _type = SIZE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:59:15: ( 'size' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:59:17: 'size'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:59:15: ( 'size' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:59:17: 'size'
             self.match("size")
 
             self._state.type = _type
@@ -866,8 +866,8 @@ class YarcLexer(YarcLexerBase):
             _type = LOOK_AT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:60:15: ( 'look_at' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:60:17: 'look_at'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:60:15: ( 'look_at' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:60:17: 'look_at'
             self.match("look_at")
 
             self._state.type = _type
@@ -885,8 +885,8 @@ class YarcLexer(YarcLexerBase):
             _type = UP_AXIS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:61:15: ( 'up_axis' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:61:17: 'up_axis'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:61:15: ( 'up_axis' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:61:17: 'up_axis'
             self.match("up_axis")
 
             self._state.type = _type
@@ -904,8 +904,8 @@ class YarcLexer(YarcLexerBase):
             _type = AXIS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:62:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:62:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (88 <= self.input.LA(1) <= 90) or (120 <= self.input.LA(1) <= 122):
                 self.input.consume()
             else:
@@ -928,8 +928,8 @@ class YarcLexer(YarcLexerBase):
             _type = ORDER
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:63:15: ( AXIS AXIS AXIS )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:63:17: AXIS AXIS AXIS
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:63:15: ( AXIS AXIS AXIS )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:63:17: AXIS AXIS AXIS
             self.mAXIS()
 
             self.mAXIS()
@@ -951,11 +951,11 @@ class YarcLexer(YarcLexerBase):
             _type = SCATTER
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:66:12: ( 'scatter_' ( '2d' | '3d' ) )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:66:14: 'scatter_' ( '2d' | '3d' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:66:12: ( 'scatter_' ( '2d' | '3d' ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:66:14: 'scatter_' ( '2d' | '3d' )
             self.match("scatter_")
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:66:25: ( '2d' | '3d' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:66:25: ( '2d' | '3d' )
             alt4 = 2
             LA4_0 = self.input.LA(1)
 
@@ -969,11 +969,11 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt4 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:66:26: '2d'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:66:26: '2d'
                 self.match("2d")
 
             elif alt4 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:66:33: '3d'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:66:33: '3d'
                 self.match("3d")
 
             self._state.type = _type
@@ -991,8 +991,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROT_AROUND
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:67:12: ( 'rotate_around' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:67:14: 'rotate_around'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:67:12: ( 'rotate_around' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:67:14: 'rotate_around'
             self.match("rotate_around")
 
             self._state.type = _type
@@ -1010,7 +1010,7 @@ class YarcLexer(YarcLexerBase):
             _type = PHYSICS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:68:12: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:12: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
             alt5 = 4
             LA5 = self.input.LA(1)
             if LA5 == 99:
@@ -1027,19 +1027,19 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt5 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:68:14: 'collider'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:14: 'collider'
                 self.match("collider")
 
             elif alt5 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:68:27: 'kinematics'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:27: 'kinematics'
                 self.match("kinematics")
 
             elif alt5 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:68:42: 'rigid_body'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:42: 'rigid_body'
                 self.match("rigid_body")
 
             elif alt5 == 4:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:68:57: 'physics_material'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:68:57: 'physics_material'
                 self.match("physics_material")
 
             self._state.type = _type
@@ -1057,8 +1057,8 @@ class YarcLexer(YarcLexerBase):
             _type = EVERY
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:71:8: ( 'every' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:71:10: 'every'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:71:8: ( 'every' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:71:10: 'every'
             self.match("every")
 
             self._state.type = _type
@@ -1076,18 +1076,18 @@ class YarcLexer(YarcLexerBase):
             _type = FRAMES
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:72:8: ( 'frame' ( 's' )? )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:72:10: 'frame' ( 's' )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:72:8: ( 'frame' ( 's' )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:72:10: 'frame' ( 's' )?
             self.match("frame")
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:72:18: ( 's' )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:72:18: ( 's' )?
             alt6 = 2
             LA6_0 = self.input.LA(1)
 
             if LA6_0 == 115:
                 alt6 = 1
             if alt6 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:72:18: 's'
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:72:18: 's'
                 self.match(115)
 
             self._state.type = _type
@@ -1105,28 +1105,28 @@ class YarcLexer(YarcLexerBase):
             _type = TIME
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:8: ( 'sec' ( 'ond' ( 's' )? )? )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:10: 'sec' ( 'ond' ( 's' )? )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:8: ( 'sec' ( 'ond' ( 's' )? )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:10: 'sec' ( 'ond' ( 's' )? )?
             self.match("sec")
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:16: ( 'ond' ( 's' )? )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:16: ( 'ond' ( 's' )? )?
             alt8 = 2
             LA8_0 = self.input.LA(1)
 
             if LA8_0 == 111:
                 alt8 = 1
             if alt8 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:17: 'ond' ( 's' )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:17: 'ond' ( 's' )?
                 self.match("ond")
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:23: ( 's' )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:23: ( 's' )?
                 alt7 = 2
                 LA7_0 = self.input.LA(1)
 
                 if LA7_0 == 115:
                     alt7 = 1
                 if alt7 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:73:23: 's'
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:73:23: 's'
                     self.match(115)
 
             self._state.type = _type
@@ -1144,8 +1144,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNIFORM
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:76:13: ( 'Uniform' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:76:15: 'Uniform'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:76:13: ( 'Uniform' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:76:15: 'Uniform'
             self.match("Uniform")
 
             self._state.type = _type
@@ -1163,8 +1163,8 @@ class YarcLexer(YarcLexerBase):
             _type = NORMAL
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:77:13: ( 'Normal' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:77:15: 'Normal'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:77:13: ( 'Normal' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:77:15: 'Normal'
             self.match("Normal")
 
             self._state.type = _type
@@ -1182,8 +1182,8 @@ class YarcLexer(YarcLexerBase):
             _type = CHOICE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:78:13: ( 'Choice' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:78:15: 'Choice'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:78:13: ( 'Choice' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:78:15: 'Choice'
             self.match("Choice")
 
             self._state.type = _type
@@ -1201,8 +1201,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEQUENCE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:79:13: ( 'Sequence' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:79:15: 'Sequence'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:79:13: ( 'Sequence' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:79:15: 'Sequence'
             self.match("Sequence")
 
             self._state.type = _type
@@ -1220,8 +1220,8 @@ class YarcLexer(YarcLexerBase):
             _type = LOG_UNIFORM
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:80:13: ( 'LogUniform' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:80:15: 'LogUniform'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:80:13: ( 'LogUniform' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:80:15: 'LogUniform'
             self.match("LogUniform")
 
             self._state.type = _type
@@ -1239,9 +1239,19 @@ class YarcLexer(YarcLexerBase):
             _type = SNIPPET
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:83:9: ( NESTED_CODE )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:83:11: NESTED_CODE
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:83:9: ( NESTED_CODE ( NEWLINE )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:83:11: NESTED_CODE ( NEWLINE )?
             self.mNESTED_CODE()
+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:83:23: ( NEWLINE )?
+            alt9 = 2
+            LA9_0 = self.input.LA(1)
+
+            if LA9_0 == 10 or (12 <= LA9_0 <= 13):
+                alt9 = 1
+            if alt9 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:83:23: NEWLINE
+                self.mNEWLINE()
 
             # action start
             print("FOUND SNIPPET CODE!")
@@ -1263,34 +1273,34 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:85:21: ( LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:86:3: LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:85:21: ( LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:86:3: LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE
             self.mLBRACE()
 
             self.mLBRACE()
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:87:5: ( options {k=2; greedy=false; } : NESTED_CODE | . )*
-            while True:  # loop9
-                alt9 = 3
-                LA9_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:87:5: ( options {k=2; greedy=false; } : NESTED_CODE | . )*
+            while True:  # loop10
+                alt10 = 3
+                LA10_0 = self.input.LA(1)
 
-                if LA9_0 == 125:
-                    alt9 = 3
-                elif LA9_0 == 123:
-                    alt9 = 1
-                elif (0 <= LA9_0 <= 122) or LA9_0 == 124 or (126 <= LA9_0 <= 65535):
-                    alt9 = 2
+                if LA10_0 == 125:
+                    alt10 = 3
+                elif LA10_0 == 123:
+                    alt10 = 1
+                elif (0 <= LA10_0 <= 122) or LA10_0 == 124 or (126 <= LA10_0 <= 65535):
+                    alt10 = 2
 
-                if alt9 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:87:37: NESTED_CODE
+                if alt10 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:87:37: NESTED_CODE
                     self.mNESTED_CODE()
 
-                elif alt9 == 2:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:87:51: .
+                elif alt10 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:87:51: .
                     self.matchAny()
 
                 else:
-                    break  # loop9
+                    break  # loop10
 
             self.mRBRACE()
 
@@ -1309,8 +1319,8 @@ class YarcLexer(YarcLexerBase):
             _type = TO
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:92:4: ( 'to' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:92:6: 'to'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:92:4: ( 'to' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:92:6: 'to'
             self.match("to")
 
             self._state.type = _type
@@ -1328,8 +1338,8 @@ class YarcLexer(YarcLexerBase):
             _type = ON
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:93:4: ( 'on' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:93:6: 'on'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:93:4: ( 'on' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:93:6: 'on'
             self.match("on")
 
             self._state.type = _type
@@ -1347,8 +1357,8 @@ class YarcLexer(YarcLexerBase):
             _type = AT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:94:4: ( 'at' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:94:6: 'at'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:94:4: ( 'at' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:94:6: 'at'
             self.match("at")
 
             self._state.type = _type
@@ -1366,8 +1376,8 @@ class YarcLexer(YarcLexerBase):
             _type = AND
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:101:12: ( 'and' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:101:14: 'and'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:101:12: ( 'and' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:101:14: 'and'
             self.match("and")
 
             self._state.type = _type
@@ -1385,8 +1395,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELSE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:102:12: ( 'else' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:102:14: 'else'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:102:12: ( 'else' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:102:14: 'else'
             self.match("else")
 
             self._state.type = _type
@@ -1404,8 +1414,8 @@ class YarcLexer(YarcLexerBase):
             _type = FALSE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:103:12: ( 'false' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:103:14: 'false'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:103:12: ( 'false' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:103:14: 'false'
             self.match("false")
 
             self._state.type = _type
@@ -1423,8 +1433,8 @@ class YarcLexer(YarcLexerBase):
             _type = FOR
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:104:12: ( 'for' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:104:14: 'for'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:104:12: ( 'for' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:104:14: 'for'
             self.match("for")
 
             self._state.type = _type
@@ -1442,8 +1452,8 @@ class YarcLexer(YarcLexerBase):
             _type = FROM
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:105:12: ( 'from' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:105:14: 'from'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:105:12: ( 'from' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:105:14: 'from'
             self.match("from")
 
             self._state.type = _type
@@ -1461,8 +1471,8 @@ class YarcLexer(YarcLexerBase):
             _type = IF
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:106:12: ( 'if' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:106:14: 'if'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:106:12: ( 'if' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:106:14: 'if'
             self.match("if")
 
             self._state.type = _type
@@ -1480,8 +1490,8 @@ class YarcLexer(YarcLexerBase):
             _type = IN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:107:12: ( 'in' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:107:14: 'in'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:107:12: ( 'in' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:107:14: 'in'
             self.match("in")
 
             self._state.type = _type
@@ -1499,8 +1509,8 @@ class YarcLexer(YarcLexerBase):
             _type = IS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:108:12: ( 'is' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:108:14: 'is'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:108:12: ( 'is' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:108:14: 'is'
             self.match("is")
 
             self._state.type = _type
@@ -1518,8 +1528,8 @@ class YarcLexer(YarcLexerBase):
             _type = NONE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:109:12: ( 'none' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:109:14: 'none'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:109:12: ( 'none' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:109:14: 'none'
             self.match("none")
 
             self._state.type = _type
@@ -1537,8 +1547,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:110:12: ( 'not' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:110:14: 'not'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:110:12: ( 'not' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:110:14: 'not'
             self.match("not")
 
             self._state.type = _type
@@ -1556,8 +1566,8 @@ class YarcLexer(YarcLexerBase):
             _type = OR
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:111:12: ( 'or' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:111:14: 'or'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:111:12: ( 'or' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:111:14: 'or'
             self.match("or")
 
             self._state.type = _type
@@ -1575,8 +1585,8 @@ class YarcLexer(YarcLexerBase):
             _type = TRUE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:112:12: ( 'true' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:112:14: 'true'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:112:12: ( 'true' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:112:14: 'true'
             self.match("true")
 
             self._state.type = _type
@@ -1594,8 +1604,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNDERSCORE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:113:12: ( '_' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:113:14: '_'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:113:12: ( '_' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:113:14: '_'
             self.match(95)
 
             self._state.type = _type
@@ -1613,8 +1623,8 @@ class YarcLexer(YarcLexerBase):
             _type = DOT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:116:10: ( '.' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:116:12: '.'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:116:10: ( '.' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:116:12: '.'
             self.match(46)
 
             self._state.type = _type
@@ -1632,8 +1642,8 @@ class YarcLexer(YarcLexerBase):
             _type = RANGE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:117:10: ( '..' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:117:12: '..'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:117:10: ( '..' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:117:12: '..'
             self.match("..")
 
             self._state.type = _type
@@ -1651,8 +1661,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELLIPSIS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:118:10: ( '...' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:118:12: '...'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:118:10: ( '...' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:118:12: '...'
             self.match("...")
 
             self._state.type = _type
@@ -1670,8 +1680,8 @@ class YarcLexer(YarcLexerBase):
             _type = COMMA
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:119:10: ( ',' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:119:12: ','
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:119:10: ( ',' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:119:12: ','
             self.match(44)
 
             self._state.type = _type
@@ -1689,8 +1699,8 @@ class YarcLexer(YarcLexerBase):
             _type = COLON
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:120:10: ( ':' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:120:12: ':'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:120:10: ( ':' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:120:12: ':'
             self.match(58)
 
             self._state.type = _type
@@ -1708,8 +1718,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMI
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:121:10: ( ';' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:121:12: ';'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:121:10: ( ';' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:121:12: ';'
             self.match(59)
 
             self._state.type = _type
@@ -1727,8 +1737,8 @@ class YarcLexer(YarcLexerBase):
             _type = ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:123:9: ( '=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:123:11: '='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:123:9: ( '=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:123:11: '='
             self.match(61)
 
             self._state.type = _type
@@ -1746,8 +1756,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_OR
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:124:9: ( '|' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:124:11: '|'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:124:9: ( '|' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:124:11: '|'
             self.match(124)
 
             self._state.type = _type
@@ -1765,8 +1775,8 @@ class YarcLexer(YarcLexerBase):
             _type = XOR
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:125:9: ( '^' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:125:11: '^'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:125:9: ( '^' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:125:11: '^'
             self.match(94)
 
             self._state.type = _type
@@ -1784,8 +1794,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_AND
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:126:9: ( '&' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:126:11: '&'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:126:9: ( '&' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:126:11: '&'
             self.match(38)
 
             self._state.type = _type
@@ -1803,8 +1813,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_NOT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:127:9: ( '~' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:127:11: '~'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:127:9: ( '~' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:127:11: '~'
             self.match(126)
 
             self._state.type = _type
@@ -1822,8 +1832,8 @@ class YarcLexer(YarcLexerBase):
             _type = LSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:128:9: ( '<<' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:128:11: '<<'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:128:9: ( '<<' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:128:11: '<<'
             self.match("<<")
 
             self._state.type = _type
@@ -1841,8 +1851,8 @@ class YarcLexer(YarcLexerBase):
             _type = RSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:129:9: ( '>>' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:129:11: '>>'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:129:9: ( '>>' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:129:11: '>>'
             self.match(">>")
 
             self._state.type = _type
@@ -1860,8 +1870,8 @@ class YarcLexer(YarcLexerBase):
             _type = PLUS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:130:9: ( '+' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:130:11: '+'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:130:9: ( '+' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:130:11: '+'
             self.match(43)
 
             self._state.type = _type
@@ -1879,8 +1889,8 @@ class YarcLexer(YarcLexerBase):
             _type = MINUS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:131:9: ( '-' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:131:11: '-'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:131:9: ( '-' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:131:11: '-'
             self.match(45)
 
             self._state.type = _type
@@ -1898,8 +1908,8 @@ class YarcLexer(YarcLexerBase):
             _type = MUL
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:132:8: ( '*' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:132:10: '*'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:132:8: ( '*' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:132:10: '*'
             self.match(42)
 
             self._state.type = _type
@@ -1917,8 +1927,8 @@ class YarcLexer(YarcLexerBase):
             _type = DIV
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:133:9: ( '/' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:133:11: '/'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:133:9: ( '/' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:133:11: '/'
             self.match(47)
 
             self._state.type = _type
@@ -1936,8 +1946,8 @@ class YarcLexer(YarcLexerBase):
             _type = MOD
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:134:9: ( '%' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:134:11: '%'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:134:9: ( '%' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:134:11: '%'
             self.match(37)
 
             self._state.type = _type
@@ -1955,8 +1965,8 @@ class YarcLexer(YarcLexerBase):
             _type = IDIV
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:135:9: ( '//' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:135:11: '//'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:135:9: ( '//' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:135:11: '//'
             self.match("//")
 
             self._state.type = _type
@@ -1974,8 +1984,8 @@ class YarcLexer(YarcLexerBase):
             _type = POWER
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:136:9: ( '**' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:136:11: '**'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:136:9: ( '**' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:136:11: '**'
             self.match("**")
 
             self._state.type = _type
@@ -1993,8 +2003,8 @@ class YarcLexer(YarcLexerBase):
             _type = LPAREN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:138:8: ( '(' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:138:10: '('
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:138:8: ( '(' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:138:10: '('
             self.match(40)
 
             # action start
@@ -2016,8 +2026,8 @@ class YarcLexer(YarcLexerBase):
             _type = RPAREN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:139:8: ( ')' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:139:10: ')'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:139:8: ( ')' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:139:10: ')'
             self.match(41)
 
             # action start
@@ -2039,8 +2049,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACK
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:140:8: ( '[' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:140:10: '['
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:140:8: ( '[' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:140:10: '['
             self.match(91)
 
             # action start
@@ -2062,8 +2072,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACK
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:141:8: ( ']' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:141:10: ']'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:141:8: ( ']' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:141:10: ']'
             self.match(93)
 
             # action start
@@ -2085,8 +2095,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:142:8: ( '{' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:142:10: '{'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:142:8: ( '{' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:142:10: '{'
             self.match(123)
 
             # action start
@@ -2108,8 +2118,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:143:8: ( '}' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:143:10: '}'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:143:8: ( '}' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:143:10: '}'
             self.match(125)
 
             # action start
@@ -2131,8 +2141,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:145:8: ( '<' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:145:10: '<'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:145:8: ( '<' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:145:10: '<'
             self.match(60)
 
             self._state.type = _type
@@ -2150,8 +2160,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:146:8: ( '>' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:146:10: '>'
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:146:8: ( '>' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:146:10: '>'
             self.match(62)
 
             self._state.type = _type
@@ -2169,8 +2179,8 @@ class YarcLexer(YarcLexerBase):
             _type = EQUALS
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:147:8: ( '==' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:147:10: '=='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:147:8: ( '==' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:147:10: '=='
             self.match("==")
 
             self._state.type = _type
@@ -2188,8 +2198,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:148:8: ( '>=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:148:10: '>='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:148:8: ( '>=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:148:10: '>='
             self.match(">=")
 
             self._state.type = _type
@@ -2207,8 +2217,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:149:8: ( '<=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:149:10: '<='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:149:8: ( '<=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:149:10: '<='
             self.match("<=")
 
             self._state.type = _type
@@ -2226,8 +2236,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:150:8: ( '!=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:150:10: '!='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:150:8: ( '!=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:150:10: '!='
             self.match("!=")
 
             self._state.type = _type
@@ -2245,8 +2255,8 @@ class YarcLexer(YarcLexerBase):
             _type = ADD_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:152:15: ( '+=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:152:17: '+='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:15: ( '+=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:152:17: '+='
             self.match("+=")
 
             self._state.type = _type
@@ -2264,8 +2274,8 @@ class YarcLexer(YarcLexerBase):
             _type = SUB_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:153:15: ( '-=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:153:17: '-='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:153:15: ( '-=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:153:17: '-='
             self.match("-=")
 
             self._state.type = _type
@@ -2283,8 +2293,8 @@ class YarcLexer(YarcLexerBase):
             _type = MULT_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:154:15: ( '*=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:154:17: '*='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:154:15: ( '*=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:154:17: '*='
             self.match("*=")
 
             self._state.type = _type
@@ -2302,8 +2312,8 @@ class YarcLexer(YarcLexerBase):
             _type = DIV_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:155:15: ( '/=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:155:17: '/='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:15: ( '/=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:155:17: '/='
             self.match("/=")
 
             self._state.type = _type
@@ -2321,8 +2331,8 @@ class YarcLexer(YarcLexerBase):
             _type = MOD_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:156:15: ( '%=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:156:17: '%='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:15: ( '%=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:156:17: '%='
             self.match("%=")
 
             self._state.type = _type
@@ -2340,8 +2350,8 @@ class YarcLexer(YarcLexerBase):
             _type = AND_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:157:15: ( '&=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:157:17: '&='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:157:15: ( '&=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:157:17: '&='
             self.match("&=")
 
             self._state.type = _type
@@ -2359,8 +2369,8 @@ class YarcLexer(YarcLexerBase):
             _type = OR_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:158:15: ( '|=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:158:17: '|='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:158:15: ( '|=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:158:17: '|='
             self.match("|=")
 
             self._state.type = _type
@@ -2378,8 +2388,8 @@ class YarcLexer(YarcLexerBase):
             _type = XOR_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:159:15: ( '^=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:159:17: '^='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:159:15: ( '^=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:159:17: '^='
             self.match("^=")
 
             self._state.type = _type
@@ -2397,8 +2407,8 @@ class YarcLexer(YarcLexerBase):
             _type = LSHIFT_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:160:15: ( '<<=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:160:17: '<<='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:15: ( '<<=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:160:17: '<<='
             self.match("<<=")
 
             self._state.type = _type
@@ -2416,8 +2426,8 @@ class YarcLexer(YarcLexerBase):
             _type = RSHIFT_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:161:15: ( '>>=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:161:17: '>>='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:15: ( '>>=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:161:17: '>>='
             self.match(">>=")
 
             self._state.type = _type
@@ -2435,8 +2445,8 @@ class YarcLexer(YarcLexerBase):
             _type = POWER_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:162:15: ( '**=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:162:17: '**='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:15: ( '**=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:162:17: '**='
             self.match("**=")
 
             self._state.type = _type
@@ -2454,8 +2464,8 @@ class YarcLexer(YarcLexerBase):
             _type = IDIV_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:163:15: ( '//=' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:163:17: '//='
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:163:15: ( '//=' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:163:17: '//='
             self.match("//=")
 
             self._state.type = _type
@@ -2473,25 +2483,25 @@ class YarcLexer(YarcLexerBase):
             _type = ID
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:166:12: ( ID_START ( ID_CONTINUE )* )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:166:14: ID_START ( ID_CONTINUE )*
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:12: ( ID_START ( ID_CONTINUE )* )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:14: ID_START ( ID_CONTINUE )*
             self.mID_START()
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:166:23: ( ID_CONTINUE )*
-            while True:  # loop10
-                alt10 = 2
-                LA10_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:166:23: ( ID_CONTINUE )*
+            while True:  # loop11
+                alt11 = 2
+                LA11_0 = self.input.LA(1)
 
                 if (
-                    (48 <= LA10_0 <= 57)
-                    or (65 <= LA10_0 <= 90)
-                    or LA10_0 == 95
-                    or (97 <= LA10_0 <= 122)
+                    (48 <= LA11_0 <= 57)
+                    or (65 <= LA11_0 <= 90)
+                    or LA11_0 == 95
+                    or (97 <= LA11_0 <= 122)
                 ):
-                    alt10 = 1
+                    alt11 = 1
 
-                if alt10 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if alt11 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if (
                         (48 <= self.input.LA(1) <= 57)
                         or (65 <= self.input.LA(1) <= 90)
@@ -2505,7 +2515,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop10
+                    break  # loop11
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2522,8 +2532,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTING_ID
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:167:12: ( '$' ID )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:167:14: '$' ID
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:167:12: ( '$' ID )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:167:14: '$' ID
             self.match(36)
 
             self.mID()
@@ -2543,29 +2553,29 @@ class YarcLexer(YarcLexerBase):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:170:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
-            alt13 = 4
-            LA13 = self.input.LA(1)
-            if LA13 == 85 or LA13 == 117:
-                alt13 = 1
-            elif LA13 == 70 or LA13 == 102:
-                LA13_2 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:170:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
+            alt14 = 4
+            LA14 = self.input.LA(1)
+            if LA14 == 85 or LA14 == 117:
+                alt14 = 1
+            elif LA14 == 70 or LA14 == 102:
+                LA14_2 = self.input.LA(2)
 
-                if LA13_2 == 82 or LA13_2 == 114:
-                    alt13 = 2
-                elif LA13_2 == 34 or LA13_2 == 39:
-                    alt13 = 3
-            elif LA13 == 82 or LA13 == 114:
-                LA13_3 = self.input.LA(2)
+                if LA14_2 == 82 or LA14_2 == 114:
+                    alt14 = 2
+                elif LA14_2 == 34 or LA14_2 == 39:
+                    alt14 = 3
+            elif LA14 == 82 or LA14 == 114:
+                LA14_3 = self.input.LA(2)
 
-                if LA13_3 == 34 or LA13_3 == 39:
-                    alt13 = 2
-                elif LA13_3 == 70 or LA13_3 == 102:
-                    alt13 = 3
-            if alt13 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:171:5: ( 'u' | 'U' )
+                if LA14_3 == 34 or LA14_3 == 39:
+                    alt14 = 2
+                elif LA14_3 == 70 or LA14_3 == 102:
+                    alt14 = 3
+            if alt14 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:171:5: ( 'u' | 'U' )
                 if self.input.LA(1) == 85 or self.input.LA(1) == 117:
                     self.input.consume()
                 else:
@@ -2573,19 +2583,19 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt13 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+            elif alt14 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:172:7: ( 'f' | 'F' )? ( 'r' | 'R' )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:172:7: ( 'f' | 'F' )?
-                alt11 = 2
-                LA11_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:7: ( 'f' | 'F' )? ( 'r' | 'R' )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:172:7: ( 'f' | 'F' )?
+                alt12 = 2
+                LA12_0 = self.input.LA(1)
 
-                if LA11_0 == 70 or LA11_0 == 102:
-                    alt11 = 1
-                if alt11 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if LA12_0 == 70 or LA12_0 == 102:
+                    alt12 = 1
+                if alt12 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if self.input.LA(1) == 70 or self.input.LA(1) == 102:
                         self.input.consume()
                     else:
@@ -2600,19 +2610,19 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt13 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+            elif alt14 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:173:7: ( 'r' | 'R' )? ( 'f' | 'F' )
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:173:7: ( 'r' | 'R' )?
-                alt12 = 2
-                LA12_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:7: ( 'r' | 'R' )? ( 'f' | 'F' )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:173:7: ( 'r' | 'R' )?
+                alt13 = 2
+                LA13_0 = self.input.LA(1)
 
-                if LA12_0 == 82 or LA12_0 == 114:
-                    alt12 = 1
-                if alt12 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if LA13_0 == 82 or LA13_0 == 114:
+                    alt13 = 1
+                if alt13 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if self.input.LA(1) == 82 or self.input.LA(1) == 114:
                         self.input.consume()
                     else:
@@ -2644,42 +2654,42 @@ class YarcLexer(YarcLexerBase):
             _type = INTEGER
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:178:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
-            alt19 = 5
-            LA19_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:178:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
+            alt20 = 5
+            LA20_0 = self.input.LA(1)
 
-            if 49 <= LA19_0 <= 57:
-                alt19 = 1
-            elif LA19_0 == 48:
-                LA19 = self.input.LA(2)
-                if LA19 == 79 or LA19 == 111:
-                    alt19 = 3
-                elif LA19 == 88 or LA19 == 120:
-                    alt19 = 4
-                elif LA19 == 66 or LA19 == 98:
-                    alt19 = 5
+            if 49 <= LA20_0 <= 57:
+                alt20 = 1
+            elif LA20_0 == 48:
+                LA20 = self.input.LA(2)
+                if LA20 == 79 or LA20 == 111:
+                    alt20 = 3
+                elif LA20 == 88 or LA20 == 120:
+                    alt20 = 4
+                elif LA20 == 66 or LA20 == 98:
+                    alt20 = 5
                 else:
-                    alt19 = 2
+                    alt20 = 2
 
             else:
-                nvae = NoViableAltException("", 19, 0, self.input)
+                nvae = NoViableAltException("", 20, 0, self.input)
 
                 raise nvae
 
-            if alt19 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:179:3: NON_ZERO_DIGIT ( DIGIT )*
+            if alt20 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:3: NON_ZERO_DIGIT ( DIGIT )*
                 self.mNON_ZERO_DIGIT()
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:179:18: ( DIGIT )*
-                while True:  # loop14
-                    alt14 = 2
-                    LA14_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:18: ( DIGIT )*
+                while True:  # loop15
+                    alt15 = 2
+                    LA15_0 = self.input.LA(1)
 
-                    if 48 <= LA14_0 <= 57:
-                        alt14 = 1
+                    if 48 <= LA15_0 <= 57:
+                        alt15 = 1
 
-                    if alt14 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                    if alt15 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                         if 48 <= self.input.LA(1) <= 57:
                             self.input.consume()
                         else:
@@ -2688,61 +2698,23 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop14
+                        break  # loop15
 
-            elif alt19 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:179:27: ( '0' )+
+            elif alt20 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: ( '0' )+
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:179:27: ( '0' )+
-                cnt15 = 0
-                while True:  # loop15
-                    alt15 = 2
-                    LA15_0 = self.input.LA(1)
-
-                    if LA15_0 == 48:
-                        alt15 = 1
-
-                    if alt15 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:179:27: '0'
-                        self.match(48)
-
-                    else:
-                        if cnt15 >= 1:
-                            break  # loop15
-
-                        eee = EarlyExitException(15, self.input)
-                        raise eee
-
-                    cnt15 += 1
-
-            elif alt19 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:180:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
-                self.match(48)
-
-                if self.input.LA(1) == 79 or self.input.LA(1) == 111:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
-
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:180:21: ( OCT_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: ( '0' )+
                 cnt16 = 0
                 while True:  # loop16
                     alt16 = 2
                     LA16_0 = self.input.LA(1)
 
-                    if 48 <= LA16_0 <= 55:
+                    if LA16_0 == 48:
                         alt16 = 1
 
                     if alt16 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
-                        if 48 <= self.input.LA(1) <= 55:
-                            self.input.consume()
-                        else:
-                            mse = MismatchedSetException(None, self.input)
-                            self.recover(mse)
-                            raise mse
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:179:27: '0'
+                        self.match(48)
 
                     else:
                         if cnt16 >= 1:
@@ -2753,37 +2725,29 @@ class YarcLexer(YarcLexerBase):
 
                     cnt16 += 1
 
-            elif alt19 == 4:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:181:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
+            elif alt20 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:180:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) == 88 or self.input.LA(1) == 120:
+                if self.input.LA(1) == 79 or self.input.LA(1) == 111:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:181:21: ( HEX_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:180:21: ( OCT_DIGIT )+
                 cnt17 = 0
                 while True:  # loop17
                     alt17 = 2
                     LA17_0 = self.input.LA(1)
 
-                    if (
-                        (48 <= LA17_0 <= 57)
-                        or (65 <= LA17_0 <= 70)
-                        or (97 <= LA17_0 <= 102)
-                    ):
+                    if 48 <= LA17_0 <= 55:
                         alt17 = 1
 
                     if alt17 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
-                        if (
-                            (48 <= self.input.LA(1) <= 57)
-                            or (65 <= self.input.LA(1) <= 70)
-                            or (97 <= self.input.LA(1) <= 102)
-                        ):
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                        if 48 <= self.input.LA(1) <= 55:
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2799,29 +2763,37 @@ class YarcLexer(YarcLexerBase):
 
                     cnt17 += 1
 
-            elif alt19 == 5:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:182:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
+            elif alt20 == 4:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:181:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) == 66 or self.input.LA(1) == 98:
+                if self.input.LA(1) == 88 or self.input.LA(1) == 120:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:182:21: ( BIN_DIGIT )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:181:21: ( HEX_DIGIT )+
                 cnt18 = 0
                 while True:  # loop18
                     alt18 = 2
                     LA18_0 = self.input.LA(1)
 
-                    if 48 <= LA18_0 <= 49:
+                    if (
+                        (48 <= LA18_0 <= 57)
+                        or (65 <= LA18_0 <= 70)
+                        or (97 <= LA18_0 <= 102)
+                    ):
                         alt18 = 1
 
                     if alt18 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
-                        if 48 <= self.input.LA(1) <= 49:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                        if (
+                            (48 <= self.input.LA(1) <= 57)
+                            or (65 <= self.input.LA(1) <= 70)
+                            or (97 <= self.input.LA(1) <= 102)
+                        ):
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2836,6 +2808,44 @@ class YarcLexer(YarcLexerBase):
                         raise eee
 
                     cnt18 += 1
+
+            elif alt20 == 5:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:182:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
+                self.match(48)
+
+                if self.input.LA(1) == 66 or self.input.LA(1) == 98:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:182:21: ( BIN_DIGIT )+
+                cnt19 = 0
+                while True:  # loop19
+                    alt19 = 2
+                    LA19_0 = self.input.LA(1)
+
+                    if 48 <= LA19_0 <= 49:
+                        alt19 = 1
+
+                    if alt19 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                        if 48 <= self.input.LA(1) <= 49:
+                            self.input.consume()
+                        else:
+                            mse = MismatchedSetException(None, self.input)
+                            self.recover(mse)
+                            raise mse
+
+                    else:
+                        if cnt19 >= 1:
+                            break  # loop19
+
+                        eee = EarlyExitException(19, self.input)
+                        raise eee
+
+                    cnt19 += 1
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2852,15 +2862,15 @@ class YarcLexer(YarcLexerBase):
             _type = FLOAT_NUMBER
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:185:14: ( POINT_FLOAT | EXPONENT_FLOAT )
-            alt20 = 2
-            alt20 = self.dfa20.predict(self.input)
-            if alt20 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:185:16: POINT_FLOAT
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:14: ( POINT_FLOAT | EXPONENT_FLOAT )
+            alt21 = 2
+            alt21 = self.dfa21.predict(self.input)
+            if alt21 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:16: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
-            elif alt20 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:185:30: EXPONENT_FLOAT
+            elif alt21 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:185:30: EXPONENT_FLOAT
                 self.mEXPONENT_FLOAT()
 
             self._state.type = _type
@@ -2878,61 +2888,61 @@ class YarcLexer(YarcLexerBase):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:188:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt22 = 3
-            LA22 = self.input.LA(1)
-            if LA22 == 13:
-                LA22_1 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:188:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:189:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt23 = 3
+            LA23 = self.input.LA(1)
+            if LA23 == 13:
+                LA23_1 = self.input.LA(2)
 
-                if LA22_1 == 10:
-                    alt22 = 1
+                if LA23_1 == 10:
+                    alt23 = 1
                 else:
-                    alt22 = 2
+                    alt23 = 2
 
-            elif LA22 == 10:
-                alt22 = 1
-            elif LA22 == 12:
-                alt22 = 3
+            elif LA23 == 10:
+                alt23 = 1
+            elif LA23 == 12:
+                alt23 = 3
             else:
-                nvae = NoViableAltException("", 22, 0, self.input)
+                nvae = NoViableAltException("", 23, 0, self.input)
 
                 raise nvae
 
-            if alt22 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:5: ( '\\r' )? '\\n'
+            if alt23 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: ( '\\r' )? '\\n'
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:5: ( '\\r' )?
-                alt21 = 2
-                LA21_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: ( '\\r' )?
+                alt22 = 2
+                LA22_0 = self.input.LA(1)
 
-                if LA21_0 == 13:
-                    alt21 = 1
-                if alt21 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:5: '\\r'
+                if LA22_0 == 13:
+                    alt22 = 1
+                if alt22 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:5: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt22 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:18: '\\r'
+            elif alt23 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:18: '\\r'
                 self.match(13)
 
-            elif alt22 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:25: '\\f'
+            elif alt23 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:25: '\\f'
                 self.match(12)
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:31: ( SPACES )?
-            alt23 = 2
-            LA23_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:31: ( SPACES )?
+            alt24 = 2
+            LA24_0 = self.input.LA(1)
 
-            if LA23_0 == 9 or LA23_0 == 32:
-                alt23 = 1
-            if alt23 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:190:31: SPACES
+            if LA24_0 == 9 or LA24_0 == 32:
+                alt24 = 1
+            if alt24 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:190:31: SPACES
                 self.mSPACES()
 
             # action start
@@ -2954,32 +2964,32 @@ class YarcLexer(YarcLexerBase):
             _type = SKIP_
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
-            alt24 = 3
-            LA24 = self.input.LA(1)
-            if LA24 == 9 or LA24 == 32:
-                alt24 = 1
-            elif LA24 == 35:
-                alt24 = 2
-            elif LA24 == 92:
-                alt24 = 3
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:11: ( SPACES | COMMENT | LINE_JOINING )
+            alt25 = 3
+            LA25 = self.input.LA(1)
+            if LA25 == 9 or LA25 == 32:
+                alt25 = 1
+            elif LA25 == 35:
+                alt25 = 2
+            elif LA25 == 92:
+                alt25 = 3
             else:
-                nvae = NoViableAltException("", 24, 0, self.input)
+                nvae = NoViableAltException("", 25, 0, self.input)
 
                 raise nvae
 
-            if alt24 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:13: SPACES
+            if alt25 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:13: SPACES
                 self.mSPACES()
 
-            elif alt24 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:22: COMMENT
+            elif alt25 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:22: COMMENT
                 self.mCOMMENT()
 
-            elif alt24 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:195:32: LINE_JOINING
+            elif alt25 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:195:32: LINE_JOINING
                 self.mLINE_JOINING()
 
             # action start
@@ -3001,8 +3011,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNKNOWN
             _channel = DEFAULT_CHANNEL
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:196:9: ( . )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:196:11: .
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:196:9: ( . )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:196:11: .
             self.matchAny()
 
             self._state.type = _type
@@ -3017,45 +3027,45 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:199:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
-            alt27 = 2
-            LA27_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:199:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
+            alt28 = 2
+            LA28_0 = self.input.LA(1)
 
-            if LA27_0 == 39:
-                alt27 = 1
-            elif LA27_0 == 34:
-                alt27 = 2
+            if LA28_0 == 39:
+                alt28 = 1
+            elif LA28_0 == 34:
+                alt28 = 2
             else:
-                nvae = NoViableAltException("", 27, 0, self.input)
+                nvae = NoViableAltException("", 28, 0, self.input)
 
                 raise nvae
 
-            if alt27 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:200:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
+            if alt28 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
                 self.match(39)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:200:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
-                while True:  # loop25
-                    alt25 = 3
-                    LA25_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
+                while True:  # loop26
+                    alt26 = 3
+                    LA26_0 = self.input.LA(1)
 
-                    if LA25_0 == 92:
-                        alt25 = 1
+                    if LA26_0 == 92:
+                        alt26 = 1
                     elif (
-                        (0 <= LA25_0 <= 9)
-                        or LA25_0 == 11
-                        or (14 <= LA25_0 <= 38)
-                        or (40 <= LA25_0 <= 91)
-                        or (93 <= LA25_0 <= 65535)
+                        (0 <= LA26_0 <= 9)
+                        or LA26_0 == 11
+                        or (14 <= LA26_0 <= 38)
+                        or (40 <= LA26_0 <= 91)
+                        or (93 <= LA26_0 <= 65535)
                     ):
-                        alt25 = 2
+                        alt26 = 2
 
-                    if alt25 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:200:9: STRING_ESCAPE_SEQ
+                    if alt26 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:9: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
-                    elif alt25 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:200:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
+                    elif alt26 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:200:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or self.input.LA(1) == 11
@@ -3070,36 +3080,36 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop25
+                        break  # loop26
 
                 self.match(39)
 
-            elif alt27 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:201:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
+            elif alt28 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
                 self.match(34)
 
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:201:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
-                while True:  # loop26
-                    alt26 = 3
-                    LA26_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
+                while True:  # loop27
+                    alt27 = 3
+                    LA27_0 = self.input.LA(1)
 
-                    if LA26_0 == 92:
-                        alt26 = 1
+                    if LA27_0 == 92:
+                        alt27 = 1
                     elif (
-                        (0 <= LA26_0 <= 9)
-                        or LA26_0 == 11
-                        or (14 <= LA26_0 <= 33)
-                        or (35 <= LA26_0 <= 91)
-                        or (93 <= LA26_0 <= 65535)
+                        (0 <= LA27_0 <= 9)
+                        or LA27_0 == 11
+                        or (14 <= LA27_0 <= 33)
+                        or (35 <= LA27_0 <= 91)
+                        or (93 <= LA27_0 <= 65535)
                     ):
-                        alt26 = 2
+                        alt27 = 2
 
-                    if alt26 == 1:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:201:10: STRING_ESCAPE_SEQ
+                    if alt27 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:10: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
-                    elif alt26 == 2:
-                        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:201:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
+                    elif alt27 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:201:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or self.input.LA(1) == 11
@@ -3114,7 +3124,7 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop26
+                        break  # loop27
 
                 self.match(34)
 
@@ -3128,34 +3138,34 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:203:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
-            alt28 = 2
-            LA28_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
+            alt29 = 2
+            LA29_0 = self.input.LA(1)
 
-            if LA28_0 == 92:
-                LA28_1 = self.input.LA(2)
+            if LA29_0 == 92:
+                LA29_1 = self.input.LA(2)
 
                 if (
-                    (0 <= LA28_1 <= 8)
-                    or LA28_1 == 11
-                    or (14 <= LA28_1 <= 31)
-                    or (33 <= LA28_1 <= 65535)
+                    (0 <= LA29_1 <= 8)
+                    or LA29_1 == 11
+                    or (14 <= LA29_1 <= 31)
+                    or (33 <= LA29_1 <= 65535)
                 ):
-                    alt28 = 1
-                elif LA28_1 == 10 or (12 <= LA28_1 <= 13):
-                    alt28 = 2
+                    alt29 = 1
+                elif LA29_1 == 10 or (12 <= LA29_1 <= 13):
+                    alt29 = 2
                 else:
-                    nvae = NoViableAltException("", 28, 1, self.input)
+                    nvae = NoViableAltException("", 29, 1, self.input)
 
                     raise nvae
 
             else:
-                nvae = NoViableAltException("", 28, 0, self.input)
+                nvae = NoViableAltException("", 29, 0, self.input)
 
                 raise nvae
 
-            if alt28 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:203:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
+            if alt29 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
                 self.match(92)
 
                 if (
@@ -3170,8 +3180,8 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt28 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:203:72: '\\\\' NEWLINE
+            elif alt29 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:203:72: '\\\\' NEWLINE
                 self.match(92)
 
                 self.mNEWLINE()
@@ -3186,8 +3196,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:205:25: ( '1' .. '9' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:205:25: ( '1' .. '9' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if 49 <= self.input.LA(1) <= 57:
                 self.input.consume()
             else:
@@ -3205,8 +3215,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:206:25: ( '0' .. '9' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:206:25: ( '0' .. '9' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if 48 <= self.input.LA(1) <= 57:
                 self.input.consume()
             else:
@@ -3224,8 +3234,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:207:25: ( '0' .. '7' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:207:25: ( '0' .. '7' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if 48 <= self.input.LA(1) <= 55:
                 self.input.consume()
             else:
@@ -3243,8 +3253,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:208:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:208:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
                 or (65 <= self.input.LA(1) <= 70)
@@ -3266,8 +3276,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:209:25: ( '0' | '1' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:209:25: ( '0' | '1' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if 48 <= self.input.LA(1) <= 49:
                 self.input.consume()
             else:
@@ -3285,26 +3295,26 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:211:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
-            alt30 = 2
-            alt30 = self.dfa30.predict(self.input)
-            if alt30 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:211:27: ( INT_PART )? FRACTION
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
+            alt31 = 2
+            alt31 = self.dfa31.predict(self.input)
+            if alt31 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: ( INT_PART )? FRACTION
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:211:27: ( INT_PART )?
-                alt29 = 2
-                LA29_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: ( INT_PART )?
+                alt30 = 2
+                LA30_0 = self.input.LA(1)
 
-                if 48 <= LA29_0 <= 57:
-                    alt29 = 1
-                if alt29 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:211:27: INT_PART
+                if 48 <= LA30_0 <= 57:
+                    alt30 = 1
+                if alt30 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:27: INT_PART
                     self.mINT_PART()
 
                 self.mFRACTION()
 
-            elif alt30 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:211:48: INT_PART '.'
+            elif alt31 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:211:48: INT_PART '.'
                 self.mINT_PART()
 
                 self.match(46)
@@ -3319,18 +3329,18 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:212:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT ) EXPONENT
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT ) EXPONENT
             pass
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT )
-            alt31 = 2
-            alt31 = self.dfa31.predict(self.input)
-            if alt31 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:212:29: INT_PART
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:27: ( INT_PART | POINT_FLOAT )
+            alt32 = 2
+            alt32 = self.dfa32.predict(self.input)
+            if alt32 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:29: INT_PART
                 self.mINT_PART()
 
-            elif alt31 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:212:40: POINT_FLOAT
+            elif alt32 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:212:40: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
             self.mEXPONENT()
@@ -3345,51 +3355,10 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:213:25: ( ( DIGIT )+ )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:213:27: ( DIGIT )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:25: ( ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:27: ( DIGIT )+
             pass
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:213:27: ( DIGIT )+
-            cnt32 = 0
-            while True:  # loop32
-                alt32 = 2
-                LA32_0 = self.input.LA(1)
-
-                if 48 <= LA32_0 <= 57:
-                    alt32 = 1
-
-                if alt32 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
-                    if 48 <= self.input.LA(1) <= 57:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-                else:
-                    if cnt32 >= 1:
-                        break  # loop32
-
-                    eee = EarlyExitException(32, self.input)
-                    raise eee
-
-                cnt32 += 1
-
-        finally:
-            pass
-
-    # $ANTLR end "INT_PART"
-
-    # $ANTLR start "FRACTION"
-    def mFRACTION(
-        self,
-    ):
-        try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:214:25: ( '.' ( DIGIT )+ )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:214:27: '.' ( DIGIT )+
-            self.match(46)
-
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:214:31: ( DIGIT )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:213:27: ( DIGIT )+
             cnt33 = 0
             while True:  # loop33
                 alt33 = 2
@@ -3399,7 +3368,7 @@ class YarcLexer(YarcLexerBase):
                     alt33 = 1
 
                 if alt33 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if 48 <= self.input.LA(1) <= 57:
                         self.input.consume()
                     else:
@@ -3419,48 +3388,28 @@ class YarcLexer(YarcLexerBase):
         finally:
             pass
 
-    # $ANTLR end "FRACTION"
+    # $ANTLR end "INT_PART"
 
-    # $ANTLR start "EXPONENT"
-    def mEXPONENT(
+    # $ANTLR start "FRACTION"
+    def mFRACTION(
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:215:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:215:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
-            if self.input.LA(1) == 69 or self.input.LA(1) == 101:
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:25: ( '.' ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:27: '.' ( DIGIT )+
+            self.match(46)
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:215:39: ( '+' | '-' )?
-            alt34 = 2
-            LA34_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:214:31: ( DIGIT )+
+            cnt34 = 0
+            while True:  # loop34
+                alt34 = 2
+                LA34_0 = self.input.LA(1)
 
-            if LA34_0 == 43 or LA34_0 == 45:
-                alt34 = 1
-            if alt34 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
-                if self.input.LA(1) == 43 or self.input.LA(1) == 45:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
+                if 48 <= LA34_0 <= 57:
+                    alt34 = 1
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:215:52: ( DIGIT )+
-            cnt35 = 0
-            while True:  # loop35
-                alt35 = 2
-                LA35_0 = self.input.LA(1)
-
-                if 48 <= LA35_0 <= 57:
-                    alt35 = 1
-
-                if alt35 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if alt34 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if 48 <= self.input.LA(1) <= 57:
                         self.input.consume()
                     else:
@@ -3469,13 +3418,74 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    if cnt35 >= 1:
-                        break  # loop35
+                    if cnt34 >= 1:
+                        break  # loop34
 
-                    eee = EarlyExitException(35, self.input)
+                    eee = EarlyExitException(34, self.input)
                     raise eee
 
-                cnt35 += 1
+                cnt34 += 1
+
+        finally:
+            pass
+
+    # $ANTLR end "FRACTION"
+
+    # $ANTLR start "EXPONENT"
+    def mEXPONENT(
+        self,
+    ):
+        try:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+            if self.input.LA(1) == 69 or self.input.LA(1) == 101:
+                self.input.consume()
+            else:
+                mse = MismatchedSetException(None, self.input)
+                self.recover(mse)
+                raise mse
+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:39: ( '+' | '-' )?
+            alt35 = 2
+            LA35_0 = self.input.LA(1)
+
+            if LA35_0 == 43 or LA35_0 == 45:
+                alt35 = 1
+            if alt35 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                if self.input.LA(1) == 43 or self.input.LA(1) == 45:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:215:52: ( DIGIT )+
+            cnt36 = 0
+            while True:  # loop36
+                alt36 = 2
+                LA36_0 = self.input.LA(1)
+
+                if 48 <= LA36_0 <= 57:
+                    alt36 = 1
+
+                if alt36 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
+                    if 48 <= self.input.LA(1) <= 57:
+                        self.input.consume()
+                    else:
+                        mse = MismatchedSetException(None, self.input)
+                        self.recover(mse)
+                        raise mse
+
+                else:
+                    if cnt36 >= 1:
+                        break  # loop36
+
+                    eee = EarlyExitException(36, self.input)
+                    raise eee
+
+                cnt36 += 1
 
         finally:
             pass
@@ -3487,8 +3497,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:217:22: ( UNDERSCORE | LETTER )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:217:22: ( UNDERSCORE | LETTER )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (
                 (65 <= self.input.LA(1) <= 90)
                 or self.input.LA(1) == 95
@@ -3510,8 +3520,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:218:22: ( ID_START | DIGIT )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:218:22: ( ID_START | DIGIT )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
                 or (65 <= self.input.LA(1) <= 90)
@@ -3534,8 +3544,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:219:22: ( 'a' .. 'z' | 'A' .. 'Z' )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:219:22: ( 'a' .. 'z' | 'A' .. 'Z' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
             if (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122):
                 self.input.consume()
             else:
@@ -3553,20 +3563,20 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:221:23: ( ( ' ' | '\\t' )+ )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:221:25: ( ' ' | '\\t' )+
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:23: ( ( ' ' | '\\t' )+ )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:25: ( ' ' | '\\t' )+
             pass
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:221:25: ( ' ' | '\\t' )+
-            cnt36 = 0
-            while True:  # loop36
-                alt36 = 2
-                LA36_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:221:25: ( ' ' | '\\t' )+
+            cnt37 = 0
+            while True:  # loop37
+                alt37 = 2
+                LA37_0 = self.input.LA(1)
 
-                if LA36_0 == 9 or LA36_0 == 32:
-                    alt36 = 1
+                if LA37_0 == 9 or LA37_0 == 32:
+                    alt37 = 1
 
-                if alt36 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if alt37 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if self.input.LA(1) == 9 or self.input.LA(1) == 32:
                         self.input.consume()
                     else:
@@ -3575,13 +3585,13 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    if cnt36 >= 1:
-                        break  # loop36
+                    if cnt37 >= 1:
+                        break  # loop37
 
-                    eee = EarlyExitException(36, self.input)
+                    eee = EarlyExitException(37, self.input)
                     raise eee
 
-                cnt36 += 1
+                cnt37 += 1
 
         finally:
             pass
@@ -3593,20 +3603,20 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:222:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:222:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
             self.match(35)
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:222:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
-            while True:  # loop37
-                alt37 = 2
-                LA37_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:222:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
+            while True:  # loop38
+                alt38 = 2
+                LA38_0 = self.input.LA(1)
 
-                if (0 <= LA37_0 <= 9) or LA37_0 == 11 or (14 <= LA37_0 <= 65535):
-                    alt37 = 1
+                if (0 <= LA38_0 <= 9) or LA38_0 == 11 or (14 <= LA38_0 <= 65535):
+                    alt38 = 1
 
-                if alt37 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:
+                if alt38 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:
                     if (
                         (0 <= self.input.LA(1) <= 9)
                         or self.input.LA(1) == 11
@@ -3619,7 +3629,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop37
+                    break  # loop38
 
         finally:
             pass
@@ -3631,61 +3641,61 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             self.match(92)
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:30: ( SPACES )?
-            alt38 = 2
-            LA38_0 = self.input.LA(1)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:30: ( SPACES )?
+            alt39 = 2
+            LA39_0 = self.input.LA(1)
 
-            if LA38_0 == 9 or LA38_0 == 32:
-                alt38 = 1
-            if alt38 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:30: SPACES
+            if LA39_0 == 9 or LA39_0 == 32:
+                alt39 = 1
+            if alt39 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:30: SPACES
                 self.mSPACES()
 
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt40 = 3
-            LA40 = self.input.LA(1)
-            if LA40 == 13:
-                LA40_1 = self.input.LA(2)
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt41 = 3
+            LA41 = self.input.LA(1)
+            if LA41 == 13:
+                LA41_1 = self.input.LA(2)
 
-                if LA40_1 == 10:
-                    alt40 = 1
+                if LA41_1 == 10:
+                    alt41 = 1
                 else:
-                    alt40 = 2
+                    alt41 = 2
 
-            elif LA40 == 10:
-                alt40 = 1
-            elif LA40 == 12:
-                alt40 = 3
+            elif LA41 == 10:
+                alt41 = 1
+            elif LA41 == 12:
+                alt41 = 3
             else:
-                nvae = NoViableAltException("", 40, 0, self.input)
+                nvae = NoViableAltException("", 41, 0, self.input)
 
                 raise nvae
 
-            if alt40 == 1:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:40: ( '\\r' )? '\\n'
+            if alt41 == 1:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: ( '\\r' )? '\\n'
                 pass
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:40: ( '\\r' )?
-                alt39 = 2
-                LA39_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: ( '\\r' )?
+                alt40 = 2
+                LA40_0 = self.input.LA(1)
 
-                if LA39_0 == 13:
-                    alt39 = 1
-                if alt39 == 1:
-                    # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:40: '\\r'
+                if LA40_0 == 13:
+                    alt40 = 1
+                if alt40 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:40: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt40 == 2:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:53: '\\r'
+            elif alt41 == 2:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:53: '\\r'
                 self.match(13)
 
-            elif alt40 == 3:
-                # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:223:60: '\\f'
+            elif alt41 == 3:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:223:60: '\\f'
                 self.match(12)
 
         finally:
@@ -3694,476 +3704,476 @@ class YarcLexer(YarcLexerBase):
     # $ANTLR end "LINE_JOINING"
 
     def mTokens(self):
-        # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPES | SHAPES_OR_LIGHTS | CAMERA | LIGHT | LIGHT_TYPE | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | CAM_TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | PHYSICS | EVERY | FRAMES | TIME | UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | NONE | NOT | OR | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
-        alt41 = 113
-        alt41 = self.dfa41.predict(self.input)
-        if alt41 == 1:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:10: SCENARIO
+        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPES | SHAPES_OR_LIGHTS | CAMERA | LIGHT | LIGHT_TYPE | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | CAM_TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | PHYSICS | EVERY | FRAMES | TIME | UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | NONE | NOT | OR | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | ADD_ASSIGN | SUB_ASSIGN | MULT_ASSIGN | DIV_ASSIGN | MOD_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | LSHIFT_ASSIGN | RSHIFT_ASSIGN | POWER_ASSIGN | IDIV_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
+        alt42 = 113
+        alt42 = self.dfa42.predict(self.input)
+        if alt42 == 1:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:10: SCENARIO
             self.mSCENARIO()
 
-        elif alt41 == 2:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:19: SETTINGS
+        elif alt42 == 2:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:19: SETTINGS
             self.mSETTINGS()
 
-        elif alt41 == 3:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:28: STAGE
+        elif alt42 == 3:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:28: STAGE
             self.mSTAGE()
 
-        elif alt41 == 4:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:34: WRITERS
+        elif alt42 == 4:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:34: WRITERS
             self.mWRITERS()
 
-        elif alt41 == 5:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:42: SHAPES
+        elif alt42 == 5:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:42: SHAPES
             self.mSHAPES()
 
-        elif alt41 == 6:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:49: SHAPES_OR_LIGHTS
+        elif alt42 == 6:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:49: SHAPES_OR_LIGHTS
             self.mSHAPES_OR_LIGHTS()
 
-        elif alt41 == 7:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:66: CAMERA
+        elif alt42 == 7:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:66: CAMERA
             self.mCAMERA()
 
-        elif alt41 == 8:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:73: LIGHT
+        elif alt42 == 8:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:73: LIGHT
             self.mLIGHT()
 
-        elif alt41 == 9:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:79: LIGHT_TYPE
+        elif alt42 == 9:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:79: LIGHT_TYPE
             self.mLIGHT_TYPE()
 
-        elif alt41 == 10:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:90: STEREO
+        elif alt42 == 10:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:90: STEREO
             self.mSTEREO()
 
-        elif alt41 == 11:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:97: MATERIAL
+        elif alt42 == 11:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:97: MATERIAL
             self.mMATERIAL()
 
-        elif alt41 == 12:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:106: TIMELINE
+        elif alt42 == 12:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:106: TIMELINE
             self.mTIMELINE()
 
-        elif alt41 == 13:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:115: OPEN
+        elif alt42 == 13:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:115: OPEN
             self.mOPEN()
 
-        elif alt41 == 14:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:120: CREATE
+        elif alt42 == 14:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:120: CREATE
             self.mCREATE()
 
-        elif alt41 == 15:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:127: GROUP
+        elif alt42 == 15:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:127: GROUP
             self.mGROUP()
 
-        elif alt41 == 16:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:133: INSTANTIATE
+        elif alt42 == 16:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:133: INSTANTIATE
             self.mINSTANTIATE()
 
-        elif alt41 == 17:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:145: GET
+        elif alt42 == 17:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:145: GET
             self.mGET()
 
-        elif alt41 == 18:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:149: EDIT
+        elif alt42 == 18:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:149: EDIT
             self.mEDIT()
 
-        elif alt41 == 19:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:154: FETCH
+        elif alt42 == 19:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:154: FETCH
             self.mFETCH()
 
-        elif alt41 == 20:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:160: MATCH
+        elif alt42 == 20:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:160: MATCH
             self.mMATCH()
 
-        elif alt41 == 21:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:166: LIMIT
+        elif alt42 == 21:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:166: LIMIT
             self.mLIMIT()
 
-        elif alt41 == 22:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:172: RECURSIVE
+        elif alt42 == 22:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:172: RECURSIVE
             self.mRECURSIVE()
 
-        elif alt41 == 23:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:182: TRANSLATE
+        elif alt42 == 23:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:182: TRANSLATE
             self.mTRANSLATE()
 
-        elif alt41 == 24:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:192: CAM_TRANSLATE
+        elif alt42 == 24:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:192: CAM_TRANSLATE
             self.mCAM_TRANSLATE()
 
-        elif alt41 == 25:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:206: ROTATE
+        elif alt42 == 25:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:206: ROTATE
             self.mROTATE()
 
-        elif alt41 == 26:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:213: SCALE
+        elif alt42 == 26:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:213: SCALE
             self.mSCALE()
 
-        elif alt41 == 27:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:219: SEMANTICS
+        elif alt42 == 27:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:219: SEMANTICS
             self.mSEMANTICS()
 
-        elif alt41 == 28:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:229: VISIBLE
+        elif alt42 == 28:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:229: VISIBLE
             self.mVISIBLE()
 
-        elif alt41 == 29:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:237: SIZE
+        elif alt42 == 29:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:237: SIZE
             self.mSIZE()
 
-        elif alt41 == 30:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:242: LOOK_AT
+        elif alt42 == 30:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:242: LOOK_AT
             self.mLOOK_AT()
 
-        elif alt41 == 31:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:250: UP_AXIS
+        elif alt42 == 31:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:250: UP_AXIS
             self.mUP_AXIS()
 
-        elif alt41 == 32:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:258: AXIS
+        elif alt42 == 32:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:258: AXIS
             self.mAXIS()
 
-        elif alt41 == 33:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:263: ORDER
+        elif alt42 == 33:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:263: ORDER
             self.mORDER()
 
-        elif alt41 == 34:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:269: SCATTER
+        elif alt42 == 34:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:269: SCATTER
             self.mSCATTER()
 
-        elif alt41 == 35:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:277: ROT_AROUND
+        elif alt42 == 35:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:277: ROT_AROUND
             self.mROT_AROUND()
 
-        elif alt41 == 36:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:288: PHYSICS
+        elif alt42 == 36:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:288: PHYSICS
             self.mPHYSICS()
 
-        elif alt41 == 37:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:296: EVERY
+        elif alt42 == 37:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:296: EVERY
             self.mEVERY()
 
-        elif alt41 == 38:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:302: FRAMES
+        elif alt42 == 38:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:302: FRAMES
             self.mFRAMES()
 
-        elif alt41 == 39:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:309: TIME
+        elif alt42 == 39:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:309: TIME
             self.mTIME()
 
-        elif alt41 == 40:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:314: UNIFORM
+        elif alt42 == 40:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:314: UNIFORM
             self.mUNIFORM()
 
-        elif alt41 == 41:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:322: NORMAL
+        elif alt42 == 41:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:322: NORMAL
             self.mNORMAL()
 
-        elif alt41 == 42:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:329: CHOICE
+        elif alt42 == 42:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:329: CHOICE
             self.mCHOICE()
 
-        elif alt41 == 43:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:336: SEQUENCE
+        elif alt42 == 43:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:336: SEQUENCE
             self.mSEQUENCE()
 
-        elif alt41 == 44:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:345: LOG_UNIFORM
+        elif alt42 == 44:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:345: LOG_UNIFORM
             self.mLOG_UNIFORM()
 
-        elif alt41 == 45:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:357: SNIPPET
+        elif alt42 == 45:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:357: SNIPPET
             self.mSNIPPET()
 
-        elif alt41 == 46:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:365: TO
+        elif alt42 == 46:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:365: TO
             self.mTO()
 
-        elif alt41 == 47:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:368: ON
+        elif alt42 == 47:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:368: ON
             self.mON()
 
-        elif alt41 == 48:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:371: AT
+        elif alt42 == 48:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:371: AT
             self.mAT()
 
-        elif alt41 == 49:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:374: AND
+        elif alt42 == 49:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:374: AND
             self.mAND()
 
-        elif alt41 == 50:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:378: ELSE
+        elif alt42 == 50:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:378: ELSE
             self.mELSE()
 
-        elif alt41 == 51:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:383: FALSE
+        elif alt42 == 51:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:383: FALSE
             self.mFALSE()
 
-        elif alt41 == 52:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:389: FOR
+        elif alt42 == 52:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:389: FOR
             self.mFOR()
 
-        elif alt41 == 53:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:393: FROM
+        elif alt42 == 53:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:393: FROM
             self.mFROM()
 
-        elif alt41 == 54:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:398: IF
+        elif alt42 == 54:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:398: IF
             self.mIF()
 
-        elif alt41 == 55:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:401: IN
+        elif alt42 == 55:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:401: IN
             self.mIN()
 
-        elif alt41 == 56:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:404: IS
+        elif alt42 == 56:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:404: IS
             self.mIS()
 
-        elif alt41 == 57:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:407: NONE
+        elif alt42 == 57:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:407: NONE
             self.mNONE()
 
-        elif alt41 == 58:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:412: NOT
+        elif alt42 == 58:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:412: NOT
             self.mNOT()
 
-        elif alt41 == 59:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:416: OR
+        elif alt42 == 59:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:416: OR
             self.mOR()
 
-        elif alt41 == 60:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:419: TRUE
+        elif alt42 == 60:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:419: TRUE
             self.mTRUE()
 
-        elif alt41 == 61:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:424: UNDERSCORE
+        elif alt42 == 61:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:424: UNDERSCORE
             self.mUNDERSCORE()
 
-        elif alt41 == 62:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:435: DOT
+        elif alt42 == 62:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:435: DOT
             self.mDOT()
 
-        elif alt41 == 63:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:439: RANGE
+        elif alt42 == 63:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:439: RANGE
             self.mRANGE()
 
-        elif alt41 == 64:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:445: ELLIPSIS
+        elif alt42 == 64:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:445: ELLIPSIS
             self.mELLIPSIS()
 
-        elif alt41 == 65:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:454: COMMA
+        elif alt42 == 65:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:454: COMMA
             self.mCOMMA()
 
-        elif alt41 == 66:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:460: COLON
+        elif alt42 == 66:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:460: COLON
             self.mCOLON()
 
-        elif alt41 == 67:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:466: SEMI
+        elif alt42 == 67:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:466: SEMI
             self.mSEMI()
 
-        elif alt41 == 68:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:471: ASSIGN
+        elif alt42 == 68:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:471: ASSIGN
             self.mASSIGN()
 
-        elif alt41 == 69:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:478: BIT_OR
+        elif alt42 == 69:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:478: BIT_OR
             self.mBIT_OR()
 
-        elif alt41 == 70:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:485: XOR
+        elif alt42 == 70:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:485: XOR
             self.mXOR()
 
-        elif alt41 == 71:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:489: BIT_AND
+        elif alt42 == 71:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:489: BIT_AND
             self.mBIT_AND()
 
-        elif alt41 == 72:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:497: BIT_NOT
+        elif alt42 == 72:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:497: BIT_NOT
             self.mBIT_NOT()
 
-        elif alt41 == 73:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:505: LSHIFT
+        elif alt42 == 73:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:505: LSHIFT
             self.mLSHIFT()
 
-        elif alt41 == 74:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:512: RSHIFT
+        elif alt42 == 74:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:512: RSHIFT
             self.mRSHIFT()
 
-        elif alt41 == 75:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:519: PLUS
+        elif alt42 == 75:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:519: PLUS
             self.mPLUS()
 
-        elif alt41 == 76:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:524: MINUS
+        elif alt42 == 76:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:524: MINUS
             self.mMINUS()
 
-        elif alt41 == 77:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:530: MUL
+        elif alt42 == 77:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:530: MUL
             self.mMUL()
 
-        elif alt41 == 78:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:534: DIV
+        elif alt42 == 78:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:534: DIV
             self.mDIV()
 
-        elif alt41 == 79:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:538: MOD
+        elif alt42 == 79:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:538: MOD
             self.mMOD()
 
-        elif alt41 == 80:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:542: IDIV
+        elif alt42 == 80:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:542: IDIV
             self.mIDIV()
 
-        elif alt41 == 81:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:547: POWER
+        elif alt42 == 81:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:547: POWER
             self.mPOWER()
 
-        elif alt41 == 82:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:553: LPAREN
+        elif alt42 == 82:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:553: LPAREN
             self.mLPAREN()
 
-        elif alt41 == 83:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:560: RPAREN
+        elif alt42 == 83:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:560: RPAREN
             self.mRPAREN()
 
-        elif alt41 == 84:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:567: LBRACK
+        elif alt42 == 84:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:567: LBRACK
             self.mLBRACK()
 
-        elif alt41 == 85:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:574: RBRACK
+        elif alt42 == 85:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:574: RBRACK
             self.mRBRACK()
 
-        elif alt41 == 86:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:581: LBRACE
+        elif alt42 == 86:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:581: LBRACE
             self.mLBRACE()
 
-        elif alt41 == 87:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:588: RBRACE
+        elif alt42 == 87:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:588: RBRACE
             self.mRBRACE()
 
-        elif alt41 == 88:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:595: LT
+        elif alt42 == 88:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:595: LT
             self.mLT()
 
-        elif alt41 == 89:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:598: GT
+        elif alt42 == 89:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:598: GT
             self.mGT()
 
-        elif alt41 == 90:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:601: EQUALS
+        elif alt42 == 90:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:601: EQUALS
             self.mEQUALS()
 
-        elif alt41 == 91:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:608: GT_EQ
+        elif alt42 == 91:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:608: GT_EQ
             self.mGT_EQ()
 
-        elif alt41 == 92:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:614: LT_EQ
+        elif alt42 == 92:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:614: LT_EQ
             self.mLT_EQ()
 
-        elif alt41 == 93:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:620: NOT_EQ
+        elif alt42 == 93:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:620: NOT_EQ
             self.mNOT_EQ()
 
-        elif alt41 == 94:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:627: ADD_ASSIGN
+        elif alt42 == 94:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:627: ADD_ASSIGN
             self.mADD_ASSIGN()
 
-        elif alt41 == 95:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:638: SUB_ASSIGN
+        elif alt42 == 95:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:638: SUB_ASSIGN
             self.mSUB_ASSIGN()
 
-        elif alt41 == 96:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:649: MULT_ASSIGN
+        elif alt42 == 96:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:649: MULT_ASSIGN
             self.mMULT_ASSIGN()
 
-        elif alt41 == 97:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:661: DIV_ASSIGN
+        elif alt42 == 97:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:661: DIV_ASSIGN
             self.mDIV_ASSIGN()
 
-        elif alt41 == 98:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:672: MOD_ASSIGN
+        elif alt42 == 98:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:672: MOD_ASSIGN
             self.mMOD_ASSIGN()
 
-        elif alt41 == 99:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:683: AND_ASSIGN
+        elif alt42 == 99:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:683: AND_ASSIGN
             self.mAND_ASSIGN()
 
-        elif alt41 == 100:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:694: OR_ASSIGN
+        elif alt42 == 100:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:694: OR_ASSIGN
             self.mOR_ASSIGN()
 
-        elif alt41 == 101:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:704: XOR_ASSIGN
+        elif alt42 == 101:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:704: XOR_ASSIGN
             self.mXOR_ASSIGN()
 
-        elif alt41 == 102:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:715: LSHIFT_ASSIGN
+        elif alt42 == 102:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:715: LSHIFT_ASSIGN
             self.mLSHIFT_ASSIGN()
 
-        elif alt41 == 103:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:729: RSHIFT_ASSIGN
+        elif alt42 == 103:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:729: RSHIFT_ASSIGN
             self.mRSHIFT_ASSIGN()
 
-        elif alt41 == 104:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:743: POWER_ASSIGN
+        elif alt42 == 104:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:743: POWER_ASSIGN
             self.mPOWER_ASSIGN()
 
-        elif alt41 == 105:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:756: IDIV_ASSIGN
+        elif alt42 == 105:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:756: IDIV_ASSIGN
             self.mIDIV_ASSIGN()
 
-        elif alt41 == 106:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:768: ID
+        elif alt42 == 106:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:768: ID
             self.mID()
 
-        elif alt41 == 107:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:771: SETTING_ID
+        elif alt42 == 107:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:771: SETTING_ID
             self.mSETTING_ID()
 
-        elif alt41 == 108:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:782: STRING
+        elif alt42 == 108:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:782: STRING
             self.mSTRING()
 
-        elif alt41 == 109:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:789: INTEGER
+        elif alt42 == 109:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:789: INTEGER
             self.mINTEGER()
 
-        elif alt41 == 110:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:797: FLOAT_NUMBER
+        elif alt42 == 110:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:797: FLOAT_NUMBER
             self.mFLOAT_NUMBER()
 
-        elif alt41 == 111:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:810: NEWLINE
+        elif alt42 == 111:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:810: NEWLINE
             self.mNEWLINE()
 
-        elif alt41 == 112:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:818: SKIP_
+        elif alt42 == 112:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:818: SKIP_
             self.mSKIP_()
 
-        elif alt41 == 113:
-            # C:\\Users\\feder\\Desktop\\University\\Magistrale\\Secondo_Anno\\1_Linguaggi\\Progetto\\yarc\\yarc\\dsl\\v3\\YarcLexer.g:1:824: UNKNOWN
+        elif alt42 == 113:
+            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcLexer.g:1:824: UNKNOWN
             self.mUNKNOWN()
 
-    # lookup tables for DFA #20
+    # lookup tables for DFA #21
 
-    DFA20_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
+    DFA21_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
 
-    DFA20_eof = DFA.unpack("\7\uffff")
+    DFA21_eof = DFA.unpack("\7\uffff")
 
-    DFA20_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
+    DFA21_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
 
-    DFA20_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
+    DFA21_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
 
-    DFA20_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
+    DFA21_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
 
-    DFA20_special = DFA.unpack("\7\uffff")
+    DFA21_special = DFA.unpack("\7\uffff")
 
-    DFA20_transition = [
+    DFA21_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
         DFA.unpack("\1\3\1\uffff\12\1\13\uffff\1\4\37\uffff\1\4"),
         DFA.unpack("\12\5"),
@@ -4173,56 +4183,30 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
     ]
 
-    # class definition for DFA #20
+    # class definition for DFA #21
 
-    class DFA20(DFA):
-        pass
-
-    # lookup tables for DFA #30
-
-    DFA30_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
-
-    DFA30_eof = DFA.unpack("\5\uffff")
-
-    DFA30_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
-
-    DFA30_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
-
-    DFA30_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
-
-    DFA30_special = DFA.unpack("\5\uffff")
-
-    DFA30_transition = [
-        DFA.unpack("\1\2\1\uffff\12\1"),
-        DFA.unpack("\1\3\1\uffff\12\1"),
-        DFA.unpack(""),
-        DFA.unpack("\12\2"),
-        DFA.unpack(""),
-    ]
-
-    # class definition for DFA #30
-
-    class DFA30(DFA):
+    class DFA21(DFA):
         pass
 
     # lookup tables for DFA #31
 
-    DFA31_eot = DFA.unpack("\4\uffff")
+    DFA31_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
 
-    DFA31_eof = DFA.unpack("\4\uffff")
+    DFA31_eof = DFA.unpack("\5\uffff")
 
-    DFA31_min = DFA.unpack("\2\56\2\uffff")
+    DFA31_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
 
-    DFA31_max = DFA.unpack("\1\71\1\145\2\uffff")
+    DFA31_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
 
-    DFA31_accept = DFA.unpack("\2\uffff\1\2\1\1")
+    DFA31_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
 
-    DFA31_special = DFA.unpack("\4\uffff")
+    DFA31_special = DFA.unpack("\5\uffff")
 
     DFA31_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
-        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
+        DFA.unpack("\1\3\1\uffff\12\1"),
         DFA.unpack(""),
+        DFA.unpack("\12\2"),
         DFA.unpack(""),
     ]
 
@@ -4231,9 +4215,35 @@ class YarcLexer(YarcLexerBase):
     class DFA31(DFA):
         pass
 
-    # lookup tables for DFA #41
+    # lookup tables for DFA #32
 
-    DFA41_eot = DFA.unpack(
+    DFA32_eot = DFA.unpack("\4\uffff")
+
+    DFA32_eof = DFA.unpack("\4\uffff")
+
+    DFA32_min = DFA.unpack("\2\56\2\uffff")
+
+    DFA32_max = DFA.unpack("\1\71\1\145\2\uffff")
+
+    DFA32_accept = DFA.unpack("\2\uffff\1\2\1\1")
+
+    DFA32_special = DFA.unpack("\4\uffff")
+
+    DFA32_transition = [
+        DFA.unpack("\1\2\1\uffff\12\1"),
+        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+    ]
+
+    # class definition for DFA #32
+
+    class DFA32(DFA):
+        pass
+
+    # lookup tables for DFA #42
+
+    DFA42_eot = DFA.unpack(
         "\1\uffff\26\110\1\172\4\110\1\u0080\2\110\1\u0085\1\u0087\3\uffff"
         "\1\u008d\1\u008f\1\u0091\1\u0093\1\uffff\1\u0097\1\u009a\1\u009c"
         "\1\u009e\1\u00a1\1\u00a4\1\u00a6\5\uffff\1\103\1\110\1\103\1\uffff"
@@ -4264,9 +4274,9 @@ class YarcLexer(YarcLexerBase):
         "\3\110\1\u01fc\2\110\1\uffff\3\110\1\u0202\1\u01da\1\uffff"
     )
 
-    DFA41_eof = DFA.unpack("\u0203\uffff")
+    DFA42_eof = DFA.unpack("\u0203\uffff")
 
-    DFA41_min = DFA.unpack(
+    DFA42_min = DFA.unpack(
         "\1\0\1\143\1\162\1\154\1\141\1\151\1\145\2\151\1\42\1\141\1\156"
         "\1\141\1\145\1\146\1\144\1\42\1\141\1\151\1\42\1\157\1\151\1\42"
         "\1\60\1\151\1\150\1\42\1\157\1\173\1\156\1\157\1\60\1\56\3\uffff"
@@ -4310,7 +4320,7 @@ class YarcLexer(YarcLexerBase):
         "\145\1\154\2\60\1\uffff"
     )
 
-    DFA41_max = DFA.unpack(
+    DFA42_max = DFA.unpack(
         "\1\uffff\1\164\1\162\1\154\1\171\1\157\1\164\2\157\1\146\1\141"
         "\3\162\1\163\1\166\1\162\1\141\2\157\1\162\1\151\1\160\1\172\1"
         "\151\1\150\1\156\1\157\1\173\1\164\1\157\1\172\1\71\3\uffff\4\75"
@@ -4355,7 +4365,7 @@ class YarcLexer(YarcLexerBase):
         "\1\uffff"
     )
 
-    DFA41_accept = DFA.unpack(
+    DFA42_accept = DFA.unpack(
         "\41\uffff\1\101\1\102\1\103\4\uffff\1\110\7\uffff\1\122\1\123\1"
         "\124\1\125\1\127\3\uffff\1\152\4\uffff\3\157\2\160\1\uffff\1\161"
         "\4\uffff\1\152\22\uffff\1\154\36\uffff\1\40\5\uffff\1\126\1\55"
@@ -4378,9 +4388,9 @@ class YarcLexer(YarcLexerBase):
         "\1\30"
     )
 
-    DFA41_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01c8\uffff")
+    DFA42_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01c8\uffff")
 
-    DFA41_transition = [
+    DFA42_transition = [
         DFA.unpack(
             "\11\103\1\100\1\76\1\103\1\77\1\75\22\103\1\100\1\65"
             "\1\72\1\101\1\67\1\57\1\47\1\71\1\60\1\61\1\55\1\53\1\41\1\54\1"
@@ -4927,9 +4937,9 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
     ]
 
-    # class definition for DFA #41
+    # class definition for DFA #42
 
-    class DFA41(DFA):
+    class DFA42(DFA):
         pass
 
         def specialStateTransition(self_, s, input):
@@ -4943,236 +4953,236 @@ class YarcLexer(YarcLexerBase):
             _s = s
 
             if s == 0:
-                LA41_0 = input.LA(1)
+                LA42_0 = input.LA(1)
 
                 s = -1
-                if LA41_0 == 115:
+                if LA42_0 == 115:
                     s = 1
 
-                elif LA41_0 == 119:
+                elif LA42_0 == 119:
                     s = 2
 
-                elif LA41_0 == 80:
+                elif LA42_0 == 80:
                     s = 3
 
-                elif LA41_0 == 67:
+                elif LA42_0 == 67:
                     s = 4
 
-                elif LA41_0 == 84:
+                elif LA42_0 == 84:
                     s = 5
 
-                elif LA41_0 == 83:
+                elif LA42_0 == 83:
                     s = 6
 
-                elif LA41_0 == 68:
+                elif LA42_0 == 68:
                     s = 7
 
-                elif LA41_0 == 76:
+                elif LA42_0 == 76:
                     s = 8
 
-                elif LA41_0 == 82:
+                elif LA42_0 == 82:
                     s = 9
 
-                elif LA41_0 == 77:
+                elif LA42_0 == 77:
                     s = 10
 
-                elif LA41_0 == 111:
+                elif LA42_0 == 111:
                     s = 11
 
-                elif LA41_0 == 99:
+                elif LA42_0 == 99:
                     s = 12
 
-                elif LA41_0 == 103:
+                elif LA42_0 == 103:
                     s = 13
 
-                elif LA41_0 == 105:
+                elif LA42_0 == 105:
                     s = 14
 
-                elif LA41_0 == 101:
+                elif LA42_0 == 101:
                     s = 15
 
-                elif LA41_0 == 102:
+                elif LA42_0 == 102:
                     s = 16
 
-                elif LA41_0 == 109:
+                elif LA42_0 == 109:
                     s = 17
 
-                elif LA41_0 == 108:
+                elif LA42_0 == 108:
                     s = 18
 
-                elif LA41_0 == 114:
+                elif LA42_0 == 114:
                     s = 19
 
-                elif LA41_0 == 116:
+                elif LA42_0 == 116:
                     s = 20
 
-                elif LA41_0 == 118:
+                elif LA42_0 == 118:
                     s = 21
 
-                elif LA41_0 == 117:
+                elif LA42_0 == 117:
                     s = 22
 
-                elif (88 <= LA41_0 <= 90) or (120 <= LA41_0 <= 122):
+                elif (88 <= LA42_0 <= 90) or (120 <= LA42_0 <= 122):
                     s = 23
 
-                elif LA41_0 == 107:
+                elif LA42_0 == 107:
                     s = 24
 
-                elif LA41_0 == 112:
+                elif LA42_0 == 112:
                     s = 25
 
-                elif LA41_0 == 85:
+                elif LA42_0 == 85:
                     s = 26
 
-                elif LA41_0 == 78:
+                elif LA42_0 == 78:
                     s = 27
 
-                elif LA41_0 == 123:
+                elif LA42_0 == 123:
                     s = 28
 
-                elif LA41_0 == 97:
+                elif LA42_0 == 97:
                     s = 29
 
-                elif LA41_0 == 110:
+                elif LA42_0 == 110:
                     s = 30
 
-                elif LA41_0 == 95:
+                elif LA42_0 == 95:
                     s = 31
 
-                elif LA41_0 == 46:
+                elif LA42_0 == 46:
                     s = 32
 
-                elif LA41_0 == 44:
+                elif LA42_0 == 44:
                     s = 33
 
-                elif LA41_0 == 58:
+                elif LA42_0 == 58:
                     s = 34
 
-                elif LA41_0 == 59:
+                elif LA42_0 == 59:
                     s = 35
 
-                elif LA41_0 == 61:
+                elif LA42_0 == 61:
                     s = 36
 
-                elif LA41_0 == 124:
+                elif LA42_0 == 124:
                     s = 37
 
-                elif LA41_0 == 94:
+                elif LA42_0 == 94:
                     s = 38
 
-                elif LA41_0 == 38:
+                elif LA42_0 == 38:
                     s = 39
 
-                elif LA41_0 == 126:
+                elif LA42_0 == 126:
                     s = 40
 
-                elif LA41_0 == 60:
+                elif LA42_0 == 60:
                     s = 41
 
-                elif LA41_0 == 62:
+                elif LA42_0 == 62:
                     s = 42
 
-                elif LA41_0 == 43:
+                elif LA42_0 == 43:
                     s = 43
 
-                elif LA41_0 == 45:
+                elif LA42_0 == 45:
                     s = 44
 
-                elif LA41_0 == 42:
+                elif LA42_0 == 42:
                     s = 45
 
-                elif LA41_0 == 47:
+                elif LA42_0 == 47:
                     s = 46
 
-                elif LA41_0 == 37:
+                elif LA42_0 == 37:
                     s = 47
 
-                elif LA41_0 == 40:
+                elif LA42_0 == 40:
                     s = 48
 
-                elif LA41_0 == 41:
+                elif LA42_0 == 41:
                     s = 49
 
-                elif LA41_0 == 91:
+                elif LA42_0 == 91:
                     s = 50
 
-                elif LA41_0 == 93:
+                elif LA42_0 == 93:
                     s = 51
 
-                elif LA41_0 == 125:
+                elif LA42_0 == 125:
                     s = 52
 
-                elif LA41_0 == 33:
+                elif LA42_0 == 33:
                     s = 53
 
-                elif LA41_0 == 70:
+                elif LA42_0 == 70:
                     s = 54
 
-                elif LA41_0 == 36:
+                elif LA42_0 == 36:
                     s = 55
 
                 elif (
-                    (65 <= LA41_0 <= 66)
-                    or LA41_0 == 69
-                    or (71 <= LA41_0 <= 75)
-                    or LA41_0 == 79
-                    or LA41_0 == 81
-                    or (86 <= LA41_0 <= 87)
-                    or LA41_0 == 98
-                    or LA41_0 == 100
-                    or LA41_0 == 104
-                    or LA41_0 == 106
-                    or LA41_0 == 113
+                    (65 <= LA42_0 <= 66)
+                    or LA42_0 == 69
+                    or (71 <= LA42_0 <= 75)
+                    or LA42_0 == 79
+                    or LA42_0 == 81
+                    or (86 <= LA42_0 <= 87)
+                    or LA42_0 == 98
+                    or LA42_0 == 100
+                    or LA42_0 == 104
+                    or LA42_0 == 106
+                    or LA42_0 == 113
                 ):
                     s = 56
 
-                elif LA41_0 == 39:
+                elif LA42_0 == 39:
                     s = 57
 
-                elif LA41_0 == 34:
+                elif LA42_0 == 34:
                     s = 58
 
-                elif 49 <= LA41_0 <= 57:
+                elif 49 <= LA42_0 <= 57:
                     s = 59
 
-                elif LA41_0 == 48:
+                elif LA42_0 == 48:
                     s = 60
 
-                elif LA41_0 == 13:
+                elif LA42_0 == 13:
                     s = 61
 
-                elif LA41_0 == 10:
+                elif LA42_0 == 10:
                     s = 62
 
-                elif LA41_0 == 12:
+                elif LA42_0 == 12:
                     s = 63
 
-                elif LA41_0 == 9 or LA41_0 == 32:
+                elif LA42_0 == 9 or LA42_0 == 32:
                     s = 64
 
-                elif LA41_0 == 35:
+                elif LA42_0 == 35:
                     s = 65
 
-                elif LA41_0 == 92:
+                elif LA42_0 == 92:
                     s = 66
 
                 elif (
-                    (0 <= LA41_0 <= 8)
-                    or LA41_0 == 11
-                    or (14 <= LA41_0 <= 31)
-                    or (63 <= LA41_0 <= 64)
-                    or LA41_0 == 96
-                    or (127 <= LA41_0 <= 65535)
+                    (0 <= LA42_0 <= 8)
+                    or LA42_0 == 11
+                    or (14 <= LA42_0 <= 31)
+                    or (63 <= LA42_0 <= 64)
+                    or LA42_0 == 96
+                    or (127 <= LA42_0 <= 65535)
                 ):
                     s = 67
 
                 if s >= 0:
                     return s
             elif s == 1:
-                LA41_57 = input.LA(1)
+                LA42_57 = input.LA(1)
 
                 s = -1
-                if (0 <= LA41_57 <= 9) or LA41_57 == 11 or (14 <= LA41_57 <= 65535):
+                if (0 <= LA42_57 <= 9) or LA42_57 == 11 or (14 <= LA42_57 <= 65535):
                     s = 91
 
                 else:
@@ -5181,10 +5191,10 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
             elif s == 2:
-                LA41_58 = input.LA(1)
+                LA42_58 = input.LA(1)
 
                 s = -1
-                if (0 <= LA41_58 <= 9) or LA41_58 == 11 or (14 <= LA41_58 <= 65535):
+                if (0 <= LA42_58 <= 9) or LA42_58 == 11 or (14 <= LA42_58 <= 65535):
                     s = 91
 
                 else:
@@ -5193,7 +5203,7 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
 
-            nvae = NoViableAltException(self_.getDescription(), 41, _s, input)
+            nvae = NoViableAltException(self_.getDescription(), 42, _s, input)
             self_.error(nvae)
             raise nvae
 

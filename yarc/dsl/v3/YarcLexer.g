@@ -80,7 +80,7 @@ SEQUENCE    : 'Sequence';
 LOG_UNIFORM : 'LogUniform';
 
 // Native code snippets
-SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } {self.skip()} ;
+SNIPPET : NESTED_CODE NEWLINE? { print("FOUND SNIPPET CODE!") } {self.skip()} ;
 
 fragment NESTED_CODE:
   LBRACE LBRACE 
