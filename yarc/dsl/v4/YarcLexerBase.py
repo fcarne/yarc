@@ -4,7 +4,7 @@ import re
 import sys
 
 from antlr4 import InputStream, Lexer
-from antlr4.Token import CommonToken
+from antlr4.Token import CommonToken, Token
 
 from yarc.dsl.v4.YarcParser import YarcParser
 
@@ -15,8 +15,8 @@ class YarcLexerBase(Lexer):
 
     def __init__(self, input: InputStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
-        self.tokens = []
-        self.indents = []
+        self.tokens: list[Token] = []
+        self.indents: list[int] = []
         self.opened = 0
 
     def reset(self):
@@ -54,7 +54,7 @@ class YarcLexerBase(Lexer):
     def createDedent(self):
         return self.commonToken(YarcParser.DEDENT, "")
 
-    def commonToken(self, type_: int, text: str):
+    def commonToken(self, type_: int, text: str) -> CommonToken:
         stop = self.getCharIndex() - 1
         start = stop if text == "" else stop - len(text) + 1
         return CommonToken(
@@ -65,7 +65,7 @@ class YarcLexerBase(Lexer):
             stop,
         )
 
-    def getIndentationCount(self, whitespace: str):
+    def getIndentationCount(self, whitespace: str) -> int:
         count = 0
         for c in whitespace:
             if c == "\t":

@@ -15,8 +15,8 @@ class YarcLexerBase(Lexer):
 
     def __init__(self, input: InputStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
-        self.tokens = []
-        self.indents = []
+        self.tokens: list[Token] = []
+        self.indents: list[int] = []
         self.opened = 0
 
     def reset(self):
@@ -25,12 +25,12 @@ class YarcLexerBase(Lexer):
         self.opened = 0
         super().reset()
 
-    def emit(self, token: Optional[Token] = None):
+    def emit(self, token: Optional[Token] = None) -> Token:
         t = super().emit(token)
         self.emitToken(t)
         return t
 
-    def emitToken(self, token: Token):
+    def emitToken(self, token: Token) -> None:
         self._state.token = token
         self.tokens.append(token)
 
@@ -59,7 +59,7 @@ class YarcLexerBase(Lexer):
     def createDedent(self):
         return self.commonToken(YarcParser.DEDENT, "")
 
-    def commonToken(self, type_: int, text: str):
+    def commonToken(self, type_: int, text: str) -> CommonToken:
         stop = self.getCharIndex() - 1
         start = stop if text == "" else stop - len(text) + 1
         token = CommonToken(
@@ -73,7 +73,7 @@ class YarcLexerBase(Lexer):
         token.charPositionInLine = self._state.tokenStartCharPositionInLine
         return token
 
-    def getIndentationCount(self, whitespace: str):
+    def getIndentationCount(self, whitespace: str) -> int:
         count = 0
         for c in whitespace:
             if c == "\t":
