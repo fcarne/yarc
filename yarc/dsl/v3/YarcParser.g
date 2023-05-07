@@ -105,6 +105,7 @@ atom:
   | LBRACK (testlist_comp? | (MINUS? INTEGER) RANGE (MINUS? INTEGER)) RBRACK
   | LT vector_comp? GT
   | LBRACE dict_or_set_maker? RBRACE
+  | LEN LPAREN test RPAREN
   | name | SETTING_ID | distribution_expr
   | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE
 ;
@@ -122,13 +123,12 @@ name:
   | ORDER  */
 ;
 
-distribution_expr : distribution LPAREN arglist RPAREN;
-distribution      : UNIFORM | NORMAL | CHOICE | SEQUENCE | LOG_UNIFORM;
+distribution_expr : DISTRIBUTION LPAREN arglist RPAREN;
 
 testlist_comp : test ( comp_for | (COMMA test)*);
 vector_comp   : expr COMMA expr COMMA expr /*( comp_for | (COMMA expr)*)*/;
 
-trailer       : LBRACK subscriptlist RBRACK | DOT name;
+trailer       : LBRACK subscriptlist RBRACK | DOT (name  | AXIS);
 arglist       : argument (COMMA argument)*;
 argument      : test (comp_for | ASSIGN test)?;
 subscriptlist : subscript_ (COMMA subscript_)*;

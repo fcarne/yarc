@@ -73,11 +73,7 @@ FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
 /* Distributions */
-UNIFORM     : 'Uniform';
-NORMAL      : 'Normal';
-CHOICE      : 'Choice';
-SEQUENCE    : 'Sequence';
-LOG_UNIFORM : 'LogUniform';
+DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' ;
 
 // Native code snippets
 SNIPPET : NESTED_CODE NEWLINE? { print("FOUND SNIPPET CODE!") } {self.skip()} ;
@@ -106,6 +102,7 @@ FROM       : 'from';
 IF         : 'if';
 IN         : 'in';
 IS         : 'is';
+LEN	   : 'len';
 NONE       : 'none';
 NOT        : 'not';
 OR         : 'or';

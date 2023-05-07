@@ -2,7 +2,7 @@ from typing import Optional
 
 
 class SymbolTable:
-    def __init__(self, parent: Optional["SymbolTable"] = None) -> None:
+    def __init__(self, parent: Optional["SymbolTable"] = None):
         self._symbols: dict[str, type] = {}
         self.parent = parent
 
@@ -19,7 +19,7 @@ class SymbolTable:
 
 
 class SymbolStack:
-    def __init__(self) -> None:
+    def __init__(self):
         self._stack = [SymbolTable()]
 
     def push(self) -> None:
