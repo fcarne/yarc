@@ -1,0 +1,139 @@
+group replicator;
+
+scenario(name, settings, stage, writers) ::=
+<<
+# Scenario <name>
+import omni.replicator.core as rep
+from pxr import Gf
+
+<settings>
+
+with rep.new_layer():
+  <stage>
+  
+  <writers>
+  
+>>
+
+settings(setting_list) ::= 
+<<
+# settings
+<setting_list; separator="\n">
+settings = {
+  
+}
+>>
+
+setting(setting, value) ::=
+<<
+rep.settings.carb_settings(setting="<setting>", value=<value>)
+>>
+
+test(expr, cond, else_expr) ::=
+<<
+<expr> <if(cond)>if <cond> else <else_expr><endif>
+>>
+
+or_test(exprs) ::=
+<<
+<exprs; separator=" or ">
+>>
+
+and_test(exprs) ::=
+<<
+<exprs; separator=" and ">
+>>
+
+not_test(expr) ::=
+<<
+not <expr>
+>>
+
+comparison(exprs, op) ::= 
+<<
+<exprs; separator=" "+op.text+" ">
+>>
+
+expr(exprs) ::=
+<<
+<exprs; separator=" | ">
+>>
+
+xor_expr(exprs) ::=
+<<
+<exprs; separator=" ^ ">
+>>
+
+and_expr(exprs) ::=
+<<
+<exprs; separator=" & ">
+>>
+
+shift_expr(exprs, op) ::=
+<<
+<exprs; separator=" "+op.text+" ">
+>>
+
+arith_expr(terms, op) ::=
+<<
+<terms; separator=" "+op.text+" ">
+>>
+
+term(factors, op) ::=
+<<
+<factors; separator=" "+op.text+" ">
+>>
+
+prefix_factor(factor, prefix) ::=
+<<
+<if(prefix)><prefix.text><endif><factor>
+>>
+
+power(atom, factor) ::=
+<<
+<atom><if(factor)>** <factor><endif>
+>>
+
+atom_expr(atom, trailers) ::=
+<<
+<atom><trailers; separator="">
+>>
+
+parenthesized_expr(expr) ::= 
+<<
+(<expr>)
+>>
+
+list(list_comp) ::=
+<<
+[<if(list_comp)><list_comp><endif>]
+>>
+
+vector(values) ::=
+<<
+Gf.Vec3d(<values>)
+>>
+
+dict(dict_comp) ::=
+<<
+{<if(dict_comp)><dict_comp><endif>}
+>>
+
+len(value) ::=
+<<
+len(<value>)
+>>
+
+setting_id(id) ::=
+<<
+settings["<id>"]
+>>
+
+distribution(name, arglist) ::=
+<<
+rep.distribution.<name>(<arglist>)
+>>
+
+null() ::= "None"
+true() ::= "True"
+false() ::= "False"

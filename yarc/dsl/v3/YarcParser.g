@@ -6,17 +6,19 @@ options {
   output = template;
 }
 
-scenario : declaration NEWLINE* settings? stage? writers?; // Starting rule
+scenario : declaration NEWLINE* settings? stage? writers? 
+  -> scenario(name={$declaration.scenario_name}, settings={$settings.st}, stage={$stage.st}, writers={$writers.st})
+; // Starting rule
 
-declaration : SCENARIO name (COLON name)? NEWLINE;
-settings    : SETTINGS COLON NEWLINE INDENT option+ DEDENT;
+declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE {$scenario_name=$ID.text};
+settings    : SETTINGS COLON NEWLINE INDENT sets+=setting+ DEDENT -> settings(setting_list={$sets});
 stage       : STAGE COLON NEWLINE INDENT stmts DEDENT;
 writers     : WRITERS COLON NEWLINE INDENT (expr_stmt | writer)+ DEDENT;
 
-option : ID ASSIGN test NEWLINE;
-stmts  : open_stmt? (aug_expr_stmt | edit_stmt | behavior_stmt)+;
-writer : ID COLON NEWLINE INDENT option+ DEDENT;
-
+setting        : ID ASSIGN test NEWLINE -> setting(setting={$ID.text}, value={$test.st}); // Add special settings handling
+stmts          : open_stmt? (aug_expr_stmt | edit_stmt | behavior_stmt)+;
+writer         : ID COLON NEWLINE INDENT writer_setting+ DEDENT;
+writer_setting : ID ASSIGN test NEWLINE;
 /* Statements */
 /* Scene object creation and modifcation statements */
 open_stmt : OPEN test NEWLINE;
@@ -84,35 +86,46 @@ aug_expr_stmt: (
 fetch_expr : FETCH test FROM test (MATCH test)? (LIMIT test)? RECURSIVE?;
 
 /* Expressions (taken from the Python 3 grammar) */
-test        : or_test (IF or_test ELSE test)?;
-test_nocond : or_test;
-or_test     : and_test (OR and_test)*;
-and_test    : not_test (AND not_test)*;
-not_test    : NOT not_test | comparison;
-comparison  : expr (comp_op expr)*;
-comp_op     : LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT;
-expr        : xor_expr (BIT_OR xor_expr)*;
-xor_expr    : and_expr (XOR and_expr)*;
-and_expr    : shift_expr (BIT_AND shift_expr)*;
-shift_expr  : arith_expr ((LSHIFT | RSHIFT) arith_expr)*;
-arith_expr  : term ((PLUS | MINUS) term)*;
-term        : factor ((MUL | DIV | MOD | IDIV) factor)*;
-factor      : (PLUS | MINUS | BIT_NOT) factor | power;
-power       : atom_expr (POWER factor)?;
-atom_expr   : atom (: trailer)*;
+test        : expr_=or_test (IF cond=or_test ELSE else_expr=test)? 
+            -> test(expr={$expr_.st}, cond={$cond.st}, else_expr={$else_expr.st}) ;
+test_nocond : or_test -> test(expr={$or_test.st});
+or_test     : exprs+=and_test (OR exprs+=and_test)* -> or_test(exprs={$exprs});
+and_test    : exprs+=not_test (AND exprs+=not_test)* -> and_test(exprs={$exprs});
+not_test    : NOT expr_=not_test  -> not_test(expr={$expr_.st})
+            | comparison -> {$comparison.st};
+comparison  : exprs+=expr (comp_op exprs+=expr)* -> comparison(exprs={$exprs}, op={$comp_op.text});
+comp_op     : LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT ;
+expr        : exprs+=xor_expr (BIT_OR exprs+=xor_expr)* -> expr(exprs={$exprs});
+xor_expr    : exprs+=and_expr (XOR exprs+=and_expr)* -> xor_expr(exprs={$exprs});
+and_expr    : exprs+=shift_expr (BIT_AND exprs+=shift_expr)* -> and_expr(exprs={$exprs});
+shift_expr  : exprs+=arith_expr (op=(LSHIFT | RSHIFT) exprs+=arith_expr)* -> shift_expr(exprs={$exprs}, op={$op});
+arith_expr  : terms+=term (op=(PLUS | MINUS) terms+=term)* -> arith_expr(terms={$terms}, op={$op});
+term        : factors+=factor (op=(MUL | DIV | MOD | IDIV) factors+=factor)* -> term(factors={$factors}, op={$op});
+factor      : prefix=(PLUS | MINUS | BIT_NOT) factor_=factor -> prefix_factor(factor={$factor_.st}, prefix={$prefix})
+            | power -> {$power.st};
+power       : atom_expr (POWER factor)? -> power(atom={$atom_expr.st}, factor={$factor.st});
+atom_expr   : atom (trailers+=trailer)* -> atom_expr(atom={$atom.st}, trailers={$trailers});
 atom:
-  LPAREN test RPAREN
-  | LBRACK (testlist_comp? | (MINUS? INTEGER) RANGE (MINUS? INTEGER)) RBRACK
-  | LT vector_comp? GT
-  | LBRACE dict_or_set_maker? RBRACE
-  | LEN LPAREN test RPAREN
-  | name | SETTING_ID | distribution_expr
-  | INTEGER | FLOAT_NUMBER | STRING | NONE | TRUE | FALSE
+  (LPAREN test_=test RPAREN -> parenthesized_expr(expr={$test_.st})
+  | LBRACK testlist_comp? RBRACK -> list(list_comp={$testlist_comp.st})
+  | LT vector_comp? GT -> vector(values={$vector_comp.st})
+  | LBRACE dict_or_set_maker? RBRACE -> dict(dict_comp={$dict_or_set_maker.st})
+  | LEN LPAREN test_=test RPAREN -> len(value={$test_.st})
+  | name -> {$name.st}
+  | SETTING_ID -> setting_id(id={$SETTING_ID.text}) 
+  | DISTRIBUTION LPAREN arglist RPAREN -> distribution(name={$DISTRIBUTION.text}, arglist={$arglist.st})
+  | INTEGER -> {$INTEGER.text}
+  | FLOAT_NUMBER -> {$FLOAT_NUMBER.text}
+  | STRING -> {$STRING.text}
+  | NONE -> null()
+  | TRUE -> true()
+  | FALSE -> false()
+  )
 ;
 
 name:
-  ID
-  | UNDERSCORE
+  ID -> {$ID.text}
+  | UNDERSCORE -> {$UNDERSCORE.text}
   /*| primitives
   | VISIBLE
   | SIZE
@@ -123,9 +136,7 @@ name:
   | ORDER  */
 ;
 
-distribution_expr : DISTRIBUTION LPAREN arglist RPAREN;
-
-testlist_comp : test ( comp_for | (COMMA test)*);
+testlist_comp : test ( comp_for | (COMMA test)* | RANGE test (STEP test)? );
 vector_comp   : expr COMMA expr COMMA expr /*( comp_for | (COMMA expr)*)*/;
 
 trailer       : LBRACK subscriptlist RBRACK | DOT (name  | AXIS);

@@ -2,6 +2,7 @@ import os
 
 from antlr3 import ANTLRStringStream, CommonTokenStream
 
+from yarc.dsl.v3.handler.handler_factory import HandlerFactory
 from yarc.dsl.v3.YarcLexer import YarcLexer
 from yarc.dsl.v3.YarcParser import YarcParser
 
@@ -16,4 +17,9 @@ input_stream = ANTLRStringStream(input_str)
 lexer = YarcLexer(input_stream)
 stream = CommonTokenStream(lexer)
 parser = YarcParser(stream)
-tree = parser.scenario()
+
+HandlerFactory.get_handler(parser=parser, lib="Replicator")
+
+script = parser.scenario()
+
+print(script)

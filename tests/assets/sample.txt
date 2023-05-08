@@ -20,9 +20,8 @@ stage:
     rotate <120,0,90> xyz
     scale <2, 1, 2>
     semantics 'class:obj'
-
-    {{ print('Code snippet!') }}
     
+        
     collider
     kinematics:
       velocity 150

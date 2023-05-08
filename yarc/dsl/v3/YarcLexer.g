@@ -102,10 +102,11 @@ FROM       : 'from';
 IF         : 'if';
 IN         : 'in';
 IS         : 'is';
-LEN	   : 'len';
+LEN        : 'len';
 NONE       : 'none';
 NOT        : 'not';
 OR         : 'or';
+STEP       : 'step';
 TRUE       : 'true';
 UNDERSCORE : '_';
 
