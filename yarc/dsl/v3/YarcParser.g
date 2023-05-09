@@ -4,25 +4,40 @@ options {
   tokenVocab = YarcLexer;
   language = Python3;
   output = template;
+  superClass = YarcParserBase;
+}
+
+@header {
+from yarc.dsl.v3.handler.handler_factory import HandlerFactory
+
+if __name__ is not None and "." in __name__:
+    from .YarcParserBase import YarcParserBase
+else:
+    from YarcParserBase import YarcParserBase
 }
 
 scenario : declaration NEWLINE* settings? stage? writers? 
   -> scenario(name={$declaration.scenario_name}, settings={$settings.st}, stage={$stage.st}, writers={$writers.st})
 ; // Starting rule
 
-declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE {$scenario_name=$ID.text};
+declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE 
+  {$scenario_name=$ID.text} 
+  {self.handler = HandlerFactory.get_handler($name.text, self)};
+  
 settings    : SETTINGS COLON NEWLINE INDENT sets+=setting+ DEDENT -> settings(setting_list={$sets});
-stage       : STAGE COLON NEWLINE INDENT stmts DEDENT;
-writers     : WRITERS COLON NEWLINE INDENT (expr_stmt | writer)+ DEDENT;
+stage       : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
+writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | writer)+ DEDENT -> writers(stmts={$stmts_});
 
 setting        : ID ASSIGN test NEWLINE -> setting(setting={$ID.text}, value={$test.st}); // Add special settings handling
-stmts          : open_stmt? (aug_expr_stmt | edit_stmt | behavior_stmt)+;
-writer         : ID COLON NEWLINE INDENT writer_setting+ DEDENT;
-writer_setting : ID ASSIGN test NEWLINE;
+stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
+writer         : ID COLON NEWLINE INDENT writer_params+=writer_param+ DEDENT -> writer(writer_id={$ID.text}, writer_params={$writer_params}, rps={["rp"]}); // Get render products from handler
+writer_param   : ID ASSIGN test NEWLINE -> writer_param(param={$ID.text}, value={$test.st});
+
 /* Statements */
 /* Scene object creation and modifcation statements */
-open_stmt : OPEN test NEWLINE;
-edit_stmt : EDIT (TIMELINE | name) edit_block;
+open_stmt : OPEN test NEWLINE -> open_stmt(path={$test.st});
+edit_stmt : EDIT (TIMELINE COLON NEWLINE INDENT (params+=name values+=test NEWLINE)+ DEDENT -> edit_timeline(params={$params}, values={$values}) 
+                 | name edit_block);
 
 create_expr:
   CREATE test? (
@@ -41,7 +56,7 @@ get_expr         : GET ((CAMERA | LIGHT | MATERIAL | name) AT)? test (simple_blo
 edit_block   : COLON NEWLINE INDENT (attr | inner_behavior_stmt)+ DEDENT;
 simple_block : COLON NEWLINE INDENT simple_attr+ DEDENT;
 
-attr          : core_attr | simple_attr | compound_attr;
+attr          : attr_=(core_attr | simple_attr | compound_attr) -> {$attr_.st};
 simple_attr   : name (COLON name)? test? NEWLINE;
 
 compound_attr : (SCATTER ON name | ROT_AROUND name | PHYSICS) (simple_block | NEWLINE);
@@ -57,8 +72,7 @@ core_attr: // Special modifiers that must be treated in a specific way
     | SIZE test
     | SEMANTICS test
     | VISIBLE test
-  ) NEWLINE
-;
+  ) NEWLINE ;
 
 inner_behavior_stmt  : behavior_expr inner_behavior_block;
 inner_behavior_block : COLON NEWLINE INDENT attr+ DEDENT;
@@ -69,7 +83,8 @@ behavior_expr  : EVERY test? (FRAMES | TIME);
 behavior_block : COLON NEWLINE INDENT (aug_expr_stmt | edit_stmt)+ DEDENT;
 
 /* Expression statements */
-expr_stmt : testlist (AUG_ASSIGN | ASSIGN) (testlist | fetch_expr) NEWLINE;
+expr_stmt : assignable=testlist op=(AUG_ASSIGN | ASSIGN) value=(testlist | fetch_expr) NEWLINE 
+  -> expr_stmt(assignable={$assignable.st}, op={$op.text}, value={$value.st});
 
 aug_expr_stmt: (
     testlist (
@@ -83,7 +98,8 @@ aug_expr_stmt: (
   | create_expr | instantiate_expr | get_expr | group_expr
 ;
 
-fetch_expr : FETCH test FROM test (MATCH test)? (LIMIT test)? RECURSIVE?;
+fetch_expr : FETCH ext=test FROM path=test (MATCH filter=test)? (LIMIT limit=test)? RECURSIVE?
+  -> fetch_expr(ext={$ext.st}, path={$path.st}, filter={$filter.st}, limit={$limit.st}, recursive={$RECURSIVE});
 
 /* Expressions (taken from the Python 3 grammar) */
 test        : expr_=or_test (IF cond=or_test ELSE else_expr=test)? 
@@ -116,7 +132,7 @@ atom:
   | DISTRIBUTION LPAREN arglist RPAREN -> distribution(name={$DISTRIBUTION.text}, arglist={$arglist.st})
   | INTEGER -> {$INTEGER.text}
   | FLOAT_NUMBER -> {$FLOAT_NUMBER.text}
-  | STRING -> {$STRING.text}
+  | STRING -> {$STRING.text} // Add string expansion
   | NONE -> null()
   | TRUE -> true()
   | FALSE -> false()
@@ -155,10 +171,13 @@ sliceop       : COLON test? -> subscipt_step(step={$test.st});
 exprlist : exprs+=expr (COMMA exprs+=expr)* -> test_list(exprs={$exprs});
 testlist : exprs+=test (COMMA exprs+=test)* -> test_list(exprs={$exprs});
 dict_or_set_maker:
-  test ( COLON test (comp_for | (COMMA test COLON test)*)
-       | (comp_for | (COMMA test)*) )
+  exprs+=test ( COLON values+=test (for_=comp_for -> dict_comp(key={$exprs[0]}, value={$values[0]}, for={$for_.st})
+                                   | (COMMA exprs+=test COLON values+=test)*) -> key_value_list(keys={$exprs}, values={$values})
+              | (for_=comp_for -> list_comp(expr={$exprs[0]}, for={$for_.st})   
+                | (COMMA exprs+=test)*)  -> test_list(exprs={$exprs})
+              )
 ;
 
-comp_iter : comp_for | comp_if;
-comp_for  : FOR exprlist IN or_test comp_iter?;
-comp_if   : IF test_nocond comp_iter?;
+comp_iter : comp=(comp_for | comp_if) -> {$comp.st};
+comp_for  : FOR exprlist IN or_test comp_iter? -> comp_for(exprs={$exprlist.st}, seq={$or_test.st}, comp_iter={$comp_iter.st});
+comp_if   : IF test_nocond comp_iter? -> comp_if(cond={$test_nocond.st}, comp_iter={$comp_iter.st});

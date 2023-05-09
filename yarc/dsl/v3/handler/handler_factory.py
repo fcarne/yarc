@@ -1,8 +1,8 @@
 from pathlib import Path
 
 import stringtemplate3
+from antlr3 import Parser
 
-from yarc.dsl.v3 import YarcParser
 from yarc.dsl.v3.handler.handler import Handler
 from yarc.dsl.v3.handler.replicator_handler import OmniReplicatorHandler
 
@@ -21,11 +21,12 @@ class HandlerFactory:
     def is_library_supported(lib):
         return lib in HandlerFactory.supported_libraries
 
-    def get_handler(lib, parser: YarcParser, **kwargs) -> type[Handler]:
-        handler, template_path = HandlerFactory.supported_libraries.get(
-            lib, "Replicator"
-        )
+    @staticmethod
+    def get_handler(lib, parser: Parser, **kwargs) -> type[Handler]:
+        if HandlerFactory.is_library_supported(lib) is False:
+            raise ValueError(f"Fatal: Target library '{lib}' is not supported... ")
 
+        handler, template_path = HandlerFactory.supported_libraries[lib]
         with open(template_path) as template:
             parser.templateLib = stringtemplate3.StringTemplateGroup(file=template)
 

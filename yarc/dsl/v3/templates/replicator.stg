@@ -3,9 +3,11 @@ group replicator;
 scenario(name, settings, stage, writers) ::=
 <<
 # Scenario <name>
+import omni.usd
 import omni.replicator.core as rep
-from pxr import Gf
 
+from pxr import Gf
+from omni.demo.data_generator import get_files, save_meshes, get_prims
 <settings>
 
 with rep.new_layer():
@@ -29,9 +31,57 @@ setting(setting, value) ::=
 rep.settings.carb_settings(setting="<setting>", value=<value>)
 >>
 
+writers(stmts) ::=
+<<
+# writers
+<stmts; separator="\n">
+>>
+
+writer(writer_id, writer_params, rps) ::=
+<<
+writer = rep.WriterRegistry.get("<writer_id>")
+writer.initialize(
+  <writer_params; separator=",\n">
+)
+writer.attach([<rps; separator=", ">])
+
+>>
+
+writer_param(param, value) ::=
+<<
+<param>=<value>
+>>
+
+stage(stmts) ::=
+<<
+<stmts; separator="\n">
+>>
+
+open_stmt(path) ::=
+<<
+omni.usd.get_context().open_stage(<path>)
+
+>>
+
+edit_timeline(params, values) ::=
+<<
+<params,values: { p,v | rep.modify.<p>(value=<v>)}; separator="\n">
+
+>>
+
+fetch_expr(ext, path, filter, limit, recursive) ::=
+<<
+get_files(path=<path>, exts=<ext><if(recursive)>, recursive=True<endif><if(filter)>, path_filter=<filter><endif><if(limit)>, max_files=<limit><endif>)
+>>
+
+expr_stmt(assignable, op, value) ::=
+<<
+<assignable> <op> <value>
+>>
+
 test(expr, cond, else_expr) ::=
 <<
-<expr> <if(cond)>if <cond> else <else_expr><endif>
+<expr><if(cond)> if <cond> else <else_expr><endif>
 >>
 
 or_test(exprs) ::=
@@ -91,7 +141,7 @@ prefix_factor(factor, prefix) ::=
 
 power(atom, factor) ::=
 <<
-<atom><if(factor)>** <factor><endif>
+<atom><if(factor)> ** <factor><endif>
 >>
 
 atom_expr(atom, trailers) ::=
@@ -191,4 +241,24 @@ subscript(from, colon, to, step) ::=
 subscript_step(step) ::=
 <<
 :<if(step)><step><endif>
+>>
+
+dict_comp(key, value, for) ::=
+<<
+<key>: <value> <for>
+>>
+
+key_value_list(keys, values) ::=
+<<
+<keys,values:{ k,v | k: v}; separator=", ">
+>>
+
+comp_for(exprs, seq, comp_iter) ::=
+<<
+for <exprs> in <seq><if(comp_iter)> <comp_iter><endif>
+>>
+
+comp_if(cond, comp_iter) ::= 
+<<
+if <cond><if(comp_iter)> <comp_iter><endif>
 >>

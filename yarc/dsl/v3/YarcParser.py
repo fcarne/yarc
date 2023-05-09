@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g 2023-05-09 10:40:54
+# $ANTLR 3.5.1 /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g 2023-05-10 00:14:02
 
 import sys
 
@@ -8,12 +8,19 @@ from antlr3 import (
     EarlyExitException,
     MismatchedSetException,
     NoViableAltException,
-    Parser,
     ParserRuleReturnScope,
     RecognitionException,
     RecognizerSharedState,
     Token,
 )
+
+from yarc.dsl.v3.handler.handler_factory import HandlerFactory
+
+if __name__ is not None and "." in __name__:
+    from .YarcParserBase import YarcParserBase
+else:
+    from YarcParserBase import YarcParserBase
+
 
 # for convenience in actions
 HIDDEN = BaseRecognizer.HIDDEN
@@ -403,7 +410,7 @@ tokenNames = [
 ]
 
 
-class YarcParser(Parser):
+class YarcParser(YarcParserBase):
     grammarFileName = "/media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g"
     api_version = 1
     tokenNames = tokenNames
@@ -443,7 +450,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "scenario"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:1: scenario : declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:1: scenario : declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st);
     def scenario(
         self,
     ):
@@ -457,14 +464,14 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:10: ( declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:12: declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )?
-                self._state.following.append(self.FOLLOW_declaration_in_scenario44)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:10: ( declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )? -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:12: declaration ( NEWLINE )* ( settings )? ( stage )? ( writers )?
+                self._state.following.append(self.FOLLOW_declaration_in_scenario59)
                 declaration1 = self.declaration()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:24: ( NEWLINE )*
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:24: ( NEWLINE )*
                 while True:  # loop1
                     alt1 = 2
                     LA1_0 = self.input.LA(1)
@@ -473,55 +480,55 @@ class YarcParser(Parser):
                         alt1 = 1
 
                     if alt1 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:24: NEWLINE
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:24: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario46
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario61
                         )
 
                     else:
                         break  # loop1
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:33: ( settings )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:33: ( settings )?
                 alt2 = 2
                 LA2_0 = self.input.LA(1)
 
                 if LA2_0 == SETTINGS:
                     alt2 = 1
                 if alt2 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:33: settings
-                    self._state.following.append(self.FOLLOW_settings_in_scenario49)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:33: settings
+                    self._state.following.append(self.FOLLOW_settings_in_scenario64)
                     settings2 = self.settings()
 
                     self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:43: ( stage )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:43: ( stage )?
                 alt3 = 2
                 LA3_0 = self.input.LA(1)
 
                 if LA3_0 == STAGE:
                     alt3 = 1
                 if alt3 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:43: stage
-                    self._state.following.append(self.FOLLOW_stage_in_scenario52)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:43: stage
+                    self._state.following.append(self.FOLLOW_stage_in_scenario67)
                     stage3 = self.stage()
 
                     self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:50: ( writers )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:50: ( writers )?
                 alt4 = 2
                 LA4_0 = self.input.LA(1)
 
                 if LA4_0 == WRITERS:
                     alt4 = 1
                 if alt4 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:9:50: writers
-                    self._state.following.append(self.FOLLOW_writers_in_scenario55)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:50: writers
+                    self._state.following.append(self.FOLLOW_writers_in_scenario70)
                     writers4 = self.writers()
 
                     self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 10:3: -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st)
+                # 20:3: -> scenario(name=$declaration.scenario_namesettings=$settings.ststage=$stage.stwriters=$writers.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "scenario",
                     attributes={
@@ -570,7 +577,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "declaration"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:13:1: declaration returns [scenario_name] : SCENARIO ID ( COLON name )? NEWLINE ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:23:1: declaration returns [scenario_name] : SCENARIO ID ( COLON name )? NEWLINE ;
     def declaration(
         self,
     ):
@@ -578,34 +585,46 @@ class YarcParser(Parser):
         retval.start = self.input.LT(1)
 
         ID5 = None
+        name6 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:13:37: ( SCENARIO ID ( COLON name )? NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:13:39: SCENARIO ID ( COLON name )? NEWLINE
-                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration97)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:23:37: ( SCENARIO ID ( COLON name )? NEWLINE )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:23:39: SCENARIO ID ( COLON name )? NEWLINE
+                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration112)
 
-                ID5 = self.match(self.input, ID, self.FOLLOW_ID_in_declaration99)
+                ID5 = self.match(self.input, ID, self.FOLLOW_ID_in_declaration114)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:13:51: ( COLON name )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:23:51: ( COLON name )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if LA5_0 == COLON:
                     alt5 = 1
                 if alt5 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:13:52: COLON name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration102)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:23:52: COLON name
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration117)
 
-                    self._state.following.append(self.FOLLOW_name_in_declaration104)
-                    self.name()
+                    self._state.following.append(self.FOLLOW_name_in_declaration119)
+                    name6 = self.name()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration108)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration123)
 
                 # action start
                 retval.scenario_name = ID5.text
+                # action end
+
+                # action start
+                self.handler = HandlerFactory.get_handler(
+                    (
+                        (name6 is not None)
+                        and [self.input.toString(name6.start, name6.stop)]
+                        or [None]
+                    )[0],
+                    self,
+                )
                 # action end
 
                 retval.stop = self.input.LT(-1)
@@ -637,7 +656,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "settings"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:14:1: settings : SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT -> settings(setting_list=$sets);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:1: settings : SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT -> settings(setting_list=$sets);
     def settings(
         self,
     ):
@@ -648,17 +667,17 @@ class YarcParser(Parser):
         sets = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:14:13: ( SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT -> settings(setting_list=$sets))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:14:15: SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT
-                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings120)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:13: ( SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT -> settings(setting_list=$sets))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:15: SETTINGS COLON NEWLINE INDENT (sets+= setting )+ DEDENT
+                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings146)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings122)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings148)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings124)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings150)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings126)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings152)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:14:49: (sets+= setting )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:49: (sets+= setting )+
                 cnt6 = 0
                 while True:  # loop6
                     alt6 = 2
@@ -668,8 +687,8 @@ class YarcParser(Parser):
                         alt6 = 1
 
                     if alt6 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:14:49: sets+= setting
-                        self._state.following.append(self.FOLLOW_setting_in_settings130)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:49: sets+= setting
+                        self._state.following.append(self.FOLLOW_setting_in_settings156)
                         sets = self.setting()
 
                         self._state.following.pop()
@@ -686,10 +705,10 @@ class YarcParser(Parser):
 
                     cnt6 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings133)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings159)
 
                 # TEMPLATE REWRITE
-                # 14:67: -> settings(setting_list=$sets)
+                # 27:67: -> settings(setting_list=$sets)
                 retval.st = self.templateLib.getInstanceOf(
                     "settings", attributes={"setting_list": list_sets}
                 )
@@ -723,31 +742,37 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "stage"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:15:1: stage : STAGE COLON NEWLINE INDENT stmts DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:1: stage : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
     def stage(
         self,
     ):
         retval = self.stage_return()
         retval.start = self.input.LT(1)
 
+        stmts7 = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:15:13: ( STAGE COLON NEWLINE INDENT stmts DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:15:15: STAGE COLON NEWLINE INDENT stmts DEDENT
-                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage155)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:13: ( STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st})
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:15: STAGE COLON NEWLINE INDENT stmts DEDENT
+                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage181)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage157)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage183)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage159)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage185)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage161)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage187)
 
-                self._state.following.append(self.FOLLOW_stmts_in_stage163)
-                self.stmts()
+                self._state.following.append(self.FOLLOW_stmts_in_stage189)
+                stmts7 = self.stmts()
 
                 self._state.following.pop()
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage165)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage191)
+
+                # TEMPLATE REWRITE
+                # 28:55: -> {$stmts.st}
+                retval.st = ((stmts7 is not None) and [stmts7.st] or [None])[0]
 
                 retval.stop = self.input.LT(-1)
 
@@ -778,26 +803,29 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "writers"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:1: writers : WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:1: writers : WRITERS COLON NEWLINE INDENT stmts_+= ( expr_stmt | writer )+ DEDENT -> writers(stmts=$stmts_);
     def writers(
         self,
     ):
         retval = self.writers_return()
         retval.start = self.input.LT(1)
 
+        stmts_ = None
+        list_stmts_ = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:13: ( WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:15: WRITERS COLON NEWLINE INDENT ( expr_stmt | writer )+ DEDENT
-                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers176)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:13: ( WRITERS COLON NEWLINE INDENT stmts_+= ( expr_stmt | writer )+ DEDENT -> writers(stmts=$stmts_))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:15: WRITERS COLON NEWLINE INDENT stmts_+= ( expr_stmt | writer )+ DEDENT
+                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers206)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers178)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers208)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers180)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers210)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers182)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers212)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:44: ( expr_stmt | writer )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:52: ( expr_stmt | writer )+
                 cnt7 = 0
                 while True:  # loop7
                     alt7 = 3
@@ -863,20 +891,26 @@ class YarcParser(Parser):
                             alt7 = 1
 
                     if alt7 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:45: expr_stmt
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:53: expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_expr_stmt_in_writers185
+                            self.FOLLOW_expr_stmt_in_writers217
                         )
-                        self.expr_stmt()
+                        stmts_ = self.expr_stmt()
 
                         self._state.following.pop()
+                        if list_stmts_ is None:
+                            list_stmts_ = []
+                        list_stmts_.append(stmts_.st)
 
                     elif alt7 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:16:57: writer
-                        self._state.following.append(self.FOLLOW_writer_in_writers189)
-                        self.writer()
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:65: writer
+                        self._state.following.append(self.FOLLOW_writer_in_writers221)
+                        stmts_ = self.writer()
 
                         self._state.following.pop()
+                        if list_stmts_ is None:
+                            list_stmts_ = []
+                        list_stmts_.append(stmts_.st)
 
                     else:
                         if cnt7 >= 1:
@@ -887,7 +921,13 @@ class YarcParser(Parser):
 
                     cnt7 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers193)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers225)
+
+                # TEMPLATE REWRITE
+                # 29:81: -> writers(stmts=$stmts_)
+                retval.st = self.templateLib.getInstanceOf(
+                    "writers", attributes={"stmts": list_stmts_}
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -918,38 +958,38 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "setting"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:18:1: setting : ID ASSIGN test NEWLINE -> setting(setting=$ID.textvalue=$test.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:31:1: setting : ID ASSIGN test NEWLINE -> setting(setting=$ID.textvalue=$test.st);
     def setting(
         self,
     ):
         retval = self.setting_return()
         retval.start = self.input.LT(1)
 
-        ID6 = None
-        test7 = None
+        ID8 = None
+        test9 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:18:16: ( ID ASSIGN test NEWLINE -> setting(setting=$ID.textvalue=$test.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:18:18: ID ASSIGN test NEWLINE
-                ID6 = self.match(self.input, ID, self.FOLLOW_ID_in_setting208)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:31:16: ( ID ASSIGN test NEWLINE -> setting(setting=$ID.textvalue=$test.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:31:18: ID ASSIGN test NEWLINE
+                ID8 = self.match(self.input, ID, self.FOLLOW_ID_in_setting249)
 
-                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_setting210)
+                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_setting251)
 
-                self._state.following.append(self.FOLLOW_test_in_setting212)
-                test7 = self.test()
+                self._state.following.append(self.FOLLOW_test_in_setting253)
+                test9 = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_setting214)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_setting255)
 
                 # TEMPLATE REWRITE
-                # 18:41: -> setting(setting=$ID.textvalue=$test.st)
+                # 31:41: -> setting(setting=$ID.textvalue=$test.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "setting",
                     attributes={
-                        "setting": ID6.text,
-                        "value": ((test7 is not None) and [test7.st] or [None])[0],
+                        "setting": ID8.text,
+                        "value": ((test9 is not None) and [test9.st] or [None])[0],
                     },
                 )
 
@@ -982,32 +1022,38 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "stmts"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:1: stmts : ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:1: stmts :stmts_+= ( open_stmt )? stmts_+= ( aug_expr_stmt | edit_stmt | behavior_stmt )+ -> stage(stmts=$stmts_);
     def stmts(
         self,
     ):
         retval = self.stmts_return()
         retval.start = self.input.LT(1)
 
+        stmts_ = None
+        list_stmts_ = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:16: ( ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+ )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:18: ( open_stmt )? ( aug_expr_stmt | edit_stmt | behavior_stmt )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:16: (stmts_+= ( open_stmt )? stmts_+= ( aug_expr_stmt | edit_stmt | behavior_stmt )+ -> stage(stmts=$stmts_))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:18: stmts_+= ( open_stmt )? stmts_+= ( aug_expr_stmt | edit_stmt | behavior_stmt )+
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:18: ( open_stmt )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:26: ( open_stmt )?
                 alt8 = 2
                 LA8_0 = self.input.LA(1)
 
                 if LA8_0 == OPEN:
                     alt8 = 1
                 if alt8 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:18: open_stmt
-                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts245)
-                    self.open_stmt()
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:27: open_stmt
+                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts289)
+                    stmts_ = self.open_stmt()
 
                     self._state.following.pop()
+                    if list_stmts_ is None:
+                        list_stmts_ = []
+                    list_stmts_.append(stmts_.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:29: ( aug_expr_stmt | edit_stmt | behavior_stmt )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:47: ( aug_expr_stmt | edit_stmt | behavior_stmt )+
                 cnt9 = 0
                 while True:  # loop9
                     alt9 = 4
@@ -1044,29 +1090,38 @@ class YarcParser(Parser):
                         alt9 = 3
 
                     if alt9 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:30: aug_expr_stmt
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:48: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_stmts249
+                            self.FOLLOW_aug_expr_stmt_in_stmts296
                         )
-                        self.aug_expr_stmt()
+                        stmts_ = self.aug_expr_stmt()
 
                         self._state.following.pop()
+                        if list_stmts_ is None:
+                            list_stmts_ = []
+                        list_stmts_.append(stmts_.st)
 
                     elif alt9 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:46: edit_stmt
-                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts253)
-                        self.edit_stmt()
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:64: edit_stmt
+                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts300)
+                        stmts_ = self.edit_stmt()
 
                         self._state.following.pop()
+                        if list_stmts_ is None:
+                            list_stmts_ = []
+                        list_stmts_.append(stmts_.st)
 
                     elif alt9 == 3:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:19:58: behavior_stmt
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:32:76: behavior_stmt
                         self._state.following.append(
-                            self.FOLLOW_behavior_stmt_in_stmts257
+                            self.FOLLOW_behavior_stmt_in_stmts304
                         )
-                        self.behavior_stmt()
+                        stmts_ = self.behavior_stmt()
 
                         self._state.following.pop()
+                        if list_stmts_ is None:
+                            list_stmts_ = []
+                        list_stmts_.append(stmts_.st)
 
                     else:
                         if cnt9 >= 1:
@@ -1076,6 +1131,12 @@ class YarcParser(Parser):
                         raise eee
 
                     cnt9 += 1
+
+                # TEMPLATE REWRITE
+                # 32:92: -> stage(stmts=$stmts_)
+                retval.st = self.templateLib.getInstanceOf(
+                    "stage", attributes={"stmts": list_stmts_}
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -1106,26 +1167,29 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "writer"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:20:1: writer : ID COLON NEWLINE INDENT ( writer_setting )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:33:1: writer : ID COLON NEWLINE INDENT (writer_params+= writer_param )+ DEDENT -> writer(writer_id=$ID.textwriter_params=$writer_paramsrps=[\"rp\"]);
     def writer(
         self,
     ):
         retval = self.writer_return()
         retval.start = self.input.LT(1)
 
+        ID10 = None
+        list_writer_params = None
+        writer_params = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:20:16: ( ID COLON NEWLINE INDENT ( writer_setting )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:20:18: ID COLON NEWLINE INDENT ( writer_setting )+ DEDENT
-                self.match(self.input, ID, self.FOLLOW_ID_in_writer274)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:33:16: ( ID COLON NEWLINE INDENT (writer_params+= writer_param )+ DEDENT -> writer(writer_id=$ID.textwriter_params=$writer_paramsrps=[\"rp\"]))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:33:18: ID COLON NEWLINE INDENT (writer_params+= writer_param )+ DEDENT
+                ID10 = self.match(self.input, ID, self.FOLLOW_ID_in_writer330)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer276)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer332)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer278)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer334)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer280)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer336)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:20:42: ( writer_setting )+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:33:55: (writer_params+= writer_param )+
                 cnt10 = 0
                 while True:  # loop10
                     alt10 = 2
@@ -1135,13 +1199,16 @@ class YarcParser(Parser):
                         alt10 = 1
 
                     if alt10 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:20:42: writer_setting
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:33:55: writer_params+= writer_param
                         self._state.following.append(
-                            self.FOLLOW_writer_setting_in_writer282
+                            self.FOLLOW_writer_param_in_writer340
                         )
-                        self.writer_setting()
+                        writer_params = self.writer_param()
 
                         self._state.following.pop()
+                        if list_writer_params is None:
+                            list_writer_params = []
+                        list_writer_params.append(writer_params.st)
 
                     else:
                         if cnt10 >= 1:
@@ -1152,7 +1219,18 @@ class YarcParser(Parser):
 
                     cnt10 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer285)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer343)
+
+                # TEMPLATE REWRITE
+                # 33:78: -> writer(writer_id=$ID.textwriter_params=$writer_paramsrps=[\"rp\"])
+                retval.st = self.templateLib.getInstanceOf(
+                    "writer",
+                    attributes={
+                        "writer_id": ID10.text,
+                        "writer_params": list_writer_params,
+                        "rps": ["rp"],
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -1166,7 +1244,7 @@ class YarcParser(Parser):
 
     # $ANTLR end "writer"
 
-    class writer_setting_return(ParserRuleReturnScope):
+    class writer_param_return(ParserRuleReturnScope):
         def __init__(self):
             super().__init__()
 
@@ -1182,29 +1260,40 @@ class YarcParser(Parser):
 
         __str__ = toString
 
-    # $ANTLR start "writer_setting"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:21:1: writer_setting : ID ASSIGN test NEWLINE ;
-    def writer_setting(
+    # $ANTLR start "writer_param"
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:34:1: writer_param : ID ASSIGN test NEWLINE -> writer_param(param=$ID.textvalue=$test.st);
+    def writer_param(
         self,
     ):
-        retval = self.writer_setting_return()
+        retval = self.writer_param_return()
         retval.start = self.input.LT(1)
+
+        ID11 = None
+        test12 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:21:16: ( ID ASSIGN test NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:21:18: ID ASSIGN test NEWLINE
-                self.match(self.input, ID, self.FOLLOW_ID_in_writer_setting292)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:34:16: ( ID ASSIGN test NEWLINE -> writer_param(param=$ID.textvalue=$test.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:34:18: ID ASSIGN test NEWLINE
+                ID11 = self.match(self.input, ID, self.FOLLOW_ID_in_writer_param371)
 
-                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_writer_setting294)
+                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_writer_param373)
 
-                self._state.following.append(self.FOLLOW_test_in_writer_setting296)
-                self.test()
+                self._state.following.append(self.FOLLOW_test_in_writer_param375)
+                test12 = self.test()
 
                 self._state.following.pop()
 
-                self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer_setting298
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer_param377)
+
+                # TEMPLATE REWRITE
+                # 34:41: -> writer_param(param=$ID.textvalue=$test.st)
+                retval.st = self.templateLib.getInstanceOf(
+                    "writer_param",
+                    attributes={
+                        "param": ID11.text,
+                        "value": ((test12 is not None) and [test12.st] or [None])[0],
+                    },
                 )
 
                 retval.stop = self.input.LT(-1)
@@ -1217,7 +1306,7 @@ class YarcParser(Parser):
             pass
         return retval
 
-    # $ANTLR end "writer_setting"
+    # $ANTLR end "writer_param"
 
     class open_stmt_return(ParserRuleReturnScope):
         def __init__(self):
@@ -1236,25 +1325,36 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "open_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:24:1: open_stmt : OPEN test NEWLINE ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:1: open_stmt : OPEN test NEWLINE -> open_stmt(path=$test.st);
     def open_stmt(
         self,
     ):
         retval = self.open_stmt_return()
         retval.start = self.input.LT(1)
 
+        test13 = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:24:11: ( OPEN test NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:24:13: OPEN test NEWLINE
-                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt309)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:11: ( OPEN test NEWLINE -> open_stmt(path=$test.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:13: OPEN test NEWLINE
+                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt403)
 
-                self._state.following.append(self.FOLLOW_test_in_open_stmt311)
-                self.test()
+                self._state.following.append(self.FOLLOW_test_in_open_stmt405)
+                test13 = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt313)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt407)
+
+                # TEMPLATE REWRITE
+                # 38:31: -> open_stmt(path=$test.st)
+                retval.st = self.templateLib.getInstanceOf(
+                    "open_stmt",
+                    attributes={
+                        "path": ((test13 is not None) and [test13.st] or [None])[0]
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -1285,49 +1385,112 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "edit_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:1: edit_stmt : EDIT ( TIMELINE | name ) edit_block ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:1: edit_stmt : EDIT ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)| name edit_block ) ;
     def edit_stmt(
         self,
     ):
         retval = self.edit_stmt_return()
         retval.start = self.input.LT(1)
 
+        list_params = None
+        list_values = None
+        params = None
+        values = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:11: ( EDIT ( TIMELINE | name ) edit_block )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:13: EDIT ( TIMELINE | name ) edit_block
-                self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt320)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:11: ( EDIT ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)| name edit_block ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:13: EDIT ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)| name edit_block )
+                self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt423)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:18: ( TIMELINE | name )
-                alt11 = 2
-                LA11_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:18: ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)| name edit_block )
+                alt12 = 2
+                LA12_0 = self.input.LA(1)
 
-                if LA11_0 == TIMELINE:
-                    alt11 = 1
-                elif LA11_0 in {ID, UNDERSCORE}:
-                    alt11 = 2
+                if LA12_0 == TIMELINE:
+                    alt12 = 1
+                elif LA12_0 in {ID, UNDERSCORE}:
+                    alt12 = 2
                 else:
-                    nvae = NoViableAltException("", 11, 0, self.input)
+                    nvae = NoViableAltException("", 12, 0, self.input)
 
                     raise nvae
 
-                if alt11 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:19: TIMELINE
+                if alt12 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:19: TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT
                     self.match(
-                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt323
+                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt426
                     )
 
-                elif alt11 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:25:30: name
-                    self._state.following.append(self.FOLLOW_name_in_edit_stmt327)
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_stmt428)
+
+                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt430)
+
+                    self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_stmt432)
+
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:49: (params+= name values+= test NEWLINE )+
+                    cnt11 = 0
+                    while True:  # loop11
+                        alt11 = 2
+                        LA11_0 = self.input.LA(1)
+
+                        if LA11_0 in {ID, UNDERSCORE}:
+                            alt11 = 1
+
+                        if alt11 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:50: params+= name values+= test NEWLINE
+                            self._state.following.append(
+                                self.FOLLOW_name_in_edit_stmt437
+                            )
+                            params = self.name()
+
+                            self._state.following.pop()
+                            if list_params is None:
+                                list_params = []
+                            list_params.append(params.st)
+
+                            self._state.following.append(
+                                self.FOLLOW_test_in_edit_stmt441
+                            )
+                            values = self.test()
+
+                            self._state.following.pop()
+                            if list_values is None:
+                                list_values = []
+                            list_values.append(values.st)
+
+                            self.match(
+                                self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt443
+                            )
+
+                        else:
+                            if cnt11 >= 1:
+                                break  # loop11
+
+                            eee = EarlyExitException(11, self.input)
+                            raise eee
+
+                        cnt11 += 1
+
+                    self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_stmt447)
+
+                    # TEMPLATE REWRITE
+                    # 39:93: -> edit_timeline(params=$paramsvalues=$values)
+                    retval.st = self.templateLib.getInstanceOf(
+                        "edit_timeline",
+                        attributes={"params": list_params, "values": list_values},
+                    )
+
+                elif alt12 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:40:20: name edit_block
+                    self._state.following.append(self.FOLLOW_name_in_edit_stmt483)
                     self.name()
 
                     self._state.following.pop()
 
-                self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt330)
-                self.edit_block()
+                    self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt485)
+                    self.edit_block()
 
-                self._state.following.pop()
+                    self._state.following.pop()
 
                 retval.stop = self.input.LT(-1)
 
@@ -1358,7 +1521,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "create_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:1: create_expr : CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:1: create_expr : CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) ;
     def create_expr(
         self,
     ):
@@ -1367,15 +1530,15 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:27:12: ( CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:3: CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
-                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr339)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:12: ( CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:43:3: CREATE ( test )? ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
+                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr495)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:10: ( test )?
-                alt12 = 2
-                LA12_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:43:10: ( test )?
+                alt13 = 2
+                LA13_0 = self.input.LA(1)
 
-                if LA12_0 in {
+                if LA13_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -1396,19 +1559,19 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt12 = 1
-                if alt12 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:10: test
-                    self._state.following.append(self.FOLLOW_test_in_create_expr341)
+                    alt13 = 1
+                if alt13 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:43:10: test
+                    self._state.following.append(self.FOLLOW_test_in_create_expr497)
                     self.test()
 
                     self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:28:16: ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
-                alt16 = 2
-                LA16_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:43:16: ( ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE ) | MATERIAL ( simple_block ) )
+                alt17 = 2
+                LA17_0 = self.input.LA(1)
 
-                if LA16_0 in {
+                if LA17_0 in {
                     CAMERA,
                     FROM,
                     LIGHT_TYPE,
@@ -1416,133 +1579,133 @@ class YarcParser(Parser):
                     SHAPES_OR_LIGHTS,
                     STEREO,
                 }:
-                    alt16 = 1
-                elif LA16_0 == MATERIAL:
-                    alt16 = 2
+                    alt17 = 1
+                elif LA17_0 == MATERIAL:
+                    alt17 = 2
                 else:
-                    nvae = NoViableAltException("", 16, 0, self.input)
+                    nvae = NoViableAltException("", 17, 0, self.input)
 
                     raise nvae
 
-                if alt16 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE )
+                if alt17 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test ) ( edit_block | NEWLINE )
                     pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test )
-                    alt14 = 4
-                    LA14 = self.input.LA(1)
-                    if LA14 in {CAMERA, STEREO}:
-                        alt14 = 1
-                    elif LA14 in {SHAPES_OR_LIGHTS}:
-                        LA14_2 = self.input.LA(2)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:5: ( ( STEREO )? CAMERA | shapes | light_type LIGHT | FROM test )
+                    alt15 = 4
+                    LA15 = self.input.LA(1)
+                    if LA15 in {CAMERA, STEREO}:
+                        alt15 = 1
+                    elif LA15 in {SHAPES_OR_LIGHTS}:
+                        LA15_2 = self.input.LA(2)
 
-                        if LA14_2 in {COLON, NEWLINE}:
-                            alt14 = 2
-                        elif LA14_2 == LIGHT:
-                            alt14 = 3
+                        if LA15_2 in {COLON, NEWLINE}:
+                            alt15 = 2
+                        elif LA15_2 == LIGHT:
+                            alt15 = 3
                         else:
-                            nvae = NoViableAltException("", 14, 2, self.input)
+                            nvae = NoViableAltException("", 15, 2, self.input)
 
                             raise nvae
 
-                    elif LA14 in {SHAPES}:
-                        alt14 = 2
-                    elif LA14 in {LIGHT_TYPE}:
-                        alt14 = 3
-                    elif LA14 in {FROM}:
-                        alt14 = 4
-                    else:
-                        nvae = NoViableAltException("", 14, 0, self.input)
-
-                        raise nvae
-
-                    if alt14 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:6: ( STEREO )? CAMERA
-                        pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:6: ( STEREO )?
-                        alt13 = 2
-                        LA13_0 = self.input.LA(1)
-
-                        if LA13_0 == STEREO:
-                            alt13 = 1
-                        if alt13 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:6: STEREO
-                            self.match(
-                                self.input, STEREO, self.FOLLOW_STEREO_in_create_expr351
-                            )
-
-                        self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr354
-                        )
-
-                    elif alt14 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:23: shapes
-                        self._state.following.append(
-                            self.FOLLOW_shapes_in_create_expr358
-                        )
-                        self.shapes()
-
-                        self._state.following.pop()
-
-                    elif alt14 == 3:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:32: light_type LIGHT
-                        self._state.following.append(
-                            self.FOLLOW_light_type_in_create_expr362
-                        )
-                        self.light_type()
-
-                        self._state.following.pop()
-
-                        self.match(
-                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr364
-                        )
-
-                    elif alt14 == 4:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:51: FROM test
-                        self.match(self.input, FROM, self.FOLLOW_FROM_in_create_expr368)
-
-                        self._state.following.append(self.FOLLOW_test_in_create_expr370)
-                        self.test()
-
-                        self._state.following.pop()
-
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:62: ( edit_block | NEWLINE )
-                    alt15 = 2
-                    LA15_0 = self.input.LA(1)
-
-                    if LA15_0 == COLON:
-                        alt15 = 1
-                    elif LA15_0 == NEWLINE:
+                    elif LA15 in {SHAPES}:
                         alt15 = 2
+                    elif LA15 in {LIGHT_TYPE}:
+                        alt15 = 3
+                    elif LA15 in {FROM}:
+                        alt15 = 4
                     else:
                         nvae = NoViableAltException("", 15, 0, self.input)
 
                         raise nvae
 
                     if alt15 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:63: edit_block
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:6: ( STEREO )? CAMERA
+                        pass
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:6: ( STEREO )?
+                        alt14 = 2
+                        LA14_0 = self.input.LA(1)
+
+                        if LA14_0 == STEREO:
+                            alt14 = 1
+                        if alt14 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:6: STEREO
+                            self.match(
+                                self.input, STEREO, self.FOLLOW_STEREO_in_create_expr507
+                            )
+
+                        self.match(
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr510
+                        )
+
+                    elif alt15 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:23: shapes
                         self._state.following.append(
-                            self.FOLLOW_edit_block_in_create_expr374
+                            self.FOLLOW_shapes_in_create_expr514
+                        )
+                        self.shapes()
+
+                        self._state.following.pop()
+
+                    elif alt15 == 3:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:32: light_type LIGHT
+                        self._state.following.append(
+                            self.FOLLOW_light_type_in_create_expr518
+                        )
+                        self.light_type()
+
+                        self._state.following.pop()
+
+                        self.match(
+                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr520
+                        )
+
+                    elif alt15 == 4:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:51: FROM test
+                        self.match(self.input, FROM, self.FOLLOW_FROM_in_create_expr524)
+
+                        self._state.following.append(self.FOLLOW_test_in_create_expr526)
+                        self.test()
+
+                        self._state.following.pop()
+
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:62: ( edit_block | NEWLINE )
+                    alt16 = 2
+                    LA16_0 = self.input.LA(1)
+
+                    if LA16_0 == COLON:
+                        alt16 = 1
+                    elif LA16_0 == NEWLINE:
+                        alt16 = 2
+                    else:
+                        nvae = NoViableAltException("", 16, 0, self.input)
+
+                        raise nvae
+
+                    if alt16 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:63: edit_block
+                        self._state.following.append(
+                            self.FOLLOW_edit_block_in_create_expr530
                         )
                         self.edit_block()
 
                         self._state.following.pop()
 
-                    elif alt15 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:29:76: NEWLINE
+                    elif alt16 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:76: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr378
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr534
                         )
 
-                elif alt16 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:30:7: MATERIAL ( simple_block )
+                elif alt17 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:7: MATERIAL ( simple_block )
                     self.match(
-                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr387
+                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr543
                     )
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:30:16: ( simple_block )
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:30:17: simple_block
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:16: ( simple_block )
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:17: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_create_expr390
+                        self.FOLLOW_simple_block_in_create_expr546
                     )
                     self.simple_block()
 
@@ -1577,7 +1740,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "shapes"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:34:1: shapes : ( SHAPES | SHAPES_OR_LIGHTS );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:49:1: shapes : ( SHAPES | SHAPES_OR_LIGHTS );
     def shapes(
         self,
     ):
@@ -1586,7 +1749,7 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:34:12: ( SHAPES | SHAPES_OR_LIGHTS )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:49:12: ( SHAPES | SHAPES_OR_LIGHTS )
                 # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:
                 if self.input.LA(1) in {SHAPES, SHAPES_OR_LIGHTS}:
                     self.input.consume()
@@ -1625,7 +1788,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "light_type"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:35:1: light_type : ( LIGHT_TYPE | SHAPES_OR_LIGHTS );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:50:1: light_type : ( LIGHT_TYPE | SHAPES_OR_LIGHTS );
     def light_type(
         self,
     ):
@@ -1634,7 +1797,7 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:35:12: ( LIGHT_TYPE | SHAPES_OR_LIGHTS )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:50:12: ( LIGHT_TYPE | SHAPES_OR_LIGHTS )
                 # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:
                 if self.input.LA(1) in {LIGHT_TYPE, SHAPES_OR_LIGHTS}:
                     self.input.consume()
@@ -1673,7 +1836,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "instantiate_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:1: instantiate_expr : INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:1: instantiate_expr : INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) ;
     def instantiate_expr(
         self,
     ):
@@ -1682,19 +1845,19 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:18: ( INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:20: INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:18: ( INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:20: INSTANTIATE ( test )? FROM test ( edit_block | NEWLINE )
                 self.match(
                     self.input,
                     INSTANTIATE,
-                    self.FOLLOW_INSTANTIATE_in_instantiate_expr431,
+                    self.FOLLOW_INSTANTIATE_in_instantiate_expr587,
                 )
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:32: ( test )?
-                alt17 = 2
-                LA17_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:32: ( test )?
+                alt18 = 2
+                LA18_0 = self.input.LA(1)
 
-                if LA17_0 in {
+                if LA18_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -1715,49 +1878,49 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt17 = 1
-                if alt17 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:33: test
+                    alt18 = 1
+                if alt18 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:33: test
                     self._state.following.append(
-                        self.FOLLOW_test_in_instantiate_expr434
+                        self.FOLLOW_test_in_instantiate_expr590
                     )
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr438)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr594)
 
-                self._state.following.append(self.FOLLOW_test_in_instantiate_expr440)
+                self._state.following.append(self.FOLLOW_test_in_instantiate_expr596)
                 self.test()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:50: ( edit_block | NEWLINE )
-                alt18 = 2
-                LA18_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:50: ( edit_block | NEWLINE )
+                alt19 = 2
+                LA19_0 = self.input.LA(1)
 
-                if LA18_0 == COLON:
-                    alt18 = 1
-                elif LA18_0 == NEWLINE:
-                    alt18 = 2
+                if LA19_0 == COLON:
+                    alt19 = 1
+                elif LA19_0 == NEWLINE:
+                    alt19 = 2
                 else:
-                    nvae = NoViableAltException("", 18, 0, self.input)
+                    nvae = NoViableAltException("", 19, 0, self.input)
 
                     raise nvae
 
-                if alt18 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:51: edit_block
+                if alt19 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:51: edit_block
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_instantiate_expr443
+                        self.FOLLOW_edit_block_in_instantiate_expr599
                     )
                     self.edit_block()
 
                     self._state.following.pop()
 
-                elif alt18 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:37:64: NEWLINE
+                elif alt19 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:64: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr447
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr603
                     )
 
                 retval.stop = self.input.LT(-1)
@@ -1789,7 +1952,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "group_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:1: group_expr : GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:1: group_expr : GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) ;
     def group_expr(
         self,
     ):
@@ -1798,67 +1961,67 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:18: ( GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:20: GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE )
-                self.match(self.input, GROUP, self.FOLLOW_GROUP_in_group_expr461)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:18: ( GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:20: GROUP LBRACK name ( COMMA name )* RBRACK ( edit_block | NEWLINE )
+                self.match(self.input, GROUP, self.FOLLOW_GROUP_in_group_expr617)
 
-                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr463)
+                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr619)
 
-                self._state.following.append(self.FOLLOW_name_in_group_expr465)
+                self._state.following.append(self.FOLLOW_name_in_group_expr621)
                 self.name()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:38: ( COMMA name )*
-                while True:  # loop19
-                    alt19 = 2
-                    LA19_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:38: ( COMMA name )*
+                while True:  # loop20
+                    alt20 = 2
+                    LA20_0 = self.input.LA(1)
 
-                    if LA19_0 == COMMA:
-                        alt19 = 1
+                    if LA20_0 == COMMA:
+                        alt20 = 1
 
-                    if alt19 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:39: COMMA name
+                    if alt20 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:39: COMMA name
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr468
+                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr624
                         )
 
-                        self._state.following.append(self.FOLLOW_name_in_group_expr470)
+                        self._state.following.append(self.FOLLOW_name_in_group_expr626)
                         self.name()
 
                         self._state.following.pop()
 
                     else:
-                        break  # loop19
+                        break  # loop20
 
-                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr474)
+                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr630)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:59: ( edit_block | NEWLINE )
-                alt20 = 2
-                LA20_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:59: ( edit_block | NEWLINE )
+                alt21 = 2
+                LA21_0 = self.input.LA(1)
 
-                if LA20_0 == COLON:
-                    alt20 = 1
-                elif LA20_0 == NEWLINE:
-                    alt20 = 2
+                if LA21_0 == COLON:
+                    alt21 = 1
+                elif LA21_0 == NEWLINE:
+                    alt21 = 2
                 else:
-                    nvae = NoViableAltException("", 20, 0, self.input)
+                    nvae = NoViableAltException("", 21, 0, self.input)
 
                     raise nvae
 
-                if alt20 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:60: edit_block
+                if alt21 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:60: edit_block
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_group_expr477
+                        self.FOLLOW_edit_block_in_group_expr633
                     )
                     self.edit_block()
 
                     self._state.following.pop()
 
-                elif alt20 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:38:73: NEWLINE
+                elif alt21 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:73: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr481
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr637
                     )
 
                 retval.stop = self.input.LT(-1)
@@ -1890,7 +2053,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "get_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:1: get_expr : GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:1: get_expr : GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) ;
     def get_expr(
         self,
     ):
@@ -1899,99 +2062,99 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:18: ( GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:20: GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE )
-                self.match(self.input, GET, self.FOLLOW_GET_in_get_expr497)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:18: ( GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:20: GET ( ( CAMERA | LIGHT | MATERIAL | name ) AT )? test ( simple_block | NEWLINE )
+                self.match(self.input, GET, self.FOLLOW_GET_in_get_expr653)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:24: ( ( CAMERA | LIGHT | MATERIAL | name ) AT )?
-                alt22 = 2
-                LA22 = self.input.LA(1)
-                if LA22 in {CAMERA, LIGHT, MATERIAL}:
-                    alt22 = 1
-                elif LA22 in {ID}:
-                    LA22_2 = self.input.LA(2)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:24: ( ( CAMERA | LIGHT | MATERIAL | name ) AT )?
+                alt23 = 2
+                LA23 = self.input.LA(1)
+                if LA23 in {CAMERA, LIGHT, MATERIAL}:
+                    alt23 = 1
+                elif LA23 in {ID}:
+                    LA23_2 = self.input.LA(2)
 
-                    if LA22_2 == AT:
-                        alt22 = 1
-                elif LA22 in {UNDERSCORE}:
-                    LA22_3 = self.input.LA(2)
+                    if LA23_2 == AT:
+                        alt23 = 1
+                elif LA23 in {UNDERSCORE}:
+                    LA23_3 = self.input.LA(2)
 
-                    if LA22_3 == AT:
-                        alt22 = 1
-                if alt22 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:25: ( CAMERA | LIGHT | MATERIAL | name ) AT
+                    if LA23_3 == AT:
+                        alt23 = 1
+                if alt23 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:25: ( CAMERA | LIGHT | MATERIAL | name ) AT
                     pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:25: ( CAMERA | LIGHT | MATERIAL | name )
-                    alt21 = 4
-                    LA21 = self.input.LA(1)
-                    if LA21 in {CAMERA}:
-                        alt21 = 1
-                    elif LA21 in {LIGHT}:
-                        alt21 = 2
-                    elif LA21 in {MATERIAL}:
-                        alt21 = 3
-                    elif LA21 in {ID, UNDERSCORE}:
-                        alt21 = 4
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:25: ( CAMERA | LIGHT | MATERIAL | name )
+                    alt22 = 4
+                    LA22 = self.input.LA(1)
+                    if LA22 in {CAMERA}:
+                        alt22 = 1
+                    elif LA22 in {LIGHT}:
+                        alt22 = 2
+                    elif LA22 in {MATERIAL}:
+                        alt22 = 3
+                    elif LA22 in {ID, UNDERSCORE}:
+                        alt22 = 4
                     else:
-                        nvae = NoViableAltException("", 21, 0, self.input)
+                        nvae = NoViableAltException("", 22, 0, self.input)
 
                         raise nvae
 
-                    if alt21 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:26: CAMERA
+                    if alt22 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:26: CAMERA
                         self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr501
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr657
                         )
 
-                    elif alt21 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:35: LIGHT
-                        self.match(self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr505)
+                    elif alt22 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:35: LIGHT
+                        self.match(self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr661)
 
-                    elif alt21 == 3:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:43: MATERIAL
+                    elif alt22 == 3:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:43: MATERIAL
                         self.match(
-                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr509
+                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr665
                         )
 
-                    elif alt21 == 4:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:54: name
-                        self._state.following.append(self.FOLLOW_name_in_get_expr513)
+                    elif alt22 == 4:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:54: name
+                        self._state.following.append(self.FOLLOW_name_in_get_expr669)
                         self.name()
 
                         self._state.following.pop()
 
-                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr516)
+                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr672)
 
-                self._state.following.append(self.FOLLOW_test_in_get_expr520)
+                self._state.following.append(self.FOLLOW_test_in_get_expr676)
                 self.test()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:70: ( simple_block | NEWLINE )
-                alt23 = 2
-                LA23_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:70: ( simple_block | NEWLINE )
+                alt24 = 2
+                LA24_0 = self.input.LA(1)
 
-                if LA23_0 == COLON:
-                    alt23 = 1
-                elif LA23_0 == NEWLINE:
-                    alt23 = 2
+                if LA24_0 == COLON:
+                    alt24 = 1
+                elif LA24_0 == NEWLINE:
+                    alt24 = 2
                 else:
-                    nvae = NoViableAltException("", 23, 0, self.input)
+                    nvae = NoViableAltException("", 24, 0, self.input)
 
                     raise nvae
 
-                if alt23 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:71: simple_block
+                if alt24 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:71: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_get_expr523
+                        self.FOLLOW_simple_block_in_get_expr679
                     )
                     self.simple_block()
 
                     self._state.following.pop()
 
-                elif alt23 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:39:86: NEWLINE
-                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr527)
+                elif alt24 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:86: NEWLINE
+                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr683)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2022,7 +2185,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "edit_block"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:1: edit_block : COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:1: edit_block : COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT ;
     def edit_block(
         self,
     ):
@@ -2031,21 +2194,21 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:14: ( COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:16: COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block538)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:14: ( COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:16: COLON NEWLINE INDENT ( attr | inner_behavior_stmt )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block694)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block540)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block696)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block542)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block698)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:37: ( attr | inner_behavior_stmt )+
-                cnt24 = 0
-                while True:  # loop24
-                    alt24 = 3
-                    LA24_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:37: ( attr | inner_behavior_stmt )+
+                cnt25 = 0
+                while True:  # loop25
+                    alt25 = 3
+                    LA25_0 = self.input.LA(1)
 
-                    if LA24_0 in {
+                    if LA25_0 in {
                         CAM_TRANSLATE,
                         ID,
                         LOOK_AT,
@@ -2061,36 +2224,36 @@ class YarcParser(Parser):
                         UP_AXIS,
                         VISIBLE,
                     }:
-                        alt24 = 1
-                    elif LA24_0 == EVERY:
-                        alt24 = 2
+                        alt25 = 1
+                    elif LA25_0 == EVERY:
+                        alt25 = 2
 
-                    if alt24 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:38: attr
-                        self._state.following.append(self.FOLLOW_attr_in_edit_block545)
+                    if alt25 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:38: attr
+                        self._state.following.append(self.FOLLOW_attr_in_edit_block701)
                         self.attr()
 
                         self._state.following.pop()
 
-                    elif alt24 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:41:45: inner_behavior_stmt
+                    elif alt25 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:45: inner_behavior_stmt
                         self._state.following.append(
-                            self.FOLLOW_inner_behavior_stmt_in_edit_block549
+                            self.FOLLOW_inner_behavior_stmt_in_edit_block705
                         )
                         self.inner_behavior_stmt()
 
                         self._state.following.pop()
 
                     else:
-                        if cnt24 >= 1:
-                            break  # loop24
+                        if cnt25 >= 1:
+                            break  # loop25
 
-                        eee = EarlyExitException(24, self.input)
+                        eee = EarlyExitException(25, self.input)
                         raise eee
 
-                    cnt24 += 1
+                    cnt25 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block553)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block709)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2121,7 +2284,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "simple_block"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:1: simple_block : COLON NEWLINE INDENT ( simple_attr )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:1: simple_block : COLON NEWLINE INDENT ( simple_attr )+ DEDENT ;
     def simple_block(
         self,
     ):
@@ -2130,42 +2293,42 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:14: ( COLON NEWLINE INDENT ( simple_attr )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:16: COLON NEWLINE INDENT ( simple_attr )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block560)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:14: ( COLON NEWLINE INDENT ( simple_attr )+ DEDENT )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:16: COLON NEWLINE INDENT ( simple_attr )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block716)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block562)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block718)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block564)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block720)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:37: ( simple_attr )+
-                cnt25 = 0
-                while True:  # loop25
-                    alt25 = 2
-                    LA25_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:37: ( simple_attr )+
+                cnt26 = 0
+                while True:  # loop26
+                    alt26 = 2
+                    LA26_0 = self.input.LA(1)
 
-                    if LA25_0 in {ID, UNDERSCORE}:
-                        alt25 = 1
+                    if LA26_0 in {ID, UNDERSCORE}:
+                        alt26 = 1
 
-                    if alt25 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:42:37: simple_attr
+                    if alt26 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:37: simple_attr
                         self._state.following.append(
-                            self.FOLLOW_simple_attr_in_simple_block566
+                            self.FOLLOW_simple_attr_in_simple_block722
                         )
                         self.simple_attr()
 
                         self._state.following.pop()
 
                     else:
-                        if cnt25 >= 1:
-                            break  # loop25
+                        if cnt26 >= 1:
+                            break  # loop26
 
-                        eee = EarlyExitException(25, self.input)
+                        eee = EarlyExitException(26, self.input)
                         raise eee
 
-                    cnt25 += 1
+                    cnt26 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block569)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block725)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2196,19 +2359,24 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "attr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:1: attr : ( core_attr | simple_attr | compound_attr );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:1: attr : attr_= ( core_attr | simple_attr | compound_attr ) -> {$attr_.st};
     def attr(
         self,
     ):
         retval = self.attr_return()
         retval.start = self.input.LT(1)
 
+        attr_ = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:15: ( core_attr | simple_attr | compound_attr )
-                alt26 = 3
-                LA26 = self.input.LA(1)
-                if LA26 in {
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:15: (attr_= ( core_attr | simple_attr | compound_attr ) -> {$attr_.st})
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:17: attr_= ( core_attr | simple_attr | compound_attr )
+                pass
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:23: ( core_attr | simple_attr | compound_attr )
+                alt27 = 3
+                LA27 = self.input.LA(1)
+                if LA27 in {
                     CAM_TRANSLATE,
                     LOOK_AT,
                     ROTATE,
@@ -2219,36 +2387,40 @@ class YarcParser(Parser):
                     UP_AXIS,
                     VISIBLE,
                 }:
-                    alt26 = 1
-                elif LA26 in {ID, UNDERSCORE}:
-                    alt26 = 2
-                elif LA26 in {PHYSICS, ROT_AROUND, SCATTER}:
-                    alt26 = 3
+                    alt27 = 1
+                elif LA27 in {ID, UNDERSCORE}:
+                    alt27 = 2
+                elif LA27 in {PHYSICS, ROT_AROUND, SCATTER}:
+                    alt27 = 3
                 else:
-                    nvae = NoViableAltException("", 26, 0, self.input)
+                    nvae = NoViableAltException("", 27, 0, self.input)
 
                     raise nvae
 
-                if alt26 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:17: core_attr
-                    self._state.following.append(self.FOLLOW_core_attr_in_attr586)
-                    self.core_attr()
+                if alt27 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:24: core_attr
+                    self._state.following.append(self.FOLLOW_core_attr_in_attr745)
+                    attr_ = self.core_attr()
 
                     self._state.following.pop()
 
-                elif alt26 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:29: simple_attr
-                    self._state.following.append(self.FOLLOW_simple_attr_in_attr590)
-                    self.simple_attr()
+                elif alt27 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:36: simple_attr
+                    self._state.following.append(self.FOLLOW_simple_attr_in_attr749)
+                    attr_ = self.simple_attr()
 
                     self._state.following.pop()
 
-                elif alt26 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:44:43: compound_attr
-                    self._state.following.append(self.FOLLOW_compound_attr_in_attr594)
-                    self.compound_attr()
+                elif alt27 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:50: compound_attr
+                    self._state.following.append(self.FOLLOW_compound_attr_in_attr753)
+                    attr_ = self.compound_attr()
 
                     self._state.following.pop()
+
+                # TEMPLATE REWRITE
+                # 59:65: -> {$attr_.st}
+                retval.st = attr_.st
 
                 retval.stop = self.input.LT(-1)
 
@@ -2279,7 +2451,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "simple_attr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:1: simple_attr : name ( COLON name )? ( test )? NEWLINE ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:1: simple_attr : name ( COLON name )? ( test )? NEWLINE ;
     def simple_attr(
         self,
     ):
@@ -2288,33 +2460,33 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:15: ( name ( COLON name )? ( test )? NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:17: name ( COLON name )? ( test )? NEWLINE
-                self._state.following.append(self.FOLLOW_name_in_simple_attr603)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:15: ( name ( COLON name )? ( test )? NEWLINE )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:17: name ( COLON name )? ( test )? NEWLINE
+                self._state.following.append(self.FOLLOW_name_in_simple_attr767)
                 self.name()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:22: ( COLON name )?
-                alt27 = 2
-                LA27_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:22: ( COLON name )?
+                alt28 = 2
+                LA28_0 = self.input.LA(1)
 
-                if LA27_0 == COLON:
-                    alt27 = 1
-                if alt27 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:23: COLON name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr606)
+                if LA28_0 == COLON:
+                    alt28 = 1
+                if alt28 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:23: COLON name
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr770)
 
-                    self._state.following.append(self.FOLLOW_name_in_simple_attr608)
+                    self._state.following.append(self.FOLLOW_name_in_simple_attr772)
                     self.name()
 
                     self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:36: ( test )?
-                alt28 = 2
-                LA28_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:36: ( test )?
+                alt29 = 2
+                LA29_0 = self.input.LA(1)
 
-                if LA28_0 in {
+                if LA29_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -2335,15 +2507,15 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt28 = 1
-                if alt28 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:45:36: test
-                    self._state.following.append(self.FOLLOW_test_in_simple_attr612)
+                    alt29 = 1
+                if alt29 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:60:36: test
+                    self._state.following.append(self.FOLLOW_test_in_simple_attr776)
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr615)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr779)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2374,7 +2546,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "compound_attr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:1: compound_attr : ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:1: compound_attr : ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) ;
     def compound_attr(
         self,
     ):
@@ -2383,81 +2555,81 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:15: ( ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:15: ( ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS ) ( simple_block | NEWLINE )
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS )
-                alt29 = 3
-                LA29 = self.input.LA(1)
-                if LA29 in {SCATTER}:
-                    alt29 = 1
-                elif LA29 in {ROT_AROUND}:
-                    alt29 = 2
-                elif LA29 in {PHYSICS}:
-                    alt29 = 3
-                else:
-                    nvae = NoViableAltException("", 29, 0, self.input)
-
-                    raise nvae
-
-                if alt29 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:18: SCATTER ON name
-                    self.match(
-                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr624
-                    )
-
-                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr626)
-
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr628)
-                    self.name()
-
-                    self._state.following.pop()
-
-                elif alt29 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:36: ROT_AROUND name
-                    self.match(
-                        self.input,
-                        ROT_AROUND,
-                        self.FOLLOW_ROT_AROUND_in_compound_attr632,
-                    )
-
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr634)
-                    self.name()
-
-                    self._state.following.pop()
-
-                elif alt29 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:54: PHYSICS
-                    self.match(
-                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr638
-                    )
-
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:63: ( simple_block | NEWLINE )
-                alt30 = 2
-                LA30_0 = self.input.LA(1)
-
-                if LA30_0 == COLON:
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:17: ( SCATTER ON name | ROT_AROUND name | PHYSICS )
+                alt30 = 3
+                LA30 = self.input.LA(1)
+                if LA30 in {SCATTER}:
                     alt30 = 1
-                elif LA30_0 == NEWLINE:
+                elif LA30 in {ROT_AROUND}:
                     alt30 = 2
+                elif LA30 in {PHYSICS}:
+                    alt30 = 3
                 else:
                     nvae = NoViableAltException("", 30, 0, self.input)
 
                     raise nvae
 
                 if alt30 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:64: simple_block
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:18: SCATTER ON name
+                    self.match(
+                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr788
+                    )
+
+                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr790)
+
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr792)
+                    self.name()
+
+                    self._state.following.pop()
+
+                elif alt30 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:36: ROT_AROUND name
+                    self.match(
+                        self.input,
+                        ROT_AROUND,
+                        self.FOLLOW_ROT_AROUND_in_compound_attr796,
+                    )
+
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr798)
+                    self.name()
+
+                    self._state.following.pop()
+
+                elif alt30 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:54: PHYSICS
+                    self.match(
+                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr802
+                    )
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:63: ( simple_block | NEWLINE )
+                alt31 = 2
+                LA31_0 = self.input.LA(1)
+
+                if LA31_0 == COLON:
+                    alt31 = 1
+                elif LA31_0 == NEWLINE:
+                    alt31 = 2
+                else:
+                    nvae = NoViableAltException("", 31, 0, self.input)
+
+                    raise nvae
+
+                if alt31 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:64: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_compound_attr642
+                        self.FOLLOW_simple_block_in_compound_attr806
                     )
                     self.simple_block()
 
                     self._state.following.pop()
 
-                elif alt30 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:47:79: NEWLINE
+                elif alt31 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:62:79: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_compound_attr646
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_compound_attr810
                     )
 
                 retval.stop = self.input.LT(-1)
@@ -2489,7 +2661,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "core_attr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:49:1: core_attr : ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:1: core_attr : ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE ;
     def core_attr(
         self,
     ):
@@ -2498,159 +2670,159 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:49:10: ( ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:50:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:10: ( ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:65:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test ) NEWLINE
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:50:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test )
-                alt34 = 9
-                LA34 = self.input.LA(1)
-                if LA34 in {TRANSLATE}:
-                    alt34 = 1
-                elif LA34 in {CAM_TRANSLATE}:
-                    alt34 = 2
-                elif LA34 in {ROTATE}:
-                    alt34 = 3
-                elif LA34 in {SCALE}:
-                    alt34 = 4
-                elif LA34 in {LOOK_AT}:
-                    alt34 = 5
-                elif LA34 in {UP_AXIS}:
-                    alt34 = 6
-                elif LA34 in {SIZE}:
-                    alt34 = 7
-                elif LA34 in {SEMANTICS}:
-                    alt34 = 8
-                elif LA34 in {VISIBLE}:
-                    alt34 = 9
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:65:3: ( TRANSLATE ( AXIS )? TO test | CAM_TRANSLATE TO test | ROTATE ( AXIS )? test ( ORDER )? | SCALE test | LOOK_AT test | UP_AXIS test | SIZE test | SEMANTICS test | VISIBLE test )
+                alt35 = 9
+                LA35 = self.input.LA(1)
+                if LA35 in {TRANSLATE}:
+                    alt35 = 1
+                elif LA35 in {CAM_TRANSLATE}:
+                    alt35 = 2
+                elif LA35 in {ROTATE}:
+                    alt35 = 3
+                elif LA35 in {SCALE}:
+                    alt35 = 4
+                elif LA35 in {LOOK_AT}:
+                    alt35 = 5
+                elif LA35 in {UP_AXIS}:
+                    alt35 = 6
+                elif LA35 in {SIZE}:
+                    alt35 = 7
+                elif LA35 in {SEMANTICS}:
+                    alt35 = 8
+                elif LA35 in {VISIBLE}:
+                    alt35 = 9
                 else:
-                    nvae = NoViableAltException("", 34, 0, self.input)
+                    nvae = NoViableAltException("", 35, 0, self.input)
 
                     raise nvae
 
-                if alt34 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:51:5: TRANSLATE ( AXIS )? TO test
+                if alt35 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:66:5: TRANSLATE ( AXIS )? TO test
                     self.match(
-                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr663
+                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr827
                     )
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:51:15: ( AXIS )?
-                    alt31 = 2
-                    LA31_0 = self.input.LA(1)
-
-                    if LA31_0 == AXIS:
-                        alt31 = 1
-                    if alt31 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:51:15: AXIS
-                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr665)
-
-                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr668)
-
-                    self._state.following.append(self.FOLLOW_test_in_core_attr670)
-                    self.test()
-
-                    self._state.following.pop()
-
-                elif alt34 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:52:7: CAM_TRANSLATE TO test
-                    self.match(
-                        self.input,
-                        CAM_TRANSLATE,
-                        self.FOLLOW_CAM_TRANSLATE_in_core_attr678,
-                    )
-
-                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr680)
-
-                    self._state.following.append(self.FOLLOW_test_in_core_attr682)
-                    self.test()
-
-                    self._state.following.pop()
-
-                elif alt34 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:7: ROTATE ( AXIS )? test ( ORDER )?
-                    self.match(self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr690)
-
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:14: ( AXIS )?
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:66:15: ( AXIS )?
                     alt32 = 2
                     LA32_0 = self.input.LA(1)
 
                     if LA32_0 == AXIS:
                         alt32 = 1
                     if alt32 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:14: AXIS
-                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr692)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:66:15: AXIS
+                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr829)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr695)
+                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr832)
+
+                    self._state.following.append(self.FOLLOW_test_in_core_attr834)
                     self.test()
 
                     self._state.following.pop()
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:25: ( ORDER )?
+                elif alt35 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:67:7: CAM_TRANSLATE TO test
+                    self.match(
+                        self.input,
+                        CAM_TRANSLATE,
+                        self.FOLLOW_CAM_TRANSLATE_in_core_attr842,
+                    )
+
+                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr844)
+
+                    self._state.following.append(self.FOLLOW_test_in_core_attr846)
+                    self.test()
+
+                    self._state.following.pop()
+
+                elif alt35 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:7: ROTATE ( AXIS )? test ( ORDER )?
+                    self.match(self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr854)
+
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:14: ( AXIS )?
                     alt33 = 2
                     LA33_0 = self.input.LA(1)
 
-                    if LA33_0 == ORDER:
+                    if LA33_0 == AXIS:
                         alt33 = 1
                     if alt33 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:53:25: ORDER
-                        self.match(self.input, ORDER, self.FOLLOW_ORDER_in_core_attr697)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:14: AXIS
+                        self.match(self.input, AXIS, self.FOLLOW_AXIS_in_core_attr856)
 
-                elif alt34 == 4:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:54:7: SCALE test
-                    self.match(self.input, SCALE, self.FOLLOW_SCALE_in_core_attr706)
-
-                    self._state.following.append(self.FOLLOW_test_in_core_attr708)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr859)
                     self.test()
 
                     self._state.following.pop()
 
-                elif alt34 == 5:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:55:7: LOOK_AT test
-                    self.match(self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr716)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:25: ( ORDER )?
+                    alt34 = 2
+                    LA34_0 = self.input.LA(1)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr718)
+                    if LA34_0 == ORDER:
+                        alt34 = 1
+                    if alt34 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:25: ORDER
+                        self.match(self.input, ORDER, self.FOLLOW_ORDER_in_core_attr861)
+
+                elif alt35 == 4:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:7: SCALE test
+                    self.match(self.input, SCALE, self.FOLLOW_SCALE_in_core_attr870)
+
+                    self._state.following.append(self.FOLLOW_test_in_core_attr872)
                     self.test()
 
                     self._state.following.pop()
 
-                elif alt34 == 6:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:56:7: UP_AXIS test
-                    self.match(self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr726)
+                elif alt35 == 5:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:70:7: LOOK_AT test
+                    self.match(self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr880)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr728)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr882)
                     self.test()
 
                     self._state.following.pop()
 
-                elif alt34 == 7:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:57:7: SIZE test
-                    self.match(self.input, SIZE, self.FOLLOW_SIZE_in_core_attr736)
+                elif alt35 == 6:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:71:7: UP_AXIS test
+                    self.match(self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr890)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr738)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr892)
                     self.test()
 
                     self._state.following.pop()
 
-                elif alt34 == 8:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:58:7: SEMANTICS test
+                elif alt35 == 7:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:7: SIZE test
+                    self.match(self.input, SIZE, self.FOLLOW_SIZE_in_core_attr900)
+
+                    self._state.following.append(self.FOLLOW_test_in_core_attr902)
+                    self.test()
+
+                    self._state.following.pop()
+
+                elif alt35 == 8:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:73:7: SEMANTICS test
                     self.match(
-                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr746
+                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr910
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr748)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr912)
                     self.test()
 
                     self._state.following.pop()
 
-                elif alt34 == 9:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:59:7: VISIBLE test
-                    self.match(self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr756)
+                elif alt35 == 9:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:74:7: VISIBLE test
+                    self.match(self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr920)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr758)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr922)
                     self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr764)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr928)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2681,7 +2853,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "inner_behavior_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:63:1: inner_behavior_stmt : behavior_expr inner_behavior_block ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:77:1: inner_behavior_stmt : behavior_expr inner_behavior_block ;
     def inner_behavior_stmt(
         self,
     ):
@@ -2690,17 +2862,17 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:63:22: ( behavior_expr inner_behavior_block )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:63:24: behavior_expr inner_behavior_block
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:77:22: ( behavior_expr inner_behavior_block )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:77:24: behavior_expr inner_behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt774
+                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt938
                 )
                 self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt776
+                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt940
                 )
                 self.inner_behavior_block()
 
@@ -2735,7 +2907,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "inner_behavior_block"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:1: inner_behavior_block : COLON NEWLINE INDENT ( attr )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:1: inner_behavior_block : COLON NEWLINE INDENT ( attr )+ DEDENT ;
     def inner_behavior_block(
         self,
     ):
@@ -2744,27 +2916,27 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:22: ( COLON NEWLINE INDENT ( attr )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:24: COLON NEWLINE INDENT ( attr )+ DEDENT
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:22: ( COLON NEWLINE INDENT ( attr )+ DEDENT )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:24: COLON NEWLINE INDENT ( attr )+ DEDENT
                 self.match(
-                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block783
+                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block947
                 )
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block785
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block949
                 )
 
                 self.match(
-                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block787
+                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block951
                 )
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:45: ( attr )+
-                cnt35 = 0
-                while True:  # loop35
-                    alt35 = 2
-                    LA35_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:45: ( attr )+
+                cnt36 = 0
+                while True:  # loop36
+                    alt36 = 2
+                    LA36_0 = self.input.LA(1)
 
-                    if LA35_0 in {
+                    if LA36_0 in {
                         CAM_TRANSLATE,
                         ID,
                         LOOK_AT,
@@ -2780,28 +2952,28 @@ class YarcParser(Parser):
                         UP_AXIS,
                         VISIBLE,
                     }:
-                        alt35 = 1
+                        alt36 = 1
 
-                    if alt35 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:64:45: attr
+                    if alt36 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:45: attr
                         self._state.following.append(
-                            self.FOLLOW_attr_in_inner_behavior_block789
+                            self.FOLLOW_attr_in_inner_behavior_block953
                         )
                         self.attr()
 
                         self._state.following.pop()
 
                     else:
-                        if cnt35 >= 1:
-                            break  # loop35
+                        if cnt36 >= 1:
+                            break  # loop36
 
-                        eee = EarlyExitException(35, self.input)
+                        eee = EarlyExitException(36, self.input)
                         raise eee
 
-                    cnt35 += 1
+                    cnt36 += 1
 
                 self.match(
-                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block792
+                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block956
                 )
 
                 retval.stop = self.input.LT(-1)
@@ -2833,7 +3005,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "behavior_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:67:1: behavior_stmt : behavior_expr behavior_block ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:81:1: behavior_stmt : behavior_expr behavior_block ;
     def behavior_stmt(
         self,
     ):
@@ -2842,17 +3014,17 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:67:16: ( behavior_expr behavior_block )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:67:18: behavior_expr behavior_block
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:81:16: ( behavior_expr behavior_block )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:81:18: behavior_expr behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_behavior_stmt803
+                    self.FOLLOW_behavior_expr_in_behavior_stmt967
                 )
                 self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_behavior_block_in_behavior_stmt805
+                    self.FOLLOW_behavior_block_in_behavior_stmt969
                 )
                 self.behavior_block()
 
@@ -2887,7 +3059,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "behavior_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:1: behavior_expr : EVERY ( test )? ( FRAMES | TIME ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:82:1: behavior_expr : EVERY ( test )? ( FRAMES | TIME ) ;
     def behavior_expr(
         self,
     ):
@@ -2896,15 +3068,15 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:16: ( EVERY ( test )? ( FRAMES | TIME ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:18: EVERY ( test )? ( FRAMES | TIME )
-                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr813)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:82:16: ( EVERY ( test )? ( FRAMES | TIME ) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:82:18: EVERY ( test )? ( FRAMES | TIME )
+                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr977)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:24: ( test )?
-                alt36 = 2
-                LA36_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:82:24: ( test )?
+                alt37 = 2
+                LA37_0 = self.input.LA(1)
 
-                if LA36_0 in {
+                if LA37_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -2925,10 +3097,10 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt36 = 1
-                if alt36 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:68:24: test
-                    self._state.following.append(self.FOLLOW_test_in_behavior_expr815)
+                    alt37 = 1
+                if alt37 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:82:24: test
+                    self._state.following.append(self.FOLLOW_test_in_behavior_expr979)
                     self.test()
 
                     self._state.following.pop()
@@ -2970,7 +3142,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "behavior_block"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:1: behavior_block : COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:1: behavior_block : COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT ;
     def behavior_block(
         self,
     ):
@@ -2979,23 +3151,23 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:16: ( COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:18: COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block831)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:16: ( COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:18: COLON NEWLINE INDENT ( aug_expr_stmt | edit_stmt )+ DEDENT
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block995)
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block833
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block997
                 )
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block835)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block999)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:39: ( aug_expr_stmt | edit_stmt )+
-                cnt37 = 0
-                while True:  # loop37
-                    alt37 = 3
-                    LA37_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:39: ( aug_expr_stmt | edit_stmt )+
+                cnt38 = 0
+                while True:  # loop38
+                    alt38 = 3
+                    LA38_0 = self.input.LA(1)
 
-                    if LA37_0 in {
+                    if LA38_0 in {
                         BIT_NOT,
                         CREATE,
                         DISTRIBUTION,
@@ -3020,38 +3192,38 @@ class YarcParser(Parser):
                         TRUE,
                         UNDERSCORE,
                     }:
-                        alt37 = 1
-                    elif LA37_0 == EDIT:
-                        alt37 = 2
+                        alt38 = 1
+                    elif LA38_0 == EDIT:
+                        alt38 = 2
 
-                    if alt37 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:40: aug_expr_stmt
+                    if alt38 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:40: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_behavior_block838
+                            self.FOLLOW_aug_expr_stmt_in_behavior_block1002
                         )
                         self.aug_expr_stmt()
 
                         self._state.following.pop()
 
-                    elif alt37 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:69:56: edit_stmt
+                    elif alt38 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:56: edit_stmt
                         self._state.following.append(
-                            self.FOLLOW_edit_stmt_in_behavior_block842
+                            self.FOLLOW_edit_stmt_in_behavior_block1006
                         )
                         self.edit_stmt()
 
                         self._state.following.pop()
 
                     else:
-                        if cnt37 >= 1:
-                            break  # loop37
+                        if cnt38 >= 1:
+                            break  # loop38
 
-                        eee = EarlyExitException(37, self.input)
+                        eee = EarlyExitException(38, self.input)
                         raise eee
 
-                    cnt37 += 1
+                    cnt38 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block846)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block1010)
 
                 retval.stop = self.input.LT(-1)
 
@@ -3082,35 +3254,56 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "expr_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:1: expr_stmt : testlist ( AUG_ASSIGN | ASSIGN ) ( testlist | fetch_expr ) NEWLINE ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:1: expr_stmt : assignable= testlist op= ( AUG_ASSIGN | ASSIGN ) value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$assignable.stop=$op.textvalue=$value.st);
     def expr_stmt(
         self,
     ):
         retval = self.expr_stmt_return()
         retval.start = self.input.LT(1)
 
+        op = None
+        value = None
+        assignable = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:11: ( testlist ( AUG_ASSIGN | ASSIGN ) ( testlist | fetch_expr ) NEWLINE )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:13: testlist ( AUG_ASSIGN | ASSIGN ) ( testlist | fetch_expr ) NEWLINE
-                self._state.following.append(self.FOLLOW_testlist_in_expr_stmt856)
-                self.testlist()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:11: (assignable= testlist op= ( AUG_ASSIGN | ASSIGN ) value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$assignable.stop=$op.textvalue=$value.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:13: assignable= testlist op= ( AUG_ASSIGN | ASSIGN ) value= ( testlist | fetch_expr ) NEWLINE
+                self._state.following.append(self.FOLLOW_testlist_in_expr_stmt1022)
+                assignable = self.testlist()
 
                 self._state.following.pop()
 
-                if self.input.LA(1) in {ASSIGN, AUG_ASSIGN}:
-                    self.input.consume()
-                    self._state.errorRecovery = False
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:36: ( AUG_ASSIGN | ASSIGN )
+                alt39 = 2
+                LA39_0 = self.input.LA(1)
 
+                if LA39_0 == AUG_ASSIGN:
+                    alt39 = 1
+                elif LA39_0 == ASSIGN:
+                    alt39 = 2
                 else:
-                    mse = MismatchedSetException(None, self.input)
-                    raise mse
+                    nvae = NoViableAltException("", 39, 0, self.input)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:44: ( testlist | fetch_expr )
-                alt38 = 2
-                LA38_0 = self.input.LA(1)
+                    raise nvae
 
-                if LA38_0 in {
+                if alt39 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:37: AUG_ASSIGN
+                    op = self.match(
+                        self.input, AUG_ASSIGN, self.FOLLOW_AUG_ASSIGN_in_expr_stmt1027
+                    )
+
+                elif alt39 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:50: ASSIGN
+                    op = self.match(
+                        self.input, ASSIGN, self.FOLLOW_ASSIGN_in_expr_stmt1031
+                    )
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:64: ( testlist | fetch_expr )
+                alt40 = 2
+                LA40_0 = self.input.LA(1)
+
+                if LA40_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -3131,29 +3324,44 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt38 = 1
-                elif LA38_0 == FETCH:
-                    alt38 = 2
+                    alt40 = 1
+                elif LA40_0 == FETCH:
+                    alt40 = 2
                 else:
-                    nvae = NoViableAltException("", 38, 0, self.input)
+                    nvae = NoViableAltException("", 40, 0, self.input)
 
                     raise nvae
 
-                if alt38 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:45: testlist
-                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt867)
-                    self.testlist()
+                if alt40 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:65: testlist
+                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt1037)
+                    value = self.testlist()
 
                     self._state.following.pop()
 
-                elif alt38 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:72:56: fetch_expr
-                    self._state.following.append(self.FOLLOW_fetch_expr_in_expr_stmt871)
-                    self.fetch_expr()
+                elif alt40 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:76: fetch_expr
+                    self._state.following.append(
+                        self.FOLLOW_fetch_expr_in_expr_stmt1041
+                    )
+                    value = self.fetch_expr()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt874)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt1044)
+
+                # TEMPLATE REWRITE
+                # 87:3: -> expr_stmt(assignable=$assignable.stop=$op.textvalue=$value.st)
+                retval.st = self.templateLib.getInstanceOf(
+                    "expr_stmt",
+                    attributes={
+                        "assignable": (
+                            (assignable is not None) and [assignable.st] or [None]
+                        )[0],
+                        "op": op.text,
+                        "value": value.st,
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -3184,7 +3392,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "aug_expr_stmt"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:74:1: aug_expr_stmt : ( ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:1: aug_expr_stmt : ( ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr );
     def aug_expr_stmt(
         self,
     ):
@@ -3193,10 +3401,10 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:74:14: ( ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr )
-                alt43 = 5
-                LA43 = self.input.LA(1)
-                if LA43 in {
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:14: ( ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) ) | create_expr | instantiate_expr | get_expr | group_expr )
+                alt45 = 5
+                LA45 = self.input.LA(1)
+                if LA45 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -3217,58 +3425,58 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt43 = 1
-                elif LA43 in {CREATE}:
-                    alt43 = 2
-                elif LA43 in {INSTANTIATE}:
-                    alt43 = 3
-                elif LA43 in {GET}:
-                    alt43 = 4
-                elif LA43 in {GROUP}:
-                    alt43 = 5
+                    alt45 = 1
+                elif LA45 in {CREATE}:
+                    alt45 = 2
+                elif LA45 in {INSTANTIATE}:
+                    alt45 = 3
+                elif LA45 in {GET}:
+                    alt45 = 4
+                elif LA45 in {GROUP}:
+                    alt45 = 5
                 else:
-                    nvae = NoViableAltException("", 43, 0, self.input)
+                    nvae = NoViableAltException("", 45, 0, self.input)
 
                     raise nvae
 
-                if alt43 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:74:16: ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
+                if alt45 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:16: ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
                     pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:74:16: ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:75:5: testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:16: ( testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) ) )
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:90:5: testlist ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
                     self._state.following.append(
-                        self.FOLLOW_testlist_in_aug_expr_stmt887
+                        self.FOLLOW_testlist_in_aug_expr_stmt1079
                     )
                     self.testlist()
 
                     self._state.following.pop()
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:75:14: ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
-                    alt42 = 2
-                    LA42_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:90:14: ( AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE | ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr ) )
+                    alt44 = 2
+                    LA44_0 = self.input.LA(1)
 
-                    if LA42_0 == AUG_ASSIGN:
-                        alt42 = 1
-                    elif LA42_0 == ASSIGN:
-                        alt42 = 2
+                    if LA44_0 == AUG_ASSIGN:
+                        alt44 = 1
+                    elif LA44_0 == ASSIGN:
+                        alt44 = 2
                     else:
-                        nvae = NoViableAltException("", 42, 0, self.input)
+                        nvae = NoViableAltException("", 44, 0, self.input)
 
                         raise nvae
 
-                    if alt42 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:76:7: AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE
+                    if alt44 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:7: AUG_ASSIGN ( testlist | fetch_expr )? NEWLINE
                         self.match(
                             self.input,
                             AUG_ASSIGN,
-                            self.FOLLOW_AUG_ASSIGN_in_aug_expr_stmt897,
+                            self.FOLLOW_AUG_ASSIGN_in_aug_expr_stmt1089,
                         )
 
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:76:18: ( testlist | fetch_expr )?
-                        alt39 = 3
-                        LA39_0 = self.input.LA(1)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:18: ( testlist | fetch_expr )?
+                        alt41 = 3
+                        LA41_0 = self.input.LA(1)
 
-                        if LA39_0 in {
+                        if LA41_0 in {
                             BIT_NOT,
                             DISTRIBUTION,
                             FALSE,
@@ -3289,41 +3497,43 @@ class YarcParser(Parser):
                             TRUE,
                             UNDERSCORE,
                         }:
-                            alt39 = 1
-                        elif LA39_0 == FETCH:
-                            alt39 = 2
-                        if alt39 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:76:19: testlist
+                            alt41 = 1
+                        elif LA41_0 == FETCH:
+                            alt41 = 2
+                        if alt41 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:19: testlist
                             self._state.following.append(
-                                self.FOLLOW_testlist_in_aug_expr_stmt900
+                                self.FOLLOW_testlist_in_aug_expr_stmt1092
                             )
                             self.testlist()
 
                             self._state.following.pop()
 
-                        elif alt39 == 2:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:76:30: fetch_expr
+                        elif alt41 == 2:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:30: fetch_expr
                             self._state.following.append(
-                                self.FOLLOW_fetch_expr_in_aug_expr_stmt904
+                                self.FOLLOW_fetch_expr_in_aug_expr_stmt1096
                             )
                             self.fetch_expr()
 
                             self._state.following.pop()
 
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_aug_expr_stmt908
+                            self.input,
+                            NEWLINE,
+                            self.FOLLOW_NEWLINE_in_aug_expr_stmt1100,
                         )
 
-                    elif alt42 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:77:9: ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
+                    elif alt44 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:9: ASSIGN ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
                         self.match(
-                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt918
+                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt1110
                         )
 
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:77:16: ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
-                        alt41 = 5
-                        LA41 = self.input.LA(1)
-                        if LA41 in {
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:16: ( ( testlist | fetch_expr ) NEWLINE | create_expr | instantiate_expr | get_expr | group_expr )
+                        alt43 = 5
+                        LA43 = self.input.LA(1)
+                        if LA43 in {
                             BIT_NOT,
                             DISTRIBUTION,
                             FALSE,
@@ -3345,28 +3555,28 @@ class YarcParser(Parser):
                             TRUE,
                             UNDERSCORE,
                         }:
-                            alt41 = 1
-                        elif LA41 in {CREATE}:
-                            alt41 = 2
-                        elif LA41 in {INSTANTIATE}:
-                            alt41 = 3
-                        elif LA41 in {GET}:
-                            alt41 = 4
-                        elif LA41 in {GROUP}:
-                            alt41 = 5
+                            alt43 = 1
+                        elif LA43 in {CREATE}:
+                            alt43 = 2
+                        elif LA43 in {INSTANTIATE}:
+                            alt43 = 3
+                        elif LA43 in {GET}:
+                            alt43 = 4
+                        elif LA43 in {GROUP}:
+                            alt43 = 5
                         else:
-                            nvae = NoViableAltException("", 41, 0, self.input)
+                            nvae = NoViableAltException("", 43, 0, self.input)
 
                             raise nvae
 
-                        if alt41 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:9: ( testlist | fetch_expr ) NEWLINE
+                        if alt43 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:9: ( testlist | fetch_expr ) NEWLINE
                             pass
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:9: ( testlist | fetch_expr )
-                            alt40 = 2
-                            LA40_0 = self.input.LA(1)
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:9: ( testlist | fetch_expr )
+                            alt42 = 2
+                            LA42_0 = self.input.LA(1)
 
-                            if LA40_0 in {
+                            if LA42_0 in {
                                 BIT_NOT,
                                 DISTRIBUTION,
                                 FALSE,
@@ -3387,27 +3597,27 @@ class YarcParser(Parser):
                                 TRUE,
                                 UNDERSCORE,
                             }:
-                                alt40 = 1
-                            elif LA40_0 == FETCH:
-                                alt40 = 2
+                                alt42 = 1
+                            elif LA42_0 == FETCH:
+                                alt42 = 2
                             else:
-                                nvae = NoViableAltException("", 40, 0, self.input)
+                                nvae = NoViableAltException("", 42, 0, self.input)
 
                                 raise nvae
 
-                            if alt40 == 1:
-                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:10: testlist
+                            if alt42 == 1:
+                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:10: testlist
                                 self._state.following.append(
-                                    self.FOLLOW_testlist_in_aug_expr_stmt931
+                                    self.FOLLOW_testlist_in_aug_expr_stmt1123
                                 )
                                 self.testlist()
 
                                 self._state.following.pop()
 
-                            elif alt40 == 2:
-                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:78:21: fetch_expr
+                            elif alt42 == 2:
+                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:21: fetch_expr
                                 self._state.following.append(
-                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt935
+                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt1127
                                 )
                                 self.fetch_expr()
 
@@ -3416,76 +3626,76 @@ class YarcParser(Parser):
                             self.match(
                                 self.input,
                                 NEWLINE,
-                                self.FOLLOW_NEWLINE_in_aug_expr_stmt938,
+                                self.FOLLOW_NEWLINE_in_aug_expr_stmt1130,
                             )
 
-                        elif alt41 == 2:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:79:11: create_expr
+                        elif alt43 == 2:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:11: create_expr
                             self._state.following.append(
-                                self.FOLLOW_create_expr_in_aug_expr_stmt950
+                                self.FOLLOW_create_expr_in_aug_expr_stmt1142
                             )
                             self.create_expr()
 
                             self._state.following.pop()
 
-                        elif alt41 == 3:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:79:25: instantiate_expr
+                        elif alt43 == 3:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:25: instantiate_expr
                             self._state.following.append(
-                                self.FOLLOW_instantiate_expr_in_aug_expr_stmt954
+                                self.FOLLOW_instantiate_expr_in_aug_expr_stmt1146
                             )
                             self.instantiate_expr()
 
                             self._state.following.pop()
 
-                        elif alt41 == 4:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:79:44: get_expr
+                        elif alt43 == 4:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:44: get_expr
                             self._state.following.append(
-                                self.FOLLOW_get_expr_in_aug_expr_stmt958
+                                self.FOLLOW_get_expr_in_aug_expr_stmt1150
                             )
                             self.get_expr()
 
                             self._state.following.pop()
 
-                        elif alt41 == 5:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:79:55: group_expr
+                        elif alt43 == 5:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:55: group_expr
                             self._state.following.append(
-                                self.FOLLOW_group_expr_in_aug_expr_stmt962
+                                self.FOLLOW_group_expr_in_aug_expr_stmt1154
                             )
                             self.group_expr()
 
                             self._state.following.pop()
 
-                elif alt43 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:5: create_expr
+                elif alt45 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:5: create_expr
                     self._state.following.append(
-                        self.FOLLOW_create_expr_in_aug_expr_stmt986
+                        self.FOLLOW_create_expr_in_aug_expr_stmt1178
                     )
                     self.create_expr()
 
                     self._state.following.pop()
 
-                elif alt43 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:19: instantiate_expr
+                elif alt45 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:19: instantiate_expr
                     self._state.following.append(
-                        self.FOLLOW_instantiate_expr_in_aug_expr_stmt990
+                        self.FOLLOW_instantiate_expr_in_aug_expr_stmt1182
                     )
                     self.instantiate_expr()
 
                     self._state.following.pop()
 
-                elif alt43 == 4:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:38: get_expr
+                elif alt45 == 4:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:38: get_expr
                     self._state.following.append(
-                        self.FOLLOW_get_expr_in_aug_expr_stmt994
+                        self.FOLLOW_get_expr_in_aug_expr_stmt1186
                     )
                     self.get_expr()
 
                     self._state.following.pop()
 
-                elif alt43 == 5:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:83:49: group_expr
+                elif alt45 == 5:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:49: group_expr
                     self._state.following.append(
-                        self.FOLLOW_group_expr_in_aug_expr_stmt998
+                        self.FOLLOW_group_expr_in_aug_expr_stmt1190
                     )
                     self.group_expr()
 
@@ -3520,72 +3730,91 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "fetch_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:1: fetch_expr : FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:1: fetch_expr : FETCH ext= test FROM path= test ( MATCH filter= test )? ( LIMIT limit= test )? ( RECURSIVE )? -> fetch_expr(ext=$ext.stpath=$path.stfilter=$filter.stlimit=$limit.strecursive=$RECURSIVE);
     def fetch_expr(
         self,
     ):
         retval = self.fetch_expr_return()
         retval.start = self.input.LT(1)
 
+        RECURSIVE14 = None
+        ext = None
+        path = None
+        filter = None
+        limit = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:12: ( FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )? )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:14: FETCH test FROM test ( MATCH test )? ( LIMIT test )? ( RECURSIVE )?
-                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr1007)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:12: ( FETCH ext= test FROM path= test ( MATCH filter= test )? ( LIMIT limit= test )? ( RECURSIVE )? -> fetch_expr(ext=$ext.stpath=$path.stfilter=$filter.stlimit=$limit.strecursive=$RECURSIVE))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:14: FETCH ext= test FROM path= test ( MATCH filter= test )? ( LIMIT limit= test )? ( RECURSIVE )?
+                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr1199)
 
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr1009)
-                self.test()
-
-                self._state.following.pop()
-
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr1011)
-
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr1013)
-                self.test()
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr1203)
+                ext = self.test()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:35: ( MATCH test )?
-                alt44 = 2
-                LA44_0 = self.input.LA(1)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr1205)
 
-                if LA44_0 == MATCH:
-                    alt44 = 1
-                if alt44 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:36: MATCH test
-                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr1016)
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr1209)
+                path = self.test()
 
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr1018)
-                    self.test()
+                self._state.following.pop()
 
-                    self._state.following.pop()
-
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:49: ( LIMIT test )?
-                alt45 = 2
-                LA45_0 = self.input.LA(1)
-
-                if LA45_0 == LIMIT:
-                    alt45 = 1
-                if alt45 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:50: LIMIT test
-                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr1023)
-
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr1025)
-                    self.test()
-
-                    self._state.following.pop()
-
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:63: ( RECURSIVE )?
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:44: ( MATCH filter= test )?
                 alt46 = 2
                 LA46_0 = self.input.LA(1)
 
-                if LA46_0 == RECURSIVE:
+                if LA46_0 == MATCH:
                     alt46 = 1
                 if alt46 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:86:63: RECURSIVE
-                    self.match(
-                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr1029
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:45: MATCH filter= test
+                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr1212)
+
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr1216)
+                    filter = self.test()
+
+                    self._state.following.pop()
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:65: ( LIMIT limit= test )?
+                alt47 = 2
+                LA47_0 = self.input.LA(1)
+
+                if LA47_0 == LIMIT:
+                    alt47 = 1
+                if alt47 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:66: LIMIT limit= test
+                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr1221)
+
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr1225)
+                    limit = self.test()
+
+                    self._state.following.pop()
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:85: ( RECURSIVE )?
+                alt48 = 2
+                LA48_0 = self.input.LA(1)
+
+                if LA48_0 == RECURSIVE:
+                    alt48 = 1
+                if alt48 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:85: RECURSIVE
+                    RECURSIVE14 = self.match(
+                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr1229
                     )
+
+                # TEMPLATE REWRITE
+                # 102:3: -> fetch_expr(ext=$ext.stpath=$path.stfilter=$filter.stlimit=$limit.strecursive=$RECURSIVE)
+                retval.st = self.templateLib.getInstanceOf(
+                    "fetch_expr",
+                    attributes={
+                        "ext": ((ext is not None) and [ext.st] or [None])[0],
+                        "path": ((path is not None) and [path.st] or [None])[0],
+                        "filter": ((filter is not None) and [filter.st] or [None])[0],
+                        "limit": ((limit is not None) and [limit.st] or [None])[0],
+                        "recursive": RECURSIVE14,
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -3616,7 +3845,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "test"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:1: test : expr_= or_test ( IF cond= or_test ELSE else_expr= test )? -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:1: test : expr_= or_test ( IF cond= or_test ELSE else_expr= test )? -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st);
     def test(
         self,
     ):
@@ -3629,37 +3858,37 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:13: (expr_= or_test ( IF cond= or_test ELSE else_expr= test )? -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:15: expr_= or_test ( IF cond= or_test ELSE else_expr= test )?
-                self._state.following.append(self.FOLLOW_or_test_in_test1049)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:13: (expr_= or_test ( IF cond= or_test ELSE else_expr= test )? -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:15: expr_= or_test ( IF cond= or_test ELSE else_expr= test )?
+                self._state.following.append(self.FOLLOW_or_test_in_test1280)
                 expr_ = self.or_test()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:29: ( IF cond= or_test ELSE else_expr= test )?
-                alt47 = 2
-                LA47_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:29: ( IF cond= or_test ELSE else_expr= test )?
+                alt49 = 2
+                LA49_0 = self.input.LA(1)
 
-                if LA47_0 == IF:
-                    alt47 = 1
-                if alt47 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:89:30: IF cond= or_test ELSE else_expr= test
-                    self.match(self.input, IF, self.FOLLOW_IF_in_test1052)
+                if LA49_0 == IF:
+                    alt49 = 1
+                if alt49 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:30: IF cond= or_test ELSE else_expr= test
+                    self.match(self.input, IF, self.FOLLOW_IF_in_test1283)
 
-                    self._state.following.append(self.FOLLOW_or_test_in_test1056)
+                    self._state.following.append(self.FOLLOW_or_test_in_test1287)
                     cond = self.or_test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test1058)
+                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test1289)
 
-                    self._state.following.append(self.FOLLOW_test_in_test1062)
+                    self._state.following.append(self.FOLLOW_test_in_test1293)
                     else_expr = self.test()
 
                     self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 90:13: -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st)
+                # 106:13: -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "test",
                     attributes={
@@ -3700,30 +3929,32 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "test_nocond"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:1: test_nocond : or_test -> test(expr=$or_test.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:1: test_nocond : or_test -> test(expr=$or_test.st);
     def test_nocond(
         self,
     ):
         retval = self.test_nocond_return()
         retval.start = self.input.LT(1)
 
-        or_test8 = None
+        or_test15 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:13: ( or_test -> test(expr=$or_test.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:91:15: or_test
-                self._state.following.append(self.FOLLOW_or_test_in_test_nocond1104)
-                or_test8 = self.or_test()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:13: ( or_test -> test(expr=$or_test.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:15: or_test
+                self._state.following.append(self.FOLLOW_or_test_in_test_nocond1335)
+                or_test15 = self.or_test()
 
                 self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 91:23: -> test(expr=$or_test.st)
+                # 107:23: -> test(expr=$or_test.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "test",
                     attributes={
-                        "expr": ((or_test8 is not None) and [or_test8.st] or [None])[0]
+                        "expr": ((or_test15 is not None) and [or_test15.st] or [None])[
+                            0
+                        ]
                     },
                 )
 
@@ -3756,7 +3987,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "or_test"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:1: or_test :exprs+= and_test ( OR exprs+= and_test )* -> or_test(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:1: or_test :exprs+= and_test ( OR exprs+= and_test )* -> or_test(exprs=$exprs);
     def or_test(
         self,
     ):
@@ -3767,9 +3998,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:13: (exprs+= and_test ( OR exprs+= and_test )* -> or_test(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:15: exprs+= and_test ( OR exprs+= and_test )*
-                self._state.following.append(self.FOLLOW_and_test_in_or_test1126)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:13: (exprs+= and_test ( OR exprs+= and_test )* -> or_test(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:15: exprs+= and_test ( OR exprs+= and_test )*
+                self._state.following.append(self.FOLLOW_and_test_in_or_test1357)
                 exprs = self.and_test()
 
                 self._state.following.pop()
@@ -3777,20 +4008,20 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:31: ( OR exprs+= and_test )*
-                while True:  # loop48
-                    alt48 = 2
-                    LA48_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:31: ( OR exprs+= and_test )*
+                while True:  # loop50
+                    alt50 = 2
+                    LA50_0 = self.input.LA(1)
 
-                    if LA48_0 == OR:
-                        alt48 = 1
+                    if LA50_0 == OR:
+                        alt50 = 1
 
-                    if alt48 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:92:32: OR exprs+= and_test
-                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test1129)
+                    if alt50 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:32: OR exprs+= and_test
+                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test1360)
 
                         self._state.following.append(
-                            self.FOLLOW_and_test_in_or_test1133
+                            self.FOLLOW_and_test_in_or_test1364
                         )
                         exprs = self.and_test()
 
@@ -3800,10 +4031,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop48
+                        break  # loop50
 
                 # TEMPLATE REWRITE
-                # 92:53: -> or_test(exprs=$exprs)
+                # 108:53: -> or_test(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "or_test", attributes={"exprs": list_exprs}
                 )
@@ -3837,7 +4068,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "and_test"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:1: and_test :exprs+= not_test ( AND exprs+= not_test )* -> and_test(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:1: and_test :exprs+= not_test ( AND exprs+= not_test )* -> and_test(exprs=$exprs);
     def and_test(
         self,
     ):
@@ -3848,9 +4079,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:13: (exprs+= not_test ( AND exprs+= not_test )* -> and_test(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:15: exprs+= not_test ( AND exprs+= not_test )*
-                self._state.following.append(self.FOLLOW_not_test_in_and_test1156)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:13: (exprs+= not_test ( AND exprs+= not_test )* -> and_test(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:15: exprs+= not_test ( AND exprs+= not_test )*
+                self._state.following.append(self.FOLLOW_not_test_in_and_test1387)
                 exprs = self.not_test()
 
                 self._state.following.pop()
@@ -3858,20 +4089,20 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:31: ( AND exprs+= not_test )*
-                while True:  # loop49
-                    alt49 = 2
-                    LA49_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:31: ( AND exprs+= not_test )*
+                while True:  # loop51
+                    alt51 = 2
+                    LA51_0 = self.input.LA(1)
 
-                    if LA49_0 == AND:
-                        alt49 = 1
+                    if LA51_0 == AND:
+                        alt51 = 1
 
-                    if alt49 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:93:32: AND exprs+= not_test
-                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test1159)
+                    if alt51 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:32: AND exprs+= not_test
+                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test1390)
 
                         self._state.following.append(
-                            self.FOLLOW_not_test_in_and_test1163
+                            self.FOLLOW_not_test_in_and_test1394
                         )
                         exprs = self.not_test()
 
@@ -3881,10 +4112,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop49
+                        break  # loop51
 
                 # TEMPLATE REWRITE
-                # 93:54: -> and_test(exprs=$exprs)
+                # 109:54: -> and_test(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "and_test", attributes={"exprs": list_exprs}
                 )
@@ -3918,7 +4149,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "not_test"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:1: not_test : ( NOT expr_= not_test -> not_test(expr=$expr_.st)| comparison -> {$comparison.st});
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:1: not_test : ( NOT expr_= not_test -> not_test(expr=$expr_.st)| comparison -> {$comparison.st});
     def not_test(
         self,
     ):
@@ -3926,17 +4157,17 @@ class YarcParser(Parser):
         retval.start = self.input.LT(1)
 
         expr_ = None
-        comparison9 = None
+        comparison16 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:13: ( NOT expr_= not_test -> not_test(expr=$expr_.st)| comparison -> {$comparison.st})
-                alt50 = 2
-                LA50_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:13: ( NOT expr_= not_test -> not_test(expr=$expr_.st)| comparison -> {$comparison.st})
+                alt52 = 2
+                LA52_0 = self.input.LA(1)
 
-                if LA50_0 == NOT:
-                    alt50 = 1
-                elif LA50_0 in {
+                if LA52_0 == NOT:
+                    alt52 = 1
+                elif LA52_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -3956,23 +4187,23 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt50 = 2
+                    alt52 = 2
                 else:
-                    nvae = NoViableAltException("", 50, 0, self.input)
+                    nvae = NoViableAltException("", 52, 0, self.input)
 
                     raise nvae
 
-                if alt50 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:94:15: NOT expr_= not_test
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test1184)
+                if alt52 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:15: NOT expr_= not_test
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test1415)
 
-                    self._state.following.append(self.FOLLOW_not_test_in_not_test1188)
+                    self._state.following.append(self.FOLLOW_not_test_in_not_test1419)
                     expr_ = self.not_test()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 94:35: -> not_test(expr=$expr_.st)
+                    # 110:35: -> not_test(expr=$expr_.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "not_test",
                         attributes={
@@ -3980,17 +4211,17 @@ class YarcParser(Parser):
                         },
                     )
 
-                elif alt50 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:95:15: comparison
-                    self._state.following.append(self.FOLLOW_comparison_in_not_test1214)
-                    comparison9 = self.comparison()
+                elif alt52 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:111:15: comparison
+                    self._state.following.append(self.FOLLOW_comparison_in_not_test1445)
+                    comparison16 = self.comparison()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 95:26: -> {$comparison.st}
+                    # 111:26: -> {$comparison.st}
                     retval.st = (
-                        (comparison9 is not None) and [comparison9.st] or [None]
+                        (comparison16 is not None) and [comparison16.st] or [None]
                     )[0]
 
                 retval.stop = self.input.LT(-1)
@@ -4022,7 +4253,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "comparison"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:96:1: comparison :exprs+= expr ( comp_op exprs+= expr )* -> comparison(exprs=$exprsop=$comp_op.text);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:1: comparison :exprs+= expr ( comp_op exprs+= expr )* -> comparison(exprs=$exprsop=$comp_op.text);
     def comparison(
         self,
     ):
@@ -4030,13 +4261,13 @@ class YarcParser(Parser):
         retval.start = self.input.LT(1)
 
         list_exprs = None
-        comp_op10 = None
+        comp_op17 = None
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:96:13: (exprs+= expr ( comp_op exprs+= expr )* -> comparison(exprs=$exprsop=$comp_op.text))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:96:15: exprs+= expr ( comp_op exprs+= expr )*
-                self._state.following.append(self.FOLLOW_expr_in_comparison1228)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:13: (exprs+= expr ( comp_op exprs+= expr )* -> comparison(exprs=$exprsop=$comp_op.text))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:15: exprs+= expr ( comp_op exprs+= expr )*
+                self._state.following.append(self.FOLLOW_expr_in_comparison1459)
                 exprs = self.expr()
 
                 self._state.following.pop()
@@ -4044,24 +4275,24 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:96:27: ( comp_op exprs+= expr )*
-                while True:  # loop51
-                    alt51 = 2
-                    LA51_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:27: ( comp_op exprs+= expr )*
+                while True:  # loop53
+                    alt53 = 2
+                    LA53_0 = self.input.LA(1)
 
-                    if LA51_0 in {EQUALS, GT, GT_EQ, IN, IS, LT, LT_EQ, NOT, NOT_EQ}:
-                        alt51 = 1
+                    if LA53_0 in {EQUALS, GT, GT_EQ, IN, IS, LT, LT_EQ, NOT, NOT_EQ}:
+                        alt53 = 1
 
-                    if alt51 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:96:28: comp_op exprs+= expr
+                    if alt53 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:28: comp_op exprs+= expr
                         self._state.following.append(
-                            self.FOLLOW_comp_op_in_comparison1231
+                            self.FOLLOW_comp_op_in_comparison1462
                         )
-                        comp_op10 = self.comp_op()
+                        comp_op17 = self.comp_op()
 
                         self._state.following.pop()
 
-                        self._state.following.append(self.FOLLOW_expr_in_comparison1235)
+                        self._state.following.append(self.FOLLOW_expr_in_comparison1466)
                         exprs = self.expr()
 
                         self._state.following.pop()
@@ -4070,17 +4301,17 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop51
+                        break  # loop53
 
                 # TEMPLATE REWRITE
-                # 96:50: -> comparison(exprs=$exprsop=$comp_op.text)
+                # 112:50: -> comparison(exprs=$exprsop=$comp_op.text)
                 retval.st = self.templateLib.getInstanceOf(
                     "comparison",
                     attributes={
                         "exprs": list_exprs,
                         "op": (
-                            (comp_op10 is not None)
-                            and [self.input.toString(comp_op10.start, comp_op10.stop)]
+                            (comp_op17 is not None)
+                            and [self.input.toString(comp_op17.start, comp_op17.stop)]
                             or [None]
                         )[0],
                     },
@@ -4115,7 +4346,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "comp_op"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:1: comp_op : ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:1: comp_op : ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT );
     def comp_op(
         self,
     ):
@@ -4124,31 +4355,31 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:13: ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT )
-                alt52 = 10
-                LA52 = self.input.LA(1)
-                if LA52 in {LT}:
-                    alt52 = 1
-                elif LA52 in {GT}:
-                    alt52 = 2
-                elif LA52 in {EQUALS}:
-                    alt52 = 3
-                elif LA52 in {GT_EQ}:
-                    alt52 = 4
-                elif LA52 in {LT_EQ}:
-                    alt52 = 5
-                elif LA52 in {NOT_EQ}:
-                    alt52 = 6
-                elif LA52 in {IN}:
-                    alt52 = 7
-                elif LA52 in {NOT}:
-                    alt52 = 8
-                elif LA52 in {IS}:
-                    LA52_9 = self.input.LA(2)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:13: ( LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT )
+                alt54 = 10
+                LA54 = self.input.LA(1)
+                if LA54 in {LT}:
+                    alt54 = 1
+                elif LA54 in {GT}:
+                    alt54 = 2
+                elif LA54 in {EQUALS}:
+                    alt54 = 3
+                elif LA54 in {GT_EQ}:
+                    alt54 = 4
+                elif LA54 in {LT_EQ}:
+                    alt54 = 5
+                elif LA54 in {NOT_EQ}:
+                    alt54 = 6
+                elif LA54 in {IN}:
+                    alt54 = 7
+                elif LA54 in {NOT}:
+                    alt54 = 8
+                elif LA54 in {IS}:
+                    LA54_9 = self.input.LA(2)
 
-                    if LA52_9 == NOT:
-                        alt52 = 10
-                    elif LA52_9 in {
+                    if LA54_9 == NOT:
+                        alt54 = 10
+                    elif LA54_9 in {
                         BIT_NOT,
                         DISTRIBUTION,
                         FALSE,
@@ -4168,60 +4399,60 @@ class YarcParser(Parser):
                         TRUE,
                         UNDERSCORE,
                     }:
-                        alt52 = 9
+                        alt54 = 9
                     else:
-                        nvae = NoViableAltException("", 52, 9, self.input)
+                        nvae = NoViableAltException("", 54, 9, self.input)
 
                         raise nvae
 
                 else:
-                    nvae = NoViableAltException("", 52, 0, self.input)
+                    nvae = NoViableAltException("", 54, 0, self.input)
 
                     raise nvae
 
-                if alt52 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:15: LT
-                    self.match(self.input, LT, self.FOLLOW_LT_in_comp_op1262)
+                if alt54 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:15: LT
+                    self.match(self.input, LT, self.FOLLOW_LT_in_comp_op1493)
 
-                elif alt52 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:20: GT
-                    self.match(self.input, GT, self.FOLLOW_GT_in_comp_op1266)
+                elif alt54 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:20: GT
+                    self.match(self.input, GT, self.FOLLOW_GT_in_comp_op1497)
 
-                elif alt52 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:25: EQUALS
-                    self.match(self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op1270)
+                elif alt54 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:25: EQUALS
+                    self.match(self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op1501)
 
-                elif alt52 == 4:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:34: GT_EQ
-                    self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op1274)
+                elif alt54 == 4:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:34: GT_EQ
+                    self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op1505)
 
-                elif alt52 == 5:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:42: LT_EQ
-                    self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op1278)
+                elif alt54 == 5:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:42: LT_EQ
+                    self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op1509)
 
-                elif alt52 == 6:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:50: NOT_EQ
-                    self.match(self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op1282)
+                elif alt54 == 6:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:50: NOT_EQ
+                    self.match(self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op1513)
 
-                elif alt52 == 7:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:59: IN
-                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1286)
+                elif alt54 == 7:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:59: IN
+                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1517)
 
-                elif alt52 == 8:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:64: NOT IN
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1290)
+                elif alt54 == 8:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:64: NOT IN
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1521)
 
-                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1292)
+                    self.match(self.input, IN, self.FOLLOW_IN_in_comp_op1523)
 
-                elif alt52 == 9:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:73: IS
-                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1296)
+                elif alt54 == 9:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:73: IS
+                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1527)
 
-                elif alt52 == 10:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:97:78: IS NOT
-                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1300)
+                elif alt54 == 10:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:78: IS NOT
+                    self.match(self.input, IS, self.FOLLOW_IS_in_comp_op1531)
 
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1302)
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op1533)
 
                 retval.stop = self.input.LT(-1)
 
@@ -4252,7 +4483,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:1: expr :exprs+= xor_expr ( BIT_OR exprs+= xor_expr )* -> expr(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:1: expr :exprs+= xor_expr ( BIT_OR exprs+= xor_expr )* -> expr(exprs=$exprs);
     def expr(
         self,
     ):
@@ -4263,9 +4494,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:13: (exprs+= xor_expr ( BIT_OR exprs+= xor_expr )* -> expr(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:15: exprs+= xor_expr ( BIT_OR exprs+= xor_expr )*
-                self._state.following.append(self.FOLLOW_xor_expr_in_expr1319)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:13: (exprs+= xor_expr ( BIT_OR exprs+= xor_expr )* -> expr(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:15: exprs+= xor_expr ( BIT_OR exprs+= xor_expr )*
+                self._state.following.append(self.FOLLOW_xor_expr_in_expr1550)
                 exprs = self.xor_expr()
 
                 self._state.following.pop()
@@ -4273,19 +4504,19 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:31: ( BIT_OR exprs+= xor_expr )*
-                while True:  # loop53
-                    alt53 = 2
-                    LA53_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:31: ( BIT_OR exprs+= xor_expr )*
+                while True:  # loop55
+                    alt55 = 2
+                    LA55_0 = self.input.LA(1)
 
-                    if LA53_0 == BIT_OR:
-                        alt53 = 1
+                    if LA55_0 == BIT_OR:
+                        alt55 = 1
 
-                    if alt53 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:98:32: BIT_OR exprs+= xor_expr
-                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr1322)
+                    if alt55 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:32: BIT_OR exprs+= xor_expr
+                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr1553)
 
-                        self._state.following.append(self.FOLLOW_xor_expr_in_expr1326)
+                        self._state.following.append(self.FOLLOW_xor_expr_in_expr1557)
                         exprs = self.xor_expr()
 
                         self._state.following.pop()
@@ -4294,10 +4525,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop53
+                        break  # loop55
 
                 # TEMPLATE REWRITE
-                # 98:57: -> expr(exprs=$exprs)
+                # 114:57: -> expr(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "expr", attributes={"exprs": list_exprs}
                 )
@@ -4331,7 +4562,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "xor_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:99:1: xor_expr :exprs+= and_expr ( XOR exprs+= and_expr )* -> xor_expr(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:1: xor_expr :exprs+= and_expr ( XOR exprs+= and_expr )* -> xor_expr(exprs=$exprs);
     def xor_expr(
         self,
     ):
@@ -4342,9 +4573,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:99:13: (exprs+= and_expr ( XOR exprs+= and_expr )* -> xor_expr(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:99:15: exprs+= and_expr ( XOR exprs+= and_expr )*
-                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr1349)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:13: (exprs+= and_expr ( XOR exprs+= and_expr )* -> xor_expr(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:15: exprs+= and_expr ( XOR exprs+= and_expr )*
+                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr1580)
                 exprs = self.and_expr()
 
                 self._state.following.pop()
@@ -4352,20 +4583,20 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:99:31: ( XOR exprs+= and_expr )*
-                while True:  # loop54
-                    alt54 = 2
-                    LA54_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:31: ( XOR exprs+= and_expr )*
+                while True:  # loop56
+                    alt56 = 2
+                    LA56_0 = self.input.LA(1)
 
-                    if LA54_0 == XOR:
-                        alt54 = 1
+                    if LA56_0 == XOR:
+                        alt56 = 1
 
-                    if alt54 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:99:32: XOR exprs+= and_expr
-                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr1352)
+                    if alt56 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:32: XOR exprs+= and_expr
+                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr1583)
 
                         self._state.following.append(
-                            self.FOLLOW_and_expr_in_xor_expr1356
+                            self.FOLLOW_and_expr_in_xor_expr1587
                         )
                         exprs = self.and_expr()
 
@@ -4375,10 +4606,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop54
+                        break  # loop56
 
                 # TEMPLATE REWRITE
-                # 99:54: -> xor_expr(exprs=$exprs)
+                # 115:54: -> xor_expr(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "xor_expr", attributes={"exprs": list_exprs}
                 )
@@ -4412,7 +4643,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "and_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:100:1: and_expr :exprs+= shift_expr ( BIT_AND exprs+= shift_expr )* -> and_expr(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:1: and_expr :exprs+= shift_expr ( BIT_AND exprs+= shift_expr )* -> and_expr(exprs=$exprs);
     def and_expr(
         self,
     ):
@@ -4423,9 +4654,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:100:13: (exprs+= shift_expr ( BIT_AND exprs+= shift_expr )* -> and_expr(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:100:15: exprs+= shift_expr ( BIT_AND exprs+= shift_expr )*
-                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr1379)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:13: (exprs+= shift_expr ( BIT_AND exprs+= shift_expr )* -> and_expr(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:15: exprs+= shift_expr ( BIT_AND exprs+= shift_expr )*
+                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr1610)
                 exprs = self.shift_expr()
 
                 self._state.following.pop()
@@ -4433,22 +4664,22 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:100:33: ( BIT_AND exprs+= shift_expr )*
-                while True:  # loop55
-                    alt55 = 2
-                    LA55_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:33: ( BIT_AND exprs+= shift_expr )*
+                while True:  # loop57
+                    alt57 = 2
+                    LA57_0 = self.input.LA(1)
 
-                    if LA55_0 == BIT_AND:
-                        alt55 = 1
+                    if LA57_0 == BIT_AND:
+                        alt57 = 1
 
-                    if alt55 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:100:34: BIT_AND exprs+= shift_expr
+                    if alt57 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:34: BIT_AND exprs+= shift_expr
                         self.match(
-                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr1382
+                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr1613
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_shift_expr_in_and_expr1386
+                            self.FOLLOW_shift_expr_in_and_expr1617
                         )
                         exprs = self.shift_expr()
 
@@ -4458,10 +4689,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop55
+                        break  # loop57
 
                 # TEMPLATE REWRITE
-                # 100:62: -> and_expr(exprs=$exprs)
+                # 116:62: -> and_expr(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "and_expr", attributes={"exprs": list_exprs}
                 )
@@ -4495,7 +4726,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "shift_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:1: shift_expr :exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )* -> shift_expr(exprs=$exprsop=$op);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:1: shift_expr :exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )* -> shift_expr(exprs=$exprsop=$op);
     def shift_expr(
         self,
     ):
@@ -4507,9 +4738,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:13: (exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )* -> shift_expr(exprs=$exprsop=$op))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:15: exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )*
-                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr1407)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:13: (exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )* -> shift_expr(exprs=$exprsop=$op))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:15: exprs+= arith_expr (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )*
+                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr1638)
                 exprs = self.arith_expr()
 
                 self._state.following.pop()
@@ -4517,44 +4748,44 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:33: (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )*
-                while True:  # loop57
-                    alt57 = 2
-                    LA57_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:33: (op= ( LSHIFT | RSHIFT ) exprs+= arith_expr )*
+                while True:  # loop59
+                    alt59 = 2
+                    LA59_0 = self.input.LA(1)
 
-                    if LA57_0 in {LSHIFT, RSHIFT}:
-                        alt57 = 1
+                    if LA59_0 in {LSHIFT, RSHIFT}:
+                        alt59 = 1
 
-                    if alt57 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:34: op= ( LSHIFT | RSHIFT ) exprs+= arith_expr
+                    if alt59 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:34: op= ( LSHIFT | RSHIFT ) exprs+= arith_expr
                         pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:37: ( LSHIFT | RSHIFT )
-                        alt56 = 2
-                        LA56_0 = self.input.LA(1)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:37: ( LSHIFT | RSHIFT )
+                        alt58 = 2
+                        LA58_0 = self.input.LA(1)
 
-                        if LA56_0 == LSHIFT:
-                            alt56 = 1
-                        elif LA56_0 == RSHIFT:
-                            alt56 = 2
+                        if LA58_0 == LSHIFT:
+                            alt58 = 1
+                        elif LA58_0 == RSHIFT:
+                            alt58 = 2
                         else:
-                            nvae = NoViableAltException("", 56, 0, self.input)
+                            nvae = NoViableAltException("", 58, 0, self.input)
 
                             raise nvae
 
-                        if alt56 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:38: LSHIFT
+                        if alt58 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:38: LSHIFT
                             op = self.match(
-                                self.input, LSHIFT, self.FOLLOW_LSHIFT_in_shift_expr1413
+                                self.input, LSHIFT, self.FOLLOW_LSHIFT_in_shift_expr1644
                             )
 
-                        elif alt56 == 2:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:101:47: RSHIFT
+                        elif alt58 == 2:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:47: RSHIFT
                             op = self.match(
-                                self.input, RSHIFT, self.FOLLOW_RSHIFT_in_shift_expr1417
+                                self.input, RSHIFT, self.FOLLOW_RSHIFT_in_shift_expr1648
                             )
 
                         self._state.following.append(
-                            self.FOLLOW_arith_expr_in_shift_expr1422
+                            self.FOLLOW_arith_expr_in_shift_expr1653
                         )
                         exprs = self.arith_expr()
 
@@ -4564,10 +4795,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop57
+                        break  # loop59
 
                 # TEMPLATE REWRITE
-                # 101:75: -> shift_expr(exprs=$exprsop=$op)
+                # 117:75: -> shift_expr(exprs=$exprsop=$op)
                 retval.st = self.templateLib.getInstanceOf(
                     "shift_expr", attributes={"exprs": list_exprs, "op": op}
                 )
@@ -4601,7 +4832,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "arith_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:1: arith_expr :terms+= term (op= ( PLUS | MINUS ) terms+= term )* -> arith_expr(terms=$termsop=$op);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:1: arith_expr :terms+= term (op= ( PLUS | MINUS ) terms+= term )* -> arith_expr(terms=$termsop=$op);
     def arith_expr(
         self,
     ):
@@ -4613,9 +4844,9 @@ class YarcParser(Parser):
         terms = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:13: (terms+= term (op= ( PLUS | MINUS ) terms+= term )* -> arith_expr(terms=$termsop=$op))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:15: terms+= term (op= ( PLUS | MINUS ) terms+= term )*
-                self._state.following.append(self.FOLLOW_term_in_arith_expr1448)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:13: (terms+= term (op= ( PLUS | MINUS ) terms+= term )* -> arith_expr(terms=$termsop=$op))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:15: terms+= term (op= ( PLUS | MINUS ) terms+= term )*
+                self._state.following.append(self.FOLLOW_term_in_arith_expr1679)
                 terms = self.term()
 
                 self._state.following.pop()
@@ -4623,43 +4854,43 @@ class YarcParser(Parser):
                     list_terms = []
                 list_terms.append(terms.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:27: (op= ( PLUS | MINUS ) terms+= term )*
-                while True:  # loop59
-                    alt59 = 2
-                    LA59_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:27: (op= ( PLUS | MINUS ) terms+= term )*
+                while True:  # loop61
+                    alt61 = 2
+                    LA61_0 = self.input.LA(1)
 
-                    if LA59_0 in {MINUS, PLUS}:
-                        alt59 = 1
+                    if LA61_0 in {MINUS, PLUS}:
+                        alt61 = 1
 
-                    if alt59 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:28: op= ( PLUS | MINUS ) terms+= term
+                    if alt61 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:28: op= ( PLUS | MINUS ) terms+= term
                         pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:31: ( PLUS | MINUS )
-                        alt58 = 2
-                        LA58_0 = self.input.LA(1)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:31: ( PLUS | MINUS )
+                        alt60 = 2
+                        LA60_0 = self.input.LA(1)
 
-                        if LA58_0 == PLUS:
-                            alt58 = 1
-                        elif LA58_0 == MINUS:
-                            alt58 = 2
+                        if LA60_0 == PLUS:
+                            alt60 = 1
+                        elif LA60_0 == MINUS:
+                            alt60 = 2
                         else:
-                            nvae = NoViableAltException("", 58, 0, self.input)
+                            nvae = NoViableAltException("", 60, 0, self.input)
 
                             raise nvae
 
-                        if alt58 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:32: PLUS
+                        if alt60 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:32: PLUS
                             op = self.match(
-                                self.input, PLUS, self.FOLLOW_PLUS_in_arith_expr1454
+                                self.input, PLUS, self.FOLLOW_PLUS_in_arith_expr1685
                             )
 
-                        elif alt58 == 2:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:102:39: MINUS
+                        elif alt60 == 2:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:39: MINUS
                             op = self.match(
-                                self.input, MINUS, self.FOLLOW_MINUS_in_arith_expr1458
+                                self.input, MINUS, self.FOLLOW_MINUS_in_arith_expr1689
                             )
 
-                        self._state.following.append(self.FOLLOW_term_in_arith_expr1463)
+                        self._state.following.append(self.FOLLOW_term_in_arith_expr1694)
                         terms = self.term()
 
                         self._state.following.pop()
@@ -4668,10 +4899,10 @@ class YarcParser(Parser):
                         list_terms.append(terms.st)
 
                     else:
-                        break  # loop59
+                        break  # loop61
 
                 # TEMPLATE REWRITE
-                # 102:60: -> arith_expr(terms=$termsop=$op)
+                # 118:60: -> arith_expr(terms=$termsop=$op)
                 retval.st = self.templateLib.getInstanceOf(
                     "arith_expr", attributes={"terms": list_terms, "op": op}
                 )
@@ -4705,7 +4936,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "term"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:1: term :factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )* -> term(factors=$factorsop=$op);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:1: term :factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )* -> term(factors=$factorsop=$op);
     def term(
         self,
     ):
@@ -4717,9 +4948,9 @@ class YarcParser(Parser):
         factors = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:13: (factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )* -> term(factors=$factorsop=$op))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:15: factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )*
-                self._state.following.append(self.FOLLOW_factor_in_term1495)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:13: (factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )* -> term(factors=$factorsop=$op))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:15: factors+= factor (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )*
+                self._state.following.append(self.FOLLOW_factor_in_term1726)
                 factors = self.factor()
 
                 self._state.following.pop()
@@ -4727,58 +4958,58 @@ class YarcParser(Parser):
                     list_factors = []
                 list_factors.append(factors.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:31: (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )*
-                while True:  # loop61
-                    alt61 = 2
-                    LA61_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:31: (op= ( MUL | DIV | MOD | IDIV ) factors+= factor )*
+                while True:  # loop63
+                    alt63 = 2
+                    LA63_0 = self.input.LA(1)
 
-                    if LA61_0 in {DIV, IDIV, MOD, MUL}:
-                        alt61 = 1
+                    if LA63_0 in {DIV, IDIV, MOD, MUL}:
+                        alt63 = 1
 
-                    if alt61 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:32: op= ( MUL | DIV | MOD | IDIV ) factors+= factor
+                    if alt63 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:32: op= ( MUL | DIV | MOD | IDIV ) factors+= factor
                         pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:35: ( MUL | DIV | MOD | IDIV )
-                        alt60 = 4
-                        LA60 = self.input.LA(1)
-                        if LA60 in {MUL}:
-                            alt60 = 1
-                        elif LA60 in {DIV}:
-                            alt60 = 2
-                        elif LA60 in {MOD}:
-                            alt60 = 3
-                        elif LA60 in {IDIV}:
-                            alt60 = 4
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:35: ( MUL | DIV | MOD | IDIV )
+                        alt62 = 4
+                        LA62 = self.input.LA(1)
+                        if LA62 in {MUL}:
+                            alt62 = 1
+                        elif LA62 in {DIV}:
+                            alt62 = 2
+                        elif LA62 in {MOD}:
+                            alt62 = 3
+                        elif LA62 in {IDIV}:
+                            alt62 = 4
                         else:
-                            nvae = NoViableAltException("", 60, 0, self.input)
+                            nvae = NoViableAltException("", 62, 0, self.input)
 
                             raise nvae
 
-                        if alt60 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:36: MUL
+                        if alt62 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:36: MUL
                             op = self.match(
-                                self.input, MUL, self.FOLLOW_MUL_in_term1501
+                                self.input, MUL, self.FOLLOW_MUL_in_term1732
                             )
 
-                        elif alt60 == 2:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:42: DIV
+                        elif alt62 == 2:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:42: DIV
                             op = self.match(
-                                self.input, DIV, self.FOLLOW_DIV_in_term1505
+                                self.input, DIV, self.FOLLOW_DIV_in_term1736
                             )
 
-                        elif alt60 == 3:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:48: MOD
+                        elif alt62 == 3:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:48: MOD
                             op = self.match(
-                                self.input, MOD, self.FOLLOW_MOD_in_term1509
+                                self.input, MOD, self.FOLLOW_MOD_in_term1740
                             )
 
-                        elif alt60 == 4:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:103:54: IDIV
+                        elif alt62 == 4:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:54: IDIV
                             op = self.match(
-                                self.input, IDIV, self.FOLLOW_IDIV_in_term1513
+                                self.input, IDIV, self.FOLLOW_IDIV_in_term1744
                             )
 
-                        self._state.following.append(self.FOLLOW_factor_in_term1518)
+                        self._state.following.append(self.FOLLOW_factor_in_term1749)
                         factors = self.factor()
 
                         self._state.following.pop()
@@ -4787,10 +5018,10 @@ class YarcParser(Parser):
                         list_factors.append(factors.st)
 
                     else:
-                        break  # loop61
+                        break  # loop63
 
                 # TEMPLATE REWRITE
-                # 103:78: -> term(factors=$factorsop=$op)
+                # 119:78: -> term(factors=$factorsop=$op)
                 retval.st = self.templateLib.getInstanceOf(
                     "term", attributes={"factors": list_factors, "op": op}
                 )
@@ -4824,7 +5055,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "factor"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:1: factor : (prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor -> prefix_factor(factor=$factor_.stprefix=$prefix)| power -> {$power.st});
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:1: factor : (prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor -> prefix_factor(factor=$factor_.stprefix=$prefix)| power -> {$power.st});
     def factor(
         self,
     ):
@@ -4833,17 +5064,17 @@ class YarcParser(Parser):
 
         prefix = None
         factor_ = None
-        power11 = None
+        power18 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:13: (prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor -> prefix_factor(factor=$factor_.stprefix=$prefix)| power -> {$power.st})
-                alt63 = 2
-                LA63_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:13: (prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor -> prefix_factor(factor=$factor_.stprefix=$prefix)| power -> {$power.st})
+                alt65 = 2
+                LA65_0 = self.input.LA(1)
 
-                if LA63_0 in {BIT_NOT, MINUS, PLUS}:
-                    alt63 = 1
-                elif LA63_0 in {
+                if LA65_0 in {BIT_NOT, MINUS, PLUS}:
+                    alt65 = 1
+                elif LA65_0 in {
                     DISTRIBUTION,
                     FALSE,
                     FLOAT_NUMBER,
@@ -4860,54 +5091,54 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt63 = 2
+                    alt65 = 2
                 else:
-                    nvae = NoViableAltException("", 63, 0, self.input)
+                    nvae = NoViableAltException("", 65, 0, self.input)
 
                     raise nvae
 
-                if alt63 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:15: prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor
+                if alt65 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:15: prefix= ( PLUS | MINUS | BIT_NOT ) factor_= factor
                     pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:22: ( PLUS | MINUS | BIT_NOT )
-                    alt62 = 3
-                    LA62 = self.input.LA(1)
-                    if LA62 in {PLUS}:
-                        alt62 = 1
-                    elif LA62 in {MINUS}:
-                        alt62 = 2
-                    elif LA62 in {BIT_NOT}:
-                        alt62 = 3
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:22: ( PLUS | MINUS | BIT_NOT )
+                    alt64 = 3
+                    LA64 = self.input.LA(1)
+                    if LA64 in {PLUS}:
+                        alt64 = 1
+                    elif LA64 in {MINUS}:
+                        alt64 = 2
+                    elif LA64 in {BIT_NOT}:
+                        alt64 = 3
                     else:
-                        nvae = NoViableAltException("", 62, 0, self.input)
+                        nvae = NoViableAltException("", 64, 0, self.input)
 
                         raise nvae
 
-                    if alt62 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:23: PLUS
+                    if alt64 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:23: PLUS
                         prefix = self.match(
-                            self.input, PLUS, self.FOLLOW_PLUS_in_factor1549
+                            self.input, PLUS, self.FOLLOW_PLUS_in_factor1780
                         )
 
-                    elif alt62 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:30: MINUS
+                    elif alt64 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:30: MINUS
                         prefix = self.match(
-                            self.input, MINUS, self.FOLLOW_MINUS_in_factor1553
+                            self.input, MINUS, self.FOLLOW_MINUS_in_factor1784
                         )
 
-                    elif alt62 == 3:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:104:38: BIT_NOT
+                    elif alt64 == 3:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:38: BIT_NOT
                         prefix = self.match(
-                            self.input, BIT_NOT, self.FOLLOW_BIT_NOT_in_factor1557
+                            self.input, BIT_NOT, self.FOLLOW_BIT_NOT_in_factor1788
                         )
 
-                    self._state.following.append(self.FOLLOW_factor_in_factor1562)
+                    self._state.following.append(self.FOLLOW_factor_in_factor1793)
                     factor_ = self.factor()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 104:62: -> prefix_factor(factor=$factor_.stprefix=$prefix)
+                    # 120:62: -> prefix_factor(factor=$factor_.stprefix=$prefix)
                     retval.st = self.templateLib.getInstanceOf(
                         "prefix_factor",
                         attributes={
@@ -4918,16 +5149,16 @@ class YarcParser(Parser):
                         },
                     )
 
-                elif alt63 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:105:15: power
-                    self._state.following.append(self.FOLLOW_power_in_factor1592)
-                    power11 = self.power()
+                elif alt65 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:121:15: power
+                    self._state.following.append(self.FOLLOW_power_in_factor1823)
+                    power18 = self.power()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 105:21: -> {$power.st}
-                    retval.st = ((power11 is not None) and [power11.st] or [None])[0]
+                    # 121:21: -> {$power.st}
+                    retval.st = ((power18 is not None) and [power18.st] or [None])[0]
 
                 retval.stop = self.input.LT(-1)
 
@@ -4958,49 +5189,49 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "power"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:106:1: power : atom_expr ( POWER factor )? -> power(atom=$atom_expr.stfactor=$factor.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:1: power : atom_expr ( POWER factor )? -> power(atom=$atom_expr.stfactor=$factor.st);
     def power(
         self,
     ):
         retval = self.power_return()
         retval.start = self.input.LT(1)
 
-        atom_expr12 = None
-        factor13 = None
+        atom_expr19 = None
+        factor20 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:106:13: ( atom_expr ( POWER factor )? -> power(atom=$atom_expr.stfactor=$factor.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:106:15: atom_expr ( POWER factor )?
-                self._state.following.append(self.FOLLOW_atom_expr_in_power1609)
-                atom_expr12 = self.atom_expr()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:13: ( atom_expr ( POWER factor )? -> power(atom=$atom_expr.stfactor=$factor.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:15: atom_expr ( POWER factor )?
+                self._state.following.append(self.FOLLOW_atom_expr_in_power1840)
+                atom_expr19 = self.atom_expr()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:106:25: ( POWER factor )?
-                alt64 = 2
-                LA64_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:25: ( POWER factor )?
+                alt66 = 2
+                LA66_0 = self.input.LA(1)
 
-                if LA64_0 == POWER:
-                    alt64 = 1
-                if alt64 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:106:26: POWER factor
-                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power1612)
+                if LA66_0 == POWER:
+                    alt66 = 1
+                if alt66 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:26: POWER factor
+                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power1843)
 
-                    self._state.following.append(self.FOLLOW_factor_in_power1614)
-                    factor13 = self.factor()
+                    self._state.following.append(self.FOLLOW_factor_in_power1845)
+                    factor20 = self.factor()
 
                     self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 106:41: -> power(atom=$atom_expr.stfactor=$factor.st)
+                # 122:41: -> power(atom=$atom_expr.stfactor=$factor.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "power",
                     attributes={
                         "atom": (
-                            (atom_expr12 is not None) and [atom_expr12.st] or [None]
+                            (atom_expr19 is not None) and [atom_expr19.st] or [None]
                         )[0],
-                        "factor": ((factor13 is not None) and [factor13.st] or [None])[
+                        "factor": ((factor20 is not None) and [factor20.st] or [None])[
                             0
                         ],
                     },
@@ -5035,7 +5266,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "atom_expr"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:1: atom_expr : atom (trailers+= trailer )* -> atom_expr(atom=$atom.sttrailers=$trailers);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:123:1: atom_expr : atom (trailers+= trailer )* -> atom_expr(atom=$atom.sttrailers=$trailers);
     def atom_expr(
         self,
     ):
@@ -5043,29 +5274,29 @@ class YarcParser(Parser):
         retval.start = self.input.LT(1)
 
         list_trailers = None
-        atom14 = None
+        atom21 = None
         trailers = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:13: ( atom (trailers+= trailer )* -> atom_expr(atom=$atom.sttrailers=$trailers))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:15: atom (trailers+= trailer )*
-                self._state.following.append(self.FOLLOW_atom_in_atom_expr1639)
-                atom14 = self.atom()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:123:13: ( atom (trailers+= trailer )* -> atom_expr(atom=$atom.sttrailers=$trailers))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:123:15: atom (trailers+= trailer )*
+                self._state.following.append(self.FOLLOW_atom_in_atom_expr1870)
+                atom21 = self.atom()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:20: (trailers+= trailer )*
-                while True:  # loop65
-                    alt65 = 2
-                    LA65_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:123:20: (trailers+= trailer )*
+                while True:  # loop67
+                    alt67 = 2
+                    LA67_0 = self.input.LA(1)
 
-                    if LA65_0 in {DOT, LBRACK}:
-                        alt65 = 1
+                    if LA67_0 in {DOT, LBRACK}:
+                        alt67 = 1
 
-                    if alt65 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:107:21: trailers+= trailer
+                    if alt67 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:123:21: trailers+= trailer
                         self._state.following.append(
-                            self.FOLLOW_trailer_in_atom_expr1644
+                            self.FOLLOW_trailer_in_atom_expr1875
                         )
                         trailers = self.trailer()
 
@@ -5075,14 +5306,14 @@ class YarcParser(Parser):
                         list_trailers.append(trailers.st)
 
                     else:
-                        break  # loop65
+                        break  # loop67
 
                 # TEMPLATE REWRITE
-                # 107:41: -> atom_expr(atom=$atom.sttrailers=$trailers)
+                # 123:41: -> atom_expr(atom=$atom.sttrailers=$trailers)
                 retval.st = self.templateLib.getInstanceOf(
                     "atom_expr",
                     attributes={
-                        "atom": ((atom14 is not None) and [atom14.st] or [None])[0],
+                        "atom": ((atom21 is not None) and [atom21.st] or [None])[0],
                         "trailers": list_trailers,
                     },
                 )
@@ -5116,79 +5347,79 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "atom"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:1: atom : ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false() ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:124:1: atom : ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false() ;
     def atom(
         self,
     ):
         retval = self.atom_return()
         retval.start = self.input.LT(1)
 
-        SETTING_ID19 = None
-        DISTRIBUTION20 = None
-        INTEGER22 = None
-        FLOAT_NUMBER23 = None
-        STRING24 = None
+        SETTING_ID26 = None
+        DISTRIBUTION27 = None
+        INTEGER29 = None
+        FLOAT_NUMBER30 = None
+        STRING31 = None
         test_ = None
-        testlist_comp15 = None
-        vector_comp16 = None
-        dict_or_set_maker17 = None
-        name18 = None
-        arglist21 = None
+        testlist_comp22 = None
+        vector_comp23 = None
+        dict_or_set_maker24 = None
+        name25 = None
+        arglist28 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:108:5: ( ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false() )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:3: ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:124:5: ( ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false() )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:125:3: ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false()
                 pass
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:3: ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false()
-                alt69 = 14
-                LA69 = self.input.LA(1)
-                if LA69 in {LPAREN}:
-                    alt69 = 1
-                elif LA69 in {LBRACK}:
-                    alt69 = 2
-                elif LA69 in {LT}:
-                    alt69 = 3
-                elif LA69 in {LBRACE}:
-                    alt69 = 4
-                elif LA69 in {LEN}:
-                    alt69 = 5
-                elif LA69 in {ID, UNDERSCORE}:
-                    alt69 = 6
-                elif LA69 in {SETTING_ID}:
-                    alt69 = 7
-                elif LA69 in {DISTRIBUTION}:
-                    alt69 = 8
-                elif LA69 in {INTEGER}:
-                    alt69 = 9
-                elif LA69 in {FLOAT_NUMBER}:
-                    alt69 = 10
-                elif LA69 in {STRING}:
-                    alt69 = 11
-                elif LA69 in {NONE}:
-                    alt69 = 12
-                elif LA69 in {TRUE}:
-                    alt69 = 13
-                elif LA69 in {FALSE}:
-                    alt69 = 14
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:125:3: ( LPAREN test_= test RPAREN -> parenthesized_expr(expr=$test_.st)| LBRACK ( testlist_comp )? RBRACK -> list(list_comp=$testlist_comp.st)| LT ( vector_comp )? GT -> vector(values=$vector_comp.st)| LBRACE ( dict_or_set_maker )? RBRACE -> dict(dict_comp=$dict_or_set_maker.st)| LEN LPAREN test_= test RPAREN -> len(value=$test_.st)| name -> {$name.st}| SETTING_ID -> setting_id(id=$SETTING_ID.text)| DISTRIBUTION LPAREN arglist RPAREN -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)| INTEGER -> {$INTEGER.text}| FLOAT_NUMBER -> {$FLOAT_NUMBER.text}| STRING -> {$STRING.text}| NONE -> null(| TRUE -> true(| FALSE -> false()
+                alt71 = 14
+                LA71 = self.input.LA(1)
+                if LA71 in {LPAREN}:
+                    alt71 = 1
+                elif LA71 in {LBRACK}:
+                    alt71 = 2
+                elif LA71 in {LT}:
+                    alt71 = 3
+                elif LA71 in {LBRACE}:
+                    alt71 = 4
+                elif LA71 in {LEN}:
+                    alt71 = 5
+                elif LA71 in {ID, UNDERSCORE}:
+                    alt71 = 6
+                elif LA71 in {SETTING_ID}:
+                    alt71 = 7
+                elif LA71 in {DISTRIBUTION}:
+                    alt71 = 8
+                elif LA71 in {INTEGER}:
+                    alt71 = 9
+                elif LA71 in {FLOAT_NUMBER}:
+                    alt71 = 10
+                elif LA71 in {STRING}:
+                    alt71 = 11
+                elif LA71 in {NONE}:
+                    alt71 = 12
+                elif LA71 in {TRUE}:
+                    alt71 = 13
+                elif LA71 in {FALSE}:
+                    alt71 = 14
                 else:
-                    nvae = NoViableAltException("", 69, 0, self.input)
+                    nvae = NoViableAltException("", 71, 0, self.input)
 
                     raise nvae
 
-                if alt69 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:109:4: LPAREN test_= test RPAREN
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1669)
+                if alt71 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:125:4: LPAREN test_= test RPAREN
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1900)
 
-                    self._state.following.append(self.FOLLOW_test_in_atom1673)
+                    self._state.following.append(self.FOLLOW_test_in_atom1904)
                     test_ = self.test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1675)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1906)
 
                     # TEMPLATE REWRITE
-                    # 109:29: -> parenthesized_expr(expr=$test_.st)
+                    # 125:29: -> parenthesized_expr(expr=$test_.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "parenthesized_expr",
                         attributes={
@@ -5196,118 +5427,11 @@ class YarcParser(Parser):
                         },
                     )
 
-                elif alt69 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:5: LBRACK ( testlist_comp )? RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom1690)
+                elif alt71 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:126:5: LBRACK ( testlist_comp )? RBRACK
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom1921)
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:12: ( testlist_comp )?
-                    alt66 = 2
-                    LA66_0 = self.input.LA(1)
-
-                    if LA66_0 in {
-                        BIT_NOT,
-                        DISTRIBUTION,
-                        FALSE,
-                        FLOAT_NUMBER,
-                        ID,
-                        INTEGER,
-                        LBRACE,
-                        LBRACK,
-                        LEN,
-                        LPAREN,
-                        LT,
-                        MINUS,
-                        NONE,
-                        NOT,
-                        PLUS,
-                        SETTING_ID,
-                        STRING,
-                        TRUE,
-                        UNDERSCORE,
-                    }:
-                        alt66 = 1
-                    if alt66 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:110:12: testlist_comp
-                        self._state.following.append(
-                            self.FOLLOW_testlist_comp_in_atom1692
-                        )
-                        testlist_comp15 = self.testlist_comp()
-
-                        self._state.following.pop()
-
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom1695)
-
-                    # TEMPLATE REWRITE
-                    # 110:34: -> list(list_comp=$testlist_comp.st)
-                    retval.st = self.templateLib.getInstanceOf(
-                        "list",
-                        attributes={
-                            "list_comp": (
-                                (testlist_comp15 is not None)
-                                and [testlist_comp15.st]
-                                or [None]
-                            )[0]
-                        },
-                    )
-
-                elif alt69 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:111:5: LT ( vector_comp )? GT
-                    self.match(self.input, LT, self.FOLLOW_LT_in_atom1710)
-
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:111:8: ( vector_comp )?
-                    alt67 = 2
-                    LA67_0 = self.input.LA(1)
-
-                    if LA67_0 in {
-                        BIT_NOT,
-                        DISTRIBUTION,
-                        FALSE,
-                        FLOAT_NUMBER,
-                        ID,
-                        INTEGER,
-                        LBRACE,
-                        LBRACK,
-                        LEN,
-                        LPAREN,
-                        LT,
-                        MINUS,
-                        NONE,
-                        PLUS,
-                        SETTING_ID,
-                        STRING,
-                        TRUE,
-                        UNDERSCORE,
-                    }:
-                        alt67 = 1
-                    if alt67 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:111:8: vector_comp
-                        self._state.following.append(
-                            self.FOLLOW_vector_comp_in_atom1712
-                        )
-                        vector_comp16 = self.vector_comp()
-
-                        self._state.following.pop()
-
-                    self.match(self.input, GT, self.FOLLOW_GT_in_atom1715)
-
-                    # TEMPLATE REWRITE
-                    # 111:24: -> vector(values=$vector_comp.st)
-                    retval.st = self.templateLib.getInstanceOf(
-                        "vector",
-                        attributes={
-                            "values": (
-                                (vector_comp16 is not None)
-                                and [vector_comp16.st]
-                                or [None]
-                            )[0]
-                        },
-                    )
-
-                elif alt69 == 4:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:5: LBRACE ( dict_or_set_maker )? RBRACE
-                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom1730)
-
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:12: ( dict_or_set_maker )?
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:126:12: ( testlist_comp )?
                     alt68 = 2
                     LA68_0 = self.input.LA(1)
 
@@ -5334,44 +5458,151 @@ class YarcParser(Parser):
                     }:
                         alt68 = 1
                     if alt68 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:112:12: dict_or_set_maker
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:126:12: testlist_comp
                         self._state.following.append(
-                            self.FOLLOW_dict_or_set_maker_in_atom1732
+                            self.FOLLOW_testlist_comp_in_atom1923
                         )
-                        dict_or_set_maker17 = self.dict_or_set_maker()
+                        testlist_comp22 = self.testlist_comp()
 
                         self._state.following.pop()
 
-                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom1735)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom1926)
 
                     # TEMPLATE REWRITE
-                    # 112:38: -> dict(dict_comp=$dict_or_set_maker.st)
+                    # 126:34: -> list(list_comp=$testlist_comp.st)
                     retval.st = self.templateLib.getInstanceOf(
-                        "dict",
+                        "list",
                         attributes={
-                            "dict_comp": (
-                                (dict_or_set_maker17 is not None)
-                                and [dict_or_set_maker17.st]
+                            "list_comp": (
+                                (testlist_comp22 is not None)
+                                and [testlist_comp22.st]
                                 or [None]
                             )[0]
                         },
                     )
 
-                elif alt69 == 5:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:113:5: LEN LPAREN test_= test RPAREN
-                    self.match(self.input, LEN, self.FOLLOW_LEN_in_atom1750)
+                elif alt71 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:127:5: LT ( vector_comp )? GT
+                    self.match(self.input, LT, self.FOLLOW_LT_in_atom1941)
 
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1752)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:127:8: ( vector_comp )?
+                    alt69 = 2
+                    LA69_0 = self.input.LA(1)
 
-                    self._state.following.append(self.FOLLOW_test_in_atom1756)
+                    if LA69_0 in {
+                        BIT_NOT,
+                        DISTRIBUTION,
+                        FALSE,
+                        FLOAT_NUMBER,
+                        ID,
+                        INTEGER,
+                        LBRACE,
+                        LBRACK,
+                        LEN,
+                        LPAREN,
+                        LT,
+                        MINUS,
+                        NONE,
+                        PLUS,
+                        SETTING_ID,
+                        STRING,
+                        TRUE,
+                        UNDERSCORE,
+                    }:
+                        alt69 = 1
+                    if alt69 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:127:8: vector_comp
+                        self._state.following.append(
+                            self.FOLLOW_vector_comp_in_atom1943
+                        )
+                        vector_comp23 = self.vector_comp()
+
+                        self._state.following.pop()
+
+                    self.match(self.input, GT, self.FOLLOW_GT_in_atom1946)
+
+                    # TEMPLATE REWRITE
+                    # 127:24: -> vector(values=$vector_comp.st)
+                    retval.st = self.templateLib.getInstanceOf(
+                        "vector",
+                        attributes={
+                            "values": (
+                                (vector_comp23 is not None)
+                                and [vector_comp23.st]
+                                or [None]
+                            )[0]
+                        },
+                    )
+
+                elif alt71 == 4:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:128:5: LBRACE ( dict_or_set_maker )? RBRACE
+                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom1961)
+
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:128:12: ( dict_or_set_maker )?
+                    alt70 = 2
+                    LA70_0 = self.input.LA(1)
+
+                    if LA70_0 in {
+                        BIT_NOT,
+                        DISTRIBUTION,
+                        FALSE,
+                        FLOAT_NUMBER,
+                        ID,
+                        INTEGER,
+                        LBRACE,
+                        LBRACK,
+                        LEN,
+                        LPAREN,
+                        LT,
+                        MINUS,
+                        NONE,
+                        NOT,
+                        PLUS,
+                        SETTING_ID,
+                        STRING,
+                        TRUE,
+                        UNDERSCORE,
+                    }:
+                        alt70 = 1
+                    if alt70 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:128:12: dict_or_set_maker
+                        self._state.following.append(
+                            self.FOLLOW_dict_or_set_maker_in_atom1963
+                        )
+                        dict_or_set_maker24 = self.dict_or_set_maker()
+
+                        self._state.following.pop()
+
+                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom1966)
+
+                    # TEMPLATE REWRITE
+                    # 128:38: -> dict(dict_comp=$dict_or_set_maker.st)
+                    retval.st = self.templateLib.getInstanceOf(
+                        "dict",
+                        attributes={
+                            "dict_comp": (
+                                (dict_or_set_maker24 is not None)
+                                and [dict_or_set_maker24.st]
+                                or [None]
+                            )[0]
+                        },
+                    )
+
+                elif alt71 == 5:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:129:5: LEN LPAREN test_= test RPAREN
+                    self.match(self.input, LEN, self.FOLLOW_LEN_in_atom1981)
+
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1983)
+
+                    self._state.following.append(self.FOLLOW_test_in_atom1987)
                     test_ = self.test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1758)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1989)
 
                     # TEMPLATE REWRITE
-                    # 113:34: -> len(value=$test_.st)
+                    # 129:34: -> len(value=$test_.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "len",
                         attributes={
@@ -5379,108 +5610,108 @@ class YarcParser(Parser):
                         },
                     )
 
-                elif alt69 == 6:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:114:5: name
-                    self._state.following.append(self.FOLLOW_name_in_atom1773)
-                    name18 = self.name()
+                elif alt71 == 6:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:130:5: name
+                    self._state.following.append(self.FOLLOW_name_in_atom2004)
+                    name25 = self.name()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 114:10: -> {$name.st}
-                    retval.st = ((name18 is not None) and [name18.st] or [None])[0]
+                    # 130:10: -> {$name.st}
+                    retval.st = ((name25 is not None) and [name25.st] or [None])[0]
 
-                elif alt69 == 7:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:115:5: SETTING_ID
-                    SETTING_ID19 = self.match(
-                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom1783
+                elif alt71 == 7:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:131:5: SETTING_ID
+                    SETTING_ID26 = self.match(
+                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom2014
                     )
 
                     # TEMPLATE REWRITE
-                    # 115:16: -> setting_id(id=$SETTING_ID.text)
+                    # 131:16: -> setting_id(id=$SETTING_ID.text)
                     retval.st = self.templateLib.getInstanceOf(
-                        "setting_id", attributes={"id": SETTING_ID19.text}
+                        "setting_id", attributes={"id": SETTING_ID26.text}
                     )
 
-                elif alt69 == 8:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:116:5: DISTRIBUTION LPAREN arglist RPAREN
-                    DISTRIBUTION20 = self.match(
-                        self.input, DISTRIBUTION, self.FOLLOW_DISTRIBUTION_in_atom1799
+                elif alt71 == 8:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:132:5: DISTRIBUTION LPAREN arglist RPAREN
+                    DISTRIBUTION27 = self.match(
+                        self.input, DISTRIBUTION, self.FOLLOW_DISTRIBUTION_in_atom2030
                     )
 
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom1801)
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom2032)
 
-                    self._state.following.append(self.FOLLOW_arglist_in_atom1803)
-                    arglist21 = self.arglist()
+                    self._state.following.append(self.FOLLOW_arglist_in_atom2034)
+                    arglist28 = self.arglist()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom1805)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom2036)
 
                     # TEMPLATE REWRITE
-                    # 116:40: -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)
+                    # 132:40: -> distribution(name=$DISTRIBUTION.textarglist=$arglist.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "distribution",
                         attributes={
-                            "name": DISTRIBUTION20.text,
+                            "name": DISTRIBUTION27.text,
                             "arglist": (
-                                (arglist21 is not None) and [arglist21.st] or [None]
+                                (arglist28 is not None) and [arglist28.st] or [None]
                             )[0],
                         },
                     )
 
-                elif alt69 == 9:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:117:5: INTEGER
-                    INTEGER22 = self.match(
-                        self.input, INTEGER, self.FOLLOW_INTEGER_in_atom1825
+                elif alt71 == 9:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:133:5: INTEGER
+                    INTEGER29 = self.match(
+                        self.input, INTEGER, self.FOLLOW_INTEGER_in_atom2056
                     )
 
                     # TEMPLATE REWRITE
-                    # 117:13: -> {$INTEGER.text}
-                    retval.st = INTEGER22.text
+                    # 133:13: -> {$INTEGER.text}
+                    retval.st = INTEGER29.text
 
-                elif alt69 == 10:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:118:5: FLOAT_NUMBER
-                    FLOAT_NUMBER23 = self.match(
-                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom1835
+                elif alt71 == 10:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:134:5: FLOAT_NUMBER
+                    FLOAT_NUMBER30 = self.match(
+                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom2066
                     )
 
                     # TEMPLATE REWRITE
-                    # 118:18: -> {$FLOAT_NUMBER.text}
-                    retval.st = FLOAT_NUMBER23.text
+                    # 134:18: -> {$FLOAT_NUMBER.text}
+                    retval.st = FLOAT_NUMBER30.text
 
-                elif alt69 == 11:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:119:5: STRING
-                    STRING24 = self.match(
-                        self.input, STRING, self.FOLLOW_STRING_in_atom1845
+                elif alt71 == 11:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:135:5: STRING
+                    STRING31 = self.match(
+                        self.input, STRING, self.FOLLOW_STRING_in_atom2076
                     )
 
                     # TEMPLATE REWRITE
-                    # 119:12: -> {$STRING.text}
-                    retval.st = STRING24.text
+                    # 135:12: -> {$STRING.text}
+                    retval.st = STRING31.text
 
-                elif alt69 == 12:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:120:5: NONE
-                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom1855)
+                elif alt71 == 12:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:136:5: NONE
+                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom2087)
 
                     # TEMPLATE REWRITE
-                    # 120:10: -> null(
+                    # 136:10: -> null(
                     retval.st = self.templateLib.getInstanceOf("null")
 
-                elif alt69 == 13:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:121:5: TRUE
-                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom1867)
+                elif alt71 == 13:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:137:5: TRUE
+                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom2099)
 
                     # TEMPLATE REWRITE
-                    # 121:10: -> true(
+                    # 137:10: -> true(
                     retval.st = self.templateLib.getInstanceOf("true")
 
-                elif alt69 == 14:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:122:5: FALSE
-                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom1879)
+                elif alt71 == 14:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:138:5: FALSE
+                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom2111)
 
                     # TEMPLATE REWRITE
-                    # 122:11: -> false(
+                    # 138:11: -> false(
                     retval.st = self.templateLib.getInstanceOf("false")
 
                 retval.stop = self.input.LT(-1)
@@ -5512,48 +5743,48 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "name"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:126:1: name : ( ID -> {$ID.text}| UNDERSCORE -> {$UNDERSCORE.text});
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:142:1: name : ( ID -> {$ID.text}| UNDERSCORE -> {$UNDERSCORE.text});
     def name(
         self,
     ):
         retval = self.name_return()
         retval.start = self.input.LT(1)
 
-        ID25 = None
-        UNDERSCORE26 = None
+        ID32 = None
+        UNDERSCORE33 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:126:5: ( ID -> {$ID.text}| UNDERSCORE -> {$UNDERSCORE.text})
-                alt70 = 2
-                LA70_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:142:5: ( ID -> {$ID.text}| UNDERSCORE -> {$UNDERSCORE.text})
+                alt72 = 2
+                LA72_0 = self.input.LA(1)
 
-                if LA70_0 == ID:
-                    alt70 = 1
-                elif LA70_0 == UNDERSCORE:
-                    alt70 = 2
+                if LA72_0 == ID:
+                    alt72 = 1
+                elif LA72_0 == UNDERSCORE:
+                    alt72 = 2
                 else:
-                    nvae = NoViableAltException("", 70, 0, self.input)
+                    nvae = NoViableAltException("", 72, 0, self.input)
 
                     raise nvae
 
-                if alt70 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:127:3: ID
-                    ID25 = self.match(self.input, ID, self.FOLLOW_ID_in_name1899)
+                if alt72 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:143:3: ID
+                    ID32 = self.match(self.input, ID, self.FOLLOW_ID_in_name2131)
 
                     # TEMPLATE REWRITE
-                    # 127:6: -> {$ID.text}
-                    retval.st = ID25.text
+                    # 143:6: -> {$ID.text}
+                    retval.st = ID32.text
 
-                elif alt70 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:128:5: UNDERSCORE
-                    UNDERSCORE26 = self.match(
-                        self.input, UNDERSCORE, self.FOLLOW_UNDERSCORE_in_name1909
+                elif alt72 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:144:5: UNDERSCORE
+                    UNDERSCORE33 = self.match(
+                        self.input, UNDERSCORE, self.FOLLOW_UNDERSCORE_in_name2141
                     )
 
                     # TEMPLATE REWRITE
-                    # 128:16: -> {$UNDERSCORE.text}
-                    retval.st = UNDERSCORE26.text
+                    # 144:16: -> {$UNDERSCORE.text}
+                    retval.st = UNDERSCORE33.text
 
                 retval.stop = self.input.LT(-1)
 
@@ -5584,7 +5815,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "testlist_comp"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:139:1: testlist_comp :exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st)) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:1: testlist_comp :exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st)) ;
     def testlist_comp(
         self,
     ):
@@ -5594,13 +5825,13 @@ class YarcParser(Parser):
         list_exprs = None
         to = None
         step = None
-        comp_for27 = None
+        comp_for34 = None
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:139:15: (exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st)) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:139:17: exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st))
-                self._state.following.append(self.FOLLOW_test_in_testlist_comp1928)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:15: (exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st)) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:17: exprs+= test ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st))
+                self._state.following.append(self.FOLLOW_test_in_testlist_comp2160)
                 exprs = self.test()
 
                 self._state.following.pop()
@@ -5608,62 +5839,62 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:139:29: ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st))
-                alt73 = 3
-                LA73 = self.input.LA(1)
-                if LA73 in {FOR}:
-                    alt73 = 1
-                elif LA73 in {COMMA, RBRACK}:
-                    alt73 = 2
-                elif LA73 in {RANGE}:
-                    alt73 = 3
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:29: ( comp_for -> list_comp(expr=$exprs[0]for=$comp_for.st)| ( COMMA exprs+= test )* -> test_list(exprs=$exprs)| RANGE to= test ( STEP step= test )? -> range(from=$exprs[0]to=$to.ststep=$step.st))
+                alt75 = 3
+                LA75 = self.input.LA(1)
+                if LA75 in {FOR}:
+                    alt75 = 1
+                elif LA75 in {COMMA, RBRACK}:
+                    alt75 = 2
+                elif LA75 in {RANGE}:
+                    alt75 = 3
                 else:
-                    nvae = NoViableAltException("", 73, 0, self.input)
+                    nvae = NoViableAltException("", 75, 0, self.input)
 
                     raise nvae
 
-                if alt73 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:139:31: comp_for
+                if alt75 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:31: comp_for
                     self._state.following.append(
-                        self.FOLLOW_comp_for_in_testlist_comp1932
+                        self.FOLLOW_comp_for_in_testlist_comp2164
                     )
-                    comp_for27 = self.comp_for()
+                    comp_for34 = self.comp_for()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 139:40: -> list_comp(expr=$exprs[0]for=$comp_for.st)
+                    # 155:40: -> list_comp(expr=$exprs[0]for=$comp_for.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "list_comp",
                         attributes={
                             "expr": list_exprs[0],
                             "for": (
-                                (comp_for27 is not None) and [comp_for27.st] or [None]
+                                (comp_for34 is not None) and [comp_for34.st] or [None]
                             )[0],
                         },
                     )
 
-                elif alt73 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:140:24: ( COMMA exprs+= test )*
+                elif alt75 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:24: ( COMMA exprs+= test )*
                     pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:140:24: ( COMMA exprs+= test )*
-                    while True:  # loop71
-                        alt71 = 2
-                        LA71_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:24: ( COMMA exprs+= test )*
+                    while True:  # loop73
+                        alt73 = 2
+                        LA73_0 = self.input.LA(1)
 
-                        if LA71_0 == COMMA:
-                            alt71 = 1
+                        if LA73_0 == COMMA:
+                            alt73 = 1
 
-                        if alt71 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:140:25: COMMA exprs+= test
+                        if alt73 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:25: COMMA exprs+= test
                             self.match(
                                 self.input,
                                 COMMA,
-                                self.FOLLOW_COMMA_in_testlist_comp1972,
+                                self.FOLLOW_COMMA_in_testlist_comp2204,
                             )
 
                             self._state.following.append(
-                                self.FOLLOW_test_in_testlist_comp1976
+                                self.FOLLOW_test_in_testlist_comp2208
                             )
                             exprs = self.test()
 
@@ -5673,46 +5904,46 @@ class YarcParser(Parser):
                             list_exprs.append(exprs.st)
 
                         else:
-                            break  # loop71
+                            break  # loop73
 
                     # TEMPLATE REWRITE
-                    # 140:45: -> test_list(exprs=$exprs)
+                    # 156:45: -> test_list(exprs=$exprs)
                     retval.st = self.templateLib.getInstanceOf(
                         "test_list", attributes={"exprs": list_exprs}
                     )
 
-                elif alt73 == 3:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:141:24: RANGE to= test ( STEP step= test )?
+                elif alt75 == 3:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:157:24: RANGE to= test ( STEP step= test )?
                     self.match(
-                        self.input, RANGE, self.FOLLOW_RANGE_in_testlist_comp2012
+                        self.input, RANGE, self.FOLLOW_RANGE_in_testlist_comp2244
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_testlist_comp2016)
+                    self._state.following.append(self.FOLLOW_test_in_testlist_comp2248)
                     to = self.test()
 
                     self._state.following.pop()
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:141:38: ( STEP step= test )?
-                    alt72 = 2
-                    LA72_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:157:38: ( STEP step= test )?
+                    alt74 = 2
+                    LA74_0 = self.input.LA(1)
 
-                    if LA72_0 == STEP:
-                        alt72 = 1
-                    if alt72 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:141:39: STEP step= test
+                    if LA74_0 == STEP:
+                        alt74 = 1
+                    if alt74 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:157:39: STEP step= test
                         self.match(
-                            self.input, STEP, self.FOLLOW_STEP_in_testlist_comp2019
+                            self.input, STEP, self.FOLLOW_STEP_in_testlist_comp2251
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_test_in_testlist_comp2023
+                            self.FOLLOW_test_in_testlist_comp2255
                         )
                         step = self.test()
 
                         self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 141:56: -> range(from=$exprs[0]to=$to.ststep=$step.st)
+                    # 157:56: -> range(from=$exprs[0]to=$to.ststep=$step.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "range",
                         attributes={
@@ -5751,7 +5982,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "vector_comp"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:144:1: vector_comp : x= expr COMMA y= expr COMMA z= expr -> vector_comp(x=$x.sty=$y.stz=$z.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:160:1: vector_comp : x= expr COMMA y= expr COMMA z= expr -> vector_comp(x=$x.sty=$y.stz=$z.st);
     def vector_comp(
         self,
     ):
@@ -5764,29 +5995,29 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:144:15: (x= expr COMMA y= expr COMMA z= expr -> vector_comp(x=$x.sty=$y.stz=$z.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:144:17: x= expr COMMA y= expr COMMA z= expr
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp2072)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:160:15: (x= expr COMMA y= expr COMMA z= expr -> vector_comp(x=$x.sty=$y.stz=$z.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:160:17: x= expr COMMA y= expr COMMA z= expr
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp2304)
                 x = self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp2074)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp2306)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp2078)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp2310)
                 y = self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp2080)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp2312)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp2084)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp2316)
                 z = self.expr()
 
                 self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 144:50: -> vector_comp(x=$x.sty=$y.stz=$z.st)
+                # 160:50: -> vector_comp(x=$x.sty=$y.stz=$z.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "vector_comp",
                     attributes={
@@ -5825,72 +6056,72 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "trailer"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:146:1: trailer : ( LBRACK subscriptlist RBRACK -> index(index=$subscriptlist.st)| DOT name -> dot_attr(attr=$name.st));
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:1: trailer : ( LBRACK subscriptlist RBRACK -> index(index=$subscriptlist.st)| DOT name -> dot_attr(attr=$name.st));
     def trailer(
         self,
     ):
         retval = self.trailer_return()
         retval.start = self.input.LT(1)
 
-        subscriptlist28 = None
-        name29 = None
+        subscriptlist35 = None
+        name36 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:146:15: ( LBRACK subscriptlist RBRACK -> index(index=$subscriptlist.st)| DOT name -> dot_attr(attr=$name.st))
-                alt74 = 2
-                LA74_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:15: ( LBRACK subscriptlist RBRACK -> index(index=$subscriptlist.st)| DOT name -> dot_attr(attr=$name.st))
+                alt76 = 2
+                LA76_0 = self.input.LA(1)
 
-                if LA74_0 == LBRACK:
-                    alt74 = 1
-                elif LA74_0 == DOT:
-                    alt74 = 2
+                if LA76_0 == LBRACK:
+                    alt76 = 1
+                elif LA76_0 == DOT:
+                    alt76 = 2
                 else:
-                    nvae = NoViableAltException("", 74, 0, self.input)
+                    nvae = NoViableAltException("", 76, 0, self.input)
 
                     raise nvae
 
-                if alt74 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:146:17: LBRACK subscriptlist RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer2118)
+                if alt76 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:17: LBRACK subscriptlist RBRACK
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer2350)
 
                     self._state.following.append(
-                        self.FOLLOW_subscriptlist_in_trailer2120
+                        self.FOLLOW_subscriptlist_in_trailer2352
                     )
-                    subscriptlist28 = self.subscriptlist()
+                    subscriptlist35 = self.subscriptlist()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer2122)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer2354)
 
                     # TEMPLATE REWRITE
-                    # 146:45: -> index(index=$subscriptlist.st)
+                    # 162:45: -> index(index=$subscriptlist.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "index",
                         attributes={
                             "index": (
-                                (subscriptlist28 is not None)
-                                and [subscriptlist28.st]
+                                (subscriptlist35 is not None)
+                                and [subscriptlist35.st]
                                 or [None]
                             )[0]
                         },
                     )
 
-                elif alt74 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:147:17: DOT name
-                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer2150)
+                elif alt76 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:17: DOT name
+                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer2382)
 
-                    self._state.following.append(self.FOLLOW_name_in_trailer2152)
-                    name29 = self.name()
+                    self._state.following.append(self.FOLLOW_name_in_trailer2384)
+                    name36 = self.name()
 
                     self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 147:26: -> dot_attr(attr=$name.st)
+                    # 163:26: -> dot_attr(attr=$name.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "dot_attr",
                         attributes={
-                            "attr": ((name29 is not None) and [name29.st] or [None])[0]
+                            "attr": ((name36 is not None) and [name36.st] or [None])[0]
                         },
                     )
 
@@ -5923,7 +6154,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "arglist"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:148:1: arglist :args+= argument ( COMMA args+= argument )* -> arg_list(args=$args);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:1: arglist :args+= argument ( COMMA args+= argument )* -> arg_list(args=$args);
     def arglist(
         self,
     ):
@@ -5934,9 +6165,9 @@ class YarcParser(Parser):
         args = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:148:15: (args+= argument ( COMMA args+= argument )* -> arg_list(args=$args))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:148:17: args+= argument ( COMMA args+= argument )*
-                self._state.following.append(self.FOLLOW_argument_in_arglist2176)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:15: (args+= argument ( COMMA args+= argument )* -> arg_list(args=$args))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:17: args+= argument ( COMMA args+= argument )*
+                self._state.following.append(self.FOLLOW_argument_in_arglist2408)
                 args = self.argument()
 
                 self._state.following.pop()
@@ -5944,20 +6175,20 @@ class YarcParser(Parser):
                     list_args = []
                 list_args.append(args.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:148:32: ( COMMA args+= argument )*
-                while True:  # loop75
-                    alt75 = 2
-                    LA75_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:32: ( COMMA args+= argument )*
+                while True:  # loop77
+                    alt77 = 2
+                    LA77_0 = self.input.LA(1)
 
-                    if LA75_0 == COMMA:
-                        alt75 = 1
+                    if LA77_0 == COMMA:
+                        alt77 = 1
 
-                    if alt75 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:148:33: COMMA args+= argument
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist2179)
+                    if alt77 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:33: COMMA args+= argument
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist2411)
 
                         self._state.following.append(
-                            self.FOLLOW_argument_in_arglist2183
+                            self.FOLLOW_argument_in_arglist2415
                         )
                         args = self.argument()
 
@@ -5967,10 +6198,10 @@ class YarcParser(Parser):
                         list_args.append(args.st)
 
                     else:
-                        break  # loop75
+                        break  # loop77
 
                 # TEMPLATE REWRITE
-                # 148:56: -> arg_list(args=$args)
+                # 164:56: -> arg_list(args=$args)
                 retval.st = self.templateLib.getInstanceOf(
                     "arg_list", attributes={"args": list_args}
                 )
@@ -6004,7 +6235,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "argument"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:149:1: argument : kw_or_arg= test ( ASSIGN arg= test )? -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:165:1: argument : kw_or_arg= test ( ASSIGN arg= test )? -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st);
     def argument(
         self,
     ):
@@ -6016,30 +6247,30 @@ class YarcParser(Parser):
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:149:15: (kw_or_arg= test ( ASSIGN arg= test )? -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:149:17: kw_or_arg= test ( ASSIGN arg= test )?
-                self._state.following.append(self.FOLLOW_test_in_argument2208)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:165:15: (kw_or_arg= test ( ASSIGN arg= test )? -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:165:17: kw_or_arg= test ( ASSIGN arg= test )?
+                self._state.following.append(self.FOLLOW_test_in_argument2440)
                 kw_or_arg = self.test()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:149:32: ( ASSIGN arg= test )?
-                alt76 = 2
-                LA76_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:165:32: ( ASSIGN arg= test )?
+                alt78 = 2
+                LA78_0 = self.input.LA(1)
 
-                if LA76_0 == ASSIGN:
-                    alt76 = 1
-                if alt76 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:149:33: ASSIGN arg= test
-                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument2211)
+                if LA78_0 == ASSIGN:
+                    alt78 = 1
+                if alt78 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:165:33: ASSIGN arg= test
+                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument2443)
 
-                    self._state.following.append(self.FOLLOW_test_in_argument2215)
+                    self._state.following.append(self.FOLLOW_test_in_argument2447)
                     arg = self.test()
 
                     self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 149:51: -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st)
+                # 165:51: -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "arg",
                     attributes={
@@ -6079,7 +6310,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "subscriptlist"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:150:1: subscriptlist :subs+= subscript_ ( COMMA subs+= subscript_ )* -> subscript_list(subs=$subs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:166:1: subscriptlist :subs+= subscript_ ( COMMA subs+= subscript_ )* -> subscript_list(subs=$subs);
     def subscriptlist(
         self,
     ):
@@ -6090,10 +6321,10 @@ class YarcParser(Parser):
         subs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:150:15: (subs+= subscript_ ( COMMA subs+= subscript_ )* -> subscript_list(subs=$subs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:150:17: subs+= subscript_ ( COMMA subs+= subscript_ )*
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:166:15: (subs+= subscript_ ( COMMA subs+= subscript_ )* -> subscript_list(subs=$subs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:166:17: subs+= subscript_ ( COMMA subs+= subscript_ )*
                 self._state.following.append(
-                    self.FOLLOW_subscript__in_subscriptlist2240
+                    self.FOLLOW_subscript__in_subscriptlist2472
                 )
                 subs = self.subscript_()
 
@@ -6102,22 +6333,22 @@ class YarcParser(Parser):
                     list_subs = []
                 list_subs.append(subs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:150:34: ( COMMA subs+= subscript_ )*
-                while True:  # loop77
-                    alt77 = 2
-                    LA77_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:166:34: ( COMMA subs+= subscript_ )*
+                while True:  # loop79
+                    alt79 = 2
+                    LA79_0 = self.input.LA(1)
 
-                    if LA77_0 == COMMA:
-                        alt77 = 1
+                    if LA79_0 == COMMA:
+                        alt79 = 1
 
-                    if alt77 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:150:35: COMMA subs+= subscript_
+                    if alt79 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:166:35: COMMA subs+= subscript_
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist2243
+                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist2475
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_subscript__in_subscriptlist2247
+                            self.FOLLOW_subscript__in_subscriptlist2479
                         )
                         subs = self.subscript_()
 
@@ -6127,10 +6358,10 @@ class YarcParser(Parser):
                         list_subs.append(subs.st)
 
                     else:
-                        break  # loop77
+                        break  # loop79
 
                 # TEMPLATE REWRITE
-                # 150:60: -> subscript_list(subs=$subs)
+                # 166:60: -> subscript_list(subs=$subs)
                 retval.st = self.templateLib.getInstanceOf(
                     "subscript_list", attributes={"subs": list_subs}
                 )
@@ -6164,7 +6395,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "subscript_"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:1: subscript_ : (from_= test ( COLON to= ( test )? step= ( sliceop )? )? -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)| COLON to= ( test )? step= ( sliceop )? -> subscript(colon=$COLONto=$to.ststep=$step.st));
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:1: subscript_ : (from_= test ( COLON to= ( test )? step= ( sliceop )? )? -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)| COLON to= ( test )? step= ( sliceop )? -> subscript(colon=$COLONto=$to.ststep=$step.st));
     def subscript_(
         self,
     ):
@@ -6173,17 +6404,17 @@ class YarcParser(Parser):
 
         to = None
         step = None
-        COLON30 = None
-        COLON31 = None
+        COLON37 = None
+        COLON38 = None
         from_ = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:15: (from_= test ( COLON to= ( test )? step= ( sliceop )? )? -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)| COLON to= ( test )? step= ( sliceop )? -> subscript(colon=$COLONto=$to.ststep=$step.st))
-                alt83 = 2
-                LA83_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:15: (from_= test ( COLON to= ( test )? step= ( sliceop )? )? -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)| COLON to= ( test )? step= ( sliceop )? -> subscript(colon=$COLONto=$to.ststep=$step.st))
+                alt85 = 2
+                LA85_0 = self.input.LA(1)
 
-                if LA83_0 in {
+                if LA85_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -6204,38 +6435,38 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt83 = 1
-                elif LA83_0 == COLON:
-                    alt83 = 2
+                    alt85 = 1
+                elif LA85_0 == COLON:
+                    alt85 = 2
                 else:
-                    nvae = NoViableAltException("", 83, 0, self.input)
+                    nvae = NoViableAltException("", 85, 0, self.input)
 
                     raise nvae
 
-                if alt83 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:17: from_= test ( COLON to= ( test )? step= ( sliceop )? )?
-                    self._state.following.append(self.FOLLOW_test_in_subscript_2270)
+                if alt85 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:17: from_= test ( COLON to= ( test )? step= ( sliceop )? )?
+                    self._state.following.append(self.FOLLOW_test_in_subscript_2502)
                     from_ = self.test()
 
                     self._state.following.pop()
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:28: ( COLON to= ( test )? step= ( sliceop )? )?
-                    alt80 = 2
-                    LA80_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:28: ( COLON to= ( test )? step= ( sliceop )? )?
+                    alt82 = 2
+                    LA82_0 = self.input.LA(1)
 
-                    if LA80_0 == COLON:
-                        alt80 = 1
-                    if alt80 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:29: COLON to= ( test )? step= ( sliceop )?
-                        COLON30 = self.match(
-                            self.input, COLON, self.FOLLOW_COLON_in_subscript_2273
+                    if LA82_0 == COLON:
+                        alt82 = 1
+                    if alt82 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:29: COLON to= ( test )? step= ( sliceop )?
+                        COLON37 = self.match(
+                            self.input, COLON, self.FOLLOW_COLON_in_subscript_2505
                         )
 
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:38: ( test )?
-                        alt78 = 2
-                        LA78_0 = self.input.LA(1)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:38: ( test )?
+                        alt80 = 2
+                        LA80_0 = self.input.LA(1)
 
-                        if LA78_0 in {
+                        if LA80_0 in {
                             BIT_NOT,
                             DISTRIBUTION,
                             FALSE,
@@ -6256,54 +6487,54 @@ class YarcParser(Parser):
                             TRUE,
                             UNDERSCORE,
                         }:
-                            alt78 = 1
-                        if alt78 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:39: test
+                            alt80 = 1
+                        if alt80 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:39: test
                             self._state.following.append(
-                                self.FOLLOW_test_in_subscript_2278
+                                self.FOLLOW_test_in_subscript_2510
                             )
                             to = self.test()
 
                             self._state.following.pop()
 
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:51: ( sliceop )?
-                        alt79 = 2
-                        LA79_0 = self.input.LA(1)
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:51: ( sliceop )?
+                        alt81 = 2
+                        LA81_0 = self.input.LA(1)
 
-                        if LA79_0 == COLON:
-                            alt79 = 1
-                        if alt79 == 1:
-                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:151:52: sliceop
+                        if LA81_0 == COLON:
+                            alt81 = 1
+                        if alt81 == 1:
+                            # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:167:52: sliceop
                             self._state.following.append(
-                                self.FOLLOW_sliceop_in_subscript_2285
+                                self.FOLLOW_sliceop_in_subscript_2517
                             )
                             step = self.sliceop()
 
                             self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 151:64: -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)
+                    # 167:64: -> subscript(from=$from_.stcolon=$COLONto=$to.ststep=$step.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "subscript",
                         attributes={
                             "from": ((from_ is not None) and [from_.st] or [None])[0],
-                            "colon": COLON30,
+                            "colon": COLON37,
                             "to": to.st,
                             "step": step.st,
                         },
                     )
 
-                elif alt83 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:152:17: COLON to= ( test )? step= ( sliceop )?
-                    COLON31 = self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_subscript_2331
+                elif alt85 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:168:17: COLON to= ( test )? step= ( sliceop )?
+                    COLON38 = self.match(
+                        self.input, COLON, self.FOLLOW_COLON_in_subscript_2563
                     )
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:152:26: ( test )?
-                    alt81 = 2
-                    LA81_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:168:26: ( test )?
+                    alt83 = 2
+                    LA83_0 = self.input.LA(1)
 
-                    if LA81_0 in {
+                    if LA83_0 in {
                         BIT_NOT,
                         DISTRIBUTION,
                         FALSE,
@@ -6324,34 +6555,34 @@ class YarcParser(Parser):
                         TRUE,
                         UNDERSCORE,
                     }:
-                        alt81 = 1
-                    if alt81 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:152:27: test
-                        self._state.following.append(self.FOLLOW_test_in_subscript_2336)
+                        alt83 = 1
+                    if alt83 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:168:27: test
+                        self._state.following.append(self.FOLLOW_test_in_subscript_2568)
                         to = self.test()
 
                         self._state.following.pop()
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:152:39: ( sliceop )?
-                    alt82 = 2
-                    LA82_0 = self.input.LA(1)
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:168:39: ( sliceop )?
+                    alt84 = 2
+                    LA84_0 = self.input.LA(1)
 
-                    if LA82_0 == COLON:
-                        alt82 = 1
-                    if alt82 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:152:40: sliceop
+                    if LA84_0 == COLON:
+                        alt84 = 1
+                    if alt84 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:168:40: sliceop
                         self._state.following.append(
-                            self.FOLLOW_sliceop_in_subscript_2343
+                            self.FOLLOW_sliceop_in_subscript_2575
                         )
                         step = self.sliceop()
 
                         self._state.following.pop()
 
                     # TEMPLATE REWRITE
-                    # 152:51: -> subscript(colon=$COLONto=$to.ststep=$step.st)
+                    # 168:51: -> subscript(colon=$COLONto=$to.ststep=$step.st)
                     retval.st = self.templateLib.getInstanceOf(
                         "subscript",
-                        attributes={"colon": COLON31, "to": to.st, "step": step.st},
+                        attributes={"colon": COLON38, "to": to.st, "step": step.st},
                     )
 
                 retval.stop = self.input.LT(-1)
@@ -6383,26 +6614,26 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "sliceop"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:153:1: sliceop : COLON ( test )? -> subscipt_step(step=$test.st);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:169:1: sliceop : COLON ( test )? -> subscipt_step(step=$test.st);
     def sliceop(
         self,
     ):
         retval = self.sliceop_return()
         retval.start = self.input.LT(1)
 
-        test32 = None
+        test39 = None
 
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:153:15: ( COLON ( test )? -> subscipt_step(step=$test.st))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:153:17: COLON ( test )?
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop2378)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:169:15: ( COLON ( test )? -> subscipt_step(step=$test.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:169:17: COLON ( test )?
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop2610)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:153:23: ( test )?
-                alt84 = 2
-                LA84_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:169:23: ( test )?
+                alt86 = 2
+                LA86_0 = self.input.LA(1)
 
-                if LA84_0 in {
+                if LA86_0 in {
                     BIT_NOT,
                     DISTRIBUTION,
                     FALSE,
@@ -6423,20 +6654,20 @@ class YarcParser(Parser):
                     TRUE,
                     UNDERSCORE,
                 }:
-                    alt84 = 1
-                if alt84 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:153:23: test
-                    self._state.following.append(self.FOLLOW_test_in_sliceop2380)
-                    test32 = self.test()
+                    alt86 = 1
+                if alt86 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:169:23: test
+                    self._state.following.append(self.FOLLOW_test_in_sliceop2612)
+                    test39 = self.test()
 
                     self._state.following.pop()
 
                 # TEMPLATE REWRITE
-                # 153:29: -> subscipt_step(step=$test.st)
+                # 169:29: -> subscipt_step(step=$test.st)
                 retval.st = self.templateLib.getInstanceOf(
                     "subscipt_step",
                     attributes={
-                        "step": ((test32 is not None) and [test32.st] or [None])[0]
+                        "step": ((test39 is not None) and [test39.st] or [None])[0]
                     },
                 )
 
@@ -6469,7 +6700,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "exprlist"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:1: exprlist :exprs+= expr ( COMMA exprs+= expr )* -> test_list(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:171:1: exprlist :exprs+= expr ( COMMA exprs+= expr )* -> test_list(exprs=$exprs);
     def exprlist(
         self,
     ):
@@ -6480,9 +6711,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:10: (exprs+= expr ( COMMA exprs+= expr )* -> test_list(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:12: exprs+= expr ( COMMA exprs+= expr )*
-                self._state.following.append(self.FOLLOW_expr_in_exprlist2400)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:171:10: (exprs+= expr ( COMMA exprs+= expr )* -> test_list(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:171:12: exprs+= expr ( COMMA exprs+= expr )*
+                self._state.following.append(self.FOLLOW_expr_in_exprlist2632)
                 exprs = self.expr()
 
                 self._state.following.pop()
@@ -6490,19 +6721,19 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:24: ( COMMA exprs+= expr )*
-                while True:  # loop85
-                    alt85 = 2
-                    LA85_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:171:24: ( COMMA exprs+= expr )*
+                while True:  # loop87
+                    alt87 = 2
+                    LA87_0 = self.input.LA(1)
 
-                    if LA85_0 == COMMA:
-                        alt85 = 1
+                    if LA87_0 == COMMA:
+                        alt87 = 1
 
-                    if alt85 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:155:25: COMMA exprs+= expr
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_exprlist2403)
+                    if alt87 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:171:25: COMMA exprs+= expr
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_exprlist2635)
 
-                        self._state.following.append(self.FOLLOW_expr_in_exprlist2407)
+                        self._state.following.append(self.FOLLOW_expr_in_exprlist2639)
                         exprs = self.expr()
 
                         self._state.following.pop()
@@ -6511,10 +6742,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop85
+                        break  # loop87
 
                 # TEMPLATE REWRITE
-                # 155:45: -> test_list(exprs=$exprs)
+                # 171:45: -> test_list(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "test_list", attributes={"exprs": list_exprs}
                 )
@@ -6548,7 +6779,7 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "testlist"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:1: testlist :exprs+= test ( COMMA exprs+= test )* -> test_list(exprs=$exprs);
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:172:1: testlist :exprs+= test ( COMMA exprs+= test )* -> test_list(exprs=$exprs);
     def testlist(
         self,
     ):
@@ -6559,9 +6790,9 @@ class YarcParser(Parser):
         exprs = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:10: (exprs+= test ( COMMA exprs+= test )* -> test_list(exprs=$exprs))
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:12: exprs+= test ( COMMA exprs+= test )*
-                self._state.following.append(self.FOLLOW_test_in_testlist2427)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:172:10: (exprs+= test ( COMMA exprs+= test )* -> test_list(exprs=$exprs))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:172:12: exprs+= test ( COMMA exprs+= test )*
+                self._state.following.append(self.FOLLOW_test_in_testlist2659)
                 exprs = self.test()
 
                 self._state.following.pop()
@@ -6569,19 +6800,19 @@ class YarcParser(Parser):
                     list_exprs = []
                 list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:24: ( COMMA exprs+= test )*
-                while True:  # loop86
-                    alt86 = 2
-                    LA86_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:172:24: ( COMMA exprs+= test )*
+                while True:  # loop88
+                    alt88 = 2
+                    LA88_0 = self.input.LA(1)
 
-                    if LA86_0 == COMMA:
-                        alt86 = 1
+                    if LA88_0 == COMMA:
+                        alt88 = 1
 
-                    if alt86 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:156:25: COMMA exprs+= test
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist2430)
+                    if alt88 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:172:25: COMMA exprs+= test
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist2662)
 
-                        self._state.following.append(self.FOLLOW_test_in_testlist2434)
+                        self._state.following.append(self.FOLLOW_test_in_testlist2666)
                         exprs = self.test()
 
                         self._state.following.pop()
@@ -6590,10 +6821,10 @@ class YarcParser(Parser):
                         list_exprs.append(exprs.st)
 
                     else:
-                        break  # loop86
+                        break  # loop88
 
                 # TEMPLATE REWRITE
-                # 156:45: -> test_list(exprs=$exprs)
+                # 172:45: -> test_list(exprs=$exprs)
                 retval.st = self.templateLib.getInstanceOf(
                     "test_list", attributes={"exprs": list_exprs}
                 )
@@ -6627,116 +6858,60 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "dict_or_set_maker"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:157:1: dict_or_set_maker : test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:173:1: dict_or_set_maker :exprs+= test ( COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* ) -> key_value_list(keys=$exprsvalues=$values)| (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* ) -> test_list(exprs=$exprs)) ;
     def dict_or_set_maker(
         self,
     ):
         retval = self.dict_or_set_maker_return()
         retval.start = self.input.LT(1)
 
+        list_exprs = None
+        list_values = None
+        for_ = None
+        exprs = None
+        values = None
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:157:18: ( test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) ) )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:3: test ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
-                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker2453)
-                self.test()
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:173:18: (exprs+= test ( COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* ) -> key_value_list(keys=$exprsvalues=$values)| (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* ) -> test_list(exprs=$exprs)) )
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:174:3: exprs+= test ( COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* ) -> key_value_list(keys=$exprsvalues=$values)| (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* ) -> test_list(exprs=$exprs))
+                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker2687)
+                exprs = self.test()
 
                 self._state.following.pop()
+                if list_exprs is None:
+                    list_exprs = []
+                list_exprs.append(exprs.st)
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:8: ( COLON test ( comp_for | ( COMMA test COLON test )* ) | ( comp_for | ( COMMA test )* ) )
-                alt91 = 2
-                LA91_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:174:15: ( COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* ) -> key_value_list(keys=$exprsvalues=$values)| (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* ) -> test_list(exprs=$exprs))
+                alt93 = 2
+                LA93_0 = self.input.LA(1)
 
-                if LA91_0 == COLON:
-                    alt91 = 1
-                elif LA91_0 in {COMMA, FOR, RBRACE}:
-                    alt91 = 2
+                if LA93_0 == COLON:
+                    alt93 = 1
+                elif LA93_0 in {COMMA, FOR, RBRACE}:
+                    alt93 = 2
                 else:
-                    nvae = NoViableAltException("", 91, 0, self.input)
+                    nvae = NoViableAltException("", 93, 0, self.input)
 
                     raise nvae
 
-                if alt91 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:10: COLON test ( comp_for | ( COMMA test COLON test )* )
+                if alt93 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:174:17: COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* )
                     self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker2457
+                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker2691
                     )
 
                     self._state.following.append(
-                        self.FOLLOW_test_in_dict_or_set_maker2459
+                        self.FOLLOW_test_in_dict_or_set_maker2695
                     )
-                    self.test()
+                    values = self.test()
 
                     self._state.following.pop()
+                    if list_values is None:
+                        list_values = []
+                    list_values.append(values.st)
 
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:21: ( comp_for | ( COMMA test COLON test )* )
-                    alt88 = 2
-                    LA88_0 = self.input.LA(1)
-
-                    if LA88_0 == FOR:
-                        alt88 = 1
-                    elif LA88_0 in {COMMA, RBRACE}:
-                        alt88 = 2
-                    else:
-                        nvae = NoViableAltException("", 88, 0, self.input)
-
-                        raise nvae
-
-                    if alt88 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:22: comp_for
-                        self._state.following.append(
-                            self.FOLLOW_comp_for_in_dict_or_set_maker2462
-                        )
-                        self.comp_for()
-
-                        self._state.following.pop()
-
-                    elif alt88 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:33: ( COMMA test COLON test )*
-                        pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:33: ( COMMA test COLON test )*
-                        while True:  # loop87
-                            alt87 = 2
-                            LA87_0 = self.input.LA(1)
-
-                            if LA87_0 == COMMA:
-                                alt87 = 1
-
-                            if alt87 == 1:
-                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:158:34: COMMA test COLON test
-                                self.match(
-                                    self.input,
-                                    COMMA,
-                                    self.FOLLOW_COMMA_in_dict_or_set_maker2467,
-                                )
-
-                                self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker2469
-                                )
-                                self.test()
-
-                                self._state.following.pop()
-
-                                self.match(
-                                    self.input,
-                                    COLON,
-                                    self.FOLLOW_COLON_in_dict_or_set_maker2471,
-                                )
-
-                                self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker2473
-                                )
-                                self.test()
-
-                                self._state.following.pop()
-
-                            else:
-                                break  # loop87
-
-                elif alt91 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:10: ( comp_for | ( COMMA test )* )
-                    pass
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:10: ( comp_for | ( COMMA test )* )
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:174:36: (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* )
                     alt90 = 2
                     LA90_0 = self.input.LA(1)
 
@@ -6750,18 +6925,29 @@ class YarcParser(Parser):
                         raise nvae
 
                     if alt90 == 1:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:11: comp_for
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:174:37: for_= comp_for
                         self._state.following.append(
-                            self.FOLLOW_comp_for_in_dict_or_set_maker2488
+                            self.FOLLOW_comp_for_in_dict_or_set_maker2700
                         )
-                        self.comp_for()
+                        for_ = self.comp_for()
 
                         self._state.following.pop()
 
+                        # TEMPLATE REWRITE
+                        # 174:51: -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)
+                        retval.st = self.templateLib.getInstanceOf(
+                            "dict_comp",
+                            attributes={
+                                "key": list_exprs[0],
+                                "value": list_values[0],
+                                "for": ((for_ is not None) and [for_.st] or [None])[0],
+                            },
+                        )
+
                     elif alt90 == 2:
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:22: ( COMMA test )*
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:175:38: ( COMMA exprs+= test COLON values+= test )*
                         pass
-                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:22: ( COMMA test )*
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:175:38: ( COMMA exprs+= test COLON values+= test )*
                         while True:  # loop89
                             alt89 = 2
                             LA89_0 = self.input.LA(1)
@@ -6770,22 +6956,121 @@ class YarcParser(Parser):
                                 alt89 = 1
 
                             if alt89 == 1:
-                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:159:23: COMMA test
+                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:175:39: COMMA exprs+= test COLON values+= test
                                 self.match(
                                     self.input,
                                     COMMA,
-                                    self.FOLLOW_COMMA_in_dict_or_set_maker2493,
+                                    self.FOLLOW_COMMA_in_dict_or_set_maker2759,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker2495
+                                    self.FOLLOW_test_in_dict_or_set_maker2763
                                 )
-                                self.test()
+                                exprs = self.test()
 
                                 self._state.following.pop()
+                                if list_exprs is None:
+                                    list_exprs = []
+                                list_exprs.append(exprs.st)
+
+                                self.match(
+                                    self.input,
+                                    COLON,
+                                    self.FOLLOW_COLON_in_dict_or_set_maker2765,
+                                )
+
+                                self._state.following.append(
+                                    self.FOLLOW_test_in_dict_or_set_maker2769
+                                )
+                                values = self.test()
+
+                                self._state.following.pop()
+                                if list_values is None:
+                                    list_values = []
+                                list_values.append(values.st)
 
                             else:
                                 break  # loop89
+
+                    # TEMPLATE REWRITE
+                    # 175:79: -> key_value_list(keys=$exprsvalues=$values)
+                    retval.st = self.templateLib.getInstanceOf(
+                        "key_value_list",
+                        attributes={"keys": list_exprs, "values": list_values},
+                    )
+
+                elif alt93 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:176:17: (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* )
+                    pass
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:176:17: (for_= comp_for -> list_comp(expr=$exprs[0]for=$for_.st)| ( COMMA exprs+= test )* )
+                    alt92 = 2
+                    LA92_0 = self.input.LA(1)
+
+                    if LA92_0 == FOR:
+                        alt92 = 1
+                    elif LA92_0 in {COMMA, RBRACE}:
+                        alt92 = 2
+                    else:
+                        nvae = NoViableAltException("", 92, 0, self.input)
+
+                        raise nvae
+
+                    if alt92 == 1:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:176:18: for_= comp_for
+                        self._state.following.append(
+                            self.FOLLOW_comp_for_in_dict_or_set_maker2807
+                        )
+                        for_ = self.comp_for()
+
+                        self._state.following.pop()
+
+                        # TEMPLATE REWRITE
+                        # 176:32: -> list_comp(expr=$exprs[0]for=$for_.st)
+                        retval.st = self.templateLib.getInstanceOf(
+                            "list_comp",
+                            attributes={
+                                "expr": list_exprs[0],
+                                "for": ((for_ is not None) and [for_.st] or [None])[0],
+                            },
+                        )
+
+                    elif alt92 == 2:
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:177:19: ( COMMA exprs+= test )*
+                        pass
+                        # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:177:19: ( COMMA exprs+= test )*
+                        while True:  # loop91
+                            alt91 = 2
+                            LA91_0 = self.input.LA(1)
+
+                            if LA91_0 == COMMA:
+                                alt91 = 1
+
+                            if alt91 == 1:
+                                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:177:20: COMMA exprs+= test
+                                self.match(
+                                    self.input,
+                                    COMMA,
+                                    self.FOLLOW_COMMA_in_dict_or_set_maker2845,
+                                )
+
+                                self._state.following.append(
+                                    self.FOLLOW_test_in_dict_or_set_maker2849
+                                )
+                                exprs = self.test()
+
+                                self._state.following.pop()
+                                if list_exprs is None:
+                                    list_exprs = []
+                                list_exprs.append(exprs.st)
+
+                            else:
+                                break  # loop91
+
+                    # TEMPLATE REWRITE
+                    # 177:42: -> test_list(exprs=$exprs)
+                    retval.st = self.templateLib.getInstanceOf(
+                        "test_list", attributes={"exprs": list_exprs}
+                    )
 
                 retval.stop = self.input.LT(-1)
 
@@ -6816,41 +7101,50 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "comp_iter"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:1: comp_iter : ( comp_for | comp_if );
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:1: comp_iter : comp= ( comp_for | comp_if ) -> {$comp.st};
     def comp_iter(
         self,
     ):
         retval = self.comp_iter_return()
         retval.start = self.input.LT(1)
 
+        comp = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:11: ( comp_for | comp_if )
-                alt92 = 2
-                LA92_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:11: (comp= ( comp_for | comp_if ) -> {$comp.st})
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:13: comp= ( comp_for | comp_if )
+                pass
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:18: ( comp_for | comp_if )
+                alt94 = 2
+                LA94_0 = self.input.LA(1)
 
-                if LA92_0 == FOR:
-                    alt92 = 1
-                elif LA92_0 == IF:
-                    alt92 = 2
+                if LA94_0 == FOR:
+                    alt94 = 1
+                elif LA94_0 == IF:
+                    alt94 = 2
                 else:
-                    nvae = NoViableAltException("", 92, 0, self.input)
+                    nvae = NoViableAltException("", 94, 0, self.input)
 
                     raise nvae
 
-                if alt92 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:13: comp_for
-                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter2509)
-                    self.comp_for()
+                if alt94 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:19: comp_for
+                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter2890)
+                    comp = self.comp_for()
 
                     self._state.following.pop()
 
-                elif alt92 == 2:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:162:24: comp_if
-                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter2513)
-                    self.comp_if()
+                elif alt94 == 2:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:181:30: comp_if
+                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter2894)
+                    comp = self.comp_if()
 
                     self._state.following.pop()
+
+                # TEMPLATE REWRITE
+                # 181:39: -> {$comp.st}
+                retval.st = comp.st
 
                 retval.stop = self.input.LT(-1)
 
@@ -6881,43 +7175,64 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "comp_for"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:1: comp_for : FOR exprlist IN or_test ( comp_iter )? ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:182:1: comp_for : FOR exprlist IN or_test ( comp_iter )? -> comp_for(exprs=$exprlist.stseq=$or_test.stcomp_iter=$comp_iter.st);
     def comp_for(
         self,
     ):
         retval = self.comp_for_return()
         retval.start = self.input.LT(1)
 
+        exprlist40 = None
+        or_test41 = None
+        comp_iter42 = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:11: ( FOR exprlist IN or_test ( comp_iter )? )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:13: FOR exprlist IN or_test ( comp_iter )?
-                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for2521)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:182:11: ( FOR exprlist IN or_test ( comp_iter )? -> comp_for(exprs=$exprlist.stseq=$or_test.stcomp_iter=$comp_iter.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:182:13: FOR exprlist IN or_test ( comp_iter )?
+                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for2907)
 
-                self._state.following.append(self.FOLLOW_exprlist_in_comp_for2523)
-                self.exprlist()
-
-                self._state.following.pop()
-
-                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for2525)
-
-                self._state.following.append(self.FOLLOW_or_test_in_comp_for2527)
-                self.or_test()
+                self._state.following.append(self.FOLLOW_exprlist_in_comp_for2909)
+                exprlist40 = self.exprlist()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:37: ( comp_iter )?
-                alt93 = 2
-                LA93_0 = self.input.LA(1)
+                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for2911)
 
-                if LA93_0 in {FOR, IF}:
-                    alt93 = 1
-                if alt93 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:163:37: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for2529)
-                    self.comp_iter()
+                self._state.following.append(self.FOLLOW_or_test_in_comp_for2913)
+                or_test41 = self.or_test()
+
+                self._state.following.pop()
+
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:182:37: ( comp_iter )?
+                alt95 = 2
+                LA95_0 = self.input.LA(1)
+
+                if LA95_0 in {FOR, IF}:
+                    alt95 = 1
+                if alt95 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:182:37: comp_iter
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for2915)
+                    comp_iter42 = self.comp_iter()
 
                     self._state.following.pop()
+
+                # TEMPLATE REWRITE
+                # 182:48: -> comp_for(exprs=$exprlist.stseq=$or_test.stcomp_iter=$comp_iter.st)
+                retval.st = self.templateLib.getInstanceOf(
+                    "comp_for",
+                    attributes={
+                        "exprs": (
+                            (exprlist40 is not None) and [exprlist40.st] or [None]
+                        )[0],
+                        "seq": ((or_test41 is not None) and [or_test41.st] or [None])[
+                            0
+                        ],
+                        "comp_iter": (
+                            (comp_iter42 is not None) and [comp_iter42.st] or [None]
+                        )[0],
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -6948,36 +7263,53 @@ class YarcParser(Parser):
         __str__ = toString
 
     # $ANTLR start "comp_if"
-    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:1: comp_if : IF test_nocond ( comp_iter )? ;
+    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:183:1: comp_if : IF test_nocond ( comp_iter )? -> comp_if(cond=$test_nocond.stcomp_iter=$comp_iter.st);
     def comp_if(
         self,
     ):
         retval = self.comp_if_return()
         retval.start = self.input.LT(1)
 
+        test_nocond43 = None
+        comp_iter44 = None
+
         try:
             try:
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:11: ( IF test_nocond ( comp_iter )? )
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:13: IF test_nocond ( comp_iter )?
-                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if2539)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:183:11: ( IF test_nocond ( comp_iter )? -> comp_if(cond=$test_nocond.stcomp_iter=$comp_iter.st))
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:183:13: IF test_nocond ( comp_iter )?
+                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if2944)
 
-                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if2541)
-                self.test_nocond()
+                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if2946)
+                test_nocond43 = self.test_nocond()
 
                 self._state.following.pop()
 
-                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:28: ( comp_iter )?
-                alt94 = 2
-                LA94_0 = self.input.LA(1)
+                # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:183:28: ( comp_iter )?
+                alt96 = 2
+                LA96_0 = self.input.LA(1)
 
-                if LA94_0 in {FOR, IF}:
-                    alt94 = 1
-                if alt94 == 1:
-                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:164:28: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if2543)
-                    self.comp_iter()
+                if LA96_0 in {FOR, IF}:
+                    alt96 = 1
+                if alt96 == 1:
+                    # /media/federico/Data_Hdd/University/Magistrale/Secondo_Anno/LFC/Progetto/yarc/yarc/dsl/v3/YarcParser.g:183:28: comp_iter
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if2948)
+                    comp_iter44 = self.comp_iter()
 
                     self._state.following.pop()
+
+                # TEMPLATE REWRITE
+                # 183:39: -> comp_if(cond=$test_nocond.stcomp_iter=$comp_iter.st)
+                retval.st = self.templateLib.getInstanceOf(
+                    "comp_if",
+                    attributes={
+                        "cond": (
+                            (test_nocond43 is not None) and [test_nocond43.st] or [None]
+                        )[0],
+                        "comp_iter": (
+                            (comp_iter44 is not None) and [comp_iter44.st] or [None]
+                        )[0],
+                    },
+                )
 
                 retval.stop = self.input.LT(-1)
 
@@ -6991,26 +7323,26 @@ class YarcParser(Parser):
 
     # $ANTLR end "comp_if"
 
-    FOLLOW_declaration_in_scenario44 = frozenset([1, 73, 100, 109, 123])
-    FOLLOW_NEWLINE_in_scenario46 = frozenset([1, 73, 100, 109, 123])
-    FOLLOW_settings_in_scenario49 = frozenset([1, 109, 123])
-    FOLLOW_stage_in_scenario52 = frozenset([1, 123])
-    FOLLOW_writers_in_scenario55 = frozenset([1])
-    FOLLOW_SCENARIO_in_declaration97 = frozenset([43])
-    FOLLOW_ID_in_declaration99 = frozenset([15, 73])
-    FOLLOW_COLON_in_declaration102 = frozenset([43, 119])
-    FOLLOW_name_in_declaration104 = frozenset([73])
-    FOLLOW_NEWLINE_in_declaration108 = frozenset([1])
-    FOLLOW_SETTINGS_in_settings120 = frozenset([15])
-    FOLLOW_COLON_in_settings122 = frozenset([73])
-    FOLLOW_NEWLINE_in_settings124 = frozenset([49])
-    FOLLOW_INDENT_in_settings126 = frozenset([43])
-    FOLLOW_setting_in_settings130 = frozenset([19, 43])
-    FOLLOW_DEDENT_in_settings133 = frozenset([1])
-    FOLLOW_STAGE_in_stage155 = frozenset([15])
-    FOLLOW_COLON_in_stage157 = frozenset([73])
-    FOLLOW_NEWLINE_in_stage159 = frozenset([49])
-    FOLLOW_INDENT_in_stage161 = frozenset(
+    FOLLOW_declaration_in_scenario59 = frozenset([1, 73, 100, 109, 123])
+    FOLLOW_NEWLINE_in_scenario61 = frozenset([1, 73, 100, 109, 123])
+    FOLLOW_settings_in_scenario64 = frozenset([1, 109, 123])
+    FOLLOW_stage_in_scenario67 = frozenset([1, 123])
+    FOLLOW_writers_in_scenario70 = frozenset([1])
+    FOLLOW_SCENARIO_in_declaration112 = frozenset([43])
+    FOLLOW_ID_in_declaration114 = frozenset([15, 73])
+    FOLLOW_COLON_in_declaration117 = frozenset([43, 119])
+    FOLLOW_name_in_declaration119 = frozenset([73])
+    FOLLOW_NEWLINE_in_declaration123 = frozenset([1])
+    FOLLOW_SETTINGS_in_settings146 = frozenset([15])
+    FOLLOW_COLON_in_settings148 = frozenset([73])
+    FOLLOW_NEWLINE_in_settings150 = frozenset([49])
+    FOLLOW_INDENT_in_settings152 = frozenset([43])
+    FOLLOW_setting_in_settings156 = frozenset([19, 43])
+    FOLLOW_DEDENT_in_settings159 = frozenset([1])
+    FOLLOW_STAGE_in_stage181 = frozenset([15])
+    FOLLOW_COLON_in_stage183 = frozenset([73])
+    FOLLOW_NEWLINE_in_stage185 = frozenset([49])
+    FOLLOW_INDENT_in_stage187 = frozenset(
         [
             11,
             18,
@@ -7040,15 +7372,15 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_stmts_in_stage163 = frozenset([19])
-    FOLLOW_DEDENT_in_stage165 = frozenset([1])
-    FOLLOW_WRITERS_in_writers176 = frozenset([15])
-    FOLLOW_COLON_in_writers178 = frozenset([73])
-    FOLLOW_NEWLINE_in_writers180 = frozenset([49])
-    FOLLOW_INDENT_in_writers182 = frozenset(
+    FOLLOW_stmts_in_stage189 = frozenset([19])
+    FOLLOW_DEDENT_in_stage191 = frozenset([1])
+    FOLLOW_WRITERS_in_writers206 = frozenset([15])
+    FOLLOW_COLON_in_writers208 = frozenset([73])
+    FOLLOW_NEWLINE_in_writers210 = frozenset([49])
+    FOLLOW_INDENT_in_writers212 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_expr_stmt_in_writers185 = frozenset(
+    FOLLOW_expr_stmt_in_writers217 = frozenset(
         [
             11,
             19,
@@ -7072,7 +7404,7 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_writer_in_writers189 = frozenset(
+    FOLLOW_writer_in_writers221 = frozenset(
         [
             11,
             19,
@@ -7096,14 +7428,14 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_DEDENT_in_writers193 = frozenset([1])
-    FOLLOW_ID_in_setting208 = frozenset([5])
-    FOLLOW_ASSIGN_in_setting210 = frozenset(
+    FOLLOW_DEDENT_in_writers225 = frozenset([1])
+    FOLLOW_ID_in_setting249 = frozenset([5])
+    FOLLOW_ASSIGN_in_setting251 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_setting212 = frozenset([73])
-    FOLLOW_NEWLINE_in_setting214 = frozenset([1])
-    FOLLOW_open_stmt_in_stmts245 = frozenset(
+    FOLLOW_test_in_setting253 = frozenset([73])
+    FOLLOW_NEWLINE_in_setting255 = frozenset([1])
+    FOLLOW_open_stmt_in_stmts289 = frozenset(
         [
             11,
             18,
@@ -7132,7 +7464,7 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_aug_expr_stmt_in_stmts249 = frozenset(
+    FOLLOW_aug_expr_stmt_in_stmts296 = frozenset(
         [
             1,
             11,
@@ -7162,7 +7494,7 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_edit_stmt_in_stmts253 = frozenset(
+    FOLLOW_edit_stmt_in_stmts300 = frozenset(
         [
             1,
             11,
@@ -7192,7 +7524,7 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_behavior_stmt_in_stmts257 = frozenset(
+    FOLLOW_behavior_stmt_in_stmts304 = frozenset(
         [
             1,
             11,
@@ -7222,28 +7554,37 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_ID_in_writer274 = frozenset([15])
-    FOLLOW_COLON_in_writer276 = frozenset([73])
-    FOLLOW_NEWLINE_in_writer278 = frozenset([49])
-    FOLLOW_INDENT_in_writer280 = frozenset([43])
-    FOLLOW_writer_setting_in_writer282 = frozenset([19, 43])
-    FOLLOW_DEDENT_in_writer285 = frozenset([1])
-    FOLLOW_ID_in_writer_setting292 = frozenset([5])
-    FOLLOW_ASSIGN_in_writer_setting294 = frozenset(
+    FOLLOW_ID_in_writer330 = frozenset([15])
+    FOLLOW_COLON_in_writer332 = frozenset([73])
+    FOLLOW_NEWLINE_in_writer334 = frozenset([49])
+    FOLLOW_INDENT_in_writer336 = frozenset([43])
+    FOLLOW_writer_param_in_writer340 = frozenset([19, 43])
+    FOLLOW_DEDENT_in_writer343 = frozenset([1])
+    FOLLOW_ID_in_writer_param371 = frozenset([5])
+    FOLLOW_ASSIGN_in_writer_param373 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_writer_setting296 = frozenset([73])
-    FOLLOW_NEWLINE_in_writer_setting298 = frozenset([1])
-    FOLLOW_OPEN_in_open_stmt309 = frozenset(
+    FOLLOW_test_in_writer_param375 = frozenset([73])
+    FOLLOW_NEWLINE_in_writer_param377 = frozenset([1])
+    FOLLOW_OPEN_in_open_stmt403 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_open_stmt311 = frozenset([73])
-    FOLLOW_NEWLINE_in_open_stmt313 = frozenset([1])
-    FOLLOW_EDIT_in_edit_stmt320 = frozenset([43, 115, 119])
-    FOLLOW_TIMELINE_in_edit_stmt323 = frozenset([15])
-    FOLLOW_name_in_edit_stmt327 = frozenset([15])
-    FOLLOW_edit_block_in_edit_stmt330 = frozenset([1])
-    FOLLOW_CREATE_in_create_expr339 = frozenset(
+    FOLLOW_test_in_open_stmt405 = frozenset([73])
+    FOLLOW_NEWLINE_in_open_stmt407 = frozenset([1])
+    FOLLOW_EDIT_in_edit_stmt423 = frozenset([43, 115, 119])
+    FOLLOW_TIMELINE_in_edit_stmt426 = frozenset([15])
+    FOLLOW_COLON_in_edit_stmt428 = frozenset([73])
+    FOLLOW_NEWLINE_in_edit_stmt430 = frozenset([49])
+    FOLLOW_INDENT_in_edit_stmt432 = frozenset([43, 119])
+    FOLLOW_name_in_edit_stmt437 = frozenset(
+        [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
+    )
+    FOLLOW_test_in_edit_stmt441 = frozenset([73])
+    FOLLOW_NEWLINE_in_edit_stmt443 = frozenset([19, 43, 119])
+    FOLLOW_DEDENT_in_edit_stmt447 = frozenset([1])
+    FOLLOW_name_in_edit_stmt483 = frozenset([15])
+    FOLLOW_edit_block_in_edit_stmt485 = frozenset([1])
+    FOLLOW_CREATE_in_create_expr495 = frozenset(
         [
             11,
             13,
@@ -7273,21 +7614,21 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_create_expr341 = frozenset([13, 37, 59, 68, 102, 103, 111])
-    FOLLOW_STEREO_in_create_expr351 = frozenset([13])
-    FOLLOW_CAMERA_in_create_expr354 = frozenset([15, 73])
-    FOLLOW_shapes_in_create_expr358 = frozenset([15, 73])
-    FOLLOW_light_type_in_create_expr362 = frozenset([58])
-    FOLLOW_LIGHT_in_create_expr364 = frozenset([15, 73])
-    FOLLOW_FROM_in_create_expr368 = frozenset(
+    FOLLOW_test_in_create_expr497 = frozenset([13, 37, 59, 68, 102, 103, 111])
+    FOLLOW_STEREO_in_create_expr507 = frozenset([13])
+    FOLLOW_CAMERA_in_create_expr510 = frozenset([15, 73])
+    FOLLOW_shapes_in_create_expr514 = frozenset([15, 73])
+    FOLLOW_light_type_in_create_expr518 = frozenset([58])
+    FOLLOW_LIGHT_in_create_expr520 = frozenset([15, 73])
+    FOLLOW_FROM_in_create_expr524 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_create_expr370 = frozenset([15, 73])
-    FOLLOW_edit_block_in_create_expr374 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr378 = frozenset([1])
-    FOLLOW_MATERIAL_in_create_expr387 = frozenset([15])
-    FOLLOW_simple_block_in_create_expr390 = frozenset([1])
-    FOLLOW_INSTANTIATE_in_instantiate_expr431 = frozenset(
+    FOLLOW_test_in_create_expr526 = frozenset([15, 73])
+    FOLLOW_edit_block_in_create_expr530 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr534 = frozenset([1])
+    FOLLOW_MATERIAL_in_create_expr543 = frozenset([15])
+    FOLLOW_simple_block_in_create_expr546 = frozenset([1])
+    FOLLOW_INSTANTIATE_in_instantiate_expr587 = frozenset(
         [
             11,
             21,
@@ -7311,22 +7652,22 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_instantiate_expr434 = frozenset([37])
-    FOLLOW_FROM_in_instantiate_expr438 = frozenset(
+    FOLLOW_test_in_instantiate_expr590 = frozenset([37])
+    FOLLOW_FROM_in_instantiate_expr594 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_instantiate_expr440 = frozenset([15, 73])
-    FOLLOW_edit_block_in_instantiate_expr443 = frozenset([1])
-    FOLLOW_NEWLINE_in_instantiate_expr447 = frozenset([1])
-    FOLLOW_GROUP_in_group_expr461 = frozenset([55])
-    FOLLOW_LBRACK_in_group_expr463 = frozenset([43, 119])
-    FOLLOW_name_in_group_expr465 = frozenset([16, 89])
-    FOLLOW_COMMA_in_group_expr468 = frozenset([43, 119])
-    FOLLOW_name_in_group_expr470 = frozenset([16, 89])
-    FOLLOW_RBRACK_in_group_expr474 = frozenset([15, 73])
-    FOLLOW_edit_block_in_group_expr477 = frozenset([1])
-    FOLLOW_NEWLINE_in_group_expr481 = frozenset([1])
-    FOLLOW_GET_in_get_expr497 = frozenset(
+    FOLLOW_test_in_instantiate_expr596 = frozenset([15, 73])
+    FOLLOW_edit_block_in_instantiate_expr599 = frozenset([1])
+    FOLLOW_NEWLINE_in_instantiate_expr603 = frozenset([1])
+    FOLLOW_GROUP_in_group_expr617 = frozenset([55])
+    FOLLOW_LBRACK_in_group_expr619 = frozenset([43, 119])
+    FOLLOW_name_in_group_expr621 = frozenset([16, 89])
+    FOLLOW_COMMA_in_group_expr624 = frozenset([43, 119])
+    FOLLOW_name_in_group_expr626 = frozenset([16, 89])
+    FOLLOW_RBRACK_in_group_expr630 = frozenset([15, 73])
+    FOLLOW_edit_block_in_group_expr633 = frozenset([1])
+    FOLLOW_NEWLINE_in_group_expr637 = frozenset([1])
+    FOLLOW_GET_in_get_expr653 = frozenset(
         [
             11,
             13,
@@ -7352,37 +7693,37 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_CAMERA_in_get_expr501 = frozenset([6])
-    FOLLOW_LIGHT_in_get_expr505 = frozenset([6])
-    FOLLOW_MATERIAL_in_get_expr509 = frozenset([6])
-    FOLLOW_name_in_get_expr513 = frozenset([6])
-    FOLLOW_AT_in_get_expr516 = frozenset(
+    FOLLOW_CAMERA_in_get_expr657 = frozenset([6])
+    FOLLOW_LIGHT_in_get_expr661 = frozenset([6])
+    FOLLOW_MATERIAL_in_get_expr665 = frozenset([6])
+    FOLLOW_name_in_get_expr669 = frozenset([6])
+    FOLLOW_AT_in_get_expr672 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_get_expr520 = frozenset([15, 73])
-    FOLLOW_simple_block_in_get_expr523 = frozenset([1])
-    FOLLOW_NEWLINE_in_get_expr527 = frozenset([1])
-    FOLLOW_COLON_in_edit_block538 = frozenset([73])
-    FOLLOW_NEWLINE_in_edit_block540 = frozenset([49])
-    FOLLOW_INDENT_in_edit_block542 = frozenset(
+    FOLLOW_test_in_get_expr676 = frozenset([15, 73])
+    FOLLOW_simple_block_in_get_expr679 = frozenset([1])
+    FOLLOW_NEWLINE_in_get_expr683 = frozenset([1])
+    FOLLOW_COLON_in_edit_block694 = frozenset([73])
+    FOLLOW_NEWLINE_in_edit_block696 = frozenset([49])
+    FOLLOW_INDENT_in_edit_block698 = frozenset(
         [14, 28, 43, 62, 83, 91, 92, 95, 96, 98, 105, 117, 119, 121, 122]
     )
-    FOLLOW_attr_in_edit_block545 = frozenset(
+    FOLLOW_attr_in_edit_block701 = frozenset(
         [14, 19, 28, 43, 62, 83, 91, 92, 95, 96, 98, 105, 117, 119, 121, 122]
     )
-    FOLLOW_inner_behavior_stmt_in_edit_block549 = frozenset(
+    FOLLOW_inner_behavior_stmt_in_edit_block705 = frozenset(
         [14, 19, 28, 43, 62, 83, 91, 92, 95, 96, 98, 105, 117, 119, 121, 122]
     )
-    FOLLOW_DEDENT_in_edit_block553 = frozenset([1])
-    FOLLOW_COLON_in_simple_block560 = frozenset([73])
-    FOLLOW_NEWLINE_in_simple_block562 = frozenset([49])
-    FOLLOW_INDENT_in_simple_block564 = frozenset([43, 119])
-    FOLLOW_simple_attr_in_simple_block566 = frozenset([19, 43, 119])
-    FOLLOW_DEDENT_in_simple_block569 = frozenset([1])
-    FOLLOW_core_attr_in_attr586 = frozenset([1])
-    FOLLOW_simple_attr_in_attr590 = frozenset([1])
-    FOLLOW_compound_attr_in_attr594 = frozenset([1])
-    FOLLOW_name_in_simple_attr603 = frozenset(
+    FOLLOW_DEDENT_in_edit_block709 = frozenset([1])
+    FOLLOW_COLON_in_simple_block716 = frozenset([73])
+    FOLLOW_NEWLINE_in_simple_block718 = frozenset([49])
+    FOLLOW_INDENT_in_simple_block720 = frozenset([43, 119])
+    FOLLOW_simple_attr_in_simple_block722 = frozenset([19, 43, 119])
+    FOLLOW_DEDENT_in_simple_block725 = frozenset([1])
+    FOLLOW_core_attr_in_attr745 = frozenset([1])
+    FOLLOW_simple_attr_in_attr749 = frozenset([1])
+    FOLLOW_compound_attr_in_attr753 = frozenset([1])
+    FOLLOW_name_in_simple_attr767 = frozenset(
         [
             11,
             15,
@@ -7407,8 +7748,8 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_COLON_in_simple_attr606 = frozenset([43, 119])
-    FOLLOW_name_in_simple_attr608 = frozenset(
+    FOLLOW_COLON_in_simple_attr770 = frozenset([43, 119])
+    FOLLOW_name_in_simple_attr772 = frozenset(
         [
             11,
             21,
@@ -7432,28 +7773,28 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_simple_attr612 = frozenset([73])
-    FOLLOW_NEWLINE_in_simple_attr615 = frozenset([1])
-    FOLLOW_SCATTER_in_compound_attr624 = frozenset([79])
-    FOLLOW_ON_in_compound_attr626 = frozenset([43, 119])
-    FOLLOW_name_in_compound_attr628 = frozenset([15, 73])
-    FOLLOW_ROT_AROUND_in_compound_attr632 = frozenset([43, 119])
-    FOLLOW_name_in_compound_attr634 = frozenset([15, 73])
-    FOLLOW_PHYSICS_in_compound_attr638 = frozenset([15, 73])
-    FOLLOW_simple_block_in_compound_attr642 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr646 = frozenset([1])
-    FOLLOW_TRANSLATE_in_core_attr663 = frozenset([8, 116])
-    FOLLOW_AXIS_in_core_attr665 = frozenset([116])
-    FOLLOW_TO_in_core_attr668 = frozenset(
+    FOLLOW_test_in_simple_attr776 = frozenset([73])
+    FOLLOW_NEWLINE_in_simple_attr779 = frozenset([1])
+    FOLLOW_SCATTER_in_compound_attr788 = frozenset([79])
+    FOLLOW_ON_in_compound_attr790 = frozenset([43, 119])
+    FOLLOW_name_in_compound_attr792 = frozenset([15, 73])
+    FOLLOW_ROT_AROUND_in_compound_attr796 = frozenset([43, 119])
+    FOLLOW_name_in_compound_attr798 = frozenset([15, 73])
+    FOLLOW_PHYSICS_in_compound_attr802 = frozenset([15, 73])
+    FOLLOW_simple_block_in_compound_attr806 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr810 = frozenset([1])
+    FOLLOW_TRANSLATE_in_core_attr827 = frozenset([8, 116])
+    FOLLOW_AXIS_in_core_attr829 = frozenset([116])
+    FOLLOW_TO_in_core_attr832 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr670 = frozenset([73])
-    FOLLOW_CAM_TRANSLATE_in_core_attr678 = frozenset([116])
-    FOLLOW_TO_in_core_attr680 = frozenset(
+    FOLLOW_test_in_core_attr834 = frozenset([73])
+    FOLLOW_CAM_TRANSLATE_in_core_attr842 = frozenset([116])
+    FOLLOW_TO_in_core_attr844 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr682 = frozenset([73])
-    FOLLOW_ROTATE_in_core_attr690 = frozenset(
+    FOLLOW_test_in_core_attr846 = frozenset([73])
+    FOLLOW_ROTATE_in_core_attr854 = frozenset(
         [
             8,
             11,
@@ -7477,50 +7818,50 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_AXIS_in_core_attr692 = frozenset(
+    FOLLOW_AXIS_in_core_attr856 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr695 = frozenset([73, 82])
-    FOLLOW_ORDER_in_core_attr697 = frozenset([73])
-    FOLLOW_SCALE_in_core_attr706 = frozenset(
+    FOLLOW_test_in_core_attr859 = frozenset([73, 82])
+    FOLLOW_ORDER_in_core_attr861 = frozenset([73])
+    FOLLOW_SCALE_in_core_attr870 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr708 = frozenset([73])
-    FOLLOW_LOOK_AT_in_core_attr716 = frozenset(
+    FOLLOW_test_in_core_attr872 = frozenset([73])
+    FOLLOW_LOOK_AT_in_core_attr880 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr718 = frozenset([73])
-    FOLLOW_UP_AXIS_in_core_attr726 = frozenset(
+    FOLLOW_test_in_core_attr882 = frozenset([73])
+    FOLLOW_UP_AXIS_in_core_attr890 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr728 = frozenset([73])
-    FOLLOW_SIZE_in_core_attr736 = frozenset(
+    FOLLOW_test_in_core_attr892 = frozenset([73])
+    FOLLOW_SIZE_in_core_attr900 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr738 = frozenset([73])
-    FOLLOW_SEMANTICS_in_core_attr746 = frozenset(
+    FOLLOW_test_in_core_attr902 = frozenset([73])
+    FOLLOW_SEMANTICS_in_core_attr910 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr748 = frozenset([73])
-    FOLLOW_VISIBLE_in_core_attr756 = frozenset(
+    FOLLOW_test_in_core_attr912 = frozenset([73])
+    FOLLOW_VISIBLE_in_core_attr920 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_core_attr758 = frozenset([73])
-    FOLLOW_NEWLINE_in_core_attr764 = frozenset([1])
-    FOLLOW_behavior_expr_in_inner_behavior_stmt774 = frozenset([15])
-    FOLLOW_inner_behavior_block_in_inner_behavior_stmt776 = frozenset([1])
-    FOLLOW_COLON_in_inner_behavior_block783 = frozenset([73])
-    FOLLOW_NEWLINE_in_inner_behavior_block785 = frozenset([49])
-    FOLLOW_INDENT_in_inner_behavior_block787 = frozenset(
+    FOLLOW_test_in_core_attr922 = frozenset([73])
+    FOLLOW_NEWLINE_in_core_attr928 = frozenset([1])
+    FOLLOW_behavior_expr_in_inner_behavior_stmt938 = frozenset([15])
+    FOLLOW_inner_behavior_block_in_inner_behavior_stmt940 = frozenset([1])
+    FOLLOW_COLON_in_inner_behavior_block947 = frozenset([73])
+    FOLLOW_NEWLINE_in_inner_behavior_block949 = frozenset([49])
+    FOLLOW_INDENT_in_inner_behavior_block951 = frozenset(
         [14, 43, 62, 83, 91, 92, 95, 96, 98, 105, 117, 119, 121, 122]
     )
-    FOLLOW_attr_in_inner_behavior_block789 = frozenset(
+    FOLLOW_attr_in_inner_behavior_block953 = frozenset(
         [14, 19, 43, 62, 83, 91, 92, 95, 96, 98, 105, 117, 119, 121, 122]
     )
-    FOLLOW_DEDENT_in_inner_behavior_block792 = frozenset([1])
-    FOLLOW_behavior_expr_in_behavior_stmt803 = frozenset([15])
-    FOLLOW_behavior_block_in_behavior_stmt805 = frozenset([1])
-    FOLLOW_EVERY_in_behavior_expr813 = frozenset(
+    FOLLOW_DEDENT_in_inner_behavior_block956 = frozenset([1])
+    FOLLOW_behavior_expr_in_behavior_stmt967 = frozenset([15])
+    FOLLOW_behavior_block_in_behavior_stmt969 = frozenset([1])
+    FOLLOW_EVERY_in_behavior_expr977 = frozenset(
         [
             11,
             21,
@@ -7545,11 +7886,11 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_behavior_expr815 = frozenset([36, 114])
-    FOLLOW_set_in_behavior_expr818 = frozenset([1])
-    FOLLOW_COLON_in_behavior_block831 = frozenset([73])
-    FOLLOW_NEWLINE_in_behavior_block833 = frozenset([49])
-    FOLLOW_INDENT_in_behavior_block835 = frozenset(
+    FOLLOW_test_in_behavior_expr979 = frozenset([36, 114])
+    FOLLOW_set_in_behavior_expr982 = frozenset([1])
+    FOLLOW_COLON_in_behavior_block995 = frozenset([73])
+    FOLLOW_NEWLINE_in_behavior_block997 = frozenset([49])
+    FOLLOW_INDENT_in_behavior_block999 = frozenset(
         [
             11,
             18,
@@ -7577,36 +7918,7 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_aug_expr_stmt_in_behavior_block838 = frozenset(
-        [
-            11,
-            18,
-            19,
-            21,
-            24,
-            31,
-            33,
-            38,
-            39,
-            43,
-            50,
-            51,
-            54,
-            55,
-            56,
-            63,
-            65,
-            69,
-            74,
-            76,
-            84,
-            101,
-            112,
-            118,
-            119,
-        ]
-    )
-    FOLLOW_edit_stmt_in_behavior_block842 = frozenset(
+    FOLLOW_aug_expr_stmt_in_behavior_block1002 = frozenset(
         [
             11,
             18,
@@ -7635,9 +7947,38 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_DEDENT_in_behavior_block846 = frozenset([1])
-    FOLLOW_testlist_in_expr_stmt856 = frozenset([5, 7])
-    FOLLOW_set_in_expr_stmt858 = frozenset(
+    FOLLOW_edit_stmt_in_behavior_block1006 = frozenset(
+        [
+            11,
+            18,
+            19,
+            21,
+            24,
+            31,
+            33,
+            38,
+            39,
+            43,
+            50,
+            51,
+            54,
+            55,
+            56,
+            63,
+            65,
+            69,
+            74,
+            76,
+            84,
+            101,
+            112,
+            118,
+            119,
+        ]
+    )
+    FOLLOW_DEDENT_in_behavior_block1010 = frozenset([1])
+    FOLLOW_testlist_in_expr_stmt1022 = frozenset([5, 7])
+    FOLLOW_AUG_ASSIGN_in_expr_stmt1027 = frozenset(
         [
             11,
             21,
@@ -7661,11 +8002,35 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_testlist_in_expr_stmt867 = frozenset([73])
-    FOLLOW_fetch_expr_in_expr_stmt871 = frozenset([73])
-    FOLLOW_NEWLINE_in_expr_stmt874 = frozenset([1])
-    FOLLOW_testlist_in_aug_expr_stmt887 = frozenset([5, 7])
-    FOLLOW_AUG_ASSIGN_in_aug_expr_stmt897 = frozenset(
+    FOLLOW_ASSIGN_in_expr_stmt1031 = frozenset(
+        [
+            11,
+            21,
+            31,
+            32,
+            33,
+            43,
+            51,
+            54,
+            55,
+            56,
+            63,
+            65,
+            69,
+            74,
+            76,
+            84,
+            101,
+            112,
+            118,
+            119,
+        ]
+    )
+    FOLLOW_testlist_in_expr_stmt1037 = frozenset([73])
+    FOLLOW_fetch_expr_in_expr_stmt1041 = frozenset([73])
+    FOLLOW_NEWLINE_in_expr_stmt1044 = frozenset([1])
+    FOLLOW_testlist_in_aug_expr_stmt1079 = frozenset([5, 7])
+    FOLLOW_AUG_ASSIGN_in_aug_expr_stmt1089 = frozenset(
         [
             11,
             21,
@@ -7690,10 +8055,10 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt900 = frozenset([73])
-    FOLLOW_fetch_expr_in_aug_expr_stmt904 = frozenset([73])
-    FOLLOW_NEWLINE_in_aug_expr_stmt908 = frozenset([1])
-    FOLLOW_ASSIGN_in_aug_expr_stmt918 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt1092 = frozenset([73])
+    FOLLOW_fetch_expr_in_aug_expr_stmt1096 = frozenset([73])
+    FOLLOW_NEWLINE_in_aug_expr_stmt1100 = frozenset([1])
+    FOLLOW_ASSIGN_in_aug_expr_stmt1110 = frozenset(
         [
             11,
             18,
@@ -7721,145 +8086,145 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt931 = frozenset([73])
-    FOLLOW_fetch_expr_in_aug_expr_stmt935 = frozenset([73])
-    FOLLOW_NEWLINE_in_aug_expr_stmt938 = frozenset([1])
-    FOLLOW_create_expr_in_aug_expr_stmt950 = frozenset([1])
-    FOLLOW_instantiate_expr_in_aug_expr_stmt954 = frozenset([1])
-    FOLLOW_get_expr_in_aug_expr_stmt958 = frozenset([1])
-    FOLLOW_group_expr_in_aug_expr_stmt962 = frozenset([1])
-    FOLLOW_create_expr_in_aug_expr_stmt986 = frozenset([1])
-    FOLLOW_instantiate_expr_in_aug_expr_stmt990 = frozenset([1])
-    FOLLOW_get_expr_in_aug_expr_stmt994 = frozenset([1])
-    FOLLOW_group_expr_in_aug_expr_stmt998 = frozenset([1])
-    FOLLOW_FETCH_in_fetch_expr1007 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt1123 = frozenset([73])
+    FOLLOW_fetch_expr_in_aug_expr_stmt1127 = frozenset([73])
+    FOLLOW_NEWLINE_in_aug_expr_stmt1130 = frozenset([1])
+    FOLLOW_create_expr_in_aug_expr_stmt1142 = frozenset([1])
+    FOLLOW_instantiate_expr_in_aug_expr_stmt1146 = frozenset([1])
+    FOLLOW_get_expr_in_aug_expr_stmt1150 = frozenset([1])
+    FOLLOW_group_expr_in_aug_expr_stmt1154 = frozenset([1])
+    FOLLOW_create_expr_in_aug_expr_stmt1178 = frozenset([1])
+    FOLLOW_instantiate_expr_in_aug_expr_stmt1182 = frozenset([1])
+    FOLLOW_get_expr_in_aug_expr_stmt1186 = frozenset([1])
+    FOLLOW_group_expr_in_aug_expr_stmt1190 = frozenset([1])
+    FOLLOW_FETCH_in_fetch_expr1199 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_fetch_expr1009 = frozenset([37])
-    FOLLOW_FROM_in_fetch_expr1011 = frozenset(
+    FOLLOW_test_in_fetch_expr1203 = frozenset([37])
+    FOLLOW_FROM_in_fetch_expr1205 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_fetch_expr1013 = frozenset([1, 60, 67, 90])
-    FOLLOW_MATCH_in_fetch_expr1016 = frozenset(
+    FOLLOW_test_in_fetch_expr1209 = frozenset([1, 60, 67, 90])
+    FOLLOW_MATCH_in_fetch_expr1212 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_fetch_expr1018 = frozenset([1, 60, 90])
-    FOLLOW_LIMIT_in_fetch_expr1023 = frozenset(
+    FOLLOW_test_in_fetch_expr1216 = frozenset([1, 60, 90])
+    FOLLOW_LIMIT_in_fetch_expr1221 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_fetch_expr1025 = frozenset([1, 90])
-    FOLLOW_RECURSIVE_in_fetch_expr1029 = frozenset([1])
-    FOLLOW_or_test_in_test1049 = frozenset([1, 47])
-    FOLLOW_IF_in_test1052 = frozenset(
+    FOLLOW_test_in_fetch_expr1225 = frozenset([1, 90])
+    FOLLOW_RECURSIVE_in_fetch_expr1229 = frozenset([1])
+    FOLLOW_or_test_in_test1280 = frozenset([1, 47])
+    FOLLOW_IF_in_test1283 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_or_test_in_test1056 = frozenset([26])
-    FOLLOW_ELSE_in_test1058 = frozenset(
+    FOLLOW_or_test_in_test1287 = frozenset([26])
+    FOLLOW_ELSE_in_test1289 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_test1062 = frozenset([1])
-    FOLLOW_or_test_in_test_nocond1104 = frozenset([1])
-    FOLLOW_and_test_in_or_test1126 = frozenset([1, 81])
-    FOLLOW_OR_in_or_test1129 = frozenset(
+    FOLLOW_test_in_test1293 = frozenset([1])
+    FOLLOW_or_test_in_test_nocond1335 = frozenset([1])
+    FOLLOW_and_test_in_or_test1357 = frozenset([1, 81])
+    FOLLOW_OR_in_or_test1360 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_and_test_in_or_test1133 = frozenset([1, 81])
-    FOLLOW_not_test_in_and_test1156 = frozenset([1, 4])
-    FOLLOW_AND_in_and_test1159 = frozenset(
+    FOLLOW_and_test_in_or_test1364 = frozenset([1, 81])
+    FOLLOW_not_test_in_and_test1387 = frozenset([1, 4])
+    FOLLOW_AND_in_and_test1390 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_not_test_in_and_test1163 = frozenset([1, 4])
-    FOLLOW_NOT_in_not_test1184 = frozenset(
+    FOLLOW_not_test_in_and_test1394 = frozenset([1, 4])
+    FOLLOW_NOT_in_not_test1415 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_not_test_in_not_test1188 = frozenset([1])
-    FOLLOW_comparison_in_not_test1214 = frozenset([1])
-    FOLLOW_expr_in_comparison1228 = frozenset([1, 27, 40, 41, 48, 53, 65, 66, 76, 77])
-    FOLLOW_comp_op_in_comparison1231 = frozenset(
+    FOLLOW_not_test_in_not_test1419 = frozenset([1])
+    FOLLOW_comparison_in_not_test1445 = frozenset([1])
+    FOLLOW_expr_in_comparison1459 = frozenset([1, 27, 40, 41, 48, 53, 65, 66, 76, 77])
+    FOLLOW_comp_op_in_comparison1462 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_expr_in_comparison1235 = frozenset([1, 27, 40, 41, 48, 53, 65, 66, 76, 77])
-    FOLLOW_LT_in_comp_op1262 = frozenset([1])
-    FOLLOW_GT_in_comp_op1266 = frozenset([1])
-    FOLLOW_EQUALS_in_comp_op1270 = frozenset([1])
-    FOLLOW_GT_EQ_in_comp_op1274 = frozenset([1])
-    FOLLOW_LT_EQ_in_comp_op1278 = frozenset([1])
-    FOLLOW_NOT_EQ_in_comp_op1282 = frozenset([1])
-    FOLLOW_IN_in_comp_op1286 = frozenset([1])
-    FOLLOW_NOT_in_comp_op1290 = frozenset([48])
-    FOLLOW_IN_in_comp_op1292 = frozenset([1])
-    FOLLOW_IS_in_comp_op1296 = frozenset([1])
-    FOLLOW_IS_in_comp_op1300 = frozenset([76])
-    FOLLOW_NOT_in_comp_op1302 = frozenset([1])
-    FOLLOW_xor_expr_in_expr1319 = frozenset([1, 12])
-    FOLLOW_BIT_OR_in_expr1322 = frozenset(
+    FOLLOW_expr_in_comparison1466 = frozenset([1, 27, 40, 41, 48, 53, 65, 66, 76, 77])
+    FOLLOW_LT_in_comp_op1493 = frozenset([1])
+    FOLLOW_GT_in_comp_op1497 = frozenset([1])
+    FOLLOW_EQUALS_in_comp_op1501 = frozenset([1])
+    FOLLOW_GT_EQ_in_comp_op1505 = frozenset([1])
+    FOLLOW_LT_EQ_in_comp_op1509 = frozenset([1])
+    FOLLOW_NOT_EQ_in_comp_op1513 = frozenset([1])
+    FOLLOW_IN_in_comp_op1517 = frozenset([1])
+    FOLLOW_NOT_in_comp_op1521 = frozenset([48])
+    FOLLOW_IN_in_comp_op1523 = frozenset([1])
+    FOLLOW_IS_in_comp_op1527 = frozenset([1])
+    FOLLOW_IS_in_comp_op1531 = frozenset([76])
+    FOLLOW_NOT_in_comp_op1533 = frozenset([1])
+    FOLLOW_xor_expr_in_expr1550 = frozenset([1, 12])
+    FOLLOW_BIT_OR_in_expr1553 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_xor_expr_in_expr1326 = frozenset([1, 12])
-    FOLLOW_and_expr_in_xor_expr1349 = frozenset([1, 124])
-    FOLLOW_XOR_in_xor_expr1352 = frozenset(
+    FOLLOW_xor_expr_in_expr1557 = frozenset([1, 12])
+    FOLLOW_and_expr_in_xor_expr1580 = frozenset([1, 124])
+    FOLLOW_XOR_in_xor_expr1583 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_and_expr_in_xor_expr1356 = frozenset([1, 124])
-    FOLLOW_shift_expr_in_and_expr1379 = frozenset([1, 10])
-    FOLLOW_BIT_AND_in_and_expr1382 = frozenset(
+    FOLLOW_and_expr_in_xor_expr1587 = frozenset([1, 124])
+    FOLLOW_shift_expr_in_and_expr1610 = frozenset([1, 10])
+    FOLLOW_BIT_AND_in_and_expr1613 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_shift_expr_in_and_expr1386 = frozenset([1, 10])
-    FOLLOW_arith_expr_in_shift_expr1407 = frozenset([1, 64, 94])
-    FOLLOW_LSHIFT_in_shift_expr1413 = frozenset(
+    FOLLOW_shift_expr_in_and_expr1617 = frozenset([1, 10])
+    FOLLOW_arith_expr_in_shift_expr1638 = frozenset([1, 64, 94])
+    FOLLOW_LSHIFT_in_shift_expr1644 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_RSHIFT_in_shift_expr1417 = frozenset(
+    FOLLOW_RSHIFT_in_shift_expr1648 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_arith_expr_in_shift_expr1422 = frozenset([1, 64, 94])
-    FOLLOW_term_in_arith_expr1448 = frozenset([1, 69, 84])
-    FOLLOW_PLUS_in_arith_expr1454 = frozenset(
+    FOLLOW_arith_expr_in_shift_expr1653 = frozenset([1, 64, 94])
+    FOLLOW_term_in_arith_expr1679 = frozenset([1, 69, 84])
+    FOLLOW_PLUS_in_arith_expr1685 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_MINUS_in_arith_expr1458 = frozenset(
+    FOLLOW_MINUS_in_arith_expr1689 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_term_in_arith_expr1463 = frozenset([1, 69, 84])
-    FOLLOW_factor_in_term1495 = frozenset([1, 22, 44, 70, 71])
-    FOLLOW_MUL_in_term1501 = frozenset(
+    FOLLOW_term_in_arith_expr1694 = frozenset([1, 69, 84])
+    FOLLOW_factor_in_term1726 = frozenset([1, 22, 44, 70, 71])
+    FOLLOW_MUL_in_term1732 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_DIV_in_term1505 = frozenset(
+    FOLLOW_DIV_in_term1736 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_MOD_in_term1509 = frozenset(
+    FOLLOW_MOD_in_term1740 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_IDIV_in_term1513 = frozenset(
+    FOLLOW_IDIV_in_term1744 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_factor_in_term1518 = frozenset([1, 22, 44, 70, 71])
-    FOLLOW_PLUS_in_factor1549 = frozenset(
+    FOLLOW_factor_in_term1749 = frozenset([1, 22, 44, 70, 71])
+    FOLLOW_PLUS_in_factor1780 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_MINUS_in_factor1553 = frozenset(
+    FOLLOW_MINUS_in_factor1784 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_BIT_NOT_in_factor1557 = frozenset(
+    FOLLOW_BIT_NOT_in_factor1788 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_factor_in_factor1562 = frozenset([1])
-    FOLLOW_power_in_factor1592 = frozenset([1])
-    FOLLOW_atom_expr_in_power1609 = frozenset([1, 86])
-    FOLLOW_POWER_in_power1612 = frozenset(
+    FOLLOW_factor_in_factor1793 = frozenset([1])
+    FOLLOW_power_in_factor1823 = frozenset([1])
+    FOLLOW_atom_expr_in_power1840 = frozenset([1, 86])
+    FOLLOW_POWER_in_power1843 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_factor_in_power1614 = frozenset([1])
-    FOLLOW_atom_in_atom_expr1639 = frozenset([1, 23, 55])
-    FOLLOW_trailer_in_atom_expr1644 = frozenset([1, 23, 55])
-    FOLLOW_LPAREN_in_atom1669 = frozenset(
+    FOLLOW_factor_in_power1845 = frozenset([1])
+    FOLLOW_atom_in_atom_expr1870 = frozenset([1, 23, 55])
+    FOLLOW_trailer_in_atom_expr1875 = frozenset([1, 23, 55])
+    FOLLOW_LPAREN_in_atom1900 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_atom1673 = frozenset([93])
-    FOLLOW_RPAREN_in_atom1675 = frozenset([1])
-    FOLLOW_LBRACK_in_atom1690 = frozenset(
+    FOLLOW_test_in_atom1904 = frozenset([93])
+    FOLLOW_RPAREN_in_atom1906 = frozenset([1])
+    FOLLOW_LBRACK_in_atom1921 = frozenset(
         [
             11,
             21,
@@ -7883,14 +8248,14 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_testlist_comp_in_atom1692 = frozenset([89])
-    FOLLOW_RBRACK_in_atom1695 = frozenset([1])
-    FOLLOW_LT_in_atom1710 = frozenset(
+    FOLLOW_testlist_comp_in_atom1923 = frozenset([89])
+    FOLLOW_RBRACK_in_atom1926 = frozenset([1])
+    FOLLOW_LT_in_atom1941 = frozenset(
         [11, 21, 31, 33, 40, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_vector_comp_in_atom1712 = frozenset([40])
-    FOLLOW_GT_in_atom1715 = frozenset([1])
-    FOLLOW_LBRACE_in_atom1730 = frozenset(
+    FOLLOW_vector_comp_in_atom1943 = frozenset([40])
+    FOLLOW_GT_in_atom1946 = frozenset([1])
+    FOLLOW_LBRACE_in_atom1961 = frozenset(
         [
             11,
             21,
@@ -7914,54 +8279,54 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_dict_or_set_maker_in_atom1732 = frozenset([88])
-    FOLLOW_RBRACE_in_atom1735 = frozenset([1])
-    FOLLOW_LEN_in_atom1750 = frozenset([63])
-    FOLLOW_LPAREN_in_atom1752 = frozenset(
+    FOLLOW_dict_or_set_maker_in_atom1963 = frozenset([88])
+    FOLLOW_RBRACE_in_atom1966 = frozenset([1])
+    FOLLOW_LEN_in_atom1981 = frozenset([63])
+    FOLLOW_LPAREN_in_atom1983 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_atom1756 = frozenset([93])
-    FOLLOW_RPAREN_in_atom1758 = frozenset([1])
-    FOLLOW_name_in_atom1773 = frozenset([1])
-    FOLLOW_SETTING_ID_in_atom1783 = frozenset([1])
-    FOLLOW_DISTRIBUTION_in_atom1799 = frozenset([63])
-    FOLLOW_LPAREN_in_atom1801 = frozenset(
+    FOLLOW_test_in_atom1987 = frozenset([93])
+    FOLLOW_RPAREN_in_atom1989 = frozenset([1])
+    FOLLOW_name_in_atom2004 = frozenset([1])
+    FOLLOW_SETTING_ID_in_atom2014 = frozenset([1])
+    FOLLOW_DISTRIBUTION_in_atom2030 = frozenset([63])
+    FOLLOW_LPAREN_in_atom2032 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_arglist_in_atom1803 = frozenset([93])
-    FOLLOW_RPAREN_in_atom1805 = frozenset([1])
-    FOLLOW_INTEGER_in_atom1825 = frozenset([1])
-    FOLLOW_FLOAT_NUMBER_in_atom1835 = frozenset([1])
-    FOLLOW_STRING_in_atom1845 = frozenset([1])
-    FOLLOW_NONE_in_atom1855 = frozenset([1])
-    FOLLOW_TRUE_in_atom1867 = frozenset([1])
-    FOLLOW_FALSE_in_atom1879 = frozenset([1])
-    FOLLOW_ID_in_name1899 = frozenset([1])
-    FOLLOW_UNDERSCORE_in_name1909 = frozenset([1])
-    FOLLOW_test_in_testlist_comp1928 = frozenset([1, 16, 34, 87])
-    FOLLOW_comp_for_in_testlist_comp1932 = frozenset([1])
-    FOLLOW_COMMA_in_testlist_comp1972 = frozenset(
+    FOLLOW_arglist_in_atom2034 = frozenset([93])
+    FOLLOW_RPAREN_in_atom2036 = frozenset([1])
+    FOLLOW_INTEGER_in_atom2056 = frozenset([1])
+    FOLLOW_FLOAT_NUMBER_in_atom2066 = frozenset([1])
+    FOLLOW_STRING_in_atom2076 = frozenset([1])
+    FOLLOW_NONE_in_atom2087 = frozenset([1])
+    FOLLOW_TRUE_in_atom2099 = frozenset([1])
+    FOLLOW_FALSE_in_atom2111 = frozenset([1])
+    FOLLOW_ID_in_name2131 = frozenset([1])
+    FOLLOW_UNDERSCORE_in_name2141 = frozenset([1])
+    FOLLOW_test_in_testlist_comp2160 = frozenset([1, 16, 34, 87])
+    FOLLOW_comp_for_in_testlist_comp2164 = frozenset([1])
+    FOLLOW_COMMA_in_testlist_comp2204 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_testlist_comp1976 = frozenset([1, 16])
-    FOLLOW_RANGE_in_testlist_comp2012 = frozenset(
+    FOLLOW_test_in_testlist_comp2208 = frozenset([1, 16])
+    FOLLOW_RANGE_in_testlist_comp2244 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_testlist_comp2016 = frozenset([1, 110])
-    FOLLOW_STEP_in_testlist_comp2019 = frozenset(
+    FOLLOW_test_in_testlist_comp2248 = frozenset([1, 110])
+    FOLLOW_STEP_in_testlist_comp2251 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_testlist_comp2023 = frozenset([1])
-    FOLLOW_expr_in_vector_comp2072 = frozenset([16])
-    FOLLOW_COMMA_in_vector_comp2074 = frozenset(
+    FOLLOW_test_in_testlist_comp2255 = frozenset([1])
+    FOLLOW_expr_in_vector_comp2304 = frozenset([16])
+    FOLLOW_COMMA_in_vector_comp2306 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_expr_in_vector_comp2078 = frozenset([16])
-    FOLLOW_COMMA_in_vector_comp2080 = frozenset(
+    FOLLOW_expr_in_vector_comp2310 = frozenset([16])
+    FOLLOW_COMMA_in_vector_comp2312 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_expr_in_vector_comp2084 = frozenset([1])
-    FOLLOW_LBRACK_in_trailer2118 = frozenset(
+    FOLLOW_expr_in_vector_comp2316 = frozenset([1])
+    FOLLOW_LBRACK_in_trailer2350 = frozenset(
         [
             11,
             15,
@@ -7985,22 +8350,22 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_subscriptlist_in_trailer2120 = frozenset([89])
-    FOLLOW_RBRACK_in_trailer2122 = frozenset([1])
-    FOLLOW_DOT_in_trailer2150 = frozenset([43, 119])
-    FOLLOW_name_in_trailer2152 = frozenset([1])
-    FOLLOW_argument_in_arglist2176 = frozenset([1, 16])
-    FOLLOW_COMMA_in_arglist2179 = frozenset(
+    FOLLOW_subscriptlist_in_trailer2352 = frozenset([89])
+    FOLLOW_RBRACK_in_trailer2354 = frozenset([1])
+    FOLLOW_DOT_in_trailer2382 = frozenset([43, 119])
+    FOLLOW_name_in_trailer2384 = frozenset([1])
+    FOLLOW_argument_in_arglist2408 = frozenset([1, 16])
+    FOLLOW_COMMA_in_arglist2411 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_argument_in_arglist2183 = frozenset([1, 16])
-    FOLLOW_test_in_argument2208 = frozenset([1, 5])
-    FOLLOW_ASSIGN_in_argument2211 = frozenset(
+    FOLLOW_argument_in_arglist2415 = frozenset([1, 16])
+    FOLLOW_test_in_argument2440 = frozenset([1, 5])
+    FOLLOW_ASSIGN_in_argument2443 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_argument2215 = frozenset([1])
-    FOLLOW_subscript__in_subscriptlist2240 = frozenset([1, 16])
-    FOLLOW_COMMA_in_subscriptlist2243 = frozenset(
+    FOLLOW_test_in_argument2447 = frozenset([1])
+    FOLLOW_subscript__in_subscriptlist2472 = frozenset([1, 16])
+    FOLLOW_COMMA_in_subscriptlist2475 = frozenset(
         [
             11,
             15,
@@ -8024,9 +8389,9 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_subscript__in_subscriptlist2247 = frozenset([1, 16])
-    FOLLOW_test_in_subscript_2270 = frozenset([1, 15])
-    FOLLOW_COLON_in_subscript_2273 = frozenset(
+    FOLLOW_subscript__in_subscriptlist2479 = frozenset([1, 16])
+    FOLLOW_test_in_subscript_2502 = frozenset([1, 15])
+    FOLLOW_COLON_in_subscript_2505 = frozenset(
         [
             1,
             11,
@@ -8051,9 +8416,9 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_subscript_2278 = frozenset([1, 15])
-    FOLLOW_sliceop_in_subscript_2285 = frozenset([1])
-    FOLLOW_COLON_in_subscript_2331 = frozenset(
+    FOLLOW_test_in_subscript_2510 = frozenset([1, 15])
+    FOLLOW_sliceop_in_subscript_2517 = frozenset([1])
+    FOLLOW_COLON_in_subscript_2563 = frozenset(
         [
             1,
             11,
@@ -8078,9 +8443,9 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_subscript_2336 = frozenset([1, 15])
-    FOLLOW_sliceop_in_subscript_2343 = frozenset([1])
-    FOLLOW_COLON_in_sliceop2378 = frozenset(
+    FOLLOW_test_in_subscript_2568 = frozenset([1, 15])
+    FOLLOW_sliceop_in_subscript_2575 = frozenset([1])
+    FOLLOW_COLON_in_sliceop2610 = frozenset(
         [
             1,
             11,
@@ -8104,52 +8469,52 @@ class YarcParser(Parser):
             119,
         ]
     )
-    FOLLOW_test_in_sliceop2380 = frozenset([1])
-    FOLLOW_expr_in_exprlist2400 = frozenset([1, 16])
-    FOLLOW_COMMA_in_exprlist2403 = frozenset(
+    FOLLOW_test_in_sliceop2612 = frozenset([1])
+    FOLLOW_expr_in_exprlist2632 = frozenset([1, 16])
+    FOLLOW_COMMA_in_exprlist2635 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_expr_in_exprlist2407 = frozenset([1, 16])
-    FOLLOW_test_in_testlist2427 = frozenset([1, 16])
-    FOLLOW_COMMA_in_testlist2430 = frozenset(
+    FOLLOW_expr_in_exprlist2639 = frozenset([1, 16])
+    FOLLOW_test_in_testlist2659 = frozenset([1, 16])
+    FOLLOW_COMMA_in_testlist2662 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_testlist2434 = frozenset([1, 16])
-    FOLLOW_test_in_dict_or_set_maker2453 = frozenset([1, 15, 16, 34])
-    FOLLOW_COLON_in_dict_or_set_maker2457 = frozenset(
+    FOLLOW_test_in_testlist2666 = frozenset([1, 16])
+    FOLLOW_test_in_dict_or_set_maker2687 = frozenset([1, 15, 16, 34])
+    FOLLOW_COLON_in_dict_or_set_maker2691 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_dict_or_set_maker2459 = frozenset([1, 16, 34])
-    FOLLOW_comp_for_in_dict_or_set_maker2462 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker2467 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker2695 = frozenset([1, 16, 34])
+    FOLLOW_comp_for_in_dict_or_set_maker2700 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker2759 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_dict_or_set_maker2469 = frozenset([15])
-    FOLLOW_COLON_in_dict_or_set_maker2471 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker2763 = frozenset([15])
+    FOLLOW_COLON_in_dict_or_set_maker2765 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_dict_or_set_maker2473 = frozenset([1, 16])
-    FOLLOW_comp_for_in_dict_or_set_maker2488 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker2493 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker2769 = frozenset([1, 16])
+    FOLLOW_comp_for_in_dict_or_set_maker2807 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker2845 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_in_dict_or_set_maker2495 = frozenset([1, 16])
-    FOLLOW_comp_for_in_comp_iter2509 = frozenset([1])
-    FOLLOW_comp_if_in_comp_iter2513 = frozenset([1])
-    FOLLOW_FOR_in_comp_for2521 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker2849 = frozenset([1, 16])
+    FOLLOW_comp_for_in_comp_iter2890 = frozenset([1])
+    FOLLOW_comp_if_in_comp_iter2894 = frozenset([1])
+    FOLLOW_FOR_in_comp_for2907 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 84, 101, 112, 118, 119]
     )
-    FOLLOW_exprlist_in_comp_for2523 = frozenset([48])
-    FOLLOW_IN_in_comp_for2525 = frozenset(
+    FOLLOW_exprlist_in_comp_for2909 = frozenset([48])
+    FOLLOW_IN_in_comp_for2911 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_or_test_in_comp_for2527 = frozenset([1, 34, 47])
-    FOLLOW_comp_iter_in_comp_for2529 = frozenset([1])
-    FOLLOW_IF_in_comp_if2539 = frozenset(
+    FOLLOW_or_test_in_comp_for2913 = frozenset([1, 34, 47])
+    FOLLOW_comp_iter_in_comp_for2915 = frozenset([1])
+    FOLLOW_IF_in_comp_if2944 = frozenset(
         [11, 21, 31, 33, 43, 51, 54, 55, 56, 63, 65, 69, 74, 76, 84, 101, 112, 118, 119]
     )
-    FOLLOW_test_nocond_in_comp_if2541 = frozenset([1, 34, 47])
-    FOLLOW_comp_iter_in_comp_if2543 = frozenset([1])
+    FOLLOW_test_nocond_in_comp_if2946 = frozenset([1, 34, 47])
+    FOLLOW_comp_iter_in_comp_if2948 = frozenset([1])
 
 
 def main(argv, stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr):
