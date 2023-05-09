@@ -137,3 +137,58 @@ rep.distribution.<name>(<arglist>)
 null() ::= "None"
 true() ::= "True"
 false() ::= "False"
+
+list_comp(expr, for) ::=
+<<
+<expr> <for>
+>>
+
+test_list(exprs) ::= 
+<<
+<exprs; separator=", ">
+>>
+
+range(from, to, step) ::=
+<<
+list(*range(<from>, <to><if(step)>, <step><endif>))
+>>
+
+vector_comp(x, y, z) ::=
+<<
+<x>, <y>, <z>
+>>
+
+index(index) ::=
+<<
+[<index>]
+>>
+
+dot_attr(attr) ::=
+<<
+["<attr>"]
+>>
+
+arg_list(args) ::= 
+<<
+<args; separator=", ">
+>>
+
+arg(kw_or_arg, arg) ::=
+<<
+<kw_or_arg> <if(arg)>= <arg><endif>
+>>
+
+subscript_list(subs) ::= 
+<<
+<subs; separator=", ">
+>>
+
+subscript(from, colon, to, step) ::=
+<<
+<if(from)><from><endif><if(colon)>:<endif><if(to)><to><endif><step>
+>>
+
+subscript_step(step) ::=
+<<
+:<if(step)><step><endif>
+>>

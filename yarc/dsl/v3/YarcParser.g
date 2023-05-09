@@ -136,18 +136,24 @@ name:
   | ORDER  */
 ;
 
-testlist_comp : test ( comp_for | (COMMA test)* | RANGE test (STEP test)? );
-vector_comp   : expr COMMA expr COMMA expr /*( comp_for | (COMMA expr)*)*/;
+testlist_comp : exprs+=test ( comp_for -> list_comp(expr={$exprs[0]}, for={$comp_for.st})
+                     | (COMMA exprs+=test)* -> test_list(exprs={$exprs})
+                     | RANGE to=test (STEP step=test)? -> range(from={$exprs[0]}, to={$to.st}, step={$step.st})
+              );
 
-trailer       : LBRACK subscriptlist RBRACK | DOT (name  | AXIS);
-arglist       : argument (COMMA argument)*;
-argument      : test (comp_for | ASSIGN test)?;
-subscriptlist : subscript_ (COMMA subscript_)*;
-subscript_    : test (COLON (test)? (sliceop)?)? | COLON (test)? (sliceop)?;
-sliceop       : COLON test?;
+vector_comp   : x=expr COMMA y=expr COMMA z=expr -> vector_comp(x={$x.st}, y={$y.st}, z={$z.st});
+/*( comp_for | (COMMA expr)*)*/
+trailer       : LBRACK subscriptlist RBRACK -> index(index={$subscriptlist.st}) 
+              | DOT name -> dot_attr(attr={$name.st});
+arglist       : args+=argument (COMMA args+=argument)* -> arg_list(args={$args});
+argument      : kw_or_arg=test (ASSIGN arg=test)? -> arg(kw_or_arg={$kw_or_arg.st}, arg={$arg.st});
+subscriptlist : subs+=subscript_ (COMMA subs+=subscript_)* -> subscript_list(subs={$subs});
+subscript_    : from_=test (COLON to=(test)? step=(sliceop)?)? -> subscript(from={$from_.st}, colon={$COLON}, to={$to.st}, step={$step.st})
+              | COLON to=(test)? step=(sliceop)?  -> subscript(colon={$COLON}, to={$to.st}, step={$step.st});
+sliceop       : COLON test? -> subscipt_step(step={$test.st});
 
-exprlist : expr (COMMA expr)*;
-testlist : test (COMMA test)*;
+exprlist : exprs+=expr (COMMA exprs+=expr)* -> test_list(exprs={$exprs});
+testlist : exprs+=test (COMMA exprs+=test)* -> test_list(exprs={$exprs});
 dict_or_set_maker:
   test ( COLON test (comp_for | (COMMA test COLON test)*)
        | (comp_for | (COMMA test)*) )
