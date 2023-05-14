@@ -10,6 +10,7 @@ from pxr import Gf
 from omni.demo.data_generator import get_files, save_meshes, get_prims
 <settings>
 
+rps = []
 with rep.new_layer():
   <stage>
   
@@ -43,7 +44,7 @@ writer = rep.WriterRegistry.get("<writer_id>")
 writer.initialize(
   <writer_params; separator=",\n">
 )
-writer.attach([<rps; separator=", ">])
+writer.attach(rps)
 
 >>
 
@@ -69,9 +70,151 @@ edit_timeline(params, values) ::=
 
 >>
 
+edit_stmt(id, stmts, behaviors) ::=
+<<
+with <id>:
+  <stmts; separator="\n">
+
+<behaviors; separator="\n">
+>>
+
+param_list(params) ::=
+<<
+<params:{ p | <p.name>=<p.value>}; separator=", ">
+>>
+
+create_prim(id, prim, params, stmts, behaviors) ::=
+<<
+<id> = rep.create.<prim>(<param_list(params)>)
+<edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
+>>
+
+create_from(id, file, params, stmts, behaviors) ::=
+<<
+<id> = rep.create.from_usd(usd=<file>, <param_list(params)>)
+<edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
+
+>>
+
+create_material(id, params) ::=
+<<
+<id> = rep.create.material_omnipbr(<param_list(params)>)
+>>
+
+instantiate_expr(id, file, params, stmts, behaviors) ::=
+<<
+<id> = rep.randomizer.instantiate(paths=<file>, <param_list(params)>)
+<edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
+>>
+
+group_expr(id, names, params, stmts, behaviors) ::=
+<<
+<id> = rep.create.group([<names: { n | n }; separator="\n">], <param_list(params)>)
+<edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
+>>
+
+get_expr(id, filter, path, params) ::=
+<<
+<id> = rep.get.<if(filter)><filter><else>prims<endif>(path_pattern=<path>, <param_list(params)>)
+>>
+
+simple_attr(name, type, value) ::=
+<<
+rep.modify.attribute(name="<name>", value=<value><if(type)>, attribute_type="<type>"<endif>)
+>>
+
+scatter_expr(scatter_type, surface, params) ::=
+<<
+rep.randomizer.<scatter_type>(<surface>, <param_list(params)>)
+>>
+
+rot_around_expr(center, params) ::=
+<<
+rep.modify.rotate_around(center_prim=<center>, <param_list(params)>)
+>>
+
+physics_expr(physics_attr, params) ::=
+<<
+rep.physics.<physics_attr>(<param_list(params=params)>)
+>>
+
+modify_pose(type, value) ::=
+<<
+rep.modify.pose(<type>=<value>)
+>>
+
+translate_expr(type, value) ::=
+<<
+<modify_pose(type=type, value=value)>
+>>
+
+rotate_expr(type, value) ::=
+<<
+<modify_pose(type=type, value=value)>
+>>
+
+scale_expr(value) ::=
+<<
+<modify_pose(type="scale", value=value)>
+>>
+
+look_at_expr(value) ::=
+<<
+<modify_pose(type="look_at", value=value)>
+>>
+
+look_at_up_axis_expr(value) ::=
+<<
+<modify_pose(type="look_at_up_axis", value=value)>
+>>
+
+size_expr(value) ::=
+<<
+<modify_pose(type="size", value=value)>
+>>
+
+semantics_expr(value) ::=
+<<
+rep.modify.semantics(<value>)
+>>
+
+visible_expr(value) ::=
+<<
+rep.modify.visibility(<value>)
+>>
+
+inner_behavior_stmt(behavior, id, block) ::=
+<<
+<behavior>:
+  with <id>:
+    <block>
+>>
+
+behavior_stmt(behavior, block) ::=
+<<
+<behavior>:
+  <block>
+>>
+
+behavior_expr(interval, is_frame) ::=
+<<
+rep.trigger.<if(is_frame)>on_frame(num_frames<else>on_time(num<endif>=ceil(settings["num_scenes"]<if(interval)>/<interval><endif>)<if(interval)>, interval=<interval><endif>)
+>>
+
+behavior_block(stmts) ::=
+<<
+<stmts; separator="\n">
+>>
+
 fetch_expr(ext, path, filter, limit, recursive) ::=
 <<
-get_files(path=<path>, exts=<ext><if(recursive)>, recursive=True<endif><if(filter)>, path_filter=<filter><endif><if(limit)>, max_files=<limit><endif>)
+get_files(
+  path=<path>, 
+  exts=<ext><if(recursive)>, 
+  recursive=True<endif><if(filter)>, 
+  path_filter=<filter><endif><if(limit)>, 
+  max_files=<limit><endif>
+)
 >>
 
 expr_stmt(assignable, op, value) ::=

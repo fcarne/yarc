@@ -25,11 +25,9 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPES           : 'Plane' | 'Cube' | 'Cone' | 'Torus';
-SHAPES_OR_LIGHTS : 'Sphere' | 'Cylinder' | 'Disk';
+SHAPE            : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
 CAMERA           : 'Camera';
 LIGHT            : 'Light';
-LIGHT_TYPE       : 'Rect' | 'Dome' | 'Distant';
 STEREO           : 'Stereo';
 MATERIAL         : 'Material';
 TIMELINE         : 'Timeline';

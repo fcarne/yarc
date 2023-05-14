@@ -1,6 +1,6 @@
-def guard_method_calls(condition, default_return=None):
+def guarded(condition, default_return=None):
     def decorator(method):
-        def guarded(*args, **kwargs):
+        def guarded_method(*args, **kwargs):
             if callable(condition):
                 should_call = condition()
             else:
@@ -11,6 +11,6 @@ def guard_method_calls(condition, default_return=None):
             else:
                 return default_return
 
-        return guarded
+        return guarded_method
 
     return decorator

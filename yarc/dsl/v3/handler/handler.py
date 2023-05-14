@@ -1,4 +1,17 @@
+from typing import Any, NamedTuple, Optional, Union
+
+import random
+import string
+
+from antlr3 import Token
+
 from yarc.dsl.v3.handler.simbol_stack import SymbolStack
+
+
+class Attribute(NamedTuple):
+    name: str
+    value: float
+    st: str
 
 
 class Handler:
@@ -46,6 +59,8 @@ class Handler:
     }
 
     def __init__(self):
+        random.seed(42)
+
         self.__comments = []
         self.__snippets = []
 
@@ -68,3 +83,33 @@ class Handler:
     @property
     def symbol_stack(self) -> SymbolStack:
         return self.__symbol_stack
+
+    def get_attrs(self, directive: str, attrs: Optional[list[Attribute]]) -> list[str]:
+        if attrs is None:
+            return []
+        return [attr.st for attr in attrs if attr.name != "behavior"]
+
+    def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
+        if attrs is None:
+            return []
+        return [attr.st for attr in attrs if attr.name == "behavior"]
+
+    def get_params(
+        self, directive: str, attrs: list[Attribute], extra_param: Optional[Any] = None
+    ) -> list[Attribute]:
+        if attrs is None:
+            return []
+        return [Attribute("extra_param", extra_param, "")]
+
+    def map(self, *tokens: list[Union[Token, str]]) -> str:
+        tokens = [
+            token.text if isinstance(token, Token) else str(token) for token in tokens
+        ]
+        return "_".join(tokens)
+
+    def is_frame(self, type: Token) -> bool:
+        return "frame" in type.text
+
+    def get_random_uid(self) -> str:
+        suffix = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        return f"prim_{suffix}"

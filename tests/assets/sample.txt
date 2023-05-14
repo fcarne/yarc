@@ -11,6 +11,7 @@ settings:
 
 stage:  
   open '*/scenario.usd'
+
   edit Timeline:
     start_frame 90
     end_frame 120
@@ -29,11 +30,12 @@ stage:
     kinematics:
       velocity 150
   
-  create Disk Light:
+  create Light:
+    type 'disk'
     radius:float 100
     
     every frame:
-      camera_translate to <0,0, 250>
+      color <0,0, 250>
 
 
   camera = get camera at '/World/Room':
