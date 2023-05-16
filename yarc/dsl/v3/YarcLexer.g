@@ -49,7 +49,6 @@ RECURSIVE : 'recursive';
 
 /* Modifiers */
 TRANSLATE     : 'translate';
-CAM_TRANSLATE : 'camera_translate';
 ROTATE        : 'rotate';
 SCALE         : 'scale';
 SEMANTICS     : 'semantics';
@@ -61,9 +60,10 @@ AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
 ORDER         : AXIS AXIS AXIS;
 
 /* Compound rules */
-SCATTER    : 'scatter_' ('2d' | '3d');
-ROT_AROUND : 'rotate_around';
-PHYSICS    : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
+SCATTER     : 'scatter_' ('2d' | '3d');
+ROT_AROUND  : 'rotate_around';
+MOVE_TO_CAM : 'move_to_camera';
+PHYSICS     : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
 
 /* Dynamic behavior */ 
 EVERY  : 'every';
@@ -72,13 +72,13 @@ TIME   : 'sec' ('ond' 's'?)?;
 
 /* Distributions */
 DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' ;
-
+COMBINE : 'Combine' ;
 // Native code snippets
-SNIPPET : NESTED_CODE NEWLINE? { print("FOUND SNIPPET CODE!") } {self.skip()} ;
+SNIPPET : NESTED_CODE ;
 
 fragment NESTED_CODE:
   LBRACE LBRACE 
-    ( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 
+    ( options {k=2; greedy=false;}: NESTED_CODE	| .	)* 
   RBRACE RBRACE
 ;
 
@@ -86,6 +86,7 @@ fragment NESTED_CODE:
 TO : 'to'; // translate to
 ON : 'on'; // scatter on
 AT : 'at'; // get ... at ...
+
 /* 
  * Everything that follows is a reduced version of the Python 3 Lexer
  * found at (https://github.com/antlr/grammars-v4) 

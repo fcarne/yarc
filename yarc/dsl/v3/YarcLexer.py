@@ -1,4 +1,4 @@
-# $ANTLR 3.5.3 YarcLexer.g 2023-05-14 18:35:47
+# $ANTLR 3.5.3 YarcLexer.g 2023-05-16 20:35:46
 
 import sys
 
@@ -34,8 +34,8 @@ BIT_AND = 10
 BIT_NOT = 11
 BIT_OR = 12
 CAMERA = 13
-CAM_TRANSLATE = 14
-COLON = 15
+COLON = 14
+COMBINE = 15
 COMMA = 16
 COMMENT = 17
 CREATE = 18
@@ -90,59 +90,60 @@ MATCH = 66
 MATERIAL = 67
 MINUS = 68
 MOD = 69
-MUL = 70
-NESTED_CODE = 71
-NEWLINE = 72
-NONE = 73
-NON_ZERO_DIGIT = 74
-NOT = 75
-NOT_EQ = 76
-OCT_DIGIT = 77
-ON = 78
-OPEN = 79
-OR = 80
-ORDER = 81
-PHYSICS = 82
-PLUS = 83
-POINT_FLOAT = 84
-POWER = 85
-RANGE = 86
-RBRACE = 87
-RBRACK = 88
-RECURSIVE = 89
-ROTATE = 90
-ROT_AROUND = 91
-RPAREN = 92
-RSHIFT = 93
-SCALE = 94
-SCATTER = 95
-SCENARIO = 96
-SEMANTICS = 97
-SEMI = 98
-SETTINGS = 99
-SETTING_ID = 100
-SHAPE = 101
-SHORT_STRING = 102
-SIZE = 103
-SKIP_ = 104
-SNIPPET = 105
-SPACES = 106
-STAGE = 107
-STEP = 108
-STEREO = 109
-STRING = 110
-STRING_ESCAPE_SEQ = 111
-TIME = 112
-TIMELINE = 113
-TO = 114
-TRANSLATE = 115
-TRUE = 116
-UNDERSCORE = 117
-UNKNOWN = 118
-UP_AXIS = 119
-VISIBLE = 120
-WRITERS = 121
-XOR = 122
+MOVE_TO_CAM = 70
+MUL = 71
+NESTED_CODE = 72
+NEWLINE = 73
+NONE = 74
+NON_ZERO_DIGIT = 75
+NOT = 76
+NOT_EQ = 77
+OCT_DIGIT = 78
+ON = 79
+OPEN = 80
+OR = 81
+ORDER = 82
+PHYSICS = 83
+PLUS = 84
+POINT_FLOAT = 85
+POWER = 86
+RANGE = 87
+RBRACE = 88
+RBRACK = 89
+RECURSIVE = 90
+ROTATE = 91
+ROT_AROUND = 92
+RPAREN = 93
+RSHIFT = 94
+SCALE = 95
+SCATTER = 96
+SCENARIO = 97
+SEMANTICS = 98
+SEMI = 99
+SETTINGS = 100
+SETTING_ID = 101
+SHAPE = 102
+SHORT_STRING = 103
+SIZE = 104
+SKIP_ = 105
+SNIPPET = 106
+SPACES = 107
+STAGE = 108
+STEP = 109
+STEREO = 110
+STRING = 111
+STRING_ESCAPE_SEQ = 112
+TIME = 113
+TIMELINE = 114
+TO = 115
+TRANSLATE = 116
+TRUE = 117
+UNDERSCORE = 118
+UNKNOWN = 119
+UP_AXIS = 120
+VISIBLE = 121
+WRITERS = 122
+XOR = 123
 
 # token names
 tokenNamesMap = {
@@ -161,8 +162,8 @@ tokenNamesMap = {
     11: "BIT_NOT",
     12: "BIT_OR",
     13: "CAMERA",
-    14: "CAM_TRANSLATE",
-    15: "COLON",
+    14: "COLON",
+    15: "COMBINE",
     16: "COMMA",
     17: "COMMENT",
     18: "CREATE",
@@ -217,59 +218,60 @@ tokenNamesMap = {
     67: "MATERIAL",
     68: "MINUS",
     69: "MOD",
-    70: "MUL",
-    71: "NESTED_CODE",
-    72: "NEWLINE",
-    73: "NONE",
-    74: "NON_ZERO_DIGIT",
-    75: "NOT",
-    76: "NOT_EQ",
-    77: "OCT_DIGIT",
-    78: "ON",
-    79: "OPEN",
-    80: "OR",
-    81: "ORDER",
-    82: "PHYSICS",
-    83: "PLUS",
-    84: "POINT_FLOAT",
-    85: "POWER",
-    86: "RANGE",
-    87: "RBRACE",
-    88: "RBRACK",
-    89: "RECURSIVE",
-    90: "ROTATE",
-    91: "ROT_AROUND",
-    92: "RPAREN",
-    93: "RSHIFT",
-    94: "SCALE",
-    95: "SCATTER",
-    96: "SCENARIO",
-    97: "SEMANTICS",
-    98: "SEMI",
-    99: "SETTINGS",
-    100: "SETTING_ID",
-    101: "SHAPE",
-    102: "SHORT_STRING",
-    103: "SIZE",
-    104: "SKIP_",
-    105: "SNIPPET",
-    106: "SPACES",
-    107: "STAGE",
-    108: "STEP",
-    109: "STEREO",
-    110: "STRING",
-    111: "STRING_ESCAPE_SEQ",
-    112: "TIME",
-    113: "TIMELINE",
-    114: "TO",
-    115: "TRANSLATE",
-    116: "TRUE",
-    117: "UNDERSCORE",
-    118: "UNKNOWN",
-    119: "UP_AXIS",
-    120: "VISIBLE",
-    121: "WRITERS",
-    122: "XOR",
+    70: "MOVE_TO_CAM",
+    71: "MUL",
+    72: "NESTED_CODE",
+    73: "NEWLINE",
+    74: "NONE",
+    75: "NON_ZERO_DIGIT",
+    76: "NOT",
+    77: "NOT_EQ",
+    78: "OCT_DIGIT",
+    79: "ON",
+    80: "OPEN",
+    81: "OR",
+    82: "ORDER",
+    83: "PHYSICS",
+    84: "PLUS",
+    85: "POINT_FLOAT",
+    86: "POWER",
+    87: "RANGE",
+    88: "RBRACE",
+    89: "RBRACK",
+    90: "RECURSIVE",
+    91: "ROTATE",
+    92: "ROT_AROUND",
+    93: "RPAREN",
+    94: "RSHIFT",
+    95: "SCALE",
+    96: "SCATTER",
+    97: "SCENARIO",
+    98: "SEMANTICS",
+    99: "SEMI",
+    100: "SETTINGS",
+    101: "SETTING_ID",
+    102: "SHAPE",
+    103: "SHORT_STRING",
+    104: "SIZE",
+    105: "SKIP_",
+    106: "SNIPPET",
+    107: "SPACES",
+    108: "STAGE",
+    109: "STEP",
+    110: "STEREO",
+    111: "STRING",
+    112: "STRING_ESCAPE_SEQ",
+    113: "TIME",
+    114: "TIMELINE",
+    115: "TO",
+    116: "TRANSLATE",
+    117: "TRUE",
+    118: "UNDERSCORE",
+    119: "UNKNOWN",
+    120: "UP_AXIS",
+    121: "VISIBLE",
+    122: "WRITERS",
+    123: "XOR",
 }
 Token.registerTokenNamesMap(tokenNamesMap)
 
@@ -285,16 +287,28 @@ class YarcLexer(YarcLexerBase):
 
         self.delegates = []
 
-        self.dfa21 = self.DFA21(
+        self.dfa20 = self.DFA20(
             self,
-            21,
-            eot=self.DFA21_eot,
-            eof=self.DFA21_eof,
-            min=self.DFA21_min,
-            max=self.DFA21_max,
-            accept=self.DFA21_accept,
-            special=self.DFA21_special,
-            transition=self.DFA21_transition,
+            20,
+            eot=self.DFA20_eot,
+            eof=self.DFA20_eof,
+            min=self.DFA20_min,
+            max=self.DFA20_max,
+            accept=self.DFA20_accept,
+            special=self.DFA20_special,
+            transition=self.DFA20_transition,
+        )
+
+        self.dfa30 = self.DFA30(
+            self,
+            30,
+            eot=self.DFA30_eot,
+            eof=self.DFA30_eof,
+            min=self.DFA30_min,
+            max=self.DFA30_max,
+            accept=self.DFA30_accept,
+            special=self.DFA30_special,
+            transition=self.DFA30_transition,
         )
 
         self.dfa31 = self.DFA31(
@@ -309,28 +323,16 @@ class YarcLexer(YarcLexerBase):
             transition=self.DFA31_transition,
         )
 
-        self.dfa32 = self.DFA32(
+        self.dfa41 = self.DFA41(
             self,
-            32,
-            eot=self.DFA32_eot,
-            eof=self.DFA32_eof,
-            min=self.DFA32_min,
-            max=self.DFA32_max,
-            accept=self.DFA32_accept,
-            special=self.DFA32_special,
-            transition=self.DFA32_transition,
-        )
-
-        self.dfa42 = self.DFA42(
-            self,
-            42,
-            eot=self.DFA42_eot,
-            eof=self.DFA42_eof,
-            min=self.DFA42_min,
-            max=self.DFA42_max,
-            accept=self.DFA42_accept,
-            special=self.DFA42_special,
-            transition=self.DFA42_transition,
+            41,
+            eot=self.DFA41_eot,
+            eof=self.DFA41_eof,
+            min=self.DFA41_min,
+            max=self.DFA41_max,
+            accept=self.DFA41_accept,
+            special=self.DFA41_special,
+            transition=self.DFA41_transition,
         )
 
     # $ANTLR start "SCENARIO"
@@ -785,25 +787,6 @@ class YarcLexer(YarcLexerBase):
 
     # $ANTLR end "TRANSLATE"
 
-    # $ANTLR start "CAM_TRANSLATE"
-    def mCAM_TRANSLATE(
-        self,
-    ):
-        try:
-            _type = CAM_TRANSLATE
-            _channel = DEFAULT_CHANNEL
-
-            # YarcLexer.g:52:15: ( 'camera_translate' )
-            # YarcLexer.g:52:17: 'camera_translate'
-            self.match("camera_translate")
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "CAM_TRANSLATE"
-
     # $ANTLR start "ROTATE"
     def mROTATE(
         self,
@@ -812,8 +795,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROTATE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:53:15: ( 'rotate' )
-            # YarcLexer.g:53:17: 'rotate'
+            # YarcLexer.g:52:15: ( 'rotate' )
+            # YarcLexer.g:52:17: 'rotate'
             self.match("rotate")
 
             self._state.type = _type
@@ -831,8 +814,8 @@ class YarcLexer(YarcLexerBase):
             _type = SCALE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:54:15: ( 'scale' )
-            # YarcLexer.g:54:17: 'scale'
+            # YarcLexer.g:53:15: ( 'scale' )
+            # YarcLexer.g:53:17: 'scale'
             self.match("scale")
 
             self._state.type = _type
@@ -850,8 +833,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMANTICS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:55:15: ( 'semantics' )
-            # YarcLexer.g:55:17: 'semantics'
+            # YarcLexer.g:54:15: ( 'semantics' )
+            # YarcLexer.g:54:17: 'semantics'
             self.match("semantics")
 
             self._state.type = _type
@@ -869,8 +852,8 @@ class YarcLexer(YarcLexerBase):
             _type = VISIBLE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:56:15: ( 'visible' )
-            # YarcLexer.g:56:17: 'visible'
+            # YarcLexer.g:55:15: ( 'visible' )
+            # YarcLexer.g:55:17: 'visible'
             self.match("visible")
 
             self._state.type = _type
@@ -888,8 +871,8 @@ class YarcLexer(YarcLexerBase):
             _type = SIZE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:57:15: ( 'size' )
-            # YarcLexer.g:57:17: 'size'
+            # YarcLexer.g:56:15: ( 'size' )
+            # YarcLexer.g:56:17: 'size'
             self.match("size")
 
             self._state.type = _type
@@ -907,8 +890,8 @@ class YarcLexer(YarcLexerBase):
             _type = LOOK_AT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:58:15: ( 'look_at' )
-            # YarcLexer.g:58:17: 'look_at'
+            # YarcLexer.g:57:15: ( 'look_at' )
+            # YarcLexer.g:57:17: 'look_at'
             self.match("look_at")
 
             self._state.type = _type
@@ -926,8 +909,8 @@ class YarcLexer(YarcLexerBase):
             _type = UP_AXIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:59:15: ( 'up_axis' )
-            # YarcLexer.g:59:17: 'up_axis'
+            # YarcLexer.g:58:15: ( 'up_axis' )
+            # YarcLexer.g:58:17: 'up_axis'
             self.match("up_axis")
 
             self._state.type = _type
@@ -945,7 +928,7 @@ class YarcLexer(YarcLexerBase):
             _type = AXIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:60:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
+            # YarcLexer.g:59:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
             # YarcLexer.g:
             if self.input.LA(1) in {88, 89, 90, 120, 121, 122}:
                 self.input.consume()
@@ -969,8 +952,8 @@ class YarcLexer(YarcLexerBase):
             _type = ORDER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:61:15: ( AXIS AXIS AXIS )
-            # YarcLexer.g:61:17: AXIS AXIS AXIS
+            # YarcLexer.g:60:15: ( AXIS AXIS AXIS )
+            # YarcLexer.g:60:17: AXIS AXIS AXIS
             self.mAXIS()
 
             self.mAXIS()
@@ -992,11 +975,11 @@ class YarcLexer(YarcLexerBase):
             _type = SCATTER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:64:12: ( 'scatter_' ( '2d' | '3d' ) )
-            # YarcLexer.g:64:14: 'scatter_' ( '2d' | '3d' )
+            # YarcLexer.g:63:13: ( 'scatter_' ( '2d' | '3d' ) )
+            # YarcLexer.g:63:15: 'scatter_' ( '2d' | '3d' )
             self.match("scatter_")
 
-            # YarcLexer.g:64:25: ( '2d' | '3d' )
+            # YarcLexer.g:63:26: ( '2d' | '3d' )
             alt2 = 2
             LA2_0 = self.input.LA(1)
 
@@ -1010,11 +993,11 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt2 == 1:
-                # YarcLexer.g:64:26: '2d'
+                # YarcLexer.g:63:27: '2d'
                 self.match("2d")
 
             elif alt2 == 2:
-                # YarcLexer.g:64:33: '3d'
+                # YarcLexer.g:63:34: '3d'
                 self.match("3d")
 
             self._state.type = _type
@@ -1032,8 +1015,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROT_AROUND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:65:12: ( 'rotate_around' )
-            # YarcLexer.g:65:14: 'rotate_around'
+            # YarcLexer.g:64:13: ( 'rotate_around' )
+            # YarcLexer.g:64:15: 'rotate_around'
             self.match("rotate_around")
 
             self._state.type = _type
@@ -1043,6 +1026,25 @@ class YarcLexer(YarcLexerBase):
 
     # $ANTLR end "ROT_AROUND"
 
+    # $ANTLR start "MOVE_TO_CAM"
+    def mMOVE_TO_CAM(
+        self,
+    ):
+        try:
+            _type = MOVE_TO_CAM
+            _channel = DEFAULT_CHANNEL
+
+            # YarcLexer.g:65:13: ( 'move_to_camera' )
+            # YarcLexer.g:65:15: 'move_to_camera'
+            self.match("move_to_camera")
+
+            self._state.type = _type
+            self._state.channel = _channel
+        finally:
+            pass
+
+    # $ANTLR end "MOVE_TO_CAM"
+
     # $ANTLR start "PHYSICS"
     def mPHYSICS(
         self,
@@ -1051,7 +1053,7 @@ class YarcLexer(YarcLexerBase):
             _type = PHYSICS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:66:12: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
+            # YarcLexer.g:66:13: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
             alt3 = 4
             LA3 = self.input.LA(1)
             if LA3 in {99}:
@@ -1068,19 +1070,19 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt3 == 1:
-                # YarcLexer.g:66:14: 'collider'
+                # YarcLexer.g:66:15: 'collider'
                 self.match("collider")
 
             elif alt3 == 2:
-                # YarcLexer.g:66:27: 'kinematics'
+                # YarcLexer.g:66:28: 'kinematics'
                 self.match("kinematics")
 
             elif alt3 == 3:
-                # YarcLexer.g:66:42: 'rigid_body'
+                # YarcLexer.g:66:43: 'rigid_body'
                 self.match("rigid_body")
 
             elif alt3 == 4:
-                # YarcLexer.g:66:57: 'physics_material'
+                # YarcLexer.g:66:58: 'physics_material'
                 self.match("physics_material")
 
             self._state.type = _type
@@ -1230,6 +1232,25 @@ class YarcLexer(YarcLexerBase):
 
     # $ANTLR end "DISTRIBUTION"
 
+    # $ANTLR start "COMBINE"
+    def mCOMBINE(
+        self,
+    ):
+        try:
+            _type = COMBINE
+            _channel = DEFAULT_CHANNEL
+
+            # YarcLexer.g:75:9: ( 'Combine' )
+            # YarcLexer.g:75:11: 'Combine'
+            self.match("Combine")
+
+            self._state.type = _type
+            self._state.channel = _channel
+        finally:
+            pass
+
+    # $ANTLR end "COMBINE"
+
     # $ANTLR start "SNIPPET"
     def mSNIPPET(
         self,
@@ -1238,27 +1259,9 @@ class YarcLexer(YarcLexerBase):
             _type = SNIPPET
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:77:9: ( NESTED_CODE ( NEWLINE )? )
-            # YarcLexer.g:77:11: NESTED_CODE ( NEWLINE )?
+            # YarcLexer.g:77:9: ( NESTED_CODE )
+            # YarcLexer.g:77:11: NESTED_CODE
             self.mNESTED_CODE()
-
-            # YarcLexer.g:77:23: ( NEWLINE )?
-            alt8 = 2
-            LA8_0 = self.input.LA(1)
-
-            if LA8_0 in {10, 12, 13}:
-                alt8 = 1
-            if alt8 == 1:
-                # YarcLexer.g:77:23: NEWLINE
-                self.mNEWLINE()
-
-            # action start
-            print("FOUND SNIPPET CODE!")
-            # action end
-
-            # action start
-            self.skip()
-            # action end
 
             self._state.type = _type
             self._state.channel = _channel
@@ -1279,27 +1282,27 @@ class YarcLexer(YarcLexerBase):
             self.mLBRACE()
 
             # YarcLexer.g:81:5: ( options {k=2; greedy=false; } : NESTED_CODE | . )*
-            while True:  # loop9
-                alt9 = 3
-                LA9_0 = self.input.LA(1)
+            while True:  # loop8
+                alt8 = 3
+                LA8_0 = self.input.LA(1)
 
-                if LA9_0 == 125:
-                    alt9 = 3
-                elif LA9_0 == 123:
-                    alt9 = 1
-                elif (0 <= LA9_0 <= 122) or (126 <= LA9_0 <= 65535) or LA9_0 in {124}:
-                    alt9 = 2
+                if LA8_0 == 125:
+                    alt8 = 3
+                elif LA8_0 == 123:
+                    alt8 = 1
+                elif (0 <= LA8_0 <= 122) or (126 <= LA8_0 <= 65535) or LA8_0 in {124}:
+                    alt8 = 2
 
-                if alt9 == 1:
+                if alt8 == 1:
                     # YarcLexer.g:81:37: NESTED_CODE
                     self.mNESTED_CODE()
 
-                elif alt9 == 2:
+                elif alt8 == 2:
                     # YarcLexer.g:81:51: .
                     self.matchAny()
 
                 else:
-                    break  # loop9
+                    break  # loop8
 
             self.mRBRACE()
 
@@ -1375,8 +1378,8 @@ class YarcLexer(YarcLexerBase):
             _type = AND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:95:12: ( 'and' )
-            # YarcLexer.g:95:14: 'and'
+            # YarcLexer.g:96:12: ( 'and' )
+            # YarcLexer.g:96:14: 'and'
             self.match("and")
 
             self._state.type = _type
@@ -1394,8 +1397,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELSE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:96:12: ( 'else' )
-            # YarcLexer.g:96:14: 'else'
+            # YarcLexer.g:97:12: ( 'else' )
+            # YarcLexer.g:97:14: 'else'
             self.match("else")
 
             self._state.type = _type
@@ -1413,8 +1416,8 @@ class YarcLexer(YarcLexerBase):
             _type = FALSE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:97:12: ( 'false' )
-            # YarcLexer.g:97:14: 'false'
+            # YarcLexer.g:98:12: ( 'false' )
+            # YarcLexer.g:98:14: 'false'
             self.match("false")
 
             self._state.type = _type
@@ -1432,8 +1435,8 @@ class YarcLexer(YarcLexerBase):
             _type = FOR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:98:12: ( 'for' )
-            # YarcLexer.g:98:14: 'for'
+            # YarcLexer.g:99:12: ( 'for' )
+            # YarcLexer.g:99:14: 'for'
             self.match("for")
 
             self._state.type = _type
@@ -1451,8 +1454,8 @@ class YarcLexer(YarcLexerBase):
             _type = FROM
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:99:12: ( 'from' )
-            # YarcLexer.g:99:14: 'from'
+            # YarcLexer.g:100:12: ( 'from' )
+            # YarcLexer.g:100:14: 'from'
             self.match("from")
 
             self._state.type = _type
@@ -1470,8 +1473,8 @@ class YarcLexer(YarcLexerBase):
             _type = IF
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:100:12: ( 'if' )
-            # YarcLexer.g:100:14: 'if'
+            # YarcLexer.g:101:12: ( 'if' )
+            # YarcLexer.g:101:14: 'if'
             self.match("if")
 
             self._state.type = _type
@@ -1489,8 +1492,8 @@ class YarcLexer(YarcLexerBase):
             _type = IN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:101:12: ( 'in' )
-            # YarcLexer.g:101:14: 'in'
+            # YarcLexer.g:102:12: ( 'in' )
+            # YarcLexer.g:102:14: 'in'
             self.match("in")
 
             self._state.type = _type
@@ -1508,8 +1511,8 @@ class YarcLexer(YarcLexerBase):
             _type = IS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:102:12: ( 'is' )
-            # YarcLexer.g:102:14: 'is'
+            # YarcLexer.g:103:12: ( 'is' )
+            # YarcLexer.g:103:14: 'is'
             self.match("is")
 
             self._state.type = _type
@@ -1527,8 +1530,8 @@ class YarcLexer(YarcLexerBase):
             _type = LEN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:103:12: ( 'len' )
-            # YarcLexer.g:103:14: 'len'
+            # YarcLexer.g:104:12: ( 'len' )
+            # YarcLexer.g:104:14: 'len'
             self.match("len")
 
             self._state.type = _type
@@ -1546,8 +1549,8 @@ class YarcLexer(YarcLexerBase):
             _type = NONE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:104:12: ( 'none' )
-            # YarcLexer.g:104:14: 'none'
+            # YarcLexer.g:105:12: ( 'none' )
+            # YarcLexer.g:105:14: 'none'
             self.match("none")
 
             self._state.type = _type
@@ -1565,8 +1568,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:105:12: ( 'not' )
-            # YarcLexer.g:105:14: 'not'
+            # YarcLexer.g:106:12: ( 'not' )
+            # YarcLexer.g:106:14: 'not'
             self.match("not")
 
             self._state.type = _type
@@ -1584,8 +1587,8 @@ class YarcLexer(YarcLexerBase):
             _type = OR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:106:12: ( 'or' )
-            # YarcLexer.g:106:14: 'or'
+            # YarcLexer.g:107:12: ( 'or' )
+            # YarcLexer.g:107:14: 'or'
             self.match("or")
 
             self._state.type = _type
@@ -1603,8 +1606,8 @@ class YarcLexer(YarcLexerBase):
             _type = STEP
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:107:12: ( 'step' )
-            # YarcLexer.g:107:14: 'step'
+            # YarcLexer.g:108:12: ( 'step' )
+            # YarcLexer.g:108:14: 'step'
             self.match("step")
 
             self._state.type = _type
@@ -1622,8 +1625,8 @@ class YarcLexer(YarcLexerBase):
             _type = TRUE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:108:12: ( 'true' )
-            # YarcLexer.g:108:14: 'true'
+            # YarcLexer.g:109:12: ( 'true' )
+            # YarcLexer.g:109:14: 'true'
             self.match("true")
 
             self._state.type = _type
@@ -1641,8 +1644,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNDERSCORE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:109:12: ( '_' )
-            # YarcLexer.g:109:14: '_'
+            # YarcLexer.g:110:12: ( '_' )
+            # YarcLexer.g:110:14: '_'
             self.match(95)
 
             self._state.type = _type
@@ -1660,8 +1663,8 @@ class YarcLexer(YarcLexerBase):
             _type = DOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:112:10: ( '.' )
-            # YarcLexer.g:112:12: '.'
+            # YarcLexer.g:113:10: ( '.' )
+            # YarcLexer.g:113:12: '.'
             self.match(46)
 
             self._state.type = _type
@@ -1679,8 +1682,8 @@ class YarcLexer(YarcLexerBase):
             _type = RANGE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:113:10: ( '..' )
-            # YarcLexer.g:113:12: '..'
+            # YarcLexer.g:114:10: ( '..' )
+            # YarcLexer.g:114:12: '..'
             self.match("..")
 
             self._state.type = _type
@@ -1698,8 +1701,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELLIPSIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:114:10: ( '...' )
-            # YarcLexer.g:114:12: '...'
+            # YarcLexer.g:115:10: ( '...' )
+            # YarcLexer.g:115:12: '...'
             self.match("...")
 
             self._state.type = _type
@@ -1717,8 +1720,8 @@ class YarcLexer(YarcLexerBase):
             _type = COMMA
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:115:10: ( ',' )
-            # YarcLexer.g:115:12: ','
+            # YarcLexer.g:116:10: ( ',' )
+            # YarcLexer.g:116:12: ','
             self.match(44)
 
             self._state.type = _type
@@ -1736,8 +1739,8 @@ class YarcLexer(YarcLexerBase):
             _type = COLON
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:116:10: ( ':' )
-            # YarcLexer.g:116:12: ':'
+            # YarcLexer.g:117:10: ( ':' )
+            # YarcLexer.g:117:12: ':'
             self.match(58)
 
             self._state.type = _type
@@ -1755,8 +1758,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMI
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:117:10: ( ';' )
-            # YarcLexer.g:117:12: ';'
+            # YarcLexer.g:118:10: ( ';' )
+            # YarcLexer.g:118:12: ';'
             self.match(59)
 
             self._state.type = _type
@@ -1774,8 +1777,8 @@ class YarcLexer(YarcLexerBase):
             _type = ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:119:9: ( '=' )
-            # YarcLexer.g:119:11: '='
+            # YarcLexer.g:120:9: ( '=' )
+            # YarcLexer.g:120:11: '='
             self.match(61)
 
             self._state.type = _type
@@ -1793,8 +1796,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_OR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:120:9: ( '|' )
-            # YarcLexer.g:120:11: '|'
+            # YarcLexer.g:121:9: ( '|' )
+            # YarcLexer.g:121:11: '|'
             self.match(124)
 
             self._state.type = _type
@@ -1812,8 +1815,8 @@ class YarcLexer(YarcLexerBase):
             _type = XOR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:121:9: ( '^' )
-            # YarcLexer.g:121:11: '^'
+            # YarcLexer.g:122:9: ( '^' )
+            # YarcLexer.g:122:11: '^'
             self.match(94)
 
             self._state.type = _type
@@ -1831,8 +1834,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_AND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:122:9: ( '&' )
-            # YarcLexer.g:122:11: '&'
+            # YarcLexer.g:123:9: ( '&' )
+            # YarcLexer.g:123:11: '&'
             self.match(38)
 
             self._state.type = _type
@@ -1850,8 +1853,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_NOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:123:9: ( '~' )
-            # YarcLexer.g:123:11: '~'
+            # YarcLexer.g:124:9: ( '~' )
+            # YarcLexer.g:124:11: '~'
             self.match(126)
 
             self._state.type = _type
@@ -1869,8 +1872,8 @@ class YarcLexer(YarcLexerBase):
             _type = LSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:124:9: ( '<<' )
-            # YarcLexer.g:124:11: '<<'
+            # YarcLexer.g:125:9: ( '<<' )
+            # YarcLexer.g:125:11: '<<'
             self.match("<<")
 
             self._state.type = _type
@@ -1888,8 +1891,8 @@ class YarcLexer(YarcLexerBase):
             _type = RSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:125:9: ( '>>' )
-            # YarcLexer.g:125:11: '>>'
+            # YarcLexer.g:126:9: ( '>>' )
+            # YarcLexer.g:126:11: '>>'
             self.match(">>")
 
             self._state.type = _type
@@ -1907,8 +1910,8 @@ class YarcLexer(YarcLexerBase):
             _type = PLUS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:126:9: ( '+' )
-            # YarcLexer.g:126:11: '+'
+            # YarcLexer.g:127:9: ( '+' )
+            # YarcLexer.g:127:11: '+'
             self.match(43)
 
             self._state.type = _type
@@ -1926,8 +1929,8 @@ class YarcLexer(YarcLexerBase):
             _type = MINUS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:127:9: ( '-' )
-            # YarcLexer.g:127:11: '-'
+            # YarcLexer.g:128:9: ( '-' )
+            # YarcLexer.g:128:11: '-'
             self.match(45)
 
             self._state.type = _type
@@ -1945,8 +1948,8 @@ class YarcLexer(YarcLexerBase):
             _type = MUL
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:128:8: ( '*' )
-            # YarcLexer.g:128:10: '*'
+            # YarcLexer.g:129:8: ( '*' )
+            # YarcLexer.g:129:10: '*'
             self.match(42)
 
             self._state.type = _type
@@ -1964,8 +1967,8 @@ class YarcLexer(YarcLexerBase):
             _type = DIV
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:129:9: ( '/' )
-            # YarcLexer.g:129:11: '/'
+            # YarcLexer.g:130:9: ( '/' )
+            # YarcLexer.g:130:11: '/'
             self.match(47)
 
             self._state.type = _type
@@ -1983,8 +1986,8 @@ class YarcLexer(YarcLexerBase):
             _type = MOD
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:130:9: ( '%' )
-            # YarcLexer.g:130:11: '%'
+            # YarcLexer.g:131:9: ( '%' )
+            # YarcLexer.g:131:11: '%'
             self.match(37)
 
             self._state.type = _type
@@ -2002,8 +2005,8 @@ class YarcLexer(YarcLexerBase):
             _type = IDIV
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:131:9: ( '//' )
-            # YarcLexer.g:131:11: '//'
+            # YarcLexer.g:132:9: ( '//' )
+            # YarcLexer.g:132:11: '//'
             self.match("//")
 
             self._state.type = _type
@@ -2021,8 +2024,8 @@ class YarcLexer(YarcLexerBase):
             _type = POWER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:132:9: ( '**' )
-            # YarcLexer.g:132:11: '**'
+            # YarcLexer.g:133:9: ( '**' )
+            # YarcLexer.g:133:11: '**'
             self.match("**")
 
             self._state.type = _type
@@ -2040,8 +2043,8 @@ class YarcLexer(YarcLexerBase):
             _type = LPAREN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:134:8: ( '(' )
-            # YarcLexer.g:134:10: '('
+            # YarcLexer.g:135:8: ( '(' )
+            # YarcLexer.g:135:10: '('
             self.match(40)
 
             # action start
@@ -2063,8 +2066,8 @@ class YarcLexer(YarcLexerBase):
             _type = RPAREN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:135:8: ( ')' )
-            # YarcLexer.g:135:10: ')'
+            # YarcLexer.g:136:8: ( ')' )
+            # YarcLexer.g:136:10: ')'
             self.match(41)
 
             # action start
@@ -2086,8 +2089,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACK
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:136:8: ( '[' )
-            # YarcLexer.g:136:10: '['
+            # YarcLexer.g:137:8: ( '[' )
+            # YarcLexer.g:137:10: '['
             self.match(91)
 
             # action start
@@ -2109,8 +2112,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACK
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:137:8: ( ']' )
-            # YarcLexer.g:137:10: ']'
+            # YarcLexer.g:138:8: ( ']' )
+            # YarcLexer.g:138:10: ']'
             self.match(93)
 
             # action start
@@ -2132,8 +2135,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:138:8: ( '{' )
-            # YarcLexer.g:138:10: '{'
+            # YarcLexer.g:139:8: ( '{' )
+            # YarcLexer.g:139:10: '{'
             self.match(123)
 
             # action start
@@ -2155,8 +2158,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:139:8: ( '}' )
-            # YarcLexer.g:139:10: '}'
+            # YarcLexer.g:140:8: ( '}' )
+            # YarcLexer.g:140:10: '}'
             self.match(125)
 
             # action start
@@ -2178,8 +2181,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:141:8: ( '<' )
-            # YarcLexer.g:141:10: '<'
+            # YarcLexer.g:142:8: ( '<' )
+            # YarcLexer.g:142:10: '<'
             self.match(60)
 
             self._state.type = _type
@@ -2197,8 +2200,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:142:8: ( '>' )
-            # YarcLexer.g:142:10: '>'
+            # YarcLexer.g:143:8: ( '>' )
+            # YarcLexer.g:143:10: '>'
             self.match(62)
 
             self._state.type = _type
@@ -2216,8 +2219,8 @@ class YarcLexer(YarcLexerBase):
             _type = EQUALS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:143:8: ( '==' )
-            # YarcLexer.g:143:10: '=='
+            # YarcLexer.g:144:8: ( '==' )
+            # YarcLexer.g:144:10: '=='
             self.match("==")
 
             self._state.type = _type
@@ -2235,8 +2238,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:144:8: ( '>=' )
-            # YarcLexer.g:144:10: '>='
+            # YarcLexer.g:145:8: ( '>=' )
+            # YarcLexer.g:145:10: '>='
             self.match(">=")
 
             self._state.type = _type
@@ -2254,8 +2257,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:145:8: ( '<=' )
-            # YarcLexer.g:145:10: '<='
+            # YarcLexer.g:146:8: ( '<=' )
+            # YarcLexer.g:146:10: '<='
             self.match("<=")
 
             self._state.type = _type
@@ -2273,8 +2276,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:146:8: ( '!=' )
-            # YarcLexer.g:146:10: '!='
+            # YarcLexer.g:147:8: ( '!=' )
+            # YarcLexer.g:147:10: '!='
             self.match("!=")
 
             self._state.type = _type
@@ -2292,100 +2295,100 @@ class YarcLexer(YarcLexerBase):
             _type = AUG_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:148:11: ( '+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=' )
-            alt10 = 12
-            LA10 = self.input.LA(1)
-            if LA10 in {43}:
-                alt10 = 1
-            elif LA10 in {45}:
-                alt10 = 2
-            elif LA10 in {42}:
-                LA10_3 = self.input.LA(2)
+            # YarcLexer.g:149:11: ( '+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=' )
+            alt9 = 12
+            LA9 = self.input.LA(1)
+            if LA9 in {43}:
+                alt9 = 1
+            elif LA9 in {45}:
+                alt9 = 2
+            elif LA9 in {42}:
+                LA9_3 = self.input.LA(2)
 
-                if LA10_3 == 61:
-                    alt10 = 3
-                elif LA10_3 == 42:
-                    alt10 = 11
+                if LA9_3 == 61:
+                    alt9 = 3
+                elif LA9_3 == 42:
+                    alt9 = 11
                 else:
-                    nvae = NoViableAltException("", 10, 3, self.input)
+                    nvae = NoViableAltException("", 9, 3, self.input)
 
                     raise nvae
 
-            elif LA10 in {47}:
-                LA10_4 = self.input.LA(2)
+            elif LA9 in {47}:
+                LA9_4 = self.input.LA(2)
 
-                if LA10_4 == 61:
-                    alt10 = 4
-                elif LA10_4 == 47:
-                    alt10 = 12
+                if LA9_4 == 61:
+                    alt9 = 4
+                elif LA9_4 == 47:
+                    alt9 = 12
                 else:
-                    nvae = NoViableAltException("", 10, 4, self.input)
+                    nvae = NoViableAltException("", 9, 4, self.input)
 
                     raise nvae
 
-            elif LA10 in {37}:
-                alt10 = 5
-            elif LA10 in {38}:
-                alt10 = 6
-            elif LA10 in {124}:
-                alt10 = 7
-            elif LA10 in {94}:
-                alt10 = 8
-            elif LA10 in {60}:
-                alt10 = 9
-            elif LA10 in {62}:
-                alt10 = 10
+            elif LA9 in {37}:
+                alt9 = 5
+            elif LA9 in {38}:
+                alt9 = 6
+            elif LA9 in {124}:
+                alt9 = 7
+            elif LA9 in {94}:
+                alt9 = 8
+            elif LA9 in {60}:
+                alt9 = 9
+            elif LA9 in {62}:
+                alt9 = 10
             else:
-                nvae = NoViableAltException("", 10, 0, self.input)
+                nvae = NoViableAltException("", 9, 0, self.input)
 
                 raise nvae
 
-            if alt10 == 1:
-                # YarcLexer.g:148:13: '+='
+            if alt9 == 1:
+                # YarcLexer.g:149:13: '+='
                 self.match("+=")
 
-            elif alt10 == 2:
-                # YarcLexer.g:148:20: '-='
+            elif alt9 == 2:
+                # YarcLexer.g:149:20: '-='
                 self.match("-=")
 
-            elif alt10 == 3:
-                # YarcLexer.g:148:27: '*='
+            elif alt9 == 3:
+                # YarcLexer.g:149:27: '*='
                 self.match("*=")
 
-            elif alt10 == 4:
-                # YarcLexer.g:148:33: '/='
+            elif alt9 == 4:
+                # YarcLexer.g:149:33: '/='
                 self.match("/=")
 
-            elif alt10 == 5:
-                # YarcLexer.g:148:40: '%='
+            elif alt9 == 5:
+                # YarcLexer.g:149:40: '%='
                 self.match("%=")
 
-            elif alt10 == 6:
-                # YarcLexer.g:148:47: '&='
+            elif alt9 == 6:
+                # YarcLexer.g:149:47: '&='
                 self.match("&=")
 
-            elif alt10 == 7:
-                # YarcLexer.g:148:54: '|='
+            elif alt9 == 7:
+                # YarcLexer.g:149:54: '|='
                 self.match("|=")
 
-            elif alt10 == 8:
-                # YarcLexer.g:148:61: '^='
+            elif alt9 == 8:
+                # YarcLexer.g:149:61: '^='
                 self.match("^=")
 
-            elif alt10 == 9:
-                # YarcLexer.g:148:68: '<<='
+            elif alt9 == 9:
+                # YarcLexer.g:149:68: '<<='
                 self.match("<<=")
 
-            elif alt10 == 10:
-                # YarcLexer.g:148:76: '>>='
+            elif alt9 == 10:
+                # YarcLexer.g:149:76: '>>='
                 self.match(">>=")
 
-            elif alt10 == 11:
-                # YarcLexer.g:148:84: '**='
+            elif alt9 == 11:
+                # YarcLexer.g:149:84: '**='
                 self.match("**=")
 
-            elif alt10 == 12:
-                # YarcLexer.g:148:92: '//='
+            elif alt9 == 12:
+                # YarcLexer.g:149:92: '//='
                 self.match("//=")
 
             self._state.type = _type
@@ -2403,24 +2406,24 @@ class YarcLexer(YarcLexerBase):
             _type = ID
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:151:12: ( ID_START ( ID_CONTINUE )* )
-            # YarcLexer.g:151:14: ID_START ( ID_CONTINUE )*
+            # YarcLexer.g:152:12: ( ID_START ( ID_CONTINUE )* )
+            # YarcLexer.g:152:14: ID_START ( ID_CONTINUE )*
             self.mID_START()
 
-            # YarcLexer.g:151:23: ( ID_CONTINUE )*
-            while True:  # loop11
-                alt11 = 2
-                LA11_0 = self.input.LA(1)
+            # YarcLexer.g:152:23: ( ID_CONTINUE )*
+            while True:  # loop10
+                alt10 = 2
+                LA10_0 = self.input.LA(1)
 
                 if (
-                    (48 <= LA11_0 <= 57)
-                    or (65 <= LA11_0 <= 90)
-                    or (97 <= LA11_0 <= 122)
-                    or LA11_0 in {95}
+                    (48 <= LA10_0 <= 57)
+                    or (65 <= LA10_0 <= 90)
+                    or (97 <= LA10_0 <= 122)
+                    or LA10_0 in {95}
                 ):
-                    alt11 = 1
+                    alt10 = 1
 
-                if alt11 == 1:
+                if alt10 == 1:
                     # YarcLexer.g:
                     if (
                         (48 <= self.input.LA(1) <= 57)
@@ -2435,7 +2438,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop11
+                    break  # loop10
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2452,8 +2455,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTING_ID
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:152:12: ( '$' ID )
-            # YarcLexer.g:152:14: '$' ID
+            # YarcLexer.g:153:12: ( '$' ID )
+            # YarcLexer.g:153:14: '$' ID
             self.match(36)
 
             self.mID()
@@ -2473,29 +2476,29 @@ class YarcLexer(YarcLexerBase):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:155:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
-            # YarcLexer.g:156:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
-            # YarcLexer.g:156:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
-            alt14 = 4
-            LA14 = self.input.LA(1)
-            if LA14 in {85, 117}:
-                alt14 = 1
-            elif LA14 in {70, 102}:
-                LA14_2 = self.input.LA(2)
+            # YarcLexer.g:156:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
+            # YarcLexer.g:157:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
+            # YarcLexer.g:157:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
+            alt13 = 4
+            LA13 = self.input.LA(1)
+            if LA13 in {85, 117}:
+                alt13 = 1
+            elif LA13 in {70, 102}:
+                LA13_2 = self.input.LA(2)
 
-                if LA14_2 in {82, 114}:
-                    alt14 = 2
-                elif LA14_2 in {34, 39}:
-                    alt14 = 3
-            elif LA14 in {82, 114}:
-                LA14_3 = self.input.LA(2)
+                if LA13_2 in {82, 114}:
+                    alt13 = 2
+                elif LA13_2 in {34, 39}:
+                    alt13 = 3
+            elif LA13 in {82, 114}:
+                LA13_3 = self.input.LA(2)
 
-                if LA14_3 in {34, 39}:
-                    alt14 = 2
-                elif LA14_3 in {70, 102}:
-                    alt14 = 3
-            if alt14 == 1:
-                # YarcLexer.g:156:5: ( 'u' | 'U' )
+                if LA13_3 in {34, 39}:
+                    alt13 = 2
+                elif LA13_3 in {70, 102}:
+                    alt13 = 3
+            if alt13 == 1:
+                # YarcLexer.g:157:5: ( 'u' | 'U' )
                 if self.input.LA(1) in {85, 117}:
                     self.input.consume()
                 else:
@@ -2503,18 +2506,18 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt14 == 2:
-                # YarcLexer.g:157:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+            elif alt13 == 2:
+                # YarcLexer.g:158:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
                 pass
-                # YarcLexer.g:157:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
-                # YarcLexer.g:157:7: ( 'f' | 'F' )? ( 'r' | 'R' )
-                # YarcLexer.g:157:7: ( 'f' | 'F' )?
-                alt12 = 2
-                LA12_0 = self.input.LA(1)
+                # YarcLexer.g:158:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+                # YarcLexer.g:158:7: ( 'f' | 'F' )? ( 'r' | 'R' )
+                # YarcLexer.g:158:7: ( 'f' | 'F' )?
+                alt11 = 2
+                LA11_0 = self.input.LA(1)
 
-                if LA12_0 in {70, 102}:
-                    alt12 = 1
-                if alt12 == 1:
+                if LA11_0 in {70, 102}:
+                    alt11 = 1
+                if alt11 == 1:
                     # YarcLexer.g:
                     if self.input.LA(1) in {70, 102}:
                         self.input.consume()
@@ -2530,18 +2533,18 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt14 == 3:
-                # YarcLexer.g:158:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+            elif alt13 == 3:
+                # YarcLexer.g:159:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
                 pass
-                # YarcLexer.g:158:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
-                # YarcLexer.g:158:7: ( 'r' | 'R' )? ( 'f' | 'F' )
-                # YarcLexer.g:158:7: ( 'r' | 'R' )?
-                alt13 = 2
-                LA13_0 = self.input.LA(1)
+                # YarcLexer.g:159:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                # YarcLexer.g:159:7: ( 'r' | 'R' )? ( 'f' | 'F' )
+                # YarcLexer.g:159:7: ( 'r' | 'R' )?
+                alt12 = 2
+                LA12_0 = self.input.LA(1)
 
-                if LA13_0 in {82, 114}:
-                    alt13 = 1
-                if alt13 == 1:
+                if LA12_0 in {82, 114}:
+                    alt12 = 1
+                if alt12 == 1:
                     # YarcLexer.g:
                     if self.input.LA(1) in {82, 114}:
                         self.input.consume()
@@ -2574,41 +2577,41 @@ class YarcLexer(YarcLexerBase):
             _type = INTEGER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:163:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
-            alt20 = 5
-            LA20_0 = self.input.LA(1)
+            # YarcLexer.g:164:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
+            alt19 = 5
+            LA19_0 = self.input.LA(1)
 
-            if (49 <= LA20_0 <= 57) or LA20_0 in {}:
-                alt20 = 1
-            elif LA20_0 == 48:
-                LA20 = self.input.LA(2)
-                if LA20 in {79, 111}:
-                    alt20 = 3
-                elif LA20 in {88, 120}:
-                    alt20 = 4
-                elif LA20 in {66, 98}:
-                    alt20 = 5
+            if (49 <= LA19_0 <= 57) or LA19_0 in {}:
+                alt19 = 1
+            elif LA19_0 == 48:
+                LA19 = self.input.LA(2)
+                if LA19 in {79, 111}:
+                    alt19 = 3
+                elif LA19 in {88, 120}:
+                    alt19 = 4
+                elif LA19 in {66, 98}:
+                    alt19 = 5
                 else:
-                    alt20 = 2
+                    alt19 = 2
 
             else:
-                nvae = NoViableAltException("", 20, 0, self.input)
+                nvae = NoViableAltException("", 19, 0, self.input)
 
                 raise nvae
 
-            if alt20 == 1:
-                # YarcLexer.g:164:3: NON_ZERO_DIGIT ( DIGIT )*
+            if alt19 == 1:
+                # YarcLexer.g:165:3: NON_ZERO_DIGIT ( DIGIT )*
                 self.mNON_ZERO_DIGIT()
 
-                # YarcLexer.g:164:18: ( DIGIT )*
-                while True:  # loop15
-                    alt15 = 2
-                    LA15_0 = self.input.LA(1)
+                # YarcLexer.g:165:18: ( DIGIT )*
+                while True:  # loop14
+                    alt14 = 2
+                    LA14_0 = self.input.LA(1)
 
-                    if (48 <= LA15_0 <= 57) or LA15_0 in {}:
-                        alt15 = 1
+                    if (48 <= LA14_0 <= 57) or LA14_0 in {}:
+                        alt14 = 1
 
-                    if alt15 == 1:
+                    if alt14 == 1:
                         # YarcLexer.g:
                         if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                             self.input.consume()
@@ -2618,23 +2621,61 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop15
+                        break  # loop14
 
-            elif alt20 == 2:
-                # YarcLexer.g:164:27: ( '0' )+
+            elif alt19 == 2:
+                # YarcLexer.g:165:27: ( '0' )+
                 pass
-                # YarcLexer.g:164:27: ( '0' )+
+                # YarcLexer.g:165:27: ( '0' )+
+                cnt15 = 0
+                while True:  # loop15
+                    alt15 = 2
+                    LA15_0 = self.input.LA(1)
+
+                    if LA15_0 == 48:
+                        alt15 = 1
+
+                    if alt15 == 1:
+                        # YarcLexer.g:165:27: '0'
+                        self.match(48)
+
+                    else:
+                        if cnt15 >= 1:
+                            break  # loop15
+
+                        eee = EarlyExitException(15, self.input)
+                        raise eee
+
+                    cnt15 += 1
+
+            elif alt19 == 3:
+                # YarcLexer.g:166:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
+                self.match(48)
+
+                if self.input.LA(1) in {79, 111}:
+                    self.input.consume()
+                else:
+                    mse = MismatchedSetException(None, self.input)
+                    self.recover(mse)
+                    raise mse
+
+                # YarcLexer.g:166:21: ( OCT_DIGIT )+
                 cnt16 = 0
                 while True:  # loop16
                     alt16 = 2
                     LA16_0 = self.input.LA(1)
 
-                    if LA16_0 == 48:
+                    if (48 <= LA16_0 <= 55) or LA16_0 in {}:
                         alt16 = 1
 
                     if alt16 == 1:
-                        # YarcLexer.g:164:27: '0'
-                        self.match(48)
+                        # YarcLexer.g:
+                        if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
+                            self.input.consume()
+                        else:
+                            mse = MismatchedSetException(None, self.input)
+                            self.recover(mse)
+                            raise mse
 
                     else:
                         if cnt16 >= 1:
@@ -2645,29 +2686,39 @@ class YarcLexer(YarcLexerBase):
 
                     cnt16 += 1
 
-            elif alt20 == 3:
-                # YarcLexer.g:165:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
+            elif alt19 == 4:
+                # YarcLexer.g:167:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) in {79, 111}:
+                if self.input.LA(1) in {88, 120}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # YarcLexer.g:165:21: ( OCT_DIGIT )+
+                # YarcLexer.g:167:21: ( HEX_DIGIT )+
                 cnt17 = 0
                 while True:  # loop17
                     alt17 = 2
                     LA17_0 = self.input.LA(1)
 
-                    if (48 <= LA17_0 <= 55) or LA17_0 in {}:
+                    if (
+                        (48 <= LA17_0 <= 57)
+                        or (65 <= LA17_0 <= 70)
+                        or (97 <= LA17_0 <= 102)
+                        or LA17_0 in {}
+                    ):
                         alt17 = 1
 
                     if alt17 == 1:
                         # YarcLexer.g:
-                        if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
+                        if (
+                            (48 <= self.input.LA(1) <= 57)
+                            or (65 <= self.input.LA(1) <= 70)
+                            or (97 <= self.input.LA(1) <= 102)
+                            or self.input.LA(1) in {}
+                        ):
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2683,39 +2734,29 @@ class YarcLexer(YarcLexerBase):
 
                     cnt17 += 1
 
-            elif alt20 == 4:
-                # YarcLexer.g:166:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
+            elif alt19 == 5:
+                # YarcLexer.g:168:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
                 self.match(48)
 
-                if self.input.LA(1) in {88, 120}:
+                if self.input.LA(1) in {66, 98}:
                     self.input.consume()
                 else:
                     mse = MismatchedSetException(None, self.input)
                     self.recover(mse)
                     raise mse
 
-                # YarcLexer.g:166:21: ( HEX_DIGIT )+
+                # YarcLexer.g:168:21: ( BIN_DIGIT )+
                 cnt18 = 0
                 while True:  # loop18
                     alt18 = 2
                     LA18_0 = self.input.LA(1)
 
-                    if (
-                        (48 <= LA18_0 <= 57)
-                        or (65 <= LA18_0 <= 70)
-                        or (97 <= LA18_0 <= 102)
-                        or LA18_0 in {}
-                    ):
+                    if LA18_0 in {48, 49}:
                         alt18 = 1
 
                     if alt18 == 1:
                         # YarcLexer.g:
-                        if (
-                            (48 <= self.input.LA(1) <= 57)
-                            or (65 <= self.input.LA(1) <= 70)
-                            or (97 <= self.input.LA(1) <= 102)
-                            or self.input.LA(1) in {}
-                        ):
+                        if self.input.LA(1) in {48, 49}:
                             self.input.consume()
                         else:
                             mse = MismatchedSetException(None, self.input)
@@ -2730,44 +2771,6 @@ class YarcLexer(YarcLexerBase):
                         raise eee
 
                     cnt18 += 1
-
-            elif alt20 == 5:
-                # YarcLexer.g:167:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
-                self.match(48)
-
-                if self.input.LA(1) in {66, 98}:
-                    self.input.consume()
-                else:
-                    mse = MismatchedSetException(None, self.input)
-                    self.recover(mse)
-                    raise mse
-
-                # YarcLexer.g:167:21: ( BIN_DIGIT )+
-                cnt19 = 0
-                while True:  # loop19
-                    alt19 = 2
-                    LA19_0 = self.input.LA(1)
-
-                    if LA19_0 in {48, 49}:
-                        alt19 = 1
-
-                    if alt19 == 1:
-                        # YarcLexer.g:
-                        if self.input.LA(1) in {48, 49}:
-                            self.input.consume()
-                        else:
-                            mse = MismatchedSetException(None, self.input)
-                            self.recover(mse)
-                            raise mse
-
-                    else:
-                        if cnt19 >= 1:
-                            break  # loop19
-
-                        eee = EarlyExitException(19, self.input)
-                        raise eee
-
-                    cnt19 += 1
 
             self._state.type = _type
             self._state.channel = _channel
@@ -2784,15 +2787,15 @@ class YarcLexer(YarcLexerBase):
             _type = FLOAT_NUMBER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:170:14: ( POINT_FLOAT | EXPONENT_FLOAT )
-            alt21 = 2
-            alt21 = self.dfa21.predict(self.input)
-            if alt21 == 1:
-                # YarcLexer.g:170:16: POINT_FLOAT
+            # YarcLexer.g:171:14: ( POINT_FLOAT | EXPONENT_FLOAT )
+            alt20 = 2
+            alt20 = self.dfa20.predict(self.input)
+            if alt20 == 1:
+                # YarcLexer.g:171:16: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
-            elif alt21 == 2:
-                # YarcLexer.g:170:30: EXPONENT_FLOAT
+            elif alt20 == 2:
+                # YarcLexer.g:171:30: EXPONENT_FLOAT
                 self.mEXPONENT_FLOAT()
 
             self._state.type = _type
@@ -2810,61 +2813,61 @@ class YarcLexer(YarcLexerBase):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:173:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
-            # YarcLexer.g:174:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # YarcLexer.g:174:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # YarcLexer.g:175:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
-            # YarcLexer.g:175:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt23 = 3
-            LA23 = self.input.LA(1)
-            if LA23 in {13}:
-                LA23_1 = self.input.LA(2)
+            # YarcLexer.g:174:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
+            # YarcLexer.g:175:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # YarcLexer.g:175:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # YarcLexer.g:176:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
+            # YarcLexer.g:176:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt22 = 3
+            LA22 = self.input.LA(1)
+            if LA22 in {13}:
+                LA22_1 = self.input.LA(2)
 
-                if LA23_1 == 10:
-                    alt23 = 1
+                if LA22_1 == 10:
+                    alt22 = 1
                 else:
-                    alt23 = 2
+                    alt22 = 2
 
-            elif LA23 in {10}:
-                alt23 = 1
-            elif LA23 in {12}:
-                alt23 = 3
+            elif LA22 in {10}:
+                alt22 = 1
+            elif LA22 in {12}:
+                alt22 = 3
             else:
-                nvae = NoViableAltException("", 23, 0, self.input)
+                nvae = NoViableAltException("", 22, 0, self.input)
 
                 raise nvae
 
-            if alt23 == 1:
-                # YarcLexer.g:175:5: ( '\\r' )? '\\n'
+            if alt22 == 1:
+                # YarcLexer.g:176:5: ( '\\r' )? '\\n'
                 pass
-                # YarcLexer.g:175:5: ( '\\r' )?
-                alt22 = 2
-                LA22_0 = self.input.LA(1)
+                # YarcLexer.g:176:5: ( '\\r' )?
+                alt21 = 2
+                LA21_0 = self.input.LA(1)
 
-                if LA22_0 == 13:
-                    alt22 = 1
-                if alt22 == 1:
-                    # YarcLexer.g:175:5: '\\r'
+                if LA21_0 == 13:
+                    alt21 = 1
+                if alt21 == 1:
+                    # YarcLexer.g:176:5: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt23 == 2:
-                # YarcLexer.g:175:18: '\\r'
+            elif alt22 == 2:
+                # YarcLexer.g:176:18: '\\r'
                 self.match(13)
 
-            elif alt23 == 3:
-                # YarcLexer.g:175:25: '\\f'
+            elif alt22 == 3:
+                # YarcLexer.g:176:25: '\\f'
                 self.match(12)
 
-            # YarcLexer.g:175:31: ( SPACES )?
-            alt24 = 2
-            LA24_0 = self.input.LA(1)
+            # YarcLexer.g:176:31: ( SPACES )?
+            alt23 = 2
+            LA23_0 = self.input.LA(1)
 
-            if LA24_0 in {9, 32}:
-                alt24 = 1
-            if alt24 == 1:
-                # YarcLexer.g:175:31: SPACES
+            if LA23_0 in {9, 32}:
+                alt23 = 1
+            if alt23 == 1:
+                # YarcLexer.g:176:31: SPACES
                 self.mSPACES()
 
             # action start
@@ -2886,32 +2889,32 @@ class YarcLexer(YarcLexerBase):
             _type = SKIP_
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:180:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
-            # YarcLexer.g:180:11: ( SPACES | COMMENT | LINE_JOINING )
-            # YarcLexer.g:180:11: ( SPACES | COMMENT | LINE_JOINING )
-            alt25 = 3
-            LA25 = self.input.LA(1)
-            if LA25 in {9, 32}:
-                alt25 = 1
-            elif LA25 in {35}:
-                alt25 = 2
-            elif LA25 in {92}:
-                alt25 = 3
+            # YarcLexer.g:181:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
+            # YarcLexer.g:181:11: ( SPACES | COMMENT | LINE_JOINING )
+            # YarcLexer.g:181:11: ( SPACES | COMMENT | LINE_JOINING )
+            alt24 = 3
+            LA24 = self.input.LA(1)
+            if LA24 in {9, 32}:
+                alt24 = 1
+            elif LA24 in {35}:
+                alt24 = 2
+            elif LA24 in {92}:
+                alt24 = 3
             else:
-                nvae = NoViableAltException("", 25, 0, self.input)
+                nvae = NoViableAltException("", 24, 0, self.input)
 
                 raise nvae
 
-            if alt25 == 1:
-                # YarcLexer.g:180:13: SPACES
+            if alt24 == 1:
+                # YarcLexer.g:181:13: SPACES
                 self.mSPACES()
 
-            elif alt25 == 2:
-                # YarcLexer.g:180:22: COMMENT
+            elif alt24 == 2:
+                # YarcLexer.g:181:22: COMMENT
                 self.mCOMMENT()
 
-            elif alt25 == 3:
-                # YarcLexer.g:180:32: LINE_JOINING
+            elif alt24 == 3:
+                # YarcLexer.g:181:32: LINE_JOINING
                 self.mLINE_JOINING()
 
             # action start
@@ -2933,8 +2936,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNKNOWN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:181:9: ( . )
-            # YarcLexer.g:181:11: .
+            # YarcLexer.g:182:9: ( . )
+            # YarcLexer.g:182:11: .
             self.matchAny()
 
             self._state.type = _type
@@ -2949,45 +2952,45 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:184:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
-            alt28 = 2
-            LA28_0 = self.input.LA(1)
+            # YarcLexer.g:185:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
+            alt27 = 2
+            LA27_0 = self.input.LA(1)
 
-            if LA28_0 == 39:
-                alt28 = 1
-            elif LA28_0 == 34:
-                alt28 = 2
+            if LA27_0 == 39:
+                alt27 = 1
+            elif LA27_0 == 34:
+                alt27 = 2
             else:
-                nvae = NoViableAltException("", 28, 0, self.input)
+                nvae = NoViableAltException("", 27, 0, self.input)
 
                 raise nvae
 
-            if alt28 == 1:
-                # YarcLexer.g:185:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
+            if alt27 == 1:
+                # YarcLexer.g:186:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
                 self.match(39)
 
-                # YarcLexer.g:185:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
-                while True:  # loop26
-                    alt26 = 3
-                    LA26_0 = self.input.LA(1)
+                # YarcLexer.g:186:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
+                while True:  # loop25
+                    alt25 = 3
+                    LA25_0 = self.input.LA(1)
 
-                    if LA26_0 == 92:
-                        alt26 = 1
+                    if LA25_0 == 92:
+                        alt25 = 1
                     elif (
-                        (0 <= LA26_0 <= 9)
-                        or (14 <= LA26_0 <= 38)
-                        or (40 <= LA26_0 <= 91)
-                        or (93 <= LA26_0 <= 65535)
-                        or LA26_0 in {11}
+                        (0 <= LA25_0 <= 9)
+                        or (14 <= LA25_0 <= 38)
+                        or (40 <= LA25_0 <= 91)
+                        or (93 <= LA25_0 <= 65535)
+                        or LA25_0 in {11}
                     ):
-                        alt26 = 2
+                        alt25 = 2
 
-                    if alt26 == 1:
-                        # YarcLexer.g:185:9: STRING_ESCAPE_SEQ
+                    if alt25 == 1:
+                        # YarcLexer.g:186:9: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
-                    elif alt26 == 2:
-                        # YarcLexer.g:185:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
+                    elif alt25 == 2:
+                        # YarcLexer.g:186:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or (14 <= self.input.LA(1) <= 38)
@@ -3002,36 +3005,36 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop26
+                        break  # loop25
 
                 self.match(39)
 
-            elif alt28 == 2:
-                # YarcLexer.g:186:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
+            elif alt27 == 2:
+                # YarcLexer.g:187:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
                 self.match(34)
 
-                # YarcLexer.g:186:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
-                while True:  # loop27
-                    alt27 = 3
-                    LA27_0 = self.input.LA(1)
+                # YarcLexer.g:187:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
+                while True:  # loop26
+                    alt26 = 3
+                    LA26_0 = self.input.LA(1)
 
-                    if LA27_0 == 92:
-                        alt27 = 1
+                    if LA26_0 == 92:
+                        alt26 = 1
                     elif (
-                        (0 <= LA27_0 <= 9)
-                        or (14 <= LA27_0 <= 33)
-                        or (35 <= LA27_0 <= 91)
-                        or (93 <= LA27_0 <= 65535)
-                        or LA27_0 in {11}
+                        (0 <= LA26_0 <= 9)
+                        or (14 <= LA26_0 <= 33)
+                        or (35 <= LA26_0 <= 91)
+                        or (93 <= LA26_0 <= 65535)
+                        or LA26_0 in {11}
                     ):
-                        alt27 = 2
+                        alt26 = 2
 
-                    if alt27 == 1:
-                        # YarcLexer.g:186:10: STRING_ESCAPE_SEQ
+                    if alt26 == 1:
+                        # YarcLexer.g:187:10: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
-                    elif alt27 == 2:
-                        # YarcLexer.g:186:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
+                    elif alt26 == 2:
+                        # YarcLexer.g:187:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or (14 <= self.input.LA(1) <= 33)
@@ -3046,7 +3049,7 @@ class YarcLexer(YarcLexerBase):
                             raise mse
 
                     else:
-                        break  # loop27
+                        break  # loop26
 
                 self.match(34)
 
@@ -3060,34 +3063,34 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:188:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
-            alt29 = 2
-            LA29_0 = self.input.LA(1)
+            # YarcLexer.g:189:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
+            alt28 = 2
+            LA28_0 = self.input.LA(1)
 
-            if LA29_0 == 92:
-                LA29_1 = self.input.LA(2)
+            if LA28_0 == 92:
+                LA28_1 = self.input.LA(2)
 
                 if (
-                    (0 <= LA29_1 <= 8)
-                    or (14 <= LA29_1 <= 31)
-                    or (33 <= LA29_1 <= 65535)
-                    or LA29_1 in {11}
+                    (0 <= LA28_1 <= 8)
+                    or (14 <= LA28_1 <= 31)
+                    or (33 <= LA28_1 <= 65535)
+                    or LA28_1 in {11}
                 ):
-                    alt29 = 1
-                elif LA29_1 in {10, 12, 13}:
-                    alt29 = 2
+                    alt28 = 1
+                elif LA28_1 in {10, 12, 13}:
+                    alt28 = 2
                 else:
-                    nvae = NoViableAltException("", 29, 1, self.input)
+                    nvae = NoViableAltException("", 28, 1, self.input)
 
                     raise nvae
 
             else:
-                nvae = NoViableAltException("", 29, 0, self.input)
+                nvae = NoViableAltException("", 28, 0, self.input)
 
                 raise nvae
 
-            if alt29 == 1:
-                # YarcLexer.g:188:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
+            if alt28 == 1:
+                # YarcLexer.g:189:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
                 self.match(92)
 
                 if (
@@ -3102,8 +3105,8 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            elif alt29 == 2:
-                # YarcLexer.g:188:72: '\\\\' NEWLINE
+            elif alt28 == 2:
+                # YarcLexer.g:189:72: '\\\\' NEWLINE
                 self.match(92)
 
                 self.mNEWLINE()
@@ -3118,7 +3121,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:190:25: ( '1' .. '9' )
+            # YarcLexer.g:191:25: ( '1' .. '9' )
             # YarcLexer.g:
             if (49 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
@@ -3137,7 +3140,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:191:25: ( '0' .. '9' )
+            # YarcLexer.g:192:25: ( '0' .. '9' )
             # YarcLexer.g:
             if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
@@ -3156,7 +3159,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:192:25: ( '0' .. '7' )
+            # YarcLexer.g:193:25: ( '0' .. '7' )
             # YarcLexer.g:
             if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
                 self.input.consume()
@@ -3175,7 +3178,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:193:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
+            # YarcLexer.g:194:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
             # YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
@@ -3199,7 +3202,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:194:25: ( '0' | '1' )
+            # YarcLexer.g:195:25: ( '0' | '1' )
             # YarcLexer.g:
             if self.input.LA(1) in {48, 49}:
                 self.input.consume()
@@ -3218,26 +3221,26 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:196:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
-            alt31 = 2
-            alt31 = self.dfa31.predict(self.input)
-            if alt31 == 1:
-                # YarcLexer.g:196:27: ( INT_PART )? FRACTION
+            # YarcLexer.g:197:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
+            alt30 = 2
+            alt30 = self.dfa30.predict(self.input)
+            if alt30 == 1:
+                # YarcLexer.g:197:27: ( INT_PART )? FRACTION
                 pass
-                # YarcLexer.g:196:27: ( INT_PART )?
-                alt30 = 2
-                LA30_0 = self.input.LA(1)
+                # YarcLexer.g:197:27: ( INT_PART )?
+                alt29 = 2
+                LA29_0 = self.input.LA(1)
 
-                if (48 <= LA30_0 <= 57) or LA30_0 in {}:
-                    alt30 = 1
-                if alt30 == 1:
-                    # YarcLexer.g:196:27: INT_PART
+                if (48 <= LA29_0 <= 57) or LA29_0 in {}:
+                    alt29 = 1
+                if alt29 == 1:
+                    # YarcLexer.g:197:27: INT_PART
                     self.mINT_PART()
 
                 self.mFRACTION()
 
-            elif alt31 == 2:
-                # YarcLexer.g:196:48: INT_PART '.'
+            elif alt30 == 2:
+                # YarcLexer.g:197:48: INT_PART '.'
                 self.mINT_PART()
 
                 self.match(46)
@@ -3252,18 +3255,18 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:197:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
-            # YarcLexer.g:197:27: ( INT_PART | POINT_FLOAT ) EXPONENT
+            # YarcLexer.g:198:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
+            # YarcLexer.g:198:27: ( INT_PART | POINT_FLOAT ) EXPONENT
             pass
-            # YarcLexer.g:197:27: ( INT_PART | POINT_FLOAT )
-            alt32 = 2
-            alt32 = self.dfa32.predict(self.input)
-            if alt32 == 1:
-                # YarcLexer.g:197:29: INT_PART
+            # YarcLexer.g:198:27: ( INT_PART | POINT_FLOAT )
+            alt31 = 2
+            alt31 = self.dfa31.predict(self.input)
+            if alt31 == 1:
+                # YarcLexer.g:198:29: INT_PART
                 self.mINT_PART()
 
-            elif alt32 == 2:
-                # YarcLexer.g:197:40: POINT_FLOAT
+            elif alt31 == 2:
+                # YarcLexer.g:198:40: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
             self.mEXPONENT()
@@ -3278,10 +3281,51 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:198:25: ( ( DIGIT )+ )
-            # YarcLexer.g:198:27: ( DIGIT )+
+            # YarcLexer.g:199:25: ( ( DIGIT )+ )
+            # YarcLexer.g:199:27: ( DIGIT )+
             pass
-            # YarcLexer.g:198:27: ( DIGIT )+
+            # YarcLexer.g:199:27: ( DIGIT )+
+            cnt32 = 0
+            while True:  # loop32
+                alt32 = 2
+                LA32_0 = self.input.LA(1)
+
+                if (48 <= LA32_0 <= 57) or LA32_0 in {}:
+                    alt32 = 1
+
+                if alt32 == 1:
+                    # YarcLexer.g:
+                    if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
+                        self.input.consume()
+                    else:
+                        mse = MismatchedSetException(None, self.input)
+                        self.recover(mse)
+                        raise mse
+
+                else:
+                    if cnt32 >= 1:
+                        break  # loop32
+
+                    eee = EarlyExitException(32, self.input)
+                    raise eee
+
+                cnt32 += 1
+
+        finally:
+            pass
+
+    # $ANTLR end "INT_PART"
+
+    # $ANTLR start "FRACTION"
+    def mFRACTION(
+        self,
+    ):
+        try:
+            # YarcLexer.g:200:25: ( '.' ( DIGIT )+ )
+            # YarcLexer.g:200:27: '.' ( DIGIT )+
+            self.match(46)
+
+            # YarcLexer.g:200:31: ( DIGIT )+
             cnt33 = 0
             while True:  # loop33
                 alt33 = 2
@@ -3311,47 +3355,6 @@ class YarcLexer(YarcLexerBase):
         finally:
             pass
 
-    # $ANTLR end "INT_PART"
-
-    # $ANTLR start "FRACTION"
-    def mFRACTION(
-        self,
-    ):
-        try:
-            # YarcLexer.g:199:25: ( '.' ( DIGIT )+ )
-            # YarcLexer.g:199:27: '.' ( DIGIT )+
-            self.match(46)
-
-            # YarcLexer.g:199:31: ( DIGIT )+
-            cnt34 = 0
-            while True:  # loop34
-                alt34 = 2
-                LA34_0 = self.input.LA(1)
-
-                if (48 <= LA34_0 <= 57) or LA34_0 in {}:
-                    alt34 = 1
-
-                if alt34 == 1:
-                    # YarcLexer.g:
-                    if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-                else:
-                    if cnt34 >= 1:
-                        break  # loop34
-
-                    eee = EarlyExitException(34, self.input)
-                    raise eee
-
-                cnt34 += 1
-
-        finally:
-            pass
-
     # $ANTLR end "FRACTION"
 
     # $ANTLR start "EXPONENT"
@@ -3359,8 +3362,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:200:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-            # YarcLexer.g:200:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+            # YarcLexer.g:201:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+            # YarcLexer.g:201:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
             if self.input.LA(1) in {69, 101}:
                 self.input.consume()
             else:
@@ -3368,13 +3371,13 @@ class YarcLexer(YarcLexerBase):
                 self.recover(mse)
                 raise mse
 
-            # YarcLexer.g:200:39: ( '+' | '-' )?
-            alt35 = 2
-            LA35_0 = self.input.LA(1)
+            # YarcLexer.g:201:39: ( '+' | '-' )?
+            alt34 = 2
+            LA34_0 = self.input.LA(1)
 
-            if LA35_0 in {43, 45}:
-                alt35 = 1
-            if alt35 == 1:
+            if LA34_0 in {43, 45}:
+                alt34 = 1
+            if alt34 == 1:
                 # YarcLexer.g:
                 if self.input.LA(1) in {43, 45}:
                     self.input.consume()
@@ -3383,16 +3386,16 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            # YarcLexer.g:200:52: ( DIGIT )+
-            cnt36 = 0
-            while True:  # loop36
-                alt36 = 2
-                LA36_0 = self.input.LA(1)
+            # YarcLexer.g:201:52: ( DIGIT )+
+            cnt35 = 0
+            while True:  # loop35
+                alt35 = 2
+                LA35_0 = self.input.LA(1)
 
-                if (48 <= LA36_0 <= 57) or LA36_0 in {}:
-                    alt36 = 1
+                if (48 <= LA35_0 <= 57) or LA35_0 in {}:
+                    alt35 = 1
 
-                if alt36 == 1:
+                if alt35 == 1:
                     # YarcLexer.g:
                     if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
@@ -3402,13 +3405,13 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    if cnt36 >= 1:
-                        break  # loop36
+                    if cnt35 >= 1:
+                        break  # loop35
 
-                    eee = EarlyExitException(36, self.input)
+                    eee = EarlyExitException(35, self.input)
                     raise eee
 
-                cnt36 += 1
+                cnt35 += 1
 
         finally:
             pass
@@ -3420,7 +3423,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:202:22: ( UNDERSCORE | LETTER )
+            # YarcLexer.g:203:22: ( UNDERSCORE | LETTER )
             # YarcLexer.g:
             if (
                 (65 <= self.input.LA(1) <= 90)
@@ -3443,7 +3446,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:203:22: ( ID_START | DIGIT )
+            # YarcLexer.g:204:22: ( ID_START | DIGIT )
             # YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
@@ -3467,7 +3470,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:204:22: ( 'a' .. 'z' | 'A' .. 'Z' )
+            # YarcLexer.g:205:22: ( 'a' .. 'z' | 'A' .. 'Z' )
             # YarcLexer.g:
             if (
                 (65 <= self.input.LA(1) <= 90)
@@ -3490,19 +3493,19 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:206:23: ( ( ' ' | '\\t' )+ )
-            # YarcLexer.g:206:25: ( ' ' | '\\t' )+
+            # YarcLexer.g:207:23: ( ( ' ' | '\\t' )+ )
+            # YarcLexer.g:207:25: ( ' ' | '\\t' )+
             pass
-            # YarcLexer.g:206:25: ( ' ' | '\\t' )+
-            cnt37 = 0
-            while True:  # loop37
-                alt37 = 2
-                LA37_0 = self.input.LA(1)
+            # YarcLexer.g:207:25: ( ' ' | '\\t' )+
+            cnt36 = 0
+            while True:  # loop36
+                alt36 = 2
+                LA36_0 = self.input.LA(1)
 
-                if LA37_0 in {9, 32}:
-                    alt37 = 1
+                if LA36_0 in {9, 32}:
+                    alt36 = 1
 
-                if alt37 == 1:
+                if alt36 == 1:
                     # YarcLexer.g:
                     if self.input.LA(1) in {9, 32}:
                         self.input.consume()
@@ -3512,13 +3515,13 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    if cnt37 >= 1:
-                        break  # loop37
+                    if cnt36 >= 1:
+                        break  # loop36
 
-                    eee = EarlyExitException(37, self.input)
+                    eee = EarlyExitException(36, self.input)
                     raise eee
 
-                cnt37 += 1
+                cnt36 += 1
 
         finally:
             pass
@@ -3530,19 +3533,19 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:207:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
-            # YarcLexer.g:207:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
+            # YarcLexer.g:208:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
+            # YarcLexer.g:208:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
             self.match(35)
 
-            # YarcLexer.g:207:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
-            while True:  # loop38
-                alt38 = 2
-                LA38_0 = self.input.LA(1)
+            # YarcLexer.g:208:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
+            while True:  # loop37
+                alt37 = 2
+                LA37_0 = self.input.LA(1)
 
-                if (0 <= LA38_0 <= 9) or (14 <= LA38_0 <= 65535) or LA38_0 in {11}:
-                    alt38 = 1
+                if (0 <= LA37_0 <= 9) or (14 <= LA37_0 <= 65535) or LA37_0 in {11}:
+                    alt37 = 1
 
-                if alt38 == 1:
+                if alt37 == 1:
                     # YarcLexer.g:
                     if (
                         (0 <= self.input.LA(1) <= 9)
@@ -3556,7 +3559,7 @@ class YarcLexer(YarcLexerBase):
                         raise mse
 
                 else:
-                    break  # loop38
+                    break  # loop37
 
         finally:
             pass
@@ -3568,61 +3571,61 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:208:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
-            # YarcLexer.g:208:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # YarcLexer.g:209:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
+            # YarcLexer.g:209:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             self.match(92)
 
-            # YarcLexer.g:208:30: ( SPACES )?
-            alt39 = 2
-            LA39_0 = self.input.LA(1)
+            # YarcLexer.g:209:30: ( SPACES )?
+            alt38 = 2
+            LA38_0 = self.input.LA(1)
 
-            if LA39_0 in {9, 32}:
-                alt39 = 1
-            if alt39 == 1:
-                # YarcLexer.g:208:30: SPACES
+            if LA38_0 in {9, 32}:
+                alt38 = 1
+            if alt38 == 1:
+                # YarcLexer.g:209:30: SPACES
                 self.mSPACES()
 
-            # YarcLexer.g:208:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
-            alt41 = 3
-            LA41 = self.input.LA(1)
-            if LA41 in {13}:
-                LA41_1 = self.input.LA(2)
+            # YarcLexer.g:209:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            alt40 = 3
+            LA40 = self.input.LA(1)
+            if LA40 in {13}:
+                LA40_1 = self.input.LA(2)
 
-                if LA41_1 == 10:
-                    alt41 = 1
+                if LA40_1 == 10:
+                    alt40 = 1
                 else:
-                    alt41 = 2
+                    alt40 = 2
 
-            elif LA41 in {10}:
-                alt41 = 1
-            elif LA41 in {12}:
-                alt41 = 3
+            elif LA40 in {10}:
+                alt40 = 1
+            elif LA40 in {12}:
+                alt40 = 3
             else:
-                nvae = NoViableAltException("", 41, 0, self.input)
+                nvae = NoViableAltException("", 40, 0, self.input)
 
                 raise nvae
 
-            if alt41 == 1:
-                # YarcLexer.g:208:40: ( '\\r' )? '\\n'
+            if alt40 == 1:
+                # YarcLexer.g:209:40: ( '\\r' )? '\\n'
                 pass
-                # YarcLexer.g:208:40: ( '\\r' )?
-                alt40 = 2
-                LA40_0 = self.input.LA(1)
+                # YarcLexer.g:209:40: ( '\\r' )?
+                alt39 = 2
+                LA39_0 = self.input.LA(1)
 
-                if LA40_0 == 13:
-                    alt40 = 1
-                if alt40 == 1:
-                    # YarcLexer.g:208:40: '\\r'
+                if LA39_0 == 13:
+                    alt39 = 1
+                if alt39 == 1:
+                    # YarcLexer.g:209:40: '\\r'
                     self.match(13)
 
                 self.match(10)
 
-            elif alt41 == 2:
-                # YarcLexer.g:208:53: '\\r'
+            elif alt40 == 2:
+                # YarcLexer.g:209:53: '\\r'
                 self.match(13)
 
-            elif alt41 == 3:
-                # YarcLexer.g:208:60: '\\f'
+            elif alt40 == 3:
+                # YarcLexer.g:209:60: '\\f'
                 self.match(12)
 
         finally:
@@ -3631,416 +3634,420 @@ class YarcLexer(YarcLexerBase):
     # $ANTLR end "LINE_JOINING"
 
     def mTokens(self):
-        # YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPE | CAMERA | LIGHT | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | CAM_TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | PHYSICS | EVERY | FRAMES | TIME | DISTRIBUTION | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | LEN | NONE | NOT | OR | STEP | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | AUG_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
-        alt42 = 98
-        alt42 = self.dfa42.predict(self.input)
-        if alt42 == 1:
+        # YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPE | CAMERA | LIGHT | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | AXIS | ORDER | SCATTER | ROT_AROUND | MOVE_TO_CAM | PHYSICS | EVERY | FRAMES | TIME | DISTRIBUTION | COMBINE | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | LEN | NONE | NOT | OR | STEP | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | AUG_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
+        alt41 = 99
+        alt41 = self.dfa41.predict(self.input)
+        if alt41 == 1:
             # YarcLexer.g:1:10: SCENARIO
             self.mSCENARIO()
 
-        elif alt42 == 2:
+        elif alt41 == 2:
             # YarcLexer.g:1:19: SETTINGS
             self.mSETTINGS()
 
-        elif alt42 == 3:
+        elif alt41 == 3:
             # YarcLexer.g:1:28: STAGE
             self.mSTAGE()
 
-        elif alt42 == 4:
+        elif alt41 == 4:
             # YarcLexer.g:1:34: WRITERS
             self.mWRITERS()
 
-        elif alt42 == 5:
+        elif alt41 == 5:
             # YarcLexer.g:1:42: SHAPE
             self.mSHAPE()
 
-        elif alt42 == 6:
+        elif alt41 == 6:
             # YarcLexer.g:1:48: CAMERA
             self.mCAMERA()
 
-        elif alt42 == 7:
+        elif alt41 == 7:
             # YarcLexer.g:1:55: LIGHT
             self.mLIGHT()
 
-        elif alt42 == 8:
+        elif alt41 == 8:
             # YarcLexer.g:1:61: STEREO
             self.mSTEREO()
 
-        elif alt42 == 9:
+        elif alt41 == 9:
             # YarcLexer.g:1:68: MATERIAL
             self.mMATERIAL()
 
-        elif alt42 == 10:
+        elif alt41 == 10:
             # YarcLexer.g:1:77: TIMELINE
             self.mTIMELINE()
 
-        elif alt42 == 11:
+        elif alt41 == 11:
             # YarcLexer.g:1:86: OPEN
             self.mOPEN()
 
-        elif alt42 == 12:
+        elif alt41 == 12:
             # YarcLexer.g:1:91: CREATE
             self.mCREATE()
 
-        elif alt42 == 13:
+        elif alt41 == 13:
             # YarcLexer.g:1:98: GROUP
             self.mGROUP()
 
-        elif alt42 == 14:
+        elif alt41 == 14:
             # YarcLexer.g:1:104: INSTANTIATE
             self.mINSTANTIATE()
 
-        elif alt42 == 15:
+        elif alt41 == 15:
             # YarcLexer.g:1:116: GET
             self.mGET()
 
-        elif alt42 == 16:
+        elif alt41 == 16:
             # YarcLexer.g:1:120: EDIT
             self.mEDIT()
 
-        elif alt42 == 17:
+        elif alt41 == 17:
             # YarcLexer.g:1:125: FETCH
             self.mFETCH()
 
-        elif alt42 == 18:
+        elif alt41 == 18:
             # YarcLexer.g:1:131: MATCH
             self.mMATCH()
 
-        elif alt42 == 19:
+        elif alt41 == 19:
             # YarcLexer.g:1:137: LIMIT
             self.mLIMIT()
 
-        elif alt42 == 20:
+        elif alt41 == 20:
             # YarcLexer.g:1:143: RECURSIVE
             self.mRECURSIVE()
 
-        elif alt42 == 21:
+        elif alt41 == 21:
             # YarcLexer.g:1:153: TRANSLATE
             self.mTRANSLATE()
 
-        elif alt42 == 22:
-            # YarcLexer.g:1:163: CAM_TRANSLATE
-            self.mCAM_TRANSLATE()
-
-        elif alt42 == 23:
-            # YarcLexer.g:1:177: ROTATE
+        elif alt41 == 22:
+            # YarcLexer.g:1:163: ROTATE
             self.mROTATE()
 
-        elif alt42 == 24:
-            # YarcLexer.g:1:184: SCALE
+        elif alt41 == 23:
+            # YarcLexer.g:1:170: SCALE
             self.mSCALE()
 
-        elif alt42 == 25:
-            # YarcLexer.g:1:190: SEMANTICS
+        elif alt41 == 24:
+            # YarcLexer.g:1:176: SEMANTICS
             self.mSEMANTICS()
 
-        elif alt42 == 26:
-            # YarcLexer.g:1:200: VISIBLE
+        elif alt41 == 25:
+            # YarcLexer.g:1:186: VISIBLE
             self.mVISIBLE()
 
-        elif alt42 == 27:
-            # YarcLexer.g:1:208: SIZE
+        elif alt41 == 26:
+            # YarcLexer.g:1:194: SIZE
             self.mSIZE()
 
-        elif alt42 == 28:
-            # YarcLexer.g:1:213: LOOK_AT
+        elif alt41 == 27:
+            # YarcLexer.g:1:199: LOOK_AT
             self.mLOOK_AT()
 
-        elif alt42 == 29:
-            # YarcLexer.g:1:221: UP_AXIS
+        elif alt41 == 28:
+            # YarcLexer.g:1:207: UP_AXIS
             self.mUP_AXIS()
 
-        elif alt42 == 30:
-            # YarcLexer.g:1:229: AXIS
+        elif alt41 == 29:
+            # YarcLexer.g:1:215: AXIS
             self.mAXIS()
 
-        elif alt42 == 31:
-            # YarcLexer.g:1:234: ORDER
+        elif alt41 == 30:
+            # YarcLexer.g:1:220: ORDER
             self.mORDER()
 
-        elif alt42 == 32:
-            # YarcLexer.g:1:240: SCATTER
+        elif alt41 == 31:
+            # YarcLexer.g:1:226: SCATTER
             self.mSCATTER()
 
-        elif alt42 == 33:
-            # YarcLexer.g:1:248: ROT_AROUND
+        elif alt41 == 32:
+            # YarcLexer.g:1:234: ROT_AROUND
             self.mROT_AROUND()
 
-        elif alt42 == 34:
-            # YarcLexer.g:1:259: PHYSICS
+        elif alt41 == 33:
+            # YarcLexer.g:1:245: MOVE_TO_CAM
+            self.mMOVE_TO_CAM()
+
+        elif alt41 == 34:
+            # YarcLexer.g:1:257: PHYSICS
             self.mPHYSICS()
 
-        elif alt42 == 35:
-            # YarcLexer.g:1:267: EVERY
+        elif alt41 == 35:
+            # YarcLexer.g:1:265: EVERY
             self.mEVERY()
 
-        elif alt42 == 36:
-            # YarcLexer.g:1:273: FRAMES
+        elif alt41 == 36:
+            # YarcLexer.g:1:271: FRAMES
             self.mFRAMES()
 
-        elif alt42 == 37:
-            # YarcLexer.g:1:280: TIME
+        elif alt41 == 37:
+            # YarcLexer.g:1:278: TIME
             self.mTIME()
 
-        elif alt42 == 38:
-            # YarcLexer.g:1:285: DISTRIBUTION
+        elif alt41 == 38:
+            # YarcLexer.g:1:283: DISTRIBUTION
             self.mDISTRIBUTION()
 
-        elif alt42 == 39:
-            # YarcLexer.g:1:298: SNIPPET
+        elif alt41 == 39:
+            # YarcLexer.g:1:296: COMBINE
+            self.mCOMBINE()
+
+        elif alt41 == 40:
+            # YarcLexer.g:1:304: SNIPPET
             self.mSNIPPET()
 
-        elif alt42 == 40:
-            # YarcLexer.g:1:306: TO
+        elif alt41 == 41:
+            # YarcLexer.g:1:312: TO
             self.mTO()
 
-        elif alt42 == 41:
-            # YarcLexer.g:1:309: ON
+        elif alt41 == 42:
+            # YarcLexer.g:1:315: ON
             self.mON()
 
-        elif alt42 == 42:
-            # YarcLexer.g:1:312: AT
+        elif alt41 == 43:
+            # YarcLexer.g:1:318: AT
             self.mAT()
 
-        elif alt42 == 43:
-            # YarcLexer.g:1:315: AND
+        elif alt41 == 44:
+            # YarcLexer.g:1:321: AND
             self.mAND()
 
-        elif alt42 == 44:
-            # YarcLexer.g:1:319: ELSE
+        elif alt41 == 45:
+            # YarcLexer.g:1:325: ELSE
             self.mELSE()
 
-        elif alt42 == 45:
-            # YarcLexer.g:1:324: FALSE
+        elif alt41 == 46:
+            # YarcLexer.g:1:330: FALSE
             self.mFALSE()
 
-        elif alt42 == 46:
-            # YarcLexer.g:1:330: FOR
+        elif alt41 == 47:
+            # YarcLexer.g:1:336: FOR
             self.mFOR()
 
-        elif alt42 == 47:
-            # YarcLexer.g:1:334: FROM
+        elif alt41 == 48:
+            # YarcLexer.g:1:340: FROM
             self.mFROM()
 
-        elif alt42 == 48:
-            # YarcLexer.g:1:339: IF
+        elif alt41 == 49:
+            # YarcLexer.g:1:345: IF
             self.mIF()
 
-        elif alt42 == 49:
-            # YarcLexer.g:1:342: IN
+        elif alt41 == 50:
+            # YarcLexer.g:1:348: IN
             self.mIN()
 
-        elif alt42 == 50:
-            # YarcLexer.g:1:345: IS
+        elif alt41 == 51:
+            # YarcLexer.g:1:351: IS
             self.mIS()
 
-        elif alt42 == 51:
-            # YarcLexer.g:1:348: LEN
+        elif alt41 == 52:
+            # YarcLexer.g:1:354: LEN
             self.mLEN()
 
-        elif alt42 == 52:
-            # YarcLexer.g:1:352: NONE
+        elif alt41 == 53:
+            # YarcLexer.g:1:358: NONE
             self.mNONE()
 
-        elif alt42 == 53:
-            # YarcLexer.g:1:357: NOT
+        elif alt41 == 54:
+            # YarcLexer.g:1:363: NOT
             self.mNOT()
 
-        elif alt42 == 54:
-            # YarcLexer.g:1:361: OR
+        elif alt41 == 55:
+            # YarcLexer.g:1:367: OR
             self.mOR()
 
-        elif alt42 == 55:
-            # YarcLexer.g:1:364: STEP
+        elif alt41 == 56:
+            # YarcLexer.g:1:370: STEP
             self.mSTEP()
 
-        elif alt42 == 56:
-            # YarcLexer.g:1:369: TRUE
+        elif alt41 == 57:
+            # YarcLexer.g:1:375: TRUE
             self.mTRUE()
 
-        elif alt42 == 57:
-            # YarcLexer.g:1:374: UNDERSCORE
+        elif alt41 == 58:
+            # YarcLexer.g:1:380: UNDERSCORE
             self.mUNDERSCORE()
 
-        elif alt42 == 58:
-            # YarcLexer.g:1:385: DOT
+        elif alt41 == 59:
+            # YarcLexer.g:1:391: DOT
             self.mDOT()
 
-        elif alt42 == 59:
-            # YarcLexer.g:1:389: RANGE
+        elif alt41 == 60:
+            # YarcLexer.g:1:395: RANGE
             self.mRANGE()
 
-        elif alt42 == 60:
-            # YarcLexer.g:1:395: ELLIPSIS
+        elif alt41 == 61:
+            # YarcLexer.g:1:401: ELLIPSIS
             self.mELLIPSIS()
 
-        elif alt42 == 61:
-            # YarcLexer.g:1:404: COMMA
+        elif alt41 == 62:
+            # YarcLexer.g:1:410: COMMA
             self.mCOMMA()
 
-        elif alt42 == 62:
-            # YarcLexer.g:1:410: COLON
+        elif alt41 == 63:
+            # YarcLexer.g:1:416: COLON
             self.mCOLON()
 
-        elif alt42 == 63:
-            # YarcLexer.g:1:416: SEMI
+        elif alt41 == 64:
+            # YarcLexer.g:1:422: SEMI
             self.mSEMI()
 
-        elif alt42 == 64:
-            # YarcLexer.g:1:421: ASSIGN
+        elif alt41 == 65:
+            # YarcLexer.g:1:427: ASSIGN
             self.mASSIGN()
 
-        elif alt42 == 65:
-            # YarcLexer.g:1:428: BIT_OR
+        elif alt41 == 66:
+            # YarcLexer.g:1:434: BIT_OR
             self.mBIT_OR()
 
-        elif alt42 == 66:
-            # YarcLexer.g:1:435: XOR
+        elif alt41 == 67:
+            # YarcLexer.g:1:441: XOR
             self.mXOR()
 
-        elif alt42 == 67:
-            # YarcLexer.g:1:439: BIT_AND
+        elif alt41 == 68:
+            # YarcLexer.g:1:445: BIT_AND
             self.mBIT_AND()
 
-        elif alt42 == 68:
-            # YarcLexer.g:1:447: BIT_NOT
+        elif alt41 == 69:
+            # YarcLexer.g:1:453: BIT_NOT
             self.mBIT_NOT()
 
-        elif alt42 == 69:
-            # YarcLexer.g:1:455: LSHIFT
+        elif alt41 == 70:
+            # YarcLexer.g:1:461: LSHIFT
             self.mLSHIFT()
 
-        elif alt42 == 70:
-            # YarcLexer.g:1:462: RSHIFT
+        elif alt41 == 71:
+            # YarcLexer.g:1:468: RSHIFT
             self.mRSHIFT()
 
-        elif alt42 == 71:
-            # YarcLexer.g:1:469: PLUS
+        elif alt41 == 72:
+            # YarcLexer.g:1:475: PLUS
             self.mPLUS()
 
-        elif alt42 == 72:
-            # YarcLexer.g:1:474: MINUS
+        elif alt41 == 73:
+            # YarcLexer.g:1:480: MINUS
             self.mMINUS()
 
-        elif alt42 == 73:
-            # YarcLexer.g:1:480: MUL
+        elif alt41 == 74:
+            # YarcLexer.g:1:486: MUL
             self.mMUL()
 
-        elif alt42 == 74:
-            # YarcLexer.g:1:484: DIV
+        elif alt41 == 75:
+            # YarcLexer.g:1:490: DIV
             self.mDIV()
 
-        elif alt42 == 75:
-            # YarcLexer.g:1:488: MOD
+        elif alt41 == 76:
+            # YarcLexer.g:1:494: MOD
             self.mMOD()
 
-        elif alt42 == 76:
-            # YarcLexer.g:1:492: IDIV
+        elif alt41 == 77:
+            # YarcLexer.g:1:498: IDIV
             self.mIDIV()
 
-        elif alt42 == 77:
-            # YarcLexer.g:1:497: POWER
+        elif alt41 == 78:
+            # YarcLexer.g:1:503: POWER
             self.mPOWER()
 
-        elif alt42 == 78:
-            # YarcLexer.g:1:503: LPAREN
+        elif alt41 == 79:
+            # YarcLexer.g:1:509: LPAREN
             self.mLPAREN()
 
-        elif alt42 == 79:
-            # YarcLexer.g:1:510: RPAREN
+        elif alt41 == 80:
+            # YarcLexer.g:1:516: RPAREN
             self.mRPAREN()
 
-        elif alt42 == 80:
-            # YarcLexer.g:1:517: LBRACK
+        elif alt41 == 81:
+            # YarcLexer.g:1:523: LBRACK
             self.mLBRACK()
 
-        elif alt42 == 81:
-            # YarcLexer.g:1:524: RBRACK
+        elif alt41 == 82:
+            # YarcLexer.g:1:530: RBRACK
             self.mRBRACK()
 
-        elif alt42 == 82:
-            # YarcLexer.g:1:531: LBRACE
+        elif alt41 == 83:
+            # YarcLexer.g:1:537: LBRACE
             self.mLBRACE()
 
-        elif alt42 == 83:
-            # YarcLexer.g:1:538: RBRACE
+        elif alt41 == 84:
+            # YarcLexer.g:1:544: RBRACE
             self.mRBRACE()
 
-        elif alt42 == 84:
-            # YarcLexer.g:1:545: LT
+        elif alt41 == 85:
+            # YarcLexer.g:1:551: LT
             self.mLT()
 
-        elif alt42 == 85:
-            # YarcLexer.g:1:548: GT
+        elif alt41 == 86:
+            # YarcLexer.g:1:554: GT
             self.mGT()
 
-        elif alt42 == 86:
-            # YarcLexer.g:1:551: EQUALS
+        elif alt41 == 87:
+            # YarcLexer.g:1:557: EQUALS
             self.mEQUALS()
 
-        elif alt42 == 87:
-            # YarcLexer.g:1:558: GT_EQ
+        elif alt41 == 88:
+            # YarcLexer.g:1:564: GT_EQ
             self.mGT_EQ()
 
-        elif alt42 == 88:
-            # YarcLexer.g:1:564: LT_EQ
+        elif alt41 == 89:
+            # YarcLexer.g:1:570: LT_EQ
             self.mLT_EQ()
 
-        elif alt42 == 89:
-            # YarcLexer.g:1:570: NOT_EQ
+        elif alt41 == 90:
+            # YarcLexer.g:1:576: NOT_EQ
             self.mNOT_EQ()
 
-        elif alt42 == 90:
-            # YarcLexer.g:1:577: AUG_ASSIGN
+        elif alt41 == 91:
+            # YarcLexer.g:1:583: AUG_ASSIGN
             self.mAUG_ASSIGN()
 
-        elif alt42 == 91:
-            # YarcLexer.g:1:588: ID
+        elif alt41 == 92:
+            # YarcLexer.g:1:594: ID
             self.mID()
 
-        elif alt42 == 92:
-            # YarcLexer.g:1:591: SETTING_ID
+        elif alt41 == 93:
+            # YarcLexer.g:1:597: SETTING_ID
             self.mSETTING_ID()
 
-        elif alt42 == 93:
-            # YarcLexer.g:1:602: STRING
+        elif alt41 == 94:
+            # YarcLexer.g:1:608: STRING
             self.mSTRING()
 
-        elif alt42 == 94:
-            # YarcLexer.g:1:609: INTEGER
+        elif alt41 == 95:
+            # YarcLexer.g:1:615: INTEGER
             self.mINTEGER()
 
-        elif alt42 == 95:
-            # YarcLexer.g:1:617: FLOAT_NUMBER
+        elif alt41 == 96:
+            # YarcLexer.g:1:623: FLOAT_NUMBER
             self.mFLOAT_NUMBER()
 
-        elif alt42 == 96:
-            # YarcLexer.g:1:630: NEWLINE
+        elif alt41 == 97:
+            # YarcLexer.g:1:636: NEWLINE
             self.mNEWLINE()
 
-        elif alt42 == 97:
-            # YarcLexer.g:1:638: SKIP_
+        elif alt41 == 98:
+            # YarcLexer.g:1:644: SKIP_
             self.mSKIP_()
 
-        elif alt42 == 98:
-            # YarcLexer.g:1:644: UNKNOWN
+        elif alt41 == 99:
+            # YarcLexer.g:1:650: UNKNOWN
             self.mUNKNOWN()
 
-    # lookup tables for DFA #21
+    # lookup tables for DFA #20
 
-    DFA21_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
+    DFA20_eot = DFA.unpack("\3\uffff\1\6\1\uffff\1\6\1\uffff")
 
-    DFA21_eof = DFA.unpack("\7\uffff")
+    DFA20_eof = DFA.unpack("\7\uffff")
 
-    DFA21_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
+    DFA20_min = DFA.unpack("\2\56\2\60\1\uffff\1\60\1\uffff")
 
-    DFA21_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
+    DFA20_max = DFA.unpack("\1\71\1\145\1\71\1\145\1\uffff\1\145\1\uffff")
 
-    DFA21_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
+    DFA20_accept = DFA.unpack("\4\uffff\1\2\1\uffff\1\1")
 
-    DFA21_special = DFA.unpack("\7\uffff")
+    DFA20_special = DFA.unpack("\7\uffff")
 
-    DFA21_transition = [
+    DFA20_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
         DFA.unpack("\1\3\1\uffff\12\1\13\uffff\1\4\37\uffff\1\4"),
         DFA.unpack("\12\5"),
@@ -4050,30 +4057,56 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
     ]
 
-    # class definition for DFA #21
+    # class definition for DFA #20
 
-    class DFA21(DFA):
+    class DFA20(DFA):
         pass
 
-    # lookup tables for DFA #31
+    # lookup tables for DFA #30
 
-    DFA31_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
+    DFA30_eot = DFA.unpack("\3\uffff\1\4\1\uffff")
 
-    DFA31_eof = DFA.unpack("\5\uffff")
+    DFA30_eof = DFA.unpack("\5\uffff")
 
-    DFA31_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
+    DFA30_min = DFA.unpack("\2\56\1\uffff\1\60\1\uffff")
 
-    DFA31_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
+    DFA30_max = DFA.unpack("\2\71\1\uffff\1\71\1\uffff")
 
-    DFA31_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
+    DFA30_accept = DFA.unpack("\2\uffff\1\1\1\uffff\1\2")
 
-    DFA31_special = DFA.unpack("\5\uffff")
+    DFA30_special = DFA.unpack("\5\uffff")
 
-    DFA31_transition = [
+    DFA30_transition = [
         DFA.unpack("\1\2\1\uffff\12\1"),
         DFA.unpack("\1\3\1\uffff\12\1"),
         DFA.unpack(""),
         DFA.unpack("\12\2"),
+        DFA.unpack(""),
+    ]
+
+    # class definition for DFA #30
+
+    class DFA30(DFA):
+        pass
+
+    # lookup tables for DFA #31
+
+    DFA31_eot = DFA.unpack("\4\uffff")
+
+    DFA31_eof = DFA.unpack("\4\uffff")
+
+    DFA31_min = DFA.unpack("\2\56\2\uffff")
+
+    DFA31_max = DFA.unpack("\1\71\1\145\2\uffff")
+
+    DFA31_accept = DFA.unpack("\2\uffff\1\2\1\1")
+
+    DFA31_special = DFA.unpack("\4\uffff")
+
+    DFA31_transition = [
+        DFA.unpack("\1\2\1\uffff\12\1"),
+        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
+        DFA.unpack(""),
         DFA.unpack(""),
     ]
 
@@ -4082,176 +4115,150 @@ class YarcLexer(YarcLexerBase):
     class DFA31(DFA):
         pass
 
-    # lookup tables for DFA #32
+    # lookup tables for DFA #41
 
-    DFA32_eot = DFA.unpack("\4\uffff")
-
-    DFA32_eof = DFA.unpack("\4\uffff")
-
-    DFA32_min = DFA.unpack("\2\56\2\uffff")
-
-    DFA32_max = DFA.unpack("\1\71\1\145\2\uffff")
-
-    DFA32_accept = DFA.unpack("\2\uffff\1\2\1\1")
-
-    DFA32_special = DFA.unpack("\4\uffff")
-
-    DFA32_transition = [
-        DFA.unpack("\1\2\1\uffff\12\1"),
-        DFA.unpack("\1\2\1\uffff\12\1\13\uffff\1\3\37\uffff\1\3"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-    ]
-
-    # class definition for DFA #32
-
-    class DFA32(DFA):
-        pass
-
-    # lookup tables for DFA #42
-
-    DFA42_eot = DFA.unpack(
+    DFA41_eot = DFA.unpack(
         "\1\uffff\25\110\1\171\4\110\1\177\2\110\1\u0084\1\u0086\3\uffff"
         "\1\u008c\1\u008e\1\u008f\1\u0090\1\uffff\1\u0094\1\u0097\1\u0098"
         "\1\u0099\1\u009b\1\u009d\1\u009e\5\uffff\1\103\1\110\1\103\1\110"
         "\1\uffff\2\103\2\u00a6\5\uffff\1\103\1\uffff\4\110\1\uffff\21\110"
-        "\1\u00c4\1\u00c5\5\110\1\u00cc\1\u00cd\1\u00ce\10\110\1\uffff\11"
-        "\110\1\u00e0\2\110\1\uffff\5\110\2\uffff\1\u00e8\2\110\1\uffff\1"
-        "\u00ed\14\uffff\1\u00ee\2\uffff\1\u00ef\4\uffff\1\u00f0\1\uffff"
-        "\1\u00f1\12\uffff\2\u00a6\2\uffff\4\110\1\u00f8\24\110\2\uffff\4"
-        "\110\1\u0111\1\110\3\uffff\7\110\1\u011a\3\110\1\u011e\5\110\1\uffff"
-        "\2\110\1\u0126\4\110\1\uffff\1\u012b\1\110\1\u012d\6\uffff\6\110"
-        "\1\uffff\1\110\1\u0135\1\u0136\2\110\2\u0139\10\110\1\u0139\3\110"
-        "\1\u0145\4\110\1\uffff\1\110\1\u014b\1\110\1\u014d\2\110\1\u0150"
-        "\1\110\1\uffff\3\110\1\uffff\4\110\1\u0159\2\110\1\uffff\4\110\1"
-        "\uffff\1\u0160\1\uffff\1\110\1\u0162\4\110\1\u0167\2\uffff\1\110"
-        "\1\u0139\1\uffff\3\110\1\u0139\4\110\1\u0170\2\110\1\uffff\3\110"
-        "\1\u0176\1\110\1\uffff\1\u0178\1\uffff\1\u0179\1\u017b\1\uffff\1"
-        "\u017c\1\u017d\1\u017e\5\110\1\uffff\6\110\1\uffff\1\110\1\uffff"
-        "\3\110\1\u00f8\1\uffff\2\110\1\u0191\1\u0192\1\110\1\u0139\1\u0194"
-        "\1\110\1\uffff\2\110\1\u0198\2\110\1\uffff\1\110\2\uffff\1\u017b"
-        "\4\uffff\2\110\1\u019f\7\110\1\u0192\4\110\1\u00f8\1\u01ab\1\110"
-        "\2\uffff\1\110\1\uffff\3\110\1\uffff\3\110\1\u01b4\2\110\1\uffff"
-        "\2\110\1\u01b9\1\u01ba\2\110\1\u0192\1\u01bd\1\110\1\u01c0\1\110"
-        "\1\uffff\1\u0139\1\u01c2\1\u0192\1\110\1\u01c4\1\110\1\u01c6\1\110"
-        "\1\uffff\4\110\2\uffff\2\110\1\uffff\2\110\1\uffff\1\u01d0\1\uffff"
-        "\1\110\1\uffff\1\110\1\uffff\1\110\1\u01d4\2\110\1\u01d7\2\110\2"
-        "\u01da\1\uffff\1\u0192\2\110\1\uffff\1\110\1\u01c6\1\uffff\1\u01c6"
-        "\1\110\1\uffff\1\110\1\u01e0\3\110\1\uffff\3\110\1\u01e7\2\110\1"
-        "\uffff\3\110\1\u01ed\1\u01c6\1\uffff"
+        "\1\u00c5\1\u00c6\4\110\1\u00cc\1\u00cd\1\u00ce\10\110\1\uffff\12"
+        "\110\1\u00e1\2\110\1\uffff\5\110\2\uffff\1\u00e9\2\110\1\uffff\1"
+        "\u00ee\14\uffff\1\u00ef\2\uffff\1\u00f0\4\uffff\1\u00f1\1\uffff"
+        "\1\u00f2\12\uffff\2\u00a6\2\uffff\4\110\1\u00f9\25\110\2\uffff\3"
+        "\110\1\u0112\1\110\3\uffff\7\110\1\u011b\4\110\1\u0120\5\110\1\uffff"
+        "\2\110\1\u0128\4\110\1\uffff\1\u012d\1\110\1\u012f\6\uffff\6\110"
+        "\1\uffff\1\110\1\u0137\1\u0138\2\110\2\u013b\11\110\1\u013b\3\110"
+        "\1\u0148\3\110\1\uffff\1\110\1\u014d\1\110\1\u014f\2\110\1\u0152"
+        "\1\110\1\uffff\4\110\1\uffff\4\110\1\u015c\2\110\1\uffff\4\110\1"
+        "\uffff\1\u0163\1\uffff\1\110\1\u0165\4\110\1\u016a\2\uffff\1\110"
+        "\1\u013b\1\uffff\4\110\1\u013b\4\110\1\u0174\2\110\1\uffff\2\110"
+        "\1\u0179\1\110\1\uffff\1\u017b\1\uffff\1\u017c\1\u017e\1\uffff\1"
+        "\u017f\1\u0180\1\110\1\u0182\5\110\1\uffff\6\110\1\uffff\1\110\1"
+        "\uffff\3\110\1\u00f9\1\uffff\3\110\1\u0196\1\u0197\1\110\1\u013b"
+        "\1\u0199\1\110\1\uffff\2\110\1\u019d\1\110\1\uffff\1\110\2\uffff"
+        "\1\u017e\3\uffff\1\110\1\uffff\2\110\1\u01a4\7\110\1\u0197\4\110"
+        "\1\u00f9\1\u01b0\1\u01b1\1\110\2\uffff\1\110\1\uffff\3\110\1\uffff"
+        "\3\110\1\u01ba\2\110\1\uffff\2\110\1\u01bf\1\u01c0\2\110\1\u0197"
+        "\1\u01c3\1\110\1\u01c6\1\110\2\uffff\1\u013b\1\u01c8\1\u0197\1\110"
+        "\1\u01ca\1\u01cb\2\110\1\uffff\4\110\2\uffff\2\110\1\uffff\2\110"
+        "\1\uffff\1\u01d6\1\uffff\1\110\2\uffff\2\110\1\u01da\2\110\1\u01dd"
+        "\2\110\2\u01e0\1\uffff\1\u0197\2\110\1\uffff\1\110\1\u01cb\1\uffff"
+        "\1\u01cb\1\110\1\uffff\1\u01e5\3\110\1\uffff\4\110\1\u01ed\1\110"
+        "\1\u01ef\1\uffff\1\110\1\uffff\1\110\1\u01cb"
     )
 
-    DFA42_eof = DFA.unpack("\u01ee\uffff")
+    DFA41_eof = DFA.unpack("\u01f2\uffff")
 
-    DFA42_min = DFA.unpack(
-        "\1\0\1\143\1\162\1\154\1\141\1\151\1\145\2\151\1\141\1\156\1\141"
+    DFA41_min = DFA.unpack(
+        "\1\0\1\143\1\162\1\154\1\141\1\151\1\145\2\151\1\141\1\156\1\157"
         "\1\145\1\146\1\144\1\42\1\141\1\145\1\42\1\157\1\151\1\42\1\60\1"
         "\151\1\150\1\42\1\157\1\173\1\156\1\157\1\60\1\56\3\uffff\4\75\1"
         "\uffff\1\74\3\75\1\52\1\57\1\75\5\uffff\1\75\1\42\1\101\1\42\1\uffff"
         "\2\0\2\56\5\uffff\1\11\1\uffff\1\141\1\143\1\141\1\172\1\uffff\1"
-        "\151\1\141\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145"
-        "\1\161\1\163\2\147\1\164\1\145\2\60\1\145\1\155\1\154\1\157\1\164"
-        "\3\60\1\151\1\145\1\163\1\164\1\42\1\154\1\162\1\42\1\uffff\1\164"
+        "\151\1\141\1\142\1\155\1\154\1\155\1\157\1\162\1\155\1\150\1\145"
+        "\1\161\1\163\2\147\1\164\1\145\2\60\1\145\1\154\1\157\1\164\3\60"
+        "\1\151\1\145\1\163\1\164\1\42\1\154\1\162\1\42\1\uffff\1\164\1\166"
         "\1\155\1\157\1\156\1\143\1\164\1\147\1\42\1\141\1\60\1\163\1\137"
         "\1\uffff\1\130\1\156\1\171\1\151\1\162\2\uffff\1\60\1\144\1\156"
         "\1\uffff\1\56\14\uffff\1\75\2\uffff\1\75\4\uffff\1\75\1\uffff\1"
         "\75\12\uffff\2\56\2\uffff\1\156\1\154\1\164\1\141\1\60\1\147\1\160"
-        "\1\145\1\164\1\156\2\145\1\151\1\145\1\151\1\165\2\145\1\162\1\165"
-        "\1\153\1\150\1\125\1\145\1\156\2\uffff\1\141\1\145\1\154\1\165\1"
+        "\1\145\1\164\1\156\2\145\1\142\1\151\1\145\1\151\1\165\2\145\1\162"
+        "\1\165\1\153\1\150\1\125\1\145\1\156\2\uffff\1\141\1\154\1\165\1"
         "\60\1\164\3\uffff\1\164\1\162\1\145\1\143\2\155\1\163\1\60\1\143"
-        "\1\151\1\153\1\60\1\165\1\141\1\151\1\156\1\145\1\uffff\1\151\1"
-        "\141\1\60\1\145\1\163\1\146\1\155\1\uffff\1\60\1\145\1\60\6\uffff"
-        "\1\141\1\145\1\164\1\151\2\156\1\uffff\1\145\2\60\2\145\2\60\1\156"
-        "\1\162\1\143\1\163\1\154\1\162\2\145\1\60\1\164\1\156\1\162\1\60"
-        "\1\164\1\162\1\151\1\160\1\uffff\1\141\1\60\1\171\1\60\1\150\1\145"
-        "\1\60\1\145\1\uffff\1\150\1\164\1\137\1\uffff\1\162\1\164\1\144"
-        "\1\163\1\60\1\142\1\170\1\uffff\1\155\1\151\1\157\1\141\1\uffff"
-        "\1\60\1\uffff\1\162\1\60\1\145\1\156\1\164\1\144\1\60\2\uffff\1"
-        "\162\1\60\1\uffff\1\144\1\141\1\145\1\60\1\151\1\145\1\157\1\156"
-        "\1\60\2\151\1\uffff\1\145\1\141\1\144\1\60\1\156\1\uffff\1\60\1"
-        "\uffff\2\60\1\uffff\3\60\1\141\1\163\1\145\1\137\1\154\1\uffff\1"
-        "\154\1\151\1\141\1\143\1\162\1\154\1\uffff\1\151\1\uffff\1\162\1"
-        "\147\1\151\1\60\1\uffff\1\163\1\145\2\60\1\156\2\60\1\143\1\uffff"
-        "\1\146\1\141\1\60\1\137\1\145\1\uffff\1\164\2\uffff\1\60\4\uffff"
-        "\1\164\1\151\1\60\1\142\1\141\1\145\1\163\1\164\1\163\1\155\1\60"
-        "\1\157\1\137\1\163\1\143\2\60\1\162\2\uffff\1\145\1\uffff\1\145"
-        "\1\157\1\154\1\uffff\1\164\1\162\1\151\1\60\1\166\1\141\1\uffff"
-        "\1\157\1\164\2\60\1\151\1\137\2\60\1\62\1\60\1\163\1\uffff\3\60"
-        "\1\162\1\60\1\162\1\60\1\141\1\uffff\1\145\1\162\1\144\1\145\2\uffff"
-        "\1\143\1\155\1\uffff\2\144\1\uffff\1\60\1\uffff\1\155\1\uffff\1"
-        "\141\1\uffff\1\164\1\60\1\157\1\171\1\60\1\163\1\141\2\60\1\uffff"
-        "\1\60\1\156\1\145\1\uffff\1\165\1\60\1\uffff\1\60\1\164\1\uffff"
-        "\1\163\1\60\1\156\1\145\1\154\1\uffff\1\144\1\162\1\141\1\60\1\151"
-        "\1\164\1\uffff\1\141\1\145\1\154\2\60\1\uffff"
+        "\1\145\1\151\1\153\1\60\1\165\1\141\1\151\1\156\1\145\1\uffff\1"
+        "\151\1\141\1\60\1\145\1\163\1\146\1\155\1\uffff\1\60\1\145\1\60"
+        "\6\uffff\1\141\1\145\1\164\1\151\2\156\1\uffff\1\145\2\60\2\145"
+        "\2\60\1\151\1\156\1\162\1\143\1\163\1\154\1\162\2\145\1\60\1\164"
+        "\1\156\1\162\1\60\1\164\1\151\1\160\1\uffff\1\141\1\60\1\171\1\60"
+        "\1\150\1\145\1\60\1\145\1\uffff\1\150\1\137\1\164\1\137\1\uffff"
+        "\1\162\1\164\1\144\1\163\1\60\1\142\1\170\1\uffff\1\155\1\151\1"
+        "\157\1\141\1\uffff\1\60\1\uffff\1\162\1\60\1\145\1\156\1\164\1\144"
+        "\1\60\2\uffff\1\162\1\60\1\uffff\1\156\1\144\1\141\1\145\1\60\1"
+        "\151\1\145\1\157\1\156\1\60\2\151\1\uffff\1\145\1\144\1\60\1\156"
+        "\1\uffff\1\60\1\uffff\2\60\1\uffff\2\60\1\164\1\60\1\141\1\163\1"
+        "\145\1\137\1\154\1\uffff\1\154\1\151\1\141\1\143\1\162\1\154\1\uffff"
+        "\1\151\1\uffff\1\162\1\147\1\151\1\60\1\uffff\1\163\2\145\2\60\1"
+        "\156\2\60\1\143\1\uffff\1\146\1\141\1\60\1\145\1\uffff\1\164\2\uffff"
+        "\1\60\3\uffff\1\157\1\uffff\1\164\1\151\1\60\1\142\1\141\1\145\1"
+        "\163\1\164\1\163\1\155\1\60\1\157\1\137\1\163\1\143\3\60\1\162\2"
+        "\uffff\1\145\1\uffff\1\145\1\157\1\154\1\uffff\1\162\1\151\1\137"
+        "\1\60\1\166\1\141\1\uffff\1\157\1\164\2\60\1\151\1\137\2\60\1\62"
+        "\1\60\1\163\2\uffff\3\60\1\162\2\60\1\141\1\143\1\uffff\1\145\1"
+        "\162\1\144\1\145\2\uffff\1\143\1\155\1\uffff\2\144\1\uffff\1\60"
+        "\1\uffff\1\155\2\uffff\1\164\1\141\1\60\1\157\1\171\1\60\1\163\1"
+        "\141\2\60\1\uffff\1\60\1\145\1\155\1\uffff\1\165\1\60\1\uffff\1"
+        "\60\1\164\1\uffff\1\60\1\145\1\156\1\145\1\uffff\1\162\1\144\1\162"
+        "\1\141\1\60\1\151\1\60\1\uffff\1\141\1\uffff\1\154\1\60"
     )
 
-    DFA42_max = DFA.unpack(
+    DFA41_max = DFA.unpack(
         "\1\uffff\1\164\1\162\1\154\1\171\1\157\1\164\1\151\1\157\1\141\3"
-        "\162\1\163\1\166\1\162\1\141\2\157\1\162\1\151\1\160\1\172\1\151"
-        "\1\150\1\156\1\157\1\173\1\164\1\157\1\172\1\71\3\uffff\4\75\1\uffff"
-        "\1\75\1\76\5\75\5\uffff\1\75\1\162\1\172\1\146\1\uffff\2\uffff\2"
-        "\145\5\uffff\1\40\1\uffff\1\145\1\164\1\145\1\172\1\uffff\1\151"
-        "\1\141\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145\1\161"
-        "\1\163\2\147\1\164\1\145\2\172\1\145\1\155\1\154\1\157\1\164\3\172"
-        "\1\151\1\145\1\163\1\164\1\157\1\154\1\162\1\47\1\uffff\1\164\1"
-        "\155\1\157\1\156\1\143\1\164\1\147\1\47\1\165\1\172\1\163\1\137"
-        "\1\uffff\1\172\1\156\1\171\1\151\1\162\2\uffff\1\172\1\144\1\164"
-        "\1\uffff\1\56\14\uffff\1\75\2\uffff\1\75\4\uffff\1\75\1\uffff\1"
-        "\75\12\uffff\2\145\2\uffff\1\156\2\164\1\141\1\172\1\147\1\160\1"
-        "\145\1\164\1\156\2\145\1\151\1\145\1\151\1\165\2\145\1\162\1\165"
-        "\1\153\1\150\1\125\1\145\1\156\2\uffff\1\141\1\145\1\154\1\165\1"
-        "\172\1\164\3\uffff\1\164\1\162\1\145\1\143\2\155\1\163\1\172\1\143"
-        "\1\151\1\153\1\172\1\165\1\141\1\151\1\156\1\145\1\uffff\1\151\1"
-        "\141\1\172\1\145\1\163\1\146\1\155\1\uffff\1\172\1\145\1\172\6\uffff"
-        "\1\141\1\145\1\164\1\151\2\156\1\uffff\1\145\2\172\2\145\2\172\1"
-        "\156\1\162\1\143\1\163\1\154\1\162\2\145\1\172\1\164\1\156\1\162"
-        "\1\172\1\164\1\162\1\151\1\160\1\uffff\1\141\1\172\1\171\1\172\1"
-        "\150\1\145\1\172\1\145\1\uffff\1\150\1\164\1\137\1\uffff\1\162\1"
+        "\162\1\163\1\166\1\162\3\157\1\162\1\151\1\160\1\172\1\151\1\150"
+        "\1\156\1\157\1\173\1\164\1\157\1\172\1\71\3\uffff\4\75\1\uffff\1"
+        "\75\1\76\5\75\5\uffff\1\75\1\162\1\172\1\146\1\uffff\2\uffff\2\145"
+        "\5\uffff\1\40\1\uffff\1\145\1\164\1\145\1\172\1\uffff\1\151\1\141"
+        "\1\142\1\156\1\154\1\155\1\157\1\162\1\155\1\150\1\145\1\161\1\163"
+        "\2\147\1\164\1\145\2\172\1\145\1\154\1\157\1\164\3\172\1\151\1\145"
+        "\1\163\1\164\1\157\1\154\1\162\1\47\1\uffff\1\164\1\166\1\155\1"
+        "\157\1\156\1\143\1\164\1\147\1\47\1\165\1\172\1\163\1\137\1\uffff"
+        "\1\172\1\156\1\171\1\151\1\162\2\uffff\1\172\1\144\1\164\1\uffff"
+        "\1\56\14\uffff\1\75\2\uffff\1\75\4\uffff\1\75\1\uffff\1\75\12\uffff"
+        "\2\145\2\uffff\1\156\2\164\1\141\1\172\1\147\1\160\1\145\1\164\1"
+        "\156\2\145\1\142\1\151\1\145\1\151\1\165\2\145\1\162\1\165\1\153"
+        "\1\150\1\125\1\145\1\156\2\uffff\1\141\1\154\1\165\1\172\1\164\3"
+        "\uffff\1\164\1\162\1\145\1\143\2\155\1\163\1\172\1\143\1\145\1\151"
+        "\1\153\1\172\1\165\1\141\1\151\1\156\1\145\1\uffff\1\151\1\141\1"
+        "\172\1\145\1\163\1\146\1\155\1\uffff\1\172\1\145\1\172\6\uffff\1"
+        "\141\1\145\1\164\1\151\2\156\1\uffff\1\145\2\172\2\145\2\172\1\151"
+        "\1\156\1\162\1\143\1\163\1\154\1\162\2\145\1\172\1\164\1\156\1\162"
+        "\1\172\1\164\1\151\1\160\1\uffff\1\141\1\172\1\171\1\172\1\150\1"
+        "\145\1\172\1\145\1\uffff\1\150\1\137\1\164\1\137\1\uffff\1\162\1"
         "\164\1\144\1\163\1\172\1\142\1\170\1\uffff\1\155\1\151\1\157\1\141"
         "\1\uffff\1\172\1\uffff\1\162\1\172\1\145\1\156\1\164\1\144\1\172"
-        "\2\uffff\1\162\1\172\1\uffff\1\144\1\141\1\145\1\172\1\151\1\145"
-        "\1\157\1\156\1\172\2\151\1\uffff\1\145\1\141\1\144\1\172\1\156\1"
-        "\uffff\1\172\1\uffff\2\172\1\uffff\3\172\1\141\1\163\1\145\1\137"
-        "\1\154\1\uffff\1\154\1\151\1\141\1\143\1\162\1\154\1\uffff\1\151"
-        "\1\uffff\1\162\1\147\1\151\1\172\1\uffff\1\163\1\145\2\172\1\156"
-        "\2\172\1\143\1\uffff\1\146\1\141\1\172\1\137\1\145\1\uffff\1\164"
-        "\2\uffff\1\172\4\uffff\1\164\1\151\1\172\1\142\1\141\1\145\1\163"
-        "\1\164\1\163\1\155\1\172\1\157\1\137\1\163\1\143\2\172\1\162\2\uffff"
-        "\1\145\1\uffff\1\145\1\157\1\154\1\uffff\1\164\1\162\1\151\1\172"
-        "\1\166\1\141\1\uffff\1\157\1\164\2\172\1\151\1\137\2\172\1\63\1"
-        "\172\1\163\1\uffff\3\172\1\162\1\172\1\162\1\172\1\141\1\uffff\1"
-        "\145\1\162\1\144\1\145\2\uffff\1\143\1\155\1\uffff\2\144\1\uffff"
-        "\1\172\1\uffff\1\155\1\uffff\1\141\1\uffff\1\164\1\172\1\157\1\171"
-        "\1\172\1\163\1\141\2\172\1\uffff\1\172\1\156\1\145\1\uffff\1\165"
-        "\1\172\1\uffff\1\172\1\164\1\uffff\1\163\1\172\1\156\1\145\1\154"
-        "\1\uffff\1\144\1\162\1\141\1\172\1\151\1\164\1\uffff\1\141\1\145"
-        "\1\154\2\172\1\uffff"
+        "\2\uffff\1\162\1\172\1\uffff\1\156\1\144\1\141\1\145\1\172\1\151"
+        "\1\145\1\157\1\156\1\172\2\151\1\uffff\1\145\1\144\1\172\1\156\1"
+        "\uffff\1\172\1\uffff\2\172\1\uffff\2\172\1\164\1\172\1\141\1\163"
+        "\1\145\1\137\1\154\1\uffff\1\154\1\151\1\141\1\143\1\162\1\154\1"
+        "\uffff\1\151\1\uffff\1\162\1\147\1\151\1\172\1\uffff\1\163\2\145"
+        "\2\172\1\156\2\172\1\143\1\uffff\1\146\1\141\1\172\1\145\1\uffff"
+        "\1\164\2\uffff\1\172\3\uffff\1\157\1\uffff\1\164\1\151\1\172\1\142"
+        "\1\141\1\145\1\163\1\164\1\163\1\155\1\172\1\157\1\137\1\163\1\143"
+        "\3\172\1\162\2\uffff\1\145\1\uffff\1\145\1\157\1\154\1\uffff\1\162"
+        "\1\151\1\137\1\172\1\166\1\141\1\uffff\1\157\1\164\2\172\1\151\1"
+        "\137\2\172\1\63\1\172\1\163\2\uffff\3\172\1\162\2\172\1\141\1\143"
+        "\1\uffff\1\145\1\162\1\144\1\145\2\uffff\1\143\1\155\1\uffff\2\144"
+        "\1\uffff\1\172\1\uffff\1\155\2\uffff\1\164\1\141\1\172\1\157\1\171"
+        "\1\172\1\163\1\141\2\172\1\uffff\1\172\1\145\1\155\1\uffff\1\165"
+        "\1\172\1\uffff\1\172\1\164\1\uffff\1\172\1\145\1\156\1\145\1\uffff"
+        "\1\162\1\144\1\162\1\141\1\172\1\151\1\172\1\uffff\1\141\1\uffff"
+        "\1\154\1\172"
     )
 
-    DFA42_accept = DFA.unpack(
-        "\40\uffff\1\75\1\76\1\77\4\uffff\1\104\7\uffff\1\116\1\117\1\120"
-        "\1\121\1\123\4\uffff\1\133\4\uffff\3\140\2\141\1\uffff\1\142\4\uffff"
-        "\1\133\43\uffff\1\135\14\uffff\1\36\5\uffff\1\122\1\47\3\uffff\1"
-        "\71\1\uffff\1\72\1\137\1\75\1\76\1\77\1\126\1\100\1\132\1\101\1"
-        "\102\1\103\1\104\1\uffff\1\130\1\124\1\uffff\1\127\1\125\1\107\1"
-        "\110\1\uffff\1\111\1\uffff\1\112\1\113\1\116\1\117\1\120\1\121\1"
-        "\123\1\131\1\134\1\136\2\uffff\1\140\1\141\31\uffff\1\51\1\66\6"
-        "\uffff\1\61\1\60\1\62\21\uffff\1\50\7\uffff\1\52\3\uffff\1\74\1"
-        "\73\1\105\1\106\1\115\1\114\6\uffff\1\45\30\uffff\1\17\10\uffff"
-        "\1\56\3\uffff\1\63\7\uffff\1\37\4\uffff\1\53\1\uffff\1\65\7\uffff"
-        "\1\67\1\33\2\uffff\1\5\13\uffff\1\13\5\uffff\1\20\1\uffff\1\54\2"
-        "\uffff\1\57\10\uffff\1\70\6\uffff\1\64\1\uffff\1\30\4\uffff\1\3"
-        "\10\uffff\1\7\5\uffff\1\15\1\uffff\1\43\1\21\1\uffff\1\44\1\55\1"
-        "\22\1\23\22\uffff\1\6\1\46\1\uffff\1\10\3\uffff\1\14\6\uffff\1\27"
-        "\13\uffff\1\4\10\uffff\1\34\4\uffff\1\32\1\35\2\uffff\1\1\2\uffff"
-        "\1\2\1\uffff\1\12\1\uffff\1\11\1\uffff\1\42\11\uffff\1\31\3\uffff"
-        "\1\24\2\uffff\1\25\2\uffff\1\40\5\uffff\1\16\6\uffff\1\41\5\uffff"
-        "\1\26"
+    DFA41_accept = DFA.unpack(
+        "\40\uffff\1\76\1\77\1\100\4\uffff\1\105\7\uffff\1\117\1\120\1\121"
+        "\1\122\1\124\4\uffff\1\134\4\uffff\3\141\2\142\1\uffff\1\143\4\uffff"
+        "\1\134\42\uffff\1\136\15\uffff\1\35\5\uffff\1\123\1\50\3\uffff\1"
+        "\72\1\uffff\1\73\1\140\1\76\1\77\1\100\1\127\1\101\1\133\1\102\1"
+        "\103\1\104\1\105\1\uffff\1\131\1\125\1\uffff\1\130\1\126\1\110\1"
+        "\111\1\uffff\1\112\1\uffff\1\113\1\114\1\117\1\120\1\121\1\122\1"
+        "\124\1\132\1\135\1\137\2\uffff\1\141\1\142\32\uffff\1\52\1\67\5"
+        "\uffff\1\62\1\61\1\63\22\uffff\1\51\7\uffff\1\53\3\uffff\1\75\1"
+        "\74\1\106\1\107\1\116\1\115\6\uffff\1\45\30\uffff\1\17\10\uffff"
+        "\1\57\4\uffff\1\64\7\uffff\1\36\4\uffff\1\54\1\uffff\1\66\7\uffff"
+        "\1\70\1\32\2\uffff\1\5\14\uffff\1\13\4\uffff\1\20\1\uffff\1\55\2"
+        "\uffff\1\60\11\uffff\1\71\6\uffff\1\65\1\uffff\1\27\4\uffff\1\3"
+        "\11\uffff\1\7\4\uffff\1\15\1\uffff\1\43\1\21\1\uffff\1\44\1\56\1"
+        "\22\1\uffff\1\23\23\uffff\1\6\1\46\1\uffff\1\10\3\uffff\1\14\6\uffff"
+        "\1\26\13\uffff\1\4\1\47\10\uffff\1\33\4\uffff\1\31\1\34\2\uffff"
+        "\1\1\2\uffff\1\2\1\uffff\1\12\1\uffff\1\11\1\42\12\uffff\1\30\3"
+        "\uffff\1\24\2\uffff\1\25\2\uffff\1\37\4\uffff\1\16\7\uffff\1\40"
+        "\1\uffff\1\41\2\uffff"
     )
 
-    DFA42_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01b3\uffff")
+    DFA41_special = DFA.unpack("\1\0\70\uffff\1\1\1\2\u01b7\uffff")
 
-    DFA42_transition = [
+    DFA41_transition = [
         DFA.unpack(
             "\11\103\1\100\1\76\1\103\1\77\1\75\22\103\1\100\1\64"
             "\1\72\1\101\1\66\1\56\1\46\1\71\1\57\1\60\1\54\1\52\1\40\1\53\1"
@@ -4271,29 +4278,29 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\126\5\uffff\1\127"),
         DFA.unpack("\1\130"),
         DFA.unpack("\1\132\1\uffff\1\131\1\uffff\1\133"),
-        DFA.unpack("\1\135\15\uffff\1\136\2\uffff\1\134"),
-        DFA.unpack("\1\140\14\uffff\1\137"),
-        DFA.unpack("\1\142\7\uffff\1\141\4\uffff\1\143"),
-        DFA.unpack("\1\144\7\uffff\1\146\11\uffff\1\145"),
+        DFA.unpack("\1\135\2\uffff\1\134"),
+        DFA.unpack("\1\137\14\uffff\1\136"),
+        DFA.unpack("\1\141\7\uffff\1\140\4\uffff\1\142"),
+        DFA.unpack("\1\143\7\uffff\1\145\11\uffff\1\144"),
         DFA.unpack(
-            "\1\154\4\uffff\1\154\52\uffff\1\153\16\uffff\1\151\3"
-            "\uffff\1\147\11\uffff\1\152\2\uffff\1\150"
+            "\1\153\4\uffff\1\153\52\uffff\1\152\16\uffff\1\150\3"
+            "\uffff\1\146\11\uffff\1\151\2\uffff\1\147"
         ),
-        DFA.unpack("\1\155"),
+        DFA.unpack("\1\154\15\uffff\1\155"),
         DFA.unpack("\1\160\3\uffff\1\156\5\uffff\1\157"),
         DFA.unpack(
-            "\1\154\4\uffff\1\154\36\uffff\1\164\36\uffff\1\161\1"
+            "\1\153\4\uffff\1\153\36\uffff\1\164\36\uffff\1\161\1"
             "\164\2\uffff\1\163\5\uffff\1\162"
         ),
         DFA.unpack("\1\166\2\uffff\1\165"),
         DFA.unpack("\1\167"),
-        DFA.unpack("\1\154\4\uffff\1\154\110\uffff\1\170"),
+        DFA.unpack("\1\153\4\uffff\1\153\110\uffff\1\170"),
         DFA.unpack(
             "\12\110\7\uffff\27\110\3\172\4\uffff\1\110\1\uffff\27" "\110\3\172"
         ),
         DFA.unpack("\1\173"),
         DFA.unpack("\1\174"),
-        DFA.unpack("\1\154\4\uffff\1\154\106\uffff\1\175"),
+        DFA.unpack("\1\153\4\uffff\1\153\106\uffff\1\175"),
         DFA.unpack("\1\176"),
         DFA.unpack("\1\u0080"),
         DFA.unpack("\1\u0082\5\uffff\1\u0081"),
@@ -4321,12 +4328,12 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack("\1\u00a4"),
-        DFA.unpack("\1\154\4\uffff\1\154\52\uffff\1\153\37\uffff\1\153"),
+        DFA.unpack("\1\153\4\uffff\1\153\52\uffff\1\152\37\uffff\1\152"),
         DFA.unpack("\32\u00a5\4\uffff\1\u00a5\1\uffff\32\u00a5"),
-        DFA.unpack("\1\154\4\uffff\1\154\36\uffff\1\164\37\uffff\1\164"),
+        DFA.unpack("\1\153\4\uffff\1\153\36\uffff\1\164\37\uffff\1\164"),
         DFA.unpack(""),
-        DFA.unpack("\12\154\1\uffff\1\154\2\uffff\ufff2\154"),
-        DFA.unpack("\12\154\1\uffff\1\154\2\uffff\ufff2\154"),
+        DFA.unpack("\12\153\1\uffff\1\153\2\uffff\ufff2\153"),
+        DFA.unpack("\12\153\1\uffff\1\153\2\uffff\ufff2\153"),
         DFA.unpack("\1\u0087\1\uffff\12\u00a7\13\uffff\1\u0087\37\uffff" "\1\u0087"),
         DFA.unpack(
             "\1\u0087\1\uffff\1\u00a8\11\u0087\13\uffff\1\u0087\37" "\uffff\1\u0087"
@@ -4346,8 +4353,7 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u00b3"),
         DFA.unpack("\1\u00b4"),
         DFA.unpack("\1\u00b5"),
-        DFA.unpack("\1\u00b6"),
-        DFA.unpack("\1\u00b7"),
+        DFA.unpack("\1\u00b7\1\u00b6"),
         DFA.unpack("\1\u00b8"),
         DFA.unpack("\1\u00b9"),
         DFA.unpack("\1\u00ba"),
@@ -4360,9 +4366,9 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u00c1"),
         DFA.unpack("\1\u00c2"),
         DFA.unpack("\1\u00c3"),
+        DFA.unpack("\1\u00c4"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00c6"),
         DFA.unpack("\1\u00c7"),
         DFA.unpack("\1\u00c8"),
         DFA.unpack("\1\u00c9"),
@@ -4376,10 +4382,10 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u00d0"),
         DFA.unpack("\1\u00d1"),
         DFA.unpack("\1\u00d2"),
-        DFA.unpack("\1\154\4\uffff\1\154\71\uffff\1\u00d3\15\uffff\1\u00d4"),
+        DFA.unpack("\1\153\4\uffff\1\153\71\uffff\1\u00d3\15\uffff\1\u00d4"),
         DFA.unpack("\1\u00d5"),
         DFA.unpack("\1\u00d6"),
-        DFA.unpack("\1\154\4\uffff\1\154"),
+        DFA.unpack("\1\153\4\uffff\1\153"),
         DFA.unpack(""),
         DFA.unpack("\1\u00d7"),
         DFA.unpack("\1\u00d8"),
@@ -4388,24 +4394,25 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u00db"),
         DFA.unpack("\1\u00dc"),
         DFA.unpack("\1\u00dd"),
-        DFA.unpack("\1\154\4\uffff\1\154"),
-        DFA.unpack("\1\u00de\23\uffff\1\u00df"),
+        DFA.unpack("\1\u00de"),
+        DFA.unpack("\1\153\4\uffff\1\153"),
+        DFA.unpack("\1\u00df\23\uffff\1\u00e0"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00e1"),
         DFA.unpack("\1\u00e2"),
+        DFA.unpack("\1\u00e3"),
         DFA.unpack(""),
-        DFA.unpack("\3\u00e3\35\uffff\3\u00e3"),
-        DFA.unpack("\1\u00e4"),
+        DFA.unpack("\3\u00e4\35\uffff\3\u00e4"),
         DFA.unpack("\1\u00e5"),
         DFA.unpack("\1\u00e6"),
         DFA.unpack("\1\u00e7"),
+        DFA.unpack("\1\u00e8"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u00e9"),
-        DFA.unpack("\1\u00ea\5\uffff\1\u00eb"),
+        DFA.unpack("\1\u00ea"),
+        DFA.unpack("\1\u00eb\5\uffff\1\u00ec"),
         DFA.unpack(""),
-        DFA.unpack("\1\u00ec"),
+        DFA.unpack("\1\u00ed"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
@@ -4445,14 +4452,13 @@ class YarcLexer(YarcLexerBase):
         ),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\u00f2"),
-        DFA.unpack("\1\u00f3\7\uffff\1\u00f4"),
-        DFA.unpack("\1\u00f5"),
+        DFA.unpack("\1\u00f3"),
+        DFA.unpack("\1\u00f4\7\uffff\1\u00f5"),
         DFA.unpack("\1\u00f6"),
+        DFA.unpack("\1\u00f7"),
         DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\16\110" "\1\u00f7\13\110"
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\16\110" "\1\u00f8\13\110"
         ),
-        DFA.unpack("\1\u00f9"),
         DFA.unpack("\1\u00fa"),
         DFA.unpack("\1\u00fb"),
         DFA.unpack("\1\u00fc"),
@@ -4472,45 +4478,47 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack("\1\u010a"),
         DFA.unpack("\1\u010b"),
         DFA.unpack("\1\u010c"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u010d"),
         DFA.unpack("\1\u010e"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u010f"),
         DFA.unpack("\1\u0110"),
+        DFA.unpack("\1\u0111"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0112"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u0113"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u0114"),
         DFA.unpack("\1\u0115"),
         DFA.unpack("\1\u0116"),
         DFA.unpack("\1\u0117"),
         DFA.unpack("\1\u0118"),
         DFA.unpack("\1\u0119"),
+        DFA.unpack("\1\u011a"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u011b"),
         DFA.unpack("\1\u011c"),
         DFA.unpack("\1\u011d"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u011e"),
         DFA.unpack("\1\u011f"),
-        DFA.unpack("\1\u0120"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0121"),
         DFA.unpack("\1\u0122"),
         DFA.unpack("\1\u0123"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0124"),
         DFA.unpack("\1\u0125"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u0126"),
         DFA.unpack("\1\u0127"),
-        DFA.unpack("\1\u0128"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0129"),
         DFA.unpack("\1\u012a"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u012b"),
         DFA.unpack("\1\u012c"),
+        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u012e"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
         DFA.unpack(""),
@@ -4518,267 +4526,270 @@ class YarcLexer(YarcLexerBase):
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\u012e"),
-        DFA.unpack("\1\u012f"),
         DFA.unpack("\1\u0130"),
         DFA.unpack("\1\u0131"),
         DFA.unpack("\1\u0132"),
         DFA.unpack("\1\u0133"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0134"),
+        DFA.unpack("\1\u0135"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u0136"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0137"),
-        DFA.unpack("\1\u0138"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0139"),
         DFA.unpack("\1\u013a"),
-        DFA.unpack("\1\u013b"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u013c"),
         DFA.unpack("\1\u013d"),
         DFA.unpack("\1\u013e"),
         DFA.unpack("\1\u013f"),
         DFA.unpack("\1\u0140"),
         DFA.unpack("\1\u0141"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0142"),
         DFA.unpack("\1\u0143"),
         DFA.unpack("\1\u0144"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0145"),
         DFA.unpack("\1\u0146"),
         DFA.unpack("\1\u0147"),
-        DFA.unpack("\1\u0148"),
-        DFA.unpack("\1\u0149"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u014a"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0149"),
+        DFA.unpack("\1\u014a"),
+        DFA.unpack("\1\u014b"),
+        DFA.unpack(""),
         DFA.unpack("\1\u014c"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u014e"),
-        DFA.unpack("\1\u014f"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0150"),
         DFA.unpack("\1\u0151"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u0152"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0153"),
-        DFA.unpack("\1\u0154"),
         DFA.unpack(""),
+        DFA.unpack("\1\u0154"),
         DFA.unpack("\1\u0155"),
         DFA.unpack("\1\u0156"),
         DFA.unpack("\1\u0157"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0158"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0159"),
         DFA.unpack("\1\u015a"),
         DFA.unpack("\1\u015b"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u015c"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u015d"),
         DFA.unpack("\1\u015e"),
+        DFA.unpack(""),
         DFA.unpack("\1\u015f"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
+        DFA.unpack("\1\u0160"),
         DFA.unpack("\1\u0161"),
+        DFA.unpack("\1\u0162"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0163"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0164"),
-        DFA.unpack("\1\u0165"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0166"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
-        DFA.unpack(""),
+        DFA.unpack("\1\u0167"),
         DFA.unpack("\1\u0168"),
+        DFA.unpack("\1\u0169"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
-        DFA.unpack("\1\u0169"),
-        DFA.unpack("\1\u016a"),
+        DFA.unpack(""),
         DFA.unpack("\1\u016b"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
         DFA.unpack("\1\u016c"),
         DFA.unpack("\1\u016d"),
         DFA.unpack("\1\u016e"),
         DFA.unpack("\1\u016f"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0170"),
         DFA.unpack("\1\u0171"),
         DFA.unpack("\1\u0172"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0173"),
-        DFA.unpack("\1\u0174"),
-        DFA.unpack("\1\u0175"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0175"),
+        DFA.unpack("\1\u0176"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0177"),
+        DFA.unpack("\1\u0178"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u017a"),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u017a\7\110"
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u017d\7\110"
         ),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u017f"),
-        DFA.unpack("\1\u0180"),
         DFA.unpack("\1\u0181"),
-        DFA.unpack("\1\u0182"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u0183"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0184"),
         DFA.unpack("\1\u0185"),
         DFA.unpack("\1\u0186"),
         DFA.unpack("\1\u0187"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0188"),
         DFA.unpack("\1\u0189"),
-        DFA.unpack(""),
         DFA.unpack("\1\u018a"),
-        DFA.unpack(""),
         DFA.unpack("\1\u018b"),
         DFA.unpack("\1\u018c"),
         DFA.unpack("\1\u018d"),
-        DFA.unpack(
-            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u018e\7\110"
-        ),
+        DFA.unpack(""),
+        DFA.unpack("\1\u018e"),
         DFA.unpack(""),
         DFA.unpack("\1\u018f"),
         DFA.unpack("\1\u0190"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0193"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0195"),
+        DFA.unpack("\1\u0191"),
+        DFA.unpack(
+            "\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\22\110" "\1\u0192\7\110"
+        ),
         DFA.unpack(""),
-        DFA.unpack("\1\u0196"),
-        DFA.unpack("\1\u0197"),
+        DFA.unpack("\1\u0193"),
+        DFA.unpack("\1\u0194"),
+        DFA.unpack("\1\u0195"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u0199"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u0198"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u019a"),
         DFA.unpack(""),
         DFA.unpack("\1\u019b"),
+        DFA.unpack("\1\u019c"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u019e"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u019f"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\1\u019c"),
-        DFA.unpack("\1\u019d"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\u019e\1\uffff\32\110"),
         DFA.unpack("\1\u01a0"),
+        DFA.unpack(""),
         DFA.unpack("\1\u01a1"),
         DFA.unpack("\1\u01a2"),
-        DFA.unpack("\1\u01a3"),
-        DFA.unpack("\1\u01a4"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\u01a3\1\uffff\32\110"),
         DFA.unpack("\1\u01a5"),
         DFA.unpack("\1\u01a6"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01a7"),
         DFA.unpack("\1\u01a8"),
         DFA.unpack("\1\u01a9"),
         DFA.unpack("\1\u01aa"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01ab"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01ac"),
-        DFA.unpack(""),
-        DFA.unpack(""),
         DFA.unpack("\1\u01ad"),
-        DFA.unpack(""),
         DFA.unpack("\1\u01ae"),
         DFA.unpack("\1\u01af"),
-        DFA.unpack("\1\u01b0"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01b1"),
-        DFA.unpack("\1\u01b2"),
-        DFA.unpack("\1\u01b3"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01b2"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01b3"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01b4"),
         DFA.unpack("\1\u01b5"),
         DFA.unpack("\1\u01b6"),
         DFA.unpack(""),
         DFA.unpack("\1\u01b7"),
         DFA.unpack("\1\u01b8"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01b9"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01bb"),
         DFA.unpack("\1\u01bc"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01bd"),
+        DFA.unpack("\1\u01be"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01be\1\u01bf"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01c1"),
-        DFA.unpack(""),
+        DFA.unpack("\1\u01c2"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01c3"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01c5"),
+        DFA.unpack("\1\u01c4\1\u01c5"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01c7"),
         DFA.unpack(""),
-        DFA.unpack("\1\u01c8"),
+        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01c9"),
-        DFA.unpack("\1\u01ca"),
-        DFA.unpack("\1\u01cb"),
-        DFA.unpack(""),
-        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01cc"),
         DFA.unpack("\1\u01cd"),
         DFA.unpack(""),
         DFA.unpack("\1\u01ce"),
         DFA.unpack("\1\u01cf"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
+        DFA.unpack("\1\u01d0"),
         DFA.unpack("\1\u01d1"),
         DFA.unpack(""),
-        DFA.unpack("\1\u01d2"),
         DFA.unpack(""),
+        DFA.unpack("\1\u01d2"),
         DFA.unpack("\1\u01d3"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01d4"),
         DFA.unpack("\1\u01d5"),
-        DFA.unpack("\1\u01d6"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01d7"),
+        DFA.unpack(""),
+        DFA.unpack(""),
         DFA.unpack("\1\u01d8"),
         DFA.unpack("\1\u01d9"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01db"),
         DFA.unpack("\1\u01dc"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01dd"),
-        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01de"),
-        DFA.unpack(""),
         DFA.unpack("\1\u01df"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack(""),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack("\1\u01e1"),
         DFA.unpack("\1\u01e2"),
+        DFA.unpack(""),
         DFA.unpack("\1\u01e3"),
-        DFA.unpack(""),
-        DFA.unpack("\1\u01e4"),
-        DFA.unpack("\1\u01e5"),
-        DFA.unpack("\1\u01e6"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
-        DFA.unpack("\1\u01e8"),
-        DFA.unpack("\1\u01e9"),
         DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01e4"),
+        DFA.unpack(""),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01e6"),
+        DFA.unpack("\1\u01e7"),
+        DFA.unpack("\1\u01e8"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01e9"),
         DFA.unpack("\1\u01ea"),
         DFA.unpack("\1\u01eb"),
         DFA.unpack("\1\u01ec"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
+        DFA.unpack("\1\u01ee"),
         DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
         DFA.unpack(""),
+        DFA.unpack("\1\u01f0"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u01f1"),
+        DFA.unpack("\12\110\7\uffff\32\110\4\uffff\1\110\1\uffff\32\110"),
     ]
 
-    # class definition for DFA #42
+    # class definition for DFA #41
 
-    class DFA42(DFA):
+    class DFA41(DFA):
         pass
 
         def specialStateTransition(self_, s, input):
@@ -4792,175 +4803,175 @@ class YarcLexer(YarcLexerBase):
             _s = s
 
             if s == 0:
-                LA42_0 = input.LA(1)
+                LA41_0 = input.LA(1)
 
                 s = -1
-                if LA42_0 == 115:
+                if LA41_0 == 115:
                     s = 1
 
-                elif LA42_0 == 119:
+                elif LA41_0 == 119:
                     s = 2
 
-                elif LA42_0 == 80:
+                elif LA41_0 == 80:
                     s = 3
 
-                elif LA42_0 == 67:
+                elif LA41_0 == 67:
                     s = 4
 
-                elif LA42_0 == 84:
+                elif LA41_0 == 84:
                     s = 5
 
-                elif LA42_0 == 83:
+                elif LA41_0 == 83:
                     s = 6
 
-                elif LA42_0 == 68:
+                elif LA41_0 == 68:
                     s = 7
 
-                elif LA42_0 == 76:
+                elif LA41_0 == 76:
                     s = 8
 
-                elif LA42_0 == 77:
+                elif LA41_0 == 77:
                     s = 9
 
-                elif LA42_0 == 111:
+                elif LA41_0 == 111:
                     s = 10
 
-                elif LA42_0 == 99:
+                elif LA41_0 == 99:
                     s = 11
 
-                elif LA42_0 == 103:
+                elif LA41_0 == 103:
                     s = 12
 
-                elif LA42_0 == 105:
+                elif LA41_0 == 105:
                     s = 13
 
-                elif LA42_0 == 101:
+                elif LA41_0 == 101:
                     s = 14
 
-                elif LA42_0 == 102:
+                elif LA41_0 == 102:
                     s = 15
 
-                elif LA42_0 == 109:
+                elif LA41_0 == 109:
                     s = 16
 
-                elif LA42_0 == 108:
+                elif LA41_0 == 108:
                     s = 17
 
-                elif LA42_0 == 114:
+                elif LA41_0 == 114:
                     s = 18
 
-                elif LA42_0 == 116:
+                elif LA41_0 == 116:
                     s = 19
 
-                elif LA42_0 == 118:
+                elif LA41_0 == 118:
                     s = 20
 
-                elif LA42_0 == 117:
+                elif LA41_0 == 117:
                     s = 21
 
-                elif LA42_0 in {88, 89, 90, 120, 121, 122}:
+                elif LA41_0 in {88, 89, 90, 120, 121, 122}:
                     s = 22
 
-                elif LA42_0 == 107:
+                elif LA41_0 == 107:
                     s = 23
 
-                elif LA42_0 == 112:
+                elif LA41_0 == 112:
                     s = 24
 
-                elif LA42_0 == 85:
+                elif LA41_0 == 85:
                     s = 25
 
-                elif LA42_0 == 78:
+                elif LA41_0 == 78:
                     s = 26
 
-                elif LA42_0 == 123:
+                elif LA41_0 == 123:
                     s = 27
 
-                elif LA42_0 == 97:
+                elif LA41_0 == 97:
                     s = 28
 
-                elif LA42_0 == 110:
+                elif LA41_0 == 110:
                     s = 29
 
-                elif LA42_0 == 95:
+                elif LA41_0 == 95:
                     s = 30
 
-                elif LA42_0 == 46:
+                elif LA41_0 == 46:
                     s = 31
 
-                elif LA42_0 == 44:
+                elif LA41_0 == 44:
                     s = 32
 
-                elif LA42_0 == 58:
+                elif LA41_0 == 58:
                     s = 33
 
-                elif LA42_0 == 59:
+                elif LA41_0 == 59:
                     s = 34
 
-                elif LA42_0 == 61:
+                elif LA41_0 == 61:
                     s = 35
 
-                elif LA42_0 == 124:
+                elif LA41_0 == 124:
                     s = 36
 
-                elif LA42_0 == 94:
+                elif LA41_0 == 94:
                     s = 37
 
-                elif LA42_0 == 38:
+                elif LA41_0 == 38:
                     s = 38
 
-                elif LA42_0 == 126:
+                elif LA41_0 == 126:
                     s = 39
 
-                elif LA42_0 == 60:
+                elif LA41_0 == 60:
                     s = 40
 
-                elif LA42_0 == 62:
+                elif LA41_0 == 62:
                     s = 41
 
-                elif LA42_0 == 43:
+                elif LA41_0 == 43:
                     s = 42
 
-                elif LA42_0 == 45:
+                elif LA41_0 == 45:
                     s = 43
 
-                elif LA42_0 == 42:
+                elif LA41_0 == 42:
                     s = 44
 
-                elif LA42_0 == 47:
+                elif LA41_0 == 47:
                     s = 45
 
-                elif LA42_0 == 37:
+                elif LA41_0 == 37:
                     s = 46
 
-                elif LA42_0 == 40:
+                elif LA41_0 == 40:
                     s = 47
 
-                elif LA42_0 == 41:
+                elif LA41_0 == 41:
                     s = 48
 
-                elif LA42_0 == 91:
+                elif LA41_0 == 91:
                     s = 49
 
-                elif LA42_0 == 93:
+                elif LA41_0 == 93:
                     s = 50
 
-                elif LA42_0 == 125:
+                elif LA41_0 == 125:
                     s = 51
 
-                elif LA42_0 == 33:
+                elif LA41_0 == 33:
                     s = 52
 
-                elif LA42_0 == 70:
+                elif LA41_0 == 70:
                     s = 53
 
-                elif LA42_0 == 36:
+                elif LA41_0 == 36:
                     s = 54
 
-                elif LA42_0 == 82:
+                elif LA41_0 == 82:
                     s = 55
 
-                elif (71 <= LA42_0 <= 75) or LA42_0 in {
+                elif (71 <= LA41_0 <= 75) or LA41_0 in {
                     65,
                     66,
                     69,
@@ -4976,52 +4987,52 @@ class YarcLexer(YarcLexerBase):
                 }:
                     s = 56
 
-                elif LA42_0 == 39:
+                elif LA41_0 == 39:
                     s = 57
 
-                elif LA42_0 == 34:
+                elif LA41_0 == 34:
                     s = 58
 
-                elif (49 <= LA42_0 <= 57) or LA42_0 in {}:
+                elif (49 <= LA41_0 <= 57) or LA41_0 in {}:
                     s = 59
 
-                elif LA42_0 == 48:
+                elif LA41_0 == 48:
                     s = 60
 
-                elif LA42_0 == 13:
+                elif LA41_0 == 13:
                     s = 61
 
-                elif LA42_0 == 10:
+                elif LA41_0 == 10:
                     s = 62
 
-                elif LA42_0 == 12:
+                elif LA41_0 == 12:
                     s = 63
 
-                elif LA42_0 in {9, 32}:
+                elif LA41_0 in {9, 32}:
                     s = 64
 
-                elif LA42_0 == 35:
+                elif LA41_0 == 35:
                     s = 65
 
-                elif LA42_0 == 92:
+                elif LA41_0 == 92:
                     s = 66
 
                 elif (
-                    (0 <= LA42_0 <= 8)
-                    or (14 <= LA42_0 <= 31)
-                    or (127 <= LA42_0 <= 65535)
-                    or LA42_0 in {11, 63, 64, 96}
+                    (0 <= LA41_0 <= 8)
+                    or (14 <= LA41_0 <= 31)
+                    or (127 <= LA41_0 <= 65535)
+                    or LA41_0 in {11, 63, 64, 96}
                 ):
                     s = 67
 
                 if s >= 0:
                     return s
             elif s == 1:
-                LA42_57 = input.LA(1)
+                LA41_57 = input.LA(1)
 
                 s = -1
-                if (0 <= LA42_57 <= 9) or (14 <= LA42_57 <= 65535) or LA42_57 in {11}:
-                    s = 108
+                if (0 <= LA41_57 <= 9) or (14 <= LA41_57 <= 65535) or LA41_57 in {11}:
+                    s = 107
 
                 else:
                     s = 67
@@ -5029,11 +5040,11 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
             elif s == 2:
-                LA42_58 = input.LA(1)
+                LA41_58 = input.LA(1)
 
                 s = -1
-                if (0 <= LA42_58 <= 9) or (14 <= LA42_58 <= 65535) or LA42_58 in {11}:
-                    s = 108
+                if (0 <= LA41_58 <= 9) or (14 <= LA41_58 <= 65535) or LA41_58 in {11}:
+                    s = 107
 
                 else:
                     s = 67
@@ -5041,7 +5052,7 @@ class YarcLexer(YarcLexerBase):
                 if s >= 0:
                     return s
 
-            nvae = NoViableAltException(self_.getDescription(), 42, _s, input)
+            nvae = NoViableAltException(self_.getDescription(), 41, _s, input)
             self_.error(nvae)
             raise nvae
 

@@ -17,3 +17,10 @@ class YarcParserBase(Parser):
     def handler(self, handler) -> None:
         if self.__handler is None:
             self.__handler = handler
+
+    def displayRecognitionError(self, e):
+        hdr = " * " + self.getErrorHeader(e)
+        msg = " - " + self.getErrorMessage(e)
+        tk = self.input.LT(1)
+
+        self.handler.handle_error(tk, hdr, msg)

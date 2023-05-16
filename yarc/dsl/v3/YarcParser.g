@@ -9,7 +9,7 @@ options {
 
 @header {
 from yarc.dsl.v3.handler.handler_factory import HandlerFactory
-from yarc.dsl.v3.handler.handler import Attribute
+from yarc.dsl.v3.handler.handler import Attribute, Parameter
 
 if __name__ is not None and "." in __name__:
     from .YarcParserBase import YarcParserBase
@@ -17,22 +17,32 @@ else:
     from YarcParserBase import YarcParserBase
 }
 
-scenario : NEWLINE* declaration NEWLINE* settings? stage? writers? 
-  -> scenario(name={$declaration.scenario_name}, settings={$settings.st}, stage={$stage.st}, writers={$writers.st})
-; // Starting rule
+scenario : (before+=code_snippet | NEWLINE)* declaration (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
+  -> scenario(name={$declaration.scenario_name}, 
+              before_snippets={$before}, 
+              settings={$settings.st}, 
+              stage={$stage.st}, 
+              writers={$writers.st},
+              after_snippets={$after}); // Starting rule
+
+code_snippet :  SNIPPET {code=self.handler.parse_snippet($SNIPPET)} -> snippet(code={code});
 
 declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE 
   {$scenario_name=$ID.text} 
   {self.handler = HandlerFactory.get_handler($name.text, self)};
   
-settings    : SETTINGS COLON NEWLINE INDENT sets+=setting+ DEDENT -> settings(setting_list={$sets});
+settings    : SETTINGS COLON NEWLINE INDENT stmts_+=(setting | code_snippet)+ DEDENT -> settings(settings={self.handler.settings_to_str()}, stmts={$stmts_});
 stage       : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
-writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | writer)+ DEDENT -> writers(stmts={$stmts_});
+writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
 
-setting        : ID ASSIGN test NEWLINE -> setting(setting={$ID.text}, value={$test.st}); // Add special settings handling
-stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
-writer         : ID COLON NEWLINE INDENT writer_params+=writer_param+ DEDENT -> writer(writer_id={$ID.text}, writer_params={$writer_params}); // Get render products from handler
-writer_param   : ID ASSIGN test NEWLINE -> writer_param(param={$ID.text}, value={$test.st});
+setting        : ID ASSIGN test NEWLINE ( {self.handler.is_special_setting($ID.text)}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}
+                                        | -> setting(setting={$ID.text}, value={$test.st}) 
+                                        ) {self.handler.add_setting(setting=$ID.text, value=$test.st)}; 
+stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | code_snippet | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
+writer @init {params = []}       
+  : ID COLON NEWLINE INDENT (writer_param {params.append($writer_param.param)})+ DEDENT {self.handler.check_writer_params(params)} 
+  -> writer(writer_id={$ID.text}, params={params});
+writer_param returns [param]: ID ASSIGN test NEWLINE {$param = Parameter($ID.text,$test.st) };
 
 /* Statements */
 /* Scene object creation and modifcation statements */
@@ -43,14 +53,20 @@ edit_stmt : EDIT (TIMELINE COLON NEWLINE INDENT (params+=name values+=test NEWLI
 
 create_expr[id]:
   CREATE count=test? (
-    prim=(STEREO? CAMERA | SHAPE | LIGHT) (attrs=edit_block[$id] | NEWLINE) 
+    prim=(SHAPE | LIGHT) (attrs=edit_block[$id] | NEWLINE) 
       -> create_prim(id={$id}, 
                      prim={self.handler.map($prim)}, 
                      params={self.handler.get_params($prim, $attrs.attrs, $count.st)}, 
                      stmts={self.handler.get_attrs($prim, $attrs.attrs)}, 
                      behaviors={self.handler.get_behaviors($attrs.attrs)})
+    | prim=(STEREO? CAMERA) (attrs=edit_block[$id] | NEWLINE) 
+      -> create_camera(id={$id}, 
+                     prim={self.handler.map($prim)}, 
+                     params={self.handler.get_params($prim, $attrs.attrs, $count.st)}, 
+                     stmts={self.handler.get_attrs($prim, $attrs.attrs)}, 
+                     behaviors={self.handler.get_behaviors($attrs.attrs)})
     | FROM file=test (attrs=edit_block[$id] | NEWLINE)
-      -> create_from(id={$id}, 
+      -> create_from(id={$id},
                      file={$file.st}, 
                      params={self.handler.get_params("from_file", $attrs.attrs, $count.st)}, 
                      stmts={self.handler.get_attrs("from_file", $attrs.attrs)}, 
@@ -104,6 +120,9 @@ compound_attr returns [attr]
     | name_=PHYSICS (attrs=simple_block | NEWLINE)
       -> physics_expr(physics_attr={self.handler.map($name_)},
                       params={self.handler.get_params($name_, $attrs.attrs)})
+    | name_=MOVE_TO_CAM camera=name (attrs=simple_block | NEWLINE)
+      -> move_to_camera_expr(camera={$camera.st},
+                             params={self.handler.get_params($name_, $attrs.attrs)})
     );
 
 core_attr returns [attr] // Special modifiers that must be treated in a specific way
@@ -116,6 +135,7 @@ core_attr returns [attr] // Special modifiers that must be treated in a specific
     | SIZE value=test {name = self.handler.map($SIZE)} -> size_expr(value={$value.st})
     | SEMANTICS value=test {name = self.handler.map($SEMANTICS)} -> semantics_expr(value={$value.st})
     | VISIBLE value=test {name = self.handler.map($VISIBLE)} -> visible_expr(value={$value.st})
+    | MATERIAL value=test {name = self.handler.map($MATERIAL)} -> material_expr(value={$value.st})
   ) NEWLINE ;
 
 inner_behavior_stmt[id] returns [attr]
@@ -126,7 +146,7 @@ inner_behavior_block : COLON NEWLINE INDENT stmts_+=attr+ DEDENT -> behavior_blo
 /* Dynamic behavior statements */
 behavior_stmt  : behavior_expr behavior_block -> behavior_stmt(behavior={$behavior_expr.st}, block={$behavior_block.st});
 behavior_expr  : EVERY interval=test? type=(FRAMES | TIME) -> behavior_expr(interval={$interval.st}, is_frame={self.handler.is_frame($type)});
-behavior_block : COLON NEWLINE INDENT stmts_+=(aug_expr_stmt | edit_stmt)+ DEDENT -> behavior_block(stmts={$stmts_});
+behavior_block : COLON NEWLINE INDENT stmts_+=(aug_expr_stmt | code_snippet | edit_stmt)+ DEDENT -> behavior_block(stmts={$stmts_});
 
 /* Expression statements */
 expr_stmt : assignable=testlist op=(AUG_ASSIGN | ASSIGN) value=(testlist | fetch_expr) NEWLINE 
@@ -157,14 +177,14 @@ or_test     : exprs+=and_test (OR exprs+=and_test)* -> or_test(exprs={$exprs});
 and_test    : exprs+=not_test (AND exprs+=not_test)* -> and_test(exprs={$exprs});
 not_test    : NOT expr_=not_test  -> not_test(expr={$expr_.st})
             | comparison -> {$comparison.st};
-comparison  : exprs+=expr (comp_op exprs+=expr)* -> comparison(exprs={$exprs}, op={$comp_op.text});
-comp_op     : LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT ;
+comparison  : exprs+=expr (ops+=comp_op exprs+=expr)* -> comparison(exprs={$exprs}, ops={$ops});
+comp_op     : op=(LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT) -> {$op};
 expr        : exprs+=xor_expr (BIT_OR exprs+=xor_expr)* -> expr(exprs={$exprs});
 xor_expr    : exprs+=and_expr (XOR exprs+=and_expr)* -> xor_expr(exprs={$exprs});
 and_expr    : exprs+=shift_expr (BIT_AND exprs+=shift_expr)* -> and_expr(exprs={$exprs});
-shift_expr  : exprs+=arith_expr (op=(LSHIFT | RSHIFT) exprs+=arith_expr)* -> shift_expr(exprs={$exprs}, op={$op});
-arith_expr  : terms+=term (op=(PLUS | MINUS) terms+=term)* -> arith_expr(terms={$terms}, op={$op});
-term        : factors+=factor (op=(MUL | DIV | MOD | IDIV) factors+=factor)* -> term(factors={$factors}, op={$op});
+shift_expr  : exprs+=arith_expr (ops+=(LSHIFT | RSHIFT) exprs+=arith_expr)* -> shift_expr(exprs={$exprs}, ops={$ops});
+arith_expr  : terms+=term (ops+=(PLUS | MINUS) terms+=term)* -> arith_expr(terms={$terms}, ops={$ops});
+term        : factors+=factor (ops+=(MUL | DIV | MOD | IDIV) factors+=factor)* -> term(factors={$factors}, ops={$ops});
 factor      : prefix=(PLUS | MINUS | BIT_NOT) factor_=factor -> prefix_factor(factor={$factor_.st}, prefix={$prefix})
             | power -> {$power.st};
 power       : atom_expr (POWER factor)? -> power(atom={$atom_expr.st}, factor={$factor.st});
@@ -177,10 +197,10 @@ atom:
   | LEN LPAREN test_=test RPAREN -> len(value={$test_.st})
   | name -> {$name.st}
   | SETTING_ID -> setting_id(id={$SETTING_ID.text}) 
-  | DISTRIBUTION LPAREN arglist RPAREN -> distribution(name={$DISTRIBUTION.text}, arglist={$arglist.st})
+  | distribution -> {$distribution.st}
   | INTEGER -> {$INTEGER.text}
   | FLOAT_NUMBER -> {$FLOAT_NUMBER.text}
-  | STRING -> {$STRING.text} // Add string expansion
+  | STRING -> {self.handler.expand_string($STRING)} // Add string expansion
   | NONE -> null()
   | TRUE -> true()
   | FALSE -> false()
@@ -200,10 +220,13 @@ name:
   | ORDER  */
 ;
 
-testlist_comp : exprs+=test ( comp_for -> list_comp(expr={$exprs[0]}, for={$comp_for.st})
-                     | (COMMA exprs+=test)* -> test_list(exprs={$exprs})
-                     | RANGE to=test (STEP step=test)? -> range(from={$exprs[0]}, to={$to.st}, step={$step.st})
-              );
+distribution : DISTRIBUTION LPAREN args=arglist RPAREN -> distribution(name={self.handler.map($DISTRIBUTION)}, arglist={$args.st})
+               | COMBINE LPAREN args=arglist RPAREN ->  combined_distribution(distrs={$args.st});
+
+testlist_comp :  exprs+=test ( comp_for -> list_comp(expr={$exprs[0]}, for={$comp_for.st})
+                             | (COMMA exprs+=test)* -> test_list(exprs={$exprs})
+                             | RANGE to=test (STEP step=test)? -> range(from={$exprs[0]}, to={$to.st}, step={$step.st})
+                             );
 
 vector_comp   : x=expr COMMA y=expr COMMA z=expr -> vector_comp(x={$x.st}, y={$y.st}, z={$z.st});
 /*( comp_for | (COMMA expr)*)*/

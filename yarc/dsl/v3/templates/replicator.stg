@@ -1,6 +1,6 @@
 group replicator;
 
-scenario(name, settings, stage, writers) ::=
+scenario(name, before_snippets, settings, stage, writers, after_snippets) ::=
 <<
 # Scenario <name>
 import omni.usd
@@ -8,23 +8,30 @@ import omni.replicator.core as rep
 
 from pxr import Gf
 from omni.demo.data_generator import get_files, save_meshes, get_prims
+
+<before_snippets>
+
 <settings>
 
-rps = []
+rps = {}
 with rep.new_layer():
   <stage>
   
   <writers>
-  
+
+<after_snippets>  
 >>
 
-settings(setting_list) ::= 
+snippet(code) ::= 
+<<
+<code>
+>>
+
+settings(settings, stmts) ::= 
 <<
 # settings
-<setting_list; separator="\n">
-settings = {
-  
-}
+settings = <settings>
+<stmts; separator="\n">
 >>
 
 setting(setting, value) ::=
@@ -38,20 +45,16 @@ writers(stmts) ::=
 <stmts; separator="\n">
 >>
 
-writer(writer_id, writer_params, rps) ::=
+writer(writer_id, params) ::=
 <<
 writer = rep.WriterRegistry.get("<writer_id>")
 writer.initialize(
-  <writer_params; separator=",\n">
+  <params:{ p | <p.name>=<p.value>}; separator=",\n">
 )
-writer.attach(rps)
+writer.attach(list(rps.values()))
 
 >>
 
-writer_param(param, value) ::=
-<<
-<param>=<value>
->>
 
 stage(stmts) ::=
 <<
@@ -74,8 +77,8 @@ edit_stmt(id, stmts, behaviors) ::=
 <<
 with <id>:
   <stmts; separator="\n">
-
 <behaviors; separator="\n">
+
 >>
 
 param_list(params) ::=
@@ -86,6 +89,13 @@ param_list(params) ::=
 create_prim(id, prim, params, stmts, behaviors) ::=
 <<
 <id> = rep.create.<prim>(<param_list(params)>)
+<edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
+>>
+
+create_camera(id, prim, params, stmts, behaviors) ::=
+<<
+<id> = rep.create.<prim>(<param_list(params)>)
+rps["<id>"] = rep.create.render_product(camera=<id>, resolution=(settings["resolution")), 
 <edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
 >>
 
@@ -109,7 +119,7 @@ instantiate_expr(id, file, params, stmts, behaviors) ::=
 
 group_expr(id, names, params, stmts, behaviors) ::=
 <<
-<id> = rep.create.group([<names: { n | n }; separator="\n">], <param_list(params)>)
+<id> = rep.create.group([<names: { n | <n> }; separator="\n">], <param_list(params)>)
 <edit_stmt(id=id, stmts=stmts, behaviors=behaviors)>
 >>
 
@@ -136,6 +146,11 @@ rep.modify.rotate_around(center_prim=<center>, <param_list(params)>)
 physics_expr(physics_attr, params) ::=
 <<
 rep.physics.<physics_attr>(<param_list(params=params)>)
+>>
+
+move_to_camera_expr(camera, params) ::=
+<<
+rep.modify.pose_camera_relative(camera=<camera>, render_product=rps["<id>"], <param_list(params)>)
 >>
 
 modify_pose(type, value) ::=
@@ -183,6 +198,10 @@ visible_expr(value) ::=
 rep.modify.visibility(<value>)
 >>
 
+material_expr(value) ::=
+<<
+rep.randomizer.materials([<value>])
+>>
 inner_behavior_stmt(behavior, id, block) ::=
 <<
 <behavior>:
@@ -242,9 +261,9 @@ not_test(expr) ::=
 not <expr>
 >>
 
-comparison(exprs, op) ::= 
+comparison(exprs, ops) ::= 
 <<
-<exprs; separator=" "+op.text+" ">
+<first(exprs)><if(ops)><rest(exprs),ops:{e,o | <\ ><o.text> <e>}><endif>
 >>
 
 expr(exprs) ::=
@@ -262,19 +281,19 @@ and_expr(exprs) ::=
 <exprs; separator=" & ">
 >>
 
-shift_expr(exprs, op) ::=
+shift_expr(exprs, ops) ::=
 <<
-<exprs; separator=" "+op.text+" ">
+<first(exprs)><if(ops)><rest(exprs),ops:{e,o | <\ ><o.text> <e>}><endif>
 >>
 
-arith_expr(terms, op) ::=
+arith_expr(terms, ops) ::=
 <<
-<terms; separator=" "+op.text+" ">
+<first(terms)><if(ops)><rest(terms),ops:{t,o | <\ ><o.text> <t>}><endif>
 >>
 
-term(factors, op) ::=
+term(factors, ops) ::=
 <<
-<factors; separator=" "+op.text+" ">
+<first(factors)><if(ops)><rest(factors),ops:{f,o | <\ ><o.text> <f>}><endif>
 >>
 
 prefix_factor(factor, prefix) ::=
@@ -331,6 +350,11 @@ null() ::= "None"
 true() ::= "True"
 false() ::= "False"
 
+combined_distribution(distrs) ::=
+<<
+rep.distribution.combine([<distrs; separator=", ">])
+>>
+
 list_comp(expr, for) ::=
 <<
 <expr> <for>
@@ -368,7 +392,7 @@ arg_list(args) ::=
 
 arg(kw_or_arg, arg) ::=
 <<
-<kw_or_arg> <if(arg)>= <arg><endif>
+<kw_or_arg><if(arg)> = <arg><endif>
 >>
 
 subscript_list(subs) ::= 
@@ -393,7 +417,7 @@ dict_comp(key, value, for) ::=
 
 key_value_list(keys, values) ::=
 <<
-<keys,values:{ k,v | k: v}; separator=", ">
+<keys,values:{ k,v | <k>: <v>}; separator=", ">
 >>
 
 comp_for(exprs, seq, comp_iter) ::=

@@ -4,13 +4,17 @@ scenario Brakes: Replicator
 {{ print('Code snippet!') }}
 
 settings:
-  fps = 30 + 3 *(5+5)
+  souce = a == 5
+  fpsss = 30 - 10 + 10 + 3 *(5+5)
   render_mode = 'PathTracing'
   num_scenes = 100
   root_path = '/path/to/root'
 
 stage:  
   open '*/scenario.usd'
+
+
+  aaa = {'a': 5}
 
   edit Timeline:
     start_frame 90
@@ -50,7 +54,7 @@ stage:
   every $num_scenes / 2 frame:
     edit obj:
       visibility Choice([true, false])
-
+      translate to Combine(Uniform(10,20), 0, Uniform(10,20))
 
     instantiate 5 from '*/props':
       translate to Uniform(<-10,-10,10>, <10,10,10>)

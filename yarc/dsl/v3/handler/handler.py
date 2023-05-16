@@ -1,7 +1,9 @@
 from typing import Any, NamedTuple, Optional, Union
 
+import abc
 import random
 import string
+import time
 
 from antlr3 import Token
 
@@ -10,11 +12,16 @@ from yarc.dsl.v3.handler.simbol_stack import SymbolStack
 
 class Attribute(NamedTuple):
     name: str
-    value: float
+    value: Any
     st: str
 
 
-class Handler:
+class Parameter(NamedTuple):
+    name: str
+    value: Any
+
+
+class Handler(abc.ABC):
     operators = {
         "+": ["__add__", "__concat__"],
         "-": "__sub__",
@@ -58,31 +65,72 @@ class Handler:
         ">>=": "__irshift__",
     }
 
+    default_settings = {
+        "root_path": ".",
+        "seed": int(time.time() * 1000),
+        "num_scenes": 1,
+        "fps": 24,
+        "stage_meters_per_unit": 1,
+        "stage_up_axis": "y",
+        # "output_dir": "./output",
+        "resolution": [512, 512],
+    }
+
     def __init__(self):
         random.seed(42)
-
-        self.__comments = []
-        self.__snippets = []
-
         self.__symbol_stack = SymbolStack()
+        self.settings = {
+            key: f'"{value}"' if isinstance(value, str) else str(value)
+            for key, value in Handler.default_settings.items()
+        }
+        self.default_changed = {key: False for key in self.default_settings}
 
-    def add_comment(self, comment: str) -> None:
-        self.__comments.append(comment.lstrip("# ").strip())
+        self.error_list: list[str] = []
+        self.warning_list: list[str] = []
 
-    def add_snippet(self, snippet: str) -> None:
-        self.__snippets.append(snippet.lstrip("{{").rstrip("}}").strip())
+    def is_special_setting(self, setting: str) -> bool:
+        return setting in Handler.default_settings
 
-    @property
-    def comments(self) -> list[str]:
-        return self.__comments
+    def add_setting(self, setting: str, value: Any) -> None:
+        self.settings[setting] = str(value)
+        if setting in self.default_changed:
+            self.default_changed[setting] = True
 
-    @property
-    def snippets(self) -> list[str]:
-        return self.__snippets
+    def special_setting_to_str(self, setting: str, value: Any) -> str:
+        match setting:
+            case "stage_up_axis":
+                return f"rep.settings.set_stage_up_axis({value})"
+            case "stage_meters_per_unit":
+                return f"rep.settings.set_stage_meters_per_unit({value})"
+            case "seed":
+                return f"rep.set_global_seed({value})"
+            case "fps":
+                return f"# I don't remember how to do it XD"
+            case _:
+                return None
+
+    def settings_to_str(self, indent: int = 2) -> str:
+        settings_str = "{\n"
+        for key, value in self.settings.items():
+            settings_str += " " * indent + f"'{key}': {value},\n"
+        settings_str += " " * (indent - 2) + "}\n\n"
+
+        default_to_str = [
+            self.special_setting_to_str(key, value)
+            for key, value in self.settings.items()
+            if not self.default_changed.get(key, True)
+        ]
+        settings_str += "\n".join(
+            default for default in default_to_str if default is not None
+        )
+        return settings_str
 
     @property
     def symbol_stack(self) -> SymbolStack:
         return self.__symbol_stack
+
+    def parse_snippet(self, snippet: Token) -> str:
+        return snippet.text
 
     def get_attrs(self, directive: str, attrs: Optional[list[Attribute]]) -> list[str]:
         if attrs is None:
@@ -113,3 +161,26 @@ class Handler:
     def get_random_uid(self) -> str:
         suffix = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
         return f"prim_{suffix}"
+
+    def expand_string(self, s: Union[Token, str]) -> str:
+        if isinstance(s, Token):
+            s = s.text
+
+        if s[1:3] in ["*/", "*\\"]:
+            return s[-1] + self.settings["root_path"] + s[2:]
+        else:
+            return s
+
+    def handle_error(self, tk: Token, hdr: str, msg: str) -> None:
+        if tk is None:
+            tk = self.input.LT(-1)
+
+        position = f"[{tk.line},{tk.charPositionInLine + 1}]"
+        token_text = f"'{tk.text}'"
+        error_msg = f"Error at {position}: on token {token_text}"
+        error_msg += "\n" + hdr + "\n**********\n" + msg
+
+        self.error_list.append(error_msg)
+
+    def check_writer_params(self, writer_params: list[Attribute]) -> None:
+        pass
