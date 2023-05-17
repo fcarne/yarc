@@ -1,6 +1,6 @@
 import os
 
-from antlr3 import ANTLRStringStream, CommonTokenStream
+from antlr3 import ANTLRFileStream, CommonTokenStream
 
 from yarc.dsl.v3.handler.handler_factory import HandlerFactory
 from yarc.dsl.v3.YarcLexer import YarcLexer
@@ -13,8 +13,9 @@ input_file = os.path.join(tests_dir, "assets", "sample.txt")
 with open(input_file) as f:
     input_str = f.read()
 
-input_stream = ANTLRStringStream(input_str)
-lexer = YarcLexer(input_stream)
+file_input = ANTLRFileStream(input_file)
+# input_stream = ANTLRStringStream(input_str)
+lexer = YarcLexer(file_input)
 stream = CommonTokenStream(lexer)
 parser = YarcParser(stream)
 

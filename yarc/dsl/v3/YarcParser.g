@@ -17,7 +17,7 @@ else:
     from YarcParserBase import YarcParserBase
 }
 
-scenario : (before+=code_snippet | NEWLINE)* declaration (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
+scenario : NEWLINE* declaration (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
   -> scenario(name={$declaration.scenario_name}, 
               before_snippets={$before}, 
               settings={$settings.st}, 
@@ -195,8 +195,8 @@ atom:
   | LT vector_comp? GT -> vector(values={$vector_comp.st})
   | LBRACE dict_or_set_maker? RBRACE -> dict(dict_comp={$dict_or_set_maker.st})
   | LEN LPAREN test_=test RPAREN -> len(value={$test_.st})
-  | name -> {$name.st}
-  | SETTING_ID -> setting_id(id={$SETTING_ID.text}) 
+  | name {self.handler.check_declared($name.st)} -> {$name.st}
+  | SETTING_ID {setting = self.handler.parse_setting_id($SETTING_ID)}-> setting_id(id={setting}) 
   | distribution -> {$distribution.st}
   | INTEGER -> {$INTEGER.text}
   | FLOAT_NUMBER -> {$FLOAT_NUMBER.text}
@@ -210,14 +210,6 @@ atom:
 name:
   ID -> {$ID.text}
   | UNDERSCORE -> {$UNDERSCORE.text}
-  /*| primitives
-  | VISIBLE
-  | SIZE
-  | LOOK_AT
-  | UP_AXIS
-  | SEMANTICS
-  | TEXTURE
-  | ORDER  */
 ;
 
 distribution : DISTRIBUTION LPAREN args=arglist RPAREN -> distribution(name={self.handler.map($DISTRIBUTION)}, arglist={$args.st})
@@ -229,7 +221,6 @@ testlist_comp :  exprs+=test ( comp_for -> list_comp(expr={$exprs[0]}, for={$com
                              );
 
 vector_comp   : x=expr COMMA y=expr COMMA z=expr -> vector_comp(x={$x.st}, y={$y.st}, z={$z.st});
-/*( comp_for | (COMMA expr)*)*/
 trailer       : LBRACK subscriptlist RBRACK -> index(index={$subscriptlist.st}) 
               | DOT name -> dot_attr(attr={$name.st});
 arglist       : args+=argument (COMMA args+=argument)* -> arg_list(args={$args});

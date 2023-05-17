@@ -5,8 +5,9 @@ import random
 import string
 import time
 
-from antlr3 import Token
+from antlr3 import Parser, Token
 
+from yarc.dsl.v3.handler.error_handler import ErrorHandler
 from yarc.dsl.v3.handler.simbol_stack import SymbolStack
 
 
@@ -65,31 +66,37 @@ class Handler(abc.ABC):
         ">>=": "__irshift__",
     }
 
-    default_settings = {
-        "root_path": ".",
-        "seed": int(time.time() * 1000),
-        "num_scenes": 1,
-        "fps": 24,
-        "stage_meters_per_unit": 1,
-        "stage_up_axis": "y",
-        # "output_dir": "./output",
-        "resolution": [512, 512],
-    }
-
-    def __init__(self):
+    def __init__(self, parser: Parser):
         random.seed(42)
-        self.__symbol_stack = SymbolStack()
-        self.settings = {
-            key: f'"{value}"' if isinstance(value, str) else str(value)
-            for key, value in Handler.default_settings.items()
-        }
-        self.default_changed = {key: False for key in self.default_settings}
+        self.parser = parser
 
+        self.default_settings = {
+            "root_path": ".",
+            "seed": int(time.time() * 1000),
+            "num_scenes": 1,
+            "fps": 24,
+            "stage_meters_per_unit": 1,
+            "stage_up_axis": "y",
+            # "output_dir": "./output",
+            "resolution": [512, 512],
+        }
+        self._map_settings()
+
+        self.__symbol_stack = SymbolStack()
+
+        self.error_handler = ErrorHandler(parser.input)
         self.error_list: list[str] = []
         self.warning_list: list[str] = []
 
+    def _map_settings(self) -> None:
+        self.settings = {
+            key: f'"{value}"' if isinstance(value, str) else str(value)
+            for key, value in self.default_settings.items()
+        }
+        self.default_changed = {key: False for key in self.default_settings}
+
     def is_special_setting(self, setting: str) -> bool:
-        return setting in Handler.default_settings
+        return setting in self.default_settings
 
     def add_setting(self, setting: str, value: Any) -> None:
         self.settings[setting] = str(value)
@@ -167,7 +174,7 @@ class Handler(abc.ABC):
             s = s.text
 
         if s[1:3] in ["*/", "*\\"]:
-            return s[-1] + self.settings["root_path"] + s[2:]
+            return s[-1] + self.settings["root_path"][1:-1] + s[2:]
         else:
             return s
 
@@ -180,7 +187,14 @@ class Handler(abc.ABC):
         error_msg = f"Error at {position}: on token {token_text}"
         error_msg += "\n" + hdr + "\n**********\n" + msg
 
-        self.error_list.append(error_msg)
+        self.error_list.append(self.error_handler.format_error(tk, error_msg))
 
     def check_writer_params(self, writer_params: list[Attribute]) -> None:
+        pass
+
+    def parse_setting_id(self, setting_id: Union[str, Token]) -> str:
+        setting_id = setting_id.text if isinstance(setting_id, Token) else setting_id
+        return setting_id.lstrip("$")
+
+    def check_declared() -> None:
         pass

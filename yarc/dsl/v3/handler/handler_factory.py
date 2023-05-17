@@ -22,7 +22,7 @@ class HandlerFactory:
         return lib in HandlerFactory.supported_libraries
 
     @staticmethod
-    def get_handler(lib, parser: Parser, **kwargs) -> type[Handler]:
+    def get_handler(lib, parser: Parser) -> type[Handler]:
         if HandlerFactory.is_library_supported(lib) is False:
             raise ValueError(f"Fatal: Target library '{lib}' is not supported... ")
 
@@ -30,4 +30,4 @@ class HandlerFactory:
         with open(template_path) as template:
             parser.templateLib = stringtemplate3.StringTemplateGroup(file=template)
 
-        return handler(**kwargs)
+        return handler(parser)

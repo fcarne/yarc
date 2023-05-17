@@ -7,7 +7,6 @@ from antlr3 import InputStream, Lexer
 from antlr3.tokens import CommonToken, Token
 
 import yarc.dsl.v3.YarcParser as YarcParser
-from yarc.dsl.v3.handler.handler import Handler
 
 
 class YarcLexerBase(Lexer):
@@ -19,15 +18,6 @@ class YarcLexerBase(Lexer):
         self.tokens: list[Token] = []
         self.indents: list[int] = []
         self.opened = 0
-        self.__handler = Handler()
-
-    @property
-    def handler(self) -> type[Handler]:
-        return self.__handler
-
-    @handler.setter
-    def handler(self, handler: type[Handler]):
-        self.__handler = handler
 
     def reset(self):
         self.tokens = []
