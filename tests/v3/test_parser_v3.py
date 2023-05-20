@@ -24,3 +24,10 @@ HandlerFactory.get_handler(parser=parser, lib="Replicator")
 script = parser.scenario()
 
 print(script)
+
+print("ERRORS:")
+for k, v in parser.handler.error_dict.items():
+    print(f"{k}: {v}")
+
+print("WARNINGS:")
+print(parser.handler.warning_dict)

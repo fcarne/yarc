@@ -332,7 +332,7 @@ list(list_comp) ::=
 
 vector(values) ::=
 <<
-Gf.Vec3d(<values>)
+Vector(<values>)
 >>
 
 dict(dict_comp) ::=

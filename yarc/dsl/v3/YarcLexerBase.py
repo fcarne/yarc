@@ -69,8 +69,14 @@ class YarcLexerBase(Lexer):
             start=start,
             stop=stop,
         )
+
         token.line = self._state.tokenStartLine
         token.charPositionInLine = self._state.tokenStartCharPositionInLine
+
+        if type_ == YarcParser.INDENT:
+            token.line += 1
+            token.charPositionInLine = 0
+
         return token
 
     def getIndentationCount(self, whitespace: str) -> int:

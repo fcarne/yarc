@@ -1,4 +1,4 @@
-from typing import Any, NamedTuple, Union
+from typing import Any, NamedTuple, Optional, Union
 
 import abc
 import random
@@ -9,8 +9,7 @@ from antlr3 import Parser, Token
 
 from yarc.dsl.v3.handler.error_formatter import ErrorFormatter
 from yarc.dsl.v3.handler.simbol_stack import SymbolStack
-
-# from yarc.dsl.v3.YarcLexer import FRAMES
+from yarc.dsl.v3.handler.warning_formatter import WarningFormatter, WarningType
 
 
 class Attribute(NamedTuple):
@@ -46,8 +45,10 @@ class Handler(abc.ABC):
         self.symbol_stack = SymbolStack()
 
         self.error_formatter = ErrorFormatter(parser.input)
-        self.error_list: dict[str, str] = {}
-        self.warning_list: dict[str, str] = {}
+        self.warning_formmater = WarningFormatter()
+
+        self.error_dict: dict[str, str] = {}
+        self.warning_dict: dict[str, str] = {}
 
     def _map_settings(self) -> None:
         self.settings = {
@@ -100,8 +101,10 @@ class Handler(abc.ABC):
 
     def pop_stack(self) -> None:
         vars = self.symbol_stack.pop()
-        [var for var in vars._symbols if not var.used]
-        # TODO: add Warning for unused variables
+        unused_vars = [var for var in vars._symbols if not var.used]
+
+        for var in unused_vars:
+            self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
 
     def define(self, vars: list[str]) -> None:
         for var in vars:
@@ -155,7 +158,7 @@ class Handler(abc.ABC):
         setting = setting_id.text
 
         if setting not in self.settings:
-            # TODO: error/warning
+            # TODO: handle_error
             pass
 
         return setting.lstrip("$")
@@ -164,9 +167,19 @@ class Handler(abc.ABC):
         if tk is None:
             tk = self.input.LT(-1)
 
+        # TODO: revise all errors
         position = f"[{tk.line},{tk.charPositionInLine + 1}]"
         token_text = f"'{tk.text}'"
         error_msg = f"Error at {position}: on token {token_text}"
         error_msg += "\n" + hdr + "\n**********\n" + msg
 
-        self.error_list[hdr] = self.error_formatter.format(tk, msg)
+        self.error_dict[hdr] = self.error_formatter.format(tk, msg)
+
+    def handle_warning(self, type: WarningType, tk: Optional[Token], **kwargs) -> None:
+        hdr = "Warning"
+        if tk is not None:
+            hdr += f"at line {tk.line}"
+
+        self.warning_dict[hdr] = self.warning_formmater.get_warning_message(
+            tk, type, **kwargs
+        )

@@ -19,8 +19,8 @@ class ErrorFormatter:
         self.input: ANTLRStringStream = stream.tokenSource.input
         self.strdata: list[str] = self.input.strdata.split("\n")
 
-    def format(self, tk: Token, error_msg: str) -> str:
-        row = [error_msg]
+    def format(self, tk: Token, msg: str, show_anchors: bool = True) -> str:
+        row = [msg]
         row.append(f" at line {tk.line}\n")
 
         if isinstance(self.input, ANTLRFileStream):
@@ -38,27 +38,28 @@ class ErrorFormatter:
         start_offset = tk.charPositionInLine
         end_offset = start_offset + len(tk.text)
 
-        # TODO: Add anchor computations, if ever needed ¯\_(ツ)_/¯
-        anchors = None
+        if show_anchors:
+            # TODO: Add anchor computations, if ever needed ¯\_(ツ)_/¯
+            anchors: _Anchors = None
 
-        # show indicators if primary char doesn't span the frame line
-        if end_offset - start_offset < len(stripped_line) or (
-            anchors and anchors.right_start_offset - anchors.left_end_offset > 0
-        ):
-            row.append("    ")
-            row.append(" " * (start_offset - stripped_characters))
+            # show indicators if primary char doesn't span the frame line
+            if end_offset - start_offset < len(stripped_line) or (
+                anchors and anchors.right_start_offset - anchors.left_end_offset > 0
+            ):
+                row.append("    ")
+                row.append(" " * (start_offset - stripped_characters))
 
-            if anchors:
-                row.append(anchors.primary_char * (anchors.left_end_offset))
-                row.append(
-                    anchors.secondary_char
-                    * (anchors.right_start_offset - anchors.left_end_offset)
-                )
-                row.append(
-                    anchors.primary_char
-                    * (end_offset - start_offset - anchors.right_start_offset)
-                )
-            else:
-                row.append("^" * (end_offset - start_offset))
+                if anchors:
+                    row.append(anchors.primary_char * (anchors.left_end_offset))
+                    row.append(
+                        anchors.secondary_char
+                        * (anchors.right_start_offset - anchors.left_end_offset)
+                    )
+                    row.append(
+                        anchors.primary_char
+                        * (end_offset - start_offset - anchors.right_start_offset)
+                    )
+                else:
+                    row.append("^" * (end_offset - start_offset))
 
         return "".join(row)

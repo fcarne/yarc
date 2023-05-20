@@ -6,6 +6,7 @@ import importlib
 from antlr3 import Parser, Token
 
 from yarc.dsl.v3.handler.handler import Attribute, Handler, Parameter
+from yarc.dsl.v3.handler.warning_formatter import WarningType
 
 
 def import_guard() -> bool:
@@ -89,7 +90,7 @@ ACCEPTED_PARAMS = {
         "rotation",
         "look_at",
         "look_at_up_axis",
-        "light_type",
+        "type",
         "color",
         "intensity",
         "exposure",
@@ -172,11 +173,9 @@ ACCEPTED_PARAMS = {
     },
     "FROM": set(),
     "GET": {
-        "path_pattern_exclusion",
-        "semantics",
-        "path_pattern_exclusion",
-        "semantics",
-        "semantics_exclusion",
+        "exclude",
+        "include_semantics",
+        "exclude_semantics",
         "cache_result",
     },
     "INSTANTIATE": {"weights", "mode", "with_replacements", "seed", "use_cache"},
@@ -213,7 +212,13 @@ ACCEPTED_PARAMS = {
             "rest_offset",
         },
     },
-    "ROT_AROUND": {...},
+    "ROT_AROUND": {
+        "radius",
+        "number_of_positions",
+        "current_position",
+        "relative_offset",
+        "look_at_up_axis",
+    },
 }
 
 
@@ -259,7 +264,7 @@ class OmniReplicatorHandler(Handler):
             compile(code, "<string>", "exec")
         except SyntaxError as e:
             print(f"Syntax error: {e}")
-            # TODO: add error
+            # TODO: handle_error
 
         tree = ast.parse(code)
         names = {
@@ -280,16 +285,26 @@ class OmniReplicatorHandler(Handler):
 
         accepted_params = self.__get_accepted_params(token)
         params = [
-            Parameter(attr.name, attr.value)
+            Parameter(self.__rewrite_param(token, attr.name), attr.value)
             for attr in attrs
             if attr.name in accepted_params
         ]
-        for key, value in kwargs.items():
-            params.append(Parameter(name=key, value=value))
+        for name, value in kwargs.items():
+            params.append(Parameter(self.__rewrite_param(token, name), value))
 
         if warnings:
-            [attr.name for attr in attrs if attr.name not in accepted_params]
-            # TODO: add warning + most_similar
+            unknown_params = [
+                attr.name for attr in attrs if attr.name not in accepted_params
+            ]
+            for param in unknown_params:
+                self.handle_warning(
+                    type=WarningType.UNKNOWN_PARAM,
+                    tk=token,
+                    param=param,
+                    command=token.text,
+                    accepted_params=accepted_params,
+                )
+
         return params
 
     def get_attrs(self, token: Token, attrs: list[Attribute]) -> list[str]:
@@ -303,12 +318,18 @@ class OmniReplicatorHandler(Handler):
         params = ACCEPTED_PARAMS[token.typeName]
         return params if isinstance(params, set) else params[token.text]
 
-    def __rewrite_value(self, value: Any) -> Any:
-        if isinstance(value, str) and value.contains("Gf.Vec"):
-            # add
-            pass
-
-        return value
+    def __rewrite_param(self, token: Token, param: str) -> str:
+        match (token.typeName, param):
+            case ("LIGHT", "type"):
+                return "light_type"
+            case ("GET", "exclude"):
+                return "path_pattern_exclusion"
+            case ("GET", "include_semantics"):
+                return "semantics"
+            case ("GET", "exclude_semantics"):
+                return "semantics_exclusion"
+            case _:
+                return param
 
     def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
         if attrs is None:
@@ -328,11 +349,16 @@ class OmniReplicatorHandler(Handler):
         params = [param.name for param in writer_params]
 
         if "output_dir" not in params:
-            # TODO: raise Error or default
+            # TODO: raise Error or warning and default
             pass
 
-    def check_target(self, target: Union[Token, str]) -> None:
-        target = target.text if isinstance(target, Token) else str(target.st)
+    def check_target(self, tk: Union[Token, str]) -> None:
+        target = target.text if isinstance(tk, Token) else str(tk.st)
+
         if target not in GET_TARGETS:
-            # TODO: add error / warning
-            pass
+            self.handle_warning(
+                WarningType.UNSUPPORTED_GET_TARGET,
+                tk,
+                type=target,
+                supported_types=GET_TARGETS.keys(),
+            )
