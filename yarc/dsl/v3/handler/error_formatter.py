@@ -14,18 +14,17 @@ _Anchors = collections.namedtuple(
 )
 
 
-class ErrorHandler:
+class ErrorFormatter:
     def __init__(self, stream: TokenStream):
         self.input: ANTLRStringStream = stream.tokenSource.input
         self.strdata: list[str] = self.input.strdata.split("\n")
 
-    def format_error(self, tk: Token, error_msg: str) -> str:
-        row = []
-        header = f"Error occured at line {tk.line}"
+    def format(self, tk: Token, error_msg: str) -> str:
+        row = [error_msg]
+        row.append(f" at line {tk.line}\n")
+
         if isinstance(self.input, ANTLRFileStream):
-            header += f" in file {self.input.fileName}"
-        row.append(header)
-        row.append("\n")
+            row.append(f"File: {self.input.fileName}\n")
 
         line = self.strdata[tk.line - 1]
 
@@ -62,7 +61,4 @@ class ErrorHandler:
             else:
                 row.append("^" * (end_offset - start_offset))
 
-            row.append("\n")
-        row.append("\n")
-        row.append(error_msg)
         return "".join(row)

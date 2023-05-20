@@ -1,4 +1,4 @@
-from typing import Any, NamedTuple, Optional, Union
+from typing import Any, NamedTuple, Union
 
 import abc
 import random
@@ -7,8 +7,10 @@ import time
 
 from antlr3 import Parser, Token
 
-from yarc.dsl.v3.handler.error_handler import ErrorHandler
+from yarc.dsl.v3.handler.error_formatter import ErrorFormatter
 from yarc.dsl.v3.handler.simbol_stack import SymbolStack
+
+# from yarc.dsl.v3.YarcLexer import FRAMES
 
 
 class Attribute(NamedTuple):
@@ -23,48 +25,7 @@ class Parameter(NamedTuple):
 
 
 class Handler(abc.ABC):
-    operators = {
-        "+": ["__add__", "__concat__"],
-        "-": "__sub__",
-        "*": "__mul__",
-        "/": "__truediv__",
-        "//": "__floordiv__",
-        "%": "__mod__",
-        "**": "__pow__",
-        "pos": "__pos__",
-        "neg": "__neg__",
-        "&": "__and__",
-        "|": "__or__",
-        "^": "__xor__",
-        "~": ["__invert__", "__inv__"],
-        "<": "__lt__",
-        "<=": "__le__",
-        "==": "__eq__",
-        "!=": "__ne__",
-        ">=": "__ge__",
-        ">": "__gt__",
-        "<<": "__lshift__",
-        ">>": "__rshift__",
-        "and": "__bool__",
-        "or": "__bool__",
-        "not": "__not__",
-        "in": "__contains__",
-    }
-
-    in_place_operators = {
-        "+=": ["__iadd__", "__iconcat__"],
-        "-=": "__isub__",
-        "*=": "__imul__",
-        "/=": "__idiv__",
-        "//=": "__ifloordiv__",
-        "%=": "__imod__",
-        "**=": "__ipow__",
-        "&=": "__iand__",
-        "|=": "__ior__",
-        "^=": "__ixor__",
-        "<<=": "__ilshift__",
-        ">>=": "__irshift__",
-    }
+    BEHAVIOR = "behavior"
 
     def __init__(self, parser: Parser):
         random.seed(42)
@@ -82,11 +43,11 @@ class Handler(abc.ABC):
         }
         self._map_settings()
 
-        self.__symbol_stack = SymbolStack()
+        self.symbol_stack = SymbolStack()
 
-        self.error_handler = ErrorHandler(parser.input)
-        self.error_list: list[str] = []
-        self.warning_list: list[str] = []
+        self.error_formatter = ErrorFormatter(parser.input)
+        self.error_list: dict[str, str] = {}
+        self.warning_list: dict[str, str] = {}
 
     def _map_settings(self) -> None:
         self.settings = {
@@ -127,40 +88,52 @@ class Handler(abc.ABC):
             for key, value in self.settings.items()
             if not self.default_changed.get(key, True)
         ]
+
         settings_str += "\n".join(
             default for default in default_to_str if default is not None
         )
+
         return settings_str
 
-    @property
-    def symbol_stack(self) -> SymbolStack:
-        return self.__symbol_stack
+    def push_stack(self) -> None:
+        self.symbol_stack.push()
+
+    def pop_stack(self) -> None:
+        vars = self.symbol_stack.pop()
+        [var for var in vars._symbols if not var.used]
+        # TODO: add Warning for unused variables
+
+    def define(self, vars: list[str]) -> None:
+        for var in vars:
+            self.symbol_stack.define(var, Any)
+
+    def lookup(self, var: str) -> None:
+        if self.symbol_stack.lookup(var) is None:
+            # TODO: add undeclared error
+            pass
 
     def parse_snippet(self, snippet: Token) -> str:
-        return snippet.text
-
-    def get_attrs(self, directive: str, attrs: Optional[list[Attribute]]) -> list[str]:
-        if attrs is None:
-            return []
-        return [attr.st for attr in attrs if attr.name != "behavior"]
-
-    def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
-        if attrs is None:
-            return []
-        return [attr.st for attr in attrs if attr.name == "behavior"]
+        raise NotImplementedError
 
     def get_params(
-        self, directive: str, attrs: list[Attribute], extra_param: Optional[Any] = None
+        self, token: Token, attrs: list[Attribute], warnings: bool = False, **kwargs
     ) -> list[Attribute]:
-        if attrs is None:
-            return []
-        return [Attribute("extra_param", extra_param, "")]
+        raise NotImplementedError
+
+    def get_attrs(self, token: Token, attrs: list[Attribute]) -> list[str]:
+        raise NotImplementedError
+
+    def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
+        raise NotImplementedError
 
     def map(self, *tokens: list[Union[Token, str]]) -> str:
-        tokens = [
-            token.text if isinstance(token, Token) else str(token) for token in tokens
-        ]
-        return "_".join(tokens)
+        raise NotImplementedError
+
+    def check_writer_params(self, writer_params: list[Parameter]) -> None:
+        raise NotImplementedError
+
+    def check_target(self, filter) -> None:
+        raise NotImplementedError
 
     def is_frame(self, type: Token) -> bool:
         return "frame" in type.text
@@ -178,6 +151,15 @@ class Handler(abc.ABC):
         else:
             return s
 
+    def parse_setting_id(self, setting_id: Token) -> str:
+        setting = setting_id.text
+
+        if setting not in self.settings:
+            # TODO: error/warning
+            pass
+
+        return setting.lstrip("$")
+
     def handle_error(self, tk: Token, hdr: str, msg: str) -> None:
         if tk is None:
             tk = self.input.LT(-1)
@@ -187,14 +169,4 @@ class Handler(abc.ABC):
         error_msg = f"Error at {position}: on token {token_text}"
         error_msg += "\n" + hdr + "\n**********\n" + msg
 
-        self.error_list.append(self.error_handler.format_error(tk, error_msg))
-
-    def check_writer_params(self, writer_params: list[Attribute]) -> None:
-        pass
-
-    def parse_setting_id(self, setting_id: Union[str, Token]) -> str:
-        setting_id = setting_id.text if isinstance(setting_id, Token) else setting_id
-        return setting_id.lstrip("$")
-
-    def check_declared() -> None:
-        pass
+        self.error_list[hdr] = self.error_formatter.format(tk, msg)

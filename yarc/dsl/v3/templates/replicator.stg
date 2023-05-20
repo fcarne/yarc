@@ -9,6 +9,10 @@ import omni.replicator.core as rep
 from pxr import Gf
 from omni.demo.data_generator import get_files, save_meshes, get_prims
 
+class Vector(Gf.Vec3d, list):
+  def __init__(self, *args, **kwargs):
+    Gf.Vec3d.__init__(self, *args, **kwargs)
+
 <before_snippets>
 
 <settings>
@@ -186,6 +190,11 @@ look_at_up_axis_expr(value) ::=
 size_expr(value) ::=
 <<
 <modify_pose(type="size", value=value)>
+>>
+
+pivot_expr(value) ::=
+<<
+<modify_pose(type="pivot", value=value)>
 >>
 
 semantics_expr(value) ::=

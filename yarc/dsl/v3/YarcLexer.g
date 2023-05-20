@@ -56,6 +56,8 @@ VISIBLE       : 'visible';
 SIZE          : 'size';
 LOOK_AT       : 'look_at';
 UP_AXIS       : 'up_axis'; // look at ... up
+PIVOT         : 'pivot';
+MATERIAL_     : 'material';
 AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
 ORDER         : AXIS AXIS AXIS;
 

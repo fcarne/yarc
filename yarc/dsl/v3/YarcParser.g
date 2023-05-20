@@ -9,7 +9,7 @@ options {
 
 @header {
 from yarc.dsl.v3.handler.handler_factory import HandlerFactory
-from yarc.dsl.v3.handler.handler import Attribute, Parameter
+from yarc.dsl.v3.handler.handler import Attribute, Parameter, Handler
 
 if __name__ is not None and "." in __name__:
     from .YarcParserBase import YarcParserBase
@@ -32,23 +32,27 @@ declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE
   {self.handler = HandlerFactory.get_handler($name.text, self)};
   
 settings    : SETTINGS COLON NEWLINE INDENT stmts_+=(setting | code_snippet)+ DEDENT -> settings(settings={self.handler.settings_to_str()}, stmts={$stmts_});
-stage       : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
-writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
-
 setting        : ID ASSIGN test NEWLINE ( {self.handler.is_special_setting($ID.text)}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}
                                         | -> setting(setting={$ID.text}, value={$test.st}) 
                                         ) {self.handler.add_setting(setting=$ID.text, value=$test.st)}; 
-stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | code_snippet | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
+
+writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
 writer @init {params = []}       
   : ID COLON NEWLINE INDENT (writer_param {params.append($writer_param.param)})+ DEDENT {self.handler.check_writer_params(params)} 
   -> writer(writer_id={$ID.text}, params={params});
 writer_param returns [param]: ID ASSIGN test NEWLINE {$param = Parameter($ID.text,$test.st) };
 
+stage       : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
+stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | code_snippet | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
+
 /* Statements */
 /* Scene object creation and modifcation statements */
 open_stmt : OPEN test NEWLINE -> open_stmt(path={$test.st});
 edit_stmt : EDIT (TIMELINE COLON NEWLINE INDENT (params+=name values+=test NEWLINE)+ DEDENT -> edit_timeline(params={$params}, values={$values}) 
-                 | id=name edit_block[$id.st] -> edit_stmt(id={$id.st}, stmts={self.handler.get_attrs("edit", $edit_block.attrs)}, behaviors={self.handler.get_behaviors($edit_block.attrs)})
+                 | id=name edit_block[$id.st] 
+                   -> edit_stmt(id={$id.st}, 
+                                stmts={self.handler.get_attrs($EDIT, $edit_block.attrs)}, 
+                                behaviors={self.handler.get_behaviors($edit_block.attrs)})
                  );
 
 create_expr[id]:
@@ -56,44 +60,44 @@ create_expr[id]:
     prim=(SHAPE | LIGHT) (attrs=edit_block[$id] | NEWLINE) 
       -> create_prim(id={$id}, 
                      prim={self.handler.map($prim)}, 
-                     params={self.handler.get_params($prim, $attrs.attrs, $count.st)}, 
+                     params={self.handler.get_params($prim, $attrs.attrs, count=$count.st)}, 
                      stmts={self.handler.get_attrs($prim, $attrs.attrs)}, 
                      behaviors={self.handler.get_behaviors($attrs.attrs)})
-    | prim=(STEREO? CAMERA) (attrs=edit_block[$id] | NEWLINE) 
+    | (prim=STEREO CAMERA | prim=CAMERA) (attrs=edit_block[$id] | NEWLINE) 
       -> create_camera(id={$id}, 
                      prim={self.handler.map($prim)}, 
-                     params={self.handler.get_params($prim, $attrs.attrs, $count.st)}, 
+                     params={self.handler.get_params($prim, $attrs.attrs, count=$count.st)}, 
                      stmts={self.handler.get_attrs($prim, $attrs.attrs)}, 
                      behaviors={self.handler.get_behaviors($attrs.attrs)})
-    | FROM file=test (attrs=edit_block[$id] | NEWLINE)
+    | prim=FROM file=test (attrs=edit_block[$id] | NEWLINE)
       -> create_from(id={$id},
                      file={$file.st}, 
-                     params={self.handler.get_params("from_file", $attrs.attrs, $count.st)}, 
-                     stmts={self.handler.get_attrs("from_file", $attrs.attrs)}, 
+                     params={self.handler.get_params($FROM, $attrs.attrs, count=$count.st)}, 
+                     stmts={self.handler.get_attrs($FROM, $attrs.attrs)}, 
                      behaviors={self.handler.get_behaviors($attrs.attrs)})
     | MATERIAL (attrs=simple_block | NEWLINE) 
       -> create_material(id={$id}, 
-                         params={self.handler.get_params("material", $attrs.attrs, $count.st)})
+                         params={self.handler.get_params($MATERIAL, $attrs.attrs, warnings=True, count=count.st)})
   )
 ;
 
 instantiate_expr[id] : INSTANTIATE count=(test)? FROM file=test (edit_block[$id] | NEWLINE)
   -> instantiate_expr(id={$id}, 
                       file={$file.st}, 
-                      params={self.handler.get_params("instantiate", $edit_block.attrs, $count.st)}, 
-                      stmts={self.handler.get_attrs("instantiate", $edit_block.attrs)}, 
+                      params={self.handler.get_params($INSTANTIATE, $edit_block.attrs, size=$count.st)}, 
+                      stmts={self.handler.get_attrs($INSTANTIATE, $edit_block.attrs)}, 
                       behaviors={self.handler.get_behaviors($edit_block.attrs)}) ;
 group_expr[id]       : GROUP LBRACK names+=name (COMMA names+=name)* RBRACK (edit_block[$id] | NEWLINE)
   -> group_expr(id={$id},
                 names={$names},
-                params={self.handler.get_params("group", $edit_block.attrs)}, 
-                stmts={self.handler.get_attrs("group", $edit_block.attrs)},
+                params={self.handler.get_params($GROUP, $edit_block.attrs)}, 
+                stmts={self.handler.get_attrs($GROUP, $edit_block.attrs)},
                 behaviors={self.handler.get_behaviors($edit_block.attrs)}) ;
-get_expr[id]         : GET (filter=(CAMERA | LIGHT | MATERIAL | name) AT)? path=test (simple_block | NEWLINE)
+get_expr[id]         : GET (filter=(CAMERA | LIGHT | MATERIAL | name) AT)? path=test (simple_block | NEWLINE) {self.handler.check_target($filter)}
   -> get_expr(id={$id}, 
-              filter={$filter.st},
+              filter={self.handler.map($filter)},
               path={$path.st},
-              params={self.handler.get_params("get", $simple_block.attrs)});
+              params={self.handler.get_params($GET, $simple_block.attrs, warnings=True)});
 
 edit_block[id] returns [attrs] 
 @init {$attrs = []} 
@@ -109,37 +113,38 @@ simple_attr returns [attr]
   -> simple_attr(name={$name_.st}, type={$type.st}, value={$value.st}) ;
 
 compound_attr returns [attr] 
-@after {$attr=Attribute($name_.text, "", retval.st)}
+@after {$attr=Attribute(self.handler.map($name_), "", retval.st)}
   : ( name_=SCATTER ON surface=name (attrs=simple_block | NEWLINE) 
       -> scatter_expr(scatter_type={self.handler.map($name_)}, 
                       surface={$surface.st}, 
-                      params={self.handler.get_params($name_, $attrs.attrs)}) 
+                      params={self.handler.get_params($name_, $attrs.attrs, warnings=True)}) 
     | name_=ROT_AROUND center=name (attrs=simple_block | NEWLINE)
       -> rot_around_expr(center={$center.st}, 
-                         params={self.handler.get_params($name_, $attrs.attrs)})
+                         params={self.handler.get_params($name_, $attrs.attrs, warnings=True)})
     | name_=PHYSICS (attrs=simple_block | NEWLINE)
       -> physics_expr(physics_attr={self.handler.map($name_)},
-                      params={self.handler.get_params($name_, $attrs.attrs)})
+                      params={self.handler.get_params($name_, $attrs.attrs, warnings=True)})
     | name_=MOVE_TO_CAM camera=name (attrs=simple_block | NEWLINE)
       -> move_to_camera_expr(camera={$camera.st},
-                             params={self.handler.get_params($name_, $attrs.attrs)})
+                             params={self.handler.get_params($name_, $attrs.attrs, warnings=True)})
     );
 
 core_attr returns [attr] // Special modifiers that must be treated in a specific way
 @after {$attr=Attribute(name, $value.st, retval.st)}
   : ( TRANSLATE axis=AXIS? TO value=test {name = self.handler.map($TRANSLATE, $axis)} -> translate_expr(type={name}, value={$value.st})
-    | ROTATE axis=AXIS? value=test ORDER? {name = self.handler.map($ROTATE, $axis)} -> rotate_expr(type={name}, value={$value.st})
+    | ROTATE axis=AXIS? value=test {name = self.handler.map($ROTATE, $axis)} -> rotate_expr(type={name}, value={$value.st})
     | SCALE value=test {name = self.handler.map($SCALE)} -> scale_expr(value={$value.st})
     | LOOK_AT value=test {name = self.handler.map($LOOK_AT)} -> look_at_expr(value={$value.st})
     | UP_AXIS value=test {name = self.handler.map($UP_AXIS)} -> look_at_up_axis_expr(value={$value.st})
     | SIZE value=test {name = self.handler.map($SIZE)} -> size_expr(value={$value.st})
+    | PIVOT value=test {name = self.handler.map($PIVOT)} -> pivot_expr(value={$value.st})
     | SEMANTICS value=test {name = self.handler.map($SEMANTICS)} -> semantics_expr(value={$value.st})
     | VISIBLE value=test {name = self.handler.map($VISIBLE)} -> visible_expr(value={$value.st})
-    | MATERIAL value=test {name = self.handler.map($MATERIAL)} -> material_expr(value={$value.st})
+    | MATERIAL_ value=test {name = self.handler.map($MATERIAL_)} -> material_expr(value={$value.st})
   ) NEWLINE ;
 
 inner_behavior_stmt[id] returns [attr]
-@after {$attr=Attribute("behavior", "", retval.st)}  
+@after {$attr=Attribute(Handler.BEHAVIOR, "", retval.st)}  
   : behavior_expr inner_behavior_block -> inner_behavior_stmt(behavior={$behavior_expr.st}, id={$id}, block={$inner_behavior_block.st});
 inner_behavior_block : COLON NEWLINE INDENT stmts_+=attr+ DEDENT -> behavior_block(stmts={$stmts_});
 
@@ -149,11 +154,11 @@ behavior_expr  : EVERY interval=test? type=(FRAMES | TIME) -> behavior_expr(inte
 behavior_block : COLON NEWLINE INDENT stmts_+=(aug_expr_stmt | code_snippet | edit_stmt)+ DEDENT -> behavior_block(stmts={$stmts_});
 
 /* Expression statements */
-expr_stmt : assignable=testlist op=(AUG_ASSIGN | ASSIGN) value=(testlist | fetch_expr) NEWLINE 
+expr_stmt : assignable=namelist {self.handler.define($assignable.names)} op=(AUG_ASSIGN | ASSIGN) value=(testlist | fetch_expr) NEWLINE 
   -> expr_stmt(assignable={$assignable.st}, op={$op.text}, value={$value.st}) ;
 
 aug_expr_stmt: (
-    id=testlist (
+    id=namelist {self.handler.define($id.names)} (
       op=AUG_ASSIGN value=(testlist | fetch_expr) NEWLINE -> expr_stmt(assignable={$id.st}, op={$op.text}, value={$value.st}) 
       | op=ASSIGN (
         value=(testlist | fetch_expr) NEWLINE -> expr_stmt(assignable={$id.st}, op={$op.text}, value={$value.st}) 
@@ -195,12 +200,12 @@ atom:
   | LT vector_comp? GT -> vector(values={$vector_comp.st})
   | LBRACE dict_or_set_maker? RBRACE -> dict(dict_comp={$dict_or_set_maker.st})
   | LEN LPAREN test_=test RPAREN -> len(value={$test_.st})
-  | name {self.handler.check_declared($name.st)} -> {$name.st}
+  | name {self.handler.lookup($name.st)} -> {$name.st}
   | SETTING_ID {setting = self.handler.parse_setting_id($SETTING_ID)}-> setting_id(id={setting}) 
   | distribution -> {$distribution.st}
   | INTEGER -> {$INTEGER.text}
   | FLOAT_NUMBER -> {$FLOAT_NUMBER.text}
-  | STRING -> {self.handler.expand_string($STRING)} // Add string expansion
+  | STRING -> {self.handler.expand_string($STRING)}
   | NONE -> null()
   | TRUE -> true()
   | FALSE -> false()
@@ -230,7 +235,7 @@ subscript_    : from_=test (COLON to=(test)? step=(sliceop)?)? -> subscript(from
               | COLON to=(test)? step=(sliceop)?  -> subscript(colon={$COLON}, to={$to.st}, step={$step.st});
 sliceop       : COLON test? -> subscipt_step(step={$test.st});
 
-exprlist : exprs+=expr (COMMA exprs+=expr)* -> test_list(exprs={$exprs});
+namelist returns [names]: names_+=name (COMMA names_+=name)* {$names = $names_} -> test_list(exprs={$names_});
 testlist : exprs+=test (COMMA exprs+=test)* -> test_list(exprs={$exprs});
 dict_or_set_maker:
   exprs+=test ( COLON values+=test (for_=comp_for -> dict_comp(key={$exprs[0]}, value={$values[0]}, for={$for_.st})
@@ -241,5 +246,5 @@ dict_or_set_maker:
 ;
 
 comp_iter : comp=(comp_for | comp_if) -> {$comp.st};
-comp_for  : FOR exprlist IN or_test comp_iter? -> comp_for(exprs={$exprlist.st}, seq={$or_test.st}, comp_iter={$comp_iter.st});
+comp_for  : FOR namelist {self.handler.define($namelist.names)} IN or_test comp_iter? -> comp_for(exprs={$namelist.st}, seq={$or_test.st}, comp_iter={$comp_iter.st});
 comp_if   : IF test_nocond comp_iter? -> comp_if(cond={$test_nocond.st}, comp_iter={$comp_iter.st});
