@@ -190,9 +190,9 @@ fragment SHORT_STRING:
 ;
 fragment STRING_ESCAPE_SEQ : '\\' ~('\t' | ' ' | '\r' | '\n' | '\f') | '\\' NEWLINE;
 
-fragment NON_ZERO_DIGIT : '1' ..'9';
-fragment DIGIT          : '0' ..'9';
-fragment OCT_DIGIT      : '0' ..'7';
+fragment NON_ZERO_DIGIT : '1' .. '9';
+fragment DIGIT          : '0' .. '9';
+fragment OCT_DIGIT      : '0' .. '7';
 fragment HEX_DIGIT      : DIGIT | 'a' .. 'f' | 'A' .. 'F';
 fragment BIN_DIGIT      : '0' | '1';
 
@@ -204,7 +204,7 @@ fragment EXPONENT       : ('e' | 'E') ('+' | '-')? DIGIT+;
 
 fragment ID_START    : UNDERSCORE | LETTER;
 fragment ID_CONTINUE : ID_START | DIGIT;
-fragment LETTER      : 'a' ..'z' | 'A' ..'Z';
+fragment LETTER      : 'a' .. 'z' | 'A' .. 'Z';
 
 fragment SPACES       : ( ' ' | '\t')+;
 fragment COMMENT      : '#' ~('\r' | '\n' | '\f')*;

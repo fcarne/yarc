@@ -9,16 +9,20 @@ class Variable(NamedTuple):
 
 class SymbolTable:
     def __init__(self, parent: Optional["SymbolTable"] = None):
-        self._symbols: dict[str, Variable] = {}
+        self.__symbols: dict[str, Variable] = {}
         self.parent = parent
 
+    @property
+    def symbols(self):
+        return self.__symbols.values()
+
     def define(self, name: str, var_type: type, used: bool = False) -> None:
-        self._symbols[name] = Variable(name, var_type, used)
+        self.__symbols[name] = Variable(name, var_type, used)
 
     def lookup(self, name: str) -> Optional[Variable]:
-        if name in self._symbols:
-            var = self._symbols[name]
-            self._symbols[name] = Variable(var.name, var.type_, True)
+        if name in self.__symbols:
+            var = self.__symbols[name]
+            self.__symbols[name] = Variable(var.name, var.type_, True)
             return var
         elif self.parent is not None:
             return self.parent.lookup(name)

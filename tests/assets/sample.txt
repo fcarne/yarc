@@ -19,6 +19,8 @@ stage:
   
   brake_models = fetch 'usd' from '*/models/' match 'brake_'
   
+  visibility = [ i % 2 == 0 for i in [0:10:2]]
+
   obj = create 5 from brake_models :
     translate to <0,0,0>
     translate x to 50
@@ -38,7 +40,7 @@ stage:
       color <0,0, 250>
 
 
-  camera = get camera at '/World/Room':
+  camera = get Camera at '/World/Room':
     exclude '/World/Room/CameraTop' 
 
   edit camera:

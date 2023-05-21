@@ -17,7 +17,9 @@ else:
     from YarcParserBase import YarcParserBase
 }
 
-scenario : NEWLINE* declaration (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
+scenario 
+@after {self.handler.pop_stack()}
+  : NEWLINE* declaration (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
   -> scenario(name={$declaration.scenario_name}, 
               before_snippets={$before}, 
               settings={$settings.st}, 
@@ -25,31 +27,40 @@ scenario : NEWLINE* declaration (before+=code_snippet | NEWLINE)* settings? stag
               writers={$writers.st},
               after_snippets={$after}); // Starting rule
 
-code_snippet :  SNIPPET {code=self.handler.parse_snippet($SNIPPET)} -> snippet(code={code});
+code_snippet : SNIPPET {code=self.handler.parse_snippet($SNIPPET)} -> snippet(code={code});
 
 declaration returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE 
   {$scenario_name=$ID.text} 
   {self.handler = HandlerFactory.get_handler($name.text, self)};
   
-settings    : SETTINGS COLON NEWLINE INDENT stmts_+=(setting | code_snippet)+ DEDENT -> settings(settings={self.handler.settings_to_str()}, stmts={$stmts_});
+settings    
+@init {self.handler.push_stack()}
+@after {self.handler.pop_stack()}
+  : SETTINGS COLON NEWLINE INDENT stmts_+=(setting | code_snippet)+ DEDENT -> settings(settings={self.handler.settings_to_str()}, stmts={$stmts_});
 setting        : ID ASSIGN test NEWLINE ( {self.handler.is_special_setting($ID.text)}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}
                                         | -> setting(setting={$ID.text}, value={$test.st}) 
                                         ) {self.handler.add_setting(setting=$ID.text, value=$test.st)}; 
 
-writers     : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
+writers     
+@init {self.handler.push_stack()}
+@after {self.handler.pop_stack()}
+  : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
 writer @init {params = []}       
   : ID COLON NEWLINE INDENT (writer_param {params.append($writer_param.param)})+ DEDENT {self.handler.check_writer_params(params)} 
   -> writer(writer_id={$ID.text}, params={params});
 writer_param returns [param]: ID ASSIGN test NEWLINE {$param = Parameter($ID.text,$test.st) };
 
-stage       : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
-stmts          : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | code_snippet | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
+stage 
+@init {self.handler.push_stack()}
+@after {self.handler.pop_stack()}
+  : STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st};
+stmts : stmts_+=(open_stmt)? stmts_+=(aug_expr_stmt | code_snippet | edit_stmt | behavior_stmt)+ -> stage(stmts={$stmts_});
 
 /* Statements */
 /* Scene object creation and modifcation statements */
 open_stmt : OPEN test NEWLINE -> open_stmt(path={$test.st});
 edit_stmt : EDIT (TIMELINE COLON NEWLINE INDENT (params+=name values+=test NEWLINE)+ DEDENT -> edit_timeline(params={$params}, values={$values}) 
-                 | id=name edit_block[$id.st] 
+                 | id=test edit_block[$id.st] 
                    -> edit_stmt(id={$id.st}, 
                                 stmts={self.handler.get_attrs($EDIT, $edit_block.attrs)}, 
                                 behaviors={self.handler.get_behaviors($edit_block.attrs)})
@@ -87,13 +98,13 @@ instantiate_expr[id] : INSTANTIATE count=(test)? FROM file=test (edit_block[$id]
                       params={self.handler.get_params($INSTANTIATE, $edit_block.attrs, size=$count.st)}, 
                       stmts={self.handler.get_attrs($INSTANTIATE, $edit_block.attrs)}, 
                       behaviors={self.handler.get_behaviors($edit_block.attrs)}) ;
-group_expr[id]       : GROUP LBRACK names+=name (COMMA names+=name)* RBRACK (edit_block[$id] | NEWLINE)
+group_expr[id]       : GROUP LBRACK names+=test (COMMA names+=test)* RBRACK (edit_block[$id] | NEWLINE)
   -> group_expr(id={$id},
                 names={$names},
                 params={self.handler.get_params($GROUP, $edit_block.attrs)}, 
                 stmts={self.handler.get_attrs($GROUP, $edit_block.attrs)},
                 behaviors={self.handler.get_behaviors($edit_block.attrs)}) ;
-get_expr[id]         : GET (filter=(CAMERA | LIGHT | MATERIAL | name) AT)? path=test (simple_block | NEWLINE) {self.handler.check_target($filter)}
+get_expr[id]         : GET (filter=(CAMERA | LIGHT | MATERIAL | ID) {self.handler.check_target($filter)} AT)? path=test (simple_block | NEWLINE)
   -> get_expr(id={$id}, 
               filter={self.handler.map($filter)},
               path={$path.st},
@@ -151,7 +162,10 @@ inner_behavior_block : COLON NEWLINE INDENT stmts_+=attr+ DEDENT -> behavior_blo
 /* Dynamic behavior statements */
 behavior_stmt  : behavior_expr behavior_block -> behavior_stmt(behavior={$behavior_expr.st}, block={$behavior_block.st});
 behavior_expr  : EVERY interval=test? type=(FRAMES | TIME) -> behavior_expr(interval={$interval.st}, is_frame={self.handler.is_frame($type)});
-behavior_block : COLON NEWLINE INDENT stmts_+=(aug_expr_stmt | code_snippet | edit_stmt)+ DEDENT -> behavior_block(stmts={$stmts_});
+behavior_block 
+@init {self.handler.push_stack()}
+@after {self.handler.pop_stack()}
+  : COLON NEWLINE INDENT stmts_+=(aug_expr_stmt | code_snippet | edit_stmt)+ DEDENT -> behavior_block(stmts={$stmts_});
 
 /* Expression statements */
 expr_stmt : assignable=namelist {self.handler.define($assignable.names)} op=(AUG_ASSIGN | ASSIGN) value=(testlist | fetch_expr) NEWLINE 
@@ -220,10 +234,13 @@ name:
 distribution : DISTRIBUTION LPAREN args=arglist RPAREN -> distribution(name={self.handler.map($DISTRIBUTION)}, arglist={$args.st})
                | COMBINE LPAREN args=arglist RPAREN ->  combined_distribution(distrs={$args.st});
 
-testlist_comp :  exprs+=test ( comp_for -> list_comp(expr={$exprs[0]}, for={$comp_for.st})
-                             | (COMMA exprs+=test)* -> test_list(exprs={$exprs})
-                             | RANGE to=test (STEP step=test)? -> range(from={$exprs[0]}, to={$to.st}, step={$step.st})
-                             );
+testlist_comp : {self.handler.disable_lookup()} exprs+=test 
+  ( {self.handler.push_stack()} 
+      comp_for {self.handler.enable_lookup()} 
+    {self.handler.pop_stack()} -> list_comp(expr={$exprs[0]}, for={$comp_for.st})
+  | {self.handler.enable_lookup()} (COMMA exprs+=test)* -> test_list(exprs={$exprs})
+  | {self.handler.enable_lookup()} COLON to=test (COLON step=test)? -> range(from={$exprs[0]}, to={$to.st}, step={$step.st})
+  );
 
 vector_comp   : x=expr COMMA y=expr COMMA z=expr -> vector_comp(x={$x.st}, y={$y.st}, z={$z.st});
 trailer       : LBRACK subscriptlist RBRACK -> index(index={$subscriptlist.st}) 
@@ -237,12 +254,17 @@ sliceop       : COLON test? -> subscipt_step(step={$test.st});
 
 namelist returns [names]: names_+=name (COMMA names_+=name)* {$names = $names_} -> test_list(exprs={$names_});
 testlist : exprs+=test (COMMA exprs+=test)* -> test_list(exprs={$exprs});
-dict_or_set_maker:
-  exprs+=test ( COLON values+=test (for_=comp_for -> dict_comp(key={$exprs[0]}, value={$values[0]}, for={$for_.st})
-                                   | (COMMA exprs+=test COLON values+=test)*) -> key_value_list(keys={$exprs}, values={$values})
-              | (for_=comp_for -> list_comp(expr={$exprs[0]}, for={$for_.st})   
-                | (COMMA exprs+=test)*)  -> test_list(exprs={$exprs})
-              )
+dict_or_set_maker: {self.handler.disable_lookup()} exprs+=test 
+  ( COLON values+=test (
+    {self.handler.push_stack()}
+      for_=comp_for {self.handler.enable_lookup()} 
+    {self.handler.pop_stack()} -> dict_comp(key={$exprs[0]}, value={$values[0]}, for={$for_.st})
+    | {self.handler.enable_lookup()} (COMMA exprs+=test COLON values+=test)*) -> key_value_list(keys={$exprs}, values={$values})
+  | {self.handler.push_stack()}
+      for_=comp_for {self.handler.enable_lookup()} 
+    {self.handler.pop_stack()} -> list_comp(expr={$exprs[0]}, for={$for_.st})   
+  | {self.handler.enable_lookup()} (COMMA exprs+=test)*  -> test_list(exprs={$exprs})
+  )
 ;
 
 comp_iter : comp=(comp_for | comp_if) -> {$comp.st};

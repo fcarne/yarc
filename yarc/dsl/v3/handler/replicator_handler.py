@@ -352,13 +352,13 @@ class OmniReplicatorHandler(Handler):
             # TODO: raise Error or warning and default
             pass
 
-    def check_target(self, tk: Union[Token, str]) -> None:
-        target = target.text if isinstance(tk, Token) else str(tk.st)
+    def check_target(self, tk: Token) -> None:
+        target = tk.text
 
         if target not in GET_TARGETS:
             self.handle_warning(
                 WarningType.UNSUPPORTED_GET_TARGET,
                 tk,
-                type=target,
-                supported_types=GET_TARGETS.keys(),
+                target=target,
+                supported_targets=GET_TARGETS.keys(),
             )

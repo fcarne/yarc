@@ -12,17 +12,15 @@ class WarningFormatter:
     def get_warning_message(self, type: WarningType, **kwargs) -> str:
         match type:
             case WarningType.UNUSED_VARIABLE:
-                return (
-                    f"variable '{kwargs['var_name']}' declared but never used. ╭( ๐_๐)╮"
-                )
+                return f"variable '{kwargs['var']}' declared but never used. ╭( ๐_๐)╮"
             case WarningType.UNKNOWN_PARAM:
                 return f"unknown parameter '{kwargs['param']}' for '{kwargs['command']}'. {self.closest_suggestion(kwargs['param'], kwargs['accepted_params'])}(⊙_☉)"
             case WarningType.UNSUPPORTED_GET_TARGET:
-                return f"unsupported target '{kwargs['type']}'. {self.closest_suggestion(kwargs['type'], kwargs['supported_types'])} (´つヮ⊂)"
+                return f"unsupported target '{kwargs['target']}'. {self.closest_suggestion(kwargs['target'], kwargs['supported_targets'])}(´つヮ⊂)"
             case _:
                 return f"(ノ-_-)ノ ミ ┴┴"
 
-    def closest_suggestion(name: str, accepted: set[str]) -> str:
+    def closest_suggestion(self, name: str, accepted: set[str]) -> str:
         closest_match = difflib.get_close_matches(name, accepted)
         if closest_match:
             suggestion = closest_match[0]

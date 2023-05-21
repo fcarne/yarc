@@ -1,4 +1,4 @@
-# $ANTLR 3.5.3 YarcLexer.g 2023-05-19 01:44:09
+# $ANTLR 3.5.3 YarcLexer.g 2023-05-21 15:40:32
 
 import sys
 
@@ -4862,7 +4862,7 @@ class YarcLexer(YarcLexerBase):
 
             # pretend we are a member of the recognizer
             # thus semantic predicates can be evaluated
-            self_.recognizer
+            self = self_.recognizer
 
             _s = s
 

@@ -43,6 +43,8 @@ class Handler(abc.ABC):
         self._map_settings()
 
         self.symbol_stack = SymbolStack()
+        self.should_lookup = True
+        self.forward_references: list[tuple(str, Token)] = []
 
         self.error_formatter = ErrorFormatter(parser.input)
         self.warning_formmater = WarningFormatter()
@@ -101,7 +103,7 @@ class Handler(abc.ABC):
 
     def pop_stack(self) -> None:
         vars = self.symbol_stack.pop()
-        unused_vars = [var for var in vars._symbols if not var.used]
+        unused_vars = [var for var in vars.symbols if not var.used]
 
         for var in unused_vars:
             self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
@@ -110,10 +112,26 @@ class Handler(abc.ABC):
         for var in vars:
             self.symbol_stack.define(var, Any)
 
-    def lookup(self, var: str) -> None:
-        if self.symbol_stack.lookup(var) is None:
-            # TODO: add undeclared error
-            pass
+    def lookup(self, var: str, tk: Optional[Token] = None) -> None:
+        if tk is None:
+            tk: Token = self.parser.input.LT(-1)
+
+        if self.should_lookup:
+            if self.symbol_stack.lookup(var) is None:
+                # TODO: add undeclared error
+                pass
+        else:
+            self.forward_references.append((var, tk))
+
+    def disable_lookup(self) -> None:
+        self.should_lookup = False
+
+    def enable_lookup(self) -> None:
+        self.should_lookup = True
+        for var, tk in self.forward_references:
+            self.lookup(var=var, tk=tk)
+
+        self.forward_references.clear()
 
     def parse_snippet(self, snippet: Token) -> str:
         raise NotImplementedError
@@ -135,7 +153,7 @@ class Handler(abc.ABC):
     def check_writer_params(self, writer_params: list[Parameter]) -> None:
         raise NotImplementedError
 
-    def check_target(self, filter) -> None:
+    def check_target(self, tk: Token) -> None:
         raise NotImplementedError
 
     def is_frame(self, type: Token) -> bool:
@@ -175,11 +193,13 @@ class Handler(abc.ABC):
 
         self.error_dict[hdr] = self.error_formatter.format(tk, msg)
 
-    def handle_warning(self, type: WarningType, tk: Optional[Token], **kwargs) -> None:
+    def handle_warning(
+        self, type: WarningType, tk: Optional[Token] = None, **kwargs
+    ) -> None:
         hdr = "Warning"
         if tk is not None:
-            hdr += f"at line {tk.line}"
+            hdr += f" at line {tk.line}"
 
         self.warning_dict[hdr] = self.warning_formmater.get_warning_message(
-            tk, type, **kwargs
+            type, **kwargs
         )
