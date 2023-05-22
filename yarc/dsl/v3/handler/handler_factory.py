@@ -1,3 +1,5 @@
+from typing import Any, Optional
+
 from pathlib import Path
 
 import stringtemplate3
@@ -22,7 +24,9 @@ class HandlerFactory:
         return lib in HandlerFactory.supported_libraries
 
     @staticmethod
-    def get_handler(lib, parser: Parser) -> type[Handler]:
+    def get_handler(
+        lib, parser: Parser, handler_kwargs: Optional[dict[str, Any]] = None
+    ) -> type[Handler]:
         if HandlerFactory.is_library_supported(lib) is False:
             raise ValueError(f"Fatal: Target library '{lib}' is not supported... ")
 
@@ -30,4 +34,7 @@ class HandlerFactory:
         with open(template_path) as template:
             parser.templateLib = stringtemplate3.StringTemplateGroup(file=template)
 
-        return handler(parser)
+        if handler_kwargs is None:
+            handler_kwargs = {}
+
+        return handler(parser, **handler_kwargs)

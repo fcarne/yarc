@@ -6,6 +6,8 @@ class WarningType(Enum):
     UNUSED_VARIABLE = "unused_variable"
     UNKNOWN_PARAM = "unknown_parameter"
     UNSUPPORTED_GET_TARGET = "unsupported_get_target"
+    DUPLICATED_SETTING = "duplicated_setting"
+    OVERWRITTEN_ATTRIBUTE = "overwritten_attribute"
 
 
 class WarningFormatter:
@@ -17,6 +19,10 @@ class WarningFormatter:
                 return f"unknown parameter '{kwargs['param']}' for '{kwargs['command']}'. {self.closest_suggestion(kwargs['param'], kwargs['accepted_params'])}(⊙_☉)"
             case WarningType.UNSUPPORTED_GET_TARGET:
                 return f"unsupported target '{kwargs['target']}'. {self.closest_suggestion(kwargs['target'], kwargs['supported_targets'])}(´つヮ⊂)"
+            case WarningType.DUPLICATED_SETTING:
+                return f"'{kwargs['setting']}' has already been set. ⊂(▀¯▀⊂ )"
+            case WarningType.OVERWRITTEN_ATTRIBUTE:
+                return f"'{kwargs['others']}' overrided by {kwargs['last']}. ( ′～‵ )"
             case _:
                 return f"(ノ-_-)ノ ミ ┴┴"
 

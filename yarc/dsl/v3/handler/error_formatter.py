@@ -1,4 +1,5 @@
 import collections
+from enum import Enum
 
 from antlr3 import ANTLRFileStream, ANTLRStringStream, Token, TokenStream
 
@@ -12,6 +13,16 @@ _Anchors = collections.namedtuple(
     ],
     defaults=["~", "^"],
 )
+
+
+class ErrorType(Enum):
+    def __init__(self, type, default_msg):
+        self.type = type
+        self.default_msg = default_msg
+
+    # TODO: set error types
+    GREEN = "a", "b"
+    BLUE = "c", "d"
 
 
 class ErrorFormatter:

@@ -26,7 +26,7 @@ class Parameter(NamedTuple):
 class Handler(abc.ABC):
     BEHAVIOR = "behavior"
 
-    def __init__(self, parser: Parser):
+    def __init__(self, parser: Parser, warnings: bool = False):
         random.seed(42)
         self.parser = parser
 
@@ -40,34 +40,39 @@ class Handler(abc.ABC):
             # "output_dir": "./output",
             "resolution": [512, 512],
         }
-        self._map_settings()
+        self.settings: dict[str, str] = {}
 
         self.symbol_stack = SymbolStack()
         self.should_lookup = True
         self.forward_references: list[tuple(str, Token)] = []
 
-        self.error_formatter = ErrorFormatter(parser.input)
-        self.warning_formmater = WarningFormatter()
-
         self.error_dict: dict[str, str] = {}
+        self.error_formatter = ErrorFormatter(parser.input)
+
         self.warning_dict: dict[str, str] = {}
+        self.warning_formatter = WarningFormatter()
+        self.show_warnings = warnings
 
-    def _map_settings(self) -> None:
-        self.settings = {
+    def _rewrite_defaults(self, settings: dict[str, Any]) -> None:
+        return {
             key: f'"{value}"' if isinstance(value, str) else str(value)
-            for key, value in self.default_settings.items()
+            for key, value in settings.items()
         }
-        self.default_changed = {key: False for key in self.default_settings}
 
-    def is_special_setting(self, setting: str) -> bool:
-        return setting in self.default_settings
+    def is_special_setting(self, setting: Token) -> bool:
+        return setting.text in self.default_settings
 
-    def add_setting(self, setting: str, value: Any) -> None:
-        self.settings[setting] = str(value)
-        if setting in self.default_changed:
-            self.default_changed[setting] = True
+    def add_setting(self, setting: Token, value: Any) -> None:
+        setting_text = setting.text
+        if self.show_warnings and setting_text in self.settings:
+            self.handle_warning(
+                WarningType.DUPLICATED_SETTING, setting, setting=setting_text
+            )
 
-    def special_setting_to_str(self, setting: str, value: Any) -> str:
+        self.settings[setting_text] = str(value)
+
+    def special_setting_to_str(self, setting: Token | str, value: Any) -> str:
+        setting = setting.text if isinstance(setting, Token) else str(setting)
         match setting:
             case "stage_up_axis":
                 return f"rep.settings.set_stage_up_axis({value})"
@@ -81,20 +86,22 @@ class Handler(abc.ABC):
                 return None
 
     def settings_to_str(self, indent: int = 2) -> str:
+        default_not_changed = {
+            k: v for k, v in self.default_settings.items() if k not in self.settings
+        }
+        settings = self._rewrite_defaults(default_not_changed) | self.settings
+
         settings_str = "{\n"
-        for key, value in self.settings.items():
+        for key, value in settings.items():
             settings_str += " " * indent + f"'{key}': {value},\n"
-        settings_str += " " * (indent - 2) + "}\n\n"
+        settings_str += "}\n\n"
 
-        default_to_str = [
-            self.special_setting_to_str(key, value)
-            for key, value in self.settings.items()
-            if not self.default_changed.get(key, True)
+        default_not_changed_rewrite = [
+            rewrited
+            for k, v in default_not_changed.items()
+            if (rewrited := self.special_setting_to_str(k, v)) is not None
         ]
-
-        settings_str += "\n".join(
-            default for default in default_to_str if default is not None
-        )
+        settings_str += "\n".join(default_not_changed_rewrite)
 
         return settings_str
 
@@ -105,8 +112,9 @@ class Handler(abc.ABC):
         vars = self.symbol_stack.pop()
         unused_vars = [var for var in vars.symbols if not var.used]
 
-        for var in unused_vars:
-            self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
+        if self.show_warnings:
+            for var in unused_vars:
+                self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
 
     def define(self, vars: list[str]) -> None:
         for var in vars:
@@ -200,6 +208,6 @@ class Handler(abc.ABC):
         if tk is not None:
             hdr += f" at line {tk.line}"
 
-        self.warning_dict[hdr] = self.warning_formmater.get_warning_message(
+        self.warning_dict[hdr] = self.warning_formatter.get_warning_message(
             type, **kwargs
         )

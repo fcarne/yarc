@@ -219,12 +219,19 @@ ACCEPTED_PARAMS = {
         "relative_offset",
         "look_at_up_axis",
     },
+    "MOVE_TO_CAM": {"distance", "horizontal_location", "vertical_location"},
 }
+
+INCOMPATIBLE_ATTRS = [
+    {"translate", "scatter_2d", "scatter_3d", "move_to_camera", "rotate_around"},
+    {"rotate", "look_at", "rotate_around"},
+    {"scale", "size"},
+]
 
 
 class OmniReplicatorHandler(Handler):
-    def __init__(self, parser: Parser):
-        super().__init__(parser)
+    def __init__(self, parser: Parser, warnings=False):
+        super().__init__(parser, warnings)
 
         self.default_settings.update(
             {
@@ -240,11 +247,10 @@ class OmniReplicatorHandler(Handler):
             "pathtracing_samples_per_pixel": "/rtx/pathtracing/totalSpp",
         }
 
-        self._map_settings()
-
         self.mapping = PRIMS | DISTRIBUTIONS | PARAMS | GET_TARGETS
 
-    def special_setting_to_str(self, setting: str, value: Any) -> str:
+    def special_setting_to_str(self, setting: Token | str, value: Any) -> str:
+        setting = setting.text if isinstance(setting, Token) else str(setting)
         if setting in self.carb_mapping:
             return str(
                 self.parser.templateLib.getInstanceOf(
@@ -292,7 +298,7 @@ class OmniReplicatorHandler(Handler):
         for name, value in kwargs.items():
             params.append(Parameter(self.__rewrite_param(token, name), value))
 
-        if warnings:
+        if self.show_warnings and warnings:
             unknown_params = [
                 attr.name for attr in attrs if attr.name not in accepted_params
             ]
@@ -312,6 +318,22 @@ class OmniReplicatorHandler(Handler):
             return []
 
         accepted_params = self.__get_accepted_params(token)
+
+        if self.show_warnings:
+            attrs_set = [attr.name for attr in attrs]
+            for incompatible_set in INCOMPATIBLE_ATTRS:
+                common_attrs = incompatible_set.intersection(attrs_set)
+                if len(common_attrs) > 1:
+                    last_set = max(common_attrs, key=lambda attr: attrs_set.index(attr))
+                    others = common_attrs.remove(last_set)
+
+                    self.handle_warning(
+                        type=WarningType.OVERWRITTEN_ATTRIBUTE,
+                        tk=token,
+                        last=last_set,
+                        others=others,
+                    )
+
         return [attr.st for attr in attrs if attr.name not in accepted_params]
 
     def __get_accepted_params(self, token: Token) -> set[str]:
@@ -355,7 +377,7 @@ class OmniReplicatorHandler(Handler):
     def check_target(self, tk: Token) -> None:
         target = tk.text
 
-        if target not in GET_TARGETS:
+        if self.show_warnings and target not in GET_TARGETS:
             self.handle_warning(
                 WarningType.UNSUPPORTED_GET_TARGET,
                 tk,

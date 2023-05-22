@@ -1,4 +1,4 @@
-# $ANTLR 3.5.3 YarcParser.g 2023-05-21 15:40:31
+# $ANTLR 3.5.3 YarcParser.g 2023-05-23 00:37:38
 
 import sys
 
@@ -454,10 +454,8 @@ class YarcParser(YarcParserBase):
         __str__ = toString
 
     # $ANTLR start "scenario"
-    # YarcParser.g:20:1: scenario : ( NEWLINE )* declaration (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )* -> scenario(name=$declaration.scenario_namebefore_snippets=$beforesettings=$settings.ststage=$stage.stwriters=$writers.stafter_snippets=$after);
-    def scenario(
-        self,
-    ):
+    # YarcParser.g:20:1: scenario[handler_kwargs] : ( NEWLINE )* declaration[$handler_kwargs] (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )* -> scenario(name=$declaration.scenario_namebefore_snippets=$beforesettings=$settings.ststage=$stage.stwriters=$writers.stafter_snippets=$after);
+    def scenario(self, handler_kwargs):
         retval = self.scenario_return()
         retval.start = self.input.LT(1)
 
@@ -471,8 +469,8 @@ class YarcParser(YarcParserBase):
         before = None
         try:
             try:
-                # YarcParser.g:22:3: ( ( NEWLINE )* declaration (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )* -> scenario(name=$declaration.scenario_namebefore_snippets=$beforesettings=$settings.ststage=$stage.stwriters=$writers.stafter_snippets=$after))
-                # YarcParser.g:22:5: ( NEWLINE )* declaration (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )*
+                # YarcParser.g:22:3: ( ( NEWLINE )* declaration[$handler_kwargs] (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )* -> scenario(name=$declaration.scenario_namebefore_snippets=$beforesettings=$settings.ststage=$stage.stwriters=$writers.stafter_snippets=$after))
+                # YarcParser.g:22:5: ( NEWLINE )* declaration[$handler_kwargs] (before+= code_snippet | NEWLINE )* ( settings )? stage ( writers )? after+= ( code_snippet )*
                 pass
                 # YarcParser.g:22:5: ( NEWLINE )*
                 while True:  # loop1
@@ -492,11 +490,11 @@ class YarcParser(YarcParserBase):
                         break  # loop1
 
                 self._state.following.append(self.FOLLOW_declaration_in_scenario70)
-                declaration1 = self.declaration()
+                declaration1 = self.declaration(handler_kwargs)
 
                 self._state.following.pop()
 
-                # YarcParser.g:22:26: (before+= code_snippet | NEWLINE )*
+                # YarcParser.g:22:43: (before+= code_snippet | NEWLINE )*
                 while True:  # loop2
                     alt2 = 3
                     LA2_0 = self.input.LA(1)
@@ -507,9 +505,9 @@ class YarcParser(YarcParserBase):
                         alt2 = 2
 
                     if alt2 == 1:
-                        # YarcParser.g:22:27: before+= code_snippet
+                        # YarcParser.g:22:44: before+= code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_scenario75
+                            self.FOLLOW_code_snippet_in_scenario76
                         )
                         before = self.code_snippet()
 
@@ -519,46 +517,46 @@ class YarcParser(YarcParserBase):
                         list_before.append(before.st)
 
                     elif alt2 == 2:
-                        # YarcParser.g:22:50: NEWLINE
+                        # YarcParser.g:22:67: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario79
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_scenario80
                         )
 
                     else:
                         break  # loop2
 
-                # YarcParser.g:22:60: ( settings )?
+                # YarcParser.g:22:77: ( settings )?
                 alt3 = 2
                 LA3_0 = self.input.LA(1)
 
                 if LA3_0 == SETTINGS:
                     alt3 = 1
                 if alt3 == 1:
-                    # YarcParser.g:22:60: settings
-                    self._state.following.append(self.FOLLOW_settings_in_scenario83)
+                    # YarcParser.g:22:77: settings
+                    self._state.following.append(self.FOLLOW_settings_in_scenario84)
                     settings2 = self.settings()
 
                     self._state.following.pop()
 
-                self._state.following.append(self.FOLLOW_stage_in_scenario86)
+                self._state.following.append(self.FOLLOW_stage_in_scenario87)
                 stage3 = self.stage()
 
                 self._state.following.pop()
 
-                # YarcParser.g:22:76: ( writers )?
+                # YarcParser.g:22:93: ( writers )?
                 alt4 = 2
                 LA4_0 = self.input.LA(1)
 
                 if LA4_0 == WRITERS:
                     alt4 = 1
                 if alt4 == 1:
-                    # YarcParser.g:22:76: writers
-                    self._state.following.append(self.FOLLOW_writers_in_scenario88)
+                    # YarcParser.g:22:93: writers
+                    self._state.following.append(self.FOLLOW_writers_in_scenario89)
                     writers4 = self.writers()
 
                     self._state.following.pop()
 
-                # YarcParser.g:22:92: ( code_snippet )*
+                # YarcParser.g:22:109: ( code_snippet )*
                 while True:  # loop5
                     alt5 = 2
                     LA5_0 = self.input.LA(1)
@@ -567,9 +565,9 @@ class YarcParser(YarcParserBase):
                         alt5 = 1
 
                     if alt5 == 1:
-                        # YarcParser.g:22:93: code_snippet
+                        # YarcParser.g:22:110: code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_scenario94
+                            self.FOLLOW_code_snippet_in_scenario95
                         )
                         after = self.code_snippet()
 
@@ -650,7 +648,7 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:30:14: ( SNIPPET -> snippet(code=code))
                 # YarcParser.g:30:16: SNIPPET
                 SNIPPET5 = self.match(
-                    self.input, SNIPPET, self.FOLLOW_SNIPPET_in_code_snippet216
+                    self.input, SNIPPET, self.FOLLOW_SNIPPET_in_code_snippet217
                 )
 
                 # action start
@@ -693,10 +691,8 @@ class YarcParser(YarcParserBase):
         __str__ = toString
 
     # $ANTLR start "declaration"
-    # YarcParser.g:32:1: declaration returns [scenario_name] : SCENARIO ID ( COLON name )? NEWLINE ;
-    def declaration(
-        self,
-    ):
+    # YarcParser.g:32:1: declaration[handler_kwargs] returns [scenario_name] : SCENARIO ID ( COLON name )? NEWLINE ;
+    def declaration(self, handler_kwargs):
         retval = self.declaration_return()
         retval.start = self.input.LT(1)
 
@@ -705,28 +701,28 @@ class YarcParser(YarcParserBase):
 
         try:
             try:
-                # YarcParser.g:32:37: ( SCENARIO ID ( COLON name )? NEWLINE )
-                # YarcParser.g:32:39: SCENARIO ID ( COLON name )? NEWLINE
-                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration239)
+                # YarcParser.g:32:53: ( SCENARIO ID ( COLON name )? NEWLINE )
+                # YarcParser.g:32:55: SCENARIO ID ( COLON name )? NEWLINE
+                self.match(self.input, SCENARIO, self.FOLLOW_SCENARIO_in_declaration241)
 
-                ID6 = self.match(self.input, ID, self.FOLLOW_ID_in_declaration241)
+                ID6 = self.match(self.input, ID, self.FOLLOW_ID_in_declaration243)
 
-                # YarcParser.g:32:51: ( COLON name )?
+                # YarcParser.g:32:67: ( COLON name )?
                 alt6 = 2
                 LA6_0 = self.input.LA(1)
 
                 if LA6_0 == COLON:
                     alt6 = 1
                 if alt6 == 1:
-                    # YarcParser.g:32:52: COLON name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration244)
+                    # YarcParser.g:32:68: COLON name
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_declaration246)
 
-                    self._state.following.append(self.FOLLOW_name_in_declaration246)
+                    self._state.following.append(self.FOLLOW_name_in_declaration248)
                     name7 = self.name()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration250)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_declaration252)
 
                 # action start
                 retval.scenario_name = ID6.text
@@ -740,6 +736,7 @@ class YarcParser(YarcParserBase):
                         or [None]
                     )[0],
                     self,
+                    handler_kwargs,
                 )
                 # action end
 
@@ -787,13 +784,13 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:39:3: ( SETTINGS COLON NEWLINE INDENT stmts_+= ( setting | code_snippet )+ DEDENT -> settings(settings=self.handler.settings_to_str()stmts=$stmts_))
                 # YarcParser.g:39:5: SETTINGS COLON NEWLINE INDENT stmts_+= ( setting | code_snippet )+ DEDENT
-                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings286)
+                self.match(self.input, SETTINGS, self.FOLLOW_SETTINGS_in_settings288)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings288)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_settings290)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings290)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_settings292)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings292)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_settings294)
 
                 # YarcParser.g:39:43: ( setting | code_snippet )+
                 cnt7 = 0
@@ -808,7 +805,7 @@ class YarcParser(YarcParserBase):
 
                     if alt7 == 1:
                         # YarcParser.g:39:44: setting
-                        self._state.following.append(self.FOLLOW_setting_in_settings297)
+                        self._state.following.append(self.FOLLOW_setting_in_settings299)
                         stmts_ = self.setting()
 
                         self._state.following.pop()
@@ -819,7 +816,7 @@ class YarcParser(YarcParserBase):
                     elif alt7 == 2:
                         # YarcParser.g:39:54: code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_settings301
+                            self.FOLLOW_code_snippet_in_settings303
                         )
                         stmts_ = self.code_snippet()
 
@@ -837,7 +834,7 @@ class YarcParser(YarcParserBase):
 
                     cnt7 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings305)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_settings307)
 
                 # TEMPLATE REWRITE
                 # 39:76: -> settings(settings=self.handler.settings_to_str()stmts=$stmts_)
@@ -882,7 +879,7 @@ class YarcParser(YarcParserBase):
         __str__ = toString
 
     # $ANTLR start "setting"
-    # YarcParser.g:40:1: setting : ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}| -> setting(setting=$ID.textvalue=$test.st)) ;
+    # YarcParser.g:40:1: setting : ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID, $test.st)}| -> setting(setting=$ID.textvalue=$test.st)) ;
     def setting(
         self,
     ):
@@ -894,26 +891,26 @@ class YarcParser(YarcParserBase):
 
         try:
             try:
-                # YarcParser.g:40:16: ( ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}| -> setting(setting=$ID.textvalue=$test.st)) )
-                # YarcParser.g:40:18: ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}| -> setting(setting=$ID.textvalue=$test.st))
-                ID8 = self.match(self.input, ID, self.FOLLOW_ID_in_setting333)
+                # YarcParser.g:40:16: ( ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID, $test.st)}| -> setting(setting=$ID.textvalue=$test.st)) )
+                # YarcParser.g:40:18: ID ASSIGN test NEWLINE ({...}? -> {self.handler.special_setting_to_str($ID, $test.st)}| -> setting(setting=$ID.textvalue=$test.st))
+                ID8 = self.match(self.input, ID, self.FOLLOW_ID_in_setting335)
 
-                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_setting335)
+                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_setting337)
 
-                self._state.following.append(self.FOLLOW_test_in_setting337)
+                self._state.following.append(self.FOLLOW_test_in_setting339)
                 test9 = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_setting339)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_setting341)
 
-                # YarcParser.g:40:41: ({...}? -> {self.handler.special_setting_to_str($ID.text, $test.st)}| -> setting(setting=$ID.textvalue=$test.st))
+                # YarcParser.g:40:41: ({...}? -> {self.handler.special_setting_to_str($ID, $test.st)}| -> setting(setting=$ID.textvalue=$test.st))
                 alt8 = 2
                 LA8 = self.input.LA(1)
                 if LA8 in {DEDENT}:
                     LA8_1 = self.input.LA(2)
 
-                    if self.handler.is_special_setting(ID8.text):
+                    if self.handler.is_special_setting(ID8):
                         alt8 = 1
                     elif True:
                         alt8 = 2
@@ -925,7 +922,7 @@ class YarcParser(YarcParserBase):
                 elif LA8 in {ID}:
                     LA8_2 = self.input.LA(2)
 
-                    if self.handler.is_special_setting(ID8.text):
+                    if self.handler.is_special_setting(ID8):
                         alt8 = 1
                     elif True:
                         alt8 = 2
@@ -937,7 +934,7 @@ class YarcParser(YarcParserBase):
                 elif LA8 in {SNIPPET}:
                     LA8_3 = self.input.LA(2)
 
-                    if self.handler.is_special_setting(ID8.text):
+                    if self.handler.is_special_setting(ID8):
                         alt8 = 1
                     elif True:
                         alt8 = 2
@@ -953,17 +950,17 @@ class YarcParser(YarcParserBase):
 
                 if alt8 == 1:
                     # YarcParser.g:40:43: {...}?
-                    if not (self.handler.is_special_setting(ID8.text)):
+                    if not (self.handler.is_special_setting(ID8)):
                         raise FailedPredicateException(
                             self.input,
                             "setting",
-                            "self.handler.is_special_setting($ID.text)",
+                            "self.handler.is_special_setting($ID)",
                         )
 
                     # TEMPLATE REWRITE
-                    # 40:88: -> {self.handler.special_setting_to_str($ID.text, $test.st)}
+                    # 40:83: -> {self.handler.special_setting_to_str($ID, $test.st)}
                     retval.st = self.handler.special_setting_to_str(
-                        ID8.text, ((test9 is not None) and [test9.st] or [None])[0]
+                        ID8, ((test9 is not None) and [test9.st] or [None])[0]
                     )
 
                 elif alt8 == 2:
@@ -981,8 +978,7 @@ class YarcParser(YarcParserBase):
 
                 # action start
                 self.handler.add_setting(
-                    setting=ID8.text,
-                    value=((test9 is not None) and [test9.st] or [None])[0],
+                    setting=ID8, value=((test9 is not None) and [test9.st] or [None])[0]
                 )
                 # action end
 
@@ -1030,13 +1026,13 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:47:3: ( WRITERS COLON NEWLINE INDENT stmts_+= ( expr_stmt | code_snippet | writer )+ DEDENT -> writers(stmts=$stmts_))
                 # YarcParser.g:47:5: WRITERS COLON NEWLINE INDENT stmts_+= ( expr_stmt | code_snippet | writer )+ DEDENT
-                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers474)
+                self.match(self.input, WRITERS, self.FOLLOW_WRITERS_in_writers476)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers476)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writers478)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers478)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writers480)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers480)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writers482)
 
                 # YarcParser.g:47:42: ( expr_stmt | code_snippet | writer )+
                 cnt9 = 0
@@ -1059,7 +1055,7 @@ class YarcParser(YarcParserBase):
                     if alt9 == 1:
                         # YarcParser.g:47:43: expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_expr_stmt_in_writers485
+                            self.FOLLOW_expr_stmt_in_writers487
                         )
                         stmts_ = self.expr_stmt()
 
@@ -1071,7 +1067,7 @@ class YarcParser(YarcParserBase):
                     elif alt9 == 2:
                         # YarcParser.g:47:55: code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_writers489
+                            self.FOLLOW_code_snippet_in_writers491
                         )
                         stmts_ = self.code_snippet()
 
@@ -1082,7 +1078,7 @@ class YarcParser(YarcParserBase):
 
                     elif alt9 == 3:
                         # YarcParser.g:47:70: writer
-                        self._state.following.append(self.FOLLOW_writer_in_writers493)
+                        self._state.following.append(self.FOLLOW_writer_in_writers495)
                         stmts_ = self.writer()
 
                         self._state.following.pop()
@@ -1099,7 +1095,7 @@ class YarcParser(YarcParserBase):
 
                     cnt9 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers497)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writers499)
 
                 # TEMPLATE REWRITE
                 # 47:86: -> writers(stmts=$stmts_)
@@ -1155,13 +1151,13 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:49:3: ( ID COLON NEWLINE INDENT ( writer_param )+ DEDENT -> writer(writer_id=$ID.textparams=params))
                 # YarcParser.g:49:5: ID COLON NEWLINE INDENT ( writer_param )+ DEDENT
-                ID11 = self.match(self.input, ID, self.FOLLOW_ID_in_writer527)
+                ID11 = self.match(self.input, ID, self.FOLLOW_ID_in_writer529)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer529)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_writer531)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer531)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer533)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer533)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_writer535)
 
                 # YarcParser.g:49:29: ( writer_param )+
                 cnt10 = 0
@@ -1175,7 +1171,7 @@ class YarcParser(YarcParserBase):
                     if alt10 == 1:
                         # YarcParser.g:49:30: writer_param
                         self._state.following.append(
-                            self.FOLLOW_writer_param_in_writer536
+                            self.FOLLOW_writer_param_in_writer538
                         )
                         writer_param10 = self.writer_param()
 
@@ -1200,7 +1196,7 @@ class YarcParser(YarcParserBase):
 
                     cnt10 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer542)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_writer544)
 
                 # action start
                 self.handler.check_writer_params(params)
@@ -1256,16 +1252,16 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:51:29: ( ID ASSIGN test NEWLINE )
                 # YarcParser.g:51:31: ID ASSIGN test NEWLINE
-                ID12 = self.match(self.input, ID, self.FOLLOW_ID_in_writer_param571)
+                ID12 = self.match(self.input, ID, self.FOLLOW_ID_in_writer_param573)
 
-                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_writer_param573)
+                self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_writer_param575)
 
-                self._state.following.append(self.FOLLOW_test_in_writer_param575)
+                self._state.following.append(self.FOLLOW_test_in_writer_param577)
                 test13 = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer_param577)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_writer_param579)
 
                 # action start
                 retval.param = Parameter(
@@ -1316,20 +1312,20 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:56:3: ( STAGE COLON NEWLINE INDENT stmts DEDENT -> {$stmts.st})
                 # YarcParser.g:56:5: STAGE COLON NEWLINE INDENT stmts DEDENT
-                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage600)
+                self.match(self.input, STAGE, self.FOLLOW_STAGE_in_stage602)
 
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage602)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_stage604)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage604)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_stage606)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage606)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_stage608)
 
-                self._state.following.append(self.FOLLOW_stmts_in_stage608)
+                self._state.following.append(self.FOLLOW_stmts_in_stage610)
                 stmts14 = self.stmts()
 
                 self._state.following.pop()
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage610)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_stage612)
 
                 # TEMPLATE REWRITE
                 # 56:45: -> {$stmts.st}
@@ -1391,7 +1387,7 @@ class YarcParser(YarcParserBase):
                     alt11 = 1
                 if alt11 == 1:
                     # YarcParser.g:57:18: open_stmt
-                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts624)
+                    self._state.following.append(self.FOLLOW_open_stmt_in_stmts626)
                     stmts_ = self.open_stmt()
 
                     self._state.following.pop()
@@ -1416,7 +1412,7 @@ class YarcParser(YarcParserBase):
                     if alt12 == 1:
                         # YarcParser.g:57:39: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_stmts631
+                            self.FOLLOW_aug_expr_stmt_in_stmts633
                         )
                         stmts_ = self.aug_expr_stmt()
 
@@ -1428,7 +1424,7 @@ class YarcParser(YarcParserBase):
                     elif alt12 == 2:
                         # YarcParser.g:57:55: code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_stmts635
+                            self.FOLLOW_code_snippet_in_stmts637
                         )
                         stmts_ = self.code_snippet()
 
@@ -1439,7 +1435,7 @@ class YarcParser(YarcParserBase):
 
                     elif alt12 == 3:
                         # YarcParser.g:57:70: edit_stmt
-                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts639)
+                        self._state.following.append(self.FOLLOW_edit_stmt_in_stmts641)
                         stmts_ = self.edit_stmt()
 
                         self._state.following.pop()
@@ -1450,7 +1446,7 @@ class YarcParser(YarcParserBase):
                     elif alt12 == 4:
                         # YarcParser.g:57:82: behavior_stmt
                         self._state.following.append(
-                            self.FOLLOW_behavior_stmt_in_stmts643
+                            self.FOLLOW_behavior_stmt_in_stmts645
                         )
                         stmts_ = self.behavior_stmt()
 
@@ -1516,14 +1512,14 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:61:11: ( OPEN test NEWLINE -> open_stmt(path=$test.st))
                 # YarcParser.g:61:13: OPEN test NEWLINE
-                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt666)
+                self.match(self.input, OPEN, self.FOLLOW_OPEN_in_open_stmt668)
 
-                self._state.following.append(self.FOLLOW_test_in_open_stmt668)
+                self._state.following.append(self.FOLLOW_test_in_open_stmt670)
                 test15 = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt670)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_open_stmt672)
 
                 # TEMPLATE REWRITE
                 # 61:31: -> open_stmt(path=$test.st)
@@ -1581,7 +1577,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:62:11: ( EDIT ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)|id= test edit_block[$id.st] -> edit_stmt(id=$id.ststmts=self.handler.get_attrs($EDIT, $edit_block.attrs)behaviors=self.handler.get_behaviors($edit_block.attrs))) )
                 # YarcParser.g:62:13: EDIT ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)|id= test edit_block[$id.st] -> edit_stmt(id=$id.ststmts=self.handler.get_attrs($EDIT, $edit_block.attrs)behaviors=self.handler.get_behaviors($edit_block.attrs)))
-                EDIT16 = self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt686)
+                EDIT16 = self.match(self.input, EDIT, self.FOLLOW_EDIT_in_edit_stmt688)
 
                 # YarcParser.g:62:18: ( TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT -> edit_timeline(params=$paramsvalues=$values)|id= test edit_block[$id.st] -> edit_stmt(id=$id.ststmts=self.handler.get_attrs($EDIT, $edit_block.attrs)behaviors=self.handler.get_behaviors($edit_block.attrs)))
                 alt14 = 2
@@ -1620,14 +1616,14 @@ class YarcParser(YarcParserBase):
                 if alt14 == 1:
                     # YarcParser.g:62:19: TIMELINE COLON NEWLINE INDENT (params+= name values+= test NEWLINE )+ DEDENT
                     self.match(
-                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt689
+                        self.input, TIMELINE, self.FOLLOW_TIMELINE_in_edit_stmt691
                     )
 
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_stmt691)
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_stmt693)
 
-                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt693)
+                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt695)
 
-                    self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_stmt695)
+                    self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_stmt697)
 
                     # YarcParser.g:62:49: (params+= name values+= test NEWLINE )+
                     cnt13 = 0
@@ -1641,7 +1637,7 @@ class YarcParser(YarcParserBase):
                         if alt13 == 1:
                             # YarcParser.g:62:50: params+= name values+= test NEWLINE
                             self._state.following.append(
-                                self.FOLLOW_name_in_edit_stmt700
+                                self.FOLLOW_name_in_edit_stmt702
                             )
                             params = self.name()
 
@@ -1651,7 +1647,7 @@ class YarcParser(YarcParserBase):
                             list_params.append(params.st)
 
                             self._state.following.append(
-                                self.FOLLOW_test_in_edit_stmt704
+                                self.FOLLOW_test_in_edit_stmt706
                             )
                             values = self.test()
 
@@ -1661,7 +1657,7 @@ class YarcParser(YarcParserBase):
                             list_values.append(values.st)
 
                             self.match(
-                                self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt706
+                                self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_stmt708
                             )
 
                         else:
@@ -1673,7 +1669,7 @@ class YarcParser(YarcParserBase):
 
                         cnt13 += 1
 
-                    self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_stmt710)
+                    self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_stmt712)
 
                     # TEMPLATE REWRITE
                     # 62:93: -> edit_timeline(params=$paramsvalues=$values)
@@ -1684,12 +1680,12 @@ class YarcParser(YarcParserBase):
 
                 elif alt14 == 2:
                     # YarcParser.g:63:20: id= test edit_block[$id.st]
-                    self._state.following.append(self.FOLLOW_test_in_edit_stmt748)
+                    self._state.following.append(self.FOLLOW_test_in_edit_stmt750)
                     id = self.test()
 
                     self._state.following.pop()
 
-                    self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt750)
+                    self._state.following.append(self.FOLLOW_edit_block_in_edit_stmt752)
                     edit_block17 = self.edit_block(
                         ((id is not None) and [id.st] or [None])[0]
                     )
@@ -1764,7 +1760,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:69:16: ( CREATE (count= test )? (prim= ( SHAPE | LIGHT ) (attrs= edit_block[$id] | NEWLINE ) -> create_prim(id=$idprim=self.handler.map($prim)params=self.handler.get_params($prim, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($prim, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))| (prim= STEREO CAMERA |prim= CAMERA ) (attrs= edit_block[$id] | NEWLINE ) -> create_camera(id=$idprim=self.handler.map($prim)params=self.handler.get_params($prim, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($prim, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))|prim= FROM file= test (attrs= edit_block[$id] | NEWLINE ) -> create_from(id=$idfile=$file.stparams=self.handler.get_params($FROM, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($FROM, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))| MATERIAL (attrs= simple_block | NEWLINE ) -> create_material(id=$idparams=self.handler.get_params($MATERIAL, $attrs.attrs, warnings=True, count=count.st))) )
                 # YarcParser.g:70:3: CREATE (count= test )? (prim= ( SHAPE | LIGHT ) (attrs= edit_block[$id] | NEWLINE ) -> create_prim(id=$idprim=self.handler.map($prim)params=self.handler.get_params($prim, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($prim, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))| (prim= STEREO CAMERA |prim= CAMERA ) (attrs= edit_block[$id] | NEWLINE ) -> create_camera(id=$idprim=self.handler.map($prim)params=self.handler.get_params($prim, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($prim, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))|prim= FROM file= test (attrs= edit_block[$id] | NEWLINE ) -> create_from(id=$idfile=$file.stparams=self.handler.get_params($FROM, $attrs.attrs, count=$count.st)stmts=self.handler.get_attrs($FROM, $attrs.attrs)behaviors=self.handler.get_behaviors($attrs.attrs))| MATERIAL (attrs= simple_block | NEWLINE ) -> create_material(id=$idparams=self.handler.get_params($MATERIAL, $attrs.attrs, warnings=True, count=count.st)))
-                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr885)
+                self.match(self.input, CREATE, self.FOLLOW_CREATE_in_create_expr887)
 
                 # YarcParser.g:70:15: (count= test )?
                 alt15 = 2
@@ -1795,7 +1791,7 @@ class YarcParser(YarcParserBase):
                     alt15 = 1
                 if alt15 == 1:
                     # YarcParser.g:70:15: count= test
-                    self._state.following.append(self.FOLLOW_test_in_create_expr889)
+                    self._state.following.append(self.FOLLOW_test_in_create_expr891)
                     count = self.test()
 
                     self._state.following.pop()
@@ -1835,13 +1831,13 @@ class YarcParser(YarcParserBase):
                     if alt16 == 1:
                         # YarcParser.g:71:11: SHAPE
                         prim = self.match(
-                            self.input, SHAPE, self.FOLLOW_SHAPE_in_create_expr901
+                            self.input, SHAPE, self.FOLLOW_SHAPE_in_create_expr903
                         )
 
                     elif alt16 == 2:
                         # YarcParser.g:71:19: LIGHT
                         prim = self.match(
-                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr905
+                            self.input, LIGHT, self.FOLLOW_LIGHT_in_create_expr907
                         )
 
                     # YarcParser.g:71:26: (attrs= edit_block[$id] | NEWLINE )
@@ -1860,7 +1856,7 @@ class YarcParser(YarcParserBase):
                     if alt17 == 1:
                         # YarcParser.g:71:27: attrs= edit_block[$id]
                         self._state.following.append(
-                            self.FOLLOW_edit_block_in_create_expr911
+                            self.FOLLOW_edit_block_in_create_expr913
                         )
                         attrs = self.edit_block(id)
 
@@ -1869,7 +1865,7 @@ class YarcParser(YarcParserBase):
                     elif alt17 == 2:
                         # YarcParser.g:71:51: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr916
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr918
                         )
 
                     # TEMPLATE REWRITE
@@ -1913,17 +1909,17 @@ class YarcParser(YarcParserBase):
                     if alt18 == 1:
                         # YarcParser.g:77:8: prim= STEREO CAMERA
                         prim = self.match(
-                            self.input, STEREO, self.FOLLOW_STEREO_in_create_expr1052
+                            self.input, STEREO, self.FOLLOW_STEREO_in_create_expr1054
                         )
 
                         self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr1054
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr1056
                         )
 
                     elif alt18 == 2:
                         # YarcParser.g:77:29: prim= CAMERA
                         prim = self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr1060
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_create_expr1062
                         )
 
                     # YarcParser.g:77:42: (attrs= edit_block[$id] | NEWLINE )
@@ -1942,7 +1938,7 @@ class YarcParser(YarcParserBase):
                     if alt19 == 1:
                         # YarcParser.g:77:43: attrs= edit_block[$id]
                         self._state.following.append(
-                            self.FOLLOW_edit_block_in_create_expr1066
+                            self.FOLLOW_edit_block_in_create_expr1068
                         )
                         attrs = self.edit_block(id)
 
@@ -1951,7 +1947,7 @@ class YarcParser(YarcParserBase):
                     elif alt19 == 2:
                         # YarcParser.g:77:67: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1071
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1073
                         )
 
                     # TEMPLATE REWRITE
@@ -1979,10 +1975,10 @@ class YarcParser(YarcParserBase):
                 elif alt22 == 3:
                     # YarcParser.g:83:7: prim= FROM file= test (attrs= edit_block[$id] | NEWLINE )
                     prim = self.match(
-                        self.input, FROM, self.FOLLOW_FROM_in_create_expr1206
+                        self.input, FROM, self.FOLLOW_FROM_in_create_expr1208
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_create_expr1210)
+                    self._state.following.append(self.FOLLOW_test_in_create_expr1212)
                     file = self.test()
 
                     self._state.following.pop()
@@ -2003,7 +1999,7 @@ class YarcParser(YarcParserBase):
                     if alt20 == 1:
                         # YarcParser.g:83:28: attrs= edit_block[$id]
                         self._state.following.append(
-                            self.FOLLOW_edit_block_in_create_expr1215
+                            self.FOLLOW_edit_block_in_create_expr1217
                         )
                         attrs = self.edit_block(id)
 
@@ -2012,7 +2008,7 @@ class YarcParser(YarcParserBase):
                     elif alt20 == 2:
                         # YarcParser.g:83:52: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1220
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1222
                         )
 
                     # TEMPLATE REWRITE
@@ -2040,7 +2036,7 @@ class YarcParser(YarcParserBase):
                 elif alt22 == 4:
                     # YarcParser.g:89:7: MATERIAL (attrs= simple_block | NEWLINE )
                     MATERIAL18 = self.match(
-                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr1351
+                        self.input, MATERIAL, self.FOLLOW_MATERIAL_in_create_expr1353
                     )
 
                     # YarcParser.g:89:16: (attrs= simple_block | NEWLINE )
@@ -2059,7 +2055,7 @@ class YarcParser(YarcParserBase):
                     if alt21 == 1:
                         # YarcParser.g:89:17: attrs= simple_block
                         self._state.following.append(
-                            self.FOLLOW_simple_block_in_create_expr1356
+                            self.FOLLOW_simple_block_in_create_expr1358
                         )
                         attrs = self.simple_block()
 
@@ -2068,7 +2064,7 @@ class YarcParser(YarcParserBase):
                     elif alt21 == 2:
                         # YarcParser.g:89:38: NEWLINE
                         self.match(
-                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1360
+                            self.input, NEWLINE, self.FOLLOW_NEWLINE_in_create_expr1362
                         )
 
                     # TEMPLATE REWRITE
@@ -2132,7 +2128,7 @@ class YarcParser(YarcParserBase):
                 INSTANTIATE19 = self.match(
                     self.input,
                     INSTANTIATE,
-                    self.FOLLOW_INSTANTIATE_in_instantiate_expr1422,
+                    self.FOLLOW_INSTANTIATE_in_instantiate_expr1424,
                 )
 
                 # YarcParser.g:95:42: ( test )?
@@ -2165,15 +2161,15 @@ class YarcParser(YarcParserBase):
                 if alt23 == 1:
                     # YarcParser.g:95:43: test
                     self._state.following.append(
-                        self.FOLLOW_test_in_instantiate_expr1427
+                        self.FOLLOW_test_in_instantiate_expr1429
                     )
                     count = self.test()
 
                     self._state.following.pop()
 
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr1431)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_instantiate_expr1433)
 
-                self._state.following.append(self.FOLLOW_test_in_instantiate_expr1435)
+                self._state.following.append(self.FOLLOW_test_in_instantiate_expr1437)
                 file = self.test()
 
                 self._state.following.pop()
@@ -2194,7 +2190,7 @@ class YarcParser(YarcParserBase):
                 if alt24 == 1:
                     # YarcParser.g:95:66: edit_block[$id]
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_instantiate_expr1438
+                        self.FOLLOW_edit_block_in_instantiate_expr1440
                     )
                     edit_block20 = self.edit_block(id)
 
@@ -2203,7 +2199,7 @@ class YarcParser(YarcParserBase):
                 elif alt24 == 2:
                     # YarcParser.g:95:84: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr1443
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_instantiate_expr1445
                     )
 
                 # TEMPLATE REWRITE
@@ -2283,12 +2279,12 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:101:22: ( GROUP LBRACK names+= test ( COMMA names+= test )* RBRACK ( edit_block[$id] | NEWLINE ) -> group_expr(id=$idnames=$namesparams=self.handler.get_params($GROUP, $edit_block.attrs)stmts=self.handler.get_attrs($GROUP, $edit_block.attrs)behaviors=self.handler.get_behaviors($edit_block.attrs)))
                 # YarcParser.g:101:24: GROUP LBRACK names+= test ( COMMA names+= test )* RBRACK ( edit_block[$id] | NEWLINE )
                 GROUP21 = self.match(
-                    self.input, GROUP, self.FOLLOW_GROUP_in_group_expr1582
+                    self.input, GROUP, self.FOLLOW_GROUP_in_group_expr1584
                 )
 
-                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr1584)
+                self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_group_expr1586)
 
-                self._state.following.append(self.FOLLOW_test_in_group_expr1588)
+                self._state.following.append(self.FOLLOW_test_in_group_expr1590)
                 names = self.test()
 
                 self._state.following.pop()
@@ -2307,10 +2303,10 @@ class YarcParser(YarcParserBase):
                     if alt25 == 1:
                         # YarcParser.g:101:50: COMMA names+= test
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr1591
+                            self.input, COMMA, self.FOLLOW_COMMA_in_group_expr1593
                         )
 
-                        self._state.following.append(self.FOLLOW_test_in_group_expr1595)
+                        self._state.following.append(self.FOLLOW_test_in_group_expr1597)
                         names = self.test()
 
                         self._state.following.pop()
@@ -2321,7 +2317,7 @@ class YarcParser(YarcParserBase):
                     else:
                         break  # loop25
 
-                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr1599)
+                self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_group_expr1601)
 
                 # YarcParser.g:101:77: ( edit_block[$id] | NEWLINE )
                 alt26 = 2
@@ -2339,7 +2335,7 @@ class YarcParser(YarcParserBase):
                 if alt26 == 1:
                     # YarcParser.g:101:78: edit_block[$id]
                     self._state.following.append(
-                        self.FOLLOW_edit_block_in_group_expr1602
+                        self.FOLLOW_edit_block_in_group_expr1604
                     )
                     edit_block22 = self.edit_block(id)
 
@@ -2348,7 +2344,7 @@ class YarcParser(YarcParserBase):
                 elif alt26 == 2:
                     # YarcParser.g:101:96: NEWLINE
                     self.match(
-                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr1607
+                        self.input, NEWLINE, self.FOLLOW_NEWLINE_in_group_expr1609
                     )
 
                 # TEMPLATE REWRITE
@@ -2427,7 +2423,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:107:22: ( GET (filter= ( CAMERA | LIGHT | MATERIAL | ID ) AT )? path= test ( simple_block | NEWLINE ) -> get_expr(id=$idfilter=self.handler.map($filter)path=$path.stparams=self.handler.get_params($GET, $simple_block.attrs, warnings=True)))
                 # YarcParser.g:107:24: GET (filter= ( CAMERA | LIGHT | MATERIAL | ID ) AT )? path= test ( simple_block | NEWLINE )
-                GET23 = self.match(self.input, GET, self.FOLLOW_GET_in_get_expr1721)
+                GET23 = self.match(self.input, GET, self.FOLLOW_GET_in_get_expr1723)
 
                 # YarcParser.g:107:28: (filter= ( CAMERA | LIGHT | MATERIAL | ID ) AT )?
                 alt28 = 2
@@ -2462,34 +2458,34 @@ class YarcParser(YarcParserBase):
                     if alt27 == 1:
                         # YarcParser.g:107:37: CAMERA
                         filter = self.match(
-                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr1727
+                            self.input, CAMERA, self.FOLLOW_CAMERA_in_get_expr1729
                         )
 
                     elif alt27 == 2:
                         # YarcParser.g:107:46: LIGHT
                         filter = self.match(
-                            self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr1731
+                            self.input, LIGHT, self.FOLLOW_LIGHT_in_get_expr1733
                         )
 
                     elif alt27 == 3:
                         # YarcParser.g:107:54: MATERIAL
                         filter = self.match(
-                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr1735
+                            self.input, MATERIAL, self.FOLLOW_MATERIAL_in_get_expr1737
                         )
 
                     elif alt27 == 4:
                         # YarcParser.g:107:65: ID
                         filter = self.match(
-                            self.input, ID, self.FOLLOW_ID_in_get_expr1739
+                            self.input, ID, self.FOLLOW_ID_in_get_expr1741
                         )
 
                     # action start
                     self.handler.check_target(filter)
                     # action end
 
-                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr1744)
+                    self.match(self.input, AT, self.FOLLOW_AT_in_get_expr1746)
 
-                self._state.following.append(self.FOLLOW_test_in_get_expr1750)
+                self._state.following.append(self.FOLLOW_test_in_get_expr1752)
                 path = self.test()
 
                 self._state.following.pop()
@@ -2510,7 +2506,7 @@ class YarcParser(YarcParserBase):
                 if alt29 == 1:
                     # YarcParser.g:107:122: simple_block
                     self._state.following.append(
-                        self.FOLLOW_simple_block_in_get_expr1753
+                        self.FOLLOW_simple_block_in_get_expr1755
                     )
                     simple_block24 = self.simple_block()
 
@@ -2518,7 +2514,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt29 == 2:
                     # YarcParser.g:107:137: NEWLINE
-                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr1757)
+                    self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_get_expr1759)
 
                 # TEMPLATE REWRITE
                 # 108:3: -> get_expr(id=$idfilter=self.handler.map($filter)path=$path.stparams=self.handler.get_params($GET, $simple_block.attrs, warnings=True))
@@ -2582,11 +2578,11 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:115:3: ( COLON NEWLINE INDENT (stmt_= ( attr | inner_behavior_stmt[$id] ) )+ DEDENT )
                 # YarcParser.g:115:5: COLON NEWLINE INDENT (stmt_= ( attr | inner_behavior_stmt[$id] ) )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block1849)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_edit_block1851)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block1851)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_edit_block1853)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block1853)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_edit_block1855)
 
                 # YarcParser.g:115:26: (stmt_= ( attr | inner_behavior_stmt[$id] ) )+
                 cnt31 = 0
@@ -2651,7 +2647,7 @@ class YarcParser(YarcParserBase):
                         if alt30 == 1:
                             # YarcParser.g:115:34: attr
                             self._state.following.append(
-                                self.FOLLOW_attr_in_edit_block1859
+                                self.FOLLOW_attr_in_edit_block1861
                             )
                             stmt_ = self.attr()
 
@@ -2660,7 +2656,7 @@ class YarcParser(YarcParserBase):
                         elif alt30 == 2:
                             # YarcParser.g:115:41: inner_behavior_stmt[$id]
                             self._state.following.append(
-                                self.FOLLOW_inner_behavior_stmt_in_edit_block1863
+                                self.FOLLOW_inner_behavior_stmt_in_edit_block1865
                             )
                             stmt_ = self.inner_behavior_stmt(id)
 
@@ -2679,7 +2675,7 @@ class YarcParser(YarcParserBase):
 
                     cnt31 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block1871)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_edit_block1873)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2725,11 +2721,11 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:118:3: ( COLON NEWLINE INDENT ( simple_attr )+ DEDENT )
                 # YarcParser.g:118:5: COLON NEWLINE INDENT ( simple_attr )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block1890)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_block1892)
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block1892)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_block1894)
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block1894)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_simple_block1896)
 
                 # YarcParser.g:118:26: ( simple_attr )+
                 cnt32 = 0
@@ -2743,7 +2739,7 @@ class YarcParser(YarcParserBase):
                     if alt32 == 1:
                         # YarcParser.g:118:27: simple_attr
                         self._state.following.append(
-                            self.FOLLOW_simple_attr_in_simple_block1897
+                            self.FOLLOW_simple_attr_in_simple_block1899
                         )
                         simple_attr25 = self.simple_attr()
 
@@ -2768,7 +2764,7 @@ class YarcParser(YarcParserBase):
 
                     cnt32 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block1903)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_simple_block1905)
 
                 retval.stop = self.input.LT(-1)
 
@@ -2841,21 +2837,21 @@ class YarcParser(YarcParserBase):
 
                 if alt33 == 1:
                     # YarcParser.g:120:26: core_attr
-                    self._state.following.append(self.FOLLOW_core_attr_in_attr1918)
+                    self._state.following.append(self.FOLLOW_core_attr_in_attr1920)
                     a = self.core_attr()
 
                     self._state.following.pop()
 
                 elif alt33 == 2:
                     # YarcParser.g:120:38: simple_attr
-                    self._state.following.append(self.FOLLOW_simple_attr_in_attr1922)
+                    self._state.following.append(self.FOLLOW_simple_attr_in_attr1924)
                     a = self.simple_attr()
 
                     self._state.following.pop()
 
                 elif alt33 == 3:
                     # YarcParser.g:120:52: compound_attr
-                    self._state.following.append(self.FOLLOW_compound_attr_in_attr1926)
+                    self._state.following.append(self.FOLLOW_compound_attr_in_attr1928)
                     a = self.compound_attr()
 
                     self._state.following.pop()
@@ -2913,7 +2909,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:123:3: (name_= name ( COLON type= name )? value= test NEWLINE -> simple_attr(name=$name_.sttype=$type.stvalue=$value.st))
                 # YarcParser.g:123:5: name_= name ( COLON type= name )? value= test NEWLINE
-                self._state.following.append(self.FOLLOW_name_in_simple_attr1956)
+                self._state.following.append(self.FOLLOW_name_in_simple_attr1958)
                 name_ = self.name()
 
                 self._state.following.pop()
@@ -2926,19 +2922,19 @@ class YarcParser(YarcParserBase):
                     alt34 = 1
                 if alt34 == 1:
                     # YarcParser.g:123:17: COLON type= name
-                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr1959)
+                    self.match(self.input, COLON, self.FOLLOW_COLON_in_simple_attr1961)
 
-                    self._state.following.append(self.FOLLOW_name_in_simple_attr1963)
+                    self._state.following.append(self.FOLLOW_name_in_simple_attr1965)
                     type = self.name()
 
                     self._state.following.pop()
 
-                self._state.following.append(self.FOLLOW_test_in_simple_attr1969)
+                self._state.following.append(self.FOLLOW_test_in_simple_attr1971)
                 value = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr1971)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_simple_attr1973)
 
                 # TEMPLATE REWRITE
                 # 124:3: -> simple_attr(name=$name_.sttype=$type.stvalue=$value.st)
@@ -3026,12 +3022,12 @@ class YarcParser(YarcParserBase):
                 if alt39 == 1:
                     # YarcParser.g:128:7: name_= SCATTER ON surface= name (attrs= simple_block | NEWLINE )
                     name_ = self.match(
-                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr2018
+                        self.input, SCATTER, self.FOLLOW_SCATTER_in_compound_attr2020
                     )
 
-                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr2020)
+                    self.match(self.input, ON, self.FOLLOW_ON_in_compound_attr2022)
 
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr2024)
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr2026)
                     surface = self.name()
 
                     self._state.following.pop()
@@ -3052,7 +3048,7 @@ class YarcParser(YarcParserBase):
                     if alt35 == 1:
                         # YarcParser.g:128:38: attrs= simple_block
                         self._state.following.append(
-                            self.FOLLOW_simple_block_in_compound_attr2029
+                            self.FOLLOW_simple_block_in_compound_attr2031
                         )
                         attrs = self.simple_block()
 
@@ -3063,7 +3059,7 @@ class YarcParser(YarcParserBase):
                         self.match(
                             self.input,
                             NEWLINE,
-                            self.FOLLOW_NEWLINE_in_compound_attr2033,
+                            self.FOLLOW_NEWLINE_in_compound_attr2035,
                         )
 
                     # TEMPLATE REWRITE
@@ -3088,10 +3084,10 @@ class YarcParser(YarcParserBase):
                     name_ = self.match(
                         self.input,
                         ROT_AROUND,
-                        self.FOLLOW_ROT_AROUND_in_compound_attr2117,
+                        self.FOLLOW_ROT_AROUND_in_compound_attr2119,
                     )
 
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr2121)
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr2123)
                     center = self.name()
 
                     self._state.following.pop()
@@ -3112,7 +3108,7 @@ class YarcParser(YarcParserBase):
                     if alt36 == 1:
                         # YarcParser.g:132:37: attrs= simple_block
                         self._state.following.append(
-                            self.FOLLOW_simple_block_in_compound_attr2126
+                            self.FOLLOW_simple_block_in_compound_attr2128
                         )
                         attrs = self.simple_block()
 
@@ -3123,7 +3119,7 @@ class YarcParser(YarcParserBase):
                         self.match(
                             self.input,
                             NEWLINE,
-                            self.FOLLOW_NEWLINE_in_compound_attr2130,
+                            self.FOLLOW_NEWLINE_in_compound_attr2132,
                         )
 
                     # TEMPLATE REWRITE
@@ -3145,7 +3141,7 @@ class YarcParser(YarcParserBase):
                 elif alt39 == 3:
                     # YarcParser.g:135:7: name_= PHYSICS (attrs= simple_block | NEWLINE )
                     name_ = self.match(
-                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr2187
+                        self.input, PHYSICS, self.FOLLOW_PHYSICS_in_compound_attr2189
                     )
 
                     # YarcParser.g:135:21: (attrs= simple_block | NEWLINE )
@@ -3164,7 +3160,7 @@ class YarcParser(YarcParserBase):
                     if alt37 == 1:
                         # YarcParser.g:135:22: attrs= simple_block
                         self._state.following.append(
-                            self.FOLLOW_simple_block_in_compound_attr2192
+                            self.FOLLOW_simple_block_in_compound_attr2194
                         )
                         attrs = self.simple_block()
 
@@ -3175,7 +3171,7 @@ class YarcParser(YarcParserBase):
                         self.match(
                             self.input,
                             NEWLINE,
-                            self.FOLLOW_NEWLINE_in_compound_attr2196,
+                            self.FOLLOW_NEWLINE_in_compound_attr2198,
                         )
 
                     # TEMPLATE REWRITE
@@ -3197,10 +3193,10 @@ class YarcParser(YarcParserBase):
                     name_ = self.match(
                         self.input,
                         MOVE_TO_CAM,
-                        self.FOLLOW_MOVE_TO_CAM_in_compound_attr2249,
+                        self.FOLLOW_MOVE_TO_CAM_in_compound_attr2251,
                     )
 
-                    self._state.following.append(self.FOLLOW_name_in_compound_attr2253)
+                    self._state.following.append(self.FOLLOW_name_in_compound_attr2255)
                     camera = self.name()
 
                     self._state.following.pop()
@@ -3221,7 +3217,7 @@ class YarcParser(YarcParserBase):
                     if alt38 == 1:
                         # YarcParser.g:138:38: attrs= simple_block
                         self._state.following.append(
-                            self.FOLLOW_simple_block_in_compound_attr2258
+                            self.FOLLOW_simple_block_in_compound_attr2260
                         )
                         attrs = self.simple_block()
 
@@ -3232,7 +3228,7 @@ class YarcParser(YarcParserBase):
                         self.match(
                             self.input,
                             NEWLINE,
-                            self.FOLLOW_NEWLINE_in_compound_attr2262,
+                            self.FOLLOW_NEWLINE_in_compound_attr2264,
                         )
 
                     # TEMPLATE REWRITE
@@ -3341,7 +3337,7 @@ class YarcParser(YarcParserBase):
                 if alt42 == 1:
                     # YarcParser.g:145:7: TRANSLATE (axis= AXIS )? TO value= test
                     TRANSLATE26 = self.match(
-                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr2340
+                        self.input, TRANSLATE, self.FOLLOW_TRANSLATE_in_core_attr2342
                     )
 
                     # YarcParser.g:145:21: (axis= AXIS )?
@@ -3353,12 +3349,12 @@ class YarcParser(YarcParserBase):
                     if alt40 == 1:
                         # YarcParser.g:145:21: axis= AXIS
                         axis = self.match(
-                            self.input, AXIS, self.FOLLOW_AXIS_in_core_attr2344
+                            self.input, AXIS, self.FOLLOW_AXIS_in_core_attr2346
                         )
 
-                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr2347)
+                    self.match(self.input, TO, self.FOLLOW_TO_in_core_attr2349)
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2351)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2353)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3380,7 +3376,7 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 2:
                     # YarcParser.g:146:7: ROTATE (axis= AXIS )? value= test
                     ROTATE27 = self.match(
-                        self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr2375
+                        self.input, ROTATE, self.FOLLOW_ROTATE_in_core_attr2377
                     )
 
                     # YarcParser.g:146:18: (axis= AXIS )?
@@ -3392,10 +3388,10 @@ class YarcParser(YarcParserBase):
                     if alt41 == 1:
                         # YarcParser.g:146:18: axis= AXIS
                         axis = self.match(
-                            self.input, AXIS, self.FOLLOW_AXIS_in_core_attr2379
+                            self.input, AXIS, self.FOLLOW_AXIS_in_core_attr2381
                         )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2384)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2386)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3417,10 +3413,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 3:
                     # YarcParser.g:147:7: SCALE value= test
                     SCALE28 = self.match(
-                        self.input, SCALE, self.FOLLOW_SCALE_in_core_attr2408
+                        self.input, SCALE, self.FOLLOW_SCALE_in_core_attr2410
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2412)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2414)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3441,10 +3437,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 4:
                     # YarcParser.g:148:7: LOOK_AT value= test
                     LOOK_AT29 = self.match(
-                        self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr2431
+                        self.input, LOOK_AT, self.FOLLOW_LOOK_AT_in_core_attr2433
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2435)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2437)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3465,10 +3461,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 5:
                     # YarcParser.g:149:7: UP_AXIS value= test
                     UP_AXIS30 = self.match(
-                        self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr2454
+                        self.input, UP_AXIS, self.FOLLOW_UP_AXIS_in_core_attr2456
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2458)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2460)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3489,10 +3485,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 6:
                     # YarcParser.g:150:7: SIZE value= test
                     SIZE31 = self.match(
-                        self.input, SIZE, self.FOLLOW_SIZE_in_core_attr2477
+                        self.input, SIZE, self.FOLLOW_SIZE_in_core_attr2479
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2481)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2483)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3513,10 +3509,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 7:
                     # YarcParser.g:151:7: PIVOT value= test
                     PIVOT32 = self.match(
-                        self.input, PIVOT, self.FOLLOW_PIVOT_in_core_attr2500
+                        self.input, PIVOT, self.FOLLOW_PIVOT_in_core_attr2502
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2504)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2506)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3537,10 +3533,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 8:
                     # YarcParser.g:152:7: SEMANTICS value= test
                     SEMANTICS33 = self.match(
-                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr2523
+                        self.input, SEMANTICS, self.FOLLOW_SEMANTICS_in_core_attr2525
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2527)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2529)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3561,10 +3557,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 9:
                     # YarcParser.g:153:7: VISIBLE value= test
                     VISIBLE34 = self.match(
-                        self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr2546
+                        self.input, VISIBLE, self.FOLLOW_VISIBLE_in_core_attr2548
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2550)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2552)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3585,10 +3581,10 @@ class YarcParser(YarcParserBase):
                 elif alt42 == 10:
                     # YarcParser.g:154:7: MATERIAL_ value= test
                     MATERIAL_35 = self.match(
-                        self.input, MATERIAL_, self.FOLLOW_MATERIAL__in_core_attr2569
+                        self.input, MATERIAL_, self.FOLLOW_MATERIAL__in_core_attr2571
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_core_attr2573)
+                    self._state.following.append(self.FOLLOW_test_in_core_attr2575)
                     value = self.test()
 
                     self._state.following.pop()
@@ -3606,7 +3602,7 @@ class YarcParser(YarcParserBase):
                         },
                     )
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr2590)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_core_attr2592)
 
                 retval.stop = self.input.LT(-1)
 
@@ -3657,14 +3653,14 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:159:3: ( behavior_expr inner_behavior_block -> inner_behavior_stmt(behavior=$behavior_expr.stid=$idblock=$inner_behavior_block.st))
                 # YarcParser.g:159:5: behavior_expr inner_behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt2613
+                    self.FOLLOW_behavior_expr_in_inner_behavior_stmt2615
                 )
                 behavior_expr36 = self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt2615
+                    self.FOLLOW_inner_behavior_block_in_inner_behavior_stmt2617
                 )
                 inner_behavior_block37 = self.inner_behavior_block()
 
@@ -3736,15 +3732,15 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:160:22: ( COLON NEWLINE INDENT (stmts_+= attr )+ DEDENT -> behavior_block(stmts=$stmts_))
                 # YarcParser.g:160:24: COLON NEWLINE INDENT (stmts_+= attr )+ DEDENT
                 self.match(
-                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block2641
+                    self.input, COLON, self.FOLLOW_COLON_in_inner_behavior_block2643
                 )
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block2643
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_inner_behavior_block2645
                 )
 
                 self.match(
-                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block2645
+                    self.input, INDENT, self.FOLLOW_INDENT_in_inner_behavior_block2647
                 )
 
                 # YarcParser.g:160:51: (stmts_+= attr )+
@@ -3776,7 +3772,7 @@ class YarcParser(YarcParserBase):
                     if alt43 == 1:
                         # YarcParser.g:160:51: stmts_+= attr
                         self._state.following.append(
-                            self.FOLLOW_attr_in_inner_behavior_block2649
+                            self.FOLLOW_attr_in_inner_behavior_block2651
                         )
                         stmts_ = self.attr()
 
@@ -3795,7 +3791,7 @@ class YarcParser(YarcParserBase):
                     cnt43 += 1
 
                 self.match(
-                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block2652
+                    self.input, DEDENT, self.FOLLOW_DEDENT_in_inner_behavior_block2654
                 )
 
                 # TEMPLATE REWRITE
@@ -3848,14 +3844,14 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:163:16: ( behavior_expr behavior_block -> behavior_stmt(behavior=$behavior_expr.stblock=$behavior_block.st))
                 # YarcParser.g:163:18: behavior_expr behavior_block
                 self._state.following.append(
-                    self.FOLLOW_behavior_expr_in_behavior_stmt2672
+                    self.FOLLOW_behavior_expr_in_behavior_stmt2674
                 )
                 behavior_expr38 = self.behavior_expr()
 
                 self._state.following.pop()
 
                 self._state.following.append(
-                    self.FOLLOW_behavior_block_in_behavior_stmt2674
+                    self.FOLLOW_behavior_block_in_behavior_stmt2676
                 )
                 behavior_block39 = self.behavior_block()
 
@@ -3922,7 +3918,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:164:16: ( EVERY (interval= test )? type= ( FRAMES | TIME ) -> behavior_expr(interval=$interval.stis_frame=self.handler.is_frame($type)))
                 # YarcParser.g:164:18: EVERY (interval= test )? type= ( FRAMES | TIME )
-                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr2696)
+                self.match(self.input, EVERY, self.FOLLOW_EVERY_in_behavior_expr2698)
 
                 # YarcParser.g:164:32: (interval= test )?
                 alt44 = 2
@@ -3953,7 +3949,7 @@ class YarcParser(YarcParserBase):
                     alt44 = 1
                 if alt44 == 1:
                     # YarcParser.g:164:32: interval= test
-                    self._state.following.append(self.FOLLOW_test_in_behavior_expr2700)
+                    self._state.following.append(self.FOLLOW_test_in_behavior_expr2702)
                     interval = self.test()
 
                     self._state.following.pop()
@@ -3974,13 +3970,13 @@ class YarcParser(YarcParserBase):
                 if alt45 == 1:
                     # YarcParser.g:164:45: FRAMES
                     type = self.match(
-                        self.input, FRAMES, self.FOLLOW_FRAMES_in_behavior_expr2706
+                        self.input, FRAMES, self.FOLLOW_FRAMES_in_behavior_expr2708
                     )
 
                 elif alt45 == 2:
                     # YarcParser.g:164:54: TIME
                     type = self.match(
-                        self.input, TIME, self.FOLLOW_TIME_in_behavior_expr2710
+                        self.input, TIME, self.FOLLOW_TIME_in_behavior_expr2712
                     )
 
                 # TEMPLATE REWRITE
@@ -4039,13 +4035,13 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:168:3: ( COLON NEWLINE INDENT stmts_+= ( aug_expr_stmt | code_snippet | edit_stmt )+ DEDENT -> behavior_block(stmts=$stmts_))
                 # YarcParser.g:168:5: COLON NEWLINE INDENT stmts_+= ( aug_expr_stmt | code_snippet | edit_stmt )+ DEDENT
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block2745)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_behavior_block2747)
 
                 self.match(
-                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block2747
+                    self.input, NEWLINE, self.FOLLOW_NEWLINE_in_behavior_block2749
                 )
 
-                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block2749)
+                self.match(self.input, INDENT, self.FOLLOW_INDENT_in_behavior_block2751)
 
                 # YarcParser.g:168:34: ( aug_expr_stmt | code_snippet | edit_stmt )+
                 cnt46 = 0
@@ -4062,7 +4058,7 @@ class YarcParser(YarcParserBase):
                     if alt46 == 1:
                         # YarcParser.g:168:35: aug_expr_stmt
                         self._state.following.append(
-                            self.FOLLOW_aug_expr_stmt_in_behavior_block2754
+                            self.FOLLOW_aug_expr_stmt_in_behavior_block2756
                         )
                         stmts_ = self.aug_expr_stmt()
 
@@ -4074,7 +4070,7 @@ class YarcParser(YarcParserBase):
                     elif alt46 == 2:
                         # YarcParser.g:168:51: code_snippet
                         self._state.following.append(
-                            self.FOLLOW_code_snippet_in_behavior_block2758
+                            self.FOLLOW_code_snippet_in_behavior_block2760
                         )
                         stmts_ = self.code_snippet()
 
@@ -4086,7 +4082,7 @@ class YarcParser(YarcParserBase):
                     elif alt46 == 3:
                         # YarcParser.g:168:66: edit_stmt
                         self._state.following.append(
-                            self.FOLLOW_edit_stmt_in_behavior_block2762
+                            self.FOLLOW_edit_stmt_in_behavior_block2764
                         )
                         stmts_ = self.edit_stmt()
 
@@ -4104,7 +4100,7 @@ class YarcParser(YarcParserBase):
 
                     cnt46 += 1
 
-                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block2766)
+                self.match(self.input, DEDENT, self.FOLLOW_DEDENT_in_behavior_block2768)
 
                 # TEMPLATE REWRITE
                 # 168:85: -> behavior_block(stmts=$stmts_)
@@ -4160,7 +4156,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:171:11: (assignable= namelist op= ( AUG_ASSIGN | ASSIGN ) value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$assignable.stop=$op.textvalue=$value.st))
                 # YarcParser.g:171:13: assignable= namelist op= ( AUG_ASSIGN | ASSIGN ) value= ( testlist | fetch_expr ) NEWLINE
-                self._state.following.append(self.FOLLOW_namelist_in_expr_stmt2787)
+                self._state.following.append(self.FOLLOW_namelist_in_expr_stmt2789)
                 assignable = self.namelist()
 
                 self._state.following.pop()
@@ -4187,13 +4183,13 @@ class YarcParser(YarcParserBase):
                 if alt47 == 1:
                     # YarcParser.g:171:78: AUG_ASSIGN
                     op = self.match(
-                        self.input, AUG_ASSIGN, self.FOLLOW_AUG_ASSIGN_in_expr_stmt2794
+                        self.input, AUG_ASSIGN, self.FOLLOW_AUG_ASSIGN_in_expr_stmt2796
                     )
 
                 elif alt47 == 2:
                     # YarcParser.g:171:91: ASSIGN
                     op = self.match(
-                        self.input, ASSIGN, self.FOLLOW_ASSIGN_in_expr_stmt2798
+                        self.input, ASSIGN, self.FOLLOW_ASSIGN_in_expr_stmt2800
                     )
 
                 # YarcParser.g:171:105: ( testlist | fetch_expr )
@@ -4232,7 +4228,7 @@ class YarcParser(YarcParserBase):
 
                 if alt48 == 1:
                     # YarcParser.g:171:106: testlist
-                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt2804)
+                    self._state.following.append(self.FOLLOW_testlist_in_expr_stmt2806)
                     value = self.testlist()
 
                     self._state.following.pop()
@@ -4240,13 +4236,13 @@ class YarcParser(YarcParserBase):
                 elif alt48 == 2:
                     # YarcParser.g:171:117: fetch_expr
                     self._state.following.append(
-                        self.FOLLOW_fetch_expr_in_expr_stmt2808
+                        self.FOLLOW_fetch_expr_in_expr_stmt2810
                     )
                     value = self.fetch_expr()
 
                     self._state.following.pop()
 
-                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt2811)
+                self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_expr_stmt2813)
 
                 # TEMPLATE REWRITE
                 # 172:3: -> expr_stmt(assignable=$assignable.stop=$op.textvalue=$value.st)
@@ -4323,7 +4319,7 @@ class YarcParser(YarcParserBase):
                     # YarcParser.g:174:16: (id= namelist (op= AUG_ASSIGN value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|op= ASSIGN (value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|value= ( model_expr[$id.st] ) -> {$value.st}) ) )
                     # YarcParser.g:175:5: id= namelist (op= AUG_ASSIGN value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|op= ASSIGN (value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|value= ( model_expr[$id.st] ) -> {$value.st}) )
                     self._state.following.append(
-                        self.FOLLOW_namelist_in_aug_expr_stmt2849
+                        self.FOLLOW_namelist_in_aug_expr_stmt2851
                     )
                     id = self.namelist()
 
@@ -4351,7 +4347,7 @@ class YarcParser(YarcParserBase):
                         op = self.match(
                             self.input,
                             AUG_ASSIGN,
-                            self.FOLLOW_AUG_ASSIGN_in_aug_expr_stmt2863,
+                            self.FOLLOW_AUG_ASSIGN_in_aug_expr_stmt2865,
                         )
 
                         # YarcParser.g:176:27: ( testlist | fetch_expr )
@@ -4391,7 +4387,7 @@ class YarcParser(YarcParserBase):
                         if alt49 == 1:
                             # YarcParser.g:176:28: testlist
                             self._state.following.append(
-                                self.FOLLOW_testlist_in_aug_expr_stmt2868
+                                self.FOLLOW_testlist_in_aug_expr_stmt2870
                             )
                             value = self.testlist()
 
@@ -4400,7 +4396,7 @@ class YarcParser(YarcParserBase):
                         elif alt49 == 2:
                             # YarcParser.g:176:39: fetch_expr
                             self._state.following.append(
-                                self.FOLLOW_fetch_expr_in_aug_expr_stmt2872
+                                self.FOLLOW_fetch_expr_in_aug_expr_stmt2874
                             )
                             value = self.fetch_expr()
 
@@ -4409,7 +4405,7 @@ class YarcParser(YarcParserBase):
                         self.match(
                             self.input,
                             NEWLINE,
-                            self.FOLLOW_NEWLINE_in_aug_expr_stmt2875,
+                            self.FOLLOW_NEWLINE_in_aug_expr_stmt2877,
                         )
 
                         # TEMPLATE REWRITE
@@ -4428,7 +4424,7 @@ class YarcParser(YarcParserBase):
                     elif alt52 == 2:
                         # YarcParser.g:177:9: op= ASSIGN (value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|value= ( model_expr[$id.st] ) -> {$value.st})
                         op = self.match(
-                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt2907
+                            self.input, ASSIGN, self.FOLLOW_ASSIGN_in_aug_expr_stmt2909
                         )
 
                         # YarcParser.g:177:19: (value= ( testlist | fetch_expr ) NEWLINE -> expr_stmt(assignable=$id.stop=$op.textvalue=$value.st)|value= ( model_expr[$id.st] ) -> {$value.st})
@@ -4506,7 +4502,7 @@ class YarcParser(YarcParserBase):
                             if alt50 == 1:
                                 # YarcParser.g:178:16: testlist
                                 self._state.following.append(
-                                    self.FOLLOW_testlist_in_aug_expr_stmt2922
+                                    self.FOLLOW_testlist_in_aug_expr_stmt2924
                                 )
                                 value = self.testlist()
 
@@ -4515,7 +4511,7 @@ class YarcParser(YarcParserBase):
                             elif alt50 == 2:
                                 # YarcParser.g:178:27: fetch_expr
                                 self._state.following.append(
-                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt2926
+                                    self.FOLLOW_fetch_expr_in_aug_expr_stmt2928
                                 )
                                 value = self.fetch_expr()
 
@@ -4524,7 +4520,7 @@ class YarcParser(YarcParserBase):
                             self.match(
                                 self.input,
                                 NEWLINE,
-                                self.FOLLOW_NEWLINE_in_aug_expr_stmt2929,
+                                self.FOLLOW_NEWLINE_in_aug_expr_stmt2931,
                             )
 
                             # TEMPLATE REWRITE
@@ -4546,7 +4542,7 @@ class YarcParser(YarcParserBase):
                             # YarcParser.g:179:17: ( model_expr[$id.st] )
                             # YarcParser.g:179:18: model_expr[$id.st]
                             self._state.following.append(
-                                self.FOLLOW_model_expr_in_aug_expr_stmt2964
+                                self.FOLLOW_model_expr_in_aug_expr_stmt2966
                             )
                             value = self.model_expr(
                                 ((id is not None) and [id.st] or [None])[0]
@@ -4566,7 +4562,7 @@ class YarcParser(YarcParserBase):
                     # action end
 
                     self._state.following.append(
-                        self.FOLLOW_model_expr_in_aug_expr_stmt2998
+                        self.FOLLOW_model_expr_in_aug_expr_stmt3000
                     )
                     model_expr40 = self.model_expr(id)
 
@@ -4638,7 +4634,7 @@ class YarcParser(YarcParserBase):
                 if alt54 == 1:
                     # YarcParser.g:186:24: create_expr[$id]
                     self._state.following.append(
-                        self.FOLLOW_create_expr_in_model_expr3015
+                        self.FOLLOW_create_expr_in_model_expr3017
                     )
                     expr_ = self.create_expr(id)
 
@@ -4647,7 +4643,7 @@ class YarcParser(YarcParserBase):
                 elif alt54 == 2:
                     # YarcParser.g:186:43: instantiate_expr[$id]
                     self._state.following.append(
-                        self.FOLLOW_instantiate_expr_in_model_expr3020
+                        self.FOLLOW_instantiate_expr_in_model_expr3022
                     )
                     expr_ = self.instantiate_expr(id)
 
@@ -4655,7 +4651,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt54 == 3:
                     # YarcParser.g:186:67: get_expr[$id]
-                    self._state.following.append(self.FOLLOW_get_expr_in_model_expr3025)
+                    self._state.following.append(self.FOLLOW_get_expr_in_model_expr3027)
                     expr_ = self.get_expr(id)
 
                     self._state.following.pop()
@@ -4663,7 +4659,7 @@ class YarcParser(YarcParserBase):
                 elif alt54 == 4:
                     # YarcParser.g:186:83: group_expr[$id]
                     self._state.following.append(
-                        self.FOLLOW_group_expr_in_model_expr3030
+                        self.FOLLOW_group_expr_in_model_expr3032
                     )
                     expr_ = self.group_expr(id)
 
@@ -4719,16 +4715,16 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:188:12: ( FETCH ext= test FROM path= test ( MATCH filter= test )? ( LIMIT limit= test )? ( RECURSIVE )? -> fetch_expr(ext=$ext.stpath=$path.stfilter=$filter.stlimit=$limit.strecursive=$RECURSIVE))
                 # YarcParser.g:188:14: FETCH ext= test FROM path= test ( MATCH filter= test )? ( LIMIT limit= test )? ( RECURSIVE )?
-                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr3044)
+                self.match(self.input, FETCH, self.FOLLOW_FETCH_in_fetch_expr3046)
 
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr3048)
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr3050)
                 ext = self.test()
 
                 self._state.following.pop()
 
-                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr3050)
+                self.match(self.input, FROM, self.FOLLOW_FROM_in_fetch_expr3052)
 
-                self._state.following.append(self.FOLLOW_test_in_fetch_expr3054)
+                self._state.following.append(self.FOLLOW_test_in_fetch_expr3056)
                 path = self.test()
 
                 self._state.following.pop()
@@ -4741,9 +4737,9 @@ class YarcParser(YarcParserBase):
                     alt55 = 1
                 if alt55 == 1:
                     # YarcParser.g:188:45: MATCH filter= test
-                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr3057)
+                    self.match(self.input, MATCH, self.FOLLOW_MATCH_in_fetch_expr3059)
 
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr3061)
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr3063)
                     filter = self.test()
 
                     self._state.following.pop()
@@ -4756,9 +4752,9 @@ class YarcParser(YarcParserBase):
                     alt56 = 1
                 if alt56 == 1:
                     # YarcParser.g:188:66: LIMIT limit= test
-                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr3066)
+                    self.match(self.input, LIMIT, self.FOLLOW_LIMIT_in_fetch_expr3068)
 
-                    self._state.following.append(self.FOLLOW_test_in_fetch_expr3070)
+                    self._state.following.append(self.FOLLOW_test_in_fetch_expr3072)
                     limit = self.test()
 
                     self._state.following.pop()
@@ -4772,7 +4768,7 @@ class YarcParser(YarcParserBase):
                 if alt57 == 1:
                     # YarcParser.g:188:85: RECURSIVE
                     RECURSIVE41 = self.match(
-                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr3074
+                        self.input, RECURSIVE, self.FOLLOW_RECURSIVE_in_fetch_expr3076
                     )
 
                 # TEMPLATE REWRITE
@@ -4832,7 +4828,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:192:13: (expr_= or_test ( IF cond= or_test ELSE else_expr= test )? -> test(expr=$expr_.stcond=$cond.stelse_expr=$else_expr.st))
                 # YarcParser.g:192:15: expr_= or_test ( IF cond= or_test ELSE else_expr= test )?
-                self._state.following.append(self.FOLLOW_or_test_in_test3125)
+                self._state.following.append(self.FOLLOW_or_test_in_test3127)
                 expr_ = self.or_test()
 
                 self._state.following.pop()
@@ -4845,16 +4841,16 @@ class YarcParser(YarcParserBase):
                     alt58 = 1
                 if alt58 == 1:
                     # YarcParser.g:192:30: IF cond= or_test ELSE else_expr= test
-                    self.match(self.input, IF, self.FOLLOW_IF_in_test3128)
+                    self.match(self.input, IF, self.FOLLOW_IF_in_test3130)
 
-                    self._state.following.append(self.FOLLOW_or_test_in_test3132)
+                    self._state.following.append(self.FOLLOW_or_test_in_test3134)
                     cond = self.or_test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test3134)
+                    self.match(self.input, ELSE, self.FOLLOW_ELSE_in_test3136)
 
-                    self._state.following.append(self.FOLLOW_test_in_test3138)
+                    self._state.following.append(self.FOLLOW_test_in_test3140)
                     else_expr = self.test()
 
                     self._state.following.pop()
@@ -4914,7 +4910,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:194:13: ( or_test -> test(expr=$or_test.st))
                 # YarcParser.g:194:15: or_test
-                self._state.following.append(self.FOLLOW_or_test_in_test_nocond3180)
+                self._state.following.append(self.FOLLOW_or_test_in_test_nocond3182)
                 or_test42 = self.or_test()
 
                 self._state.following.pop()
@@ -4972,7 +4968,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:195:13: (exprs+= and_test ( OR exprs+= and_test )* -> or_test(exprs=$exprs))
                 # YarcParser.g:195:15: exprs+= and_test ( OR exprs+= and_test )*
-                self._state.following.append(self.FOLLOW_and_test_in_or_test3202)
+                self._state.following.append(self.FOLLOW_and_test_in_or_test3204)
                 exprs = self.and_test()
 
                 self._state.following.pop()
@@ -4990,10 +4986,10 @@ class YarcParser(YarcParserBase):
 
                     if alt59 == 1:
                         # YarcParser.g:195:32: OR exprs+= and_test
-                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test3205)
+                        self.match(self.input, OR, self.FOLLOW_OR_in_or_test3207)
 
                         self._state.following.append(
-                            self.FOLLOW_and_test_in_or_test3209
+                            self.FOLLOW_and_test_in_or_test3211
                         )
                         exprs = self.and_test()
 
@@ -5053,7 +5049,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:196:13: (exprs+= not_test ( AND exprs+= not_test )* -> and_test(exprs=$exprs))
                 # YarcParser.g:196:15: exprs+= not_test ( AND exprs+= not_test )*
-                self._state.following.append(self.FOLLOW_not_test_in_and_test3232)
+                self._state.following.append(self.FOLLOW_not_test_in_and_test3234)
                 exprs = self.not_test()
 
                 self._state.following.pop()
@@ -5071,10 +5067,10 @@ class YarcParser(YarcParserBase):
 
                     if alt60 == 1:
                         # YarcParser.g:196:32: AND exprs+= not_test
-                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test3235)
+                        self.match(self.input, AND, self.FOLLOW_AND_in_and_test3237)
 
                         self._state.following.append(
-                            self.FOLLOW_not_test_in_and_test3239
+                            self.FOLLOW_not_test_in_and_test3241
                         )
                         exprs = self.not_test()
 
@@ -5168,9 +5164,9 @@ class YarcParser(YarcParserBase):
 
                 if alt61 == 1:
                     # YarcParser.g:197:15: NOT expr_= not_test
-                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test3260)
+                    self.match(self.input, NOT, self.FOLLOW_NOT_in_not_test3262)
 
-                    self._state.following.append(self.FOLLOW_not_test_in_not_test3264)
+                    self._state.following.append(self.FOLLOW_not_test_in_not_test3266)
                     expr_ = self.not_test()
 
                     self._state.following.pop()
@@ -5186,7 +5182,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt61 == 2:
                     # YarcParser.g:198:15: comparison
-                    self._state.following.append(self.FOLLOW_comparison_in_not_test3290)
+                    self._state.following.append(self.FOLLOW_comparison_in_not_test3292)
                     comparison43 = self.comparison()
 
                     self._state.following.pop()
@@ -5241,7 +5237,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:199:13: (exprs+= expr (ops+= comp_op exprs+= expr )* -> comparison(exprs=$exprsops=$ops))
                 # YarcParser.g:199:15: exprs+= expr (ops+= comp_op exprs+= expr )*
-                self._state.following.append(self.FOLLOW_expr_in_comparison3304)
+                self._state.following.append(self.FOLLOW_expr_in_comparison3306)
                 exprs = self.expr()
 
                 self._state.following.pop()
@@ -5260,7 +5256,7 @@ class YarcParser(YarcParserBase):
                     if alt62 == 1:
                         # YarcParser.g:199:28: ops+= comp_op exprs+= expr
                         self._state.following.append(
-                            self.FOLLOW_comp_op_in_comparison3309
+                            self.FOLLOW_comp_op_in_comparison3311
                         )
                         ops = self.comp_op()
 
@@ -5269,7 +5265,7 @@ class YarcParser(YarcParserBase):
                             list_ops = []
                         list_ops.append(ops.st)
 
-                        self._state.following.append(self.FOLLOW_expr_in_comparison3313)
+                        self._state.following.append(self.FOLLOW_expr_in_comparison3315)
                         exprs = self.expr()
 
                         self._state.following.pop()
@@ -5387,51 +5383,51 @@ class YarcParser(YarcParserBase):
 
                 if alt63 == 1:
                     # YarcParser.g:200:19: LT
-                    op = self.match(self.input, LT, self.FOLLOW_LT_in_comp_op3343)
+                    op = self.match(self.input, LT, self.FOLLOW_LT_in_comp_op3345)
 
                 elif alt63 == 2:
                     # YarcParser.g:200:24: GT
-                    op = self.match(self.input, GT, self.FOLLOW_GT_in_comp_op3347)
+                    op = self.match(self.input, GT, self.FOLLOW_GT_in_comp_op3349)
 
                 elif alt63 == 3:
                     # YarcParser.g:200:29: EQUALS
                     op = self.match(
-                        self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op3351
+                        self.input, EQUALS, self.FOLLOW_EQUALS_in_comp_op3353
                     )
 
                 elif alt63 == 4:
                     # YarcParser.g:200:38: GT_EQ
-                    op = self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op3355)
+                    op = self.match(self.input, GT_EQ, self.FOLLOW_GT_EQ_in_comp_op3357)
 
                 elif alt63 == 5:
                     # YarcParser.g:200:46: LT_EQ
-                    op = self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op3359)
+                    op = self.match(self.input, LT_EQ, self.FOLLOW_LT_EQ_in_comp_op3361)
 
                 elif alt63 == 6:
                     # YarcParser.g:200:54: NOT_EQ
                     op = self.match(
-                        self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op3363
+                        self.input, NOT_EQ, self.FOLLOW_NOT_EQ_in_comp_op3365
                     )
 
                 elif alt63 == 7:
                     # YarcParser.g:200:63: IN
-                    op = self.match(self.input, IN, self.FOLLOW_IN_in_comp_op3367)
+                    op = self.match(self.input, IN, self.FOLLOW_IN_in_comp_op3369)
 
                 elif alt63 == 8:
                     # YarcParser.g:200:68: NOT IN
-                    op = self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op3371)
+                    op = self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op3373)
 
-                    op = self.match(self.input, IN, self.FOLLOW_IN_in_comp_op3373)
+                    op = self.match(self.input, IN, self.FOLLOW_IN_in_comp_op3375)
 
                 elif alt63 == 9:
                     # YarcParser.g:200:77: IS
-                    op = self.match(self.input, IS, self.FOLLOW_IS_in_comp_op3377)
+                    op = self.match(self.input, IS, self.FOLLOW_IS_in_comp_op3379)
 
                 elif alt63 == 10:
                     # YarcParser.g:200:82: IS NOT
-                    op = self.match(self.input, IS, self.FOLLOW_IS_in_comp_op3381)
+                    op = self.match(self.input, IS, self.FOLLOW_IS_in_comp_op3383)
 
-                    op = self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op3383)
+                    op = self.match(self.input, NOT, self.FOLLOW_NOT_in_comp_op3385)
 
                 # TEMPLATE REWRITE
                 # 200:90: -> {$op}
@@ -5479,7 +5475,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:201:13: (exprs+= xor_expr ( BIT_OR exprs+= xor_expr )* -> expr(exprs=$exprs))
                 # YarcParser.g:201:15: exprs+= xor_expr ( BIT_OR exprs+= xor_expr )*
-                self._state.following.append(self.FOLLOW_xor_expr_in_expr3404)
+                self._state.following.append(self.FOLLOW_xor_expr_in_expr3406)
                 exprs = self.xor_expr()
 
                 self._state.following.pop()
@@ -5497,9 +5493,9 @@ class YarcParser(YarcParserBase):
 
                     if alt64 == 1:
                         # YarcParser.g:201:32: BIT_OR exprs+= xor_expr
-                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr3407)
+                        self.match(self.input, BIT_OR, self.FOLLOW_BIT_OR_in_expr3409)
 
-                        self._state.following.append(self.FOLLOW_xor_expr_in_expr3411)
+                        self._state.following.append(self.FOLLOW_xor_expr_in_expr3413)
                         exprs = self.xor_expr()
 
                         self._state.following.pop()
@@ -5558,7 +5554,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:202:13: (exprs+= and_expr ( XOR exprs+= and_expr )* -> xor_expr(exprs=$exprs))
                 # YarcParser.g:202:15: exprs+= and_expr ( XOR exprs+= and_expr )*
-                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr3434)
+                self._state.following.append(self.FOLLOW_and_expr_in_xor_expr3436)
                 exprs = self.and_expr()
 
                 self._state.following.pop()
@@ -5576,10 +5572,10 @@ class YarcParser(YarcParserBase):
 
                     if alt65 == 1:
                         # YarcParser.g:202:32: XOR exprs+= and_expr
-                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr3437)
+                        self.match(self.input, XOR, self.FOLLOW_XOR_in_xor_expr3439)
 
                         self._state.following.append(
-                            self.FOLLOW_and_expr_in_xor_expr3441
+                            self.FOLLOW_and_expr_in_xor_expr3443
                         )
                         exprs = self.and_expr()
 
@@ -5639,7 +5635,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:203:13: (exprs+= shift_expr ( BIT_AND exprs+= shift_expr )* -> and_expr(exprs=$exprs))
                 # YarcParser.g:203:15: exprs+= shift_expr ( BIT_AND exprs+= shift_expr )*
-                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr3464)
+                self._state.following.append(self.FOLLOW_shift_expr_in_and_expr3466)
                 exprs = self.shift_expr()
 
                 self._state.following.pop()
@@ -5658,11 +5654,11 @@ class YarcParser(YarcParserBase):
                     if alt66 == 1:
                         # YarcParser.g:203:34: BIT_AND exprs+= shift_expr
                         self.match(
-                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr3467
+                            self.input, BIT_AND, self.FOLLOW_BIT_AND_in_and_expr3469
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_shift_expr_in_and_expr3471
+                            self.FOLLOW_shift_expr_in_and_expr3473
                         )
                         exprs = self.shift_expr()
 
@@ -5724,7 +5720,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:204:13: (exprs+= arith_expr (ops+= ( LSHIFT | RSHIFT ) exprs+= arith_expr )* -> shift_expr(exprs=$exprsops=$ops))
                 # YarcParser.g:204:15: exprs+= arith_expr (ops+= ( LSHIFT | RSHIFT ) exprs+= arith_expr )*
-                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr3492)
+                self._state.following.append(self.FOLLOW_arith_expr_in_shift_expr3494)
                 exprs = self.arith_expr()
 
                 self._state.following.pop()
@@ -5759,7 +5755,7 @@ class YarcParser(YarcParserBase):
                         if alt67 == 1:
                             # YarcParser.g:204:40: LSHIFT
                             ops = self.match(
-                                self.input, LSHIFT, self.FOLLOW_LSHIFT_in_shift_expr3498
+                                self.input, LSHIFT, self.FOLLOW_LSHIFT_in_shift_expr3500
                             )
                             if list_ops is None:
                                 list_ops = []
@@ -5768,14 +5764,14 @@ class YarcParser(YarcParserBase):
                         elif alt67 == 2:
                             # YarcParser.g:204:49: RSHIFT
                             ops = self.match(
-                                self.input, RSHIFT, self.FOLLOW_RSHIFT_in_shift_expr3502
+                                self.input, RSHIFT, self.FOLLOW_RSHIFT_in_shift_expr3504
                             )
                             if list_ops is None:
                                 list_ops = []
                             list_ops.append(ops)
 
                         self._state.following.append(
-                            self.FOLLOW_arith_expr_in_shift_expr3507
+                            self.FOLLOW_arith_expr_in_shift_expr3509
                         )
                         exprs = self.arith_expr()
 
@@ -5837,7 +5833,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:205:13: (terms+= term (ops+= ( PLUS | MINUS ) terms+= term )* -> arith_expr(terms=$termsops=$ops))
                 # YarcParser.g:205:15: terms+= term (ops+= ( PLUS | MINUS ) terms+= term )*
-                self._state.following.append(self.FOLLOW_term_in_arith_expr3533)
+                self._state.following.append(self.FOLLOW_term_in_arith_expr3535)
                 terms = self.term()
 
                 self._state.following.pop()
@@ -5872,7 +5868,7 @@ class YarcParser(YarcParserBase):
                         if alt69 == 1:
                             # YarcParser.g:205:34: PLUS
                             ops = self.match(
-                                self.input, PLUS, self.FOLLOW_PLUS_in_arith_expr3539
+                                self.input, PLUS, self.FOLLOW_PLUS_in_arith_expr3541
                             )
                             if list_ops is None:
                                 list_ops = []
@@ -5881,13 +5877,13 @@ class YarcParser(YarcParserBase):
                         elif alt69 == 2:
                             # YarcParser.g:205:41: MINUS
                             ops = self.match(
-                                self.input, MINUS, self.FOLLOW_MINUS_in_arith_expr3543
+                                self.input, MINUS, self.FOLLOW_MINUS_in_arith_expr3545
                             )
                             if list_ops is None:
                                 list_ops = []
                             list_ops.append(ops)
 
-                        self._state.following.append(self.FOLLOW_term_in_arith_expr3548)
+                        self._state.following.append(self.FOLLOW_term_in_arith_expr3550)
                         terms = self.term()
 
                         self._state.following.pop()
@@ -5948,7 +5944,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:206:13: (factors+= factor (ops+= ( MUL | DIV | MOD | IDIV ) factors+= factor )* -> term(factors=$factorsops=$ops))
                 # YarcParser.g:206:15: factors+= factor (ops+= ( MUL | DIV | MOD | IDIV ) factors+= factor )*
-                self._state.following.append(self.FOLLOW_factor_in_term3580)
+                self._state.following.append(self.FOLLOW_factor_in_term3582)
                 factors = self.factor()
 
                 self._state.following.pop()
@@ -5986,7 +5982,7 @@ class YarcParser(YarcParserBase):
                         if alt71 == 1:
                             # YarcParser.g:206:38: MUL
                             ops = self.match(
-                                self.input, MUL, self.FOLLOW_MUL_in_term3586
+                                self.input, MUL, self.FOLLOW_MUL_in_term3588
                             )
                             if list_ops is None:
                                 list_ops = []
@@ -5995,7 +5991,7 @@ class YarcParser(YarcParserBase):
                         elif alt71 == 2:
                             # YarcParser.g:206:44: DIV
                             ops = self.match(
-                                self.input, DIV, self.FOLLOW_DIV_in_term3590
+                                self.input, DIV, self.FOLLOW_DIV_in_term3592
                             )
                             if list_ops is None:
                                 list_ops = []
@@ -6004,7 +6000,7 @@ class YarcParser(YarcParserBase):
                         elif alt71 == 3:
                             # YarcParser.g:206:50: MOD
                             ops = self.match(
-                                self.input, MOD, self.FOLLOW_MOD_in_term3594
+                                self.input, MOD, self.FOLLOW_MOD_in_term3596
                             )
                             if list_ops is None:
                                 list_ops = []
@@ -6013,13 +6009,13 @@ class YarcParser(YarcParserBase):
                         elif alt71 == 4:
                             # YarcParser.g:206:56: IDIV
                             ops = self.match(
-                                self.input, IDIV, self.FOLLOW_IDIV_in_term3598
+                                self.input, IDIV, self.FOLLOW_IDIV_in_term3600
                             )
                             if list_ops is None:
                                 list_ops = []
                             list_ops.append(ops)
 
-                        self._state.following.append(self.FOLLOW_factor_in_term3603)
+                        self._state.following.append(self.FOLLOW_factor_in_term3605)
                         factors = self.factor()
 
                         self._state.following.pop()
@@ -6128,22 +6124,22 @@ class YarcParser(YarcParserBase):
                     if alt73 == 1:
                         # YarcParser.g:207:23: PLUS
                         prefix = self.match(
-                            self.input, PLUS, self.FOLLOW_PLUS_in_factor3634
+                            self.input, PLUS, self.FOLLOW_PLUS_in_factor3636
                         )
 
                     elif alt73 == 2:
                         # YarcParser.g:207:30: MINUS
                         prefix = self.match(
-                            self.input, MINUS, self.FOLLOW_MINUS_in_factor3638
+                            self.input, MINUS, self.FOLLOW_MINUS_in_factor3640
                         )
 
                     elif alt73 == 3:
                         # YarcParser.g:207:38: BIT_NOT
                         prefix = self.match(
-                            self.input, BIT_NOT, self.FOLLOW_BIT_NOT_in_factor3642
+                            self.input, BIT_NOT, self.FOLLOW_BIT_NOT_in_factor3644
                         )
 
-                    self._state.following.append(self.FOLLOW_factor_in_factor3647)
+                    self._state.following.append(self.FOLLOW_factor_in_factor3649)
                     factor_ = self.factor()
 
                     self._state.following.pop()
@@ -6162,7 +6158,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt74 == 2:
                     # YarcParser.g:208:15: power
-                    self._state.following.append(self.FOLLOW_power_in_factor3677)
+                    self._state.following.append(self.FOLLOW_power_in_factor3679)
                     power44 = self.power()
 
                     self._state.following.pop()
@@ -6214,7 +6210,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:209:13: ( atom_expr ( POWER factor )? -> power(atom=$atom_expr.stfactor=$factor.st))
                 # YarcParser.g:209:15: atom_expr ( POWER factor )?
-                self._state.following.append(self.FOLLOW_atom_expr_in_power3694)
+                self._state.following.append(self.FOLLOW_atom_expr_in_power3696)
                 atom_expr45 = self.atom_expr()
 
                 self._state.following.pop()
@@ -6227,9 +6223,9 @@ class YarcParser(YarcParserBase):
                     alt75 = 1
                 if alt75 == 1:
                     # YarcParser.g:209:26: POWER factor
-                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power3697)
+                    self.match(self.input, POWER, self.FOLLOW_POWER_in_power3699)
 
-                    self._state.following.append(self.FOLLOW_factor_in_power3699)
+                    self._state.following.append(self.FOLLOW_factor_in_power3701)
                     factor46 = self.factor()
 
                     self._state.following.pop()
@@ -6291,7 +6287,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:210:13: ( atom (trailers+= trailer )* -> atom_expr(atom=$atom.sttrailers=$trailers))
                 # YarcParser.g:210:15: atom (trailers+= trailer )*
-                self._state.following.append(self.FOLLOW_atom_in_atom_expr3724)
+                self._state.following.append(self.FOLLOW_atom_in_atom_expr3726)
                 atom47 = self.atom()
 
                 self._state.following.pop()
@@ -6307,7 +6303,7 @@ class YarcParser(YarcParserBase):
                     if alt76 == 1:
                         # YarcParser.g:210:21: trailers+= trailer
                         self._state.following.append(
-                            self.FOLLOW_trailer_in_atom_expr3729
+                            self.FOLLOW_trailer_in_atom_expr3731
                         )
                         trailers = self.trailer()
 
@@ -6419,14 +6415,14 @@ class YarcParser(YarcParserBase):
 
                 if alt80 == 1:
                     # YarcParser.g:212:4: LPAREN test_= test RPAREN
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom3754)
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom3756)
 
-                    self._state.following.append(self.FOLLOW_test_in_atom3758)
+                    self._state.following.append(self.FOLLOW_test_in_atom3760)
                     test_ = self.test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom3760)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom3762)
 
                     # TEMPLATE REWRITE
                     # 212:29: -> parenthesized_expr(expr=$test_.st)
@@ -6439,7 +6435,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 2:
                     # YarcParser.g:213:5: LBRACK ( testlist_comp )? RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom3775)
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_atom3777)
 
                     # YarcParser.g:213:12: ( testlist_comp )?
                     alt77 = 2
@@ -6471,13 +6467,13 @@ class YarcParser(YarcParserBase):
                     if alt77 == 1:
                         # YarcParser.g:213:12: testlist_comp
                         self._state.following.append(
-                            self.FOLLOW_testlist_comp_in_atom3777
+                            self.FOLLOW_testlist_comp_in_atom3779
                         )
                         testlist_comp48 = self.testlist_comp()
 
                         self._state.following.pop()
 
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom3780)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_atom3782)
 
                     # TEMPLATE REWRITE
                     # 213:34: -> list(list_comp=$testlist_comp.st)
@@ -6494,7 +6490,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 3:
                     # YarcParser.g:214:5: LT ( vector_comp )? GT
-                    self.match(self.input, LT, self.FOLLOW_LT_in_atom3795)
+                    self.match(self.input, LT, self.FOLLOW_LT_in_atom3797)
 
                     # YarcParser.g:214:8: ( vector_comp )?
                     alt78 = 2
@@ -6525,13 +6521,13 @@ class YarcParser(YarcParserBase):
                     if alt78 == 1:
                         # YarcParser.g:214:8: vector_comp
                         self._state.following.append(
-                            self.FOLLOW_vector_comp_in_atom3797
+                            self.FOLLOW_vector_comp_in_atom3799
                         )
                         vector_comp49 = self.vector_comp()
 
                         self._state.following.pop()
 
-                    self.match(self.input, GT, self.FOLLOW_GT_in_atom3800)
+                    self.match(self.input, GT, self.FOLLOW_GT_in_atom3802)
 
                     # TEMPLATE REWRITE
                     # 214:24: -> vector(values=$vector_comp.st)
@@ -6548,7 +6544,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 4:
                     # YarcParser.g:215:5: LBRACE ( dict_or_set_maker )? RBRACE
-                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom3815)
+                    self.match(self.input, LBRACE, self.FOLLOW_LBRACE_in_atom3817)
 
                     # YarcParser.g:215:12: ( dict_or_set_maker )?
                     alt79 = 2
@@ -6580,13 +6576,13 @@ class YarcParser(YarcParserBase):
                     if alt79 == 1:
                         # YarcParser.g:215:12: dict_or_set_maker
                         self._state.following.append(
-                            self.FOLLOW_dict_or_set_maker_in_atom3817
+                            self.FOLLOW_dict_or_set_maker_in_atom3819
                         )
                         dict_or_set_maker50 = self.dict_or_set_maker()
 
                         self._state.following.pop()
 
-                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom3820)
+                    self.match(self.input, RBRACE, self.FOLLOW_RBRACE_in_atom3822)
 
                     # TEMPLATE REWRITE
                     # 215:38: -> dict(dict_comp=$dict_or_set_maker.st)
@@ -6603,16 +6599,16 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 5:
                     # YarcParser.g:216:5: LEN LPAREN test_= test RPAREN
-                    self.match(self.input, LEN, self.FOLLOW_LEN_in_atom3835)
+                    self.match(self.input, LEN, self.FOLLOW_LEN_in_atom3837)
 
-                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom3837)
+                    self.match(self.input, LPAREN, self.FOLLOW_LPAREN_in_atom3839)
 
-                    self._state.following.append(self.FOLLOW_test_in_atom3841)
+                    self._state.following.append(self.FOLLOW_test_in_atom3843)
                     test_ = self.test()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom3843)
+                    self.match(self.input, RPAREN, self.FOLLOW_RPAREN_in_atom3845)
 
                     # TEMPLATE REWRITE
                     # 216:34: -> len(value=$test_.st)
@@ -6625,7 +6621,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 6:
                     # YarcParser.g:217:5: name
-                    self._state.following.append(self.FOLLOW_name_in_atom3858)
+                    self._state.following.append(self.FOLLOW_name_in_atom3860)
                     name51 = self.name()
 
                     self._state.following.pop()
@@ -6643,7 +6639,7 @@ class YarcParser(YarcParserBase):
                 elif alt80 == 7:
                     # YarcParser.g:218:5: SETTING_ID
                     SETTING_ID52 = self.match(
-                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom3870
+                        self.input, SETTING_ID, self.FOLLOW_SETTING_ID_in_atom3872
                     )
 
                     # action start
@@ -6658,7 +6654,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 8:
                     # YarcParser.g:219:5: distribution
-                    self._state.following.append(self.FOLLOW_distribution_in_atom3887)
+                    self._state.following.append(self.FOLLOW_distribution_in_atom3889)
                     distribution53 = self.distribution()
 
                     self._state.following.pop()
@@ -6672,7 +6668,7 @@ class YarcParser(YarcParserBase):
                 elif alt80 == 9:
                     # YarcParser.g:220:5: INTEGER
                     INTEGER54 = self.match(
-                        self.input, INTEGER, self.FOLLOW_INTEGER_in_atom3897
+                        self.input, INTEGER, self.FOLLOW_INTEGER_in_atom3899
                     )
 
                     # TEMPLATE REWRITE
@@ -6682,7 +6678,7 @@ class YarcParser(YarcParserBase):
                 elif alt80 == 10:
                     # YarcParser.g:221:5: FLOAT_NUMBER
                     FLOAT_NUMBER55 = self.match(
-                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom3907
+                        self.input, FLOAT_NUMBER, self.FOLLOW_FLOAT_NUMBER_in_atom3909
                     )
 
                     # TEMPLATE REWRITE
@@ -6692,7 +6688,7 @@ class YarcParser(YarcParserBase):
                 elif alt80 == 11:
                     # YarcParser.g:222:5: STRING
                     STRING56 = self.match(
-                        self.input, STRING, self.FOLLOW_STRING_in_atom3917
+                        self.input, STRING, self.FOLLOW_STRING_in_atom3919
                     )
 
                     # TEMPLATE REWRITE
@@ -6701,7 +6697,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 12:
                     # YarcParser.g:223:5: NONE
-                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom3927)
+                    self.match(self.input, NONE, self.FOLLOW_NONE_in_atom3929)
 
                     # TEMPLATE REWRITE
                     # 223:10: -> null(
@@ -6709,7 +6705,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 13:
                     # YarcParser.g:224:5: TRUE
-                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom3939)
+                    self.match(self.input, TRUE, self.FOLLOW_TRUE_in_atom3941)
 
                     # TEMPLATE REWRITE
                     # 224:10: -> true(
@@ -6717,7 +6713,7 @@ class YarcParser(YarcParserBase):
 
                 elif alt80 == 14:
                     # YarcParser.g:225:5: FALSE
-                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom3951)
+                    self.match(self.input, FALSE, self.FOLLOW_FALSE_in_atom3953)
 
                     # TEMPLATE REWRITE
                     # 225:11: -> false(
@@ -6779,7 +6775,7 @@ class YarcParser(YarcParserBase):
 
                 if alt81 == 1:
                     # YarcParser.g:230:3: ID
-                    ID57 = self.match(self.input, ID, self.FOLLOW_ID_in_name3971)
+                    ID57 = self.match(self.input, ID, self.FOLLOW_ID_in_name3973)
 
                     # TEMPLATE REWRITE
                     # 230:6: -> {$ID.text}
@@ -6788,7 +6784,7 @@ class YarcParser(YarcParserBase):
                 elif alt81 == 2:
                     # YarcParser.g:231:5: UNDERSCORE
                     UNDERSCORE58 = self.match(
-                        self.input, UNDERSCORE, self.FOLLOW_UNDERSCORE_in_name3981
+                        self.input, UNDERSCORE, self.FOLLOW_UNDERSCORE_in_name3983
                     )
 
                     # TEMPLATE REWRITE
@@ -6854,22 +6850,22 @@ class YarcParser(YarcParserBase):
                     DISTRIBUTION59 = self.match(
                         self.input,
                         DISTRIBUTION,
-                        self.FOLLOW_DISTRIBUTION_in_distribution3994,
+                        self.FOLLOW_DISTRIBUTION_in_distribution3996,
                     )
 
                     self.match(
-                        self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution3996
+                        self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution3998
                     )
 
                     self._state.following.append(
-                        self.FOLLOW_arglist_in_distribution4000
+                        self.FOLLOW_arglist_in_distribution4002
                     )
                     args = self.arglist()
 
                     self._state.following.pop()
 
                     self.match(
-                        self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution4002
+                        self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution4004
                     )
 
                     # TEMPLATE REWRITE
@@ -6885,22 +6881,22 @@ class YarcParser(YarcParserBase):
                 elif alt82 == 2:
                     # YarcParser.g:235:18: COMBINE LPAREN args= arglist RPAREN
                     self.match(
-                        self.input, COMBINE, self.FOLLOW_COMBINE_in_distribution4035
+                        self.input, COMBINE, self.FOLLOW_COMBINE_in_distribution4037
                     )
 
                     self.match(
-                        self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution4037
+                        self.input, LPAREN, self.FOLLOW_LPAREN_in_distribution4039
                     )
 
                     self._state.following.append(
-                        self.FOLLOW_arglist_in_distribution4041
+                        self.FOLLOW_arglist_in_distribution4043
                     )
                     args = self.arglist()
 
                     self._state.following.pop()
 
                     self.match(
-                        self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution4043
+                        self.input, RPAREN, self.FOLLOW_RPAREN_in_distribution4045
                     )
 
                     # TEMPLATE REWRITE
@@ -6962,7 +6958,7 @@ class YarcParser(YarcParserBase):
                 self.handler.disable_lookup()
                 # action end
 
-                self._state.following.append(self.FOLLOW_test_in_testlist_comp4065)
+                self._state.following.append(self.FOLLOW_test_in_testlist_comp4067)
                 exprs = self.test()
 
                 self._state.following.pop()
@@ -6992,7 +6988,7 @@ class YarcParser(YarcParserBase):
                     # action end
 
                     self._state.following.append(
-                        self.FOLLOW_comp_for_in_testlist_comp4081
+                        self.FOLLOW_comp_for_in_testlist_comp4083
                     )
                     comp_for60 = self.comp_for()
 
@@ -7038,11 +7034,11 @@ class YarcParser(YarcParserBase):
                             self.match(
                                 self.input,
                                 COMMA,
-                                self.FOLLOW_COMMA_in_testlist_comp4113,
+                                self.FOLLOW_COMMA_in_testlist_comp4115,
                             )
 
                             self._state.following.append(
-                                self.FOLLOW_test_in_testlist_comp4117
+                                self.FOLLOW_test_in_testlist_comp4119
                             )
                             exprs = self.test()
 
@@ -7068,10 +7064,10 @@ class YarcParser(YarcParserBase):
                     # action end
 
                     self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_testlist_comp4136
+                        self.input, COLON, self.FOLLOW_COLON_in_testlist_comp4138
                     )
 
-                    self._state.following.append(self.FOLLOW_test_in_testlist_comp4140)
+                    self._state.following.append(self.FOLLOW_test_in_testlist_comp4142)
                     to = self.test()
 
                     self._state.following.pop()
@@ -7085,11 +7081,11 @@ class YarcParser(YarcParserBase):
                     if alt84 == 1:
                         # YarcParser.g:242:51: COLON step= test
                         self.match(
-                            self.input, COLON, self.FOLLOW_COLON_in_testlist_comp4143
+                            self.input, COLON, self.FOLLOW_COLON_in_testlist_comp4145
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_test_in_testlist_comp4147
+                            self.FOLLOW_test_in_testlist_comp4149
                         )
                         step = self.test()
 
@@ -7150,21 +7146,21 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:245:15: (x= expr COMMA y= expr COMMA z= expr -> vector_comp(x=$x.sty=$y.stz=$z.st))
                 # YarcParser.g:245:17: x= expr COMMA y= expr COMMA z= expr
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp4184)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp4186)
                 x = self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp4186)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp4188)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp4190)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp4192)
                 y = self.expr()
 
                 self._state.following.pop()
 
-                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp4192)
+                self.match(self.input, COMMA, self.FOLLOW_COMMA_in_vector_comp4194)
 
-                self._state.following.append(self.FOLLOW_expr_in_vector_comp4196)
+                self._state.following.append(self.FOLLOW_expr_in_vector_comp4198)
                 z = self.expr()
 
                 self._state.following.pop()
@@ -7236,16 +7232,16 @@ class YarcParser(YarcParserBase):
 
                 if alt86 == 1:
                     # YarcParser.g:246:17: LBRACK subscriptlist RBRACK
-                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer4228)
+                    self.match(self.input, LBRACK, self.FOLLOW_LBRACK_in_trailer4230)
 
                     self._state.following.append(
-                        self.FOLLOW_subscriptlist_in_trailer4230
+                        self.FOLLOW_subscriptlist_in_trailer4232
                     )
                     subscriptlist61 = self.subscriptlist()
 
                     self._state.following.pop()
 
-                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer4232)
+                    self.match(self.input, RBRACK, self.FOLLOW_RBRACK_in_trailer4234)
 
                     # TEMPLATE REWRITE
                     # 246:45: -> index(index=$subscriptlist.st)
@@ -7262,9 +7258,9 @@ class YarcParser(YarcParserBase):
 
                 elif alt86 == 2:
                     # YarcParser.g:247:17: DOT name
-                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer4260)
+                    self.match(self.input, DOT, self.FOLLOW_DOT_in_trailer4262)
 
-                    self._state.following.append(self.FOLLOW_name_in_trailer4262)
+                    self._state.following.append(self.FOLLOW_name_in_trailer4264)
                     name62 = self.name()
 
                     self._state.following.pop()
@@ -7320,7 +7316,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:248:15: (args+= argument ( COMMA args+= argument )* -> arg_list(args=$args))
                 # YarcParser.g:248:17: args+= argument ( COMMA args+= argument )*
-                self._state.following.append(self.FOLLOW_argument_in_arglist4286)
+                self._state.following.append(self.FOLLOW_argument_in_arglist4288)
                 args = self.argument()
 
                 self._state.following.pop()
@@ -7338,10 +7334,10 @@ class YarcParser(YarcParserBase):
 
                     if alt87 == 1:
                         # YarcParser.g:248:33: COMMA args+= argument
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist4289)
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_arglist4291)
 
                         self._state.following.append(
-                            self.FOLLOW_argument_in_arglist4293
+                            self.FOLLOW_argument_in_arglist4295
                         )
                         args = self.argument()
 
@@ -7402,7 +7398,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:249:15: (kw_or_arg= test ( ASSIGN arg= test )? -> arg(kw_or_arg=$kw_or_arg.starg=$arg.st))
                 # YarcParser.g:249:17: kw_or_arg= test ( ASSIGN arg= test )?
-                self._state.following.append(self.FOLLOW_test_in_argument4318)
+                self._state.following.append(self.FOLLOW_test_in_argument4320)
                 kw_or_arg = self.test()
 
                 self._state.following.pop()
@@ -7415,9 +7411,9 @@ class YarcParser(YarcParserBase):
                     alt88 = 1
                 if alt88 == 1:
                     # YarcParser.g:249:33: ASSIGN arg= test
-                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument4321)
+                    self.match(self.input, ASSIGN, self.FOLLOW_ASSIGN_in_argument4323)
 
-                    self._state.following.append(self.FOLLOW_test_in_argument4325)
+                    self._state.following.append(self.FOLLOW_test_in_argument4327)
                     arg = self.test()
 
                     self._state.following.pop()
@@ -7477,7 +7473,7 @@ class YarcParser(YarcParserBase):
                 # YarcParser.g:250:15: (subs+= subscript_ ( COMMA subs+= subscript_ )* -> subscript_list(subs=$subs))
                 # YarcParser.g:250:17: subs+= subscript_ ( COMMA subs+= subscript_ )*
                 self._state.following.append(
-                    self.FOLLOW_subscript__in_subscriptlist4350
+                    self.FOLLOW_subscript__in_subscriptlist4352
                 )
                 subs = self.subscript_()
 
@@ -7497,11 +7493,11 @@ class YarcParser(YarcParserBase):
                     if alt89 == 1:
                         # YarcParser.g:250:35: COMMA subs+= subscript_
                         self.match(
-                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist4353
+                            self.input, COMMA, self.FOLLOW_COMMA_in_subscriptlist4355
                         )
 
                         self._state.following.append(
-                            self.FOLLOW_subscript__in_subscriptlist4357
+                            self.FOLLOW_subscript__in_subscriptlist4359
                         )
                         subs = self.subscript_()
 
@@ -7599,7 +7595,7 @@ class YarcParser(YarcParserBase):
 
                 if alt95 == 1:
                     # YarcParser.g:251:17: from_= test ( COLON to= ( test )? step= ( sliceop )? )?
-                    self._state.following.append(self.FOLLOW_test_in_subscript_4380)
+                    self._state.following.append(self.FOLLOW_test_in_subscript_4382)
                     from_ = self.test()
 
                     self._state.following.pop()
@@ -7613,7 +7609,7 @@ class YarcParser(YarcParserBase):
                     if alt92 == 1:
                         # YarcParser.g:251:29: COLON to= ( test )? step= ( sliceop )?
                         COLON63 = self.match(
-                            self.input, COLON, self.FOLLOW_COLON_in_subscript_4383
+                            self.input, COLON, self.FOLLOW_COLON_in_subscript_4385
                         )
 
                         # YarcParser.g:251:38: ( test )?
@@ -7646,7 +7642,7 @@ class YarcParser(YarcParserBase):
                         if alt90 == 1:
                             # YarcParser.g:251:39: test
                             self._state.following.append(
-                                self.FOLLOW_test_in_subscript_4388
+                                self.FOLLOW_test_in_subscript_4390
                             )
                             to = self.test()
 
@@ -7661,7 +7657,7 @@ class YarcParser(YarcParserBase):
                         if alt91 == 1:
                             # YarcParser.g:251:52: sliceop
                             self._state.following.append(
-                                self.FOLLOW_sliceop_in_subscript_4395
+                                self.FOLLOW_sliceop_in_subscript_4397
                             )
                             step = self.sliceop()
 
@@ -7682,7 +7678,7 @@ class YarcParser(YarcParserBase):
                 elif alt95 == 2:
                     # YarcParser.g:252:17: COLON to= ( test )? step= ( sliceop )?
                     COLON64 = self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_subscript_4441
+                        self.input, COLON, self.FOLLOW_COLON_in_subscript_4443
                     )
 
                     # YarcParser.g:252:26: ( test )?
@@ -7714,7 +7710,7 @@ class YarcParser(YarcParserBase):
                         alt93 = 1
                     if alt93 == 1:
                         # YarcParser.g:252:27: test
-                        self._state.following.append(self.FOLLOW_test_in_subscript_4446)
+                        self._state.following.append(self.FOLLOW_test_in_subscript_4448)
                         to = self.test()
 
                         self._state.following.pop()
@@ -7728,7 +7724,7 @@ class YarcParser(YarcParserBase):
                     if alt94 == 1:
                         # YarcParser.g:252:40: sliceop
                         self._state.following.append(
-                            self.FOLLOW_sliceop_in_subscript_4453
+                            self.FOLLOW_sliceop_in_subscript_4455
                         )
                         step = self.sliceop()
 
@@ -7783,7 +7779,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:253:15: ( COLON ( test )? -> subscipt_step(step=$test.st))
                 # YarcParser.g:253:17: COLON ( test )?
-                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop4488)
+                self.match(self.input, COLON, self.FOLLOW_COLON_in_sliceop4490)
 
                 # YarcParser.g:253:23: ( test )?
                 alt96 = 2
@@ -7814,7 +7810,7 @@ class YarcParser(YarcParserBase):
                     alt96 = 1
                 if alt96 == 1:
                     # YarcParser.g:253:23: test
-                    self._state.following.append(self.FOLLOW_test_in_sliceop4490)
+                    self._state.following.append(self.FOLLOW_test_in_sliceop4492)
                     test65 = self.test()
 
                     self._state.following.pop()
@@ -7871,7 +7867,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:255:25: (names_+= name ( COMMA names_+= name )* -> test_list(exprs=$names_))
                 # YarcParser.g:255:27: names_+= name ( COMMA names_+= name )*
-                self._state.following.append(self.FOLLOW_name_in_namelist4513)
+                self._state.following.append(self.FOLLOW_name_in_namelist4515)
                 names_ = self.name()
 
                 self._state.following.pop()
@@ -7889,9 +7885,9 @@ class YarcParser(YarcParserBase):
 
                     if alt97 == 1:
                         # YarcParser.g:255:41: COMMA names_+= name
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_namelist4516)
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_namelist4518)
 
-                        self._state.following.append(self.FOLLOW_name_in_namelist4520)
+                        self._state.following.append(self.FOLLOW_name_in_namelist4522)
                         names_ = self.name()
 
                         self._state.following.pop()
@@ -7954,7 +7950,7 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:256:10: (exprs+= test ( COMMA exprs+= test )* -> test_list(exprs=$exprs))
                 # YarcParser.g:256:12: exprs+= test ( COMMA exprs+= test )*
-                self._state.following.append(self.FOLLOW_test_in_testlist4542)
+                self._state.following.append(self.FOLLOW_test_in_testlist4544)
                 exprs = self.test()
 
                 self._state.following.pop()
@@ -7972,9 +7968,9 @@ class YarcParser(YarcParserBase):
 
                     if alt98 == 1:
                         # YarcParser.g:256:25: COMMA exprs+= test
-                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist4545)
+                        self.match(self.input, COMMA, self.FOLLOW_COMMA_in_testlist4547)
 
-                        self._state.following.append(self.FOLLOW_test_in_testlist4549)
+                        self._state.following.append(self.FOLLOW_test_in_testlist4551)
                         exprs = self.test()
 
                         self._state.following.pop()
@@ -8041,7 +8037,7 @@ class YarcParser(YarcParserBase):
                 self.handler.disable_lookup()
                 # action end
 
-                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker4570)
+                self._state.following.append(self.FOLLOW_test_in_dict_or_set_maker4572)
                 exprs = self.test()
 
                 self._state.following.pop()
@@ -8066,11 +8062,11 @@ class YarcParser(YarcParserBase):
                 if alt102 == 1:
                     # YarcParser.g:258:5: COLON values+= test (for_= comp_for -> dict_comp(key=$exprs[0]value=$values[0]for=$for_.st)| ( COMMA exprs+= test COLON values+= test )* )
                     self.match(
-                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker4577
+                        self.input, COLON, self.FOLLOW_COLON_in_dict_or_set_maker4579
                     )
 
                     self._state.following.append(
-                        self.FOLLOW_test_in_dict_or_set_maker4581
+                        self.FOLLOW_test_in_dict_or_set_maker4583
                     )
                     values = self.test()
 
@@ -8100,7 +8096,7 @@ class YarcParser(YarcParserBase):
                         # action end
 
                         self._state.following.append(
-                            self.FOLLOW_comp_for_in_dict_or_set_maker4599
+                            self.FOLLOW_comp_for_in_dict_or_set_maker4601
                         )
                         for_ = self.comp_for()
 
@@ -8145,11 +8141,11 @@ class YarcParser(YarcParserBase):
                                 self.match(
                                     self.input,
                                     COMMA,
-                                    self.FOLLOW_COMMA_in_dict_or_set_maker4638,
+                                    self.FOLLOW_COMMA_in_dict_or_set_maker4640,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker4642
+                                    self.FOLLOW_test_in_dict_or_set_maker4644
                                 )
                                 exprs = self.test()
 
@@ -8161,11 +8157,11 @@ class YarcParser(YarcParserBase):
                                 self.match(
                                     self.input,
                                     COLON,
-                                    self.FOLLOW_COLON_in_dict_or_set_maker4644,
+                                    self.FOLLOW_COLON_in_dict_or_set_maker4646,
                                 )
 
                                 self._state.following.append(
-                                    self.FOLLOW_test_in_dict_or_set_maker4648
+                                    self.FOLLOW_test_in_dict_or_set_maker4650
                                 )
                                 values = self.test()
 
@@ -8192,7 +8188,7 @@ class YarcParser(YarcParserBase):
                     # action end
 
                     self._state.following.append(
-                        self.FOLLOW_comp_for_in_dict_or_set_maker4681
+                        self.FOLLOW_comp_for_in_dict_or_set_maker4683
                     )
                     for_ = self.comp_for()
 
@@ -8236,11 +8232,11 @@ class YarcParser(YarcParserBase):
                             self.match(
                                 self.input,
                                 COMMA,
-                                self.FOLLOW_COMMA_in_dict_or_set_maker4716,
+                                self.FOLLOW_COMMA_in_dict_or_set_maker4718,
                             )
 
                             self._state.following.append(
-                                self.FOLLOW_test_in_dict_or_set_maker4720
+                                self.FOLLOW_test_in_dict_or_set_maker4722
                             )
                             exprs = self.test()
 
@@ -8316,14 +8312,14 @@ class YarcParser(YarcParserBase):
 
                 if alt103 == 1:
                     # YarcParser.g:270:19: comp_for
-                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter4748)
+                    self._state.following.append(self.FOLLOW_comp_for_in_comp_iter4750)
                     comp = self.comp_for()
 
                     self._state.following.pop()
 
                 elif alt103 == 2:
                     # YarcParser.g:270:30: comp_if
-                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter4752)
+                    self._state.following.append(self.FOLLOW_comp_if_in_comp_iter4754)
                     comp = self.comp_if()
 
                     self._state.following.pop()
@@ -8376,9 +8372,9 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:271:11: ( FOR namelist IN or_test ( comp_iter )? -> comp_for(exprs=$namelist.stseq=$or_test.stcomp_iter=$comp_iter.st))
                 # YarcParser.g:271:13: FOR namelist IN or_test ( comp_iter )?
-                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for4765)
+                self.match(self.input, FOR, self.FOLLOW_FOR_in_comp_for4767)
 
-                self._state.following.append(self.FOLLOW_namelist_in_comp_for4767)
+                self._state.following.append(self.FOLLOW_namelist_in_comp_for4769)
                 namelist66 = self.namelist()
 
                 self._state.following.pop()
@@ -8389,9 +8385,9 @@ class YarcParser(YarcParserBase):
                 )
                 # action end
 
-                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for4771)
+                self.match(self.input, IN, self.FOLLOW_IN_in_comp_for4773)
 
-                self._state.following.append(self.FOLLOW_or_test_in_comp_for4773)
+                self._state.following.append(self.FOLLOW_or_test_in_comp_for4775)
                 or_test67 = self.or_test()
 
                 self._state.following.pop()
@@ -8404,7 +8400,7 @@ class YarcParser(YarcParserBase):
                     alt104 = 1
                 if alt104 == 1:
                     # YarcParser.g:271:76: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for4775)
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_for4777)
                     comp_iter68 = self.comp_iter()
 
                     self._state.following.pop()
@@ -8469,9 +8465,9 @@ class YarcParser(YarcParserBase):
             try:
                 # YarcParser.g:272:11: ( IF test_nocond ( comp_iter )? -> comp_if(cond=$test_nocond.stcomp_iter=$comp_iter.st))
                 # YarcParser.g:272:13: IF test_nocond ( comp_iter )?
-                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if4804)
+                self.match(self.input, IF, self.FOLLOW_IF_in_comp_if4806)
 
-                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if4806)
+                self._state.following.append(self.FOLLOW_test_nocond_in_comp_if4808)
                 test_nocond69 = self.test_nocond()
 
                 self._state.following.pop()
@@ -8484,7 +8480,7 @@ class YarcParser(YarcParserBase):
                     alt105 = 1
                 if alt105 == 1:
                     # YarcParser.g:272:28: comp_iter
-                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if4808)
+                    self._state.following.append(self.FOLLOW_comp_iter_in_comp_if4810)
                     comp_iter70 = self.comp_iter()
 
                     self._state.following.pop()
@@ -8517,27 +8513,27 @@ class YarcParser(YarcParserBase):
 
     FOLLOW_NEWLINE_in_scenario67 = frozenset([74, 99])
     FOLLOW_declaration_in_scenario70 = frozenset([74, 102, 108, 110])
-    FOLLOW_code_snippet_in_scenario75 = frozenset([74, 102, 108, 110])
-    FOLLOW_NEWLINE_in_scenario79 = frozenset([74, 102, 108, 110])
-    FOLLOW_settings_in_scenario83 = frozenset([110])
-    FOLLOW_stage_in_scenario86 = frozenset([1, 108, 124])
-    FOLLOW_writers_in_scenario88 = frozenset([1, 108])
-    FOLLOW_code_snippet_in_scenario94 = frozenset([1, 108])
-    FOLLOW_SNIPPET_in_code_snippet216 = frozenset([1])
-    FOLLOW_SCENARIO_in_declaration239 = frozenset([43])
-    FOLLOW_ID_in_declaration241 = frozenset([14, 74])
-    FOLLOW_COLON_in_declaration244 = frozenset([43, 120])
-    FOLLOW_name_in_declaration246 = frozenset([74])
-    FOLLOW_NEWLINE_in_declaration250 = frozenset([1])
-    FOLLOW_SETTINGS_in_settings286 = frozenset([14])
-    FOLLOW_COLON_in_settings288 = frozenset([74])
-    FOLLOW_NEWLINE_in_settings290 = frozenset([49])
-    FOLLOW_INDENT_in_settings292 = frozenset([43, 108])
-    FOLLOW_setting_in_settings297 = frozenset([19, 43, 108])
-    FOLLOW_code_snippet_in_settings301 = frozenset([19, 43, 108])
-    FOLLOW_DEDENT_in_settings305 = frozenset([1])
-    FOLLOW_ID_in_setting333 = frozenset([5])
-    FOLLOW_ASSIGN_in_setting335 = frozenset(
+    FOLLOW_code_snippet_in_scenario76 = frozenset([74, 102, 108, 110])
+    FOLLOW_NEWLINE_in_scenario80 = frozenset([74, 102, 108, 110])
+    FOLLOW_settings_in_scenario84 = frozenset([110])
+    FOLLOW_stage_in_scenario87 = frozenset([1, 108, 124])
+    FOLLOW_writers_in_scenario89 = frozenset([1, 108])
+    FOLLOW_code_snippet_in_scenario95 = frozenset([1, 108])
+    FOLLOW_SNIPPET_in_code_snippet217 = frozenset([1])
+    FOLLOW_SCENARIO_in_declaration241 = frozenset([43])
+    FOLLOW_ID_in_declaration243 = frozenset([14, 74])
+    FOLLOW_COLON_in_declaration246 = frozenset([43, 120])
+    FOLLOW_name_in_declaration248 = frozenset([74])
+    FOLLOW_NEWLINE_in_declaration252 = frozenset([1])
+    FOLLOW_SETTINGS_in_settings288 = frozenset([14])
+    FOLLOW_COLON_in_settings290 = frozenset([74])
+    FOLLOW_NEWLINE_in_settings292 = frozenset([49])
+    FOLLOW_INDENT_in_settings294 = frozenset([43, 108])
+    FOLLOW_setting_in_settings299 = frozenset([19, 43, 108])
+    FOLLOW_code_snippet_in_settings303 = frozenset([19, 43, 108])
+    FOLLOW_DEDENT_in_settings307 = frozenset([1])
+    FOLLOW_ID_in_setting335 = frozenset([5])
+    FOLLOW_ASSIGN_in_setting337 = frozenset(
         [
             11,
             15,
@@ -8561,24 +8557,24 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_setting337 = frozenset([74])
-    FOLLOW_NEWLINE_in_setting339 = frozenset([1])
-    FOLLOW_WRITERS_in_writers474 = frozenset([14])
-    FOLLOW_COLON_in_writers476 = frozenset([74])
-    FOLLOW_NEWLINE_in_writers478 = frozenset([49])
-    FOLLOW_INDENT_in_writers480 = frozenset([43, 108, 120])
-    FOLLOW_expr_stmt_in_writers485 = frozenset([19, 43, 108, 120])
-    FOLLOW_code_snippet_in_writers489 = frozenset([19, 43, 108, 120])
-    FOLLOW_writer_in_writers493 = frozenset([19, 43, 108, 120])
-    FOLLOW_DEDENT_in_writers497 = frozenset([1])
-    FOLLOW_ID_in_writer527 = frozenset([14])
-    FOLLOW_COLON_in_writer529 = frozenset([74])
-    FOLLOW_NEWLINE_in_writer531 = frozenset([49])
-    FOLLOW_INDENT_in_writer533 = frozenset([43])
-    FOLLOW_writer_param_in_writer536 = frozenset([19, 43])
-    FOLLOW_DEDENT_in_writer542 = frozenset([1])
-    FOLLOW_ID_in_writer_param571 = frozenset([5])
-    FOLLOW_ASSIGN_in_writer_param573 = frozenset(
+    FOLLOW_test_in_setting339 = frozenset([74])
+    FOLLOW_NEWLINE_in_setting341 = frozenset([1])
+    FOLLOW_WRITERS_in_writers476 = frozenset([14])
+    FOLLOW_COLON_in_writers478 = frozenset([74])
+    FOLLOW_NEWLINE_in_writers480 = frozenset([49])
+    FOLLOW_INDENT_in_writers482 = frozenset([43, 108, 120])
+    FOLLOW_expr_stmt_in_writers487 = frozenset([19, 43, 108, 120])
+    FOLLOW_code_snippet_in_writers491 = frozenset([19, 43, 108, 120])
+    FOLLOW_writer_in_writers495 = frozenset([19, 43, 108, 120])
+    FOLLOW_DEDENT_in_writers499 = frozenset([1])
+    FOLLOW_ID_in_writer529 = frozenset([14])
+    FOLLOW_COLON_in_writer531 = frozenset([74])
+    FOLLOW_NEWLINE_in_writer533 = frozenset([49])
+    FOLLOW_INDENT_in_writer535 = frozenset([43])
+    FOLLOW_writer_param_in_writer538 = frozenset([19, 43])
+    FOLLOW_DEDENT_in_writer544 = frozenset([1])
+    FOLLOW_ID_in_writer_param573 = frozenset([5])
+    FOLLOW_ASSIGN_in_writer_param575 = frozenset(
         [
             11,
             15,
@@ -8602,26 +8598,26 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_writer_param575 = frozenset([74])
-    FOLLOW_NEWLINE_in_writer_param577 = frozenset([1])
-    FOLLOW_STAGE_in_stage600 = frozenset([14])
-    FOLLOW_COLON_in_stage602 = frozenset([74])
-    FOLLOW_NEWLINE_in_stage604 = frozenset([49])
-    FOLLOW_INDENT_in_stage606 = frozenset([18, 24, 28, 38, 39, 43, 50, 81, 108, 120])
-    FOLLOW_stmts_in_stage608 = frozenset([19])
-    FOLLOW_DEDENT_in_stage610 = frozenset([1])
-    FOLLOW_open_stmt_in_stmts624 = frozenset([18, 24, 28, 38, 39, 43, 50, 108, 120])
-    FOLLOW_aug_expr_stmt_in_stmts631 = frozenset(
+    FOLLOW_test_in_writer_param577 = frozenset([74])
+    FOLLOW_NEWLINE_in_writer_param579 = frozenset([1])
+    FOLLOW_STAGE_in_stage602 = frozenset([14])
+    FOLLOW_COLON_in_stage604 = frozenset([74])
+    FOLLOW_NEWLINE_in_stage606 = frozenset([49])
+    FOLLOW_INDENT_in_stage608 = frozenset([18, 24, 28, 38, 39, 43, 50, 81, 108, 120])
+    FOLLOW_stmts_in_stage610 = frozenset([19])
+    FOLLOW_DEDENT_in_stage612 = frozenset([1])
+    FOLLOW_open_stmt_in_stmts626 = frozenset([18, 24, 28, 38, 39, 43, 50, 108, 120])
+    FOLLOW_aug_expr_stmt_in_stmts633 = frozenset(
         [1, 18, 24, 28, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_code_snippet_in_stmts635 = frozenset(
+    FOLLOW_code_snippet_in_stmts637 = frozenset(
         [1, 18, 24, 28, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_edit_stmt_in_stmts639 = frozenset([1, 18, 24, 28, 38, 39, 43, 50, 108, 120])
-    FOLLOW_behavior_stmt_in_stmts643 = frozenset(
+    FOLLOW_edit_stmt_in_stmts641 = frozenset([1, 18, 24, 28, 38, 39, 43, 50, 108, 120])
+    FOLLOW_behavior_stmt_in_stmts645 = frozenset(
         [1, 18, 24, 28, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_OPEN_in_open_stmt666 = frozenset(
+    FOLLOW_OPEN_in_open_stmt668 = frozenset(
         [
             11,
             15,
@@ -8645,9 +8641,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_open_stmt668 = frozenset([74])
-    FOLLOW_NEWLINE_in_open_stmt670 = frozenset([1])
-    FOLLOW_EDIT_in_edit_stmt686 = frozenset(
+    FOLLOW_test_in_open_stmt670 = frozenset([74])
+    FOLLOW_NEWLINE_in_open_stmt672 = frozenset([1])
+    FOLLOW_EDIT_in_edit_stmt688 = frozenset(
         [
             11,
             15,
@@ -8672,11 +8668,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_TIMELINE_in_edit_stmt689 = frozenset([14])
-    FOLLOW_COLON_in_edit_stmt691 = frozenset([74])
-    FOLLOW_NEWLINE_in_edit_stmt693 = frozenset([49])
-    FOLLOW_INDENT_in_edit_stmt695 = frozenset([43, 120])
-    FOLLOW_name_in_edit_stmt700 = frozenset(
+    FOLLOW_TIMELINE_in_edit_stmt691 = frozenset([14])
+    FOLLOW_COLON_in_edit_stmt693 = frozenset([74])
+    FOLLOW_NEWLINE_in_edit_stmt695 = frozenset([49])
+    FOLLOW_INDENT_in_edit_stmt697 = frozenset([43, 120])
+    FOLLOW_name_in_edit_stmt702 = frozenset(
         [
             11,
             15,
@@ -8700,12 +8696,12 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_edit_stmt704 = frozenset([74])
-    FOLLOW_NEWLINE_in_edit_stmt706 = frozenset([19, 43, 120])
-    FOLLOW_DEDENT_in_edit_stmt710 = frozenset([1])
-    FOLLOW_test_in_edit_stmt748 = frozenset([14])
-    FOLLOW_edit_block_in_edit_stmt750 = frozenset([1])
-    FOLLOW_CREATE_in_create_expr885 = frozenset(
+    FOLLOW_test_in_edit_stmt706 = frozenset([74])
+    FOLLOW_NEWLINE_in_edit_stmt708 = frozenset([19, 43, 120])
+    FOLLOW_DEDENT_in_edit_stmt712 = frozenset([1])
+    FOLLOW_test_in_edit_stmt750 = frozenset([14])
+    FOLLOW_edit_block_in_edit_stmt752 = frozenset([1])
+    FOLLOW_CREATE_in_create_expr887 = frozenset(
         [
             11,
             13,
@@ -8735,17 +8731,17 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_create_expr889 = frozenset([13, 37, 58, 67, 104, 112])
-    FOLLOW_SHAPE_in_create_expr901 = frozenset([14, 74])
-    FOLLOW_LIGHT_in_create_expr905 = frozenset([14, 74])
-    FOLLOW_edit_block_in_create_expr911 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr916 = frozenset([1])
-    FOLLOW_STEREO_in_create_expr1052 = frozenset([13])
-    FOLLOW_CAMERA_in_create_expr1054 = frozenset([14, 74])
-    FOLLOW_CAMERA_in_create_expr1060 = frozenset([14, 74])
-    FOLLOW_edit_block_in_create_expr1066 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr1071 = frozenset([1])
-    FOLLOW_FROM_in_create_expr1206 = frozenset(
+    FOLLOW_test_in_create_expr891 = frozenset([13, 37, 58, 67, 104, 112])
+    FOLLOW_SHAPE_in_create_expr903 = frozenset([14, 74])
+    FOLLOW_LIGHT_in_create_expr907 = frozenset([14, 74])
+    FOLLOW_edit_block_in_create_expr913 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr918 = frozenset([1])
+    FOLLOW_STEREO_in_create_expr1054 = frozenset([13])
+    FOLLOW_CAMERA_in_create_expr1056 = frozenset([14, 74])
+    FOLLOW_CAMERA_in_create_expr1062 = frozenset([14, 74])
+    FOLLOW_edit_block_in_create_expr1068 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr1073 = frozenset([1])
+    FOLLOW_FROM_in_create_expr1208 = frozenset(
         [
             11,
             15,
@@ -8769,13 +8765,13 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_create_expr1210 = frozenset([14, 74])
-    FOLLOW_edit_block_in_create_expr1215 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr1220 = frozenset([1])
-    FOLLOW_MATERIAL_in_create_expr1351 = frozenset([14, 74])
-    FOLLOW_simple_block_in_create_expr1356 = frozenset([1])
-    FOLLOW_NEWLINE_in_create_expr1360 = frozenset([1])
-    FOLLOW_INSTANTIATE_in_instantiate_expr1422 = frozenset(
+    FOLLOW_test_in_create_expr1212 = frozenset([14, 74])
+    FOLLOW_edit_block_in_create_expr1217 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr1222 = frozenset([1])
+    FOLLOW_MATERIAL_in_create_expr1353 = frozenset([14, 74])
+    FOLLOW_simple_block_in_create_expr1358 = frozenset([1])
+    FOLLOW_NEWLINE_in_create_expr1362 = frozenset([1])
+    FOLLOW_INSTANTIATE_in_instantiate_expr1424 = frozenset(
         [
             11,
             15,
@@ -8800,8 +8796,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_instantiate_expr1427 = frozenset([37])
-    FOLLOW_FROM_in_instantiate_expr1431 = frozenset(
+    FOLLOW_test_in_instantiate_expr1429 = frozenset([37])
+    FOLLOW_FROM_in_instantiate_expr1433 = frozenset(
         [
             11,
             15,
@@ -8825,11 +8821,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_instantiate_expr1435 = frozenset([14, 74])
-    FOLLOW_edit_block_in_instantiate_expr1438 = frozenset([1])
-    FOLLOW_NEWLINE_in_instantiate_expr1443 = frozenset([1])
-    FOLLOW_GROUP_in_group_expr1582 = frozenset([55])
-    FOLLOW_LBRACK_in_group_expr1584 = frozenset(
+    FOLLOW_test_in_instantiate_expr1437 = frozenset([14, 74])
+    FOLLOW_edit_block_in_instantiate_expr1440 = frozenset([1])
+    FOLLOW_NEWLINE_in_instantiate_expr1445 = frozenset([1])
+    FOLLOW_GROUP_in_group_expr1584 = frozenset([55])
+    FOLLOW_LBRACK_in_group_expr1586 = frozenset(
         [
             11,
             15,
@@ -8853,8 +8849,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_group_expr1588 = frozenset([16, 91])
-    FOLLOW_COMMA_in_group_expr1591 = frozenset(
+    FOLLOW_test_in_group_expr1590 = frozenset([16, 91])
+    FOLLOW_COMMA_in_group_expr1593 = frozenset(
         [
             11,
             15,
@@ -8878,11 +8874,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_group_expr1595 = frozenset([16, 91])
-    FOLLOW_RBRACK_in_group_expr1599 = frozenset([14, 74])
-    FOLLOW_edit_block_in_group_expr1602 = frozenset([1])
-    FOLLOW_NEWLINE_in_group_expr1607 = frozenset([1])
-    FOLLOW_GET_in_get_expr1721 = frozenset(
+    FOLLOW_test_in_group_expr1597 = frozenset([16, 91])
+    FOLLOW_RBRACK_in_group_expr1601 = frozenset([14, 74])
+    FOLLOW_edit_block_in_group_expr1604 = frozenset([1])
+    FOLLOW_NEWLINE_in_group_expr1609 = frozenset([1])
+    FOLLOW_GET_in_get_expr1723 = frozenset(
         [
             11,
             13,
@@ -8909,11 +8905,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_CAMERA_in_get_expr1727 = frozenset([6])
-    FOLLOW_LIGHT_in_get_expr1731 = frozenset([6])
-    FOLLOW_MATERIAL_in_get_expr1735 = frozenset([6])
-    FOLLOW_ID_in_get_expr1739 = frozenset([6])
-    FOLLOW_AT_in_get_expr1744 = frozenset(
+    FOLLOW_CAMERA_in_get_expr1729 = frozenset([6])
+    FOLLOW_LIGHT_in_get_expr1733 = frozenset([6])
+    FOLLOW_MATERIAL_in_get_expr1737 = frozenset([6])
+    FOLLOW_ID_in_get_expr1741 = frozenset([6])
+    FOLLOW_AT_in_get_expr1746 = frozenset(
         [
             11,
             15,
@@ -8937,30 +8933,30 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_get_expr1750 = frozenset([14, 74])
-    FOLLOW_simple_block_in_get_expr1753 = frozenset([1])
-    FOLLOW_NEWLINE_in_get_expr1757 = frozenset([1])
-    FOLLOW_COLON_in_edit_block1849 = frozenset([74])
-    FOLLOW_NEWLINE_in_edit_block1851 = frozenset([49])
-    FOLLOW_INDENT_in_edit_block1853 = frozenset(
+    FOLLOW_test_in_get_expr1752 = frozenset([14, 74])
+    FOLLOW_simple_block_in_get_expr1755 = frozenset([1])
+    FOLLOW_NEWLINE_in_get_expr1759 = frozenset([1])
+    FOLLOW_COLON_in_edit_block1851 = frozenset([74])
+    FOLLOW_NEWLINE_in_edit_block1853 = frozenset([49])
+    FOLLOW_INDENT_in_edit_block1855 = frozenset(
         [28, 43, 61, 68, 71, 84, 85, 93, 94, 97, 98, 100, 106, 118, 120, 122, 123]
     )
-    FOLLOW_attr_in_edit_block1859 = frozenset(
+    FOLLOW_attr_in_edit_block1861 = frozenset(
         [19, 28, 43, 61, 68, 71, 84, 85, 93, 94, 97, 98, 100, 106, 118, 120, 122, 123]
     )
-    FOLLOW_inner_behavior_stmt_in_edit_block1863 = frozenset(
+    FOLLOW_inner_behavior_stmt_in_edit_block1865 = frozenset(
         [19, 28, 43, 61, 68, 71, 84, 85, 93, 94, 97, 98, 100, 106, 118, 120, 122, 123]
     )
-    FOLLOW_DEDENT_in_edit_block1871 = frozenset([1])
-    FOLLOW_COLON_in_simple_block1890 = frozenset([74])
-    FOLLOW_NEWLINE_in_simple_block1892 = frozenset([49])
-    FOLLOW_INDENT_in_simple_block1894 = frozenset([43, 120])
-    FOLLOW_simple_attr_in_simple_block1897 = frozenset([19, 43, 120])
-    FOLLOW_DEDENT_in_simple_block1903 = frozenset([1])
-    FOLLOW_core_attr_in_attr1918 = frozenset([1])
-    FOLLOW_simple_attr_in_attr1922 = frozenset([1])
-    FOLLOW_compound_attr_in_attr1926 = frozenset([1])
-    FOLLOW_name_in_simple_attr1956 = frozenset(
+    FOLLOW_DEDENT_in_edit_block1873 = frozenset([1])
+    FOLLOW_COLON_in_simple_block1892 = frozenset([74])
+    FOLLOW_NEWLINE_in_simple_block1894 = frozenset([49])
+    FOLLOW_INDENT_in_simple_block1896 = frozenset([43, 120])
+    FOLLOW_simple_attr_in_simple_block1899 = frozenset([19, 43, 120])
+    FOLLOW_DEDENT_in_simple_block1905 = frozenset([1])
+    FOLLOW_core_attr_in_attr1920 = frozenset([1])
+    FOLLOW_simple_attr_in_attr1924 = frozenset([1])
+    FOLLOW_compound_attr_in_attr1928 = frozenset([1])
+    FOLLOW_name_in_simple_attr1958 = frozenset(
         [
             11,
             14,
@@ -8985,8 +8981,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_COLON_in_simple_attr1959 = frozenset([43, 120])
-    FOLLOW_name_in_simple_attr1963 = frozenset(
+    FOLLOW_COLON_in_simple_attr1961 = frozenset([43, 120])
+    FOLLOW_name_in_simple_attr1965 = frozenset(
         [
             11,
             15,
@@ -9010,27 +9006,27 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_simple_attr1969 = frozenset([74])
-    FOLLOW_NEWLINE_in_simple_attr1971 = frozenset([1])
-    FOLLOW_SCATTER_in_compound_attr2018 = frozenset([80])
-    FOLLOW_ON_in_compound_attr2020 = frozenset([43, 120])
-    FOLLOW_name_in_compound_attr2024 = frozenset([14, 74])
-    FOLLOW_simple_block_in_compound_attr2029 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr2033 = frozenset([1])
-    FOLLOW_ROT_AROUND_in_compound_attr2117 = frozenset([43, 120])
-    FOLLOW_name_in_compound_attr2121 = frozenset([14, 74])
-    FOLLOW_simple_block_in_compound_attr2126 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr2130 = frozenset([1])
-    FOLLOW_PHYSICS_in_compound_attr2187 = frozenset([14, 74])
-    FOLLOW_simple_block_in_compound_attr2192 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr2196 = frozenset([1])
-    FOLLOW_MOVE_TO_CAM_in_compound_attr2249 = frozenset([43, 120])
-    FOLLOW_name_in_compound_attr2253 = frozenset([14, 74])
-    FOLLOW_simple_block_in_compound_attr2258 = frozenset([1])
-    FOLLOW_NEWLINE_in_compound_attr2262 = frozenset([1])
-    FOLLOW_TRANSLATE_in_core_attr2340 = frozenset([8, 117])
-    FOLLOW_AXIS_in_core_attr2344 = frozenset([117])
-    FOLLOW_TO_in_core_attr2347 = frozenset(
+    FOLLOW_test_in_simple_attr1971 = frozenset([74])
+    FOLLOW_NEWLINE_in_simple_attr1973 = frozenset([1])
+    FOLLOW_SCATTER_in_compound_attr2020 = frozenset([80])
+    FOLLOW_ON_in_compound_attr2022 = frozenset([43, 120])
+    FOLLOW_name_in_compound_attr2026 = frozenset([14, 74])
+    FOLLOW_simple_block_in_compound_attr2031 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr2035 = frozenset([1])
+    FOLLOW_ROT_AROUND_in_compound_attr2119 = frozenset([43, 120])
+    FOLLOW_name_in_compound_attr2123 = frozenset([14, 74])
+    FOLLOW_simple_block_in_compound_attr2128 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr2132 = frozenset([1])
+    FOLLOW_PHYSICS_in_compound_attr2189 = frozenset([14, 74])
+    FOLLOW_simple_block_in_compound_attr2194 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr2198 = frozenset([1])
+    FOLLOW_MOVE_TO_CAM_in_compound_attr2251 = frozenset([43, 120])
+    FOLLOW_name_in_compound_attr2255 = frozenset([14, 74])
+    FOLLOW_simple_block_in_compound_attr2260 = frozenset([1])
+    FOLLOW_NEWLINE_in_compound_attr2264 = frozenset([1])
+    FOLLOW_TRANSLATE_in_core_attr2342 = frozenset([8, 117])
+    FOLLOW_AXIS_in_core_attr2346 = frozenset([117])
+    FOLLOW_TO_in_core_attr2349 = frozenset(
         [
             11,
             15,
@@ -9054,8 +9050,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2351 = frozenset([74])
-    FOLLOW_ROTATE_in_core_attr2375 = frozenset(
+    FOLLOW_test_in_core_attr2353 = frozenset([74])
+    FOLLOW_ROTATE_in_core_attr2377 = frozenset(
         [
             8,
             11,
@@ -9080,7 +9076,7 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_AXIS_in_core_attr2379 = frozenset(
+    FOLLOW_AXIS_in_core_attr2381 = frozenset(
         [
             11,
             15,
@@ -9104,8 +9100,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2384 = frozenset([74])
-    FOLLOW_SCALE_in_core_attr2408 = frozenset(
+    FOLLOW_test_in_core_attr2386 = frozenset([74])
+    FOLLOW_SCALE_in_core_attr2410 = frozenset(
         [
             11,
             15,
@@ -9129,8 +9125,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2412 = frozenset([74])
-    FOLLOW_LOOK_AT_in_core_attr2431 = frozenset(
+    FOLLOW_test_in_core_attr2414 = frozenset([74])
+    FOLLOW_LOOK_AT_in_core_attr2433 = frozenset(
         [
             11,
             15,
@@ -9154,8 +9150,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2435 = frozenset([74])
-    FOLLOW_UP_AXIS_in_core_attr2454 = frozenset(
+    FOLLOW_test_in_core_attr2437 = frozenset([74])
+    FOLLOW_UP_AXIS_in_core_attr2456 = frozenset(
         [
             11,
             15,
@@ -9179,8 +9175,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2458 = frozenset([74])
-    FOLLOW_SIZE_in_core_attr2477 = frozenset(
+    FOLLOW_test_in_core_attr2460 = frozenset([74])
+    FOLLOW_SIZE_in_core_attr2479 = frozenset(
         [
             11,
             15,
@@ -9204,8 +9200,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2481 = frozenset([74])
-    FOLLOW_PIVOT_in_core_attr2500 = frozenset(
+    FOLLOW_test_in_core_attr2483 = frozenset([74])
+    FOLLOW_PIVOT_in_core_attr2502 = frozenset(
         [
             11,
             15,
@@ -9229,8 +9225,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2504 = frozenset([74])
-    FOLLOW_SEMANTICS_in_core_attr2523 = frozenset(
+    FOLLOW_test_in_core_attr2506 = frozenset([74])
+    FOLLOW_SEMANTICS_in_core_attr2525 = frozenset(
         [
             11,
             15,
@@ -9254,8 +9250,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2527 = frozenset([74])
-    FOLLOW_VISIBLE_in_core_attr2546 = frozenset(
+    FOLLOW_test_in_core_attr2529 = frozenset([74])
+    FOLLOW_VISIBLE_in_core_attr2548 = frozenset(
         [
             11,
             15,
@@ -9279,8 +9275,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2550 = frozenset([74])
-    FOLLOW_MATERIAL__in_core_attr2569 = frozenset(
+    FOLLOW_test_in_core_attr2552 = frozenset([74])
+    FOLLOW_MATERIAL__in_core_attr2571 = frozenset(
         [
             11,
             15,
@@ -9304,22 +9300,22 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_core_attr2573 = frozenset([74])
-    FOLLOW_NEWLINE_in_core_attr2590 = frozenset([1])
-    FOLLOW_behavior_expr_in_inner_behavior_stmt2613 = frozenset([14])
-    FOLLOW_inner_behavior_block_in_inner_behavior_stmt2615 = frozenset([1])
-    FOLLOW_COLON_in_inner_behavior_block2641 = frozenset([74])
-    FOLLOW_NEWLINE_in_inner_behavior_block2643 = frozenset([49])
-    FOLLOW_INDENT_in_inner_behavior_block2645 = frozenset(
+    FOLLOW_test_in_core_attr2575 = frozenset([74])
+    FOLLOW_NEWLINE_in_core_attr2592 = frozenset([1])
+    FOLLOW_behavior_expr_in_inner_behavior_stmt2615 = frozenset([14])
+    FOLLOW_inner_behavior_block_in_inner_behavior_stmt2617 = frozenset([1])
+    FOLLOW_COLON_in_inner_behavior_block2643 = frozenset([74])
+    FOLLOW_NEWLINE_in_inner_behavior_block2645 = frozenset([49])
+    FOLLOW_INDENT_in_inner_behavior_block2647 = frozenset(
         [43, 61, 68, 71, 84, 85, 93, 94, 97, 98, 100, 106, 118, 120, 122, 123]
     )
-    FOLLOW_attr_in_inner_behavior_block2649 = frozenset(
+    FOLLOW_attr_in_inner_behavior_block2651 = frozenset(
         [19, 43, 61, 68, 71, 84, 85, 93, 94, 97, 98, 100, 106, 118, 120, 122, 123]
     )
-    FOLLOW_DEDENT_in_inner_behavior_block2652 = frozenset([1])
-    FOLLOW_behavior_expr_in_behavior_stmt2672 = frozenset([14])
-    FOLLOW_behavior_block_in_behavior_stmt2674 = frozenset([1])
-    FOLLOW_EVERY_in_behavior_expr2696 = frozenset(
+    FOLLOW_DEDENT_in_inner_behavior_block2654 = frozenset([1])
+    FOLLOW_behavior_expr_in_behavior_stmt2674 = frozenset([14])
+    FOLLOW_behavior_block_in_behavior_stmt2676 = frozenset([1])
+    FOLLOW_EVERY_in_behavior_expr2698 = frozenset(
         [
             11,
             15,
@@ -9345,24 +9341,24 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_behavior_expr2700 = frozenset([36, 115])
-    FOLLOW_FRAMES_in_behavior_expr2706 = frozenset([1])
-    FOLLOW_TIME_in_behavior_expr2710 = frozenset([1])
-    FOLLOW_COLON_in_behavior_block2745 = frozenset([74])
-    FOLLOW_NEWLINE_in_behavior_block2747 = frozenset([49])
-    FOLLOW_INDENT_in_behavior_block2749 = frozenset([18, 24, 38, 39, 43, 50, 108, 120])
-    FOLLOW_aug_expr_stmt_in_behavior_block2754 = frozenset(
+    FOLLOW_test_in_behavior_expr2702 = frozenset([36, 115])
+    FOLLOW_FRAMES_in_behavior_expr2708 = frozenset([1])
+    FOLLOW_TIME_in_behavior_expr2712 = frozenset([1])
+    FOLLOW_COLON_in_behavior_block2747 = frozenset([74])
+    FOLLOW_NEWLINE_in_behavior_block2749 = frozenset([49])
+    FOLLOW_INDENT_in_behavior_block2751 = frozenset([18, 24, 38, 39, 43, 50, 108, 120])
+    FOLLOW_aug_expr_stmt_in_behavior_block2756 = frozenset(
         [18, 19, 24, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_code_snippet_in_behavior_block2758 = frozenset(
+    FOLLOW_code_snippet_in_behavior_block2760 = frozenset(
         [18, 19, 24, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_edit_stmt_in_behavior_block2762 = frozenset(
+    FOLLOW_edit_stmt_in_behavior_block2764 = frozenset(
         [18, 19, 24, 38, 39, 43, 50, 108, 120]
     )
-    FOLLOW_DEDENT_in_behavior_block2766 = frozenset([1])
-    FOLLOW_namelist_in_expr_stmt2787 = frozenset([5, 7])
-    FOLLOW_AUG_ASSIGN_in_expr_stmt2794 = frozenset(
+    FOLLOW_DEDENT_in_behavior_block2768 = frozenset([1])
+    FOLLOW_namelist_in_expr_stmt2789 = frozenset([5, 7])
+    FOLLOW_AUG_ASSIGN_in_expr_stmt2796 = frozenset(
         [
             11,
             15,
@@ -9387,7 +9383,7 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_ASSIGN_in_expr_stmt2798 = frozenset(
+    FOLLOW_ASSIGN_in_expr_stmt2800 = frozenset(
         [
             11,
             15,
@@ -9412,11 +9408,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_testlist_in_expr_stmt2804 = frozenset([74])
-    FOLLOW_fetch_expr_in_expr_stmt2808 = frozenset([74])
-    FOLLOW_NEWLINE_in_expr_stmt2811 = frozenset([1])
-    FOLLOW_namelist_in_aug_expr_stmt2849 = frozenset([5, 7])
-    FOLLOW_AUG_ASSIGN_in_aug_expr_stmt2863 = frozenset(
+    FOLLOW_testlist_in_expr_stmt2806 = frozenset([74])
+    FOLLOW_fetch_expr_in_expr_stmt2810 = frozenset([74])
+    FOLLOW_NEWLINE_in_expr_stmt2813 = frozenset([1])
+    FOLLOW_namelist_in_aug_expr_stmt2851 = frozenset([5, 7])
+    FOLLOW_AUG_ASSIGN_in_aug_expr_stmt2865 = frozenset(
         [
             11,
             15,
@@ -9441,10 +9437,10 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt2868 = frozenset([74])
-    FOLLOW_fetch_expr_in_aug_expr_stmt2872 = frozenset([74])
-    FOLLOW_NEWLINE_in_aug_expr_stmt2875 = frozenset([1])
-    FOLLOW_ASSIGN_in_aug_expr_stmt2907 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt2870 = frozenset([74])
+    FOLLOW_fetch_expr_in_aug_expr_stmt2874 = frozenset([74])
+    FOLLOW_NEWLINE_in_aug_expr_stmt2877 = frozenset([1])
+    FOLLOW_ASSIGN_in_aug_expr_stmt2909 = frozenset(
         [
             11,
             15,
@@ -9473,16 +9469,16 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_testlist_in_aug_expr_stmt2922 = frozenset([74])
-    FOLLOW_fetch_expr_in_aug_expr_stmt2926 = frozenset([74])
-    FOLLOW_NEWLINE_in_aug_expr_stmt2929 = frozenset([1])
-    FOLLOW_model_expr_in_aug_expr_stmt2964 = frozenset([1])
-    FOLLOW_model_expr_in_aug_expr_stmt2998 = frozenset([1])
-    FOLLOW_create_expr_in_model_expr3015 = frozenset([1])
-    FOLLOW_instantiate_expr_in_model_expr3020 = frozenset([1])
-    FOLLOW_get_expr_in_model_expr3025 = frozenset([1])
-    FOLLOW_group_expr_in_model_expr3030 = frozenset([1])
-    FOLLOW_FETCH_in_fetch_expr3044 = frozenset(
+    FOLLOW_testlist_in_aug_expr_stmt2924 = frozenset([74])
+    FOLLOW_fetch_expr_in_aug_expr_stmt2928 = frozenset([74])
+    FOLLOW_NEWLINE_in_aug_expr_stmt2931 = frozenset([1])
+    FOLLOW_model_expr_in_aug_expr_stmt2966 = frozenset([1])
+    FOLLOW_model_expr_in_aug_expr_stmt3000 = frozenset([1])
+    FOLLOW_create_expr_in_model_expr3017 = frozenset([1])
+    FOLLOW_instantiate_expr_in_model_expr3022 = frozenset([1])
+    FOLLOW_get_expr_in_model_expr3027 = frozenset([1])
+    FOLLOW_group_expr_in_model_expr3032 = frozenset([1])
+    FOLLOW_FETCH_in_fetch_expr3046 = frozenset(
         [
             11,
             15,
@@ -9506,8 +9502,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_fetch_expr3048 = frozenset([37])
-    FOLLOW_FROM_in_fetch_expr3050 = frozenset(
+    FOLLOW_test_in_fetch_expr3050 = frozenset([37])
+    FOLLOW_FROM_in_fetch_expr3052 = frozenset(
         [
             11,
             15,
@@ -9531,8 +9527,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_fetch_expr3054 = frozenset([1, 59, 66, 92])
-    FOLLOW_MATCH_in_fetch_expr3057 = frozenset(
+    FOLLOW_test_in_fetch_expr3056 = frozenset([1, 59, 66, 92])
+    FOLLOW_MATCH_in_fetch_expr3059 = frozenset(
         [
             11,
             15,
@@ -9556,8 +9552,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_fetch_expr3061 = frozenset([1, 59, 92])
-    FOLLOW_LIMIT_in_fetch_expr3066 = frozenset(
+    FOLLOW_test_in_fetch_expr3063 = frozenset([1, 59, 92])
+    FOLLOW_LIMIT_in_fetch_expr3068 = frozenset(
         [
             11,
             15,
@@ -9581,10 +9577,10 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_fetch_expr3070 = frozenset([1, 92])
-    FOLLOW_RECURSIVE_in_fetch_expr3074 = frozenset([1])
-    FOLLOW_or_test_in_test3125 = frozenset([1, 47])
-    FOLLOW_IF_in_test3128 = frozenset(
+    FOLLOW_test_in_fetch_expr3072 = frozenset([1, 92])
+    FOLLOW_RECURSIVE_in_fetch_expr3076 = frozenset([1])
+    FOLLOW_or_test_in_test3127 = frozenset([1, 47])
+    FOLLOW_IF_in_test3130 = frozenset(
         [
             11,
             15,
@@ -9608,8 +9604,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_or_test_in_test3132 = frozenset([26])
-    FOLLOW_ELSE_in_test3134 = frozenset(
+    FOLLOW_or_test_in_test3134 = frozenset([26])
+    FOLLOW_ELSE_in_test3136 = frozenset(
         [
             11,
             15,
@@ -9633,10 +9629,10 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_test3138 = frozenset([1])
-    FOLLOW_or_test_in_test_nocond3180 = frozenset([1])
-    FOLLOW_and_test_in_or_test3202 = frozenset([1, 82])
-    FOLLOW_OR_in_or_test3205 = frozenset(
+    FOLLOW_test_in_test3140 = frozenset([1])
+    FOLLOW_or_test_in_test_nocond3182 = frozenset([1])
+    FOLLOW_and_test_in_or_test3204 = frozenset([1, 82])
+    FOLLOW_OR_in_or_test3207 = frozenset(
         [
             11,
             15,
@@ -9660,9 +9656,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_and_test_in_or_test3209 = frozenset([1, 82])
-    FOLLOW_not_test_in_and_test3232 = frozenset([1, 4])
-    FOLLOW_AND_in_and_test3235 = frozenset(
+    FOLLOW_and_test_in_or_test3211 = frozenset([1, 82])
+    FOLLOW_not_test_in_and_test3234 = frozenset([1, 4])
+    FOLLOW_AND_in_and_test3237 = frozenset(
         [
             11,
             15,
@@ -9686,8 +9682,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_not_test_in_and_test3239 = frozenset([1, 4])
-    FOLLOW_NOT_in_not_test3260 = frozenset(
+    FOLLOW_not_test_in_and_test3241 = frozenset([1, 4])
+    FOLLOW_NOT_in_not_test3262 = frozenset(
         [
             11,
             15,
@@ -9711,89 +9707,89 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_not_test_in_not_test3264 = frozenset([1])
-    FOLLOW_comparison_in_not_test3290 = frozenset([1])
-    FOLLOW_expr_in_comparison3304 = frozenset([1, 27, 40, 41, 48, 53, 64, 65, 77, 78])
-    FOLLOW_comp_op_in_comparison3309 = frozenset(
+    FOLLOW_not_test_in_not_test3266 = frozenset([1])
+    FOLLOW_comparison_in_not_test3292 = frozenset([1])
+    FOLLOW_expr_in_comparison3306 = frozenset([1, 27, 40, 41, 48, 53, 64, 65, 77, 78])
+    FOLLOW_comp_op_in_comparison3311 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_expr_in_comparison3313 = frozenset([1, 27, 40, 41, 48, 53, 64, 65, 77, 78])
-    FOLLOW_LT_in_comp_op3343 = frozenset([1])
-    FOLLOW_GT_in_comp_op3347 = frozenset([1])
-    FOLLOW_EQUALS_in_comp_op3351 = frozenset([1])
-    FOLLOW_GT_EQ_in_comp_op3355 = frozenset([1])
-    FOLLOW_LT_EQ_in_comp_op3359 = frozenset([1])
-    FOLLOW_NOT_EQ_in_comp_op3363 = frozenset([1])
-    FOLLOW_IN_in_comp_op3367 = frozenset([1])
-    FOLLOW_NOT_in_comp_op3371 = frozenset([48])
-    FOLLOW_IN_in_comp_op3373 = frozenset([1])
-    FOLLOW_IS_in_comp_op3377 = frozenset([1])
-    FOLLOW_IS_in_comp_op3381 = frozenset([77])
-    FOLLOW_NOT_in_comp_op3383 = frozenset([1])
-    FOLLOW_xor_expr_in_expr3404 = frozenset([1, 12])
-    FOLLOW_BIT_OR_in_expr3407 = frozenset(
+    FOLLOW_expr_in_comparison3315 = frozenset([1, 27, 40, 41, 48, 53, 64, 65, 77, 78])
+    FOLLOW_LT_in_comp_op3345 = frozenset([1])
+    FOLLOW_GT_in_comp_op3349 = frozenset([1])
+    FOLLOW_EQUALS_in_comp_op3353 = frozenset([1])
+    FOLLOW_GT_EQ_in_comp_op3357 = frozenset([1])
+    FOLLOW_LT_EQ_in_comp_op3361 = frozenset([1])
+    FOLLOW_NOT_EQ_in_comp_op3365 = frozenset([1])
+    FOLLOW_IN_in_comp_op3369 = frozenset([1])
+    FOLLOW_NOT_in_comp_op3373 = frozenset([48])
+    FOLLOW_IN_in_comp_op3375 = frozenset([1])
+    FOLLOW_IS_in_comp_op3379 = frozenset([1])
+    FOLLOW_IS_in_comp_op3383 = frozenset([77])
+    FOLLOW_NOT_in_comp_op3385 = frozenset([1])
+    FOLLOW_xor_expr_in_expr3406 = frozenset([1, 12])
+    FOLLOW_BIT_OR_in_expr3409 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_xor_expr_in_expr3411 = frozenset([1, 12])
-    FOLLOW_and_expr_in_xor_expr3434 = frozenset([1, 125])
-    FOLLOW_XOR_in_xor_expr3437 = frozenset(
+    FOLLOW_xor_expr_in_expr3413 = frozenset([1, 12])
+    FOLLOW_and_expr_in_xor_expr3436 = frozenset([1, 125])
+    FOLLOW_XOR_in_xor_expr3439 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_and_expr_in_xor_expr3441 = frozenset([1, 125])
-    FOLLOW_shift_expr_in_and_expr3464 = frozenset([1, 10])
-    FOLLOW_BIT_AND_in_and_expr3467 = frozenset(
+    FOLLOW_and_expr_in_xor_expr3443 = frozenset([1, 125])
+    FOLLOW_shift_expr_in_and_expr3466 = frozenset([1, 10])
+    FOLLOW_BIT_AND_in_and_expr3469 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_shift_expr_in_and_expr3471 = frozenset([1, 10])
-    FOLLOW_arith_expr_in_shift_expr3492 = frozenset([1, 63, 96])
-    FOLLOW_LSHIFT_in_shift_expr3498 = frozenset(
+    FOLLOW_shift_expr_in_and_expr3473 = frozenset([1, 10])
+    FOLLOW_arith_expr_in_shift_expr3494 = frozenset([1, 63, 96])
+    FOLLOW_LSHIFT_in_shift_expr3500 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_RSHIFT_in_shift_expr3502 = frozenset(
+    FOLLOW_RSHIFT_in_shift_expr3504 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_arith_expr_in_shift_expr3507 = frozenset([1, 63, 96])
-    FOLLOW_term_in_arith_expr3533 = frozenset([1, 69, 86])
-    FOLLOW_PLUS_in_arith_expr3539 = frozenset(
+    FOLLOW_arith_expr_in_shift_expr3509 = frozenset([1, 63, 96])
+    FOLLOW_term_in_arith_expr3535 = frozenset([1, 69, 86])
+    FOLLOW_PLUS_in_arith_expr3541 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_MINUS_in_arith_expr3543 = frozenset(
+    FOLLOW_MINUS_in_arith_expr3545 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_term_in_arith_expr3548 = frozenset([1, 69, 86])
-    FOLLOW_factor_in_term3580 = frozenset([1, 22, 44, 70, 72])
-    FOLLOW_MUL_in_term3586 = frozenset(
+    FOLLOW_term_in_arith_expr3550 = frozenset([1, 69, 86])
+    FOLLOW_factor_in_term3582 = frozenset([1, 22, 44, 70, 72])
+    FOLLOW_MUL_in_term3588 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_DIV_in_term3590 = frozenset(
+    FOLLOW_DIV_in_term3592 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_MOD_in_term3594 = frozenset(
+    FOLLOW_MOD_in_term3596 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_IDIV_in_term3598 = frozenset(
+    FOLLOW_IDIV_in_term3600 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_factor_in_term3603 = frozenset([1, 22, 44, 70, 72])
-    FOLLOW_PLUS_in_factor3634 = frozenset(
+    FOLLOW_factor_in_term3605 = frozenset([1, 22, 44, 70, 72])
+    FOLLOW_PLUS_in_factor3636 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_MINUS_in_factor3638 = frozenset(
+    FOLLOW_MINUS_in_factor3640 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_BIT_NOT_in_factor3642 = frozenset(
+    FOLLOW_BIT_NOT_in_factor3644 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_factor_in_factor3647 = frozenset([1])
-    FOLLOW_power_in_factor3677 = frozenset([1])
-    FOLLOW_atom_expr_in_power3694 = frozenset([1, 88])
-    FOLLOW_POWER_in_power3697 = frozenset(
+    FOLLOW_factor_in_factor3649 = frozenset([1])
+    FOLLOW_power_in_factor3679 = frozenset([1])
+    FOLLOW_atom_expr_in_power3696 = frozenset([1, 88])
+    FOLLOW_POWER_in_power3699 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_factor_in_power3699 = frozenset([1])
-    FOLLOW_atom_in_atom_expr3724 = frozenset([1, 23, 55])
-    FOLLOW_trailer_in_atom_expr3729 = frozenset([1, 23, 55])
-    FOLLOW_LPAREN_in_atom3754 = frozenset(
+    FOLLOW_factor_in_power3701 = frozenset([1])
+    FOLLOW_atom_in_atom_expr3726 = frozenset([1, 23, 55])
+    FOLLOW_trailer_in_atom_expr3731 = frozenset([1, 23, 55])
+    FOLLOW_LPAREN_in_atom3756 = frozenset(
         [
             11,
             15,
@@ -9817,9 +9813,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_atom3758 = frozenset([95])
-    FOLLOW_RPAREN_in_atom3760 = frozenset([1])
-    FOLLOW_LBRACK_in_atom3775 = frozenset(
+    FOLLOW_test_in_atom3760 = frozenset([95])
+    FOLLOW_RPAREN_in_atom3762 = frozenset([1])
+    FOLLOW_LBRACK_in_atom3777 = frozenset(
         [
             11,
             15,
@@ -9844,9 +9840,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_testlist_comp_in_atom3777 = frozenset([91])
-    FOLLOW_RBRACK_in_atom3780 = frozenset([1])
-    FOLLOW_LT_in_atom3795 = frozenset(
+    FOLLOW_testlist_comp_in_atom3779 = frozenset([91])
+    FOLLOW_RBRACK_in_atom3782 = frozenset([1])
+    FOLLOW_LT_in_atom3797 = frozenset(
         [
             11,
             15,
@@ -9870,9 +9866,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_vector_comp_in_atom3797 = frozenset([40])
-    FOLLOW_GT_in_atom3800 = frozenset([1])
-    FOLLOW_LBRACE_in_atom3815 = frozenset(
+    FOLLOW_vector_comp_in_atom3799 = frozenset([40])
+    FOLLOW_GT_in_atom3802 = frozenset([1])
+    FOLLOW_LBRACE_in_atom3817 = frozenset(
         [
             11,
             15,
@@ -9897,10 +9893,10 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_dict_or_set_maker_in_atom3817 = frozenset([90])
-    FOLLOW_RBRACE_in_atom3820 = frozenset([1])
-    FOLLOW_LEN_in_atom3835 = frozenset([62])
-    FOLLOW_LPAREN_in_atom3837 = frozenset(
+    FOLLOW_dict_or_set_maker_in_atom3819 = frozenset([90])
+    FOLLOW_RBRACE_in_atom3822 = frozenset([1])
+    FOLLOW_LEN_in_atom3837 = frozenset([62])
+    FOLLOW_LPAREN_in_atom3839 = frozenset(
         [
             11,
             15,
@@ -9924,21 +9920,21 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_atom3841 = frozenset([95])
-    FOLLOW_RPAREN_in_atom3843 = frozenset([1])
-    FOLLOW_name_in_atom3858 = frozenset([1])
-    FOLLOW_SETTING_ID_in_atom3870 = frozenset([1])
-    FOLLOW_distribution_in_atom3887 = frozenset([1])
-    FOLLOW_INTEGER_in_atom3897 = frozenset([1])
-    FOLLOW_FLOAT_NUMBER_in_atom3907 = frozenset([1])
-    FOLLOW_STRING_in_atom3917 = frozenset([1])
-    FOLLOW_NONE_in_atom3927 = frozenset([1])
-    FOLLOW_TRUE_in_atom3939 = frozenset([1])
-    FOLLOW_FALSE_in_atom3951 = frozenset([1])
-    FOLLOW_ID_in_name3971 = frozenset([1])
-    FOLLOW_UNDERSCORE_in_name3981 = frozenset([1])
-    FOLLOW_DISTRIBUTION_in_distribution3994 = frozenset([62])
-    FOLLOW_LPAREN_in_distribution3996 = frozenset(
+    FOLLOW_test_in_atom3843 = frozenset([95])
+    FOLLOW_RPAREN_in_atom3845 = frozenset([1])
+    FOLLOW_name_in_atom3860 = frozenset([1])
+    FOLLOW_SETTING_ID_in_atom3872 = frozenset([1])
+    FOLLOW_distribution_in_atom3889 = frozenset([1])
+    FOLLOW_INTEGER_in_atom3899 = frozenset([1])
+    FOLLOW_FLOAT_NUMBER_in_atom3909 = frozenset([1])
+    FOLLOW_STRING_in_atom3919 = frozenset([1])
+    FOLLOW_NONE_in_atom3929 = frozenset([1])
+    FOLLOW_TRUE_in_atom3941 = frozenset([1])
+    FOLLOW_FALSE_in_atom3953 = frozenset([1])
+    FOLLOW_ID_in_name3973 = frozenset([1])
+    FOLLOW_UNDERSCORE_in_name3983 = frozenset([1])
+    FOLLOW_DISTRIBUTION_in_distribution3996 = frozenset([62])
+    FOLLOW_LPAREN_in_distribution3998 = frozenset(
         [
             11,
             15,
@@ -9962,10 +9958,10 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_arglist_in_distribution4000 = frozenset([95])
-    FOLLOW_RPAREN_in_distribution4002 = frozenset([1])
-    FOLLOW_COMBINE_in_distribution4035 = frozenset([62])
-    FOLLOW_LPAREN_in_distribution4037 = frozenset(
+    FOLLOW_arglist_in_distribution4002 = frozenset([95])
+    FOLLOW_RPAREN_in_distribution4004 = frozenset([1])
+    FOLLOW_COMBINE_in_distribution4037 = frozenset([62])
+    FOLLOW_LPAREN_in_distribution4039 = frozenset(
         [
             11,
             15,
@@ -9989,11 +9985,11 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_arglist_in_distribution4041 = frozenset([95])
-    FOLLOW_RPAREN_in_distribution4043 = frozenset([1])
-    FOLLOW_test_in_testlist_comp4065 = frozenset([1, 14, 16, 34])
-    FOLLOW_comp_for_in_testlist_comp4081 = frozenset([1])
-    FOLLOW_COMMA_in_testlist_comp4113 = frozenset(
+    FOLLOW_arglist_in_distribution4043 = frozenset([95])
+    FOLLOW_RPAREN_in_distribution4045 = frozenset([1])
+    FOLLOW_test_in_testlist_comp4067 = frozenset([1, 14, 16, 34])
+    FOLLOW_comp_for_in_testlist_comp4083 = frozenset([1])
+    FOLLOW_COMMA_in_testlist_comp4115 = frozenset(
         [
             11,
             15,
@@ -10017,8 +10013,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_testlist_comp4117 = frozenset([1, 16])
-    FOLLOW_COLON_in_testlist_comp4136 = frozenset(
+    FOLLOW_test_in_testlist_comp4119 = frozenset([1, 16])
+    FOLLOW_COLON_in_testlist_comp4138 = frozenset(
         [
             11,
             15,
@@ -10042,8 +10038,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_testlist_comp4140 = frozenset([1, 14])
-    FOLLOW_COLON_in_testlist_comp4143 = frozenset(
+    FOLLOW_test_in_testlist_comp4142 = frozenset([1, 14])
+    FOLLOW_COLON_in_testlist_comp4145 = frozenset(
         [
             11,
             15,
@@ -10067,17 +10063,17 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_testlist_comp4147 = frozenset([1])
-    FOLLOW_expr_in_vector_comp4184 = frozenset([16])
-    FOLLOW_COMMA_in_vector_comp4186 = frozenset(
+    FOLLOW_test_in_testlist_comp4149 = frozenset([1])
+    FOLLOW_expr_in_vector_comp4186 = frozenset([16])
+    FOLLOW_COMMA_in_vector_comp4188 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_expr_in_vector_comp4190 = frozenset([16])
-    FOLLOW_COMMA_in_vector_comp4192 = frozenset(
+    FOLLOW_expr_in_vector_comp4192 = frozenset([16])
+    FOLLOW_COMMA_in_vector_comp4194 = frozenset(
         [11, 15, 21, 31, 33, 43, 51, 54, 55, 56, 62, 64, 69, 75, 86, 103, 113, 119, 120]
     )
-    FOLLOW_expr_in_vector_comp4196 = frozenset([1])
-    FOLLOW_LBRACK_in_trailer4228 = frozenset(
+    FOLLOW_expr_in_vector_comp4198 = frozenset([1])
+    FOLLOW_LBRACK_in_trailer4230 = frozenset(
         [
             11,
             14,
@@ -10102,12 +10098,12 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_subscriptlist_in_trailer4230 = frozenset([91])
-    FOLLOW_RBRACK_in_trailer4232 = frozenset([1])
-    FOLLOW_DOT_in_trailer4260 = frozenset([43, 120])
-    FOLLOW_name_in_trailer4262 = frozenset([1])
-    FOLLOW_argument_in_arglist4286 = frozenset([1, 16])
-    FOLLOW_COMMA_in_arglist4289 = frozenset(
+    FOLLOW_subscriptlist_in_trailer4232 = frozenset([91])
+    FOLLOW_RBRACK_in_trailer4234 = frozenset([1])
+    FOLLOW_DOT_in_trailer4262 = frozenset([43, 120])
+    FOLLOW_name_in_trailer4264 = frozenset([1])
+    FOLLOW_argument_in_arglist4288 = frozenset([1, 16])
+    FOLLOW_COMMA_in_arglist4291 = frozenset(
         [
             11,
             15,
@@ -10131,9 +10127,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_argument_in_arglist4293 = frozenset([1, 16])
-    FOLLOW_test_in_argument4318 = frozenset([1, 5])
-    FOLLOW_ASSIGN_in_argument4321 = frozenset(
+    FOLLOW_argument_in_arglist4295 = frozenset([1, 16])
+    FOLLOW_test_in_argument4320 = frozenset([1, 5])
+    FOLLOW_ASSIGN_in_argument4323 = frozenset(
         [
             11,
             15,
@@ -10157,9 +10153,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_argument4325 = frozenset([1])
-    FOLLOW_subscript__in_subscriptlist4350 = frozenset([1, 16])
-    FOLLOW_COMMA_in_subscriptlist4353 = frozenset(
+    FOLLOW_test_in_argument4327 = frozenset([1])
+    FOLLOW_subscript__in_subscriptlist4352 = frozenset([1, 16])
+    FOLLOW_COMMA_in_subscriptlist4355 = frozenset(
         [
             11,
             14,
@@ -10184,9 +10180,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_subscript__in_subscriptlist4357 = frozenset([1, 16])
-    FOLLOW_test_in_subscript_4380 = frozenset([1, 14])
-    FOLLOW_COLON_in_subscript_4383 = frozenset(
+    FOLLOW_subscript__in_subscriptlist4359 = frozenset([1, 16])
+    FOLLOW_test_in_subscript_4382 = frozenset([1, 14])
+    FOLLOW_COLON_in_subscript_4385 = frozenset(
         [
             1,
             11,
@@ -10212,9 +10208,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_subscript_4388 = frozenset([1, 14])
-    FOLLOW_sliceop_in_subscript_4395 = frozenset([1])
-    FOLLOW_COLON_in_subscript_4441 = frozenset(
+    FOLLOW_test_in_subscript_4390 = frozenset([1, 14])
+    FOLLOW_sliceop_in_subscript_4397 = frozenset([1])
+    FOLLOW_COLON_in_subscript_4443 = frozenset(
         [
             1,
             11,
@@ -10240,9 +10236,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_subscript_4446 = frozenset([1, 14])
-    FOLLOW_sliceop_in_subscript_4453 = frozenset([1])
-    FOLLOW_COLON_in_sliceop4488 = frozenset(
+    FOLLOW_test_in_subscript_4448 = frozenset([1, 14])
+    FOLLOW_sliceop_in_subscript_4455 = frozenset([1])
+    FOLLOW_COLON_in_sliceop4490 = frozenset(
         [
             1,
             11,
@@ -10267,12 +10263,12 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_sliceop4490 = frozenset([1])
-    FOLLOW_name_in_namelist4513 = frozenset([1, 16])
-    FOLLOW_COMMA_in_namelist4516 = frozenset([43, 120])
-    FOLLOW_name_in_namelist4520 = frozenset([1, 16])
-    FOLLOW_test_in_testlist4542 = frozenset([1, 16])
-    FOLLOW_COMMA_in_testlist4545 = frozenset(
+    FOLLOW_test_in_sliceop4492 = frozenset([1])
+    FOLLOW_name_in_namelist4515 = frozenset([1, 16])
+    FOLLOW_COMMA_in_namelist4518 = frozenset([43, 120])
+    FOLLOW_name_in_namelist4522 = frozenset([1, 16])
+    FOLLOW_test_in_testlist4544 = frozenset([1, 16])
+    FOLLOW_COMMA_in_testlist4547 = frozenset(
         [
             11,
             15,
@@ -10296,9 +10292,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_testlist4549 = frozenset([1, 16])
-    FOLLOW_test_in_dict_or_set_maker4570 = frozenset([1, 14, 16, 34])
-    FOLLOW_COLON_in_dict_or_set_maker4577 = frozenset(
+    FOLLOW_test_in_testlist4551 = frozenset([1, 16])
+    FOLLOW_test_in_dict_or_set_maker4572 = frozenset([1, 14, 16, 34])
+    FOLLOW_COLON_in_dict_or_set_maker4579 = frozenset(
         [
             11,
             15,
@@ -10322,9 +10318,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker4581 = frozenset([1, 16, 34])
-    FOLLOW_comp_for_in_dict_or_set_maker4599 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker4638 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker4583 = frozenset([1, 16, 34])
+    FOLLOW_comp_for_in_dict_or_set_maker4601 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker4640 = frozenset(
         [
             11,
             15,
@@ -10348,8 +10344,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker4642 = frozenset([14])
-    FOLLOW_COLON_in_dict_or_set_maker4644 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker4644 = frozenset([14])
+    FOLLOW_COLON_in_dict_or_set_maker4646 = frozenset(
         [
             11,
             15,
@@ -10373,9 +10369,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker4648 = frozenset([1, 16])
-    FOLLOW_comp_for_in_dict_or_set_maker4681 = frozenset([1])
-    FOLLOW_COMMA_in_dict_or_set_maker4716 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker4650 = frozenset([1, 16])
+    FOLLOW_comp_for_in_dict_or_set_maker4683 = frozenset([1])
+    FOLLOW_COMMA_in_dict_or_set_maker4718 = frozenset(
         [
             11,
             15,
@@ -10399,12 +10395,12 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_in_dict_or_set_maker4720 = frozenset([1, 16])
-    FOLLOW_comp_for_in_comp_iter4748 = frozenset([1])
-    FOLLOW_comp_if_in_comp_iter4752 = frozenset([1])
-    FOLLOW_FOR_in_comp_for4765 = frozenset([43, 120])
-    FOLLOW_namelist_in_comp_for4767 = frozenset([48])
-    FOLLOW_IN_in_comp_for4771 = frozenset(
+    FOLLOW_test_in_dict_or_set_maker4722 = frozenset([1, 16])
+    FOLLOW_comp_for_in_comp_iter4750 = frozenset([1])
+    FOLLOW_comp_if_in_comp_iter4754 = frozenset([1])
+    FOLLOW_FOR_in_comp_for4767 = frozenset([43, 120])
+    FOLLOW_namelist_in_comp_for4769 = frozenset([48])
+    FOLLOW_IN_in_comp_for4773 = frozenset(
         [
             11,
             15,
@@ -10428,9 +10424,9 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_or_test_in_comp_for4773 = frozenset([1, 34, 47])
-    FOLLOW_comp_iter_in_comp_for4775 = frozenset([1])
-    FOLLOW_IF_in_comp_if4804 = frozenset(
+    FOLLOW_or_test_in_comp_for4775 = frozenset([1, 34, 47])
+    FOLLOW_comp_iter_in_comp_for4777 = frozenset([1])
+    FOLLOW_IF_in_comp_if4806 = frozenset(
         [
             11,
             15,
@@ -10454,8 +10450,8 @@ class YarcParser(YarcParserBase):
             120,
         ]
     )
-    FOLLOW_test_nocond_in_comp_if4806 = frozenset([1, 34, 47])
-    FOLLOW_comp_iter_in_comp_if4808 = frozenset([1])
+    FOLLOW_test_nocond_in_comp_if4808 = frozenset([1, 34, 47])
+    FOLLOW_comp_iter_in_comp_if4810 = frozenset([1])
 
 
 def main(argv, stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr):

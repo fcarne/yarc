@@ -2,7 +2,6 @@ import os
 
 from antlr3 import ANTLRFileStream, CommonTokenStream
 
-from yarc.dsl.v3.handler.handler_factory import HandlerFactory
 from yarc.dsl.v3.YarcLexer import YarcLexer
 from yarc.dsl.v3.YarcParser import YarcParser
 
@@ -19,9 +18,8 @@ lexer = YarcLexer(file_input)
 stream = CommonTokenStream(lexer)
 parser = YarcParser(stream)
 
-HandlerFactory.get_handler(parser=parser, lib="Replicator")
 
-script = parser.scenario()
+script = parser.scenario(handler_kwargs={"warnings": True})
 
 print(script)
 

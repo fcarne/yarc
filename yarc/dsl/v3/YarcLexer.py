@@ -1,4 +1,4 @@
-# $ANTLR 3.5.3 YarcLexer.g 2023-05-21 15:40:32
+# $ANTLR 3.5.3 YarcLexer.g 2023-05-23 00:37:38
 
 import sys
 
