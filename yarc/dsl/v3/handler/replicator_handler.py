@@ -1,21 +1,13 @@
 from typing import Any, Union
 
 import ast
-import importlib
+import time
 
 from antlr3 import Parser, Token
 
+from yarc.dsl.v3.handler.error_formatter import ErrorType
 from yarc.dsl.v3.handler.handler import Attribute, Handler, Parameter
 from yarc.dsl.v3.handler.warning_formatter import WarningType
-
-
-def import_guard() -> bool:
-    try:
-        spec = importlib.util.find_spec("omni.replicator.core")
-        return spec is not None
-    except (ImportError, ModuleNotFoundError):
-        return False
-
 
 PRIMS = {
     "Plane": "plane",
@@ -228,7 +220,13 @@ INCOMPATIBLE_ATTRS = [
     {"scale", "size"},
 ]
 
-SUPPORTED_WRITES = {"BasicWriter", "DemoWriter", "KittiWriter", ""}
+SUPPORTED_WRITERS = {
+    "BasicWriter",
+    "KittiWriter",
+    "DemoWriter",
+    "DOPEWriter",
+    "YCBVideoWriter",
+}
 
 
 class OmniReplicatorHandler(Handler):
@@ -271,8 +269,8 @@ class OmniReplicatorHandler(Handler):
         try:
             compile(code, "<string>", "exec")
         except SyntaxError as e:
-            print(f"Syntax error: {e}")
-            # TODO: handle_error
+            msg = f"{ErrorType.SNIPPET_ERROR.default_msg} -> {e}"
+            self.handle_error(tk=snippet, hdr=ErrorType.SNIPPET_ERROR, msg=msg)
 
         tree = ast.parse(code)
         names = {
@@ -309,7 +307,7 @@ class OmniReplicatorHandler(Handler):
                     type=WarningType.UNKNOWN_PARAM,
                     tk=token,
                     param=param,
-                    command=token.text,
+                    command=self.__get_command(token),
                     accepted_params=accepted_params,
                 )
 
@@ -355,6 +353,18 @@ class OmniReplicatorHandler(Handler):
             case _:
                 return param
 
+    def __get_command(self, token: Token):
+        from yarc.dsl.v3.YarcLexer import CAMERA, FROM, LIGHT, MATERIAL, SHAPE, STEREO
+
+        type = token.type
+
+        if type == STEREO:
+            return "create stereo camera"
+        elif type in [SHAPE, LIGHT, CAMERA, FROM, MATERIAL]:
+            return f"create {token.text}"
+
+        return token.text
+
     def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
         if attrs is None:
             return []
@@ -371,13 +381,23 @@ class OmniReplicatorHandler(Handler):
 
     def check_writer(self, writer: Token, params: list[Parameter]) -> None:
         if writer.text not in SUPPORTED_WRITERS:
-            # TODO: add Error
-            return
+            self.handle_error(tk=writer, hdr=ErrorType.WRITER_ERROR, writer=writer.text)
 
         names = [param.name for param in params]
-        if "output_dir" not in names:
-            # TODO: add warning and default
-            pass
+        output_dir_param = "output_dir"
+        if output_dir_param not in names:
+            default = self.expand_string(
+                f"'*/{writer.text.lower()}_{int(time.time() * 1000)}'"
+            )
+            params.append(Parameter(output_dir_param, default))
+
+            if self.show_warnings:
+                self.handle_warning(
+                    WarningType.MISSING_WRITER_PARAMETER,
+                    param=output_dir_param,
+                    writer=writer.text,
+                    default=default,
+                )
 
     def check_target(self, tk: Token) -> None:
         target = tk.text

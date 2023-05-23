@@ -3,26 +3,35 @@ from enum import Enum
 
 
 class WarningType(Enum):
-    UNUSED_VARIABLE = "unused_variable"
-    UNKNOWN_PARAM = "unknown_parameter"
-    UNSUPPORTED_GET_TARGET = "unsupported_get_target"
-    DUPLICATED_SETTING = "duplicated_setting"
-    OVERWRITTEN_ATTRIBUTE = "overwritten_attribute"
+    UNUSED_VARIABLE = "UnusedVariable"
+    UNKNOWN_PARAMETER = "UnknownParamter"
+    UNSUPPORTED_GET_TARGET = "UnsopportedTarget"
+    DUPLICATED_SETTING = "DuplicateSetting"
+    OVERWRITTEN_ATTRIBUTE = "OverwrittenAttributes"
+    MISSING_WRITER_PARAMETER = "MissingWriterParameter"
 
 
 class WarningFormatter:
     def get_warning_message(self, type: WarningType, **kwargs) -> str:
         match type:
             case WarningType.UNUSED_VARIABLE:
-                return f"variable '{kwargs['var']}' declared but never used. ╭( ๐_๐)╮"
-            case WarningType.UNKNOWN_PARAM:
-                return f"unknown parameter '{kwargs['param']}' for '{kwargs['command']}'. {self.closest_suggestion(kwargs['param'], kwargs['accepted_params'])}(⊙_☉)"
+                return f"variable '{kwargs['var']}' declared but never used"
+            case WarningType.UNKNOWN_PARAMETER:
+                suggestion = self.closest_suggestion(
+                    kwargs["param"], kwargs["accepted_params"]
+                )
+                return f"unknown parameter '{kwargs['param']}' for '{kwargs['command']}'{ ' . ' + suggestion if suggestion else ''}"
             case WarningType.UNSUPPORTED_GET_TARGET:
-                return f"unsupported target '{kwargs['target']}'. {self.closest_suggestion(kwargs['target'], kwargs['supported_targets'])}(´つヮ⊂)"
+                suggestion = self.closest_suggestion(
+                    kwargs["target"], kwargs["supported_targets"]
+                )
+                return f"unsupported target '{kwargs['target']}'{ ' . ' + suggestion if suggestion else ''}"
             case WarningType.DUPLICATED_SETTING:
-                return f"'{kwargs['setting']}' has already been set. ⊂(▀¯▀⊂ )"
+                return f"'{kwargs['setting']}' has already been set"
             case WarningType.OVERWRITTEN_ATTRIBUTE:
-                return f"'{kwargs['others']}' overrided by {kwargs['last']}. ( ′～‵ )"
+                return f"'{kwargs['others']}' overrided by {kwargs['last']}"
+            case WarningType.MISSING_WRITER_PARAMETER:
+                return f"missing parameter '{kwargs['param']}' for writer '{kwargs['writer']}'{'. Defaulted to {} '.format(kwargs['default']) if 'default' in kwargs else ''}"
             case _:
                 return f"(ノ-_-)ノ ミ ┴┴"
 
@@ -30,13 +39,6 @@ class WarningFormatter:
         closest_match = difflib.get_close_matches(name, accepted)
         if closest_match:
             suggestion = closest_match[0]
-            return f"Did you mean '{suggestion}'? "
+            return f"Did you mean '{suggestion}'?"
         else:
-            return ""
-
-    # def format(self, msg: str, line: Optional[int] = None) -> str:
-    #     warning = f"Warning"
-    #     if line:
-    #         warning += f" at line {line}"
-    #     warning += f": {msg}"
-    #     return warning
+            return None

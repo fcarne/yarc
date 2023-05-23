@@ -10,13 +10,14 @@ settings:
   num_scenes = 100
   root_path = '/path/to/root'
 
-stage:  
+stage:
   open '*/scenario.usd'
 
   edit Timeline:
     start_frame 90
     end_frame 120
-  
+
+
   brake_models = fetch 'usd' from '*/models/' match 'brake_'
   
   visibility = [ i % 2 == 0 for i in [0:10:2]]

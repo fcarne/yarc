@@ -37,7 +37,7 @@ class Handler(abc.ABC):
             "fps": 24,
             "stage_meters_per_unit": 1,
             "stage_up_axis": "y",
-            # "output_dir": "./output",
+            # "output_dir": "*/output",
             "resolution": [512, 512],
         }
         self.settings: dict[str, str] = {}
@@ -115,7 +115,7 @@ class Handler(abc.ABC):
         if self.show_warnings:
             unused_vars = [var for var in vars.symbols if not var.used]
             for var in unused_vars:
-                self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
+                self.handle_warning(WarningType.UNUSED_VARIABLE, var=var.name)
 
     def define(self, vars: list[str]) -> None:
         for var in vars:
@@ -127,8 +127,7 @@ class Handler(abc.ABC):
 
         if self.should_lookup:
             if self.symbol_stack.lookup(var) is None:
-                # TODO: add undeclared error
-                pass
+                self.handle_error(tk=tk, hdr=ErrorType.NAME_ERROR, name=var)
         else:
             self.forward_references.append((var, tk))
 
@@ -176,48 +175,54 @@ class Handler(abc.ABC):
         if isinstance(s, Token):
             s = s.text
 
+        root_path = (
+            self.settings["root_path"][1:-1]
+            if "root_path" in self.settings
+            else self.default_settings["root_path"]
+        )
         if s[1:3] in ["*/", "*\\"]:
-            return s[-1] + self.settings["root_path"][1:-1] + s[2:]
+            return s[-1] + root_path + s[2:]
         else:
             return s
 
     def parse_setting_id(self, setting_id: Token) -> str:
-        setting = setting_id.text
+        setting = setting_id.text.lstrip("$")
 
-        if setting not in self.settings:
-            # TODO: handle_error
-            pass
+        if setting not in self.settings and setting not in self.default_settings:
+            self.handle_error(
+                tk=setting_id, hdr=ErrorType.SETTING_ERROR, setting=setting
+            )
 
         return setting.lstrip("$")
 
     def handle_error(
         self, tk: Token, hdr: ErrorType | str, msg: Optional[str] = None, **kwargs
     ) -> None:
+        show_anchors = True
         if tk is None:
             tk = self.input.LT(-1)
 
-        if isinstance(hdr, ErrorType):
-            if msg is None:
-                msg = hdr.default_msg.format(**kwargs)
+        if hdr == ErrorType.INDENTATION_ERROR:
+            show_anchors = False
 
-            hdr = hdr.name
+        if msg is None:
+            msg = hdr.default_msg.format(*kwargs.values())
 
-        # TODO: revise all errors
-        position = f"[{tk.line},{tk.charPositionInLine + 1}]"
-        token_text = f"'{tk.text}'"
-        error_msg = f"Error at {position}: on token {token_text}"
-        error_msg += "\n" + hdr + "\n**********\n" + msg
+        hdr = hdr.type
+        hdr += f" at line {tk.line}"
 
-        self.error_dict[hdr] = self.error_formatter.format(tk, msg)
+        self.error_dict[hdr] = self.error_formatter.format(
+            tk, msg, show_anchors=show_anchors
+        )
 
     def handle_warning(
         self, type: WarningType, tk: Optional[Token] = None, **kwargs
     ) -> None:
-        hdr = "Warning"
+        hdr = type.value
+
         if tk is not None:
             hdr += f" at line {tk.line}"
 
-        self.warning_dict[hdr] = (
-            self.warning_formatter.get_warning_message(type, **kwargs)
-            + f"[-W{type.name}]"
+        self.warning_dict[hdr] = self.warning_formatter.get_warning_message(
+            type, **kwargs
         )

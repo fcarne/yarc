@@ -36,10 +36,12 @@ class ErrorFormatter:
 
     def format(self, tk: Token, msg: str, show_anchors: bool = True) -> str:
         row = [msg]
-        row.append(f" at line {tk.line}\n")
+        row.append("\n")
 
         if isinstance(self.input, ANTLRFileStream):
-            row.append(f"File: {self.input.fileName}\n")
+            row.append(
+                f"File: {self.input.fileName}:{tk.line}:{tk.charPositionInLine+1}\n"
+            )
 
         line = self.strdata[tk.line - 1]
 

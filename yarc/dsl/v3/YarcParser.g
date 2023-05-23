@@ -19,7 +19,7 @@ else:
 
 scenario[handler_kwargs]
 @after {self.handler.pop_stack()}
-  : NEWLINE* declaration[$handler_kwargs] (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* 
+  : NEWLINE* declaration[$handler_kwargs] (before+=code_snippet | NEWLINE)* settings? stage writers? after+=(code_snippet)* EOF
   -> scenario(name={$declaration.scenario_name}, 
               before_snippets={$before}, 
               settings={$settings.st}, 
