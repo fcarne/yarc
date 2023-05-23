@@ -7,7 +7,7 @@ import time
 
 from antlr3 import Parser, Token
 
-from yarc.dsl.v3.handler.error_formatter import ErrorFormatter
+from yarc.dsl.v3.handler.error_formatter import ErrorFormatter, ErrorType
 from yarc.dsl.v3.handler.simbol_stack import SymbolStack
 from yarc.dsl.v3.handler.warning_formatter import WarningFormatter, WarningType
 
@@ -64,6 +64,7 @@ class Handler(abc.ABC):
 
     def add_setting(self, setting: Token, value: Any) -> None:
         setting_text = setting.text
+
         if self.show_warnings and setting_text in self.settings:
             self.handle_warning(
                 WarningType.DUPLICATED_SETTING, setting, setting=setting_text
@@ -110,9 +111,9 @@ class Handler(abc.ABC):
 
     def pop_stack(self) -> None:
         vars = self.symbol_stack.pop()
-        unused_vars = [var for var in vars.symbols if not var.used]
 
         if self.show_warnings:
+            unused_vars = [var for var in vars.symbols if not var.used]
             for var in unused_vars:
                 self.handle_warning(WarningType.UNUSED_VARIABLE, var=var)
 
@@ -158,7 +159,7 @@ class Handler(abc.ABC):
     def map(self, *tokens: list[Union[Token, str]]) -> str:
         raise NotImplementedError
 
-    def check_writer_params(self, writer_params: list[Parameter]) -> None:
+    def check_writer(self, writer: Token, params: list[Parameter]) -> None:
         raise NotImplementedError
 
     def check_target(self, tk: Token) -> None:
@@ -189,9 +190,17 @@ class Handler(abc.ABC):
 
         return setting.lstrip("$")
 
-    def handle_error(self, tk: Token, hdr: str, msg: str) -> None:
+    def handle_error(
+        self, tk: Token, hdr: ErrorType | str, msg: Optional[str] = None, **kwargs
+    ) -> None:
         if tk is None:
             tk = self.input.LT(-1)
+
+        if isinstance(hdr, ErrorType):
+            if msg is None:
+                msg = hdr.default_msg.format(**kwargs)
+
+            hdr = hdr.name
 
         # TODO: revise all errors
         position = f"[{tk.line},{tk.charPositionInLine + 1}]"
@@ -208,6 +217,7 @@ class Handler(abc.ABC):
         if tk is not None:
             hdr += f" at line {tk.line}"
 
-        self.warning_dict[hdr] = self.warning_formatter.get_warning_message(
-            type, **kwargs
+        self.warning_dict[hdr] = (
+            self.warning_formatter.get_warning_message(type, **kwargs)
+            + f"[-W{type.name}]"
         )

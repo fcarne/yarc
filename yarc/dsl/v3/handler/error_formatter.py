@@ -20,9 +20,13 @@ class ErrorType(Enum):
         self.type = type
         self.default_msg = default_msg
 
-    # TODO: set error types
-    GREEN = "a", "b"
-    BLUE = "c", "d"
+    SYNTAX_ERROR = "SyntaxError", "invalid syntax"
+    INDENTATION_ERROR = "IndentationError", "unexpected indent"
+    LIB_ERROR = "LibError", "library '{}' not supported"
+    SNIPPET_ERROR = "SnippetError", "error found in native code"
+    SETTING_ERROR = "SettingError", "setting '{}' is not defined"
+    WRITER_ERROR = "WriterError", "unknown writer '{}'"
+    NAME_ERROR = "NameError", "name '{}' is not defined"
 
 
 class ErrorFormatter:

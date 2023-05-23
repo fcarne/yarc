@@ -228,6 +228,8 @@ INCOMPATIBLE_ATTRS = [
     {"scale", "size"},
 ]
 
+SUPPORTED_WRITES = {"BasicWriter", "DemoWriter", "KittiWriter", ""}
+
 
 class OmniReplicatorHandler(Handler):
     def __init__(self, parser: Parser, warnings=False):
@@ -367,11 +369,14 @@ class OmniReplicatorHandler(Handler):
 
         return "_".join([self.mapping.get(t, t.lower()) for t in tokens])
 
-    def check_writer_params(self, writer_params: list[Parameter]) -> None:
-        params = [param.name for param in writer_params]
+    def check_writer(self, writer: Token, params: list[Parameter]) -> None:
+        if writer.text not in SUPPORTED_WRITERS:
+            # TODO: add Error
+            return
 
-        if "output_dir" not in params:
-            # TODO: raise Error or warning and default
+        names = [param.name for param in params]
+        if "output_dir" not in names:
+            # TODO: add warning and default
             pass
 
     def check_target(self, tk: Token) -> None:

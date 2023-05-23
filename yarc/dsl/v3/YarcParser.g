@@ -46,7 +46,7 @@ writers
 @after {self.handler.pop_stack()}
   : WRITERS COLON NEWLINE INDENT stmts_+=(expr_stmt | code_snippet | writer)+ DEDENT -> writers(stmts={$stmts_});
 writer @init {params = []}       
-  : ID COLON NEWLINE INDENT (writer_param {params.append($writer_param.param)})+ DEDENT {self.handler.check_writer_params(params)} 
+  : ID COLON NEWLINE INDENT (writer_param {params.append($writer_param.param)})+ DEDENT {self.handler.check_writer($ID, params)} 
   -> writer(writer_id={$ID.text}, params={params});
 writer_param returns [param]: ID ASSIGN test NEWLINE {$param = Parameter($ID.text,$test.st) };
 
