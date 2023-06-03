@@ -5,14 +5,13 @@ from pathlib import Path
 import stringtemplate3
 from antlr3 import Parser
 
-from yarc.dsl.v3.handler.error_formatter import ErrorType
-from yarc.dsl.v3.handler.handler import Handler
-from yarc.dsl.v3.handler.replicator_handler import OmniReplicatorHandler
+from yarc.parser.handlers.formatters.error_formatter import ErrorType
+from yarc.parser.handlers.handler import Handler
+from yarc.parser.handlers.replicator_handler import OmniReplicatorHandler
+from yarc.templates import TEMPLATE_DIR
 
 
 class HandlerFactory:
-    TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
-
     supported_libraries: dict[str, tuple[type[Handler], Path]] = {
         "Replicator": (
             OmniReplicatorHandler,

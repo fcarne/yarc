@@ -1,15 +1,19 @@
 from typing import Any, NamedTuple, Optional, Union
 
 import abc
+import keyword
 import random
 import string
 import time
 
 from antlr3 import Parser, Token
 
-from yarc.dsl.v3.handler.error_formatter import ErrorFormatter, ErrorType
-from yarc.dsl.v3.handler.simbol_stack import SymbolStack
-from yarc.dsl.v3.handler.warning_formatter import WarningFormatter, WarningType
+from yarc.parser.handlers.formatters.error_formatter import ErrorFormatter, ErrorType
+from yarc.parser.handlers.formatters.warning_formatter import (
+    WarningFormatter,
+    WarningType,
+)
+from yarc.parser.handlers.utils.simbol_stack import SymbolStack
 
 
 class Attribute(NamedTuple):
@@ -119,6 +123,12 @@ class Handler(abc.ABC):
 
     def define(self, vars: list[str]) -> None:
         for var in vars:
+            if var in keyword.kwlist:
+                self.handle_error(
+                    ErrorType.NAME_ERROR,
+                    msg=f"cannot name a variable '{var}' (python reserved keyword)",
+                )
+
             self.symbol_stack.define(var, Any)
 
     def lookup(self, var: str, tk: Optional[Token] = None) -> None:

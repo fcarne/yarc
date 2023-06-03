@@ -1,12 +1,12 @@
-from typing import TextIO
+from typing import Optional, TextIO
 
 import re
 import sys
 
-from antlr4 import InputStream, Lexer
-from antlr4.Token import CommonToken, Token
+from antlr3 import InputStream, Lexer
+from antlr3.tokens import CommonToken, Token
 
-from yarc.dsl.v4.YarcParser import YarcParser
+from yarc.parser import YarcParser
 
 
 class YarcLexerBase(Lexer):
@@ -25,13 +25,18 @@ class YarcLexerBase(Lexer):
         self.opened = 0
         super().reset()
 
-    def emitToken(self, token):
-        self._token = token
+    def emit(self, token: Optional[Token] = None) -> Token:
+        t = super().emit(token)
+        self.emitToken(t)
+        return t
+
+    def emitToken(self, token: Token) -> None:
+        self._state.token = token
         self.tokens.append(token)
 
     def nextToken(self):
         # Check if the end-of-file is ahead and there are still some DEDENTS expected.
-        if self._input.LA(1) == YarcParser.EOF and len(self.indents) != 0:
+        if self.input.LA(1) == YarcParser.EOF and len(self.indents) != 0:
             # Remove any trailing EOF tokens from our buffer.
             self.tokens = [
                 token for token in self.tokens if token.type != YarcParser.EOF
@@ -57,13 +62,22 @@ class YarcLexerBase(Lexer):
     def commonToken(self, type_: int, text: str) -> CommonToken:
         stop = self.getCharIndex() - 1
         start = stop if text == "" else stop - len(text) + 1
-        return CommonToken(
-            self._tokenFactorySourcePair,
-            type_,
-            Lexer.DEFAULT_TOKEN_CHANNEL,
-            start,
-            stop,
+        token = CommonToken(
+            type=type_,
+            text=text,
+            channel=Lexer.DEFAULT_TOKEN_CHANNEL,
+            start=start,
+            stop=stop,
         )
+
+        token.line = self._state.tokenStartLine
+        token.charPositionInLine = self._state.tokenStartCharPositionInLine
+
+        if type_ == YarcParser.INDENT:
+            token.line += 1
+            token.charPositionInLine = 0
+
+        return token
 
     def getIndentationCount(self, whitespace: str) -> int:
         count = 0
@@ -89,8 +103,8 @@ class YarcLexerBase(Lexer):
 
         # Strip newlines inside open clauses except if we are near EOF. We keep NEWLINEs near EOF to
         # satisfy the final newline needed by the single_put rule used by the REPL.
-        next_ = self._input.LA(1)
-        next_next = self._input.LA(2)
+        next_ = self.input.LA(1)
+        next_next = self.input.LA(2)
 
         if self.opened > 0 or (next_next != -1 and next_ in (10, 13, 35)):
             self.skip()

@@ -8,8 +8,8 @@ options {
 }
 
 @header {
-from yarc.dsl.v3.handler.handler_factory import HandlerFactory
-from yarc.dsl.v3.handler.handler import Attribute, Parameter, Handler
+from yarc.parser.handlers.handler_factory import HandlerFactory
+from yarc.parser.handlers.handler import Attribute, Parameter, Handler
 
 if __name__ is not None and "." in __name__:
     from .YarcParserBase import YarcParserBase

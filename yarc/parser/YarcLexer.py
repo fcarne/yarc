@@ -1,4 +1,4 @@
-# $ANTLR 3.5.3 YarcLexer.g 2023-05-23 20:56:29
+# $ANTLR 3.5.3 .\\yarc\\yarc\\grammar\\YarcLexer.g 2023-06-03 21:00:18
 
 import sys
 
@@ -281,7 +281,7 @@ Token.registerTokenNamesMap(tokenNamesMap)
 
 
 class YarcLexer(YarcLexerBase):
-    grammarFileName = "YarcLexer.g"
+    grammarFileName = ".\\yarc\\yarc\\grammar\\YarcLexer.g"
     api_version = 1
 
     def __init__(self, input=None, state=None):
@@ -347,8 +347,8 @@ class YarcLexer(YarcLexerBase):
             _type = SCENARIO
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:22:10: ( 'scenario' )
-            # YarcLexer.g:22:12: 'scenario'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:22:10: ( 'scenario' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:22:12: 'scenario'
             self.match("scenario")
 
             self._state.type = _type
@@ -366,8 +366,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTINGS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:23:10: ( 'settings' )
-            # YarcLexer.g:23:12: 'settings'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:23:10: ( 'settings' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:23:12: 'settings'
             self.match("settings")
 
             self._state.type = _type
@@ -385,8 +385,8 @@ class YarcLexer(YarcLexerBase):
             _type = STAGE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:24:10: ( 'stage' )
-            # YarcLexer.g:24:12: 'stage'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:24:10: ( 'stage' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:24:12: 'stage'
             self.match("stage")
 
             self._state.type = _type
@@ -404,8 +404,8 @@ class YarcLexer(YarcLexerBase):
             _type = WRITERS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:25:10: ( 'writers' )
-            # YarcLexer.g:25:12: 'writers'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:25:10: ( 'writers' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:25:12: 'writers'
             self.match("writers")
 
             self._state.type = _type
@@ -423,7 +423,7 @@ class YarcLexer(YarcLexerBase):
             _type = SHAPE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:28:18: ( 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:18: ( 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk' )
             alt1 = 7
             LA1 = self.input.LA(1)
             if LA1 in {80}:
@@ -453,31 +453,31 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt1 == 1:
-                # YarcLexer.g:28:20: 'Plane'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:20: 'Plane'
                 self.match("Plane")
 
             elif alt1 == 2:
-                # YarcLexer.g:28:30: 'Cube'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:30: 'Cube'
                 self.match("Cube")
 
             elif alt1 == 3:
-                # YarcLexer.g:28:39: 'Cone'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:39: 'Cone'
                 self.match("Cone")
 
             elif alt1 == 4:
-                # YarcLexer.g:28:48: 'Torus'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:48: 'Torus'
                 self.match("Torus")
 
             elif alt1 == 5:
-                # YarcLexer.g:28:58: 'Sphere'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:58: 'Sphere'
                 self.match("Sphere")
 
             elif alt1 == 6:
-                # YarcLexer.g:28:69: 'Cylinder'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:69: 'Cylinder'
                 self.match("Cylinder")
 
             elif alt1 == 7:
-                # YarcLexer.g:28:82: 'Disk'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:28:82: 'Disk'
                 self.match("Disk")
 
             self._state.type = _type
@@ -495,8 +495,8 @@ class YarcLexer(YarcLexerBase):
             _type = CAMERA
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:29:18: ( 'Camera' )
-            # YarcLexer.g:29:20: 'Camera'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:29:18: ( 'Camera' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:29:20: 'Camera'
             self.match("Camera")
 
             self._state.type = _type
@@ -514,8 +514,8 @@ class YarcLexer(YarcLexerBase):
             _type = LIGHT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:30:18: ( 'Light' )
-            # YarcLexer.g:30:20: 'Light'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:30:18: ( 'Light' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:30:20: 'Light'
             self.match("Light")
 
             self._state.type = _type
@@ -533,8 +533,8 @@ class YarcLexer(YarcLexerBase):
             _type = STEREO
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:31:18: ( 'Stereo' )
-            # YarcLexer.g:31:20: 'Stereo'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:31:18: ( 'Stereo' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:31:20: 'Stereo'
             self.match("Stereo")
 
             self._state.type = _type
@@ -552,8 +552,8 @@ class YarcLexer(YarcLexerBase):
             _type = MATERIAL
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:32:18: ( 'Material' )
-            # YarcLexer.g:32:20: 'Material'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:32:18: ( 'Material' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:32:20: 'Material'
             self.match("Material")
 
             self._state.type = _type
@@ -571,8 +571,8 @@ class YarcLexer(YarcLexerBase):
             _type = TIMELINE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:33:18: ( 'Timeline' )
-            # YarcLexer.g:33:20: 'Timeline'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:33:18: ( 'Timeline' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:33:20: 'Timeline'
             self.match("Timeline")
 
             self._state.type = _type
@@ -590,8 +590,8 @@ class YarcLexer(YarcLexerBase):
             _type = OPEN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:36:13: ( 'open' )
-            # YarcLexer.g:36:15: 'open'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:36:13: ( 'open' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:36:15: 'open'
             self.match("open")
 
             self._state.type = _type
@@ -609,8 +609,8 @@ class YarcLexer(YarcLexerBase):
             _type = CREATE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:37:13: ( 'create' )
-            # YarcLexer.g:37:15: 'create'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:37:13: ( 'create' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:37:15: 'create'
             self.match("create")
 
             self._state.type = _type
@@ -628,8 +628,8 @@ class YarcLexer(YarcLexerBase):
             _type = GROUP
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:38:13: ( 'group' )
-            # YarcLexer.g:38:15: 'group'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:38:13: ( 'group' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:38:15: 'group'
             self.match("group")
 
             self._state.type = _type
@@ -647,8 +647,8 @@ class YarcLexer(YarcLexerBase):
             _type = INSTANTIATE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:39:13: ( 'instantiate' )
-            # YarcLexer.g:39:15: 'instantiate'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:39:13: ( 'instantiate' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:39:15: 'instantiate'
             self.match("instantiate")
 
             self._state.type = _type
@@ -666,8 +666,8 @@ class YarcLexer(YarcLexerBase):
             _type = GET
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:40:13: ( 'get' )
-            # YarcLexer.g:40:15: 'get'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:40:13: ( 'get' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:40:15: 'get'
             self.match("get")
 
             self._state.type = _type
@@ -685,8 +685,8 @@ class YarcLexer(YarcLexerBase):
             _type = EDIT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:41:13: ( 'edit' )
-            # YarcLexer.g:41:15: 'edit'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:41:13: ( 'edit' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:41:15: 'edit'
             self.match("edit")
 
             self._state.type = _type
@@ -704,8 +704,8 @@ class YarcLexer(YarcLexerBase):
             _type = FETCH
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:45:11: ( 'fetch' )
-            # YarcLexer.g:45:13: 'fetch'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:45:11: ( 'fetch' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:45:13: 'fetch'
             self.match("fetch")
 
             self._state.type = _type
@@ -723,8 +723,8 @@ class YarcLexer(YarcLexerBase):
             _type = MATCH
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:46:11: ( 'match' )
-            # YarcLexer.g:46:13: 'match'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:46:11: ( 'match' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:46:13: 'match'
             self.match("match")
 
             self._state.type = _type
@@ -742,8 +742,8 @@ class YarcLexer(YarcLexerBase):
             _type = LIMIT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:47:11: ( 'limit' )
-            # YarcLexer.g:47:13: 'limit'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:47:11: ( 'limit' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:47:13: 'limit'
             self.match("limit")
 
             self._state.type = _type
@@ -761,8 +761,8 @@ class YarcLexer(YarcLexerBase):
             _type = RECURSIVE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:48:11: ( 'recursive' )
-            # YarcLexer.g:48:13: 'recursive'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:48:11: ( 'recursive' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:48:13: 'recursive'
             self.match("recursive")
 
             self._state.type = _type
@@ -780,8 +780,8 @@ class YarcLexer(YarcLexerBase):
             _type = TRANSLATE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:51:15: ( 'translate' )
-            # YarcLexer.g:51:17: 'translate'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:51:15: ( 'translate' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:51:17: 'translate'
             self.match("translate")
 
             self._state.type = _type
@@ -799,8 +799,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROTATE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:52:15: ( 'rotate' )
-            # YarcLexer.g:52:17: 'rotate'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:52:15: ( 'rotate' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:52:17: 'rotate'
             self.match("rotate")
 
             self._state.type = _type
@@ -818,8 +818,8 @@ class YarcLexer(YarcLexerBase):
             _type = SCALE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:53:15: ( 'scale' )
-            # YarcLexer.g:53:17: 'scale'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:53:15: ( 'scale' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:53:17: 'scale'
             self.match("scale")
 
             self._state.type = _type
@@ -837,8 +837,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMANTICS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:54:15: ( 'semantics' )
-            # YarcLexer.g:54:17: 'semantics'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:54:15: ( 'semantics' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:54:17: 'semantics'
             self.match("semantics")
 
             self._state.type = _type
@@ -856,8 +856,8 @@ class YarcLexer(YarcLexerBase):
             _type = VISIBLE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:55:15: ( 'visible' )
-            # YarcLexer.g:55:17: 'visible'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:55:15: ( 'visible' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:55:17: 'visible'
             self.match("visible")
 
             self._state.type = _type
@@ -875,8 +875,8 @@ class YarcLexer(YarcLexerBase):
             _type = SIZE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:56:15: ( 'size' )
-            # YarcLexer.g:56:17: 'size'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:56:15: ( 'size' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:56:17: 'size'
             self.match("size")
 
             self._state.type = _type
@@ -894,8 +894,8 @@ class YarcLexer(YarcLexerBase):
             _type = LOOK_AT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:57:15: ( 'look_at' )
-            # YarcLexer.g:57:17: 'look_at'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:57:15: ( 'look_at' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:57:17: 'look_at'
             self.match("look_at")
 
             self._state.type = _type
@@ -913,8 +913,8 @@ class YarcLexer(YarcLexerBase):
             _type = UP_AXIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:58:15: ( 'up_axis' )
-            # YarcLexer.g:58:17: 'up_axis'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:58:15: ( 'up_axis' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:58:17: 'up_axis'
             self.match("up_axis")
 
             self._state.type = _type
@@ -932,8 +932,8 @@ class YarcLexer(YarcLexerBase):
             _type = PIVOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:59:15: ( 'pivot' )
-            # YarcLexer.g:59:17: 'pivot'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:59:15: ( 'pivot' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:59:17: 'pivot'
             self.match("pivot")
 
             self._state.type = _type
@@ -951,8 +951,8 @@ class YarcLexer(YarcLexerBase):
             _type = MATERIAL_
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:60:15: ( 'material' )
-            # YarcLexer.g:60:17: 'material'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:60:15: ( 'material' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:60:17: 'material'
             self.match("material")
 
             self._state.type = _type
@@ -970,8 +970,8 @@ class YarcLexer(YarcLexerBase):
             _type = AXIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:61:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:61:15: ( 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if self.input.LA(1) in {88, 89, 90, 120, 121, 122}:
                 self.input.consume()
             else:
@@ -994,8 +994,8 @@ class YarcLexer(YarcLexerBase):
             _type = ORDER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:62:15: ( AXIS AXIS AXIS )
-            # YarcLexer.g:62:17: AXIS AXIS AXIS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:62:15: ( AXIS AXIS AXIS )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:62:17: AXIS AXIS AXIS
             self.mAXIS()
 
             self.mAXIS()
@@ -1017,11 +1017,11 @@ class YarcLexer(YarcLexerBase):
             _type = SCATTER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:65:13: ( 'scatter_' ( '2d' | '3d' ) )
-            # YarcLexer.g:65:15: 'scatter_' ( '2d' | '3d' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:65:13: ( 'scatter_' ( '2d' | '3d' ) )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:65:15: 'scatter_' ( '2d' | '3d' )
             self.match("scatter_")
 
-            # YarcLexer.g:65:26: ( '2d' | '3d' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:65:26: ( '2d' | '3d' )
             alt2 = 2
             LA2_0 = self.input.LA(1)
 
@@ -1035,11 +1035,11 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt2 == 1:
-                # YarcLexer.g:65:27: '2d'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:65:27: '2d'
                 self.match("2d")
 
             elif alt2 == 2:
-                # YarcLexer.g:65:34: '3d'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:65:34: '3d'
                 self.match("3d")
 
             self._state.type = _type
@@ -1057,8 +1057,8 @@ class YarcLexer(YarcLexerBase):
             _type = ROT_AROUND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:66:13: ( 'rotate_around' )
-            # YarcLexer.g:66:15: 'rotate_around'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:66:13: ( 'rotate_around' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:66:15: 'rotate_around'
             self.match("rotate_around")
 
             self._state.type = _type
@@ -1076,8 +1076,8 @@ class YarcLexer(YarcLexerBase):
             _type = MOVE_TO_CAM
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:67:13: ( 'move_to_camera' )
-            # YarcLexer.g:67:15: 'move_to_camera'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:67:13: ( 'move_to_camera' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:67:15: 'move_to_camera'
             self.match("move_to_camera")
 
             self._state.type = _type
@@ -1095,7 +1095,7 @@ class YarcLexer(YarcLexerBase):
             _type = PHYSICS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:68:13: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:68:13: ( 'collider' | 'kinematics' | 'rigid_body' | 'physics_material' )
             alt3 = 4
             LA3 = self.input.LA(1)
             if LA3 in {99}:
@@ -1112,19 +1112,19 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt3 == 1:
-                # YarcLexer.g:68:15: 'collider'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:68:15: 'collider'
                 self.match("collider")
 
             elif alt3 == 2:
-                # YarcLexer.g:68:28: 'kinematics'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:68:28: 'kinematics'
                 self.match("kinematics")
 
             elif alt3 == 3:
-                # YarcLexer.g:68:43: 'rigid_body'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:68:43: 'rigid_body'
                 self.match("rigid_body")
 
             elif alt3 == 4:
-                # YarcLexer.g:68:58: 'physics_material'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:68:58: 'physics_material'
                 self.match("physics_material")
 
             self._state.type = _type
@@ -1142,8 +1142,8 @@ class YarcLexer(YarcLexerBase):
             _type = EVERY
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:71:8: ( 'every' )
-            # YarcLexer.g:71:10: 'every'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:71:8: ( 'every' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:71:10: 'every'
             self.match("every")
 
             self._state.type = _type
@@ -1161,18 +1161,18 @@ class YarcLexer(YarcLexerBase):
             _type = FRAMES
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:72:8: ( 'frame' ( 's' )? )
-            # YarcLexer.g:72:10: 'frame' ( 's' )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:72:8: ( 'frame' ( 's' )? )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:72:10: 'frame' ( 's' )?
             self.match("frame")
 
-            # YarcLexer.g:72:18: ( 's' )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:72:18: ( 's' )?
             alt4 = 2
             LA4_0 = self.input.LA(1)
 
             if LA4_0 == 115:
                 alt4 = 1
             if alt4 == 1:
-                # YarcLexer.g:72:18: 's'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:72:18: 's'
                 self.match(115)
 
             self._state.type = _type
@@ -1190,28 +1190,28 @@ class YarcLexer(YarcLexerBase):
             _type = TIME
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:73:8: ( 'sec' ( 'ond' ( 's' )? )? )
-            # YarcLexer.g:73:10: 'sec' ( 'ond' ( 's' )? )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:8: ( 'sec' ( 'ond' ( 's' )? )? )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:10: 'sec' ( 'ond' ( 's' )? )?
             self.match("sec")
 
-            # YarcLexer.g:73:16: ( 'ond' ( 's' )? )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:16: ( 'ond' ( 's' )? )?
             alt6 = 2
             LA6_0 = self.input.LA(1)
 
             if LA6_0 == 111:
                 alt6 = 1
             if alt6 == 1:
-                # YarcLexer.g:73:17: 'ond' ( 's' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:17: 'ond' ( 's' )?
                 self.match("ond")
 
-                # YarcLexer.g:73:23: ( 's' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:23: ( 's' )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if LA5_0 == 115:
                     alt5 = 1
                 if alt5 == 1:
-                    # YarcLexer.g:73:23: 's'
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:73:23: 's'
                     self.match(115)
 
             self._state.type = _type
@@ -1229,7 +1229,7 @@ class YarcLexer(YarcLexerBase):
             _type = DISTRIBUTION
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:76:14: ( 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:14: ( 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' )
             alt7 = 5
             LA7 = self.input.LA(1)
             if LA7 in {85}:
@@ -1248,23 +1248,23 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt7 == 1:
-                # YarcLexer.g:76:16: 'Uniform'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:16: 'Uniform'
                 self.match("Uniform")
 
             elif alt7 == 2:
-                # YarcLexer.g:76:28: 'Normal'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:28: 'Normal'
                 self.match("Normal")
 
             elif alt7 == 3:
-                # YarcLexer.g:76:39: 'Choice'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:39: 'Choice'
                 self.match("Choice")
 
             elif alt7 == 4:
-                # YarcLexer.g:76:50: 'Sequence'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:50: 'Sequence'
                 self.match("Sequence")
 
             elif alt7 == 5:
-                # YarcLexer.g:76:63: 'LogUniform'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:76:63: 'LogUniform'
                 self.match("LogUniform")
 
             self._state.type = _type
@@ -1282,8 +1282,8 @@ class YarcLexer(YarcLexerBase):
             _type = COMBINE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:77:9: ( 'Combine' )
-            # YarcLexer.g:77:11: 'Combine'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:77:9: ( 'Combine' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:77:11: 'Combine'
             self.match("Combine")
 
             self._state.type = _type
@@ -1301,8 +1301,8 @@ class YarcLexer(YarcLexerBase):
             _type = SNIPPET
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:79:9: ( NESTED_CODE )
-            # YarcLexer.g:79:11: NESTED_CODE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:79:9: ( NESTED_CODE )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:79:11: NESTED_CODE
             self.mNESTED_CODE()
 
             self._state.type = _type
@@ -1317,13 +1317,13 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:81:21: ( LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE )
-            # YarcLexer.g:82:3: LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:81:21: ( LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:82:3: LBRACE LBRACE ( options {k=2; greedy=false; } : NESTED_CODE | . )* RBRACE RBRACE
             self.mLBRACE()
 
             self.mLBRACE()
 
-            # YarcLexer.g:83:5: ( options {k=2; greedy=false; } : NESTED_CODE | . )*
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:83:5: ( options {k=2; greedy=false; } : NESTED_CODE | . )*
             while True:  # loop8
                 alt8 = 3
                 LA8_0 = self.input.LA(1)
@@ -1336,11 +1336,11 @@ class YarcLexer(YarcLexerBase):
                     alt8 = 2
 
                 if alt8 == 1:
-                    # YarcLexer.g:83:37: NESTED_CODE
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:83:37: NESTED_CODE
                     self.mNESTED_CODE()
 
                 elif alt8 == 2:
-                    # YarcLexer.g:83:51: .
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:83:51: .
                     self.matchAny()
 
                 else:
@@ -1363,8 +1363,8 @@ class YarcLexer(YarcLexerBase):
             _type = TO
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:88:4: ( 'to' )
-            # YarcLexer.g:88:6: 'to'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:88:4: ( 'to' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:88:6: 'to'
             self.match("to")
 
             self._state.type = _type
@@ -1382,8 +1382,8 @@ class YarcLexer(YarcLexerBase):
             _type = ON
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:89:4: ( 'on' )
-            # YarcLexer.g:89:6: 'on'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:89:4: ( 'on' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:89:6: 'on'
             self.match("on")
 
             self._state.type = _type
@@ -1401,8 +1401,8 @@ class YarcLexer(YarcLexerBase):
             _type = AT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:90:4: ( 'at' )
-            # YarcLexer.g:90:6: 'at'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:90:4: ( 'at' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:90:6: 'at'
             self.match("at")
 
             self._state.type = _type
@@ -1420,8 +1420,8 @@ class YarcLexer(YarcLexerBase):
             _type = AND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:98:12: ( 'and' )
-            # YarcLexer.g:98:14: 'and'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:98:12: ( 'and' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:98:14: 'and'
             self.match("and")
 
             self._state.type = _type
@@ -1439,8 +1439,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELSE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:99:12: ( 'else' )
-            # YarcLexer.g:99:14: 'else'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:99:12: ( 'else' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:99:14: 'else'
             self.match("else")
 
             self._state.type = _type
@@ -1458,8 +1458,8 @@ class YarcLexer(YarcLexerBase):
             _type = FALSE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:100:12: ( 'false' )
-            # YarcLexer.g:100:14: 'false'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:100:12: ( 'false' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:100:14: 'false'
             self.match("false")
 
             self._state.type = _type
@@ -1477,8 +1477,8 @@ class YarcLexer(YarcLexerBase):
             _type = FOR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:101:12: ( 'for' )
-            # YarcLexer.g:101:14: 'for'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:101:12: ( 'for' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:101:14: 'for'
             self.match("for")
 
             self._state.type = _type
@@ -1496,8 +1496,8 @@ class YarcLexer(YarcLexerBase):
             _type = FROM
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:102:12: ( 'from' )
-            # YarcLexer.g:102:14: 'from'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:102:12: ( 'from' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:102:14: 'from'
             self.match("from")
 
             self._state.type = _type
@@ -1515,8 +1515,8 @@ class YarcLexer(YarcLexerBase):
             _type = IF
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:103:12: ( 'if' )
-            # YarcLexer.g:103:14: 'if'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:103:12: ( 'if' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:103:14: 'if'
             self.match("if")
 
             self._state.type = _type
@@ -1534,8 +1534,8 @@ class YarcLexer(YarcLexerBase):
             _type = IN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:104:12: ( 'in' )
-            # YarcLexer.g:104:14: 'in'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:104:12: ( 'in' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:104:14: 'in'
             self.match("in")
 
             self._state.type = _type
@@ -1553,8 +1553,8 @@ class YarcLexer(YarcLexerBase):
             _type = IS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:105:12: ( 'is' )
-            # YarcLexer.g:105:14: 'is'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:105:12: ( 'is' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:105:14: 'is'
             self.match("is")
 
             self._state.type = _type
@@ -1572,8 +1572,8 @@ class YarcLexer(YarcLexerBase):
             _type = LEN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:106:12: ( 'len' )
-            # YarcLexer.g:106:14: 'len'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:106:12: ( 'len' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:106:14: 'len'
             self.match("len")
 
             self._state.type = _type
@@ -1591,8 +1591,8 @@ class YarcLexer(YarcLexerBase):
             _type = NONE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:107:12: ( 'none' )
-            # YarcLexer.g:107:14: 'none'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:107:12: ( 'none' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:107:14: 'none'
             self.match("none")
 
             self._state.type = _type
@@ -1610,8 +1610,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:108:12: ( 'not' )
-            # YarcLexer.g:108:14: 'not'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:108:12: ( 'not' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:108:14: 'not'
             self.match("not")
 
             self._state.type = _type
@@ -1629,8 +1629,8 @@ class YarcLexer(YarcLexerBase):
             _type = OR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:109:12: ( 'or' )
-            # YarcLexer.g:109:14: 'or'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:109:12: ( 'or' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:109:14: 'or'
             self.match("or")
 
             self._state.type = _type
@@ -1648,8 +1648,8 @@ class YarcLexer(YarcLexerBase):
             _type = STEP
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:110:12: ( 'step' )
-            # YarcLexer.g:110:14: 'step'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:110:12: ( 'step' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:110:14: 'step'
             self.match("step")
 
             self._state.type = _type
@@ -1667,8 +1667,8 @@ class YarcLexer(YarcLexerBase):
             _type = TRUE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:111:12: ( 'true' )
-            # YarcLexer.g:111:14: 'true'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:111:12: ( 'true' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:111:14: 'true'
             self.match("true")
 
             self._state.type = _type
@@ -1686,8 +1686,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNDERSCORE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:112:12: ( '_' )
-            # YarcLexer.g:112:14: '_'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:112:12: ( '_' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:112:14: '_'
             self.match(95)
 
             self._state.type = _type
@@ -1705,8 +1705,8 @@ class YarcLexer(YarcLexerBase):
             _type = DOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:115:10: ( '.' )
-            # YarcLexer.g:115:12: '.'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:115:10: ( '.' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:115:12: '.'
             self.match(46)
 
             self._state.type = _type
@@ -1724,8 +1724,8 @@ class YarcLexer(YarcLexerBase):
             _type = RANGE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:116:10: ( '..' )
-            # YarcLexer.g:116:12: '..'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:116:10: ( '..' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:116:12: '..'
             self.match("..")
 
             self._state.type = _type
@@ -1743,8 +1743,8 @@ class YarcLexer(YarcLexerBase):
             _type = ELLIPSIS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:117:10: ( '...' )
-            # YarcLexer.g:117:12: '...'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:117:10: ( '...' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:117:12: '...'
             self.match("...")
 
             self._state.type = _type
@@ -1762,8 +1762,8 @@ class YarcLexer(YarcLexerBase):
             _type = COMMA
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:118:10: ( ',' )
-            # YarcLexer.g:118:12: ','
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:118:10: ( ',' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:118:12: ','
             self.match(44)
 
             self._state.type = _type
@@ -1781,8 +1781,8 @@ class YarcLexer(YarcLexerBase):
             _type = COLON
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:119:10: ( ':' )
-            # YarcLexer.g:119:12: ':'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:119:10: ( ':' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:119:12: ':'
             self.match(58)
 
             self._state.type = _type
@@ -1800,8 +1800,8 @@ class YarcLexer(YarcLexerBase):
             _type = SEMI
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:120:10: ( ';' )
-            # YarcLexer.g:120:12: ';'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:120:10: ( ';' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:120:12: ';'
             self.match(59)
 
             self._state.type = _type
@@ -1819,8 +1819,8 @@ class YarcLexer(YarcLexerBase):
             _type = ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:122:9: ( '=' )
-            # YarcLexer.g:122:11: '='
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:122:9: ( '=' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:122:11: '='
             self.match(61)
 
             self._state.type = _type
@@ -1838,8 +1838,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_OR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:123:9: ( '|' )
-            # YarcLexer.g:123:11: '|'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:123:9: ( '|' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:123:11: '|'
             self.match(124)
 
             self._state.type = _type
@@ -1857,8 +1857,8 @@ class YarcLexer(YarcLexerBase):
             _type = XOR
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:124:9: ( '^' )
-            # YarcLexer.g:124:11: '^'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:124:9: ( '^' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:124:11: '^'
             self.match(94)
 
             self._state.type = _type
@@ -1876,8 +1876,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_AND
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:125:9: ( '&' )
-            # YarcLexer.g:125:11: '&'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:125:9: ( '&' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:125:11: '&'
             self.match(38)
 
             self._state.type = _type
@@ -1895,8 +1895,8 @@ class YarcLexer(YarcLexerBase):
             _type = BIT_NOT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:126:9: ( '~' )
-            # YarcLexer.g:126:11: '~'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:126:9: ( '~' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:126:11: '~'
             self.match(126)
 
             self._state.type = _type
@@ -1914,8 +1914,8 @@ class YarcLexer(YarcLexerBase):
             _type = LSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:127:9: ( '<<' )
-            # YarcLexer.g:127:11: '<<'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:127:9: ( '<<' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:127:11: '<<'
             self.match("<<")
 
             self._state.type = _type
@@ -1933,8 +1933,8 @@ class YarcLexer(YarcLexerBase):
             _type = RSHIFT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:128:9: ( '>>' )
-            # YarcLexer.g:128:11: '>>'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:128:9: ( '>>' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:128:11: '>>'
             self.match(">>")
 
             self._state.type = _type
@@ -1952,8 +1952,8 @@ class YarcLexer(YarcLexerBase):
             _type = PLUS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:129:9: ( '+' )
-            # YarcLexer.g:129:11: '+'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:129:9: ( '+' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:129:11: '+'
             self.match(43)
 
             self._state.type = _type
@@ -1971,8 +1971,8 @@ class YarcLexer(YarcLexerBase):
             _type = MINUS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:130:9: ( '-' )
-            # YarcLexer.g:130:11: '-'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:130:9: ( '-' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:130:11: '-'
             self.match(45)
 
             self._state.type = _type
@@ -1990,8 +1990,8 @@ class YarcLexer(YarcLexerBase):
             _type = MUL
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:131:8: ( '*' )
-            # YarcLexer.g:131:10: '*'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:131:8: ( '*' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:131:10: '*'
             self.match(42)
 
             self._state.type = _type
@@ -2009,8 +2009,8 @@ class YarcLexer(YarcLexerBase):
             _type = DIV
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:132:9: ( '/' )
-            # YarcLexer.g:132:11: '/'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:132:9: ( '/' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:132:11: '/'
             self.match(47)
 
             self._state.type = _type
@@ -2028,8 +2028,8 @@ class YarcLexer(YarcLexerBase):
             _type = MOD
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:133:9: ( '%' )
-            # YarcLexer.g:133:11: '%'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:133:9: ( '%' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:133:11: '%'
             self.match(37)
 
             self._state.type = _type
@@ -2047,8 +2047,8 @@ class YarcLexer(YarcLexerBase):
             _type = IDIV
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:134:9: ( '//' )
-            # YarcLexer.g:134:11: '//'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:134:9: ( '//' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:134:11: '//'
             self.match("//")
 
             self._state.type = _type
@@ -2066,8 +2066,8 @@ class YarcLexer(YarcLexerBase):
             _type = POWER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:135:9: ( '**' )
-            # YarcLexer.g:135:11: '**'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:135:9: ( '**' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:135:11: '**'
             self.match("**")
 
             self._state.type = _type
@@ -2085,8 +2085,8 @@ class YarcLexer(YarcLexerBase):
             _type = LPAREN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:137:8: ( '(' )
-            # YarcLexer.g:137:10: '('
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:137:8: ( '(' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:137:10: '('
             self.match(40)
 
             # action start
@@ -2108,8 +2108,8 @@ class YarcLexer(YarcLexerBase):
             _type = RPAREN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:138:8: ( ')' )
-            # YarcLexer.g:138:10: ')'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:138:8: ( ')' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:138:10: ')'
             self.match(41)
 
             # action start
@@ -2131,8 +2131,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACK
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:139:8: ( '[' )
-            # YarcLexer.g:139:10: '['
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:139:8: ( '[' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:139:10: '['
             self.match(91)
 
             # action start
@@ -2154,8 +2154,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACK
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:140:8: ( ']' )
-            # YarcLexer.g:140:10: ']'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:140:8: ( ']' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:140:10: ']'
             self.match(93)
 
             # action start
@@ -2177,8 +2177,8 @@ class YarcLexer(YarcLexerBase):
             _type = LBRACE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:141:8: ( '{' )
-            # YarcLexer.g:141:10: '{'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:141:8: ( '{' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:141:10: '{'
             self.match(123)
 
             # action start
@@ -2200,8 +2200,8 @@ class YarcLexer(YarcLexerBase):
             _type = RBRACE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:142:8: ( '}' )
-            # YarcLexer.g:142:10: '}'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:142:8: ( '}' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:142:10: '}'
             self.match(125)
 
             # action start
@@ -2223,8 +2223,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:144:8: ( '<' )
-            # YarcLexer.g:144:10: '<'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:144:8: ( '<' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:144:10: '<'
             self.match(60)
 
             self._state.type = _type
@@ -2242,8 +2242,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:145:8: ( '>' )
-            # YarcLexer.g:145:10: '>'
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:145:8: ( '>' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:145:10: '>'
             self.match(62)
 
             self._state.type = _type
@@ -2261,8 +2261,8 @@ class YarcLexer(YarcLexerBase):
             _type = EQUALS
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:146:8: ( '==' )
-            # YarcLexer.g:146:10: '=='
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:146:8: ( '==' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:146:10: '=='
             self.match("==")
 
             self._state.type = _type
@@ -2280,8 +2280,8 @@ class YarcLexer(YarcLexerBase):
             _type = GT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:147:8: ( '>=' )
-            # YarcLexer.g:147:10: '>='
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:147:8: ( '>=' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:147:10: '>='
             self.match(">=")
 
             self._state.type = _type
@@ -2299,8 +2299,8 @@ class YarcLexer(YarcLexerBase):
             _type = LT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:148:8: ( '<=' )
-            # YarcLexer.g:148:10: '<='
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:148:8: ( '<=' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:148:10: '<='
             self.match("<=")
 
             self._state.type = _type
@@ -2318,8 +2318,8 @@ class YarcLexer(YarcLexerBase):
             _type = NOT_EQ
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:149:8: ( '!=' )
-            # YarcLexer.g:149:10: '!='
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:149:8: ( '!=' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:149:10: '!='
             self.match("!=")
 
             self._state.type = _type
@@ -2337,7 +2337,7 @@ class YarcLexer(YarcLexerBase):
             _type = AUG_ASSIGN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:151:11: ( '+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:11: ( '+=' | '-=' | '*=' | '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=' )
             alt9 = 12
             LA9 = self.input.LA(1)
             if LA9 in {43}:
@@ -2386,51 +2386,51 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt9 == 1:
-                # YarcLexer.g:151:13: '+='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:13: '+='
                 self.match("+=")
 
             elif alt9 == 2:
-                # YarcLexer.g:151:20: '-='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:20: '-='
                 self.match("-=")
 
             elif alt9 == 3:
-                # YarcLexer.g:151:27: '*='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:27: '*='
                 self.match("*=")
 
             elif alt9 == 4:
-                # YarcLexer.g:151:33: '/='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:33: '/='
                 self.match("/=")
 
             elif alt9 == 5:
-                # YarcLexer.g:151:40: '%='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:40: '%='
                 self.match("%=")
 
             elif alt9 == 6:
-                # YarcLexer.g:151:47: '&='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:47: '&='
                 self.match("&=")
 
             elif alt9 == 7:
-                # YarcLexer.g:151:54: '|='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:54: '|='
                 self.match("|=")
 
             elif alt9 == 8:
-                # YarcLexer.g:151:61: '^='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:61: '^='
                 self.match("^=")
 
             elif alt9 == 9:
-                # YarcLexer.g:151:68: '<<='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:68: '<<='
                 self.match("<<=")
 
             elif alt9 == 10:
-                # YarcLexer.g:151:76: '>>='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:76: '>>='
                 self.match(">>=")
 
             elif alt9 == 11:
-                # YarcLexer.g:151:84: '**='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:84: '**='
                 self.match("**=")
 
             elif alt9 == 12:
-                # YarcLexer.g:151:92: '//='
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:151:92: '//='
                 self.match("//=")
 
             self._state.type = _type
@@ -2448,11 +2448,11 @@ class YarcLexer(YarcLexerBase):
             _type = ID
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:154:12: ( ID_START ( ID_CONTINUE )* )
-            # YarcLexer.g:154:14: ID_START ( ID_CONTINUE )*
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:154:12: ( ID_START ( ID_CONTINUE )* )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:154:14: ID_START ( ID_CONTINUE )*
             self.mID_START()
 
-            # YarcLexer.g:154:23: ( ID_CONTINUE )*
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:154:23: ( ID_CONTINUE )*
             while True:  # loop10
                 alt10 = 2
                 LA10_0 = self.input.LA(1)
@@ -2466,7 +2466,7 @@ class YarcLexer(YarcLexerBase):
                     alt10 = 1
 
                 if alt10 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if (
                         (48 <= self.input.LA(1) <= 57)
                         or (65 <= self.input.LA(1) <= 90)
@@ -2497,8 +2497,8 @@ class YarcLexer(YarcLexerBase):
             _type = SETTING_ID
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:155:12: ( '$' ID )
-            # YarcLexer.g:155:14: '$' ID
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:155:12: ( '$' ID )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:155:14: '$' ID
             self.match(36)
 
             self.mID()
@@ -2518,9 +2518,9 @@ class YarcLexer(YarcLexerBase):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:158:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
-            # YarcLexer.g:159:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
-            # YarcLexer.g:159:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:158:7: ( ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:159:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )? SHORT_STRING
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:159:3: ( ( 'u' | 'U' ) | ( ( 'f' | 'F' )? ( 'r' | 'R' ) ) | ( ( 'r' | 'R' )? ( 'f' | 'F' ) ) )?
             alt13 = 4
             LA13 = self.input.LA(1)
             if LA13 in {85, 117}:
@@ -2540,7 +2540,7 @@ class YarcLexer(YarcLexerBase):
                 elif LA13_3 in {70, 102}:
                     alt13 = 3
             if alt13 == 1:
-                # YarcLexer.g:159:5: ( 'u' | 'U' )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:159:5: ( 'u' | 'U' )
                 if self.input.LA(1) in {85, 117}:
                     self.input.consume()
                 else:
@@ -2549,18 +2549,18 @@ class YarcLexer(YarcLexerBase):
                     raise mse
 
             elif alt13 == 2:
-                # YarcLexer.g:160:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:160:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
                 pass
-                # YarcLexer.g:160:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
-                # YarcLexer.g:160:7: ( 'f' | 'F' )? ( 'r' | 'R' )
-                # YarcLexer.g:160:7: ( 'f' | 'F' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:160:5: ( ( 'f' | 'F' )? ( 'r' | 'R' ) )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:160:7: ( 'f' | 'F' )? ( 'r' | 'R' )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:160:7: ( 'f' | 'F' )?
                 alt11 = 2
                 LA11_0 = self.input.LA(1)
 
                 if LA11_0 in {70, 102}:
                     alt11 = 1
                 if alt11 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if self.input.LA(1) in {70, 102}:
                         self.input.consume()
                     else:
@@ -2576,18 +2576,18 @@ class YarcLexer(YarcLexerBase):
                     raise mse
 
             elif alt13 == 3:
-                # YarcLexer.g:161:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:161:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
                 pass
-                # YarcLexer.g:161:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
-                # YarcLexer.g:161:7: ( 'r' | 'R' )? ( 'f' | 'F' )
-                # YarcLexer.g:161:7: ( 'r' | 'R' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:161:5: ( ( 'r' | 'R' )? ( 'f' | 'F' ) )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:161:7: ( 'r' | 'R' )? ( 'f' | 'F' )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:161:7: ( 'r' | 'R' )?
                 alt12 = 2
                 LA12_0 = self.input.LA(1)
 
                 if LA12_0 in {82, 114}:
                     alt12 = 1
                 if alt12 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if self.input.LA(1) in {82, 114}:
                         self.input.consume()
                     else:
@@ -2619,7 +2619,7 @@ class YarcLexer(YarcLexerBase):
             _type = INTEGER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:166:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:166:9: ( NON_ZERO_DIGIT ( DIGIT )* | ( '0' )+ | '0' ( 'o' | 'O' ) ( OCT_DIGIT )+ | '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ | '0' ( 'b' | 'B' ) ( BIN_DIGIT )+ )
             alt19 = 5
             LA19_0 = self.input.LA(1)
 
@@ -2642,10 +2642,10 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt19 == 1:
-                # YarcLexer.g:167:3: NON_ZERO_DIGIT ( DIGIT )*
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:167:3: NON_ZERO_DIGIT ( DIGIT )*
                 self.mNON_ZERO_DIGIT()
 
-                # YarcLexer.g:167:18: ( DIGIT )*
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:167:18: ( DIGIT )*
                 while True:  # loop14
                     alt14 = 2
                     LA14_0 = self.input.LA(1)
@@ -2654,7 +2654,7 @@ class YarcLexer(YarcLexerBase):
                         alt14 = 1
 
                     if alt14 == 1:
-                        # YarcLexer.g:
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                         if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                             self.input.consume()
                         else:
@@ -2666,9 +2666,9 @@ class YarcLexer(YarcLexerBase):
                         break  # loop14
 
             elif alt19 == 2:
-                # YarcLexer.g:167:27: ( '0' )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:167:27: ( '0' )+
                 pass
-                # YarcLexer.g:167:27: ( '0' )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:167:27: ( '0' )+
                 cnt15 = 0
                 while True:  # loop15
                     alt15 = 2
@@ -2678,7 +2678,7 @@ class YarcLexer(YarcLexerBase):
                         alt15 = 1
 
                     if alt15 == 1:
-                        # YarcLexer.g:167:27: '0'
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:167:27: '0'
                         self.match(48)
 
                     else:
@@ -2691,7 +2691,7 @@ class YarcLexer(YarcLexerBase):
                     cnt15 += 1
 
             elif alt19 == 3:
-                # YarcLexer.g:168:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:168:5: '0' ( 'o' | 'O' ) ( OCT_DIGIT )+
                 self.match(48)
 
                 if self.input.LA(1) in {79, 111}:
@@ -2701,7 +2701,7 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-                # YarcLexer.g:168:21: ( OCT_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:168:21: ( OCT_DIGIT )+
                 cnt16 = 0
                 while True:  # loop16
                     alt16 = 2
@@ -2711,7 +2711,7 @@ class YarcLexer(YarcLexerBase):
                         alt16 = 1
 
                     if alt16 == 1:
-                        # YarcLexer.g:
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                         if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
                             self.input.consume()
                         else:
@@ -2729,7 +2729,7 @@ class YarcLexer(YarcLexerBase):
                     cnt16 += 1
 
             elif alt19 == 4:
-                # YarcLexer.g:169:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:169:5: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+
                 self.match(48)
 
                 if self.input.LA(1) in {88, 120}:
@@ -2739,7 +2739,7 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-                # YarcLexer.g:169:21: ( HEX_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:169:21: ( HEX_DIGIT )+
                 cnt17 = 0
                 while True:  # loop17
                     alt17 = 2
@@ -2754,7 +2754,7 @@ class YarcLexer(YarcLexerBase):
                         alt17 = 1
 
                     if alt17 == 1:
-                        # YarcLexer.g:
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                         if (
                             (48 <= self.input.LA(1) <= 57)
                             or (65 <= self.input.LA(1) <= 70)
@@ -2777,7 +2777,7 @@ class YarcLexer(YarcLexerBase):
                     cnt17 += 1
 
             elif alt19 == 5:
-                # YarcLexer.g:170:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:170:5: '0' ( 'b' | 'B' ) ( BIN_DIGIT )+
                 self.match(48)
 
                 if self.input.LA(1) in {66, 98}:
@@ -2787,7 +2787,7 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-                # YarcLexer.g:170:21: ( BIN_DIGIT )+
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:170:21: ( BIN_DIGIT )+
                 cnt18 = 0
                 while True:  # loop18
                     alt18 = 2
@@ -2797,7 +2797,7 @@ class YarcLexer(YarcLexerBase):
                         alt18 = 1
 
                     if alt18 == 1:
-                        # YarcLexer.g:
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                         if self.input.LA(1) in {48, 49}:
                             self.input.consume()
                         else:
@@ -2829,15 +2829,15 @@ class YarcLexer(YarcLexerBase):
             _type = FLOAT_NUMBER
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:173:14: ( POINT_FLOAT | EXPONENT_FLOAT )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:173:14: ( POINT_FLOAT | EXPONENT_FLOAT )
             alt20 = 2
             alt20 = self.dfa20.predict(self.input)
             if alt20 == 1:
-                # YarcLexer.g:173:16: POINT_FLOAT
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:173:16: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
             elif alt20 == 2:
-                # YarcLexer.g:173:30: EXPONENT_FLOAT
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:173:30: EXPONENT_FLOAT
                 self.mEXPONENT_FLOAT()
 
             self._state.type = _type
@@ -2855,11 +2855,11 @@ class YarcLexer(YarcLexerBase):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:176:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
-            # YarcLexer.g:177:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # YarcLexer.g:177:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
-            # YarcLexer.g:178:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
-            # YarcLexer.g:178:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:176:8: ( ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? ) )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:177:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:177:3: ( ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )? )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) ( SPACES )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:3: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             alt22 = 3
             LA22 = self.input.LA(1)
             if LA22 in {13}:
@@ -2880,36 +2880,36 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt22 == 1:
-                # YarcLexer.g:178:5: ( '\\r' )? '\\n'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:5: ( '\\r' )? '\\n'
                 pass
-                # YarcLexer.g:178:5: ( '\\r' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:5: ( '\\r' )?
                 alt21 = 2
                 LA21_0 = self.input.LA(1)
 
                 if LA21_0 == 13:
                     alt21 = 1
                 if alt21 == 1:
-                    # YarcLexer.g:178:5: '\\r'
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:5: '\\r'
                     self.match(13)
 
                 self.match(10)
 
             elif alt22 == 2:
-                # YarcLexer.g:178:18: '\\r'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:18: '\\r'
                 self.match(13)
 
             elif alt22 == 3:
-                # YarcLexer.g:178:25: '\\f'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:25: '\\f'
                 self.match(12)
 
-            # YarcLexer.g:178:31: ( SPACES )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:31: ( SPACES )?
             alt23 = 2
             LA23_0 = self.input.LA(1)
 
             if LA23_0 in {9, 32}:
                 alt23 = 1
             if alt23 == 1:
-                # YarcLexer.g:178:31: SPACES
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:178:31: SPACES
                 self.mSPACES()
 
             # action start
@@ -2931,9 +2931,9 @@ class YarcLexer(YarcLexerBase):
             _type = SKIP_
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:183:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
-            # YarcLexer.g:183:11: ( SPACES | COMMENT | LINE_JOINING )
-            # YarcLexer.g:183:11: ( SPACES | COMMENT | LINE_JOINING )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:9: ( ( SPACES | COMMENT | LINE_JOINING ) )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:11: ( SPACES | COMMENT | LINE_JOINING )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:11: ( SPACES | COMMENT | LINE_JOINING )
             alt24 = 3
             LA24 = self.input.LA(1)
             if LA24 in {9, 32}:
@@ -2948,15 +2948,15 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt24 == 1:
-                # YarcLexer.g:183:13: SPACES
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:13: SPACES
                 self.mSPACES()
 
             elif alt24 == 2:
-                # YarcLexer.g:183:22: COMMENT
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:22: COMMENT
                 self.mCOMMENT()
 
             elif alt24 == 3:
-                # YarcLexer.g:183:32: LINE_JOINING
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:183:32: LINE_JOINING
                 self.mLINE_JOINING()
 
             # action start
@@ -2978,8 +2978,8 @@ class YarcLexer(YarcLexerBase):
             _type = UNKNOWN
             _channel = DEFAULT_CHANNEL
 
-            # YarcLexer.g:184:9: ( . )
-            # YarcLexer.g:184:11: .
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:184:9: ( . )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:184:11: .
             self.matchAny()
 
             self._state.type = _type
@@ -2994,7 +2994,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:187:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:187:22: ( '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\'' | '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"' )
             alt27 = 2
             LA27_0 = self.input.LA(1)
 
@@ -3008,10 +3008,10 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt27 == 1:
-                # YarcLexer.g:188:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:188:3: '\\'' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )* '\\''
                 self.match(39)
 
-                # YarcLexer.g:188:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:188:8: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' ) )*
                 while True:  # loop25
                     alt25 = 3
                     LA25_0 = self.input.LA(1)
@@ -3028,11 +3028,11 @@ class YarcLexer(YarcLexerBase):
                         alt25 = 2
 
                     if alt25 == 1:
-                        # YarcLexer.g:188:9: STRING_ESCAPE_SEQ
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:188:9: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
                     elif alt25 == 2:
-                        # YarcLexer.g:188:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:188:29: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\\'' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or (14 <= self.input.LA(1) <= 38)
@@ -3052,10 +3052,10 @@ class YarcLexer(YarcLexerBase):
                 self.match(39)
 
             elif alt27 == 2:
-                # YarcLexer.g:189:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:189:5: '\"' ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )* '\"'
                 self.match(34)
 
-                # YarcLexer.g:189:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:189:9: ( STRING_ESCAPE_SEQ |~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' ) )*
                 while True:  # loop26
                     alt26 = 3
                     LA26_0 = self.input.LA(1)
@@ -3072,11 +3072,11 @@ class YarcLexer(YarcLexerBase):
                         alt26 = 2
 
                     if alt26 == 1:
-                        # YarcLexer.g:189:10: STRING_ESCAPE_SEQ
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:189:10: STRING_ESCAPE_SEQ
                         self.mSTRING_ESCAPE_SEQ()
 
                     elif alt26 == 2:
-                        # YarcLexer.g:189:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
+                        # .\\yarc\\yarc\\grammar\\YarcLexer.g:189:30: ~ ( '\\\\' | '\\r' | '\\n' | '\\f' | '\"' )
                         if (
                             (0 <= self.input.LA(1) <= 9)
                             or (14 <= self.input.LA(1) <= 33)
@@ -3105,7 +3105,7 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:191:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:191:28: ( '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' ) | '\\\\' NEWLINE )
             alt28 = 2
             LA28_0 = self.input.LA(1)
 
@@ -3132,7 +3132,7 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt28 == 1:
-                # YarcLexer.g:191:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:191:30: '\\\\' ~ ( '\\t' | ' ' | '\\r' | '\\n' | '\\f' )
                 self.match(92)
 
                 if (
@@ -3148,7 +3148,7 @@ class YarcLexer(YarcLexerBase):
                     raise mse
 
             elif alt28 == 2:
-                # YarcLexer.g:191:72: '\\\\' NEWLINE
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:191:72: '\\\\' NEWLINE
                 self.match(92)
 
                 self.mNEWLINE()
@@ -3163,8 +3163,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:193:25: ( '1' .. '9' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:193:25: ( '1' .. '9' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (49 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
@@ -3182,8 +3182,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:194:25: ( '0' .. '9' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:194:25: ( '0' .. '9' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
@@ -3201,8 +3201,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:195:25: ( '0' .. '7' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:195:25: ( '0' .. '7' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (48 <= self.input.LA(1) <= 55) or self.input.LA(1) in {}:
                 self.input.consume()
             else:
@@ -3220,8 +3220,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:196:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:196:25: ( DIGIT | 'a' .. 'f' | 'A' .. 'F' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
                 or (65 <= self.input.LA(1) <= 70)
@@ -3244,8 +3244,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:197:25: ( '0' | '1' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:197:25: ( '0' | '1' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if self.input.LA(1) in {48, 49}:
                 self.input.consume()
             else:
@@ -3263,26 +3263,26 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:199:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:199:25: ( ( INT_PART )? FRACTION | INT_PART '.' )
             alt30 = 2
             alt30 = self.dfa30.predict(self.input)
             if alt30 == 1:
-                # YarcLexer.g:199:27: ( INT_PART )? FRACTION
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:199:27: ( INT_PART )? FRACTION
                 pass
-                # YarcLexer.g:199:27: ( INT_PART )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:199:27: ( INT_PART )?
                 alt29 = 2
                 LA29_0 = self.input.LA(1)
 
                 if (48 <= LA29_0 <= 57) or LA29_0 in {}:
                     alt29 = 1
                 if alt29 == 1:
-                    # YarcLexer.g:199:27: INT_PART
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:199:27: INT_PART
                     self.mINT_PART()
 
                 self.mFRACTION()
 
             elif alt30 == 2:
-                # YarcLexer.g:199:48: INT_PART '.'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:199:48: INT_PART '.'
                 self.mINT_PART()
 
                 self.match(46)
@@ -3297,18 +3297,18 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:200:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
-            # YarcLexer.g:200:27: ( INT_PART | POINT_FLOAT ) EXPONENT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:200:25: ( ( INT_PART | POINT_FLOAT ) EXPONENT )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:200:27: ( INT_PART | POINT_FLOAT ) EXPONENT
             pass
-            # YarcLexer.g:200:27: ( INT_PART | POINT_FLOAT )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:200:27: ( INT_PART | POINT_FLOAT )
             alt31 = 2
             alt31 = self.dfa31.predict(self.input)
             if alt31 == 1:
-                # YarcLexer.g:200:29: INT_PART
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:200:29: INT_PART
                 self.mINT_PART()
 
             elif alt31 == 2:
-                # YarcLexer.g:200:40: POINT_FLOAT
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:200:40: POINT_FLOAT
                 self.mPOINT_FLOAT()
 
             self.mEXPONENT()
@@ -3323,10 +3323,10 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:201:25: ( ( DIGIT )+ )
-            # YarcLexer.g:201:27: ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:201:25: ( ( DIGIT )+ )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:201:27: ( DIGIT )+
             pass
-            # YarcLexer.g:201:27: ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:201:27: ( DIGIT )+
             cnt32 = 0
             while True:  # loop32
                 alt32 = 2
@@ -3336,7 +3336,7 @@ class YarcLexer(YarcLexerBase):
                     alt32 = 1
 
                 if alt32 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
@@ -3363,11 +3363,11 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:202:25: ( '.' ( DIGIT )+ )
-            # YarcLexer.g:202:27: '.' ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:202:25: ( '.' ( DIGIT )+ )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:202:27: '.' ( DIGIT )+
             self.match(46)
 
-            # YarcLexer.g:202:31: ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:202:31: ( DIGIT )+
             cnt33 = 0
             while True:  # loop33
                 alt33 = 2
@@ -3377,7 +3377,7 @@ class YarcLexer(YarcLexerBase):
                     alt33 = 1
 
                 if alt33 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
@@ -3404,8 +3404,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:203:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-            # YarcLexer.g:203:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:203:25: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:203:27: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
             if self.input.LA(1) in {69, 101}:
                 self.input.consume()
             else:
@@ -3413,14 +3413,14 @@ class YarcLexer(YarcLexerBase):
                 self.recover(mse)
                 raise mse
 
-            # YarcLexer.g:203:39: ( '+' | '-' )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:203:39: ( '+' | '-' )?
             alt34 = 2
             LA34_0 = self.input.LA(1)
 
             if LA34_0 in {43, 45}:
                 alt34 = 1
             if alt34 == 1:
-                # YarcLexer.g:
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                 if self.input.LA(1) in {43, 45}:
                     self.input.consume()
                 else:
@@ -3428,7 +3428,7 @@ class YarcLexer(YarcLexerBase):
                     self.recover(mse)
                     raise mse
 
-            # YarcLexer.g:203:52: ( DIGIT )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:203:52: ( DIGIT )+
             cnt35 = 0
             while True:  # loop35
                 alt35 = 2
@@ -3438,7 +3438,7 @@ class YarcLexer(YarcLexerBase):
                     alt35 = 1
 
                 if alt35 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if (48 <= self.input.LA(1) <= 57) or self.input.LA(1) in {}:
                         self.input.consume()
                     else:
@@ -3465,8 +3465,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:205:22: ( UNDERSCORE | LETTER )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:205:22: ( UNDERSCORE | LETTER )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (
                 (65 <= self.input.LA(1) <= 90)
                 or (97 <= self.input.LA(1) <= 122)
@@ -3488,8 +3488,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:206:22: ( ID_START | DIGIT )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:206:22: ( ID_START | DIGIT )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (
                 (48 <= self.input.LA(1) <= 57)
                 or (65 <= self.input.LA(1) <= 90)
@@ -3512,8 +3512,8 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:207:22: ( 'a' .. 'z' | 'A' .. 'Z' )
-            # YarcLexer.g:
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:207:22: ( 'a' .. 'z' | 'A' .. 'Z' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:
             if (
                 (65 <= self.input.LA(1) <= 90)
                 or (97 <= self.input.LA(1) <= 122)
@@ -3535,10 +3535,10 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:209:23: ( ( ' ' | '\\t' )+ )
-            # YarcLexer.g:209:25: ( ' ' | '\\t' )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:209:23: ( ( ' ' | '\\t' )+ )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:209:25: ( ' ' | '\\t' )+
             pass
-            # YarcLexer.g:209:25: ( ' ' | '\\t' )+
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:209:25: ( ' ' | '\\t' )+
             cnt36 = 0
             while True:  # loop36
                 alt36 = 2
@@ -3548,7 +3548,7 @@ class YarcLexer(YarcLexerBase):
                     alt36 = 1
 
                 if alt36 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if self.input.LA(1) in {9, 32}:
                         self.input.consume()
                     else:
@@ -3575,11 +3575,11 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:210:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
-            # YarcLexer.g:210:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:210:23: ( '#' (~ ( '\\r' | '\\n' | '\\f' ) )* )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:210:25: '#' (~ ( '\\r' | '\\n' | '\\f' ) )*
             self.match(35)
 
-            # YarcLexer.g:210:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:210:29: (~ ( '\\r' | '\\n' | '\\f' ) )*
             while True:  # loop37
                 alt37 = 2
                 LA37_0 = self.input.LA(1)
@@ -3588,7 +3588,7 @@ class YarcLexer(YarcLexerBase):
                     alt37 = 1
 
                 if alt37 == 1:
-                    # YarcLexer.g:
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:
                     if (
                         (0 <= self.input.LA(1) <= 9)
                         or (14 <= self.input.LA(1) <= 65535)
@@ -3613,21 +3613,21 @@ class YarcLexer(YarcLexerBase):
         self,
     ):
         try:
-            # YarcLexer.g:211:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
-            # YarcLexer.g:211:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:23: ( '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' ) )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:25: '\\\\' ( SPACES )? ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             self.match(92)
 
-            # YarcLexer.g:211:30: ( SPACES )?
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:30: ( SPACES )?
             alt38 = 2
             LA38_0 = self.input.LA(1)
 
             if LA38_0 in {9, 32}:
                 alt38 = 1
             if alt38 == 1:
-                # YarcLexer.g:211:30: SPACES
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:30: SPACES
                 self.mSPACES()
 
-            # YarcLexer.g:211:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:38: ( ( '\\r' )? '\\n' | '\\r' | '\\f' )
             alt40 = 3
             LA40 = self.input.LA(1)
             if LA40 in {13}:
@@ -3648,26 +3648,26 @@ class YarcLexer(YarcLexerBase):
                 raise nvae
 
             if alt40 == 1:
-                # YarcLexer.g:211:40: ( '\\r' )? '\\n'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:40: ( '\\r' )? '\\n'
                 pass
-                # YarcLexer.g:211:40: ( '\\r' )?
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:40: ( '\\r' )?
                 alt39 = 2
                 LA39_0 = self.input.LA(1)
 
                 if LA39_0 == 13:
                     alt39 = 1
                 if alt39 == 1:
-                    # YarcLexer.g:211:40: '\\r'
+                    # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:40: '\\r'
                     self.match(13)
 
                 self.match(10)
 
             elif alt40 == 2:
-                # YarcLexer.g:211:53: '\\r'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:53: '\\r'
                 self.match(13)
 
             elif alt40 == 3:
-                # YarcLexer.g:211:60: '\\f'
+                # .\\yarc\\yarc\\grammar\\YarcLexer.g:211:60: '\\f'
                 self.match(12)
 
         finally:
@@ -3676,411 +3676,411 @@ class YarcLexer(YarcLexerBase):
     # $ANTLR end "LINE_JOINING"
 
     def mTokens(self):
-        # YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPE | CAMERA | LIGHT | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | PIVOT | MATERIAL_ | AXIS | ORDER | SCATTER | ROT_AROUND | MOVE_TO_CAM | PHYSICS | EVERY | FRAMES | TIME | DISTRIBUTION | COMBINE | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | LEN | NONE | NOT | OR | STEP | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | AUG_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
+        # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:8: ( SCENARIO | SETTINGS | STAGE | WRITERS | SHAPE | CAMERA | LIGHT | STEREO | MATERIAL | TIMELINE | OPEN | CREATE | GROUP | INSTANTIATE | GET | EDIT | FETCH | MATCH | LIMIT | RECURSIVE | TRANSLATE | ROTATE | SCALE | SEMANTICS | VISIBLE | SIZE | LOOK_AT | UP_AXIS | PIVOT | MATERIAL_ | AXIS | ORDER | SCATTER | ROT_AROUND | MOVE_TO_CAM | PHYSICS | EVERY | FRAMES | TIME | DISTRIBUTION | COMBINE | SNIPPET | TO | ON | AT | AND | ELSE | FALSE | FOR | FROM | IF | IN | IS | LEN | NONE | NOT | OR | STEP | TRUE | UNDERSCORE | DOT | RANGE | ELLIPSIS | COMMA | COLON | SEMI | ASSIGN | BIT_OR | XOR | BIT_AND | BIT_NOT | LSHIFT | RSHIFT | PLUS | MINUS | MUL | DIV | MOD | IDIV | POWER | LPAREN | RPAREN | LBRACK | RBRACK | LBRACE | RBRACE | LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | AUG_ASSIGN | ID | SETTING_ID | STRING | INTEGER | FLOAT_NUMBER | NEWLINE | SKIP_ | UNKNOWN )
         alt41 = 101
         alt41 = self.dfa41.predict(self.input)
         if alt41 == 1:
-            # YarcLexer.g:1:10: SCENARIO
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:10: SCENARIO
             self.mSCENARIO()
 
         elif alt41 == 2:
-            # YarcLexer.g:1:19: SETTINGS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:19: SETTINGS
             self.mSETTINGS()
 
         elif alt41 == 3:
-            # YarcLexer.g:1:28: STAGE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:28: STAGE
             self.mSTAGE()
 
         elif alt41 == 4:
-            # YarcLexer.g:1:34: WRITERS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:34: WRITERS
             self.mWRITERS()
 
         elif alt41 == 5:
-            # YarcLexer.g:1:42: SHAPE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:42: SHAPE
             self.mSHAPE()
 
         elif alt41 == 6:
-            # YarcLexer.g:1:48: CAMERA
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:48: CAMERA
             self.mCAMERA()
 
         elif alt41 == 7:
-            # YarcLexer.g:1:55: LIGHT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:55: LIGHT
             self.mLIGHT()
 
         elif alt41 == 8:
-            # YarcLexer.g:1:61: STEREO
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:61: STEREO
             self.mSTEREO()
 
         elif alt41 == 9:
-            # YarcLexer.g:1:68: MATERIAL
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:68: MATERIAL
             self.mMATERIAL()
 
         elif alt41 == 10:
-            # YarcLexer.g:1:77: TIMELINE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:77: TIMELINE
             self.mTIMELINE()
 
         elif alt41 == 11:
-            # YarcLexer.g:1:86: OPEN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:86: OPEN
             self.mOPEN()
 
         elif alt41 == 12:
-            # YarcLexer.g:1:91: CREATE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:91: CREATE
             self.mCREATE()
 
         elif alt41 == 13:
-            # YarcLexer.g:1:98: GROUP
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:98: GROUP
             self.mGROUP()
 
         elif alt41 == 14:
-            # YarcLexer.g:1:104: INSTANTIATE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:104: INSTANTIATE
             self.mINSTANTIATE()
 
         elif alt41 == 15:
-            # YarcLexer.g:1:116: GET
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:116: GET
             self.mGET()
 
         elif alt41 == 16:
-            # YarcLexer.g:1:120: EDIT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:120: EDIT
             self.mEDIT()
 
         elif alt41 == 17:
-            # YarcLexer.g:1:125: FETCH
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:125: FETCH
             self.mFETCH()
 
         elif alt41 == 18:
-            # YarcLexer.g:1:131: MATCH
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:131: MATCH
             self.mMATCH()
 
         elif alt41 == 19:
-            # YarcLexer.g:1:137: LIMIT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:137: LIMIT
             self.mLIMIT()
 
         elif alt41 == 20:
-            # YarcLexer.g:1:143: RECURSIVE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:143: RECURSIVE
             self.mRECURSIVE()
 
         elif alt41 == 21:
-            # YarcLexer.g:1:153: TRANSLATE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:153: TRANSLATE
             self.mTRANSLATE()
 
         elif alt41 == 22:
-            # YarcLexer.g:1:163: ROTATE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:163: ROTATE
             self.mROTATE()
 
         elif alt41 == 23:
-            # YarcLexer.g:1:170: SCALE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:170: SCALE
             self.mSCALE()
 
         elif alt41 == 24:
-            # YarcLexer.g:1:176: SEMANTICS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:176: SEMANTICS
             self.mSEMANTICS()
 
         elif alt41 == 25:
-            # YarcLexer.g:1:186: VISIBLE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:186: VISIBLE
             self.mVISIBLE()
 
         elif alt41 == 26:
-            # YarcLexer.g:1:194: SIZE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:194: SIZE
             self.mSIZE()
 
         elif alt41 == 27:
-            # YarcLexer.g:1:199: LOOK_AT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:199: LOOK_AT
             self.mLOOK_AT()
 
         elif alt41 == 28:
-            # YarcLexer.g:1:207: UP_AXIS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:207: UP_AXIS
             self.mUP_AXIS()
 
         elif alt41 == 29:
-            # YarcLexer.g:1:215: PIVOT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:215: PIVOT
             self.mPIVOT()
 
         elif alt41 == 30:
-            # YarcLexer.g:1:221: MATERIAL_
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:221: MATERIAL_
             self.mMATERIAL_()
 
         elif alt41 == 31:
-            # YarcLexer.g:1:231: AXIS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:231: AXIS
             self.mAXIS()
 
         elif alt41 == 32:
-            # YarcLexer.g:1:236: ORDER
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:236: ORDER
             self.mORDER()
 
         elif alt41 == 33:
-            # YarcLexer.g:1:242: SCATTER
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:242: SCATTER
             self.mSCATTER()
 
         elif alt41 == 34:
-            # YarcLexer.g:1:250: ROT_AROUND
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:250: ROT_AROUND
             self.mROT_AROUND()
 
         elif alt41 == 35:
-            # YarcLexer.g:1:261: MOVE_TO_CAM
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:261: MOVE_TO_CAM
             self.mMOVE_TO_CAM()
 
         elif alt41 == 36:
-            # YarcLexer.g:1:273: PHYSICS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:273: PHYSICS
             self.mPHYSICS()
 
         elif alt41 == 37:
-            # YarcLexer.g:1:281: EVERY
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:281: EVERY
             self.mEVERY()
 
         elif alt41 == 38:
-            # YarcLexer.g:1:287: FRAMES
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:287: FRAMES
             self.mFRAMES()
 
         elif alt41 == 39:
-            # YarcLexer.g:1:294: TIME
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:294: TIME
             self.mTIME()
 
         elif alt41 == 40:
-            # YarcLexer.g:1:299: DISTRIBUTION
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:299: DISTRIBUTION
             self.mDISTRIBUTION()
 
         elif alt41 == 41:
-            # YarcLexer.g:1:312: COMBINE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:312: COMBINE
             self.mCOMBINE()
 
         elif alt41 == 42:
-            # YarcLexer.g:1:320: SNIPPET
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:320: SNIPPET
             self.mSNIPPET()
 
         elif alt41 == 43:
-            # YarcLexer.g:1:328: TO
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:328: TO
             self.mTO()
 
         elif alt41 == 44:
-            # YarcLexer.g:1:331: ON
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:331: ON
             self.mON()
 
         elif alt41 == 45:
-            # YarcLexer.g:1:334: AT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:334: AT
             self.mAT()
 
         elif alt41 == 46:
-            # YarcLexer.g:1:337: AND
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:337: AND
             self.mAND()
 
         elif alt41 == 47:
-            # YarcLexer.g:1:341: ELSE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:341: ELSE
             self.mELSE()
 
         elif alt41 == 48:
-            # YarcLexer.g:1:346: FALSE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:346: FALSE
             self.mFALSE()
 
         elif alt41 == 49:
-            # YarcLexer.g:1:352: FOR
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:352: FOR
             self.mFOR()
 
         elif alt41 == 50:
-            # YarcLexer.g:1:356: FROM
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:356: FROM
             self.mFROM()
 
         elif alt41 == 51:
-            # YarcLexer.g:1:361: IF
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:361: IF
             self.mIF()
 
         elif alt41 == 52:
-            # YarcLexer.g:1:364: IN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:364: IN
             self.mIN()
 
         elif alt41 == 53:
-            # YarcLexer.g:1:367: IS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:367: IS
             self.mIS()
 
         elif alt41 == 54:
-            # YarcLexer.g:1:370: LEN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:370: LEN
             self.mLEN()
 
         elif alt41 == 55:
-            # YarcLexer.g:1:374: NONE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:374: NONE
             self.mNONE()
 
         elif alt41 == 56:
-            # YarcLexer.g:1:379: NOT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:379: NOT
             self.mNOT()
 
         elif alt41 == 57:
-            # YarcLexer.g:1:383: OR
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:383: OR
             self.mOR()
 
         elif alt41 == 58:
-            # YarcLexer.g:1:386: STEP
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:386: STEP
             self.mSTEP()
 
         elif alt41 == 59:
-            # YarcLexer.g:1:391: TRUE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:391: TRUE
             self.mTRUE()
 
         elif alt41 == 60:
-            # YarcLexer.g:1:396: UNDERSCORE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:396: UNDERSCORE
             self.mUNDERSCORE()
 
         elif alt41 == 61:
-            # YarcLexer.g:1:407: DOT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:407: DOT
             self.mDOT()
 
         elif alt41 == 62:
-            # YarcLexer.g:1:411: RANGE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:411: RANGE
             self.mRANGE()
 
         elif alt41 == 63:
-            # YarcLexer.g:1:417: ELLIPSIS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:417: ELLIPSIS
             self.mELLIPSIS()
 
         elif alt41 == 64:
-            # YarcLexer.g:1:426: COMMA
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:426: COMMA
             self.mCOMMA()
 
         elif alt41 == 65:
-            # YarcLexer.g:1:432: COLON
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:432: COLON
             self.mCOLON()
 
         elif alt41 == 66:
-            # YarcLexer.g:1:438: SEMI
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:438: SEMI
             self.mSEMI()
 
         elif alt41 == 67:
-            # YarcLexer.g:1:443: ASSIGN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:443: ASSIGN
             self.mASSIGN()
 
         elif alt41 == 68:
-            # YarcLexer.g:1:450: BIT_OR
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:450: BIT_OR
             self.mBIT_OR()
 
         elif alt41 == 69:
-            # YarcLexer.g:1:457: XOR
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:457: XOR
             self.mXOR()
 
         elif alt41 == 70:
-            # YarcLexer.g:1:461: BIT_AND
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:461: BIT_AND
             self.mBIT_AND()
 
         elif alt41 == 71:
-            # YarcLexer.g:1:469: BIT_NOT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:469: BIT_NOT
             self.mBIT_NOT()
 
         elif alt41 == 72:
-            # YarcLexer.g:1:477: LSHIFT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:477: LSHIFT
             self.mLSHIFT()
 
         elif alt41 == 73:
-            # YarcLexer.g:1:484: RSHIFT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:484: RSHIFT
             self.mRSHIFT()
 
         elif alt41 == 74:
-            # YarcLexer.g:1:491: PLUS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:491: PLUS
             self.mPLUS()
 
         elif alt41 == 75:
-            # YarcLexer.g:1:496: MINUS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:496: MINUS
             self.mMINUS()
 
         elif alt41 == 76:
-            # YarcLexer.g:1:502: MUL
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:502: MUL
             self.mMUL()
 
         elif alt41 == 77:
-            # YarcLexer.g:1:506: DIV
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:506: DIV
             self.mDIV()
 
         elif alt41 == 78:
-            # YarcLexer.g:1:510: MOD
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:510: MOD
             self.mMOD()
 
         elif alt41 == 79:
-            # YarcLexer.g:1:514: IDIV
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:514: IDIV
             self.mIDIV()
 
         elif alt41 == 80:
-            # YarcLexer.g:1:519: POWER
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:519: POWER
             self.mPOWER()
 
         elif alt41 == 81:
-            # YarcLexer.g:1:525: LPAREN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:525: LPAREN
             self.mLPAREN()
 
         elif alt41 == 82:
-            # YarcLexer.g:1:532: RPAREN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:532: RPAREN
             self.mRPAREN()
 
         elif alt41 == 83:
-            # YarcLexer.g:1:539: LBRACK
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:539: LBRACK
             self.mLBRACK()
 
         elif alt41 == 84:
-            # YarcLexer.g:1:546: RBRACK
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:546: RBRACK
             self.mRBRACK()
 
         elif alt41 == 85:
-            # YarcLexer.g:1:553: LBRACE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:553: LBRACE
             self.mLBRACE()
 
         elif alt41 == 86:
-            # YarcLexer.g:1:560: RBRACE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:560: RBRACE
             self.mRBRACE()
 
         elif alt41 == 87:
-            # YarcLexer.g:1:567: LT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:567: LT
             self.mLT()
 
         elif alt41 == 88:
-            # YarcLexer.g:1:570: GT
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:570: GT
             self.mGT()
 
         elif alt41 == 89:
-            # YarcLexer.g:1:573: EQUALS
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:573: EQUALS
             self.mEQUALS()
 
         elif alt41 == 90:
-            # YarcLexer.g:1:580: GT_EQ
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:580: GT_EQ
             self.mGT_EQ()
 
         elif alt41 == 91:
-            # YarcLexer.g:1:586: LT_EQ
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:586: LT_EQ
             self.mLT_EQ()
 
         elif alt41 == 92:
-            # YarcLexer.g:1:592: NOT_EQ
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:592: NOT_EQ
             self.mNOT_EQ()
 
         elif alt41 == 93:
-            # YarcLexer.g:1:599: AUG_ASSIGN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:599: AUG_ASSIGN
             self.mAUG_ASSIGN()
 
         elif alt41 == 94:
-            # YarcLexer.g:1:610: ID
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:610: ID
             self.mID()
 
         elif alt41 == 95:
-            # YarcLexer.g:1:613: SETTING_ID
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:613: SETTING_ID
             self.mSETTING_ID()
 
         elif alt41 == 96:
-            # YarcLexer.g:1:624: STRING
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:624: STRING
             self.mSTRING()
 
         elif alt41 == 97:
-            # YarcLexer.g:1:631: INTEGER
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:631: INTEGER
             self.mINTEGER()
 
         elif alt41 == 98:
-            # YarcLexer.g:1:639: FLOAT_NUMBER
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:639: FLOAT_NUMBER
             self.mFLOAT_NUMBER()
 
         elif alt41 == 99:
-            # YarcLexer.g:1:652: NEWLINE
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:652: NEWLINE
             self.mNEWLINE()
 
         elif alt41 == 100:
-            # YarcLexer.g:1:660: SKIP_
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:660: SKIP_
             self.mSKIP_()
 
         elif alt41 == 101:
-            # YarcLexer.g:1:666: UNKNOWN
+            # .\\yarc\\yarc\\grammar\\YarcLexer.g:1:666: UNKNOWN
             self.mUNKNOWN()
 
     # lookup tables for DFA #20

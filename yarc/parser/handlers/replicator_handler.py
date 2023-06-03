@@ -5,9 +5,9 @@ import time
 
 from antlr3 import Parser, Token
 
-from yarc.dsl.v3.handler.error_formatter import ErrorType
-from yarc.dsl.v3.handler.handler import Attribute, Handler, Parameter
-from yarc.dsl.v3.handler.warning_formatter import WarningType
+from yarc.parser.handlers.formatters.error_formatter import ErrorType
+from yarc.parser.handlers.formatters.warning_formatter import WarningType
+from yarc.parser.handlers.handler import Attribute, Handler, Parameter
 
 PRIMS = {
     "Plane": "plane",
@@ -354,7 +354,7 @@ class OmniReplicatorHandler(Handler):
                 return param
 
     def __get_command(self, token: Token):
-        from yarc.dsl.v3.YarcLexer import CAMERA, FROM, LIGHT, MATERIAL, SHAPE, STEREO
+        from yarc.parser.YarcLexer import CAMERA, FROM, LIGHT, MATERIAL, SHAPE, STEREO
 
         type = token.type
 
