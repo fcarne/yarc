@@ -8,14 +8,14 @@ from antlr3 import Parser
 from yarc.parser.handlers.formatters.error_formatter import ErrorType
 from yarc.parser.handlers.handler import Handler
 from yarc.parser.handlers.replicator_handler import OmniReplicatorHandler
-from yarc.templates import TEMPLATE_DIR
+from yarc.templates import TEMPLATES_DIR
 
 
 class HandlerFactory:
     supported_libraries: dict[str, tuple[type[Handler], Path]] = {
         "Replicator": (
             OmniReplicatorHandler,
-            TEMPLATE_DIR / "replicator.stg",
+            TEMPLATES_DIR / "replicator.stg",
         )
     }
 
@@ -25,7 +25,7 @@ class HandlerFactory:
 
     @staticmethod
     def get_handler(
-        lib, parser: Parser, handler_kwargs: Optional[dict[str, Any]] = None
+        parser: Parser, lib: str, handler_kwargs: Optional[dict[str, Any]] = None
     ) -> type[Handler]:
         if HandlerFactory.is_library_supported(lib) is False:
             raise ValueError(

@@ -30,21 +30,35 @@ class Parameter(NamedTuple):
 class Handler(abc.ABC):
     BEHAVIOR = "behavior"
 
-    def __init__(self, parser: Parser, warnings: bool = False):
+    def __init__(
+        self,
+        parser: Parser,
+        warnings: bool = False,
+        num_scenes: Optional[int] = None,
+        mount: Optional[str] = None,
+    ):
         random.seed(42)
         self.parser = parser
 
         self.default_settings = {
-            "root_path": ".",
+            "mount": ".",
             "seed": int(time.time() * 1000),
             "num_scenes": 1,
             "fps": 24,
             "stage_meters_per_unit": 1,
             "stage_up_axis": "y",
-            # "output_dir": "*/output",
             "resolution": [512, 512],
         }
         self.settings: dict[str, str] = {}
+        self.overwritten_settings = set()
+
+        if num_scenes is not None:
+            self.settings["num_scenes"] = num_scenes
+            self.overwritten_settings.add("num_scenes")
+
+        if mount is not None:
+            self.settings["mount"] = mount
+            self.overwritten_settings.add("mount")
 
         self.symbol_stack = SymbolStack()
         self.should_lookup = True
@@ -63,10 +77,16 @@ class Handler(abc.ABC):
             for key, value in settings.items()
         }
 
+    def is_overwritten(self, setting: Token) -> bool:
+        return setting.text in self.overwritten_settings
+
     def is_special_setting(self, setting: Token) -> bool:
         return setting.text in self.default_settings
 
     def add_setting(self, setting: Token, value: Any) -> None:
+        if self.is_overwritten(setting):
+            return
+
         setting_text = setting.text
 
         if self.show_warnings and setting_text in self.settings:
@@ -185,13 +205,13 @@ class Handler(abc.ABC):
         if isinstance(s, Token):
             s = s.text
 
-        root_path = (
-            self.settings["root_path"][1:-1]
-            if "root_path" in self.settings
-            else self.default_settings["root_path"]
+        mount_path = (
+            self.settings["mount"][1:-1]
+            if "mount" in self.settings
+            else self.default_settings["mount"]
         )
         if s[1:3] in ["*/", "*\\"]:
-            return s[-1] + root_path + s[2:]
+            return s[-1] + mount_path + s[2:]
         else:
             return s
 

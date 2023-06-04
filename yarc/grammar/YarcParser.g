@@ -31,13 +31,14 @@ code_snippet : SNIPPET {code=self.handler.parse_snippet($SNIPPET)} -> snippet(co
 
 declaration[handler_kwargs] returns [scenario_name] : SCENARIO ID (COLON name)? NEWLINE 
   {$scenario_name=$ID.text} 
-  {self.handler = HandlerFactory.get_handler($name.text, self, $handler_kwargs)};
+  {self.set_handler($name.text, $handler_kwargs)};
   
 settings    
 @init {self.handler.push_stack()}
 @after {self.handler.pop_stack()}
   : SETTINGS COLON NEWLINE INDENT stmts_+=(setting | code_snippet)+ DEDENT -> settings(settings={self.handler.settings_to_str()}, stmts={$stmts_});
-setting        : ID ASSIGN test NEWLINE ( {self.handler.is_special_setting($ID)}? -> {self.handler.special_setting_to_str($ID, $test.st)}
+setting        : ID ASSIGN test NEWLINE ( {self.handler.is_overwritten($ID)}?
+                                        | {self.handler.is_special_setting($ID)}? -> {self.handler.special_setting_to_str($ID, $test.st)}
                                         | -> setting(setting={$ID.text}, value={$test.st}) 
                                         ) {self.handler.add_setting(setting=$ID, value=$test.st)}; 
 

@@ -1,8 +1,11 @@
+from typing import Any
+
 from antlr3 import Parser, Token
 from antlr3.exceptions import MissingTokenException
 
 from yarc.parser.handlers.formatters.error_formatter import ErrorType
 from yarc.parser.handlers.handler import Handler
+from yarc.parser.handlers.handler_factory import HandlerFactory
 
 
 class YarcParserBase(Parser):
@@ -15,10 +18,11 @@ class YarcParserBase(Parser):
     def handler(self) -> type[Handler]:
         return self.__handler
 
-    @handler.setter
-    def handler(self, handler) -> None:
+    def set_handler(self, lib: str, handler_kwargs: dict[str, Any]) -> None:
         if self.__handler is None:
-            self.__handler = handler
+            self.__handler = HandlerFactory.get_handler(
+                parser=self, lib=lib, handler_kwargs=handler_kwargs
+            )
 
     def displayRecognitionError(self, e):
         from yarc.parser.token_mapping import TOKEN_TYPE_TO_TEXT

@@ -1,4 +1,4 @@
-from typing import Any, Union
+from typing import Any, Optional, Union
 
 import ast
 import time
@@ -230,8 +230,14 @@ SUPPORTED_WRITERS = {
 
 
 class OmniReplicatorHandler(Handler):
-    def __init__(self, parser: Parser, warnings=False):
-        super().__init__(parser, warnings)
+    def __init__(
+        self,
+        parser: Parser,
+        warnings: bool = False,
+        num_scenes: Optional[int] = None,
+        mount: Optional[str] = None,
+    ):
+        super().__init__(parser, warnings, num_scenes, mount)
 
         self.default_settings.update(
             {
