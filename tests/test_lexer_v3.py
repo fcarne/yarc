@@ -2,7 +2,7 @@ import os
 
 from antlr3 import ANTLRStringStream
 
-from yarc.parser.YarcLexer import YarcLexer
+from yarc.compiler.YarcLexer import YarcLexer
 
 tests_dir = os.path.dirname(os.path.abspath(__file__))
 

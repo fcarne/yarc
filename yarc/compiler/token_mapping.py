@@ -1,4 +1,4 @@
-from yarc.parser import YarcLexer
+from yarc.compiler import YarcLexer
 
 TOKEN_TYPE_TO_TEXT = {
     YarcLexer.SCENARIO: "scenario",

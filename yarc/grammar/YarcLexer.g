@@ -1,10 +1,9 @@
 lexer grammar YarcLexer;
 
 options {
-  superClass=YarcLexerBase;
-  language=Python3;
+  superClass = YarcLexerBase;
+  language = Python3;
 }
-
 
 tokens {
   INDENT;
@@ -134,12 +133,12 @@ MOD     : '%';
 IDIV    : '//';
 POWER   : '**';
 
-LPAREN : '(' {self.openBrace()};
-RPAREN : ')' {self.closeBrace()};
-LBRACK : '[' {self.openBrace()};
-RBRACK : ']' {self.closeBrace()};
-LBRACE : '{' {self.openBrace()};
-RBRACE : '}' {self.closeBrace()};
+LPAREN : '(' {self.openBrace();};
+RPAREN : ')' {self.closeBrace();};
+LBRACK : '[' {self.openBrace();};
+RBRACK : ']' {self.closeBrace();};
+LBRACE : '{' {self.openBrace();};
+RBRACE : '}' {self.closeBrace();};
 
 LT     : '<';
 GT     : '>';
@@ -180,7 +179,7 @@ NEWLINE:
 ;
 
 /* Misc */
-SKIP_   : ( SPACES | COMMENT | LINE_JOINING) {self.skip()};
+SKIP_   : ( SPACES | COMMENT | LINE_JOINING) {self.skip();};
 UNKNOWN : .;
 
 /* Fragments */

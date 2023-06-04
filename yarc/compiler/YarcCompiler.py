@@ -1,14 +1,19 @@
 from typing import Optional
 
+from pathlib import Path
+
 from antlr3 import ANTLRFileStream, CommonTokenStream
 
-from yarc.parser.YarcLexer import YarcLexer
-from yarc.parser.YarcParser import YarcParser
+from yarc.compiler.YarcLexer import YarcLexer
+from yarc.compiler.YarcParser import YarcParser
 
 
-class Yarc:
-    def __init__(self, input_path: str, lib: Optional[str] = None, **kwargs):
-        input_file = ANTLRFileStream(input_path)
+class YarcCompiler:
+    def __init__(self, input: str | Path, lib: Optional[str] = None, **kwargs):
+        if isinstance(input, Path):
+            input = input.absolute()
+
+        input_file = ANTLRFileStream(input)
         lexer = YarcLexer(input_file)
         stream = CommonTokenStream(lexer)
         self.parser = YarcParser(stream)

@@ -8,12 +8,12 @@ import time
 
 from antlr3 import Parser, Token
 
-from yarc.parser.handlers.formatters.error_formatter import ErrorFormatter, ErrorType
-from yarc.parser.handlers.formatters.warning_formatter import (
+from yarc.compiler.handlers.formatters.error_formatter import ErrorFormatter, ErrorType
+from yarc.compiler.handlers.formatters.warning_formatter import (
     WarningFormatter,
     WarningType,
 )
-from yarc.parser.handlers.utils.simbol_stack import SymbolStack
+from yarc.compiler.handlers.utils.simbol_stack import SymbolStack
 
 
 class Attribute(NamedTuple):

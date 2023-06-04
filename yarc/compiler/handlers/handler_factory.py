@@ -5,9 +5,9 @@ from pathlib import Path
 import stringtemplate3
 from antlr3 import Parser
 
-from yarc.parser.handlers.formatters.error_formatter import ErrorType
-from yarc.parser.handlers.handler import Handler
-from yarc.parser.handlers.replicator_handler import OmniReplicatorHandler
+from yarc.compiler.handlers.formatters.error_formatter import ErrorType
+from yarc.compiler.handlers.handler import Handler
+from yarc.compiler.handlers.replicator_handler import OmniReplicatorHandler
 from yarc.templates import TEMPLATES_DIR
 
 

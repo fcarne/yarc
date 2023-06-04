@@ -6,7 +6,7 @@ import sys
 from antlr3 import InputStream, Lexer
 from antlr3.tokens import CommonToken, Token
 
-from yarc.parser import YarcParser
+from yarc.compiler import YarcParser
 
 
 class YarcLexerBase(Lexer):

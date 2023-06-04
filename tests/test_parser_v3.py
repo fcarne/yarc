@@ -2,8 +2,8 @@ import os
 
 from antlr3 import ANTLRFileStream, CommonTokenStream
 
-from yarc.parser.YarcLexer import YarcLexer
-from yarc.parser.YarcParser import YarcParser
+from yarc.compiler.YarcLexer import YarcLexer
+from yarc.compiler.YarcParser import YarcParser
 
 tests_dir = os.path.dirname(os.path.abspath(__file__))
 

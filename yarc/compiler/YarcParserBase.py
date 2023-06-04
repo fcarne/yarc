@@ -3,9 +3,9 @@ from typing import Any
 from antlr3 import Parser, Token
 from antlr3.exceptions import MissingTokenException
 
-from yarc.parser.handlers.formatters.error_formatter import ErrorType
-from yarc.parser.handlers.handler import Handler
-from yarc.parser.handlers.handler_factory import HandlerFactory
+from yarc.compiler.handlers.formatters.error_formatter import ErrorType
+from yarc.compiler.handlers.handler import Handler
+from yarc.compiler.handlers.handler_factory import HandlerFactory
 
 
 class YarcParserBase(Parser):
@@ -25,8 +25,8 @@ class YarcParserBase(Parser):
             )
 
     def displayRecognitionError(self, e):
-        from yarc.parser.token_mapping import TOKEN_TYPE_TO_TEXT
-        from yarc.parser.YarcLexer import DEDENT, EOF, INDENT, NEWLINE, tokenNamesMap
+        from yarc.compiler.token_mapping import TOKEN_TYPE_TO_TEXT
+        from yarc.compiler.YarcLexer import DEDENT, EOF, INDENT, NEWLINE, tokenNamesMap
 
         tk = self.input.LT(1)
 
