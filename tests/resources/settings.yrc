@@ -1,0 +1,18 @@
+scenario SettingsPlayground: Replicator
+
+settings:
+  num_scenes = 10
+  mount = '/path/to/root'
+
+stage:
+  open '*/playground.usd'
+
+  obj = create 5 from '*models/shapes':
+    translate to Uniform(-250,250)
+    scale <2, 2, 2>
+    rotate Normal(0, 0.1)
+
+  every 5 frame:
+    edit obj:
+      visibility Choice([true, false])
+      translate to Uniform(-250,250)

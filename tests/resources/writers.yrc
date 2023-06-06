@@ -1,0 +1,30 @@
+scenario RocketMission: Replicator
+
+settings:
+  fps = 30
+  num_scenes = 100
+  stage_up_axis = 'Y'
+stage:
+  open 'rocket/launch_site.usd'
+
+  rocket = create from 'rocket/model.usd':
+    translate to <0,0,0>
+    rotate <90,0,0>
+    scale <1, 1, 1>
+    rigid_body:
+      mass 10000
+    kinematics:
+      velocity <0,50,0>
+    
+    every 10 seconds:
+      translate Uniform(-10,10)
+writers:
+  DOPEWriter:
+    output_dir = "*/dope"
+    pose = true
+
+  KittiWriter:
+    output_dir = "*/kitti"
+    bounding_box_2d = true
+    rgb = true,
+    depth = true

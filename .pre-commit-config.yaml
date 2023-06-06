@@ -23,12 +23,11 @@ repos:
     rev: v2.1.1
     hooks:
       - id: autoflake
-        entry: autoflake
+        entry: poetry run autoflake
         args:
           - "--in-place"
           - "--expand-star-imports"
-          # - "--remove-duplicate-keys"
-          # - "--remove-unused-variables"
+          - "--remove-duplicate-keys"
           - "--remove-all-unused-imports"
 
   - repo: local

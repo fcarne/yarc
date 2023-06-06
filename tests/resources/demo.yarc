@@ -17,7 +17,7 @@ stage:
     end_frame 120
 
 
-  brake_models = fetch 'usd' from '*/models/' match 'brake_'
+  brake_models = fetch 'usd' from '*/models/' match 'brake_' limit 100 recursive
   
   visibility = [ i % 2 == 0 for i in [0:10:2]]
 
@@ -46,12 +46,17 @@ stage:
   edit camera:
     translate to <0,0,0>
     rotate 90
+    pivot <0,-1,0>
     rotate_around obj:
       radius Normal(100,5)
 
+  mat = create Material:
+    roughness <0,1,.5>
+
   every $num_scenes / 2 frame:
     edit obj:
-      visibility Choice([true, false])
+      material mat
+      visible Choice([true, false])
       translate to Combine(Uniform(10,20), 0, Uniform(10,20))
 
     instantiate 5 from '*/props':
@@ -63,8 +68,10 @@ writers:
                 [0, 0, 0]]
   
   DOPEWriter:
+    output_dir = "*/dope"
     pose = true
     intrinsics = intrinsics
 
   KittiWriter:
+    output_dir = "*/kitti"
     bounding_box_2d = true

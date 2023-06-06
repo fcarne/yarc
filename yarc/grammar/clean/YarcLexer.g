@@ -1,13 +1,13 @@
 lexer grammar YarcLexer;
 
-tokens {
-  INDENT,
-  DEDENT
-}
-
 options {
   superClass = YarcLexerBase;
   language = Python3;
+}
+
+tokens {
+  INDENT,
+  DEDENT
 }
 
 /* Sections */
@@ -17,11 +17,9 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPES           : 'Plane' | 'Cube' | 'Cone' | 'Torus';
-SHAPES_OR_LIGHTS : 'Sphere' | 'Cylinder' | 'Disk';
+SHAPE            : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
 CAMERA           : 'Camera';
 LIGHT            : 'Light';
-LIGHT_TYPE       : 'Rect' | 'Dome' | 'Distant';
 STEREO           : 'Stereo';
 MATERIAL         : 'Material';
 TIMELINE         : 'Timeline';
@@ -35,6 +33,7 @@ GET         : 'get';
 EDIT        : 'edit';
 
 /* Resource retriever */
+/* Resource retriever */
 FETCH     : 'fetch';
 MATCH     : 'match';
 LIMIT     : 'limit';
@@ -42,7 +41,6 @@ RECURSIVE : 'recursive';
 
 /* Modifiers */
 TRANSLATE     : 'translate';
-CAM_TRANSLATE : 'camera_translate';
 ROTATE        : 'rotate';
 SCALE         : 'scale';
 SEMANTICS     : 'semantics';
@@ -50,33 +48,31 @@ VISIBLE       : 'visible';
 SIZE          : 'size';
 LOOK_AT       : 'look_at';
 UP_AXIS       : 'up_axis'; // look at ... up
+PIVOT         : 'pivot';
+MATERIAL_     : 'material';
 AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
 ORDER         : AXIS AXIS AXIS;
 
 /* Compound rules */
-SCATTER    : 'scatter_' ('2d' | '3d');
-ROT_AROUND : 'rotate_around';
-PHYSICS    : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
+SCATTER     : 'scatter_' ('2d' | '3d');
+ROT_AROUND  : 'rotate_around';
+MOVE_TO_CAM : 'move_to_camera';
+PHYSICS     : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
 
-/* Dynamic behavior */ 
+/* Dynamic behavior */
 EVERY  : 'every';
 FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
 /* Distributions */
-UNIFORM     : 'Uniform';
-NORMAL      : 'Normal';
-CHOICE      : 'Choice';
-SEQUENCE    : 'Sequence';
-LOG_UNIFORM : 'LogUniform';
-
+DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' ;
+COMBINE : 'Combine' ;
 // Native code snippets
-SNIPPET : NESTED_CODE { print("FOUND SNIPPET CODE!") } -> skip;
+SNIPPET : NESTED_CODE ;
 
 fragment NESTED_CODE:
-  LBRACE LBRACE 
-    (NESTED_CODE | .)*?
-    /*( options {k=2; greedy=false;}: NESTED_CODE	|	.	)*  // v3 */ 
+  LBRACE LBRACE
+    ( NESTED_CODE | . )*?
   RBRACE RBRACE
 ;
 
@@ -85,14 +81,13 @@ TO : 'to'; // translate to
 ON : 'on'; // scatter on
 AT : 'at'; // get ... at ...
 
-/* 
+/*
  * Everything that follows is a reduced version of the Python 3 Lexer
- * found at (https://github.com/antlr/grammars-v4) 
+ * found at (https://github.com/antlr/grammars-v4)
  */
 
 /* Keywords */
 AND        : 'and';
-DEF        : 'def';
 ELSE       : 'else';
 FALSE      : 'false';
 FOR        : 'for';
@@ -100,10 +95,11 @@ FROM       : 'from';
 IF         : 'if';
 IN         : 'in';
 IS         : 'is';
+LEN        : 'len';
 NONE       : 'none';
 NOT        : 'not';
 OR         : 'or';
-RETURN     : 'return';
+STEP       : 'step';
 TRUE       : 'true';
 UNDERSCORE : '_';
 
@@ -124,18 +120,18 @@ LSHIFT  : '<<';
 RSHIFT  : '>>';
 PLUS    : '+';
 MINUS   : '-';
+MUL    : '*';
 DIV     : '/';
-MUL     : '*';
 MOD     : '%';
 IDIV    : '//';
 POWER   : '**';
 
-LPAREN : '(' {self.openBrace()};
-RPAREN : ')' {self.closeBrace()};
-LBRACK : '[' {self.openBrace()};
-RBRACK : ']' {self.closeBrace()};
-LBRACE : '{' {self.openBrace()};
-RBRACE : '}' {self.closeBrace()};
+LPAREN : '(';
+RPAREN : ')';
+LBRACK : '[';
+RBRACK : ']';
+LBRACE : '{';
+RBRACE : '}';
 
 LT     : '<';
 GT     : '>';
@@ -144,18 +140,7 @@ GT_EQ  : '>=';
 LT_EQ  : '<=';
 NOT_EQ : '!=';
 
-ADD_ASSIGN    : '+=';
-SUB_ASSIGN    : '-=';
-MULT_ASSIGN   : '*=';
-DIV_ASSIGN    : '/=';
-MOD_ASSIGN    : '%=';
-AND_ASSIGN    : '&=';
-OR_ASSIGN     : '|=';
-XOR_ASSIGN    : '^=';
-LSHIFT_ASSIGN : '<<=';
-RSHIFT_ASSIGN : '>>=';
-POWER_ASSIGN  : '**=';
-IDIV_ASSIGN   : '//=';
+AUG_ASSIGN: '+=' | '-=' | '*='| '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=';
 
 /* Identifiers */
 ID         : ID_START ID_CONTINUE*;
@@ -169,24 +154,25 @@ STRING:
   )? SHORT_STRING
 ;
 
-INTEGER : 
-  DEC_INTEGER 
-  | OCT_INTEGER 
-  | HEX_INTEGER 
-  | BIN_INTEGER
+
+INTEGER :
+  NON_ZERO_DIGIT DIGIT* | '0'+ // Decimal integer
+  | '0' ('o' | 'O') OCT_DIGIT+ // Octal integer
+  | '0' ('x' | 'X') HEX_DIGIT+ // Hexadecimal integer
+  | '0' ('b' | 'B') BIN_DIGIT+ // Binary integer
 ;
 
-DEC_INTEGER  : NON_ZERO_DIGIT DIGIT* | '0'+;
-OCT_INTEGER  : '0' ('o' | 'O') OCT_DIGIT+;
-HEX_INTEGER  : '0' ('x' | 'X') HEX_DIGIT+;
-BIN_INTEGER  : '0' ('b' | 'B') BIN_DIGIT+;
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
 // Newline
-NEWLINE : ('\r'? '\n' | '\r' | '\f') SPACES? {self.onNewLine();};
+NEWLINE:
+  (
+  ( '\r'? '\n' | '\r' | '\f') SPACES?
+  )
+;
 
 /* Misc */
-SKIP_ : ( SPACES | COMMENT | LINE_JOINING) -> skip;
+SKIP_   : ( SPACES | COMMENT | LINE_JOINING) -> skip;
 UNKNOWN : .;
 
 /* Fragments */
@@ -194,11 +180,11 @@ fragment SHORT_STRING:
   '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
   | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
 ;
-fragment STRING_ESCAPE_SEQ : '\\' . | '\\' NEWLINE;
+fragment STRING_ESCAPE_SEQ : '\\' ~('\t' | ' ' | '\r' | '\n' | '\f') | '\\' NEWLINE;
 
-fragment NON_ZERO_DIGIT : '1' ..'9';
-fragment DIGIT          : '0' ..'9';
-fragment OCT_DIGIT      : '0' ..'7';
+fragment NON_ZERO_DIGIT : '1' .. '9';
+fragment DIGIT          : '0' .. '9';
+fragment OCT_DIGIT      : '0' .. '7';
 fragment HEX_DIGIT      : DIGIT | 'a' .. 'f' | 'A' .. 'F';
 fragment BIN_DIGIT      : '0' | '1';
 
@@ -210,7 +196,7 @@ fragment EXPONENT       : ('e' | 'E') ('+' | '-')? DIGIT+;
 
 fragment ID_START    : UNDERSCORE | LETTER;
 fragment ID_CONTINUE : ID_START | DIGIT;
-fragment LETTER      : 'a' ..'z' | 'A' ..'Z';
+fragment LETTER      : 'a' .. 'z' | 'A' .. 'Z';
 
 fragment SPACES       : ( ' ' | '\t')+;
 fragment COMMENT      : '#' ~('\r' | '\n' | '\f')*;

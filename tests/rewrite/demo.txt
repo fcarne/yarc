@@ -1,0 +1,111 @@
+""" Brakes scenario """
+from math import ceil
+
+import omni.usd
+import omni.replicator.core as rep
+
+from pxr import Gf
+from omni.demo.data_generator import get_files, save_meshes, get_prims
+
+class Vector(Gf.Vec3d, list):
+  def __init__(self, *args, **kwargs):
+    Gf.Vec3d.__init__(self, *args, **kwargs)
+
+print('Code snippet!')
+
+# settings
+settings = {
+  'seed': 1686068559845,
+  'stage_meters_per_unit': 1,
+  'stage_up_axis': "y",
+  'resolution': [512, 512],
+  'rtx_antialiasing': "FXAA",
+  'pathtracing_samples_per_pixel': 64,
+  'fps': 60,
+  'render_mode': 'PathTracing',
+  'num_scenes': 100,
+  'mount': '/path/to/root',
+}
+
+rep.set_global_seed(1686068559845)
+rep.settings.set_stage_meters_per_unit(1)
+rep.settings.set_stage_up_axis("y")
+rep.settings.carb_settings(setting="rtx_antialiasing", value="FXAA")
+rep.settings.carb_settings(setting="pathtracing_samples_per_pixel", value=64)
+# I don't remember how to do it XD
+rep.settings.carb_settings(setting="render_mode", value='PathTracing')
+
+rps = {}
+with rep.new_layer():
+  omni.usd.get_context().open_stage('/path/to/root/scenario.usd')
+
+  rep.modify.start_frame(value=90)
+  rep.modify.end_frame(value=120)
+
+  brake_models = get_files(
+    path='/path/to/root/models/', 
+    exts='usd', 
+    recursive=True, 
+    path_filter='brake_', 
+    max_files=100
+  )
+  visibility = [i % 2 == 0 for i in [list(*range(0, 10, 2))]]
+  obj = rep.create.from_usd(usd=brake_models, count=5)
+  with obj:
+    rep.modify.pose(position=Vector(0, 0, 0))
+    rep.modify.pose(position_x=50)
+    rep.modify.pose(rotation=Vector(120, 0, 90))
+    rep.modify.pose(scale=Vector(2, 1, 2))
+    rep.modify.semantics('class:obj')
+    rep.physics.collider()
+    rep.physics.rigid_body(velocity=150)
+
+
+  prim_xaji0y = rep.create.light(light_type='disk')
+  with prim_xaji0y:
+    rep.modify.attribute(name="radius", value=100, attribute_type="float")
+    with rep.trigger.on_frame(num_frames=ceil(settings["num_scenes"])):
+      with prim_xaji0y:
+        rep.modify.attribute(name="color", value=Vector(0, 0, 250))
+  with rep.trigger.on_frame(num_frames=ceil(settings["num_scenes"])):
+    with prim_xaji0y:
+      rep.modify.attribute(name="color", value=Vector(0, 0, 250))
+
+  camera = rep.get.camera(path_pattern='/World/Room', path_pattern_exclusion='/World/Room/CameraTop')
+  with camera:
+    rep.modify.pose(position=Vector(0, 0, 0))
+    rep.modify.pose(rotation=90)
+    rep.modify.pose(pivot=Vector(0, -1, 0))
+    rep.modify.rotate_around(center_prim=obj, radius=rep.distribution.normal(100, 5))
+
+  mat = rep.create.material_omnipbr(roughness=Vector(0, 1, .5))
+  with rep.trigger.on_frame(num_frames=ceil(settings["num_scenes"]/settings["num_scenes"] / 2), interval=settings["num_scenes"] / 2):
+    with obj:
+      rep.randomizer.materials([mat])
+      rep.modify.visibility(rep.distribution.choice([True, False]))
+      rep.modify.pose(position=rep.distribution.combine([rep.distribution.uniform(10, 20), 0, rep.distribution.uniform(10, 20)]))
+
+    prim_6dpbhs = rep.randomizer.instantiate(paths='/path/to/root/props', size=5)
+    with prim_6dpbhs:
+      rep.modify.pose(position=rep.distribution.uniform(Vector(-10, -10, 10), Vector(10, 10, 10)))
+
+  
+  # writers
+  intrinsics = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+  writer = rep.WriterRegistry.get("DOPEWriter")
+  writer.initialize(
+    output_dir="/path/to/root/dope",
+    pose=True,
+    intrinsics=intrinsics
+  )
+  writer.attach(list(rps.values()))
+
+  writer = rep.WriterRegistry.get("KittiWriter")
+  writer.initialize(
+    output_dir="/path/to/root/kitti",
+    bounding_box_2d=True
+  )
+  writer.attach(list(rps.values()))
+
+
+  

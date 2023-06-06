@@ -274,7 +274,7 @@ not <expr>
 
 comparison(exprs, ops) ::= 
 <<
-<first(exprs)><if(ops)><rest(exprs),ops:{e,o | <\ ><o.text> <e>}><endif>
+<first(exprs)><if(ops)><rest(exprs),ops:{e,o | <\ ><o> <e>}><endif>
 >>
 
 expr(exprs) ::=

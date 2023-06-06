@@ -1,0 +1,23 @@
+""" BareboneScenario scenario """
+from math import ceil
+
+import omni.usd
+import omni.replicator.core as rep
+
+from pxr import Gf
+from omni.demo.data_generator import get_files, save_meshes, get_prims
+
+class Vector(Gf.Vec3d, list):
+  def __init__(self, *args, **kwargs):
+    Gf.Vec3d.__init__(self, *args, **kwargs)
+
+
+
+rps = {}
+with rep.new_layer():
+  prim_xaji0y = rep.create.cube(position=Vector(0, 0, 0), semantics="class:cube")
+  with prim_xaji0y:
+
+  
+
+  

@@ -198,7 +198,8 @@ and_test    : exprs+=not_test (AND exprs+=not_test)* -> and_test(exprs={$exprs})
 not_test    : NOT expr_=not_test  -> not_test(expr={$expr_.st})
             | comparison -> {$comparison.st};
 comparison  : exprs+=expr (ops+=comp_op exprs+=expr)* -> comparison(exprs={$exprs}, ops={$ops});
-comp_op     : op=(LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | NOT IN | IS | IS NOT) -> {$op};
+comp_op     : op=(LT | GT | EQUALS | GT_EQ | LT_EQ | NOT_EQ | IN | IS) -> {$op.text}
+            | (op1=NOT op2=IN | op1=IS op2=NOT) -> {$op1.text + " " + $op2.text};
 expr        : exprs+=xor_expr (BIT_OR exprs+=xor_expr)* -> expr(exprs={$exprs});
 xor_expr    : exprs+=and_expr (XOR exprs+=and_expr)* -> xor_expr(exprs={$exprs});
 and_expr    : exprs+=shift_expr (BIT_AND exprs+=shift_expr)* -> and_expr(exprs={$exprs});

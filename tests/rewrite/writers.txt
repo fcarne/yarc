@@ -1,0 +1,75 @@
+""" RocketMission scenario """
+from math import ceil
+
+import omni.usd
+import omni.replicator.core as rep
+
+from pxr import Gf
+from omni.demo.data_generator import get_files, save_meshes, get_prims
+
+class Vector(Gf.Vec3d, list):
+  def __init__(self, *args, **kwargs):
+    Gf.Vec3d.__init__(self, *args, **kwargs)
+
+
+# settings
+settings = {
+  'mount': ".",
+  'seed': 1686068595823,
+  'stage_meters_per_unit': 1,
+  'resolution': [512, 512],
+  'render_mode': "RayTracedLighting",
+  'rtx_antialiasing': "FXAA",
+  'pathtracing_samples_per_pixel': 64,
+  'fps': 30,
+  'num_scenes': 100,
+  'stage_up_axis': 'Y',
+}
+
+rep.set_global_seed(1686068595823)
+rep.settings.set_stage_meters_per_unit(1)
+rep.settings.carb_settings(setting="render_mode", value="RayTracedLighting")
+rep.settings.carb_settings(setting="rtx_antialiasing", value="FXAA")
+rep.settings.carb_settings(setting="pathtracing_samples_per_pixel", value=64)
+# I don't remember how to do it XD
+rep.settings.set_stage_up_axis('Y')
+
+rps = {}
+with rep.new_layer():
+  omni.usd.get_context().open_stage('rocket/launch_site.usd')
+
+  rocket = rep.create.from_usd(usd='rocket/model.usd', )
+  with rocket:
+    rep.modify.pose(position=Vector(0, 0, 0))
+    rep.modify.pose(rotation=Vector(90, 0, 0))
+    rep.modify.pose(scale=Vector(1, 1, 1))
+    rep.physics.mass(mass=10000)
+    rep.physics.rigid_body(velocity=Vector(0, 50, 0))
+    with rep.trigger.on_time(num=ceil(settings["num_scenes"]/10), interval=10):
+      with rocket:
+        rep.modify.pose(position=rep.distribution.uniform(-10, 10))
+  with rep.trigger.on_time(num=ceil(settings["num_scenes"]/10), interval=10):
+    with rocket:
+      rep.modify.pose(position=rep.distribution.uniform(-10, 10))
+
+
+  
+  # writers
+  writer = rep.WriterRegistry.get("DOPEWriter")
+  writer.initialize(
+    output_dir="./dope",
+    pose=True
+  )
+  writer.attach(list(rps.values()))
+
+  writer = rep.WriterRegistry.get("KittiWriter")
+  writer.initialize(
+    output_dir="./kitti",
+    bounding_box_2d=True,
+    rgb=True,
+    depth=True
+  )
+  writer.attach(list(rps.values()))
+
+
+  

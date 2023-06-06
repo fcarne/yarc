@@ -36,7 +36,7 @@ formatting: codestyle
 #* Linting
 .PHONY: test
 test:
-	poetry run pytest -c pyproject.toml --cov-report=html --cov=yarc tests/
+	poetry run pytest -c pyproject.toml --cov-report=html --cov-report=xml --cov=yarc tests/ --ignore=tests/utils --ignore=tests/rewrite
 	poetry run coverage-badge -o assets/images/coverage.svg -f
 
 .PHONY: check-codestyle

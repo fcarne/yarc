@@ -1,0 +1,56 @@
+""" SettingsPlayground scenario """
+from math import ceil
+
+import omni.usd
+import omni.replicator.core as rep
+
+from pxr import Gf
+from omni.demo.data_generator import get_files, save_meshes, get_prims
+
+class Vector(Gf.Vec3d, list):
+  def __init__(self, *args, **kwargs):
+    Gf.Vec3d.__init__(self, *args, **kwargs)
+
+
+# settings
+settings = {
+  'seed': 1686067194991,
+  'fps': 24,
+  'stage_meters_per_unit': 1,
+  'stage_up_axis': "y",
+  'resolution': [512, 512],
+  'render_mode': "RayTracedLighting",
+  'rtx_antialiasing': "FXAA",
+  'pathtracing_samples_per_pixel': 64,
+  'num_scenes': 10,
+  'mount': '/path/to/root',
+}
+
+rep.set_global_seed(1686067194991)
+# I don't remember how to do it XD
+rep.settings.set_stage_meters_per_unit(1)
+rep.settings.set_stage_up_axis("y")
+rep.settings.carb_settings(setting="render_mode", value="RayTracedLighting")
+rep.settings.carb_settings(setting="rtx_antialiasing", value="FXAA")
+rep.settings.carb_settings(setting="pathtracing_samples_per_pixel", value=64)
+
+
+rps = {}
+with rep.new_layer():
+  omni.usd.get_context().open_stage('/path/to/root/playground.usd')
+
+  obj = rep.create.from_usd(usd='*models/shapes', count=5)
+  with obj:
+    rep.modify.pose(position=rep.distribution.uniform(-250, 250))
+    rep.modify.pose(scale=Vector(2, 2, 2))
+    rep.modify.pose(rotation=rep.distribution.normal(0, 0.1))
+
+
+  with rep.trigger.on_frame(num_frames=ceil(settings["num_scenes"]/5), interval=5):
+    with obj:
+      rep.modify.attribute(name="visibility", value=rep.distribution.choice([True, False]))
+      rep.modify.pose(position=rep.distribution.uniform(-250, 250))
+
+  
+
+  
