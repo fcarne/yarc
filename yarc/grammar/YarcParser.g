@@ -89,7 +89,7 @@ create_expr[id]:
                      behaviors={self.handler.get_behaviors($attrs.attrs)})
     | MATERIAL (attrs=simple_block | NEWLINE) 
       -> create_material(id={$id}, 
-                         params={self.handler.get_params($MATERIAL, $attrs.attrs, warnings=True, count=count.st)})
+                         params={self.handler.get_params($MATERIAL, $attrs.attrs, warnings=True, count=$count.st)})
   )
 ;
 

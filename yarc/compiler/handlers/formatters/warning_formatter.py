@@ -1,3 +1,5 @@
+from typing import Any, Optional
+
 import difflib
 from enum import Enum
 
@@ -12,7 +14,7 @@ class WarningType(Enum):
 
 
 class WarningFormatter:
-    def get_warning_message(self, type: WarningType, **kwargs) -> str:
+    def get_warning_message(self, type: WarningType, **kwargs: Any) -> str:
         match type:
             case WarningType.UNUSED_VARIABLE:
                 return f"variable '{kwargs['var']}' declared but never used"
@@ -32,10 +34,8 @@ class WarningFormatter:
                 return f"'{kwargs['others']}' overrided by {kwargs['last']}"
             case WarningType.MISSING_WRITER_PARAMETER:
                 return f"missing parameter '{kwargs['param']}' for writer '{kwargs['writer']}'{'. Defaulted to {} '.format(kwargs['default']) if 'default' in kwargs else ''}"
-            case _:
-                return f"(ノ-_-)ノ ミ ┴┴"
 
-    def closest_suggestion(self, name: str, accepted: set[str]) -> str:
+    def closest_suggestion(self, name: str, accepted: set[str]) -> Optional[str]:
         closest_match = difflib.get_close_matches(name, accepted)
         if closest_match:
             suggestion = closest_match[0]

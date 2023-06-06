@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Any, Optional
 
 from pathlib import Path
 
@@ -9,7 +9,7 @@ from yarc.compiler.YarcParser import YarcParser
 
 
 class YarcCompiler:
-    def __init__(self, input: str | Path, lib: Optional[str] = None, **kwargs):
+    def __init__(self, input: str | Path, lib: Optional[str] = None, **kwargs: Any):
         if isinstance(input, Path):
             input = input.absolute()
 
@@ -21,11 +21,11 @@ class YarcCompiler:
         self.lib = lib
         self.handler_args = kwargs
 
-    def parse(self) -> str:
+    def compile(self) -> str:
         if self.lib is not None:
             self.parser.set_handler(self.lib, self.handler_args)
 
-        return self.parser.scenario(handler_kwargs=self.handler_args)
+        return str(self.parser.scenario(handler_kwargs=self.handler_args)).strip()
 
     @property
     def errors(self) -> dict[str, str]:

@@ -1,18 +1,6 @@
-import collections
 from enum import Enum
 
 from antlr3 import ANTLRFileStream, ANTLRStringStream, Token, TokenStream
-
-_Anchors = collections.namedtuple(
-    "_Anchors",
-    [
-        "left_end_offset",
-        "right_start_offset",
-        "primary_char",
-        "secondary_char",
-    ],
-    defaults=["~", "^"],
-)
 
 
 class ErrorType(Enum):
@@ -57,26 +45,11 @@ class ErrorFormatter:
 
         if show_anchors:
             # TODO: Add anchor computations, if ever needed ¯\_(ツ)_/¯
-            anchors: _Anchors = None
 
             # show indicators if primary char doesn't span the frame line
-            if end_offset - start_offset < len(stripped_line) or (
-                anchors and anchors.right_start_offset - anchors.left_end_offset > 0
-            ):
+            if end_offset - start_offset < len(stripped_line):
                 row.append("    ")
                 row.append(" " * (start_offset - stripped_characters))
-
-                if anchors:
-                    row.append(anchors.primary_char * (anchors.left_end_offset))
-                    row.append(
-                        anchors.secondary_char
-                        * (anchors.right_start_offset - anchors.left_end_offset)
-                    )
-                    row.append(
-                        anchors.primary_char
-                        * (end_offset - start_offset - anchors.right_start_offset)
-                    )
-                else:
-                    row.append("^" * (end_offset - start_offset))
+                row.append("^" * (end_offset - start_offset))
 
         return "".join(row)

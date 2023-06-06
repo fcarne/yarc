@@ -5,6 +5,7 @@ from pathlib import Path
 import stringtemplate3
 from antlr3 import Parser
 
+from yarc.compiler.handlers.exceptions import YARCException
 from yarc.compiler.handlers.formatters.error_formatter import ErrorType
 from yarc.compiler.handlers.handler import Handler
 from yarc.compiler.handlers.replicator_handler import OmniReplicatorHandler
@@ -26,11 +27,9 @@ class HandlerFactory:
     @staticmethod
     def get_handler(
         parser: Parser, lib: str, handler_kwargs: Optional[dict[str, Any]] = None
-    ) -> type[Handler]:
+    ) -> Handler:
         if HandlerFactory.is_library_supported(lib) is False:
-            raise ValueError(
-                f"{ErrorType.LIB_ERROR}: {ErrorType.LIB_ERROR.default_msg.format(lib)} "
-            )
+            raise YARCException(error_type=ErrorType.LIB_ERROR, lib=lib)
 
         handler, template_path = HandlerFactory.supported_libraries[lib]
         with open(template_path) as template:

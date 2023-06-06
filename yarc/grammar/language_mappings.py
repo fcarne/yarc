@@ -2,7 +2,7 @@ import re
 from enum import Enum
 
 
-class TargetLanguage(Enum):
+class Language(Enum):
     JAVA = "Java"
     CPP = "Cpp"
     CSHARP = "CSharp"
@@ -14,7 +14,7 @@ class TargetLanguage(Enum):
 
 # Dictionary mapping target languages to their corresponding mappings
 language_mappings = {
-    TargetLanguage.JAVA: {
+    Language.JAVA: {
         "self": "this",
         "not": "!",
         "[]": "new ArrayList<>()",
@@ -22,7 +22,7 @@ language_mappings = {
         "append": "add",
         "comment_start": "//",
     },
-    TargetLanguage.CPP: {
+    Language.CPP: {
         "self": "this",
         "not": "!",
         "[]": "std::vector<>()",
@@ -30,7 +30,7 @@ language_mappings = {
         "append": "push_back",
         "comment_start": "//",
     },
-    TargetLanguage.CSHARP: {
+    Language.CSHARP: {
         "self": "this",
         "not": "!",
         "[]": "new List<>()",
@@ -38,7 +38,7 @@ language_mappings = {
         "append": "Add",
         "comment_start": "//",
     },
-    TargetLanguage.PYTHON2: {
+    Language.PYTHON2: {
         "self": "self",
         "not": "not",
         "[]": "[]",
@@ -46,7 +46,7 @@ language_mappings = {
         "append": "append",
         "comment_start": "#",
     },
-    TargetLanguage.PYTHON3: {
+    Language.PYTHON3: {
         "self": "self",
         "not": "not",
         "[]": "[]",
@@ -54,7 +54,7 @@ language_mappings = {
         "append": "append",
         "comment_start": "#",
     },
-    TargetLanguage.JAVASCRIPT: {
+    Language.JAVASCRIPT: {
         "self": "this",
         "not": "!",
         "[]": "[]",
@@ -62,7 +62,7 @@ language_mappings = {
         "append": "push",
         "comment_start": "//",
     },
-    TargetLanguage.RUBY: {
+    Language.RUBY: {
         "self": "self",
         "not": "!",
         "[]": "[]",
@@ -73,28 +73,28 @@ language_mappings = {
 }
 
 
-def translate(grammar: str, target_language: TargetLanguage) -> str:
+def translate(grammar: str, language: Language) -> str:
     def replace_predicates(grammar: str) -> str:
-        language_mapping = language_mappings[target_language]
+        language_mapping = language_mappings[language]
         for python_predicate, target_predicate in language_mapping.items():
             regex = r"(\b)(" + re.escape(python_predicate) + r")(\b)"
             grammar = re.sub(regex, r"\1" + target_predicate, grammar)
 
         return grammar
 
-    transformed_grammar = replace_predicates(grammar)
+    grammar = replace_predicates(grammar)
 
-    transformed_grammar = re.sub(
+    grammar = re.sub(
         r"language\s*=\s*[a-zA-Z0-9]+\s*;",
-        f"language = {target_language.value};",
-        transformed_grammar,
+        f"language = {language.value};",
+        grammar,
     )
 
-    transformed_grammar = re.sub(
+    grammar = re.sub(
         r"@header\s*\{.*?\}",
         r"@header {\n/* TO DO: Import super class */\n}",
-        transformed_grammar,
+        grammar,
         flags=re.DOTALL,
     )
 
-    return transformed_grammar
+    return grammar

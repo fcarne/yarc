@@ -1,4 +1,4 @@
-from typing import Any, NamedTuple, Optional, Union
+from typing import Any, NamedTuple, Optional
 
 import abc
 import keyword
@@ -53,16 +53,16 @@ class Handler(abc.ABC):
         self.overwritten_settings = set()
 
         if num_scenes is not None:
-            self.settings["num_scenes"] = num_scenes
+            self.default_settings["num_scenes"] = num_scenes
             self.overwritten_settings.add("num_scenes")
 
         if mount is not None:
-            self.settings["mount"] = mount
+            self.default_settings["mount"] = mount
             self.overwritten_settings.add("mount")
 
         self.symbol_stack = SymbolStack()
         self.should_lookup = True
-        self.forward_references: list[tuple(str, Token)] = []
+        self.forward_references: list[tuple[str, Token]] = []
 
         self.error_dict: dict[str, str] = {}
         self.error_formatter = ErrorFormatter(parser.input)
@@ -71,7 +71,7 @@ class Handler(abc.ABC):
         self.warning_formatter = WarningFormatter()
         self.show_warnings = warnings
 
-    def _rewrite_defaults(self, settings: dict[str, Any]) -> None:
+    def _rewrite_defaults(self, settings: dict[str, Any]) -> dict[str, str]:
         return {
             key: f'"{value}"' if isinstance(value, str) else str(value)
             for key, value in settings.items()
@@ -96,7 +96,7 @@ class Handler(abc.ABC):
 
         self.settings[setting_text] = str(value)
 
-    def special_setting_to_str(self, setting: Token | str, value: Any) -> str:
+    def special_setting_to_str(self, setting: Token | str, value: Any) -> Optional[str]:
         setting = setting.text if isinstance(setting, Token) else str(setting)
         match setting:
             case "stage_up_axis":
@@ -111,10 +111,10 @@ class Handler(abc.ABC):
                 return None
 
     def settings_to_str(self, indent: int = 2) -> str:
-        default_not_changed = {
-            k: v for k, v in self.default_settings.items() if k not in self.settings
-        }
-        settings = self._rewrite_defaults(default_not_changed) | self.settings
+        default_not_changed = self._rewrite_defaults(
+            {k: v for k, v in self.default_settings.items() if k not in self.settings}
+        )
+        settings = default_not_changed | self.settings
 
         settings_str = "{\n"
         for key, value in settings.items():
@@ -145,19 +145,19 @@ class Handler(abc.ABC):
         for var in vars:
             if var in keyword.kwlist:
                 self.handle_error(
-                    ErrorType.NAME_ERROR,
+                    type=ErrorType.NAME_ERROR,
                     msg=f"cannot name a variable '{var}' (python reserved keyword)",
                 )
 
-            self.symbol_stack.define(var, Any)
+            self.symbol_stack.define(var, object)
 
     def lookup(self, var: str, tk: Optional[Token] = None) -> None:
         if tk is None:
-            tk: Token = self.parser.input.LT(-1)
+            tk = self.parser.input.LT(-1)
 
         if self.should_lookup:
             if self.symbol_stack.lookup(var) is None:
-                self.handle_error(tk=tk, hdr=ErrorType.NAME_ERROR, name=var)
+                self.handle_error(type=ErrorType.NAME_ERROR, tk=tk, name=var)
         else:
             self.forward_references.append((var, tk))
 
@@ -175,17 +175,21 @@ class Handler(abc.ABC):
         raise NotImplementedError
 
     def get_params(
-        self, token: Token, attrs: list[Attribute], warnings: bool = False, **kwargs
-    ) -> list[Attribute]:
+        self,
+        token: Token,
+        attrs: list[Attribute] | None,
+        warnings: bool = False,
+        **kwargs: Any,
+    ) -> list[Parameter]:
         raise NotImplementedError
 
-    def get_attrs(self, token: Token, attrs: list[Attribute]) -> list[str]:
+    def get_attrs(self, token: Token, attrs: list[Attribute] | None) -> list[str]:
         raise NotImplementedError
 
-    def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
+    def get_behaviors(self, attrs: list[Attribute] | None) -> list[str]:
         raise NotImplementedError
 
-    def map(self, *tokens: list[Union[Token, str]]) -> str:
+    def map(self, *tokens: Token) -> str:
         raise NotImplementedError
 
     def check_writer(self, writer: Token, params: list[Parameter]) -> None:
@@ -201,14 +205,14 @@ class Handler(abc.ABC):
         suffix = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
         return f"prim_{suffix}"
 
-    def expand_string(self, s: Union[Token, str]) -> str:
+    def expand_string(self, s: Token | str) -> str:
         if isinstance(s, Token):
             s = s.text
 
         mount_path = (
             self.settings["mount"][1:-1]
             if "mount" in self.settings
-            else self.default_settings["mount"]
+            else str(self.default_settings["mount"])
         )
         if s[1:3] in ["*/", "*\\"]:
             return s[-1] + mount_path + s[2:]
@@ -216,37 +220,38 @@ class Handler(abc.ABC):
             return s
 
     def parse_setting_id(self, setting_id: Token) -> str:
-        setting = setting_id.text.lstrip("$")
+        setting: str = setting_id.text.lstrip("$")
 
         if setting not in self.settings and setting not in self.default_settings:
             self.handle_error(
-                tk=setting_id, hdr=ErrorType.SETTING_ERROR, setting=setting
+                type=ErrorType.SETTING_ERROR, tk=setting_id, setting=setting
             )
 
         return setting.lstrip("$")
 
     def handle_error(
-        self, tk: Token, hdr: ErrorType | str, msg: Optional[str] = None, **kwargs
+        self,
+        type: ErrorType,
+        msg: Optional[str] = None,
+        tk: Optional[Token] = None,
+        **kwargs: Any,
     ) -> None:
-        show_anchors = True
-        if tk is None:
-            tk = self.input.LT(-1)
+        show_anchors = type != ErrorType.INDENTATION_ERROR
 
-        if hdr == ErrorType.INDENTATION_ERROR:
-            show_anchors = False
+        if tk is None:
+            tk = self.parser.input.LT(-1)
 
         if msg is None:
-            msg = hdr.default_msg.format(*kwargs.values())
+            msg = type.default_msg.format(*kwargs.values())
 
-        hdr = hdr.type
-        hdr += f" at line {tk.line}"
+        hdr = f"{type.type} at line {tk.line}"
 
         self.error_dict[hdr] = self.error_formatter.format(
             tk, msg, show_anchors=show_anchors
         )
 
     def handle_warning(
-        self, type: WarningType, tk: Optional[Token] = None, **kwargs
+        self, type: WarningType, tk: Optional[Token] = None, **kwargs: Any
     ) -> None:
         hdr = type.value
 

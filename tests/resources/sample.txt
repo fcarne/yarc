@@ -4,11 +4,10 @@ scenario Brakes: Replicator
 {{ print('Code snippet!') }}
 
 settings:
-  souce = a == 5
-  fpsss = 30 - 10 + 10 + 3 *(5+5)
+  fps = 60
   render_mode = 'PathTracing'
   num_scenes = 100
-  root_path = '/path/to/root'
+  mount = '/path/to/root'
 
 stage:
   open '*/scenario.usd'

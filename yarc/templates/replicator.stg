@@ -2,7 +2,9 @@ group replicator;
 
 scenario(name, before_snippets, settings, stage, writers, after_snippets) ::=
 <<
-# Scenario <name>
+""" <name> scenario """
+from math import ceil
+
 import omni.usd
 import omni.replicator.core as rep
 
@@ -213,14 +215,14 @@ rep.randomizer.materials([<value>])
 >>
 inner_behavior_stmt(behavior, id, block) ::=
 <<
-<behavior>:
+with <behavior>:
   with <id>:
     <block>
 >>
 
 behavior_stmt(behavior, block) ::=
 <<
-<behavior>:
+with <behavior>:
   <block>
 >>
 

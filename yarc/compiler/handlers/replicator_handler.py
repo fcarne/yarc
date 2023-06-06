@@ -1,4 +1,4 @@
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 import ast
 import time
@@ -73,7 +73,7 @@ GET_TARGETS = {
     "Xform": "xform",
 }
 
-ACCEPTED_PARAMS = {
+ACCEPTED_PARAMS: dict[str, set[str] | dict[str, set[str]]] = {
     "EDIT": set(),
     "GROUP": set(),
     "LIGHT": {
@@ -255,7 +255,7 @@ class OmniReplicatorHandler(Handler):
 
         self.mapping = PRIMS | DISTRIBUTIONS | PARAMS | GET_TARGETS
 
-    def special_setting_to_str(self, setting: Token | str, value: Any) -> str:
+    def special_setting_to_str(self, setting: Token | str, value: Any) -> Optional[str]:
         setting = setting.text if isinstance(setting, Token) else str(setting)
         if setting in self.carb_mapping:
             return str(
@@ -270,13 +270,13 @@ class OmniReplicatorHandler(Handler):
         return super().special_setting_to_str(setting, value)
 
     def parse_snippet(self, snippet: Token) -> str:
-        code = snippet.text.lstrip("{{").rstrip("}}").strip()
+        code: str = snippet.text.lstrip("{{").rstrip("}}").strip()
 
         try:
             compile(code, "<string>", "exec")
         except SyntaxError as e:
             msg = f"{ErrorType.SNIPPET_ERROR.default_msg} -> {e}"
-            self.handle_error(tk=snippet, hdr=ErrorType.SNIPPET_ERROR, msg=msg)
+            self.handle_error(type=ErrorType.SNIPPET_ERROR, msg=msg, tk=snippet)
 
         tree = ast.parse(code)
         names = {
@@ -285,12 +285,16 @@ class OmniReplicatorHandler(Handler):
             if isinstance(node, ast.Name) and not isinstance(node.ctx, ast.Load)
         }
         for name in names:
-            self.symbol_stack.define(name, Any, used=True)
+            self.symbol_stack.define(name, object, used=True)
 
         return code
 
     def get_params(
-        self, token: Token, attrs: list[Attribute], warnings=False, **kwargs
+        self,
+        token: Token,
+        attrs: list[Attribute] | None,
+        warnings: bool = False,
+        **kwargs: Any,
     ) -> list[Parameter]:
         if attrs is None:
             return []
@@ -302,7 +306,8 @@ class OmniReplicatorHandler(Handler):
             if attr.name in accepted_params
         ]
         for name, value in kwargs.items():
-            params.append(Parameter(self.__rewrite_param(token, name), value))
+            if value is not None:
+                params.append(Parameter(self.__rewrite_param(token, name), value))
 
         if self.show_warnings and warnings:
             unknown_params = [
@@ -310,7 +315,7 @@ class OmniReplicatorHandler(Handler):
             ]
             for param in unknown_params:
                 self.handle_warning(
-                    type=WarningType.UNKNOWN_PARAM,
+                    type=WarningType.UNKNOWN_PARAMETER,
                     tk=token,
                     param=param,
                     command=self.__get_command(token),
@@ -319,7 +324,7 @@ class OmniReplicatorHandler(Handler):
 
         return params
 
-    def get_attrs(self, token: Token, attrs: list[Attribute]) -> list[str]:
+    def get_attrs(self, token: Token, attrs: list[Attribute] | None) -> list[str]:
         if attrs is None:
             return []
 
@@ -331,13 +336,14 @@ class OmniReplicatorHandler(Handler):
                 common_attrs = incompatible_set.intersection(attrs_set)
                 if len(common_attrs) > 1:
                     last_set = max(common_attrs, key=lambda attr: attrs_set.index(attr))
-                    others = common_attrs.remove(last_set)
+                    others = common_attrs
+                    others.remove(last_set)
 
                     self.handle_warning(
                         type=WarningType.OVERWRITTEN_ATTRIBUTE,
                         tk=token,
                         last=last_set,
-                        others=others,
+                        others=common_attrs,
                     )
 
         return [attr.st for attr in attrs if attr.name not in accepted_params]
@@ -359,7 +365,7 @@ class OmniReplicatorHandler(Handler):
             case _:
                 return param
 
-    def __get_command(self, token: Token):
+    def __get_command(self, token: Token) -> str:
         from yarc.compiler.YarcLexer import CAMERA, FROM, LIGHT, MATERIAL, SHAPE, STEREO
 
         type = token.type
@@ -369,25 +375,23 @@ class OmniReplicatorHandler(Handler):
         elif type in [SHAPE, LIGHT, CAMERA, FROM, MATERIAL]:
             return f"create {token.text}"
 
-        return token.text
+        return str(token.text)
 
-    def get_behaviors(self, attrs: list[Attribute]) -> list[str]:
+    def get_behaviors(self, attrs: list[Attribute] | None) -> list[str]:
         if attrs is None:
             return []
         return [attr.st for attr in attrs if attr.name == Handler.BEHAVIOR]
 
-    def map(self, *tokens: list[Union[Token, str]]) -> str:
-        tokens = [
-            token.text if isinstance(token, Token) else str(token.st)
-            for token in tokens
-            if token is not None
-        ]
+    def map(self, *tokens: Token) -> str:
+        tokens_text = [str(token.text) for token in tokens if token is not None]
 
-        return "_".join([self.mapping.get(t, t.lower()) for t in tokens])
+        return "_".join([self.mapping.get(t, t.lower()) for t in tokens_text])
 
     def check_writer(self, writer: Token, params: list[Parameter]) -> None:
         if writer.text not in SUPPORTED_WRITERS:
-            self.handle_error(tk=writer, hdr=ErrorType.WRITER_ERROR, writer=writer.text)
+            self.handle_error(
+                type=ErrorType.WRITER_ERROR, writer=writer.text, tk=writer
+            )
 
         names = [param.name for param in params]
         output_dir_param = "output_dir"

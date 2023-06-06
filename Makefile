@@ -62,7 +62,7 @@ lint: test check-codestyle mypy check-safety
 update-dev-deps:
 	poetry add -G dev bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pyupgrade@latest safety@latest 
 	poetry add -G test pytest@latest coverage@latest coverage-badge@latest pytest-html@latest pytest-cov@latest
-	poetry add -G dev --allow-prereleases black@latest
+	poetry add --allow-prereleases black@latest
 
 #* Cleaning
 .PHONY: pycache-remove
