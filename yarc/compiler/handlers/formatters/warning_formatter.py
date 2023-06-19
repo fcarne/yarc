@@ -7,8 +7,8 @@ from enum import Enum
 class WarningType(Enum):
     UNUSED_VARIABLE = "UnusedVariable"
     UNKNOWN_PARAMETER = "UnknownParamter"
-    UNSUPPORTED_GET_TARGET = "UnsopportedTarget"
-    DUPLICATED_SETTING = "DuplicateSetting"
+    UNSUPPORTED_GET_TARGET = "UnsupportedTarget"
+    DUPLICATED_SETTING = "DuplicatedSetting"
     OVERWRITTEN_ATTRIBUTE = "OverwrittenAttributes"
     MISSING_WRITER_PARAMETER = "MissingWriterParameter"
 

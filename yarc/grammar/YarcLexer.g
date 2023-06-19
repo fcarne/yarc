@@ -24,12 +24,12 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPE            : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
-CAMERA           : 'Camera';
-LIGHT            : 'Light';
-STEREO           : 'Stereo';
-MATERIAL         : 'Material';
-TIMELINE         : 'Timeline';
+SHAPE    : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
+CAMERA   : 'Camera';
+LIGHT    : 'Light';
+STEREO   : 'Stereo';
+MATERIAL : 'Material';
+TIMELINE : 'Timeline';
 
 /* Scene construction */
 OPEN        : 'open';
@@ -47,18 +47,18 @@ LIMIT     : 'limit';
 RECURSIVE : 'recursive';
 
 /* Modifiers */
-TRANSLATE     : 'translate';
-ROTATE        : 'rotate';
-SCALE         : 'scale';
-SEMANTICS     : 'semantics';
-VISIBLE       : 'visible';
-SIZE          : 'size';
-LOOK_AT       : 'look_at';
-UP_AXIS       : 'up_axis'; // look at ... up
-PIVOT         : 'pivot';
-MATERIAL_     : 'material';
-AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
-ORDER         : AXIS AXIS AXIS;
+TRANSLATE : 'translate';
+ROTATE    : 'rotate';
+SCALE     : 'scale';
+SEMANTICS : 'semantics';
+VISIBLE   : 'visible';
+SIZE      : 'size';
+LOOK_AT   : 'look_at';
+UP_AXIS   : 'up_axis'; // look at ... up
+PIVOT     : 'pivot';
+MATERIAL_ : 'material';
+AXIS      : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
+ORDER     : AXIS AXIS AXIS;
 
 /* Compound rules */
 SCATTER     : 'scatter_' ('2d' | '3d');
@@ -66,14 +66,14 @@ ROT_AROUND  : 'rotate_around';
 MOVE_TO_CAM : 'move_to_camera';
 PHYSICS     : 'collider' | 'kinematics' | 'rigid_body' | 'physics_material';
 
-/* Dynamic behavior */ 
+/* Dynamic behavior */
 EVERY  : 'every';
 FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
 /* Distributions */
-DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' ;
-COMBINE : 'Combine' ;
+DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform';
+COMBINE      : 'Combine';
 // Native code snippets
 SNIPPET : NESTED_CODE ;
 
@@ -127,7 +127,7 @@ LSHIFT  : '<<';
 RSHIFT  : '>>';
 PLUS    : '+';
 MINUS   : '-';
-MUL    : '*';
+MUL     : '*';
 DIV     : '/';
 MOD     : '%';
 IDIV    : '//';
@@ -162,8 +162,9 @@ STRING:
 ;
 
 
-INTEGER : 
-  NON_ZERO_DIGIT DIGIT* | '0'+ // Decimal integer 
+INTEGER:
+  NON_ZERO_DIGIT DIGIT*
+  | '0'+                       // Decimal integer 
   | '0' ('o' | 'O') OCT_DIGIT+ // Octal integer 
   | '0' ('x' | 'X') HEX_DIGIT+ // Hexadecimal integer 
   | '0' ('b' | 'B') BIN_DIGIT+ // Binary integer
@@ -172,11 +173,7 @@ INTEGER :
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
 // Newline
-NEWLINE:
-  (
-  ( '\r'? '\n' | '\r' | '\f') SPACES?
-  ) {self.onNewLine();}
-;
+NEWLINE : ( ( '\r'? '\n' | '\r' | '\f') SPACES?) {self.onNewLine();};
 
 /* Misc */
 SKIP_   : ( SPACES | COMMENT | LINE_JOINING) {self.skip();};
@@ -187,7 +184,10 @@ fragment SHORT_STRING:
   '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
   | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
 ;
-fragment STRING_ESCAPE_SEQ : '\\' ~('\t' | ' ' | '\r' | '\n' | '\f') | '\\' NEWLINE;
+fragment STRING_ESCAPE_SEQ:
+  '\\' ~('\t' | ' ' | '\r' | '\n' | '\f')
+  | '\\' NEWLINE
+;
 
 fragment NON_ZERO_DIGIT : '1' .. '9';
 fragment DIGIT          : '0' .. '9';
