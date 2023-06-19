@@ -6,8 +6,8 @@ options {
 }
 
 tokens {
-  INDENT,
-  DEDENT
+  INDENT;
+  DEDENT;
 }
 
 /* Sections */
@@ -17,12 +17,12 @@ STAGE    : 'stage';
 WRITERS  : 'writers';
 
 /* Primitives */
-SHAPE            : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
-CAMERA           : 'Camera';
-LIGHT            : 'Light';
-STEREO           : 'Stereo';
-MATERIAL         : 'Material';
-TIMELINE         : 'Timeline';
+SHAPE    : 'Plane' | 'Cube' | 'Cone' | 'Torus' | 'Sphere' | 'Cylinder' | 'Disk';
+CAMERA   : 'Camera';
+LIGHT    : 'Light';
+STEREO   : 'Stereo';
+MATERIAL : 'Material';
+TIMELINE : 'Timeline';
 
 /* Scene construction */
 OPEN        : 'open';
@@ -33,25 +33,24 @@ GET         : 'get';
 EDIT        : 'edit';
 
 /* Resource retriever */
-/* Resource retriever */
 FETCH     : 'fetch';
 MATCH     : 'match';
 LIMIT     : 'limit';
 RECURSIVE : 'recursive';
 
 /* Modifiers */
-TRANSLATE     : 'translate';
-ROTATE        : 'rotate';
-SCALE         : 'scale';
-SEMANTICS     : 'semantics';
-VISIBLE       : 'visible';
-SIZE          : 'size';
-LOOK_AT       : 'look_at';
-UP_AXIS       : 'up_axis'; // look at ... up
-PIVOT         : 'pivot';
-MATERIAL_     : 'material';
-AXIS          : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
-ORDER         : AXIS AXIS AXIS;
+TRANSLATE : 'translate';
+ROTATE    : 'rotate';
+SCALE     : 'scale';
+SEMANTICS : 'semantics';
+VISIBLE   : 'visible';
+SIZE      : 'size';
+LOOK_AT   : 'look_at';
+UP_AXIS   : 'up_axis'; // look at ... up
+PIVOT     : 'pivot';
+MATERIAL_ : 'material';
+AXIS      : 'x' | 'y' | 'z' | 'X' | 'Y' | 'Z';
+ORDER     : AXIS AXIS AXIS;
 
 /* Compound rules */
 SCATTER     : 'scatter_' ('2d' | '3d');
@@ -65,14 +64,14 @@ FRAMES : 'frame' 's'?;
 TIME   : 'sec' ('ond' 's'?)?;
 
 /* Distributions */
-DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform' ;
-COMBINE : 'Combine' ;
+DISTRIBUTION : 'Uniform' | 'Normal' | 'Choice' | 'Sequence' | 'LogUniform';
+COMBINE      : 'Combine';
 // Native code snippets
-SNIPPET : NESTED_CODE ;
+SNIPPET : NESTED_CODE;
 
 fragment NESTED_CODE:
-  LBRACE LBRACE
-    ( NESTED_CODE | . )*?
+  LBRACE LBRACE 
+    ( options {k=2; greedy=false;}: NESTED_CODE	| .	)* 
   RBRACE RBRACE
 ;
 
@@ -120,7 +119,7 @@ LSHIFT  : '<<';
 RSHIFT  : '>>';
 PLUS    : '+';
 MINUS   : '-';
-MUL    : '*';
+MUL     : '*';
 DIV     : '/';
 MOD     : '%';
 IDIV    : '//';
@@ -140,23 +139,36 @@ GT_EQ  : '>=';
 LT_EQ  : '<=';
 NOT_EQ : '!=';
 
-AUG_ASSIGN: '+=' | '-=' | '*='| '/=' | '%=' | '&=' | '|=' | '^=' | '<<=' | '>>=' | '**=' | '//=';
+AUG_ASSIGN:
+  '+='
+  | '-='
+  | '*='
+  | '/='
+  | '%='
+  | '&='
+  | '|='
+  | '^='
+  | '<<='
+  | '>>='
+  | '**='
+  | '//='
+;
 
 /* Identifiers */
 ID         : ID_START ID_CONTINUE*;
 SETTING_ID : '$' ID;
 
 /* Basic types */
-STRING:
-  ( ('u' | 'U')
-  | ( ('f' | 'F')? ('r' | 'R'))
+STRING: (
+  ('u' | 'U') 
+  | ( ('f' | 'F')? ('r' | 'R')) 
   | ( ('r' | 'R')? ('f' | 'F'))
   )? SHORT_STRING
 ;
 
-
-INTEGER :
-  NON_ZERO_DIGIT DIGIT* | '0'+ // Decimal integer
+INTEGER:
+  NON_ZERO_DIGIT DIGIT*
+  | '0'+                       // Decimal integer
   | '0' ('o' | 'O') OCT_DIGIT+ // Octal integer
   | '0' ('x' | 'X') HEX_DIGIT+ // Hexadecimal integer
   | '0' ('b' | 'B') BIN_DIGIT+ // Binary integer
@@ -165,11 +177,7 @@ INTEGER :
 FLOAT_NUMBER : POINT_FLOAT | EXPONENT_FLOAT;
 
 // Newline
-NEWLINE:
-  (
-  ( '\r'? '\n' | '\r' | '\f') SPACES?
-  )
-;
+NEWLINE : ( ( '\r'? '\n' | '\r' | '\f') SPACES?);
 
 /* Misc */
 SKIP_   : ( SPACES | COMMENT | LINE_JOINING) -> skip;
@@ -180,7 +188,10 @@ fragment SHORT_STRING:
   '\'' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '\''))* '\''
   | '"' (STRING_ESCAPE_SEQ | ~('\\' | '\r' | '\n' | '\f' | '"'))* '"'
 ;
-fragment STRING_ESCAPE_SEQ : '\\' ~('\t' | ' ' | '\r' | '\n' | '\f') | '\\' NEWLINE;
+fragment STRING_ESCAPE_SEQ:
+  '\\' ~('\t' | ' ' | '\r' | '\n' | '\f')
+  | '\\' NEWLINE
+;
 
 fragment NON_ZERO_DIGIT : '1' .. '9';
 fragment DIGIT          : '0' .. '9';
