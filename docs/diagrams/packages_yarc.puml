@@ -1,0 +1,82 @@
+@startuml packages_yarc
+/'set namespaceSeparator none'/
+package "yarc" as yarc #aliceblue {
+}
+package "yarc.__main__" as yarc.__main__ #aliceblue {
+}
+package "yarc.compiler" as yarc.compiler #antiquewhite {
+}
+package "yarc.compiler.YarcCompiler" as yarc.compiler.YarcCompiler #antiquewhite {
+}
+package "yarc.compiler.YarcLexer" as yarc.compiler.YarcLexer #antiquewhite {
+}
+package "yarc.compiler.YarcLexerBase" as yarc.compiler.YarcLexerBase #antiquewhite {
+}
+package "yarc.compiler.YarcParser" as yarc.compiler.YarcParser #antiquewhite {
+}
+package "yarc.compiler.YarcParserBase" as yarc.compiler.YarcParserBase #antiquewhite {
+}
+package "yarc.compiler.handlers" as yarc.compiler.handlers #antiquewhite {
+}
+package "yarc.compiler.handlers.exceptions" as yarc.compiler.handlers.exceptions #antiquewhite {
+}
+package "yarc.compiler.handlers.formatters" as yarc.compiler.handlers.formatters #antiquewhite {
+}
+package "yarc.compiler.handlers.formatters.error_formatter" as yarc.compiler.handlers.formatters.error_formatter #antiquewhite {
+}
+package "yarc.compiler.handlers.formatters.warning_formatter" as yarc.compiler.handlers.formatters.warning_formatter #antiquewhite {
+}
+package "yarc.compiler.handlers.handler" as yarc.compiler.handlers.handler #antiquewhite {
+}
+package "yarc.compiler.handlers.handler_factory" as yarc.compiler.handlers.handler_factory #antiquewhite {
+}
+package "yarc.compiler.handlers.replicator_handler" as yarc.compiler.handlers.replicator_handler #antiquewhite {
+}
+package "yarc.compiler.handlers.utils" as yarc.compiler.handlers.utils #antiquewhite {
+}
+package "yarc.compiler.handlers.utils.simbol_stack" as yarc.compiler.handlers.utils.simbol_stack #antiquewhite {
+}
+package "yarc.compiler.token_mapping" as yarc.compiler.token_mapping #antiquewhite {
+}
+package "yarc.grammar" as yarc.grammar #aquamarine {
+}
+package "yarc.grammar.language_mappings" as yarc.grammar.language_mappings #aquamarine {
+}
+package "yarc.main" as yarc.main #aliceblue {
+}
+package "yarc.templates" as yarc.templates #burlywood {
+}
+yarc.__main__ --> yarc.main
+yarc.compiler.YarcCompiler --> yarc.compiler.YarcLexer
+yarc.compiler.YarcCompiler --> yarc.compiler.YarcParser
+yarc.compiler.YarcLexer --> yarc.compiler.YarcLexerBase
+yarc.compiler.YarcLexerBase --> yarc.compiler
+yarc.compiler.YarcLexerBase --> yarc.compiler.YarcParser
+yarc.compiler.YarcParser --> yarc.compiler.YarcParserBase
+yarc.compiler.YarcParser --> yarc.compiler.handlers.handler
+yarc.compiler.YarcParserBase --> yarc.compiler.YarcLexer
+yarc.compiler.YarcParserBase --> yarc.compiler.handlers.formatters.error_formatter
+yarc.compiler.YarcParserBase --> yarc.compiler.handlers.handler
+yarc.compiler.YarcParserBase --> yarc.compiler.handlers.handler_factory
+yarc.compiler.YarcParserBase --> yarc.compiler.token_mapping
+yarc.compiler.handlers.exceptions --> yarc.compiler.handlers.formatters.error_formatter
+yarc.compiler.handlers.handler --> yarc.compiler.handlers.formatters.error_formatter
+yarc.compiler.handlers.handler --> yarc.compiler.handlers.formatters.warning_formatter
+yarc.compiler.handlers.handler --> yarc.compiler.handlers.utils.simbol_stack
+yarc.compiler.handlers.handler_factory --> yarc.compiler.handlers.exceptions
+yarc.compiler.handlers.handler_factory --> yarc.compiler.handlers.formatters.error_formatter
+yarc.compiler.handlers.handler_factory --> yarc.compiler.handlers.handler
+yarc.compiler.handlers.handler_factory --> yarc.compiler.handlers.replicator_handler
+yarc.compiler.handlers.handler_factory --> yarc.templates
+yarc.compiler.handlers.replicator_handler --> yarc.compiler.YarcLexer
+yarc.compiler.handlers.replicator_handler --> yarc.compiler.handlers.formatters.error_formatter
+yarc.compiler.handlers.replicator_handler --> yarc.compiler.handlers.formatters.warning_formatter
+yarc.compiler.handlers.replicator_handler --> yarc.compiler.handlers.handler
+yarc.compiler.token_mapping --> yarc.compiler
+yarc.compiler.token_mapping --> yarc.compiler.YarcLexer
+yarc.main --> yarc
+yarc.main --> yarc.compiler.YarcCompiler
+yarc.main --> yarc.compiler.handlers.exceptions
+yarc.main --> yarc.grammar
+yarc.main --> yarc.grammar.language_mappings
+@enduml

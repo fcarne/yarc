@@ -1,0 +1,171 @@
+@startuml yarc_classes
+skinparam linetype polyline
+skinparam linetype ortho
+/' set namespaceSeparator none '/
+class "Handler" as yarc.compiler.handlers.handler.Handler #antiquewhite {
+  BEHAVIOR : str
+  default_settings : dict
+  error_dict : dict[str, str]
+  error_formatter
+  forward_references : list[tuple[str, Token]]
+  overwritten_settings : set
+  parser : Parser
+  settings : dict[str, str]
+  should_lookup : bool
+  show_warnings : bool
+  symbol_stack
+  warning_dict : dict[str, str]
+  warning_formatter
+  add_setting(setting: Token, value: Any) -> None
+  {abstract}check_target(tk: Token) -> None
+  {abstract}check_writer(writer: Token, params: list[Parameter]) -> None
+  define(vars: list[str]) -> None
+  disable_lookup() -> None
+  enable_lookup() -> None
+  expand_string(s: Token | str) -> str
+  {abstract}get_attrs(token: Token, attrs: list[Attribute] | None) -> list[str]
+  {abstract}get_behaviors(attrs: list[Attribute] | None) -> list[str]
+  {abstract}get_params(token: Token, attrs: list[Attribute] | None, warnings: bool) -> list[Parameter]
+  get_random_uid() -> str
+  handle_error(type: ErrorType, msg: Optional[str], tk: Optional[Token]) -> None
+  handle_warning(type: WarningType, tk: Optional[Token]) -> None
+  is_frame(type: Token) -> bool
+  is_overwritten(setting: Token) -> bool
+  is_special_setting(setting: Token) -> bool
+  lookup(var: str, tk: Optional[Token]) -> None
+  {abstract}map() -> str
+  parse_setting_id(setting_id: Token) -> str
+  {abstract}parse_snippet(snippet: Token) -> str
+  pop_stack() -> None
+  push_stack() -> None
+  settings_to_str(indent: int) -> str
+  special_setting_to_str(setting: Token | str, value: Any) -> Optional[str]
+}
+class "HandlerFactory" as yarc.compiler.handlers.handler_factory.HandlerFactory #antiquewhite {
+  supported_libraries : dict[str, tuple[type[Handler], Path]]
+  get_handler(parser: Parser, lib: str, handler_kwargs: Optional[dict[str, Any]]) -> Handler
+  is_library_supported(lib)
+}
+class "Attribute" as yarc.compiler.handlers.handler.Attribute #antiquewhite {
+  name : str
+  st : str
+  value
+}
+class "Parameter" as yarc.compiler.handlers.handler.Parameter #antiquewhite {
+  name : str
+  value
+}
+class "OmniReplicatorHandler" as yarc.compiler.handlers.replicator_handler.OmniReplicatorHandler #antiquewhite {
+  carb_mapping : dict
+  mapping
+  check_target(tk: Token) -> None
+  check_writer(writer: Token, params: list[Parameter]) -> None
+  get_attrs(token: Token, attrs: list[Attribute] | None) -> list[str]
+  get_behaviors(attrs: list[Attribute] | None) -> list[str]
+  get_params(token: Token, attrs: list[Attribute] | None, warnings: bool) -> list[Parameter]
+  map() -> str
+  parse_snippet(snippet: Token) -> str
+  special_setting_to_str(setting: Token | str, value: Any) -> Optional[str]
+}
+class "SymbolStack" as yarc.compiler.handlers.utils.symbol_stack.SymbolStack #antiquewhite {
+  define(name: str, var_type: type, used: bool) -> None
+  lookup(name: str) -> Optional[Variable]
+  pop() -> SymbolTable
+  push() -> None
+  top() -> SymbolTable
+}
+class "SymbolTable" as yarc.compiler.handlers.utils.symbol_stack.SymbolTable #antiquewhite {
+  parent : Optional['SymbolTable']
+  symbols
+  define(name: str, var_type: type, used: bool) -> None
+  lookup(name: str) -> Optional[Variable]
+}
+class "Variable" as yarc.compiler.handlers.utils.symbol_stack.Variable #antiquewhite {
+  name : str
+  type_ : type
+  used : bool
+}
+class "WarningFormatter" as yarc.compiler.handlers.formatters.warning_formatter.WarningFormatter #antiquewhite {
+  closest_suggestion(name: str, accepted: set[str]) -> Optional[str]
+  get_warning_message(type: WarningType) -> str
+}
+class "WarningType" as yarc.compiler.handlers.formatters.warning_formatter.WarningType #antiquewhite {
+  name
+}
+class "ErrorFormatter" as yarc.compiler.handlers.formatters.error_formatter.ErrorFormatter #antiquewhite {
+  input : ANTLRStringStream
+  strdata : list[str]
+  format(tk: Token, msg: str, show_anchors: bool) -> str
+}
+class "ErrorType" as yarc.compiler.handlers.formatters.error_formatter.ErrorType #antiquewhite {
+  default_msg
+  name
+  type
+}
+class "<color:red>YARCException</color>" as yarc.compiler.handlers.exceptions.YARCException #antiquewhite {
+  error_type
+  message : NoneType
+}
+
+class "YarcLexerBase" as yarc.compiler.YarcLexerBase #antiquewhite {
+  NEW_LINE_PATTERN
+  SPACES_PATTERN
+  indents : list[int], list
+  opened : int
+  tokens : list, list[Token]
+  atStartOfInput()
+  closeBrace()
+  commonToken(type_: int, text: str) -> CommonToken
+  createDedent()
+  emit(token: Optional[Token]) -> Token
+  emitToken(token: Token) -> None
+  getIndentationCount(whitespace: str) -> int
+  nextToken()
+  onNewLine()
+  openBrace()
+  reset()
+}
+class "YarcLexer" as yarc.compiler.YarcLexer #antiquewhite {  
+}
+class "YarcParserBase" as yarc.compiler.YarcParserBase #antiquewhite {
+  handler
+  displayRecognitionError(e)
+  set_handler(lib: str, handler_kwargs: dict[str, Any]) -> None
+}
+class "YarcParser" as yarc.compiler.YarcParser #antiquewhite {
+}
+class "YarcCompiler" as yarc.compiler.YarcCompiler #antiquewhite {
+  errors
+  handler_args : dict
+  lib : Optional[str]
+  parser
+  warnings
+  compile() -> str
+}
+
+yarc.compiler.YarcLexerBase <|-- yarc.compiler.YarcLexer
+yarc.compiler.YarcParserBase <|-- yarc.compiler.YarcParser
+yarc.compiler.YarcLexer --* yarc.compiler.YarcParser: input
+yarc.compiler.YarcParser --* yarc.compiler.YarcCompiler : parser
+
+yarc.compiler.handlers.utils.symbol_stack.SymbolTable <-- yarc.compiler.handlers.utils.symbol_stack.SymbolStack
+yarc.compiler.handlers.utils.symbol_stack.Variable <-- yarc.compiler.handlers.utils.symbol_stack.SymbolTable
+yarc.compiler.handlers.exceptions.YARCException o-- yarc.compiler.handlers.formatters.error_formatter.ErrorType : error_type
+
+yarc.compiler.handlers.formatters.warning_formatter.WarningType <-- yarc.compiler.handlers.formatters.warning_formatter.WarningFormatter 
+yarc.compiler.handlers.formatters.error_formatter.ErrorType <-- yarc.compiler.handlers.formatters.error_formatter.ErrorFormatter
+
+yarc.compiler.handlers.handler.Handler --> yarc.compiler.handlers.handler.Attribute
+yarc.compiler.handlers.handler.Handler --> yarc.compiler.handlers.handler.Parameter
+
+yarc.compiler.handlers.formatters.error_formatter.ErrorFormatter --* yarc.compiler.handlers.handler.Handler : error_formatter
+yarc.compiler.handlers.formatters.warning_formatter.WarningFormatter --* yarc.compiler.handlers.handler.Handler : warning_formatter
+yarc.compiler.handlers.utils.symbol_stack.SymbolStack --* yarc.compiler.handlers.handler.Handler : symbol_stack
+
+yarc.compiler.handlers.handler.Handler <-r- yarc.compiler.handlers.handler_factory.HandlerFactory
+
+yarc.compiler.handlers.handler.Handler <|-- yarc.compiler.handlers.replicator_handler.OmniReplicatorHandler
+
+yarc.compiler.handlers.handler.Handler --* yarc.compiler.YarcParserBase : __handler
+
+@enduml

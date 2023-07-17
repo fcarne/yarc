@@ -13,7 +13,7 @@ from yarc.compiler.handlers.formatters.warning_formatter import (
     WarningFormatter,
     WarningType,
 )
-from yarc.compiler.handlers.utils.simbol_stack import SymbolStack
+from yarc.compiler.handlers.utils.symbol_stack import SymbolStack
 
 
 class Attribute(NamedTuple):
