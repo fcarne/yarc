@@ -81,8 +81,11 @@ edit_timeline(params, values) ::=
 
 edit_stmt(id, stmts, behaviors) ::=
 <<
+<if(stmts)>
 with <id>:
   <stmts; separator="\n">
+<endif>
+
 <behaviors; separator="\n">
 
 >>

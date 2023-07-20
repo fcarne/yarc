@@ -181,6 +181,7 @@ def compile(
         if len(errors) > 0:
             raise typer.Exit(-1)
 
+        # print(output)
         formatted = format_str(output, mode=FileMode())
         console.print(
             f"[bold green]:rocket: Mission accomplished! Your scenario has been successfully compiled, ready for launch! :rocket:"

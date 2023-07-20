@@ -17,7 +17,7 @@ stage:
       velocity <0,50,0>
     
     every 10 seconds:
-      translate Uniform(-10,10)
+      translate to Uniform(-10,10)
 writers:
   DOPEWriter:
     output_dir = "*/dope"
@@ -26,5 +26,5 @@ writers:
   KittiWriter:
     output_dir = "*/kitti"
     bounding_box_2d = true
-    rgb = true,
+    rgb = true
     depth = true
