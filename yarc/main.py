@@ -26,7 +26,7 @@ EMOJI["heart_hands_medium"] = "🫶🏽 "
 
 app = Typer(
     name="yarc",
-    add_completion=False,
+    add_completion=True,
     no_args_is_help=True,
     context_settings={"help_option_names": ["-h", "--help"]},
     rich_markup_mode="rich",
